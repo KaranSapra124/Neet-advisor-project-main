@@ -1,0 +1,26 @@
+/* Carousel container */
+.carousel-container {
+    /* position: relative; */
+    width: 40rem; /* Set a fixed width for the carousel */
+    overflow: hidden; /* Hide any overflowed content */
+}
+
+/* Carousel slides container */
+.carousel-slides {
+    display: flex;
+    /* justify-content: center; */
+    margin: auto;
+    /* position: relative; */
+    width: 100%;
+}
+
+/* Individual carousel slide */
+/* .carousel-slide { */
+    /* position: absolute; */
+    /* top: 0;
+    left: 0;
+    width: 40rem; Ensure the slide takes full width of the container */
+    /* transition: transform 1s ease-out; */
+/* } */
+
+/* Add any custom styles for the slide content, if needed */

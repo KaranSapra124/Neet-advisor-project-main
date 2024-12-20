@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primary {
+    color: #201169;
+}
+
+* {
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.animateHero {
+    animation: scroll 300s linear infinite;
+    display: flex;
+}
+
+.image-container-fade {
+    animation: fadeInLeft 1s linear normal;
+    animation-delay: 2.5s;
+}
+
+.image-container-rubberband {
+    animation: rubberBand 1s linear normal;
+    animation-delay: 2.5s;
+}
+
+.animateHeroImage {
+    animation: lightSpeedInRight 1.5s normal ease-in;
+}
+
+.animateHeroContent {
+    animation: lightSpeedInLeft 1.5s normal ease-in;
+}
+
+.animateBgHeroImage {
+    animation: fadeInUp 5s normal ease-in;
+}
+
+.blurEffect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12rem;
+    /* Adjust height as needed */
+    background: linear-gradient(1turn, transparent, #fff 86%);
+    z-index: 5;
+}
+
+.bottomBlurEffect {
+    /* position: absolute; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10rem;
+    /* width: 200%; */
+    /* Adjust height as needed */
+    background: linear-gradient(1turn, #fff, transparent 100%);
+    /* width: 100%; */
+    /* backdrop-filter: blur(100px); */
+    /* Increased blur for stronger effect */
+    pointer-events: none;
+    /* Prevent interaction with this layer */
+
+    /* box-shadow: 0px -10px 20px rgba(210, 209, 209, 0.5); Added shadow for a more shadowy effect */
+    /* z-index: 20; Ensure the effect stays above the content */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+
+}
+
+.animateHero>div {
+    flex: 0 0 auto;
+    /* Prevent flex items from shrinking */
+}
+
+/* Homepage section 2 */
+.ant-popover-inner {
+    background-color: rgb(251 191 36) !important;
+}
+
+.ant-popover-arrow {
+    color: rgb(251 191 36) !important;
+}
+
+.ant-popover-arrow::after {
+    background: rgb(251 191 36) !important;
+}
+
+.ant-popover-content {
+    margin: 0 0.5rem;
+    /* background: gray; */
+}
+
+.ant-popover-content-inner {
+    background: gray;
+}
+
+/* New Section */
+.noselect {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    background: #e62222;
+}
+
+.noselect,
+.noselect span {
+    transition: 200ms;
+}
+
+.noselect .text {
+    transform: translateX(20px);
+    color: white;
+    font-weight: bold;
+
+}
+
+.noselect .icon {
+    position: absolute;
+    border-left: 1px solid white;
+    /* right: 0px; */
+    margin-left: 0.4rem;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noselect svg {
+    width: 1.2rem;
+    color: white;
+
+    font-weight: 900;
+}
+
+
+
+.noselect:hover .text {
+    color: transparent;
+
+}
+
+.noselect:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+}
+
+.noselect:focus {
+    outline: none;
+}
+
+.noselect:active .icon svg {
+    transform: scale(0.8);
+}
+
+.newsBox {
+    width: 140px;
+    height: auto;
+    float: left;
+    transition: .5s linear;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    margin: 0 5px;
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.newsBox:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(100%);
+}
+
+.newsBox:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+}
+
+.newsBox:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.newsBox:hover:before {
+    --tw-text-opacity: 1;
+
+    border-color: rgb(250 204 21 / var(--tw-text-opacity, 1));
+    ;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .3s;
+}
+
+.newsBox:hover:after {
+    --tw-text-opacity: 1;
+
+    border-color: rgb(250 204 21 / var(--tw-text-opacity, 1));
+    ;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .5s;
+}
+
+.slick-arrow {
+    color: black !important;
+    font-weight: bolder !important;
+
+
+}
+
