@@ -605,6 +605,15 @@
 }
 
 /* Features Webinar */
-/* .ant-steps .ant-steps-item-process .ant-steps-item-icon>.ant-steps-icon .ant-steps-icon-dot {
-    background-color: #e62222;
-} */
+.custom-stepper  .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+    background-color: #201169;
+}
+
+.custom-stepper .ant-steps-item-process .ant-steps-item-icon >.ant-steps-icon .ant-steps-icon-dot{
+    background-color: #201169;
+}
+
+.custom-stepper .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after{
+    background-color: #201169;
+}
+
