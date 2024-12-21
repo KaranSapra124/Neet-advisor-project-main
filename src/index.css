@@ -542,3 +542,69 @@
     /* Facebook color */
 }
 
+/* Aspirants Section */
+/* @import url("https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap"); */
+
+
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    transform: skewY(-3deg);
+}
+
+.marquee__group {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    animation: scroll 60s linear infinite;
+    /* Adjust duration as needed */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee__group {
+        animation-play-state: paused;
+    }
+}
+
+.marquee__group img {
+    max-width: clamp(10rem, 1rem + 28vmin, 20rem);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 1rem;
+    /* Tailwind's rounded-lg */
+}
+
+
+
+.marquee--borders {
+    border-block: 3px solid dodgerblue;
+    padding-block: 0.75rem;
+    /* Tailwind's py-3 */
+}
+
+.marquee--reverse .marquee__group {
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    animation-delay: calc(60s / -2);
+    /* Adjust duration as needed */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-100% - 2rem));
+        /* Adjust gap as needed */
+    }
+}
+
+/* Features Webinar */
+/* .ant-steps .ant-steps-item-process .ant-steps-item-icon>.ant-steps-icon .ant-steps-icon-dot {
+    background-color: #e62222;
+} */

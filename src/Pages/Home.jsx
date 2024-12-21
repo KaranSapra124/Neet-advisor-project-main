@@ -10,21 +10,25 @@ import Footer from '../Components/Home/Footer'
 import Navbar from '../Components/Home/Navbar'
 import UpperNavbar from '../Components/Helper/UpperNavbar'
 import Gallery from '../Components/Home/Gallery'
+import Root from '../Components/Helper/Root'
 
 const Home = () => {
     return (
         <>
             {/* <UpperNavbar /> */}
-            <Navbar />
-            <Hero />
-            <CounsellingSection />
-            <WhyUsSection />
-            <NewsSection />
-            <Stats />
-            <Testimonials />
-            <Gallery/>
-            <ContactBanner />
-            <Footer />
+            {/* <Navbar /> */}
+            <Root>
+
+                <Hero />
+                <CounsellingSection />
+                <WhyUsSection />
+                <NewsSection />
+                <Stats />
+                <Testimonials />
+                <Gallery />
+                <ContactBanner />
+            </Root>
+            {/* <Footer /> */}
         </>
     )
 }
