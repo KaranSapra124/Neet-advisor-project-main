@@ -23,22 +23,24 @@
 } */
 
 .animateHero {
-    animation: scroll 300s linear infinite;
+    animation: scroll 40s linear infinite;
     display: flex;
 }
 
-.image-container-fade {
+/* .image-container-fade {
     animation: fadeInLeft 1s linear normal;
     animation-delay: 2.5s;
+} */
+
+.hero-image-container {
+    animation: scaleUp 2s linear infinite !important;
 }
+
+
 
 .image-container-rubberband {
     animation: rubberBand 1s linear normal;
     animation-delay: 2.5s;
-}
-
-.animateHeroImage {
-    animation: lightSpeedInRight 1.5s normal ease-in;
 }
 
 .animateHeroContent {
@@ -79,13 +81,27 @@
     /* z-index: 20; Ensure the effect stays above the content */
 }
 
-@keyframes scroll {
+@keyframes scaleUp {
     0% {
-        transform: translateY(0);
+        transform: scale(100%);
+    }
+
+    50% {
+        transform: scale(150%);
     }
 
     100% {
-        transform: translateY(-100%);
+        transform: scale(100%);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
     }
 
 }
@@ -542,78 +558,22 @@
     /* Facebook color */
 }
 
-/* Aspirants Section */
-/* @import url("https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap"); */
-
-
-
-.marquee {
-    display: flex;
-    overflow: hidden;
-    user-select: none;
-    transform: skewY(-3deg);
+/* Aspirants */
+.slick-slide > div{
+   margin: 1% 5%;
+    
 }
 
-.marquee__group {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    min-width: 100%;
-    animation: scroll 60s linear infinite;
-    /* Adjust duration as needed */
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .marquee__group {
-        animation-play-state: paused;
-    }
-}
-
-.marquee__group img {
-    max-width: clamp(10rem, 1rem + 28vmin, 20rem);
-    aspect-ratio: 1;
-    object-fit: cover;
-    border-radius: 1rem;
-    /* Tailwind's rounded-lg */
-}
-
-
-
-.marquee--borders {
-    border-block: 3px solid dodgerblue;
-    padding-block: 0.75rem;
-    /* Tailwind's py-3 */
-}
-
-.marquee--reverse .marquee__group {
-    animation-iteration-count: infinite;
-    animation-direction: reverse;
-    animation-delay: calc(60s / -2);
-    /* Adjust duration as needed */
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-100% - 2rem));
-        /* Adjust gap as needed */
-    }
-}
 
 /* Features Webinar */
-.custom-stepper  .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+.custom-stepper .ant-steps-item-finish .ant-steps-item-icon>.ant-steps-icon .ant-steps-icon-dot {
     background-color: #201169;
 }
 
-.custom-stepper .ant-steps-item-process .ant-steps-item-icon >.ant-steps-icon .ant-steps-icon-dot{
+.custom-stepper .ant-steps-item-process .ant-steps-item-icon>.ant-steps-icon .ant-steps-icon-dot {
     background-color: #201169;
 }
 
-.custom-stepper .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after{
+.custom-stepper .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
     background-color: #201169;
 }
-

@@ -11,13 +11,13 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
           <div>
-            <Title level={1} className="mb-6 ">
+            <h1 level={1} className="mb-6 text-primary-color font-bold text-3xl">
               Shape Your Medical Future at India's Premier{' '}
-              <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent font-bold">
+              <span className="bg-gradient-to-r from-yellow-500  to-yellow-600 bg-clip-text text-transparent font-extrabold">
                 NEET Counselling
               </span>{' '}
               Webinar
-            </Title>
+            </h1>
             
             <Paragraph className="text-lg text-gray-600 mb-8">
               Join expert mentors who've guided 3.5L+ students to medical success. 
@@ -71,7 +71,7 @@ const Hero = () => {
             <video
               autoPlay
               loop
-              controls
+              // controls
               className="w-full rounded-lg"
               src="https://videos.pexels.com/video-files/1580507/1580507-sd_640_360_30fps.mp4"
             />

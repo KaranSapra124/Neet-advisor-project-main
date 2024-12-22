@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from "../Helper/Container";
+import { Carousel } from 'antd';
 
 const AspirantsSection = () => {
     const neetAspirants = [
@@ -300,30 +301,122 @@ const AspirantsSection = () => {
     ];
 
     return (
-        <Container >
+        <Container>
             <div className="text-center mb-8">
                 <h1 className="text-4xl font-bold mb-2 text-primary-color">Students Coached to <span className='text-yellow-500 font-extrabold'>Top Medical Colleges</span></h1>
                 <p className="text-lg text-gray-700 font-bold">Check out the medical colleges our attendees have reached with enhanced confidence, clarity, and applying our strategies.</p>
             </div>
-            <div class="marquee">
-                <div class="marquee__group mx-auto gap-8 flex  animate-scroll">
+            {/* <div className="marquee"> */}
+            {/* <div className=" mx-auto  "> */}
+                <Carousel className='bg-white' autoplay  slidesToShow={4} arrows dotPosition='bottom'>
                     {
                         neetAspirants.map((elem, index) => (
-                            <div key={index} className="bg-gray-100 p-2 rounded-lg shadow-lg max-w-md overflow-hidden transition-transform transform hover:scale-105">
-                                <img src={elem.ImageName} alt={elem.Name} className="w-full h-36 object-cover" />
-                                <div className="p-4">
-                                    <h3 className="text-lg font-semibold text-primary-color">{elem.Name}</h3>
-                                    <div className='flex '>
-                                        <p className="font-semibold border-2 w-fit px-2 border-gray-400 rounded p-1 text-primary-color">{elem.MBBS && "MBBS"} </p>
-                                        <span className="font-bold border-2 mx-2 border-gray-400 rounded p-1 text-primary-color">Rank: {elem.AIR_Rank}</span>
+                            <div
+                                key={index}
+                                className="
+
+                                rounded-2xl 
+                                overflow-hidden 
+                                shadow-2xl 
+                                border-2 
+                                border-gray-100 
+                                transform 
+                                transition-all 
+                                duration-300 
+                                p-2
+                                hover:scale-105
+                                cursor-pointer
+
+
+                            "
+                            >
+                                <div className="relative">
+                                    <img
+                                        src={elem.ImageName}
+                                        alt={elem.Name}
+                                        className="
+                                        h-48 
+                                        rounded
+                                        w-full
+                                        object-cover 
+                                        filter 
+                                        brightness-90 
+                                        hover:brightness-100 
+                                        hover:scale-105
+                                        transition-all 
+                                        duration-300
+                                    "
+                                    />
+                                    <div className="absolute top-2 right-2 bg-white/80 rounded-full px-3 py-1 text-xs font-bold">
+                                        Rank: {elem.AIR_Rank}
                                     </div>
-                                    <h2 className="text-lg text-gray-700 font-semibold mt-2">{elem.College_Name}</h2>
+                                </div>
+
+                                <div className="p-5 space-y-3">
+                                    <h3 className="
+                                    text-md 
+                                    font-bold 
+                                    text-primary-color 
+                                    tracking-tight 
+                                    truncate 
+                                    hover:text-secondary-color 
+                                    transition-colors
+                                ">
+                                        {elem.Name}
+                                    </h3>
+
+                                    <div className="flex items-center space-x-3">
+                                        <span
+                                            className={`
+                                            px-4 
+                                            py-1 
+                                            rounded-full 
+                                            text-xs 
+                                            font-semibold 
+                                            ${elem.MBBS
+                                                    ? 'bg-green-100 text-green-800 border-green-300'
+                                                    : 'bg-red-100 text-red-800 border-red-300'
+                                                } 
+                                            border 
+                                            transition-all 
+                                            hover:scale-105
+                                        `}
+                                        >
+                                            {elem.MBBS ? "MBBS Qualified" : "Not MBBS"}
+                                        </span>
+                                    </div>
+
+                                    <div className="flex items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5 text-primary-color mr-2"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                        <h2 className="
+                                        text-xs
+                                        text-gray-700 
+                                        font-medium 
+                                        tracking-tight 
+                                        truncate 
+                                        max-w-[250px]
+                                    ">
+                                            {elem.College_Name}
+                                        </h2>
+                                    </div>
                                 </div>
                             </div>
                         ))
                     }
-                </div>
-            </div>
+                </Carousel>
+            {/* </div> */}
+            {/* </div> */}
         </Container>
     );
 }
