@@ -559,9 +559,9 @@
 }
 
 /* Aspirants */
-.slick-slide > div{
-   margin: 1% 5%;
-    
+.slick-slide>div {
+    margin: 1% 5%;
+
 }
 
 
@@ -577,3 +577,13 @@
 .custom-stepper .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
     background-color: #201169;
 }
+
+/* Ant Tabs */
+.antTabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #201169 !important;
+    font-weight: bold;
+}
+
+/* .antTabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn:hover {
+    color: #fff;
+} */

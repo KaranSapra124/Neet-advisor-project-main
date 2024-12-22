@@ -6,6 +6,7 @@ import WhyAttend from '../Components/Webinar/WhyAttend'
 import Features from '../Components/Webinar/Features'
 import Speakers from '../Components/Webinar/Speakers'
 import UpcomingWebinars from '../Components/Webinar/UpcomingWebinars'
+import Values from '../Components/Webinar/Values'
 
 const Webinars = () => {
     return (
@@ -17,6 +18,7 @@ const Webinars = () => {
                 <Features/>
                 <Speakers/>
                 <UpcomingWebinars/>
+                <Values/>
             </Root>
         </>
     )
