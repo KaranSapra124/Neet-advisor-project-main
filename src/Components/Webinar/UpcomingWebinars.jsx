@@ -86,20 +86,7 @@ const UpcomingWebinars = () => {
                                         ease-in-out
                                     `}
                                 >
-                                    <Countdown
-                                        className='absolute top-4 left-4 z-10'
-                                        value={targetDate}
-                                        valueStyle={{
-                                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                                            padding: '0.5rem 1rem',
-                                            borderRadius: '0.5rem',
-                                            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                                            fontSize: '1rem',
-                                            fontWeight: 'bold',
-                                            color: '#374151'
-                                        }}
-                                        format="HH:mm:ss"
-                                    />
+                                    
 
                                     <div className="relative group">
                                         <img
@@ -181,7 +168,7 @@ const UpcomingWebinars = () => {
                                                 </span>
                                             </>
                                         ) : (
-                                            'Book Now'
+                                          <span className='text-xs'>Book Now</span>
                                         )}
                                     </button>
                                 </div>
@@ -196,7 +183,7 @@ const UpcomingWebinars = () => {
             label: 'PG',
             children: (
                 <div>
-                    <Carousel arrows dotPosition='bottom' slidesToShow={3} autoplaySpeed={2000} autoplay>
+                    <Carousel arrows dotPosition='bottom' slidesToShow={4} autoplaySpeed={2000} autoplay>
                         {webinars.map((elem, index) => {
                             const targetDate = deadline
                             return (
@@ -207,11 +194,11 @@ const UpcomingWebinars = () => {
                                                 overflow-hidden
                                                 border border-gray-200
                                                 rounded-xl
-                                                h-[32rem]
+                                            
                                                 shadow-lg
                                                 hover:shadow-xl
                                                 w-96
-                                                p-6
+                                              
                                                 bg-white
                                                 transform
                                                 ${ind === index ? "scale-105" : "scale-100"}
@@ -220,28 +207,15 @@ const UpcomingWebinars = () => {
                                                 ease-in-out
                                             `}
                                 >
-                                    <Countdown
-                                        className='absolute top-4 left-4 z-10'
-                                        value={targetDate}
-                                        valueStyle={{
-                                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                                            padding: '0.5rem 1rem',
-                                            borderRadius: '0.5rem',
-                                            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                                            fontSize: '1rem',
-                                            fontWeight: 'bold',
-                                            color: '#374151'
-                                        }}
-                                        format="HH:mm:ss"
-                                    />
+                                    
 
                                     <div className="relative group">
                                         <img
                                             className='
                                                         w-full 
-                                                        h-52    
+                                                        h-[12rem]    
                                                         object-cover 
-                                                        rounded-lg 
+                                                         
                                                         transform 
                                                         transition-transform 
                                                         duration-300 
@@ -253,7 +227,8 @@ const UpcomingWebinars = () => {
                                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </div>
 
-                                    <h1 className='text-md font-bold mt-4 text-primary-color line-clamp-2'>
+                                   <div className='p-6 pt-0'>
+                                   <h1 className='text-md font-bold mt-4 text-primary-color line-clamp-2'>
                                         {elem.title}
                                     </h1>
 
@@ -311,14 +286,15 @@ const UpcomingWebinars = () => {
                                     >
                                         {hoverStates[index] ? (
                                             <>
-                                                <span className={`${elem.free_status ? "line-through" : ""}`}>
+                                                <span className={` text-xs ${elem.free_status ? "line-through" : ""}`}>
                                                     {elem.free_status ? "Free" : `$${elem.price.toFixed(2)}`}
                                                 </span>
                                             </>
                                         ) : (
-                                            'Book Now'
+                                        <span className='text-xs'>Book Now</span>
                                         )}
                                     </button>
+                                   </div>
                                 </div>
                             );
                         })}
