@@ -1,0 +1,49 @@
+.masonary {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    column-count: 4;
+    column-gap: 2px;
+    width: 1200px;
+}
+
+.imgDiv {
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.imgDiv:hover {
+    transform: scale(1.05);
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Tabs */
+/* Ant Tabs */
+.antTabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #201169 !important;
+    font-weight: bold;
+}
+/* Ant Tabs */
+.antTabs .ant-tabs-tab {
+    color: #201169 !important;
+    font-weight: bolder !important;
+}
+
+.ant-tabs-left >.ant-tabs-nav .ant-tabs-ink-bar{
+    background-color: #201169;
+}
+
+/* Spin */
+.ant-spin-dot-item{
+    color: #201169;
+}

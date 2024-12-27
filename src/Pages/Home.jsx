@@ -11,6 +11,7 @@ import Navbar from '../Components/Home/Navbar'
 import UpperNavbar from '../Components/Helper/UpperNavbar'
 import Gallery from '../Components/Home/Gallery'
 import Root from '../Components/Helper/Root'
+import ImageSection from '../Components/Home/ImageSection'
 
 const Home = () => {
     return (
@@ -20,6 +21,7 @@ const Home = () => {
             <Root>
 
                 <Hero />
+                <ImageSection />
                 <CounsellingSection />
                 <WhyUsSection />
                 <NewsSection />

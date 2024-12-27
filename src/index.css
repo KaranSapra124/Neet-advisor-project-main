@@ -22,6 +22,10 @@
     font-style: normal;
 } */
 
+#hero-bg{
+    background-image: url('632749424660Hospital_Appointment_Schedule.gif');
+    background-size: cover;
+}
 .animateHero {
     animation: scroll 40s linear infinite;
     display: flex;
@@ -587,3 +591,6 @@
 /* .antTabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn:hover {
     color: #fff;
 } */
+
+/* Webinar Outcome */
+

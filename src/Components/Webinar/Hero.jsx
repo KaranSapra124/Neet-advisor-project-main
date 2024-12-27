@@ -71,6 +71,7 @@ const Hero = () => {
             <video
               autoPlay
               loop
+              muted
               // controls
               className="w-full rounded-lg"
               src="https://videos.pexels.com/video-files/1580507/1580507-sd_640_360_30fps.mp4"

@@ -64,7 +64,7 @@ const CounsellingSection = () => {
                     <h2 className="text-4xl font-bold mb-4 primary gabriela-regular">What We Have To <span className='text-yellow-400'>Offer</span> ?</h2>
                     <p className="text-lg text-black gabriela-regular">Get personalized answers and ease your biggest doubts with Video Counselling from our curated experts.</p>
                 </div>
-                <div className='flex flex-wrap justify-between gap-x-2 p-6'>
+                <div className='flex flex-wrap justify-between gap-x-2'>
                     {counselingVideos?.map((elem, index) => {
                         return (
                             <Popover
@@ -74,17 +74,17 @@ const CounsellingSection = () => {
 
                                 content={
                                     <>
-                                        <div className="relative  flex max-[600px]:flex-col  p-4 bg-gray-100 rounded-lg shadow-xl">
-                                            <div className="relative  w-full h-64 overflow-hidden rounded-md mb-4">
+                                        <div className="h-fit   flex max-[600px]:flex-col p-4 bg-gray-100 rounded-lg shadow-xl">
+                                            <div className="relative  w-fit  overflow-hidden rounded-md ">
                                                 <video
                                                     loop
                                                     autoPlay
                                                     muted
                                                     src={elem.video}
-                                                    className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                                                    className="object-cover w-96 transition-transform duration-300 hover:scale-105"
                                                 ></video>
                                             </div>
-                                            <div className="w-full space-y-2 p-2 bg-white h-fit  rounded-md shadow-lg mx-5">
+                                            <div className="w-full  space-y-2 p-2 mx-2 bg-white   rounded-md shadow-lg ">
                                                 <h3 className="text-lg font-semibold text-gray-800 ">Key Points:</h3>
                                                 {elem?.keyPoints?.map((point, index) => (
                                                     <div key={index} className="flex items-start space-x-2 text-gray-700">
