@@ -19,6 +19,10 @@ function Navbar() {
         {
             title: "Gallery",
             link: "/gallery"
+        },
+        {
+            title:"About Us",
+            link:"/about"
         }
     ]
 
