@@ -77,7 +77,7 @@ const Speakers = () => {
     ];
 
     return (
-        <Container className={"bg-gray-100"}>
+        <Container className={"bg-gray-100/50"}>
             <div className='pb-10'>
                 <h1 className='text-4xl py-5 text-primary-color font-bold text-center'>Our <span className='text-yellow-500 font-extrabold '>Speakers</span></h1>
                 <p className='text-sm font-bold text-gray-700 text-center'>Discover the best colleges & counselling approach for your NEET score

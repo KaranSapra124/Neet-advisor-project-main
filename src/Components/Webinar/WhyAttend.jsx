@@ -24,7 +24,7 @@ const WhyAttend = () => {
     ]
     return (
         <>
-            <Container className={"bg-gray-100"}>
+            <Container className={"bg-gray-100/50"}>
                 <h1 className='text-4xl text-center pb-[2rem] font-bold text-primary-color'>Why You Can’t Miss Our <span className='text-yellow-500 font-extrabold'>Webinar!
                 </span></h1>
                 <div className='grid grid-cols-4 gap-8'>

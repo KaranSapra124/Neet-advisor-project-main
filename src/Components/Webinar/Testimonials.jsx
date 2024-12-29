@@ -75,7 +75,7 @@ const Testimonials = () => {
     return (
         <>
             {isPlay && <PlayVideoModal file={video} isOpen={isPlay} setisOpen={setIsPlay} key={0} />}
-            <Container className={"bg-gray-100"}>
+            <Container className={"bg-gray-100/40"}>
                 <div className='py-5'>
                     <h1 className='text-4xl text-center text-primary-color font-bold'>What Our <span className='text-yellow-500 font-extrabold '> Attendees Say ?</span></h1>
                     <p className='text-gray-700 font-semibold text-center'>Here's what future healers speak of Hello Mentor's guidance.</p>
@@ -138,7 +138,7 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
             </div>
 
             {/* Video Preview Overlay */}
-            <div className={`absolute inset-0 bg-black/50 cursor-pointer  rounded-2xl overflow-hidden transition-opacity duration-500
+            <div className={`absolute inset-0 bg-black/5 cursor-pointer  rounded-2xl overflow-hidden transition-opacity duration-500
           ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
                 <PlayVideoModal file={videoUrl} isOpen={isPlaying} setisOpen={setIsPlaying} />
 

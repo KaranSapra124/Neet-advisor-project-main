@@ -5,7 +5,7 @@ import Container from '../Helper/Container';
 
 const GuidingSection = () => {
   return (
-    <Container className={"bg-gray-100"}>
+    <Container className={"bg-gray-100/50"}>
       <div className="max-w-6xl mx-auto px-4">
         <h1 className="text-3xl md:text-4xl text-primary-color font-bold text-center mb-12">
           Guiding you towards your{' '}

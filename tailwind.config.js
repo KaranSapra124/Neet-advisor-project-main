@@ -26,6 +26,7 @@ module.exports = {
         'hero-gradient': 'linear-gradient(180deg, transparent, #fff 86%)'
       },
       
+      
     },
   },
   plugins: [],

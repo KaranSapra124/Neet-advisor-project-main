@@ -3,7 +3,7 @@ import { MdElectricBolt } from 'react-icons/md';
 
 const ContactBanner = () => {
   return (
-    <section className='bg-gray-100 p-20'>
+    <section className='bg-yellow-100/20 p-20'>
       <div className="max-w-screen-xl mx-auto shadow-lg shadow-gray-500 rounded-xl p-8 flex flex-col lg:flex-row items-center lg:items-start justify-between space-y-8 lg:space-y-0">
         <div className="lg:w-1/2 flex flex-col items-start p-8">
           <h1 className="text-yellow-400 text-3xl font-bold mb-4">Still Got Doubts?</h1>

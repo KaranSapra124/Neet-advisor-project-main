@@ -82,7 +82,7 @@ const NewsSection = () => {
 
     return (
         <>
-            <div className='p-10 flex flex-col justify-between bg-gray-100' >
+            <div className='p-10 flex flex-col justify-between bg-yellow-100/20' >
                 <div className='flex flex-col text-center mx-5'>
                     <h1 className='text-3xl primary font-bold text-center '>
                         Get the <span className='text-yellow-400 font-extrabold'>Latest News and Updates</span> ,  all at One place!

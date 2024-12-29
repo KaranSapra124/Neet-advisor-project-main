@@ -61,7 +61,7 @@ const EnrollServices = () => {
 
     return (
         <>
-            <div className="container mx-auto p-20 bg-gray-100">
+            <div className="container mx-auto p-20 bg-yellow-100/20">
                 {/* Hero Section */}
                 <div className="text-center mb-10">
                     <h1 className="text-3xl md:text-4xl font-bold primary mb-4">

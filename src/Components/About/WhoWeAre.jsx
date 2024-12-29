@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Container from '../Helper/Container';
 import "./Aboutus.css"
+import { Carousel } from 'antd';
 
 const WhoWeAre = () => {
+    const mainImg = useRef(null)
+
+    const [isChanged, setIsChanged] = useState(1)
     const [imageUrls, setImgUrls] = useState([
         "https://assets.codepen.io/1506195/unsplash-1.jpg",
         "https://assets.codepen.io/1506195/unsplash-7.jpg",
@@ -23,11 +27,22 @@ const WhoWeAre = () => {
                 }
                 return imageUrls[index] = imageUrls[index + 1]
             }))
-        }, 3000)
+            setIsChanged((prev) => prev + 1)
+        }, 2000)
+
 
         return () => clearInterval(imgIntervals)
-    }, [])
+    }, []);
 
+
+
+    // if (mainImg.current) {
+    //     mainImg.current.style.animation = isChanged % 2 === 0 ? "transLeft" : ""
+    //     mainImg.current.style.animationDelay = '0.5s'
+    //     mainImg.current.style.animationDuration = '2s'
+    //     mainImg.current.style.animationPlayState = isChanged % 2 == 0 ? 'running' : 'paused'
+    //     mainImg.current.style.animationIterationCount = "infinite"
+    // }
     return (
         <>
             <Container >
@@ -35,10 +50,11 @@ const WhoWeAre = () => {
                 <div className='h-1 w-64 m-auto mb-5 bg-yellow-500'></div>
                 <div className='flex justify-center space-x-2'>
                     <div className="flex shadow-xl    rounded-lg shadow-gray-300">
-                        <img className='w-[15rem]   p-1 object-cover' src={imageUrls[0]} alt="" />
+                        <img className={`w-[15rem] h-[16rem]   p-1 object-cover  `} ref={mainImg} src={imageUrls[0]} alt="" />
+
                         <div className=' columns-3 imgContainer'>
                             {imageUrls?.slice(1, imageUrls?.length)?.map((elem, index) => {
-                                return <img className='w-[8rem] p-1' src={elem} key={index} />
+                                return <img className='w-[8rem]   h-[8rem] p-1' src={elem} key={index} />
                             })}
                         </div>
                     </div>

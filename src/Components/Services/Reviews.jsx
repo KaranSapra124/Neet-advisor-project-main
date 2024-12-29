@@ -88,8 +88,8 @@ const Reviews = () => {
 
 
     return (
-        <Container className={'bg-gray-100'}>
-            <div className='flex bg-gray-100 flex-col justify-center items-center'>
+        <Container className={'bg-blue-100/20'}>
+            <div className='flex  flex-col justify-center items-center'>
                 {/* <div className='w-full  bg-[#201169]'>
                 </div> */}
                 <h1 className='primary text-4xl font-bold mb-5'>Real Experiences,<span className='text-yellow-400 font-extrabold'> Real Results</span></h1>

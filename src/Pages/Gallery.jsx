@@ -47,7 +47,7 @@ const Gallery = () => {
                     return 1
                 }
             })
-        }, 5000)
+        }, 10000)
         return () => clearInterval(keyInterval)
     }, [])
     return (

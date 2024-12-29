@@ -11,7 +11,7 @@ const Hero = () => {
         <>
             <Container>
 
-                <div className='flex'>
+                <div className='flex max-w-screen-sm'>
                     <div className='h-60 animateRight w-60 rounded absolute '></div>
                     <div className='h-60 animateLeft w-60 rounded absolute top-[19rem] left-[31.5rem]  bg-gray-200'></div>
 

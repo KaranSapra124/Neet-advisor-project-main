@@ -79,7 +79,7 @@ const Values = () => {
 
     ]
     return (
-        <Container className={"bg-gray-100"}>
+        <Container className={"bg-gray-100/40"}>
             <div >
                 <h1 className='text-center text-primary-color text-4xl font-bold'>Who Is This Webinar <span className='text-yellow-500 font-extrabold'>For ?</span></h1>
             </div>
