@@ -1,6 +1,6 @@
 import { Dropdown, Menu } from 'antd';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, } from 'react-router-dom';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -59,8 +59,8 @@ function Navbar() {
                 <div className="hidden md:block">
                     <ul className="flex space-x-6">
                         {links?.map((elem, index) => {
-                            return <Link className="hover:font-bold hover:scale-105 transition-all" to={elem?.link}>
-                                {elem?.title}   </Link>
+                            return <NavLink key={index} className={({isActive}) => (isActive ? "hover:font-bold hover:scale-105 transition-all font-bold text-indigo-900" : "hover:font-bold hover:scale-105 transition-all text-gray-600")} to={elem?.link}>
+                                {elem?.title}   </NavLink>
                         })}
                         <Dropdown className='cursor-pointer' overlay={menu} arrow placement='bottom'>
                             <a onClick={e => e.preventDefault()}>
@@ -91,7 +91,7 @@ function Navbar() {
                     </button>
                 </div>
             </div>
-            
+
         </nav >
     );
 }
