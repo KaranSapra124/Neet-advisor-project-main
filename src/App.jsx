@@ -6,6 +6,7 @@ import Services from './Pages/Services'
 import Webinars from './Pages/Webinars'
 import Gallery from './Pages/Gallery'
 import About from './Pages/About'
+import PG_seminar from './Pages/PG_seminar'
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -28,6 +29,11 @@ const App = () => {
     {
       path: "/about",
       element: <About />
+    }
+    ,
+    {
+      path: "/pg-seminar",
+      element: <PG_seminar />
     }
   ])
   return <>

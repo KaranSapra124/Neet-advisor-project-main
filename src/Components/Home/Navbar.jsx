@@ -1,3 +1,4 @@
+import { Dropdown, Menu } from 'antd';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -21,10 +22,32 @@ function Navbar() {
             link: "/gallery"
         },
         {
-            title:"About Us",
-            link:"/about"
+            title: "About Us",
+            link: "/about"
         }
     ]
+
+    const items = [
+        {
+            key: 1,
+            label: (<Link to={"/pg-seminar"}>PG Seminar</Link>)
+        },
+        {
+            key: 2,
+            label: (<Link to={"/seminars"}>Seminars</Link>)
+        }
+    ]
+
+    const menu = (
+        <Menu>
+            {items.map(item => (
+                <Menu.Item key={item.key}>
+                    {item.label}
+                </Menu.Item>
+            ))}
+        </Menu>
+    );
+
 
     return (
         <nav className="bg-white sticky top-0 z-[99] text-black shadow-lg p-2 px-20">
@@ -39,10 +62,11 @@ function Navbar() {
                             return <Link className="hover:font-bold hover:scale-105 transition-all" to={elem?.link}>
                                 {elem?.title}   </Link>
                         })}
-                        {/* <li className="hover:font-bold hover:scale-105 transition-all"><a href="/">Home</a></li>
-                        <li className="hover:font-bold hover:scale-105 transition-all"><a href="/courses">Courses</a></li>
-                        <li className="hover:font-bold hover:scale-105 transition-all"><a href="/about">About Us</a></li>
-                        <li className="hover:font-bold hover:scale-105 transition-all"><a href="/contact">Contact</a></li> */}
+                        <Dropdown className='cursor-pointer' overlay={menu} arrow placement='bottom'>
+                            <a onClick={e => e.preventDefault()}>
+                                More
+                            </a>
+                        </Dropdown>
                     </ul>
                 </div>
                 <div className="md:hidden">
@@ -67,17 +91,7 @@ function Navbar() {
                     </button>
                 </div>
             </div>
-            {isOpen && (
-                <div className="md:hidden bg-white shadow-md p-4 w-full absolute top-full left-0">
-                    <ul className="flex flex-col space-y-4">
-                        <li className="hover:text-blue-500"><a href="/">Home</a></li>
-                        <li className="hover:text-blue-500"><a href="/courses">Courses</a></li>
-                        <li className="hover:text-blue-500"><a href="/about">About Us</a></li>
-                        <li className="hover:text-blue-500"><a href="/contact">Contact</a></li>
-                    </ul>
-                </div>
-            )
-            }
+            
         </nav >
     );
 }
