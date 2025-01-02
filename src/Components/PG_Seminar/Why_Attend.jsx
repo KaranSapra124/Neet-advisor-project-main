@@ -5,7 +5,7 @@ import { FaCheck } from 'react-icons/fa';
 import Divider from '../Helper/Divider';
 
 // import SleekStepper from "sleekstepper"
-const Why_Attend = () => {
+const Why_Attend = ({className}) => {
     const [currVal, setCurrVal] = useState(0);
     const values = [
         {
@@ -78,7 +78,7 @@ const Why_Attend = () => {
     }, [currVal]);
     return (
         <>
-            <Container>
+            <Container className={className}>
                 
                 <h1 className='text-primary-color text-4xl text-center font-bold'>Why <span className='text-yellow-500 font-extrabold'>Attend?</span></h1>
                 <Divider className={'h-1 w-32 bg-yellow-500 mx-auto rounded-lg my-2'}/>

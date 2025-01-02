@@ -33,7 +33,7 @@ const WhyUsSection = () => {
   };
 
   return (
-    <ScrollAnimation animateIn='backInLeft' animateOnce={true} duration={1.5} className='p-20'>
+    <ScrollAnimation animateIn='bounceIn'  duration={1.5} className='p-20'>
       <div className="w-full flex flex-col justify-center items-center mx-auto rounded-lg">
         <h1 className="text-4xl font-bold mb-4 text-center primary">Why <span className='text-yellow-400'>Neet Advisor ?</span></h1>
         <p className="text-lg font-semibold text-gray-600 mb-6 text-center">Unlock Your Success in 4 Simple Steps: NEET Counselling Guidance</p>

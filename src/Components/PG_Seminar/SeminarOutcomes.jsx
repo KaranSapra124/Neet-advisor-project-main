@@ -39,12 +39,6 @@ const SeminarOutcomes = () => {
                         </div>
                     }
                 })} />
-                {/* {data?.map((elem, index) => {
-                    return <div className='shadow-lg hover:scale-105 transition-all cursor-pointer duration-500 border-l-4 border-yellow-500 w-96 bg-white my-2 text-center p-4 h-24 rounded'>
-                        <h2 className='text-primary-color text-sm font-bold '>{elem?.title}</h2>
-                        <p className='text-xs text-gray-700'>{elem?.description}</p>
-                    </div>
-                })} */}
             </div>
         </Container>
     )

@@ -34,7 +34,11 @@ function Navbar() {
         },
         {
             key: 2,
-            label: (<Link to={"/seminars"}>Seminars</Link>)
+            label: (<Link to={"/ug-seminar"}>UG Seminar</Link>)
+        },
+        {
+            key: 3,
+            label: (<Link to={"/news"}>News & Blog</Link>)
         }
     ]
 
@@ -59,7 +63,7 @@ function Navbar() {
                 <div className="hidden md:block">
                     <ul className="flex space-x-6">
                         {links?.map((elem, index) => {
-                            return <NavLink key={index} className={({isActive}) => (isActive ? "hover:font-bold hover:scale-105 transition-all font-bold text-indigo-900" : "hover:font-bold hover:scale-105 transition-all text-gray-600")} to={elem?.link}>
+                            return <NavLink key={index} className={({ isActive }) => (isActive ? "hover:font-bold hover:scale-105 transition-all font-bold text-indigo-900" : "hover:font-bold hover:scale-105 transition-all text-gray-600")} to={elem?.link}>
                                 {elem?.title}   </NavLink>
                         })}
                         <Dropdown className='cursor-pointer' overlay={menu} arrow placement='bottom'>

@@ -48,7 +48,7 @@
 }
 
 .animateHeroContent {
-    animation: lightSpeedInLeft 1.5s normal ease-in;
+    animation: fadeIn 1.5s normal ease-in;
 }
 
 .animateBgHeroImage {

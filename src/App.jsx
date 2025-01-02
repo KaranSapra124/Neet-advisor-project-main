@@ -7,6 +7,8 @@ import Webinars from './Pages/Webinars'
 import Gallery from './Pages/Gallery'
 import About from './Pages/About'
 import PG_seminar from './Pages/PG_seminar'
+import UG_seminar from './Pages/UG_seminar'
+import News_Blog from './Pages/News_Blog'
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -34,6 +36,14 @@ const App = () => {
     {
       path: "/pg-seminar",
       element: <PG_seminar />
+    },
+    {
+      path: "/ug-seminar",
+      element: <UG_seminar />
+    },
+    {
+      path: "/news",
+      element: <News_Blog />
     }
   ])
   return <>

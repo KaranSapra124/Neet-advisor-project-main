@@ -3,8 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Rate } from 'antd';
 import Container from "../Helper/Container";
 import Lottie from 'lottie-react';
-import medicalFile from "./Hospital Reception.json";
-import medicalBoard from "./Hypertension Alert.json"
+ 
 import medicalReception from "./Medical Clipboard.json"
 
 const Hero = () => {
