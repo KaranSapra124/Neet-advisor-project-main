@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Container from "../Helper/Container"
+import CareerModal from './Modal'
 
 const JobOpenings = () => {
+    const [isOpen, setIsOpen] = useState(false)
     const [jobOpenings, setJobOpenings] = useState([
         {
             id: 1,
@@ -204,7 +206,6 @@ const JobOpenings = () => {
         }
     ])
     const [data, setData] = useState([...jobOpenings])
-
     const handleSearch = (e) => {
         const { value } = e.target;
 
@@ -212,13 +213,20 @@ const JobOpenings = () => {
 
     }
 
+    const handleOpen = (e) => {
+        if (e.target.tagName === "BUTTON") {
+            setIsOpen(true)
+        }
+    }
+
 
 
     return (
         <>
+            {isOpen && <CareerModal isOpen={isOpen} setIsOpen={setIsOpen} />}
             <Container className={'bg-gray-100'}>
 
-                <div className='max-w-screen-lg mx-auto'>
+                <div onClick={handleOpen} className='max-w-screen-lg mx-auto'>
                     <h1 className='text-3xl text-primary-color my-2 font-bold'>Job Openings</h1>
                     <input onChange={handleSearch} type="text" name="" id="" placeholder='Enter Your Search...' className='shadow-lg w-full p-2 rounded-md' />
                     <div className='flex flex-wrap my-4 justify-between'>
