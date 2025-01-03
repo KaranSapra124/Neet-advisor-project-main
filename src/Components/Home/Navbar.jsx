@@ -17,10 +17,10 @@ function Navbar() {
             title: "Webinars",
             link: "/webinar"
         },
-        {
-            title: "Gallery",
-            link: "/gallery"
-        },
+        // {
+        //     title: "Gallery",
+        //     link: "/gallery"
+        // },
         {
             title: "About Us",
             link: "/about"
@@ -39,6 +39,10 @@ function Navbar() {
         {
             key: 3,
             label: (<Link to={"/news"}>News & Blog</Link>)
+        },
+        {
+            key: 4,
+            label: (<Link to={"/gallery"}>Gallery</Link>)
         }
     ]
 
