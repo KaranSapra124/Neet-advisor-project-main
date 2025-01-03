@@ -179,7 +179,7 @@ const Hero = () => {
                 <div className='flex justify-center gap-2 items-center'>
                     <h2 className='text-md text-gray-700 font-semibold'>Top Searches</h2>
                     {/* <div className='flex justify-around'> */}
-                    <Carousel dots={false} arrows={true} autoplay autoplaySpeed={2500} infinite className='max-w-screen-md px-5' slidesToShow={3}>
+                    <Carousel draggable={true} dots={false} arrows={true} autoplay autoplaySpeed={2500} infinite className='max-w-screen-md px-5' slidesToShow={3}>
                         {
                             newsCategories?.map((elem, index) => {
                                 return <div key={index} className='bg-primary-color  cursor-pointer text-center  text-sm mx-2 font-semibold text-white w-fit rounded-lg p-2 '>
@@ -253,7 +253,7 @@ const TrendingNews = ({ category, date, title, isTrending, image, description, i
                 <div className='w-fit'>
                     <img className='w-full' src={image} alt="No Image" />
 
-                    <div className='flex  my-2'>
+                    <div className='flex my-2'>
                         <div className='border p-1 text-xs rounded shadow-lg bg-yellow-500 text-white font-semibold'>{category}</div>
                         <div className='border mx-2 text-xs p-1 rounded shadow-lg bg-yellow-500 text-white font-semibold'>{date}</div>
                     </div>

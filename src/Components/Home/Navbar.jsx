@@ -44,6 +44,11 @@ function Navbar() {
             key: 4,
             label: (<Link to={"/gallery"}>Gallery</Link>)
         }
+        ,
+        {
+            key: 5,
+            label: (<Link to={"/careers"}>Career</Link>)
+        }
     ]
 
     const menu = (

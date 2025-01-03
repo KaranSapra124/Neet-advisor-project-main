@@ -10,6 +10,7 @@ import PG_seminar from './Pages/PG_seminar'
 import UG_seminar from './Pages/UG_seminar'
 import News_Blog from './Pages/News_Blog'
 import IndividualPage from './Components/News_&_Blog/IndividualPage'
+import CareerPage from './Pages/CareerPage'
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -49,6 +50,10 @@ const App = () => {
     {
       path: '/news/:id',
       element: <IndividualPage />
+    },
+    {
+      path: "/careers",
+      element: <CareerPage />
     }
   ])
   return <>
