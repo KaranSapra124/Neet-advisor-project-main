@@ -11,67 +11,200 @@ const Hero = () => {
     <Container className="relative">
       {/* Medical-themed background pattern */}
       <div className="absolute inset-0 pointer-events-none">
-        <svg width="100%" height="100%" className="absolute opacity-8">
+        <svg viewBox="0 0 1000 1000">
           <defs>
-            <pattern id="medical-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
-              {/* Stethoscope */}
-              <path 
-                d="M40 40c0 11 9 20 20 20s20-9 20-20h10c0 16.6-13.4 30-30 30S30 56.6 30 40h10z" 
-                fill="none" 
-                stroke="#1a1a1a" 
+            <pattern
+              id="medical-pattern"
+              x="0"
+              y="0"
+              width="200"
+              height="200"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M20 15h5v-5h5v5h5v5h-5v5h-5v-5h-5z"
+                fill="none"
+                stroke="#d0d0d0"
                 strokeWidth="1"
               />
-              {/* Heart */}
-              <path 
-                d="M150 65c-3.9 0-7.5-1.4-10.4-3.8-2.9 2.4-6.5 3.8-10.4 3.8-9.1 0-16.5-7.4-16.5-16.5 0-9.1 7.4-16.5 16.5-16.5 3.9 0 7.5 1.4 10.4 3.8 2.9-2.4 6.5-3.8 10.4-3.8 9.1 0 16.5 7.4 16.5 16.5 0 9.1-7.4 16.5-16.5 16.5z" 
-                fill="none" 
-                stroke="#1a1a1a" 
+
+              <path
+                d="M50 20c0 6 4 10 10 10s10-4 10-10h5c0 8-7 15-15 15s-15-7-15-15h5z"
+                fill="none"
+                stroke="#d0d0d0"
                 strokeWidth="1"
               />
-              {/* Eye */}
-              <path 
-                d="M100 140c-20 0-36.8-11.5-45-28.2 8.2-16.7 25-28.2 45-28.2s36.8 11.5 45 28.2c-8.2 16.7-25 28.2-45 28.2zm0-46.4c10.1 0 18.2 8.1 18.2 18.2S110.1 130 100 130s-18.2-8.1-18.2-18.2 8.1-18.2 18.2-18.2z" 
-                fill="none" 
-                stroke="#1a1a1a" 
+
+              <path
+                d="M90 25l10-10c2-2 6-2 8 0l10 10c2 2 2 6 0 8l-10 10c-2 2-6 2-8 0l-10-10c-2-2-2-6 0-8z"
+                fill="none"
+                stroke="#d0d0d0"
                 strokeWidth="1"
               />
-              {/* Test tube */}
-              <path 
-                d="M180 160l-20-40v-60h40v60l-20 40z" 
-                fill="none" 
-                stroke="#1a1a1a" 
+
+              <path
+                d="M140 15l-15 15m0 0l20 20m-20-20h10m-10 0v10"
+                fill="none"
+                stroke="#d0d0d0"
                 strokeWidth="1"
               />
-              {/* Doctor icon - simplified outline */}
-              <path 
-                d="M20 140c11 0 20-9 20-20s-9-20-20-20-20 9-20 20 9 20 20 20zm0-30c5.5 0 10 4.5 10 10s-4.5 10-10 10-10-4.5-10-10 4.5-10 10-10z" 
-                fill="none" 
-                stroke="#1a1a1a" 
+
+              <path
+                d="M170 10c5 5-5 15 0 20s15-5 20 0"
+                fill="none"
+                stroke="#d0d0d0"
                 strokeWidth="1"
               />
-              {/* Additional medical crosses */}
-              <path 
-                d="M160 180h10v-10h10v10h10v10h-10v10h-10v-10h-10z" 
-                fill="none" 
-                stroke="#1a1a1a" 
+
+              <path
+                d="M20 50h15v15h-15zm7-5v25m-5-12h10"
+                fill="none"
+                stroke="#d0d0d0"
                 strokeWidth="1"
               />
-              <path 
-                d="M40 180h10v-10h10v10h10v10h-10v10h-10v-10h-10z" 
-                fill="none" 
-                stroke="#1a1a1a" 
+
+              <path
+                d="M50 60h5l2-4 4 8 4-8 2 4h5"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M80 50c2 0 5 5 5 10v5h5v-5l-5-10m-10 15h15"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M110 50l15 15m-15 0l15-15m-7.5 7.5c2 0 3-1 3-3s-1-3-3-3-3 1-3 3 1 3 3 3z"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M150 50c3 6 6 10 6 14 0 3-3 6-6 6s-6-3-6-6c0-4 3-8 6-14z"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M20 90v15h10v-15h-10m-2-5h14m-7-5v5"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M45 90c3-3 9-3 12 0 3-3 9-3 12 0"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M80 90h20v15h-20zm5 7.5h10m-5-5v10"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M110 90c0 5 2 7 5 7s5-2 5-7m-15 0h20"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M150 90v10l5 10h10l5-10v-10z"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M20 130h15v20h-15zm3 5h9m-9 5h6m-6 5h9"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M50 140c0 3-2 5-5 5s-5-2-5-5 2-5 5-5 5 2 5 5m0-10h10v10"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M70 130h20v15h-20zm5-5v5m15 0l5 5v5h-5"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M110 130c0 0 0 15 10 15s10-15 10-15m-15-5l10 5 10-5"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M150 140c0 3-2 5-5 5s-5-2-5-5 2-5 5-5 5 2 5 5m-5-8v3m0 10v3m8-8h-3m-10 0h-3"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M20 170h25v5h-25zm5-5v10m15-10v10"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M60 170l5-15h5l5 15m-10-7.5h10"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M85 165h15v15h-15zm0 5l5 3 3-5 7 7"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M120 165v15m-2 0h4m-2-15c2 0 2 1 2 2v8"
+                fill="none"
+                stroke="#d0d0d0"
+                strokeWidth="1"
+              />
+
+              <path
+                d="M140 165h15v15h-15zm3 3h9m-9 3h6m-6 3h9"
+                fill="none"
+                stroke="#d0d0d0"
                 strokeWidth="1"
               />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#medical-pattern)"/>
+          <rect width="100%" height="100%" fill="url(#medical-pattern)" />
         </svg>
       </div>
-       {/* Add these gradients right after the SVG background */}
-       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white to-transparent"></div>
+      {/* Add these gradients right after the SVG background */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white to-transparent"></div>
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
 
-      <div className="flex justify-center items-center relative z-10">
+      <div className="flex justify-center items-center relative z-10 ">
         <div className="w-full flex justify-center items-center flex-col animateHeroContent">
           <div className="flex items-center justify-center">
             <h1 className="text-4xl font-bold  primary text-indigo-900">
@@ -115,7 +248,8 @@ const Hero = () => {
                   <Rate count={5} value={5} className="text-yellow-400" />
                 </div>
                 <p className="font-bold text-md text-indigo-950">
-                  5/5 | <span className="text-gray-600 text-sm">4406 Reviews</span>
+                  5/5 |{" "}
+                  <span className="text-gray-600 text-sm">4406 Reviews</span>
                 </p>
               </div>
             </div>
@@ -127,4 +261,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
