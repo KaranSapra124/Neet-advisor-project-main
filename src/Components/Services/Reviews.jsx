@@ -90,11 +90,9 @@ const Reviews = () => {
     return (
         <Container className={'bg-blue-100/20'}>
             <div className='flex  flex-col justify-center items-center'>
-                {/* <div className='w-full  bg-[#201169]'>
-                </div> */}
                 <h1 className='primary text-4xl font-bold mb-5'>Real Experiences,<span className='text-yellow-400 font-extrabold'> Real Results</span></h1>
                 <p className='text-lg font-bold text-gray-700 py-5'>Our Mentees Speak Out!</p>
-                <Carousel autoplay autoplaySpeed={1000} className='max-w-screen-xl' arrows slidesToShow={4}>
+                <Carousel autoplay autoplaySpeed={1000} className='max-w-screen-xl' arrows={false} infinite slidesToShow={4}>
                     {reviews?.map((elem) => {
                         return <TestimonialCard clientName={elem?.clientName} clientCollege={elem?.clientCollege} imgUrl={elem?.imgUrl} review={elem?.review} />
                     })}
@@ -108,7 +106,7 @@ const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
 
     return (
         <div className="my-8 mx-5  rounded-2xl cursor-pointer hover:scale-105 transition-all shadow-lg shadow-black">
-            <div className="px-2 py-4 h-[15rem] rounded-t-lg sm:px-8 md:px-12 bg-gray-200">
+            <div className="px-2 py-4 h-[15rem]  rounded-t-lg sm:px-8 md:px-12 bg-gray-200">
                 <p className="relative px-6 py-1 mb-6 text-md italic text-center text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 text-yellow-400">
                         <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
@@ -123,7 +121,7 @@ const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
             <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-[#201169]  text-gray-200">
                 <img src={imgUrl} alt={clientName} className="w-10 h-10 mb-2 -mt-12 bg-center bg-cover rounded-full bg-gray-500 " />
                 <p className="text-lg font-semibold leading-tight">{clientName}</p>
-                <p className="text-sm uppercase">{clientCollege}</p>
+                <p className="text-xs uppercase">{clientCollege}</p>
             </div>
 
         </div>

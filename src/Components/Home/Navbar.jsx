@@ -48,6 +48,10 @@ function Navbar() {
         {
             key: 5,
             label: (<Link to={"/careers"}>Career</Link>)
+        },
+        {
+            key: 6,
+            label: (<Link to={"/mbbs-abroad"}>MBBS Abroad</Link>)
         }
     ]
 
