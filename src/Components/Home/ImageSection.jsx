@@ -4,26 +4,11 @@ import { Carousel } from 'antd';
 
 const ImageSection = () => {
     const [images, setImages] = useState([
-        { "imageUrl": "https://randomuser.me/api/portraits/men/1.jpg", "imageAlt": "Image 1" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/2.jpg", "imageAlt": "Image 2" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/3.jpg", "imageAlt": "Image 3" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/4.jpg", "imageAlt": "Image 4" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/5.jpg", "imageAlt": "Image 5" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/6.jpg", "imageAlt": "Image 6" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/7.jpg", "imageAlt": "Image 7" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/8.jpg", "imageAlt": "Image 8" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/9.jpg", "imageAlt": "Image 9" },
-        { "imageUrl": "https://randomuser.me/api/portraits/men/10.jpg", "imageAlt": "Image 10" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/1.jpg", "imageAlt": "Image 11" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/2.jpg", "imageAlt": "Image 12" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/3.jpg", "imageAlt": "Image 13" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/4.jpg", "imageAlt": "Image 14" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/5.jpg", "imageAlt": "Image 15" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/6.jpg", "imageAlt": "Image 16" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/7.jpg", "imageAlt": "Image 17" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/8.jpg", "imageAlt": "Image 18" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/9.jpg", "imageAlt": "Image 19" },
-        { "imageUrl": "https://randomuser.me/api/portraits/women/10.jpg", "imageAlt": "Image 20" }
+        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
+        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
+        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
+        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
+        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
     ]);
     return (
         // <Container >

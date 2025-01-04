@@ -79,7 +79,7 @@ const EnrollServices = () => {
                         {servicesArr.map((service, index) => (
                             <Card
                                 key={index}
-                                className={`hover:shadow-2xl ${index === 0 ? 'animate-shufflePositionDown' : index === 3 ? 'animate-shufflePositionUp' : index === 2 ? "animate-shufflePositionRight" : "animate-shufflePositionLeft "} shadow-xl transition-all duration-500 transform hover:-translate-y-1`}
+                                className={`hover:shadow-2xl  shadow-xl transition-all duration-500 transform hover:-translate-y-1`}
                             >
                                 <div className="flex flex-col md:flex-row gap-2">
                                     {/* Video Section */}

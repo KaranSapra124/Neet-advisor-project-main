@@ -301,19 +301,19 @@ const AspirantsSection = () => {
     ];
 
     return (
-        <Container>
+        <Container className={' max-w-screen-xl'}>
             <div className="text-center mb-8">
                 <h1 className="text-4xl font-bold mb-2 text-primary-color">Students Coached to <span className='text-yellow-500 font-extrabold'>Top Medical Colleges</span></h1>
                 <p className="text-lg text-gray-700 font-bold">Check out the medical colleges our attendees have reached with enhanced confidence, clarity, and applying our strategies.</p>
             </div>
             {/* <div className="marquee"> */}
             {/* <div className=" mx-auto  "> */}
-                <Carousel className='bg-white' autoplay  slidesToShow={4} arrows dotPosition='bottom'>
-                    {
-                        neetAspirants.map((elem, index) => (
-                            <div
-                                key={index}
-                                className="
+            <Carousel autoplay slidesToShow={4} arrows={false} dotPosition='bottom'>
+                {
+                    neetAspirants.map((elem, index) => (
+                        <div
+                            key={index}
+                            className="
 
                                 rounded-2xl 
                                 overflow-hidden 
@@ -326,15 +326,13 @@ const AspirantsSection = () => {
                                 p-2
                                 hover:scale-105
                                 cursor-pointer
-
-
                             "
-                            >
-                                <div className="relative">
-                                    <img
-                                        src={elem.ImageName}
-                                        alt={elem.Name}
-                                        className="
+                        >
+                            <div className="relative">
+                                <img
+                                    src={elem.ImageName}
+                                    alt={elem.Name}
+                                    className="
                                         h-48 
                                         rounded
                                         w-full
@@ -346,14 +344,14 @@ const AspirantsSection = () => {
                                         transition-all 
                                         duration-300
                                     "
-                                    />
-                                    <div className="absolute top-2 right-2 bg-white/80 rounded-full px-3 py-1 text-xs font-bold">
-                                        Rank: {elem.AIR_Rank}
-                                    </div>
+                                />
+                                <div className="absolute top-2 right-2 bg-white/80 rounded-full px-3 py-1 text-xs font-bold">
+                                    Rank: {elem.AIR_Rank}
                                 </div>
+                            </div>
 
-                                <div className="p-5 space-y-3">
-                                    <h3 className="
+                            <div className="p-5 space-y-3">
+                                <h3 className="
                                     text-md 
                                     font-bold 
                                     text-primary-color 
@@ -362,44 +360,44 @@ const AspirantsSection = () => {
                                     hover:text-secondary-color 
                                     transition-colors
                                 ">
-                                        {elem.Name}
-                                    </h3>
+                                    {elem.Name}
+                                </h3>
 
-                                    <div className="flex items-center space-x-3">
-                                        <span
-                                            className={`
+                                <div className="flex items-center space-x-3">
+                                    <span
+                                        className={`
                                             px-4 
                                             py-1 
                                             rounded-full 
                                             text-xs 
                                             font-semibold 
                                             ${elem.MBBS
-                                                    ? 'bg-green-100 text-green-800 border-green-300'
-                                                    : 'bg-red-100 text-red-800 border-red-300'
-                                                } 
+                                                ? 'bg-green-100 text-green-800 border-green-300'
+                                                : 'bg-red-100 text-red-800 border-red-300'
+                                            } 
                                             border 
                                             transition-all 
                                             hover:scale-105
                                         `}
-                                        >
-                                            {elem.MBBS ? "MBBS Qualified" : "Not MBBS"}
-                                        </span>
-                                    </div>
+                                    >
+                                        {elem.MBBS ? "MBBS Qualified" : "Not MBBS"}
+                                    </span>
+                                </div>
 
-                                    <div className="flex items-center">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="h-5 w-5 text-primary-color mr-2"
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                        >
-                                            <path
-                                                fillRule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                                                clipRule="evenodd"
-                                            />
-                                        </svg>
-                                        <h2 className="
+                                <div className="flex items-center">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-5 w-5 text-primary-color mr-2"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    <h2 className="
                                         text-xs
                                         text-gray-700 
                                         font-medium 
@@ -407,14 +405,14 @@ const AspirantsSection = () => {
                                         truncate 
                                         max-w-[250px]
                                     ">
-                                            {elem.College_Name}
-                                        </h2>
-                                    </div>
+                                        {elem.College_Name}
+                                    </h2>
                                 </div>
                             </div>
-                        ))
-                    }
-                </Carousel>
+                        </div>
+                    ))
+                }
+            </Carousel>
             {/* </div> */}
             {/* </div> */}
         </Container>

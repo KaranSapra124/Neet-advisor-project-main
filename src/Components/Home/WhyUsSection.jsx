@@ -56,7 +56,7 @@ const WhyUsSection = () => {
           {/* Image Section */}
           <div className='w-1/2 flex justify-center items-center'>
             <img
-              src="https://img.freepik.com/free-photo/attractive-female-doctor-standing-with-documents-hospital_1303-20688.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid"
+              src="https://neetadvisor.com/assets/images/gallery/international/2.webp"
               className='  rounded   m-auto'
               alt=""
             />
