@@ -8,10 +8,10 @@ import medicalReception from "./Medical Clipboard.json";
 
 const Hero = () => {
   return (
-    <Container className="relative">
+    <Container className="relative overflow-hidden">
       {/* Medical-themed background pattern */}
-      <div className="absolute inset-0 pointer-events-none">
-        <svg viewBox="0 0 1000 1000">
+      <div className="absolute inset-0 pointer-events-none" style={{ maxHeight: "100%" }}>
+        <svg viewBox="0 0 1000 1000" >
           <defs>
             <pattern
               id="medical-pattern"
