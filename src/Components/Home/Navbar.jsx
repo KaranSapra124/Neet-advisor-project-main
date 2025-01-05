@@ -52,6 +52,10 @@ function Navbar() {
         {
             key: 6,
             label: (<Link to={"/mbbs-abroad"}>MBBS Abroad</Link>)
+        },
+        {
+            key: 7,
+            label: (<Link to={"/medical-expo"}>Medical Expo 2025</Link>)
         }
     ]
 
