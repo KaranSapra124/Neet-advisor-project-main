@@ -13,6 +13,7 @@ import IndividualPage from './Components/News_&_Blog/IndividualPage'
 import CareerPage from './Pages/CareerPage'
 import MBBS_Abroad from './Pages/MBBS-Abroad'
 import MedicalExpo from './Pages/MedicalExpo'
+import Contact from './Pages/Contact'
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -64,6 +65,10 @@ const App = () => {
     {
       path: "/medical-expo",
       element: <MedicalExpo />
+    },
+    {
+      path: "/contact",
+      element: <Contact />
     }
   ])
   return <>

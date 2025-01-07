@@ -44,3 +44,56 @@
     position: absolute;
     object-fit: cover;
 }
+
+/* Schedule */
+
+.scheduleTab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #D1D5DB;
+    font-weight: bold;
+}
+.scheduleTab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn:hover{
+    color: #D1D5DB;
+    font-weight: bold;
+}
+
+.scheduleTab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn:hover {
+    color: #fff;
+}
+
+.scheduleTab .ant-tabs-ink-bar{
+background-color: #D1D5DB;
+}
+
+.scheduleTab .ant-tabs-tab {
+    background-color: transparent !important;
+    color: #D1D5DB !important;
+    padding: 12px 24px !important;
+    margin: 4px 0 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+}
+
+.scheduleTab .ant-tabs-tab-active {
+    background-color: rgba(245, 158, 11, 0.1) !important;
+    color: #F59E0B !important;
+}
+
+.scheduleTab .ant-tabs-ink-bar {
+    background: #F59E0B !important;
+}
+
+.scheduleTab .ant-timeline-item-label {
+    color: #D1D5DB !important;
+}
+
+.scheduleTab .ant-timeline-item-content {
+    color: #D1D5DB !important;
+}
+
+.scheduleTab .ant-timeline-item-tail {
+    border-left-color: #4B5563 !important;
+}
+
+.scheduleTab .ant-timeline-item-head {
+    background-color: #F59E0B !important;
+}
