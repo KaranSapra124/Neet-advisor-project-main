@@ -24,19 +24,19 @@ const WhyAttend = () => {
     ]
     return (
         <>
-            <Container className={"bg-gray-100/50"}>
-                <h1 className='text-4xl text-center pb-[2rem] font-bold text-primary-color'>Why You Can’t Miss Our <span className='text-yellow-500 font-extrabold'>Webinar!
+            <Container className={"bg-gray-200/40 "}>
+                <h1 className='text-3xl text-center py-2 font-bold text-primary-color'>Why You Can’t Miss Our <span className='text-yellow-500 font-extrabold'>Webinar!
                 </span></h1>
-                <div className='grid grid-cols-4 gap-8'>
+                <div className='grid grid-cols-4  mx-auto gap-4'>
                     {data?.map((elem, index) => {
-                        return <div key={index} className="grid cursor-pointer hover:scale-110 transition-all duration-500 md:grid-cols-1   pt-10">
-                            <div className="rounded-lg bg-white px-4 text-center shadow-lg">
-                                <div className="mx-auto mt-5 mb-2 flex h-10 w-10 -translate-y-25 transform items-center justify-center rounded-full bg-yellow-500 shadow-md shadow-teal-500/40">
+                        return <div key={index} className="grid cursor-pointer hover:scale-105 transition-all duration-500 md:grid-cols-1   pt-10">
+                            <div className="rounded-lg bg-white px-2 text-center shadow-lg">
+                                <div className="mx-auto mt-5 mb-2 flex h-8 w-8 -translate-y-25 transform items-center justify-center rounded-full bg-yellow-600 shadow-md shadow-primary-color">
                                     {/* Placeholder for SVG or Icon */}
                                     <TiTick className='text-white font-extrabold text-xl' />
                                 </div>
-                                <h1 className="text-primary-color mb-3 text-md font-bold ">{elem.title}</h1>
-                                <p className="px-4 text-gray-700 font-semibold text-sm py-4">
+                                <h1 className="text-primary-color my-2 text-sm font-bold ">{elem.title}</h1>
+                                <p className="px-4 text-gray-700 font-semibold text-xs py-2">
                                     {elem.text}
                                 </p>
                             </div>

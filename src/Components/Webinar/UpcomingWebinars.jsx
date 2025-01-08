@@ -62,9 +62,8 @@ const UpcomingWebinars = () => {
             label: 'UG',
             children: (
                 <div>
-                    <Carousel arrows dotPosition='bottom' slidesToShow={4} autoplaySpeed={2000} autoplay>
+                    <Carousel dots={false} draggable={true} slidesToShow={4} autoplaySpeed={2000} autoplay>
                         {webinars.map((elem, index) => {
-                            const targetDate = deadline
                             return (
                                 <div
                                     key={index}
@@ -92,9 +91,8 @@ const UpcomingWebinars = () => {
                                         <img
                                             className='
                                                     w-full 
-                                                    h-[12rem]    
+                                                    h-44  
                                                     object-cover 
-                                                     
                                                     transform 
                                                     transition-transform 
                                                     duration-300 
@@ -106,16 +104,16 @@ const UpcomingWebinars = () => {
                                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </div>
 
-                                    <div className='p-6 pt-0'>
-                                        <h1 className='text-md font-bold mt-3 text-primary-color line-clamp-2 min-h-9'>
+                                    <div className='p-2 pt-0'>
+                                        <h1 className='text-sm font-bold my-2 text-primary-color  min-h-9'>
                                             {elem.title}
                                         </h1>
 
-                                        <p className='text-gray-700 font-semibold mt-2 text-xs line-clamp-3 min-h-12'>
+                                        <p className='text-gray-700 font-semibold mt-2 text-xs line-clamp-3 min-h-12 '>
                                             {elem.description}
                                         </p>
 
-                                        <div className='mt-4 flex items-center space-x-2'>
+                                        <div className='mt-2 flex items-center space-x-2'>
                                             <div className='flex items-center px-3 py-1 bg-gray-50 rounded-full border border-gray-200'>
                                                 <FaCalendar className='text-yellow-500 mr-2 text-xs' />
                                                 <span className='text-gray-700 text-xs font-medium'>{elem.book_date}</span>
@@ -186,60 +184,58 @@ const UpcomingWebinars = () => {
             label: 'PG',
             children: (
                 <div>
-                    <Carousel arrows dotPosition='bottom' slidesToShow={4} autoplaySpeed={2000} autoplay>
+                    <Carousel dots={false} draggable={true} slidesToShow={4} autoplaySpeed={2000} autoplay>
                         {webinars.map((elem, index) => {
-                            const targetDate = deadline
                             return (
                                 <div
                                     key={index}
                                     className={`
-                                                relative
-                                                overflow-hidden
-                                                border border-gray-200
-                                                rounded-xl
-                                            
-                                                shadow-lg
-                                                hover:shadow-xl
-                                                w-96
-                                              
-                                                bg-white
-                                                transform
-                                                ${ind === index ? "scale-105" : "scale-100"}
-                                                transition-all
-                                                duration-300
-                                                ease-in-out
-                                            `}
+                                        relative
+                                        overflow-hidden
+                                        border border-gray-200
+                                        rounded-xl
+                                    
+                                        shadow-lg
+                                        hover:shadow-xl
+                                        w-96
+                                      
+                                        bg-white
+                                        transform
+                                        ${ind === index ? "scale-105" : "scale-100"}
+                                        transition-all
+                                        duration-300
+                                        ease-in-out
+                                    `}
                                 >
 
 
                                     <div className="relative group">
                                         <img
                                             className='
-                                                        w-full 
-                                                        h-[12rem]    
-                                                        object-cover 
-                                                         
-                                                        transform 
-                                                        transition-transform 
-                                                        duration-300 
-                                                        group-hover:scale-105
-                                                    '
+                                                w-full 
+                                                h-44  
+                                                object-cover 
+                                                transform 
+                                                transition-transform 
+                                                duration-300 
+                                                group-hover:scale-105
+                                            '
                                             src={elem.thumbnail}
                                             alt={elem.title}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </div>
 
-                                    <div className='p-6 pt-0'>
-                                        <h1 className='text-md font-bold mt-3 text-primary-color line-clamp-2 min-h-9'>
+                                    <div className='p-2 pt-0'>
+                                        <h1 className='text-sm font-bold my-2 text-primary-color  min-h-9'>
                                             {elem.title}
                                         </h1>
 
-                                        <p className='text-gray-700 font-semibold mt-2 text-xs line-clamp-3 min-h-12'>
+                                        <p className='text-gray-700 font-semibold mt-2 text-xs line-clamp-3 min-h-12 '>
                                             {elem.description}
                                         </p>
 
-                                        <div className='mt-4 flex items-center space-x-2'>
+                                        <div className='mt-2 flex items-center space-x-2'>
                                             <div className='flex items-center px-3 py-1 bg-gray-50 rounded-full border border-gray-200'>
                                                 <FaCalendar className='text-yellow-500 mr-2 text-xs' />
                                                 <span className='text-gray-700 text-xs font-medium'>{elem.book_date}</span>
@@ -267,25 +263,25 @@ const UpcomingWebinars = () => {
                                                 });
                                             }}
                                             className='
-                                            mt-3
-                                            w-1/2
-                                            bg-yellow-500
-                                            text-white
-                                            font-semibold
-                                            py-1
-                                            rounded-lg
-                                            hover:bg-yellow-600
-                                            transform
-                                            hover:-translate-y-0.5
-                                            transition-all
-                                            duration-200
-                                            focus:outline-none
-                                            focus:ring-2
-                                            focus:ring-yellow-500
-                                            focus:ring-opacity-50
-                                            shadow-md
-                                            hover:shadow-lg
-                                        '
+                                    mt-3
+                                    w-1/2
+                                    bg-yellow-500
+                                    text-white
+                                    font-semibold
+                                    py-1
+                                    rounded-lg
+                                    hover:bg-yellow-600
+                                    transform
+                                    hover:-translate-y-0.5
+                                    transition-all
+                                    duration-200
+                                    focus:outline-none
+                                    focus:ring-2
+                                    focus:ring-yellow-500
+                                    focus:ring-opacity-50
+                                    shadow-md
+                                    hover:shadow-lg
+                                '
                                         >
                                             {hoverStates[index] ? (
                                                 <>
@@ -321,10 +317,10 @@ const UpcomingWebinars = () => {
     return (
         <Container>
             <div className='text-center pb-6'>
-                <h1 className='text-4xl pb-2 text-primary-color font-bold'>
-                    <span className="text-yellow-500 font-extrabold">Upcoming</span> Webinars
+                <h1 className='text-3xl pb-2 text-primary-color font-bold'>
+                    <span className="text-yellow-600 font-extrabold">Upcoming</span> Webinars
                 </h1>
-                <p className='text-sm font-bold text-gray-700'>Mark your calendars for Hello Mentor’s upcoming NEET Counselling webinars.</p>
+                <p className='text-xs font-bold text-gray-700'>Mark your calendars for Hello Mentor’s upcoming <strong>NEET</strong> Counselling webinars.</p>
             </div>
             <div>
                 <Tabs tabPosition='left' animated={true} defaultActiveKey='1' items={items} onChange={(key) => console.log(key)} className='text-primary-color antTabs' color='#201169' />

@@ -72,9 +72,10 @@ const Schedule = () => {
                                         <p className="text-gray-400 mb-4 text-xs  font-semibold">
                                             Venue: {elem.venue}
                                         </p>
-                                        <Timeline 
+                                        <Timeline  
                                             className="text-gray-300  flex flex-col w-full py-4"
                                             mode="left"
+                                            
                                             items={elem.sessions.map((detail) => ({
                                                 label: detail.time,
                                                 color:'gray',
@@ -82,7 +83,8 @@ const Schedule = () => {
                                                     <div className="font-medium">
                                                         {detail.topic}
                                                     </div>
-                                                )
+                                                ),
+                                                
                                             }))}
                                         />
                                         <button className=' bg-yellow-600  w-fit font-semibold px-2 py-1 rounded-l-full rounded-r-full text-gray-300 '>Book Now</button>

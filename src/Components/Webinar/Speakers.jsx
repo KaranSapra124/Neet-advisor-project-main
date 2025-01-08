@@ -77,10 +77,10 @@ const Speakers = () => {
     ];
 
     return (
-        <Container className={"bg-gray-100/50"}>
-            <div className='pb-10'>
-                <h1 className='text-4xl py-5 text-primary-color font-bold text-center'>Our <span className='text-yellow-500 font-extrabold '>Speakers</span></h1>
-                <p className='text-sm font-bold text-gray-700 text-center'>Discover the best colleges & counselling approach for your NEET score
+        <Container className={"bg-gray-200/40"}>
+            <div className='py-4'>
+                <h1 className='text-3xl py-1 text-primary-color font-bold text-center'>Our <span className='text-yellow-600 font-extrabold '>Speakers</span></h1>
+                <p className='text-sm font-semibold text-gray-700 text-center'>Discover the best colleges & counselling approach for your NEET score
 
                 </p>
             </div>
@@ -89,20 +89,20 @@ const Speakers = () => {
                     return (
                         <div
                             key={index}
-                            className="max-w-xs cursor-pointer w-64 rounded-lg bg-white shadow-lg p-4 flex flex-col items-center relative transition-all transform hover:scale-105 hover:shadow-xl hover:bg-gray-50 hover:border hover:border-primary-color"
+                            className="max-w-xs cursor-pointer w-64 rounded-lg bg-white shadow-lg p-4  flex flex-col items-center relative transition-all transform hover:scale-105 hover:shadow-xl hover:bg-gray-50 hover:border hover:border-primary-color"
                         >
                             <img
-                                className="rounded-full w-24 h-24 border-4 border-primary-color mb-4 shadow-md transition-all transform hover:scale-110"
+                                className="rounded-full w-20 h-20 border-2 border-primary-color mb-4 shadow-md transition-all transform hover:scale-110"
                                 src={elem?.imgUrl}
                                 alt={elem?.speakerName}
                             />
-                            <h2 className="text-sm text-primary-color font-semibold text-center mb-1">{elem.speakerName}</h2>
-                            <h3 className="text-gray-600 text-sm font-medium text-center mb-1">{elem?.designation}</h3>
-                            <p className="text-xs text-gray-700 font-semibold text-center mb-3">{elem?.qualification}</p>
-                            <h5 className="bg-primary-color text-white text-xs p-2 rounded-full shadow-sm text-center">{elem?.collegeName}</h5>
+                            <h2 className="text-sm text-primary-color font-bold text-center mb-1">{elem.speakerName}</h2>
+                            <h3 className="text-gray-600 text-xs font-semibold text-center mb-1">{elem?.designation}</h3>
+                            <p className="text-sm text-gray-700 font-bold text-center mb-2">{elem?.qualification}</p>
+                            <h5 className="bg-primary-color text-white text-xs font-medium px-2 py-1 rounded-full shadow-sm text-center">{elem?.collegeName}</h5>
 
                             {/* Position the cursor icon at the bottom-right of the card */}
-                            <BsCursorFill className="absolute  bottom-6 right-6 text-primary-color" />
+                            {/* <BsCursorFill className="absolute   bottom-6 right-8 text-primary-color" /> */}
                         </div>
                     );
                 })}

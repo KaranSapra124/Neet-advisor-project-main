@@ -303,28 +303,26 @@ const AspirantsSection = () => {
     return (
         <Container className={' max-w-screen-xl'}>
             <div className="text-center mb-8">
-                <h1 className="text-4xl font-bold mb-2 text-primary-color">Students Coached to <span className='text-yellow-500 font-extrabold'>Top Medical Colleges</span></h1>
-                <p className="text-lg text-gray-700 font-bold">Check out the medical colleges our attendees have reached with enhanced confidence, clarity, and applying our strategies.</p>
+                <h1 className="text-3xl font-bold mb-2 text-primary-color">Students Coached to <span className='text-yellow-600 font-extrabold'>Top Medical Colleges</span></h1>
+                <p className="text-sm text-gray-700 font-semibold">Check out the medical colleges our attendees have reached with enhanced confidence, clarity, and applying our strategies.</p>
             </div>
-            {/* <div className="marquee"> */}
-            {/* <div className=" mx-auto  "> */}
-            <Carousel autoplay slidesToShow={4} arrows={false} dotPosition='bottom'>
+            <Carousel autoplay slidesToShow={4}  arrows={false} dots={false}>
                 {
                     neetAspirants.map((elem, index) => (
                         <div
                             key={index}
                             className="
-
-                                rounded-2xl 
+                            
+                                rounded-md 
                                 overflow-hidden 
-                                shadow-2xl 
-                                border-2 
-                                border-gray-100 
+                                shadow-md
+                                shadow-gray-500
+                              
                                 transform 
                                 transition-all 
                                 duration-300 
                                 p-2
-                                hover:scale-105
+                                hover:scale-x-105
                                 cursor-pointer
                             "
                         >
@@ -345,14 +343,14 @@ const AspirantsSection = () => {
                                         duration-300
                                     "
                                 />
-                                <div className="absolute top-2 right-2 bg-white/80 rounded-full px-3 py-1 text-xs font-bold">
+                                <div className="absolute top-2 right-2 text-gray-700 bg-white/80 rounded-full px-3 py-1 text-xs font-bold">
                                     Rank: {elem.AIR_Rank}
                                 </div>
                             </div>
 
-                            <div className="p-5 space-y-3">
+                            <div className="px-1 py-2 space-y-3">
                                 <h3 className="
-                                    text-md 
+                                    text-sm
                                     font-bold 
                                     text-primary-color 
                                     tracking-tight 
@@ -366,7 +364,7 @@ const AspirantsSection = () => {
                                 <div className="flex items-center space-x-3">
                                     <span
                                         className={`
-                                            px-4 
+                                            px-2 
                                             py-1 
                                             rounded-full 
                                             text-xs 
@@ -413,8 +411,6 @@ const AspirantsSection = () => {
                     ))
                 }
             </Carousel>
-            {/* </div> */}
-            {/* </div> */}
         </Container>
     );
 }

@@ -1,106 +1,108 @@
 import React from 'react';
 import { Button, Card, Rate, Typography } from 'antd';
 import { CalendarOutlined, ClockCircleOutlined, UserOutlined, GoogleOutlined } from '@ant-design/icons';
-
-const { Title, Paragraph } = Typography;
+import Container from "../Helper/Container"
+import Divider from "../Helper/Divider"
+const {  Paragraph } = Typography;
 
 const Hero = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-yellow-50 py-12">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Content */}
-          <div>
-            <h1 level={1} className="mb-6 text-primary-color font-bold text-3xl">
-              Shape Your Medical Future at India's Premier{' '}
-              <span className="bg-gradient-to-r from-yellow-500  to-yellow-600 bg-clip-text text-transparent font-extrabold">
-                NEET Counselling
-              </span>{' '}
-              Webinar
-            </h1>
-            
-            <Paragraph className="text-lg text-gray-600 mb-8">
-              Join expert mentors who've guided 3.5L+ students to medical success. 
-              Get personalized strategies from exam preparation to college admission.
-            </Paragraph>
+    <Container className={'bg-gray-200/40 flex justify-center items-center'}>
 
-            <Card className="mb-8 bg-white/80 border border-gray-100">
-              <div className="flex flex-wrap gap-6">
-                <div className="flex items-center gap-2">
-                  <CalendarOutlined className="text-xl text-indigo-900" />
-                  <span className="font-semibold">20-12-2024</span>
+      <div className="grid mx-auto max-w-screen-lg grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        {/* Left Content */}
+        <div>
+          <h1 level={1} className="mb-6 text-primary-color font-bold text-3xl">
+            Shape Your Medical Future at India's Premier{' '}
+            <span className="text-yellow-600 bg-clip-text text-transparent font-extrabold">
+              NEET Counselling
+            </span>{' '}
+            Webinar
+          </h1>
+
+          <Paragraph className="text-sm font-semibold text-gray-600 my-4">
+            Join expert mentors who've guided 3.5L+ students to medical success.
+            Get personalized strategies from exam preparation to college admission.
+          </Paragraph>
+
+          <Card className="my-4 bg-gray-100/10 ">
+            <div className="flex flex-wrap gap-6">
+              <div className="flex items-center gap-2">
+                <CalendarOutlined className="text-xl text-indigo-900" />
+                <span className="font-semibold">20-12-2024</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ClockCircleOutlined className="text-xl text-indigo-900" />
+                <span className="font-semibold">11:00 AM</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <UserOutlined className="text-xl text-indigo-900" />
+                <span className="font-semibold">Limited Seats</span>
+              </div>
+            </div>
+          </Card>
+
+          <button className="p-2 transition-all duration-300 rounded-l-full rounded-r-full text-white font-semibold   bg-yellow-500 border-yellow-500 hover:bg-yellow-600 hover:border-yellow-600">
+            Register Now
+          </button>
+
+          {/* Social Proof Card */}
+          <Card className="my-4 bg-gray-100/20">
+            <div className="flex items-center gap-6">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <GoogleOutlined className="text-xl" />
+                  <Rate disabled defaultValue={5} className="text-sm" />
                 </div>
-                <div className="flex items-center gap-2">
-                  <ClockCircleOutlined className="text-xl text-indigo-900" />
-                  <span className="font-semibold">11:00 AM</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <UserOutlined className="text-xl text-indigo-900" />
-                  <span className="font-semibold">Limited Seats</span>
+                <div className="text-xs font-semibold text-gray-600">
+                  4406+ Students Rated Us 5/5
                 </div>
               </div>
-            </Card>
-
-            <Button type="primary" size="large" className="mb-8 bg-yellow-500 border-yellow-500 hover:bg-yellow-600 hover:border-yellow-600">
-              Register Now
-            </Button>
-
-            {/* Social Proof Card */}
-            <Card className="mb-6 bg-white/90">
-              <div className="flex items-center gap-6">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <GoogleOutlined className="text-xl" />
-                    <Rate disabled defaultValue={5} className="text-sm" />
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    4406+ Students Rated Us 5/5
-                  </div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-indigo-900">3.5L+</div>
-                  <div className="text-sm text-gray-600">Students Guided</div>
-                </div>
+              <div>
+                <div className="text-2xl font-extrabold text-primary-color">3.5L+</div>
+                <div className="text-xs font-semibold text-gray-600">Students Guided</div>
               </div>
-            </Card>
-          </div>
+            </div>
+          </Card>
+        </div>
 
-          {/* Right Content */}
-          <div className="flex flex-col gap-6">
-            {/* Video Section */}
-            <video
-              autoPlay
-              loop
-              muted
-              // controls
-              className="w-full rounded-lg"
-              src="https://videos.pexels.com/video-files/1580507/1580507-sd_640_360_30fps.mp4"
-            />
+        {/* Right Content */}
+        <div className="flex w-96 justify-end items-end flex-col gap-6">
+          {/* Video Section */}
+          <video
+            autoPlay
+            loop
+            muted
+            // controls
+            className="w-96 rounded-lg"
+            src="https://videos.pexels.com/video-files/1580507/1580507-sd_640_360_30fps.mp4"
+          />
 
-            {/* Key Benefits Card */}
-            <Card
-              title="What You'll Learn"
-              className="bg-white/90 shadow-lg"
-            >
-              <ul className="list-none p-0 m-0">
-                <li className="mb-3 flex items-center gap-2">
-                  <span className="text-indigo-900 font-bold">✓</span>
-                  Expert NEET preparation strategies
-                </li>
-                <li className="mb-3 flex items-center gap-2">
-                  <span className="text-indigo-900 font-bold">✓</span>
-                  College selection guidance
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-indigo-900 font-bold">✓</span>
-                  Admission process mastery
-                </li>
-              </ul>
-            </Card>
+          {/* Key Benefits Card */}
+          <div className='border w-full rounded-md mx-auto p-4 bg-white/90'>
+            <h1 className='text-gray-700 font-bold text-md'>What You will Learn ?</h1>
+            <Divider className={'h-[0.1rem] my-2 bg-gray-500 rounded-full'}/>
+            <ul className="list-none p-0 m-0">
+              <li className="mb-3 flex text-xs text-gray-700 font-normal items-center gap-2">
+                <span className="text-indigo-900 font-bold">✓</span>
+                Expert NEET preparation strategies
+              </li>
+              <li className="mb-3 flex text-xs text-gray-700 font-normal items-center gap-2">
+                <span className="text-indigo-900 font-bold">✓</span>
+                College selection guidance
+              </li>
+              <li className="flex text-xs text-gray-700 font-normal items-center gap-2">
+                <span className="text-indigo-900 font-bold">✓</span>
+                Admission process mastery
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
+
+
+    </Container>
+
   );
 };
 

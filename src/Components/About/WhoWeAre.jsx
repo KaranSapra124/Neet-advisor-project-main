@@ -28,7 +28,7 @@ const WhoWeAre = () => {
                 return imageUrls[index] = imageUrls[index + 1]
             }))
             setIsChanged((prev) => prev + 1)
-        }, 2000)
+        }, 3500)
 
 
         return () => clearInterval(imgIntervals)
@@ -45,27 +45,27 @@ const WhoWeAre = () => {
     // }
     return (
         <>
-            <Container >
-                <h1 className='text-4xl pb-2 text-center text-primary-color font-bold'>Our Vision <span className='text-yellow-500 font-extrabold'>& Mission</span></h1>
-                <div className='h-1 w-64 m-auto mb-5 bg-yellow-500'></div>
-                <div className='flex justify-center space-x-2'>
+            <Container className={'bg-gray-200/40'} >
+                <h1 className='text-3xl  text-center text-primary-color font-bold'>Our Vision <span className='text-yellow-600 font-extrabold'>& Mission</span></h1>
+                <div className='h-1 w-64 m-auto my-2 bg-yellow-600 rounded-full'></div>
+                <div className='flex h-48 items-center justify-center '>
                     <div className="flex shadow-xl    rounded-lg shadow-gray-300">
-                        <img className={`w-[15rem] h-[16rem]   p-1 object-cover  `} ref={mainImg} src={imageUrls[0]} alt="" />
+                        <img className={`w-[15rem] h-48   p-1 object-cover  `} ref={mainImg} src={imageUrls[0]} alt="" />
 
                         <div className=' columns-3 imgContainer'>
                             {imageUrls?.slice(1, imageUrls?.length)?.map((elem, index) => {
-                                return <img className='w-[8rem]   h-[8rem] p-1' src={elem} key={index} />
+                                return <img className='w-[8rem]   h-24 p-1' src={elem} key={index} />
                             })}
                         </div>
                     </div>
-                    <div className='w-[30rem] space-y-8'>
+                    <div className='w-1/2 space-y-4'>
                         <div className='shadow-xl m-1 p-2'>
-                            <h2 className='text-lg font-bold text-primary-color py-1'>Mission</h2>
+                            <h2 className='text-sm font-extrabold text-primary-color py-1'>Mission</h2>
                             <p className='text-xs text-gray-700 font-semibold'>To empower medical students to make lifelong, responsible and meaningful choices in a global and dynamic world. We will accomplish this by building personal relationship in a professional yet helping environment.
                             </p>
                         </div>
                         <div className='shadow-xl m-1 p-2'>
-                            <h2 className='text-lg font-bold text-primary-color py-1'>Vision</h2>
+                            <h2 className='text-sm font-extrabold text-primary-color py-1'>Vision</h2>
                             <p className='text-xs text-gray-700 font-semibold'>Be the most preffered choice for the medical students who are goal oriented, determined and wish to pursue medical education without any obstacles.
                             </p>
                         </div>

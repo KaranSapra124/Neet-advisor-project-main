@@ -75,10 +75,10 @@ const Testimonials = () => {
     return (
         <>
             {isPlay && <PlayVideoModal file={video} isOpen={isPlay} setisOpen={setIsPlay} key={0} />}
-            <Container className={"bg-gray-100/40"}>
-                <div className='py-5'>
-                    <h1 className='text-4xl text-center text-primary-color font-bold'>What Our <span className='text-yellow-500 font-extrabold '> Attendees Say ?</span></h1>
-                    <p className='text-gray-700 font-semibold text-center'>Here's what future healers speak of Hello Mentor's guidance.</p>
+            <Container className={"bg-gray-200/40"}>
+                <div className='py-2'>
+                    <h1 className='text-3xl text-center text-primary-color font-bold'>What Our <span className='text-yellow-500 font-extrabold '> Attendees Say ?</span></h1>
+                    <p className='text-gray-700 font-semibold text-xs py-2 text-center'>Here's what future healers speak of Hello Mentor's guidance.</p>
                 </div>
                 <div className='flex flex-wrap justify-center'>
                     {
@@ -110,7 +110,7 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
     };
 
     return (
-        <div className="w-64 h-64 m-2 relative group"
+        <div className="w-60 h-60 m-2 relative group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}>
 
@@ -122,7 +122,7 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
                 {/* Content Area */}
                 <div className="p-4 h-full flex flex-col">
                     {/* Quote Design */}
-                    <div className="text-6xl text-purple-200 font-serif">"</div>
+                    <div className="text-4xl text-purple-200 font-serif">"</div>
 
                     {/* Review Text */}
                     <div className="flex-1">
@@ -131,7 +131,7 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
 
                     {/* Author Info */}
                     <div className="mt-2">
-                        <h3 className="text-gray-800 font-bold">{name}</h3>
+                        <h3 className="text-gray-700 text-sm  font-bold">{name}</h3>
                         <p className="text-gray-600 text-xs">{college}</p>
                     </div>
                 </div>

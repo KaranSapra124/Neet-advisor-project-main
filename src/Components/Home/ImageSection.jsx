@@ -10,21 +10,22 @@ const ImageSection = () => {
         { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
         { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
     ]);
+
     return (
         // <Container >
-        <div className="w-full max-w-5xl mx-auto px-4 pb-20">
+        <div className=" w-1/2 mx-auto px-4  ">
             <div className="space-y-8">
                 {/* First Carousel */}
                 <div className="relative">
                     {/* Gradient Overlay - Left */}
-                    <div className="absolute   top-0 w-[20rem] -ml-10 h-full bg-gradient-to-r from-white to-transparent z-10" />
+                    <div className="absolute   top-0 w-[25rem]  -ml-10 h-full bg-gradient-to-r from-white to-transparent z-10" />
 
                     {/* Gradient Overlay - Right */}
                     <div className="absolute  right-0 top-0 w-[20rem] rotate-180 -mr-[2rem] h-full bg-gradient-to-r from-white to-transparent z-10" />
 
                     <Carousel
                         className="relative overflow-hidden -mx-2"
-                        slidesToShow={5}
+                        slidesToShow={4}
                         dots={false}
                         autoplay
                         autoplaySpeed={2000}
@@ -37,7 +38,7 @@ const ImageSection = () => {
                                     <img
                                         src={elem?.imageUrl}
                                         alt={elem.imageAlt}
-                                        className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-110"
+                                        className="w-full  h-40  object-cover transition-transform duration-300 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300" />
                                 </div>
@@ -49,15 +50,15 @@ const ImageSection = () => {
                 {/* Second Carousel - Reverse Direction */}
                 <div className="relative">
                     {/* Gradient Overlay - Left */}
-                    <div className="absolute   top-0 w-[20rem] -ml-10 h-full bg-gradient-to-r from-white to-transparent z-10" />
+                    <div className="absolute   top-0 w-[20rem] -ml-10 h-full bg-gradient-to-r from-[#FFFDEC] to-transparent z-10" />
 
                     {/* Gradient Overlay - Right */}
-                    <div className="absolute right-0 top-0  -mr-[1rem] w-[20rem] h-full bg-gradient-to-l from-white to-transparent z-10" />
+                    <div className="absolute right-0 top-0  -mr-[1rem] w-[20rem] h-full bg-gradient-to-l from-[#FFFDEC] to-transparent z-10" />
 
                     <Carousel
                         infinite={true}
                         className="relative overflow-hidden -mx-2"
-                        slidesToShow={5}
+                        slidesToShow={4}
                         dots={false}
                         autoplay
                         autoplaySpeed={2000}

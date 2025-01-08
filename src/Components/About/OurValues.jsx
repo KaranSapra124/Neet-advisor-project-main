@@ -64,9 +64,9 @@ const OurValues = () => {
         <Container className={"bg-gray-100/50"}>
             <div className=" max-w-screen-xl m-auto">
                 <div className='pb-5'>
-                    <h1 className='text-center text-4xl font-bold text-primary-color'>Our Values , <span className='text-yellow-500 font-extrabold'>Which Defined Us</span></h1>
+                    <h1 className='text-center text-3xl font-bold text-primary-color'>Our Values , <span className='text-yellow-600 font-extrabold'>Which Defined Us</span></h1>
                     <p className='text-gray-700 font-semibold text-xs pt-2 text-center'>Our values represent the core principles that guide our actions, decisions, and relationships. They reflect our commitment to integrity, respect, innovation, and collaboration, shaping the way we interact with each other and the world.</p>
-                <div className='h-1 w-64 mx-auto my-4 rounded-lg bg-yellow-500'></div>
+                <div className='h-1 w-64 mx-auto my-4 rounded-lg bg-yellow-600'></div>
                 </div>
                 <Steps
                     direction="horizontal"

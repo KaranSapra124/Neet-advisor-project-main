@@ -1,48 +1,73 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { GiTeacher } from "react-icons/gi";
+import { GiTeacher, GiPodiumWinner } from "react-icons/gi";
 import { PiStudentDuotone } from "react-icons/pi";
 import { IoIosPeople } from "react-icons/io";
-
-import { GiPodiumWinner } from "react-icons/gi";
+import Container from "../Helper/Container"
 
 const Stats = () => {
     const statistics = [
         {
             title: "Seminars & Webinars",
             icon: <GiTeacher />,
-            count: 1000
+            count: 1000,
         },
         {
             title: "Students Impacted",
             icon: <PiStudentDuotone />,
-            count: 1000
+            count: 1000,
         },
         {
             title: "Counselling Sessions",
             icon: <IoIosPeople />,
-            count: 1000
+            count: 1000,
         },
         {
             title: "Successful Clients",
             icon: <GiPodiumWinner />,
-            count: 1000
+            count: 1000,
         },
     ];
 
     return (
-        <div className='flex flex-col p-20 w-full'>
-            <h1 className='text-4xl font-bold text-center mb-[5rem] primary'>Stats Which <span className='text-yellow-400'>Defines Us!</span></h1>
-            <div className='flex justify-evenly'>
-                {statistics.map((elem, index) => (
-                    <div key={index} style={{
-                        animation: `${index % 2 !== 0 ? "backInUp" : "backInDown"} 2s normal ease-in`
-                    }} className={`border p-4   shadow-lg rounded-lg ${index % 2 !== 0 ? "bg-gray-100" : ""}`}>
-                        <CountUp icon={elem.icon} num={elem.count} className={"text-4xl text-center font-semibold text-gray-600"} />
-                        <h2 className='text-md mt-4 font-bold text-yellow-400'>{elem.title}</h2>
+        <>
+            <Container>
+                <div >
+                    <div className=" mx-auto px-6 text-center">
+                        {/* Header */}
+                        <h1 className="text-3xl font-extrabold text-primary-color">
+                            Stats That <span className="text-yellow-600 font-extrabold">Define Us</span>
+                        </h1>
+                        <p className="mt-2 text-gray-700 font-semibold text-xs">
+                            Discover the milestones that showcase our commitment and impact.
+                        </p>
+
+                        {/* Stats Grid */}
+                        <div className="mt-4 flex justify-evenly">
+                            {statistics.map((stat, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-gray-200/30 rounded-full  shadow-md  transition-all duration-300 flex flex-col items-center justify-center p-8"
+                                >
+                                    {/* Icon */}
+                                    <div className="text-3xl text-yellow-600 mb-4">
+                                        {stat.icon}
+                                    </div>
+                                    {/* Count */}
+                                    <CountUp
+                                        num={stat.count}
+                                        className="text-4xl font-bold text-gray-700"
+                                    />
+                                    {/* Title */}
+                                    <h3 className="mt-2 text-xs font-semibold text-gray-600">
+                                        {stat.title}
+                                    </h3>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                ))}
-            </div>
-        </div>
+                </div>
+            </Container>
+        </>
     );
 };
 
@@ -52,12 +77,12 @@ const CountUp = ({ num, className, icon }) => {
     const countRef = useRef(null);
 
     const startCounting = () => {
-        setCount(0); // Reset count
+        setCount(0);
         intervalRef.current = setInterval(() => {
             setCount((prev) => {
                 if (prev >= num) {
                     clearInterval(intervalRef.current);
-                    return num; // Ensure it doesn't exceed the target number
+                    return num;
                 }
                 return prev + 1;
             });
@@ -66,11 +91,11 @@ const CountUp = ({ num, className, icon }) => {
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    startCounting(); // Start counting when in viewport
+                    startCounting();
                 } else {
-                    clearInterval(intervalRef.current); // Stop counting when out of viewport
+                    clearInterval(intervalRef.current);
                 }
             });
         });
@@ -86,10 +111,7 @@ const CountUp = ({ num, className, icon }) => {
     }, [num]);
 
     return (
-        <div ref={countRef} className='flex justify-center items-center flex-col'>
-            <div className='text-[4rem] primary my-2'>
-                {icon}
-            </div>
+        <div ref={countRef} className="flex flex-col items-center">
             <h1 className={className}>{count}</h1>
         </div>
     );

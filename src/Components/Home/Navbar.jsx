@@ -75,7 +75,7 @@ function Navbar() {
 
 
     return (
-        <nav className={` ${window.location.pathname.includes('medical-expo') ? "bg-gradient-to-br from-black to-black/85 " : "bg-white "} sticky top-0 z-[99]  backdrop-blur-sm shadow-lg p-4 px-20`}>
+        <nav className={` ${window.location.pathname.includes('medical-expo') ? "bg-gradient-to-br from-black to-black/85 " : "bg-white "} sticky top-0 z-[1000]  backdrop-blur-sm shadow-lg p-4 px-20`}>
             <div className="container mx-auto   flex justify-between items-center">
                 <div className='flex items-center'>
                     {!window?.location?.pathname?.includes("medical-expo") && <img src="neet-advisor-logo-Photoroom.png" className='h-[4rem] ' alt="" srcset="" />}

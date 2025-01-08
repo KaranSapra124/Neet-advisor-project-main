@@ -8,11 +8,10 @@
 }
 
 * {
-    font-family: "Montserrat", serif;
-    font-optical-sizing: auto;
+    font-family: "Roboto", serif;
     font-weight: 400;
     font-style: normal;
-}
+  }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap'); */
 
@@ -22,10 +21,11 @@
     font-style: normal;
 } */
 
-#hero-bg{
+#hero-bg {
     background-image: url('632749424660Hospital_Appointment_Schedule.gif');
     background-size: cover;
 }
+
 .animateHero {
     animation: scroll 40s linear infinite;
     display: flex;
@@ -117,15 +117,15 @@
 
 /* Homepage section 2 */
 .ant-popover-inner {
-    background-color: rgb(251 191 36) !important;
+    background-color: #F3F4F6 !important;
 }
 
 .ant-popover-arrow {
-    color: rgb(251 191 36) !important;
+    color: #F3F4F6 !important;
 }
 
 .ant-popover-arrow::after {
-    background: rgb(251 191 36) !important;
+    background: #F3F4F6 !important;
 }
 
 .ant-popover-content {
@@ -594,3 +594,7 @@
 
 /* Webinar Outcome */
 
+/* Ant Design Card */
+.ant-card .ant-card-body {
+    padding: 1rem;
+}

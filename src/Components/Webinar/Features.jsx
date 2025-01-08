@@ -63,18 +63,18 @@ const Features = () => {
             <Container>
                 <div className="max-w-screen-lg mx-auto px-4  sm:px-6 lg:px-8">
                     {/* Header Section */}
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl font-bold mb-4">
+                    <div className="text-center ">
+                        <h1 className="text-3xl  my-2">
                             <span className="text-yellow-500 font-extrabold">Features</span>
                             <span className="text-primary-color font-bold"> to Enhance Your Experience</span>
                         </h1>
-                        <p className="text-gray-700  text-sm font-bold  mx-auto">
+                        <p className="text-gray-700  text-xs font-bold  mx-auto">
                             Our best-in-class Webinars effectively communicate your concerns with simplified interaction.
                         </p>
                     </div>
 
                     {/* Steps */}
-                    <div className="mb-8">
+                    <div className="my-2">
                         <Steps
                             current={activeIndex}
                             progressDot
@@ -83,7 +83,7 @@ const Features = () => {
                     </div>
 
                     {/* Content Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2  mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2  my-4">
                         {/* Video Section */}
                         {/* <div className="rounded-lg overflow-hidden shadow-lg bg-gray-100"> */}
                         <video
@@ -98,16 +98,16 @@ const Features = () => {
 
                         {/* Features Section */}
                         <div className="flex flex-col justify-center ">
-                            <h3 className="text-lg font-bold text-primary-color mb-6">
+                            <h3 className="text-sm font-bold text-primary-color mb-6">
                                 {data[activeIndex].title}
                             </h3>
                             <ul className="space-y-4">
                                 {data[activeIndex].content.map((item, index) => (
                                     <li key={index} className="flex items-start space-x-3">
-                                        <span className="flex-shrink-0 w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
+                                        <span className="flex-shrink-0 w-5 h-w-5 bg-yellow-500 rounded-full flex items-center justify-center">
                                             <TiTick className="text-white text-lg" />
                                         </span>
-                                        <span className="text-gray-700 text-sm font-semibold">{item}</span>
+                                        <span className="text-gray-700 text-xs font-semibold">{item}</span>
                                     </li>
                                 ))}
                             </ul>

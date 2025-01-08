@@ -5,6 +5,7 @@ import 'swiper/css/navigation'; // Import navigation styles
 // import { Navigation } from 'swiper'; // Import navigation module
 import ScrollAnimation from 'react-animate-on-scroll';
 import { Carousel } from "antd"
+import Container from "../Helper/Container"
 import { FaArrowRight, FaLocationArrow, FaRegNewspaper } from 'react-icons/fa'
 
 const NewsSection = () => {
@@ -82,18 +83,19 @@ const NewsSection = () => {
 
     return (
         <>
-            <div className='p-10 flex flex-col justify-between bg-yellow-100/20' >
+            <Container className={'bg-gray-200/40'}>
+
                 <div className='flex flex-col text-center mx-5'>
-                    <h1 className='text-3xl primary font-bold text-center '>
-                        Get the <span className='text-yellow-400 font-extrabold'>Latest News and Updates</span> ,  all at One place!
+                    <h1 className='text-3xl primary font-semibold text-center '>
+                        Get the <span className='text-yellow-600 font-extrabold'>Latest News and Updates</span> ,  all at One place!
                     </h1>
-                    <p className='py-5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod veritatis ipsam harum quaerat eaque quam quibusdam dolore voluptates voluptas ratione, quisquam beatae dignissimos debitis recusandae suscipit totam qui nam! Sint.</p>
+                    <p className='py-2 text-xs text-gray-700 font-semibold'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod veritatis ipsam harum quaerat eaque quam quibusdam dolore voluptates voluptas ratione, quisquam beatae dignissimos debitis recusandae suscipit totam qui nam! Sint.</p>
 
 
                 </div>
                 <ScrollAnimation animateIn='backInUp' animateOnce={true} duration={1.5}>
 
-                    <Carousel slidesToShow={4} className='gap-x-1 my-5 mx-10' arrows={true} dotPosition='bottom' autoplay>
+                    <Carousel slidesToShow={4} dots={false} className='gap-x-1 my-5 mx-10' arrows={true} dotPosition='bottom' autoplay>
                         {/* Render each group of 3 slides here */}
                         {newsData?.map((elem, index) => {
                             // console.log(elem,"ELEM")
@@ -104,16 +106,16 @@ const NewsSection = () => {
                                         {/* Adjust each box width to 30% to fit 3 items per row */}
                                         <div className="relative  newsBox mx-2 border  rounded cursor-pointer hover:scale-105 transition-all shadow-lg bg-white m-2 p-2 w-full overflow-hidden">
                                             {/* Hover effect container */}
-                                            <div className="absolute top-0 left-0 right-0 bottom-0 border-4 border-transparent transform transition-all duration-300 ease-linear group-hover:border-[#262626] group-hover:translate-x-0"></div>
+                                            <div className="absolute top-0 left-0 right-0 bottom-0 border-4 border-transparent transform transition-all duration-300 ease-linear group-hover:border-yellow-600 group-hover:translate-x-0"></div>
 
                                             {/* Inner content */}
                                             <div className="flex items-center">
-                                                <FaRegNewspaper className="text-yellow-500" />
-                                                <p className="mx-2 font-bold text-[0.8rem]">{elem.time}</p>
+                                                <FaRegNewspaper className="text-yellow-600" />
+                                                <p className="mx-2 font-bold text-xs">{elem.time}</p>
                                             </div>
                                             <div className="flex p-2 items-center ">
-                                                <h4 className='text-[0.8rem] text-wrap text-justify'>{elem.headline.substring(0, 40) + ' ...'}</h4>
-                                                <FaLocationArrow className="mx-5 hover:text-yellow-500 transition-all" />
+                                                <h4 className='text-xs text-wrap text-justify text-gray-700'>{elem.headline.substring(0, 40) + ' ...'}</h4>
+                                                <FaLocationArrow className="mx-5 hover:text-yellow-700 text-yellow-600 transition-all" />
                                             </div>
 
                                             {/* Before & After pseudo elements */}
@@ -127,10 +129,11 @@ const NewsSection = () => {
                     </Carousel>
                     {/* </div>
                     </div> */}
-                    <button className="noselect m-auto bg-yellow-500"><span className="text text-white ">View More</span><span className="icon"><FaArrowRight></FaArrowRight>
+                    <button className="noselect m-auto bg-yellow-600"><span className="text text-white ">View More</span><span className="icon"><FaArrowRight></FaArrowRight>
                     </span></button>
                 </ScrollAnimation>
-            </div>
+
+            </Container>
         </>
     );
 };

@@ -46,28 +46,28 @@ const testimonialsData = [
 
 const Testimonials = () => {
     return (
-        <Container className={'bg-gray-100'} >
+        <Container className={'bg-gray-200/40'} >
             {/* <div className=" flex flex-col items-center mx-auto py-2 "> */}
-                <h1 className="p-4 text-4xl leading-none text-center text-primary-color font-bold">What our customers are saying about us ?</h1>
+            <h1 className="text-3xl leading-none text-center text-primary-color font-bold">What our customers are <span className='text-yellow-600 font-extrabold'>saying about us ?</span></h1>
             {/* </div> */}
             {/* <div className="flex flex-col"> */}
-                <ScrollAnimation animateIn='backInUp' animateOnce={true} duration={1.5}>
+            <ScrollAnimation animateIn='backInUp' animateOnce={true} duration={1.5}>
 
-                    <Carousel dotPosition='bottom' slidesToShow={3} autoplay autoplaySpeed={1500} dots={false} className='my-5 max-w-screen-xl mx-auto '>
-                        {testimonialsData.map((elem) => {
-                            return (
-                                // <div key={elem.id} className=''>
-                                <TestimonialCard key={elem.id}
-                                    clientCollege={elem.title}
-                                    clientName={elem.name}
-                                    review={elem.testimonial}
-                                    imgUrl={elem.image}
-                                />
-                                // </div>
-                            );
-                        })}
-                    </Carousel>
-                </ScrollAnimation>
+                <Carousel dotPosition='bottom' slidesToShow={4} autoplay autoplaySpeed={1500} dots={false} className='my-5 max-w-screen-xl mx-auto '>
+                    {testimonialsData.map((elem) => {
+                        return (
+                            // <div key={elem.id} className=''>
+                            <TestimonialCard key={elem.id}
+                                clientCollege={elem.title}
+                                clientName={elem.name}
+                                review={elem.testimonial}
+                                imgUrl={elem.image}
+                            />
+                            // </div>
+                        );
+                    })}
+                </Carousel>
+            </ScrollAnimation>
             {/* </div> */}
         </Container>
         // <section className="my-8 bg-yellow-100/20 text-gray-100">
@@ -77,30 +77,50 @@ const Testimonials = () => {
 };
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
-
     return (
-
-        <div className="my-8 mx-2 rounded-2xl cursor-pointer hover:scale-105 transition-all shadow-lg shadow-black">
-            <div className="px-2 py-4 rounded-t-lg sm:px-2   md:px-2 bg-gray-200">
-                <p className="relative  px-6 py-1 mb-6 text-md italic text-center text-gray-700 font-semibold">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 text-yellow-400">
+        <div className="relative bg-white backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl mx-4 my-8">
+            {/* Review Section */}
+            <div className="px-6 py-8 bg-gradient-to-br from-white/30 to-white/10">
+                <p className="relative text-xs italic text-center text-gray-700 font-semibold">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        fill="currentColor"
+                        className="absolute mb-2 -top-6 left-6 w-5 h-5 text-yellow-400"
+                    >
                         <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                         <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
-                    </svg>{review}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute right-0 w-8 h-8 text-yellow-400">
+                    </svg>
+                    {review}
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        fill="currentColor"
+                        className="absolute mt-2 -bottom-6 right-6 w-5 h-5 text-yellow-400"
+                    >
                         <path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
                         <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
                     </svg>
                 </p>
             </div>
-            <div className="flex flex-col items-center justify-center py-8 px-4 rounded-b-lg bg-[#201169]  text-gray-200">
-                <img src={imgUrl} alt={clientName} className="w-10 h-10 mb-2 -mt-12 bg-center bg-cover rounded-full bg-gray-500 " />
-                <p className="text-md font-semibold leading-tight">{clientName}</p>
-                <p className="text-xs uppercase">{clientCollege}</p>
+
+            {/* Client Info Section */}
+            <div className="flex flex-col items-center justify-center px-6 py-6 bg-white/20 backdrop-blur-md">
+                <img
+                    src={imgUrl}
+                    alt={clientName}
+                    className="w-16 h-16 mb-4 rounded-full border-2 border-yellow-400 shadow-md"
+                />
+                <p className="text-sm font-semibold text-gray-700">{clientName}</p>
+                <p className="text-xs uppercase text-yellow-600">{clientCollege}</p>
             </div>
 
+            {/* Floating Decorative Blurs */}
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute -top-10 -left-10 w-32 h-32 bg-yellow-400 opacity-20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-10 right-10 w-32 h-32 bg-purple-700 opacity-20 rounded-full blur-3xl"></div>
+            </div>
         </div>
-
     );
 };
 

@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 // import "../../src/css/costum.css";
 // import { useNavigate } from "react-router-dom";
+import Container from "../Helper/Container"
 
 const PricingComponent = () => {
     const [planType, setPlanType] = useState("UG");
@@ -163,8 +164,8 @@ const PricingComponent = () => {
                         {plan.title}{" "}
                         <span
                             className={`rounded-md px-5 py-1.5 text-xs font-semibold transition duration-300 ${plan.offer === "PREMIUM"
-                                    ? "border-amber-700 text-amber-600 hover:border-inherit hover:bg-amber-600 hover:text-white"
-                                    : "border-indigo-800 text-indigo-900 hover:border-inherit hover:bg-indigo-900 hover:text-white"
+                                ? "border-amber-700 text-amber-600 hover:border-inherit hover:bg-amber-600 hover:text-white"
+                                : "border-indigo-800 text-indigo-900 hover:border-inherit hover:bg-indigo-900 hover:text-white"
                                 } border-2`}
                         >
                             {plan.offer}
@@ -210,13 +211,14 @@ const PricingComponent = () => {
     };
 
     return (
-        <div className="">
-            <div className="container mx-auto py-20">
+        <Container className={'bg-gray-200/40'}>
+
+            <div className="container mx-auto ">
                 <h1 className="mb-4 text-center text-4xl font-bold md:text-5xl">
                     <span className="text-indigo-900 font-bold" >Transparent Pricing.</span>{" "}
-                    <span className="text-yellow-300 font-bold">Defined Goals.</span>
+                    <span className="text-yellow-600 font-extrabold">Defined Goals.</span>
                 </h1>
-                <p className="text-[14px] mx-auto mb-12 max-w-3xl text-center text-gray-900">
+                <p className="text-xs mx-auto mb-12 max-w-3xl text-center text-gray-700 font-semibold">
                     Our well-defined, pocket-friendly plans reflect our commitment to
                     making your NEET Counselling Process a smooth, hassle-free experience.
                     Choose the one that best suits your goal and budget!
@@ -224,8 +226,8 @@ const PricingComponent = () => {
                 <div className="mb-8 flex justify-center">
                     <button
                         className={`rounded-bl-full rounded-tl-full px-16 py-4 font-bold ${planType === "UG"
-                                ? "bg-indigo-900 text-white"
-                                : "bg-gray-200 text-gray-800"
+                            ? "bg-indigo-900 text-white"
+                            : "bg-gray-200 text-gray-800"
                             }`}
                         onClick={() => setPlanType("UG")}
                     >
@@ -233,8 +235,8 @@ const PricingComponent = () => {
                     </button>
                     <button
                         className={`rounded-br-full rounded-tr-full px-16 py-4 font-bold ${planType === "PG"
-                                ? "bg-indigo-900 text-white"
-                                : "bg-gray-300 text-gray-800"
+                            ? "bg-indigo-900 text-white"
+                            : "bg-gray-300 text-gray-800"
                             }`}
                         onClick={() => setPlanType("PG")}
                     >
@@ -250,20 +252,21 @@ const PricingComponent = () => {
                     </div>
                 </div>
 
-                <div className="mb-8 mt-20 text-center text-4xl  font-bold text-indigo-900">
+                <div className="mb-8 mt-20 text-center text-3xl  font-bold text-indigo-900">
                     Get the
-                    <span className="text-amber-600 font-bold"> Achieve Plan </span>
+                    <span className="text-yellow-600 font-extrabold"> Achieve Plan </span>
                     For Free !
                 </div>
-                <div className="text-l mb-4 text-center text-gray-800">
+                <div className="text-xs font-semibold mb-4 text-center text-gray-700">
                     Have you scored an All-India Ranking within the top 5000? Let’s reward
                     you with a complimentary plan!
                 </div>
-                <div className="mb-8 text-center text-xl font-bold text-gray-600">
+                <div className="mb-8 text-center text-sm font-bold text-gray-600">
                     *Terms and Conditions Apply
                 </div>
             </div>
-        </div>
+
+        </Container>
     );
 };
 

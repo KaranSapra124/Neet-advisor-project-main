@@ -12,9 +12,9 @@ module.exports = {
     extend: {
       animation: {
         scaleUp: 'scaleUp 2s linear infinite',
-        rotateIt: 'flipInY 3s linear normal',
+        rotateIt: 'flipInY 3s linear normal ',
         rubberBand: 'rubberBand 2.5s linear normal',
-        fadeUp:'fadeIn 3s linear infinite'
+        fadeUp:'fadeIn 4s linear infinite'
         // slideIn:'fadeIn 4s linear infinite'
       },
       boxShadow: {

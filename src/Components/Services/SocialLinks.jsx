@@ -35,12 +35,12 @@ const SocialLinks = () => {
     ];
 
     return (
-        <Container>
+        <Container className={"bg-gray-200/40"}>
             {/* <div className='py-10'> */}
-            <h1 className='primary font-bold text-4xl pb-5 text-center'>Let's Get <span className='text-yellow-400 font-extrabold'>Social!</span></h1>
-            <p className='text-gray-800 text-center font-semibold pb-10'>Connect with us on Social Media</p>
+            <h1 className='primary font-bold text-3xl  text-center'>Let's Get <span className='text-yellow-600 font-extrabold'>Social!</span></h1>
+            <p className='text-gray-700 text-center text-xs font-semibold py-2'>Connect with us on Social Media</p>
             {/* </div> */}
-            <div className="flex   items-center  justify-center space-x-6"> {/* Optional: Add some spacing between links */}
+            <div className="flex  py-2 items-center  justify-center space-x-6"> {/* Optional: Add some spacing between links */}
                 {socialLinks.map((elem, index) => (
                     <a
                         id={elem.id}

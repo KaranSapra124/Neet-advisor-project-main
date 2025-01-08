@@ -15,8 +15,8 @@ const TeamInAction = () => {
     ]);
 
     return (
-        <Container>
-            <h1 className='text-4xl font-bold text-primary-color text-center mb-5'>Team In <span className='text-yellow-500 font-extrabold'>Action</span></h1>
+        <Container className={'bg-gray-200/40'}>
+            <h1 className='text-3xl font-bold text-primary-color text-center mb-5'>Team In <span className='text-yellow-600 font-extrabold'>Action</span></h1>
             <div className={`flex items-center`}>
                 <Carousel className='w-96' infinite dots={false} autoplay autoplaySpeed={2000}>
                     {imageUrls?.map((elem, index) => {
