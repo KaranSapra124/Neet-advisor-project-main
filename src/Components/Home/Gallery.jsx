@@ -1,69 +1,98 @@
-import React, { useState, useEffect } from 'react';
-// import './Gallery.css'; // Assuming you have a separate CSS file for styles
-import Container from "../Helper/Container"
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Container from "../Helper/Container";
+
 const imageUrls = [
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar2-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar8-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar7-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar6-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar5-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar4-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar3-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar2-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar1-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar2-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar1-1024x576.webp" },
-    { url: "https://neetadvisor.com/assets/images/seminars/seminar2-1024x576.webp" },
+  { url: "https://picsum.photos/id/10/200/300.webp" },
+  { url: "https://picsum.photos/id/20/200/300.webp" },
+  { url: "https://picsum.photos/id/30/200/300.webp" },
+  { url: "https://picsum.photos/id/40/200/300.webp" },
+  { url: "https://picsum.photos/id/50/200/300.webp" },
+  { url: "https://picsum.photos/id/60/200/300.webp" },
+  { url: "https://picsum.photos/id/70/200/300.webp" },
+  { url: "https://picsum.photos/id/80/200/300.webp" },
+  { url: "https://picsum.photos/id/90/200/300.webp" },
+  { url: "https://picsum.photos/id/100/200/300.webp" },
+  { url: "https://picsum.photos/id/110/200/300.webp" },
+  
+  { url: "https://picsum.photos/id/160/200/300.webp" },
+  { url: "https://picsum.photos/id/170/200/300.webp" },
+  { url: "https://picsum.photos/id/180/200/300.webp" },
+  { url: "https://picsum.photos/id/190/200/300.webp" },
+  { url: "https://picsum.photos/id/200/200/300.webp" }
 ];
 
 const Gallery = () => {
-    const [images, setImages] = useState(imageUrls);
-    const [random, setRandom] = useState(0)
+  const [images, setImages] = useState(
+    imageUrls.map((img, i) => ({ ...img, id: i })),
+  );
 
-    const shuffleImages = () => {
-        const shuffled = [...images];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        setImages(shuffled);
-    };
+  const shuffleImages = () => {
+    // Shuffle logic to move the first image to the end
+    setImages((prevImages) => {
+      const shuffled = [...prevImages];
+      const firstImage = shuffled.shift(); // Remove the first image
+      shuffled.push(firstImage); // Add it to the end
+      return shuffled; // Return the new array
+    });
+  };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            shuffleImages();
-            setRandom(Math.floor(Math.random() * images.length))
-        }, 2500);
+  useEffect(() => {
+    const shuffleInterval = setInterval(() => {
+      shuffleImages();
+    }, 3000); // Shuffle every 5 seconds
 
-        return () => clearInterval(interval);
-    }, [images]);
+    return () => clearInterval(shuffleInterval);
+  }, []);
 
-    return (
-        <Container>
-            <div className="flex flex-col justify-center items-center ">
-                <h1 className="text-3xl font-semibold py-5 text-primary-color">Conceptualizing<span className='text-yellow-400 font-bold'> NEET Counselling </span>Easy Way</h1>
-                <p className="text-xs font-semibold text-center text-gray-800">
-                    Our team has developed a set of webinars/seminars and workshops exclusively for students aspiring for a successful career in medicine. These thoughtfully crafted sessions will cover a wide range of topics that will address concerns, answer queries, and clarify doubts of both students and parents.
-                </p>
+  return (
+    <Container>
+      <div className="mx-auto w-full">
+        <h1 className="py-5 text-center text-3xl font-semibold text-primary-color">
+          Conceptualizing{" "}
+          <span className="font-extrabold text-yellow-600">
+            NEET Counselling
+          </span>{" "}
+          Easy Way
+        </h1>
 
-                <div className="grid grid-cols-4 gap-6 py-5">
-                    {images.map((image, index) => (
-                        <div
-                            key={index}
-                            className={`transition-all duration-300 ease-in-out ${random === index ? "scale-110 p-5" : "p-0"} relative h-52 w-72 m-2 rounded-lg overflow-hidden image-container`}
-                            style={{
-                                backgroundImage: `url(${image.url})`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                            }}
-                        >
-                            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </Container>
-    );
+        <p className="mx-auto mb-8 max-w-2xl text-center text-sm font-semibold text-gray-700">
+          Our team has developed a set of webinars/seminars and workshops
+          exclusively for students aspiring for a successful career in medicine.
+          These thoughtfully crafted sessions will cover a wide range of topics
+          that will address concerns, answer queries, and clarify doubts of both
+          students and parents.
+        </p>
+
+        <div className="mx-auto grid w-fit grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-4">
+          <AnimatePresence>
+            {images.slice(0, 12).map(
+              (
+                image, // Limit to first 8 images
+              ) => (
+                <motion.div
+                  key={image.id}
+                  // initial={{ opacity: 0, y: -20 }}
+                  // animate={{ opacity: 1, y: 0 }}
+                  // exit={{ opacity: 0, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-fit overflow-hidden rounded-lg shadow-lg"
+                  layout // Enables layout animations
+                >
+                  <img
+                    loading="lazy"
+                    src={image.url}
+                    className="h-32 w-60 object-cover"
+                    alt=""
+                  />
+                </motion.div>
+              ),
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </Container>
+  );
 };
 
 export default Gallery;

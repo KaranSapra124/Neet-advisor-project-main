@@ -6,12 +6,7 @@
     color: #201169;
 }
 
-* {
-    font-family: "Montserrat", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
+ 
 .animateHero {
     animation: scroll 300s linear infinite;
     display: flex;

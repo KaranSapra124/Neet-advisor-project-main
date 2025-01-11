@@ -1,127 +1,129 @@
-import React, { useEffect, useState } from 'react';
-import { FaUsers, FaArrowRight } from "react-icons/fa6";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { Button, Popover } from "antd";
+import React, { useEffect, useState } from "react";
+import { FaBook, FaLightbulb, FaUserGraduate, FaClock } from "react-icons/fa";
+import { Timeline } from "antd";
 import Container from "../Helper/Container";
-import ScrollAnimation from 'react-animate-on-scroll';
+import ScrollAnimation from "react-animate-on-scroll";
+import { TiTick } from "react-icons/ti";
 
 const CounsellingSection = () => {
-    const [openPopoverIndex, setOpenPopoverIndex] = useState(null); // Track the open popover index
+  const [randomIndex, setRandomIndex] = useState(0);
+  const counselingContent = [
+    {
+      title: "Understanding NEET Preparation Basics",
+      icon: <FaBook />,
+      keyPoints: [
+        "Overview of NEET syllabus and exam pattern.",
+        "Importance of choosing the right study materials.",
+        "Setting achievable goals for preparation.",
+      ],
+      color: "#4F46E5",
+    },
+    {
+      title: "Time Management for NEET Aspirants",
+      icon: <FaClock />,
+      keyPoints: [
+        "Creating an effective study timetable.",
+        "Allocating time for revision and mock tests.",
+        "Balancing study hours with relaxation and self-care.",
+      ],
+      color: "#06B6D4",
+    },
+    {
+      title: "Dealing with Exam Stress and Anxiety",
+      icon: <FaLightbulb />,
+      keyPoints: [
+        "Tips for staying positive and focused.",
+        "Techniques for reducing exam-related anxiety.",
+        "Importance of maintaining mental and physical well-being.",
+      ],
+      color: "#10B981",
+    },
+    {
+      title: "Career Guidance for Medical Aspirants",
+      icon: <FaUserGraduate />,
+      keyPoints: [
+        "Understanding medical courses and specializations.",
+        "How to choose the right medical college.",
+        "Insights into career opportunities after NEET.",
+      ],
+      color: "#F59E0B",
+    },
+  ];
 
-    const counselingVideos = [
-        {
-            title: "Understanding Mental Health Basics",
-            video: "https://videos.pexels.com/video-files/4487288/4487288-sd_640_360_25fps.mp4",
-            description: "This video explains the basics of mental health, including common mental health disorders, signs, and symptoms.",
-            keyPoints: [
-                "Introduction to mental health and wellness.",
-                "Overview of common mental health disorders.",
-                "Why seeking help is important."
-            ]
-        },
-        {
-            title: "The Importance of Stress Management",
-            video: "https://videos.pexels.com/video-files/4487288/4487288-sd_640_360_25fps.mp4",
-            description: "Learn why managing stress is crucial for mental well-being, and explore effective techniques like mindfulness, exercise, and time management.",
-            keyPoints: [
-                "Understanding the negative effects of unmanaged stress.",
-                "Techniques to manage stress effectively: mindfulness, exercise, time management.",
-                "The connection between stress and overall health."
-            ]
-        },
-        {
-            title: "How Therapy Can Improve Your Life",
-            video: "https://videos.pexels.com/video-files/4487288/4487288-sd_640_360_25fps.mp4",
-            description: "Explore the various benefits of therapy, including how it helps individuals understand their emotions, overcome challenges, and improve their mental health.",
-            keyPoints: [
-                "How therapy helps with understanding emotions and thoughts.",
-                "Therapeutic techniques for overcoming emotional challenges.",
-                "The long-term benefits of ongoing therapy."
-            ]
-        },
-        {
-            title: "Coping with Anxiety and Depression",
-            video: "https://videos.pexels.com/video-files/4487288/4487288-sd_640_360_25fps.mp4",
-            description: "This video provides strategies for coping with anxiety and depression, including cognitive-behavioral techniques, self-care practices, and professional support.",
-            keyPoints: [
-                "Techniques for managing anxiety and depression.",
-                "Cognitive-behavioral strategies for overcoming negative thinking.",
-                "The importance of self-care and professional support."
-            ]
-        },
-    ];
-
-
-
-    return (
-        <ScrollAnimation  animateIn='fadeIn' duration={1.5} >
-            <Container className={'bg-gray-200/40'}>
-                <div className="text-center mb-4">
-                    <h2 className="text-3xl font-bold mb-2 primary gabriela-regular">
-                        What We Have To <span className='text-yellow-600 font-extrabold'>Offer ?</span>
-                    </h2>
-                    <p className="text-xs text-gray-700 my-2 font-semibold">
-                        Get personalized answers and ease your biggest doubts with Video Counselling from our curated experts.
-                    </p>
-                </div>
-                <div className='flex flex-wrap justify-between gap-x-2'>
-                    {counselingVideos?.map((elem, index) => (
-                        <Popover
-                            key={index}
-
-                            arrow={true}
-                            open={openPopoverIndex === index} // Control open state dynamically
-                            placement={"bottom"}
-                            onOpenChange={(visible) => {
-                                setOpenPopoverIndex(visible ? index : null); // Open or close the current popover
-                            }}
-
-                            content={
-                                <div className="flex flex-col lg:flex-row p-2 bg-gray-50 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
-                                    <div className="relative w-full lg:w-64 aspect-video rounded-lg overflow-hidden bg-gray-200">
-                                        <video
-                                            loop
-                                            autoPlay
-                                            muted
-                                            src={elem.video}
-                                            className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
-                                        />
-                                    </div>
-                                    <div className="flex-1 p-4 bg-white rounded-lg shadow-sm">
-                                        <h3 className="text-lg font-extrabold text-primary-color mb-4 border-b pb-2">
-                                            Key Points
-                                        </h3>
-                                        <div className="space-y-3">
-                                            {elem?.keyPoints?.map((point, idx) => (
-                                                <div
-                                                    key={idx}
-                                                    className="flex items-start space-x-3 group hover:bg-gray-50 p-2 rounded-md transition-colors duration-200"
-                                                >
-                                                    <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-primary-color text-gray-200 rounded-full font-semibold text-sm">
-                                                        {idx + 1}
-                                                    </span>
-                                                    <p className="text-sm text-gray-700 font-semibold leading-relaxed">
-                                                        {point}
-                                                    </p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        >
-                            <button className="relative bg-white inline-block text-sm border-l-4 border-yellow-600 p-2 px-8 bg-gray-400/10 text-gray-700 hover:text-white z-[999] rounded-lg shadow-xl overflow-hidden cursor-pointer transition-all hover:scale-105 group">
-                                <span className="relative hover:text-white z-[1000] hover:font-extrabold flex font-semibold text-xs">
-                                    {elem.title} <span><FaArrowRight className='mx-2 text-yellow-600 z-[1000] font-extrabold text-sm group-hover:text-white transition-all' /></span>
-                                </span>
-                                <span className="absolute inset-0 w-96 h-48 bg-yellow-600 rounded-full transition-all duration-700 scale-0 group-hover:scale-100 group-hover:top-[-30px] group-hover:left-[-30px]"></span>
-                            </button>
-                        </Popover>
-                    ))}
-                </div>
-            </Container>
-        </ScrollAnimation>
+  useEffect(() => {
+    const randomInterval = setInterval(
+      () =>
+        setRandomIndex(Math.floor(Math.random() * counselingContent?.length)),
+      2500,
     );
-}
+    return () => clearInterval(randomInterval);
+  }, []);
+
+  return (
+    <Container className="bg-gray-200/40">
+      <ScrollAnimation animateIn="backInUp" duration={1.5}>
+        <div className="mx-auto flex items-center justify-center rounded-md">
+          <div>
+            <div className="mb-4 text-center">
+              <h2 className="my-1 text-3xl font-semibold text-primary-color">
+                What We Have To{" "}
+                <span className="font-extrabold text-yellow-600">Offer ?</span>
+              </h2>
+              <p className="my-2 text-xs font-semibold text-gray-700">
+                Get personalized answers and ease your biggest doubts with Video
+                Counselling from our curated experts.
+              </p>
+            </div>
+
+            <Timeline
+              mode="alternate"
+              className="mx-auto mt-10"
+              items={counselingContent?.map((elem, index) => ({
+                children: (
+                  <ScrollAnimation
+                    animateIn={`${(index + 1) % 2 === 0 ? "backInLeft" : "backInRight"}`}
+                    duration={1.5}
+                  >
+                    <div
+                      className={`relative mb-3 transform transition-all duration-200 ${
+                        index % 2 === 0
+                          ? "flex w-[30.5rem] rounded-md bg-gradient-to-tr from-gray-100 to-blue-100/50 p-5 shadow-md cursor-pointer hover:shadow-xl"
+                          : "mr-[30rem] flex w-[27.5rem] rounded-md bg-gradient-to-tr from-gray-100 to-blue-100/50 p-5 shadow-md cursor-pointer hover:shadow-xl"
+                      } ${index == randomIndex ? "border-l-2 border-yellow-600 transition-all scale-105" : "border-none"}`}
+                    >
+                      <div className="flex-shrink-0 text-xl">
+                        <div
+                          className={`${index == randomIndex ? "bg-primary-color/20 text-primary-color" : "bg-primary-color text-white"} rounded-full p-3 transition-all duration-300 hover:bg-primary-color/20`}
+                        >
+                          {elem?.icon}
+                        </div>
+                      </div>
+                      <div className="w-96 pl-4">
+                        <h1 className="pb-0.5 text-left text-lg font-bold text-gray-700">
+                          {elem?.title}
+                        </h1>
+                        <ul className="my-1 flex w-[30rem] flex-col space-y-2">
+                          {elem?.keyPoints?.map((point, idx) => (
+                            <li key={idx} className="group flex items-center">
+                              <TiTick className="text-xl text-green-500 transition-transform duration-200 group-hover:scale-110" />
+                              <span className="ml-2 text-left text-sm font-semibold text-gray-800">
+                                {point}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </ScrollAnimation>
+                ),
+                color: "#201169",
+              }))}
+            />
+          </div>
+        </div>
+      </ScrollAnimation>
+    </Container>
+  );
+};
 
 export default CounsellingSection;

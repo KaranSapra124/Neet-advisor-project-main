@@ -1,35 +1,53 @@
-import React, { useState } from 'react';
-import ScrollAnimation from 'react-animate-on-scroll';
-import { Collapse } from 'antd';
-import { FaGraduationCap, FaListAlt, FaUserFriends, FaChartLine } from 'react-icons/fa';
-import Container from "../Helper/Container"
+import React, { useEffect, useState, useRef } from "react";
+import ScrollAnimation from "react-animate-on-scroll";
+import { Collapse } from "antd";
+
+import Container from "../Helper/Container";
+
 const WhyUsSection = () => {
   const [activeKey, setActiveKey] = useState([1]);
+  const [random, setRandom] = useState(0);
+  const [animationKey, setAnimationKey] = useState(0);
+  const sectionRef = useRef(null);
+
+  const images = [
+    "https://neetadvisor.com/assets/images/gallery/international/6.webp",
+    "https://neetadvisor.com/assets/images/gallery/international/5.webp",
+    "https://neetadvisor.com/assets/images/gallery/international/4.webp",
+    "https://neetadvisor.com/assets/images/gallery/international/3.webp",
+    "https://neetadvisor.com/assets/images/gallery/international/2.webp",
+    "https://neetadvisor.com/assets/images/gallery/international/1.webp",
+    "https://neetadvisor.com/assets/images/gallery/international/7.webp",
+  ];
 
   const services = [
     {
       key: 1,
-      icon: <FaGraduationCap className="text-3xl text-yellow-600" />,
+      icon: "graduationCap.gif",
       label: "Identifying Student's Aspirations",
-      children: 'Pooling their expertise and their strengths, our NEET Advisor have set up convenient and accessible platforms which helps in identifying the students aspirations.',
+      children:
+        "Pooling their expertise and strengths, our NEET Advisors have set up accessible platforms to help identify students' aspirations effectively.",
     },
     {
       key: 2,
-      icon: <FaListAlt className="text-3xl text-yellow-600" />,
-      label: 'Shortlisting of Success',
-      children: 'Based on your inputs like NEET exam score, a personalised report will be designed to make sure you get the best medical colleges available.',
+      icon: "taskGif.gif",
+      label: "Shortlisting of Success",
+      children:
+        "Based on your inputs, like NEET exam score, a personalized report is crafted to help you choose the best medical colleges.",
     },
     {
       key: 3,
-      icon: <FaUserFriends className="text-3xl text-yellow-600" />,
-      label: 'One to One Counselling Sessions',
-      children: 'An intensive one to one session with our NEET Advisor, who will answer your queries about NEET counselling.',
+      icon: "teachingGif.gif",
+      label: "One-to-One Counselling Sessions",
+      children:
+        "Engage in intensive one-to-one sessions with our NEET Advisor to resolve all your queries about NEET counselling.",
     },
     {
       key: 4,
-      icon: <FaChartLine className="text-3xl text-yellow-600" />,
-      label: 'Complete Tracking & Monitoring',
-      children: 'At NEET Advisor, we handhold you throughout the entire NEET Counselling process, till you get admission in your desired medical college.',
+      icon: "motivationGif.gif",
+      label: "Complete Tracking & Monitoring",
+      children:
+        "At NEET Advisor, we guide you throughout the entire NEET Counselling process until you secure admission to your desired medical college.",
     },
   ];
 
@@ -37,100 +55,142 @@ const WhyUsSection = () => {
     setActiveKey(key);
   };
 
+  // Function to restart animations
+  const restartAnimations = () => {
+    setAnimationKey((prevKey) => prevKey + 1);
+  };
+
+  useEffect(() => {
+    // Randomize the highlighted service icon every 3 seconds
+    const randomInterval = setInterval(() => {
+      setRandom(Math.floor(Math.random() * services.length));
+    }, 3000);
+
+    // Restart animations every 35 seconds
+    const animationInterval = setInterval(() => {
+      restartAnimations();
+    }, 38000);
+
+    return () => {
+      clearInterval(randomInterval);
+      clearInterval(animationInterval);
+    };
+  }, [services.length]);
+
+  // Observer to detect when the section is in the viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          restartAnimations();
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <Container >
-
-      <div className=" mx-auto ">
+    <Container>
+      <div ref={sectionRef} key={animationKey} className="mx-auto">
         {/* Header Section */}
-        <div className="text-center my-4">
-          <h1 className="text-3xl  font-semibold mb-1 primary">
-            Why <span className="text-yellow-600 font-extrabold">Neet Advisor?</span>
+        <div className="my-8 text-center">
+          <h1 className="mb-2 text-3xl font-semibold text-primary-color">
+            Why{" "}
+            <span className="font-extrabold text-yellow-600">
+              NEET Advisor?
+            </span>
           </h1>
-          <p className="text-xs text-gray-700 font-semibold mx-auto">
-            Unlock Your Success in 4 Simple Steps: <strong>NEET</strong> Counselling Guidance
+          <p className="text-xs text-gray-700">
+            Unlock Your Success in 4 Simple Steps with our <strong>NEET</strong>{" "}
+            Counselling Guidance.
           </p>
-
         </div>
-
         {/* Main Content Section */}
-        <div className="flex m-auto flex-col lg:flex-row gap-6 items-center lg:items-start">
+        <div className="mx-auto flex max-w-screen-lg flex-col items-center justify-center lg:flex-row">
           {/* Left Image Section */}
-          <div className="w-1/2">
-            <ScrollAnimation animateIn="fadeInLeft" duration={1}>
-              <div className="relative">
-                {/* Background Decorative Element */}
-                <div className="absolute inset-0 bg-yellow-400 rounded-3xl opacity-10 blur-3xl transform rotate-3"></div>
-
-                {/* Grid Container */}
-                <div className="grid grid-cols-2 gap-4 h-96">
-                  {/* First two images in two columns */}
+          <div className="w-full ml-32 lg:w-1/2">
+            <ScrollAnimation
+              initiallyVisible
+              animateIn="fadeInLeft"
+              duration={1}
+            >
+              <div className="why-us-gallery rounded-lg">
+                {images.map((src, index) => (
                   <img
-                    src="https://neetadvisor.com/assets/images/gallery/international/6.webp"
-                    className="rounded-md shadow-2xl transform hover:scale-105 transition-all duration-500 w-80 h-80 object-cover"
-                    alt="NEET Advisor"
+                    key={index}
+                    src={src}
+                    alt={`Gallery image ${index + 1}`}
                   />
-                  <img
-                    src="https://neetadvisor.com/assets/images/gallery/international/3.webp"
-                    className="rounded-md shadow-2xl transform hover:scale-105 transition-all duration-500 w-80 h-80 object-cover"
-                    alt="NEET Advisor"
-                  />
-                </div>
-
-                {/* Additional Decorative Elements */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-yellow-400/20 rounded-full blur-xl"></div>
-                <div className="absolute -top-4 -left-4 w-32 h-32 bg-yellow-400/10 rounded-full blur-xl"></div>
+                ))}
               </div>
             </ScrollAnimation>
           </div>
 
-
-          {/* Right Accordions Section */}
-          <div className="w-1/2 space-y-4">
+          {/* Right Accordion Section */}
+          <div className="h-96 w-full space-y-6  lg:w-1/2">
             {services.map((service, index) => (
               <ScrollAnimation
+                initiallyVisible
                 key={service.key}
                 animateIn="fadeInRight"
                 delay={index * 100}
                 className="w-full"
               >
-                <div className="bg-white max-h-svh   border-b-2 border-yellow-600  transition-all duration-300 overflow-hidden">
-                  <Collapse
-                    items={[{
+                <Collapse
+                  rootClassName="shadow-lg"
+                  size="small"
+                  items={[
+                    {
                       ...service,
                       label: (
-                        <div className="flex  items-center  gap-1 p-1">
-                          <div className="p-1 bg-gray-50 rounded-xl">
-                            {service.icon}
+                        <div className="flex items-center gap-2">
+                          <div
+                            className={`rounded-lg ${
+                              random === index &&
+                              "border-2 border-yellow-600 transition-all"
+                            } bg-gray-100 p-2 shadow-sm transition-transform duration-300 hover:scale-110`}
+                          >
+                            <img className="w-10" src={service?.icon} />
                           </div>
-                          <span className="text-sm font-semibold text-primary-color group-hover:text-yellow-600 transition-colors">
+                          <span
+                            className={`text-lg ${
+                              index === random ? "font-extrabold" : "font-bold"
+                            } text-gray-600 transition-colors group-hover:text-yellow-600`}
+                          >
                             {service.label}
                           </span>
                         </div>
                       ),
                       children: (
-                        <div className="p-1 bg-gray-50/50">
-                          <p className="text-gray-700 font-semibold leading-relaxed">
+                        <div className="rounded-lg bg-gray-50 p-4 shadow-inner">
+                          <p className="font-medium leading-relaxed text-gray-700">
                             {service.children}
                           </p>
                         </div>
-                      )
-                    }]}
-                    activeKey={activeKey}
-                    onChange={handleCollapseChange}
-                    className="bg-transparent border-none h-full"
-                    expandIconPosition="right"
-
-                  />
-
-                </div>
+                      ),
+                    },
+                  ]}
+                  activeKey={activeKey}
+                  onChange={handleCollapseChange}
+                  className="border-none bg-transparent"
+                  expandIconPosition="right"
+                />
               </ScrollAnimation>
             ))}
           </div>
         </div>
       </div>
-
     </Container>
-
   );
 };
 
