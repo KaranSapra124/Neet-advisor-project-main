@@ -56,7 +56,7 @@ const Gallery = () => {
           Easy Way
         </h1>
 
-        <p className="mx-auto mb-8 max-w-2xl text-center text-sm font-semibold text-gray-700">
+        <p className="mx-auto mb-8 max-w-2xl text-center text-sm font-medium text-gray-700">
           Our team has developed a set of webinars/seminars and workshops
           exclusively for students aspiring for a successful career in medicine.
           These thoughtfully crafted sessions will cover a wide range of topics

@@ -85,13 +85,13 @@ const CounsellingSection = () => {
                     duration={1.5}
                   >
                     <div
-                      className={`relative mb-3 transform transition-all duration-200 ${
+                      className={`relative mb-3 transform rounded-lg transition-all duration-200 ${
                         index % 2 === 0
-                          ? "flex w-[30.5rem] rounded-md bg-gradient-to-tr from-gray-100 to-blue-100/50 p-5 shadow-md cursor-pointer hover:shadow-xl"
-                          : "mr-[30rem] flex w-[27.5rem] rounded-md bg-gradient-to-tr from-gray-100 to-blue-100/50 p-5 shadow-md cursor-pointer hover:shadow-xl"
-                      } ${index == randomIndex ? "border-l-2 border-yellow-600 transition-all scale-105" : "border-none"}`}
+                          ? "flex w-[30.5rem] cursor-pointer bg-gradient-to-tr from-gray-100 to-blue-100/50 p-5 shadow-md hover:shadow-xl"
+                          : "mr-[30rem] flex w-[27.5rem] cursor-pointer bg-gradient-to-tr from-gray-100 to-blue-100/50 p-5 shadow-md hover:shadow-xl"
+                      } ${index == randomIndex ? "scale-105 border-l-2 border-yellow-600 transition-all" : "border-none"}`}
                     >
-                      <div className="flex-shrink-0 text-xl">
+                      <div className="my-auto flex-shrink-0 text-xl">
                         <div
                           className={`${index == randomIndex ? "bg-primary-color/20 text-primary-color" : "bg-primary-color text-white"} rounded-full p-3 transition-all duration-300 hover:bg-primary-color/20`}
                         >
