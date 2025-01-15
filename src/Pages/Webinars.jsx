@@ -9,12 +9,14 @@ import UpcomingWebinars from '../Components/Webinar/UpcomingWebinars'
 import Values from '../Components/Webinar/Values'
 import Outcome from '../Components/Webinar/Outcome'
 import Testimonials from '../Components/Webinar/Testimonials'
+import ShowWebinar from '../Components/Webinar/ShowWebinar'
 
 const Webinars = () => {
     return (
         <>
             <Root>
                 <Hero />
+                <ShowWebinar />
                 <AspirantsSection />
                 <WhyAttend />
                 <Features />

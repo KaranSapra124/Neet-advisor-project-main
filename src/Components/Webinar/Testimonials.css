@@ -1,19 +1,65 @@
 .perspective {
-    perspective: 1000px;
+  perspective: 1000px;
 }
 
 .transform-style-preserve-3d {
-    transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 .backface-hidden {
-    backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .rotate-y-180 {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .hover\:rotate-y-180:hover {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* Features section */
+.circle {
+  stroke: #f8aa28;
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+  transition: all 0.5s ease-in-out;
+  opacity: 0.3;
+}
+
+.triangle {
+  stroke: #000;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 480;
+  transition: all 0.7s ease-in-out;
+}
+
+.group:hover .triangle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  stroke:  rgb(202 138 4 / var(--tw-text-opacity, 1));;
+  animation: nudge 0.7s ease-in-out;
+}
+
+.group:hover .circle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+@keyframes nudge {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  70% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

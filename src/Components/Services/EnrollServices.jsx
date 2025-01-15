@@ -91,7 +91,7 @@ const EnrollServices = () => {
       </div>
 
       {/* Services Grid */}
-      <div className="mx-auto flex max-w-screen-md flex-col">
+      <div className="mx-auto flex max-w-screen-lg flex-col">
         {/* Current Service Card */}
         <motion.div
           key={currIndex}
@@ -124,15 +124,15 @@ const EnrollServices = () => {
             <div className="absolute inset-0 flex flex-col justify-center gap-4 rounded-md bg-black/50 p-4 text-white">
               <div className="flex items-center gap-2">
                 {/* <span className="text-white">{servicesArr[currIndex].icon}</span>  */}
-                <span className="text-lg font-bold">
+                <span className="text-lg  font-bold">
                   {servicesArr[currIndex].title}
                 </span>
               </div>
-              <p className="text-sm font-semibold">
+              <p className="text-xs text-gray-300 font-semibold">
                 {expandedCards === currIndex
                   ? servicesArr[currIndex].content
                   : servicesArr[currIndex]?.content?.substring(0, 45) +
-                    " Read more..."}
+                    "..."}
               </p>
               <div className="flex items-center gap-2">
                 <button
@@ -151,7 +151,7 @@ const EnrollServices = () => {
                 </button>
                 <FaPlayCircle
                   onClick={() => setModalVideo(servicesArr[currIndex])}
-                  className="mt-2 cursor-pointer text-xl"
+                  className="mt-2 cursor-pointer text-xl hover:scale-125 hover:text-gray-200 transition-all duration-200"
                 />
               </div>
             </div>
@@ -261,8 +261,7 @@ const EnrollServices = () => {
                       <p className="mb-4 text-xs font-semibold text-gray-900">
                         {expandedCards === serviceIndex
                           ? service.content
-                          : service?.content?.substring(0, 45) +
-                            " Read more..."}
+                          : service?.content?.substring(0, 45) + "..."}
                       </p>
                       {expandedCards === serviceIndex ? (
                         <>
@@ -270,7 +269,7 @@ const EnrollServices = () => {
                             onClick={() => toggleExpand({})}
                             className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 p-2 py-2 text-xs font-semibold text-white shadow transition-all"
                           >
-                            <UpOutlined /> Show Less
+                            <UpOutlined className="transition-all duration-150"/> Show Less
                           </div>
                         </>
                       ) : (

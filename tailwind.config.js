@@ -16,7 +16,9 @@ module.exports = {
         scaleUp: 'scaleUp 2s linear infinite',
         rotateIt: 'flipInY 3s linear normal ',
         rubberBand: 'rubberBand 2.5s linear normal',
-        fadeUp: 'fadeIn 4s linear infinite'
+        fadeUp: 'fadeIn 4s linear infinite',
+        slideRight:'slideInRight 0.5s linear normal',
+        slideLeft:'slideInLeft 0.5s linear normal',
         // slideIn:'fadeIn 4s linear infinite'
       },
       boxShadow: {
@@ -27,6 +29,9 @@ module.exports = {
         'primary-color': '#201169',
         'hero-gradient': 'linear-gradient(180deg, transparent, #fff 86%)'
       },
+ backgroundImage:{
+  'webinar-hero':"url('grid-pattern.jpg')"
+ }
 
 
     },

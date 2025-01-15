@@ -1,63 +1,71 @@
-import React from 'react';
-import Container from '../Helper/Container';
-import { BsTwitter, BsLinkedin, BsFacebook, BsInstagram } from 'react-icons/bs';
-
+import React from "react";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaYoutube,
+} from "react-icons/fa";
+import Container from "../Helper/Container";
 const SocialLinks = () => {
-    const socialLinks = [
-        {
-            icon: <BsTwitter />,
-            followersCount: 1200, // Mock followers for Twitter
-            platform: 'Twitter',
-            id: "Twitter",
-            link: 'https://twitter.com/yourprofile' // Add your Twitter link
-        },
-        {
-            icon: <BsLinkedin />,
-            followersCount: 800, // Mock followers for LinkedIn
-            platform: 'LinkedIn',
-            id: "Linkedin",
-            link: 'https://linkedin.com/in/yourprofile' // Add your LinkedIn link
-        },
-        {
-            icon: <BsFacebook />,
-            followersCount: 1500, // Mock followers for Facebook
-            platform: 'Facebook',
-            id: "Facebook",
-            link: 'https://facebook.com/yourprofile' // Add your Facebook link
-        },
-        {
-            icon: <BsInstagram />,
-            followersCount: 950, // Mock followers for Instagram
-            platform: 'Instagram',
-            id: "Instagram",
-            link: 'https://instagram.com/yourprofile' // Add your Instagram link
-        }
-    ];
-
-    return (
-        <Container className={"bg-gray-200/40"}>
-            {/* <div className='py-10'> */}
-            <h1 className='primary font-bold text-3xl  text-center'>Let's Get <span className='text-yellow-600 font-extrabold'>Social!</span></h1>
-            <p className='text-gray-700 text-center text-xs font-semibold py-2'>Connect with us on Social Media</p>
-            {/* </div> */}
-            <div className="flex  py-2 items-center  justify-center space-x-6"> {/* Optional: Add some spacing between links */}
-                {socialLinks.map((elem, index) => (
-                    <a
-                        id={elem.id}
-                        key={index} // Add a unique key for each element
-                        href={elem.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex hover:text-white hover:scale-105 transition-all duration-300  hover:border-none  hover:shadow-custom-inset  custom-button items-center space-x-2" // Optional: Flexbox for alignment
-
-                    >
-                        {elem.icon}
-
-                    </a>
-                ))}
+  return (
+    <>
+      <Container className={"flex justify-center bg-gray-200/40"}>
+        <div className="section-title pb-20 text-center">
+          <h2 className="text-3xl font-bold text-primary-color">
+            Let's Get <span className="text-yellow-600 font-extrabold">Social</span>
+          </h2>
+          <p className="text-gray-700 font-semibold text-xs my-2">Follow On Our Social Media Handles & Remain Up To Date!</p>
+        </div>
+        <div className="social-overlap process-scetion mt100">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-md-10">
+                <div className="social-icons iconpad mb-3 text-center">
+                  <a
+                    href="https://www.youtube.com/watch?v=_XiOcsj3oNI&t=50s"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="slider-nav-item"
+                  >
+                    <FaFacebook className="icon text-blue-800" />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/watch?v=_XiOcsj3oNI&t=50s"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="slider-nav-item"
+                  >
+                    <FaTwitter className="icon text-sky-400" />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/watch?v=_XiOcsj3oNI&t=50s"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="slider-nav-item"
+                  >
+                    <FaInstagram className="icon text-pink-400" />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/watch?v=_XiOcsj3oNI&t=50s"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="slider-nav-item"
+                  >
+                    <FaLinkedin className="icon text-primary-color" />
+                  </a>
+                  <a href="#" className="slider-nav-item">
+                    <FaYoutube className="icon text-red-500" />
+                  </a>
+                </div>
+                {/* </div> */}
+              </div>
             </div>
-        </Container>
-    );
-}
+          </div>
+        </div>
+      </Container>
+    </>
+  );
+};
 
 export default SocialLinks;
