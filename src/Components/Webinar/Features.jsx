@@ -19,7 +19,7 @@ const Features = () => {
   const data = [
     {
       video:
-        "https://videos.pexels.com/video-files/5183279/5183279-sd_640_360_30fps.mp4",
+        "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
       title: "Master NEET Exam & Counselling in 60 minutes!",
       content: [
         "Learn advanced strategies to excel in NEET with expert counseling guidance.",
@@ -106,7 +106,7 @@ const Features = () => {
               <div
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
-                className={`absolute inset-0 left-0 top-0 z-20 m-auto w-full cursor-pointer rounded-lg ${isHover ? "bg-black/80" : "bg-black/40"}`}
+                className={`absolute inset-0 left-0 top-0 z-20 m-auto w-full cursor-pointer rounded-lg ${isHover ? "bg-gray-100/20" : "bg-gray-100/30"}`}
               >
                 <div
                   className={`mt-24 w-full text-center ${isHover ? "block" : "hidden"}`}
@@ -155,7 +155,7 @@ const Features = () => {
 
             {/* Content Section */}
             <div
-              className={`absolute inset-0 left-0 top-24 z-50 flex h-40 w-[30rem] flex-col items-start justify-center rounded-r-md bg-white/15 p-4 shadow-md shadow-gray-500 transition-all ${isHover ? "hidden" : "block"}`}
+              className={`absolute inset-0 left-0 top-24 z-50 flex h-40 w-[30rem] flex-col items-start justify-center rounded-r-md bg-black/20 p-4 shadow-md shadow-gray-500 transition-all ${isHover ? "hidden" : "block"}`}
             >
               <h2 className="text-md mb-2 font-extrabold text-white">
                 {data[activeIndex]?.title}

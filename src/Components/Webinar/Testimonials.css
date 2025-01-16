@@ -28,7 +28,7 @@
 }
 
 .triangle {
-  stroke: #000;
+  stroke: white;
   stroke-dasharray: 240;
   stroke-dashoffset: 480;
   transition: all 0.7s ease-in-out;

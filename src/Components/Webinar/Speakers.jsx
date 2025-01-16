@@ -1,116 +1,134 @@
-import React from 'react'
-import Container from '../Helper/Container';
-import { BsCursorFill } from 'react-icons/bs';
+import React from "react";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import Container from "../Helper/Container";
+import Divider from "../Helper/Divider";
+import ScrollAnimation from "react-animate-on-scroll";
+
+const SpeakerCard = ({ member }) => {
+  return (
+    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md border border-b-2 border-l-2 border-gray-300 border-b-yellow-600 border-l-yellow-600 bg-gradient-to-tr from-white to-gray-500/10 shadow-md shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row">
+      <img
+        src={member.imageUrl}
+        alt={member.name}
+        className="mx-5 my-auto h-32 w-32 rounded-full shadow-md shadow-yellow-600 transition duration-500"
+      />
+      <div className="flex max-w-screen-sm flex-col justify-between p-2">
+        <div>
+          <div className="flex items-start justify-between">
+            <div>
+              <h3 className="text-lg font-bold text-primary-color transition-all duration-300 group-hover:font-extrabold">
+                {member.name}
+              </h3>
+              <Divider className="my-0.5 h-0.5 w-16 rounded-full bg-yellow-600" />
+              <div className="-mx-1 flex items-center">
+                <img
+                  src="./Webinar/creative-removedBg.gif"
+                  className="h-8 w-8"
+                  alt=""
+                  srcset=""
+                />
+                <p className="mt-1 text-sm font-semibold text-gray-600">
+                  {member.title}
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              {member.socialLinks.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  className="group/icon rounded-full p-2 transition-colors hover:bg-gray-100"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {React.cloneElement(link.icon, {
+                    className:
+                      "w-5 h-5 text-gray-400 group-hover/icon:text-primary-color transition-all dration-300",
+                  })}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="-mx-1 flex">
+            <img
+              src="./Webinar/BookImg.gif"
+              className="h-7 w-7"
+              alt=""
+              srcset=""
+            />
+            <p className="mx-1 my-2 line-clamp-2 text-xs font-medium leading-relaxed text-gray-700">
+              {member.bio}
+            </p>
+          </div>
+        </div>
+        <div className="my-2 flex flex-wrap gap-2">
+          {member.expertise.map((skill, index) => (
+            <span
+              key={index}
+              className="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-500"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Speakers = () => {
-    const speakersData = [
-        {
-            speakerName: "John Doe",
-            designation: "Software Developer",
-            qualification: "BTech",
-            collegeName: "Test College",
-            imgUrl: "https://randomuser.me/api/portraits/men/10.jpg"
-        },
-        {
-            speakerName: "Jane Smith",
-            designation: "Data Scientist",
-            qualification: "MSc Computer Science",
-            collegeName: "Tech University",
-            imgUrl: "https://randomuser.me/api/portraits/women/20.jpg"
-        },
-        {
-            speakerName: "Michael Brown",
-            designation: "UX/UI Designer",
-            qualification: "BFA",
-            collegeName: "Art School",
-            imgUrl: "https://randomuser.me/api/portraits/men/25.jpg"
-        },
-        {
-            speakerName: "Emily Davis",
-            designation: "Project Manager",
-            qualification: "MBA",
-            collegeName: "Business University",
-            imgUrl: "https://randomuser.me/api/portraits/women/30.jpg"
-        },
-        {
-            speakerName: "Alice Green",
-            designation: "Frontend Developer",
-            qualification: "BSc Computer Science",
-            collegeName: "State University",
-            imgUrl: "https://randomuser.me/api/portraits/women/5.jpg"
-        },
-        {
-            speakerName: "David Wilson",
-            designation: "Backend Developer",
-            qualification: "MSc Software Engineering",
-            collegeName: "National Institute of Technology",
-            imgUrl: "https://randomuser.me/api/portraits/men/15.jpg"
-        },
-        {
-            speakerName: "Sarah Johnson",
-            designation: "Business Analyst",
-            qualification: "MBA",
-            collegeName: "Harvard University",
-            imgUrl: "https://randomuser.me/api/portraits/women/45.jpg"
-        },
-        {
-            speakerName: "Robert Martinez",
-            designation: "Cloud Architect",
-            qualification: "MTech",
-            collegeName: "Global Institute of Technology",
-            imgUrl: "https://randomuser.me/api/portraits/men/30.jpg"
-        },
-        {
-            speakerName: "Olivia Taylor",
-            designation: "Digital Marketer",
-            qualification: "BBA",
-            collegeName: "Business School",
-            imgUrl: "https://randomuser.me/api/portraits/women/60.jpg"
-        },
-        {
-            speakerName: "James Anderson",
-            designation: "Network Engineer",
-            qualification: "BTech Networking",
-            collegeName: "Tech University",
-            imgUrl: "https://randomuser.me/api/portraits/men/40.jpg"
-        }
-    ];
+  const teamMemberData = [
+    {
+      name: "Vipin Bansal",
+      title: "Founder & CEO",
+      imageUrl: "Vipin-Bansal-square.jpg",
+      specialty: "NEET Expert",
+      bio: "Leading expert in NEET counseling with over 10 years of experience guiding students to top medical colleges across India.",
+      expertise: ["College Admissions", "NEET Counseling", "Career Guidance"],
+      socialLinks: [
+        { href: "https://codepen.io/collection/XdWJOQ/", icon: <FaTwitter /> },
+        { href: "https://codepen.io/collection/XdWJOQ/", icon: <FaLinkedin /> },
+      ],
+    },
+    {
+      name: "Vivek Singh",
+      title: "Co-Founder",
+      imageUrl: "vivek-singh-square.jpg",
+      specialty: "Admissions Strategist",
+      bio: "Specialized in helping students navigate the complex medical college admission process with proven success strategies.",
+      expertise: [
+        "Medical Education",
+        "Strategic Planning",
+        "Student Mentoring",
+      ],
+      socialLinks: [
+        { href: "https://codepen.io/collection/XdWJOQ/", icon: <FaTwitter /> },
+        { href: "https://codepen.io/collection/XdWJOQ/", icon: <FaLinkedin /> },
+      ],
+    },
+  ];
 
-    return (
-        <Container className={"bg-gray-200/40"}>
-            <div className='py-4'>
-                <h1 className='text-3xl py-1 text-primary-color font-bold text-center'>Our <span className='text-yellow-600 font-extrabold '>Speakers</span></h1>
-                <p className='text-sm font-semibold text-gray-700 text-center'>Discover the best colleges & counselling approach for your NEET score
+  return (
+    <Container>
+      <ScrollAnimation animateIn="backInLeft" animateOnce={true} duration={1.5}>
+        <div className="mb-4 text-center">
+          <h2 className="mb-2 text-3xl font-bold text-primary-color">
+            Our <span className="font-extrabold text-yellow-600">Speakers</span>
+          </h2>
+          <p className="mx-auto max-w-xs text-xs font-semibold text-gray-600">
+            Learn from industry experts who have helped thousands of students
+            achieve their dreams of becoming medical professionals.
+          </p>
+        </div>
 
-                </p>
-            </div>
-            <div className="flex justify-center flex-wrap gap-6 p-6">
-                {speakersData?.map((elem, index) => {
-                    return (
-                        <div
-                            key={index}
-                            className="max-w-xs cursor-pointer w-64 rounded-lg bg-white shadow-lg p-4  flex flex-col items-center relative transition-all transform hover:scale-105 hover:shadow-xl hover:bg-gray-50 hover:border hover:border-primary-color"
-                        >
-                            <img
-                                className="rounded-full w-20 h-20 border-2 border-primary-color mb-4 shadow-md transition-all transform hover:scale-110"
-                                src={elem?.imgUrl}
-                                alt={elem?.speakerName}
-                            />
-                            <h2 className="text-sm text-primary-color font-bold text-center mb-1">{elem.speakerName}</h2>
-                            <h3 className="text-gray-600 text-xs font-semibold text-center mb-1">{elem?.designation}</h3>
-                            <p className="text-sm text-gray-700 font-bold text-center mb-2">{elem?.qualification}</p>
-                            <h5 className="bg-primary-color text-white text-xs font-medium px-2 py-1 rounded-full shadow-sm text-center">{elem?.collegeName}</h5>
+        <div className="flex flex-wrap justify-center gap-5">
+          {teamMemberData.map((member, index) => (
+            <SpeakerCard key={index} member={member} />
+          ))}
+        </div>
+      </ScrollAnimation>
+    </Container>
+  );
+};
 
-                            {/* Position the cursor icon at the bottom-right of the card */}
-                            {/* <BsCursorFill className="absolute   bottom-6 right-8 text-primary-color" /> */}
-                        </div>
-                    );
-                })}
-            </div>
-
-
-        </Container>
-    )
-}
-
-export default Speakers
+export default Speakers;
