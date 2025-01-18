@@ -4,6 +4,8 @@ import Container from "../Helper/Container";
 const WhoWeAre = () => {
   const mainImg = useRef(null);
   const [isChanged, setIsChanged] = useState(false);
+  const [animation, setAnimation] = useState("animate-slideRight");
+  const [gridAnimation, setGridAnimation] = useState("animate-slideOutUp");
   const [imageUrls, setImgUrls] = useState([
     "https://assets.codepen.io/1506195/unsplash-1.jpg",
     "https://assets.codepen.io/1506195/unsplash-7.jpg",
@@ -17,11 +19,14 @@ const WhoWeAre = () => {
   // Image auto-slide effect
   useEffect(() => {
     const imgIntervals = setInterval(() => {
-      setIsChanged((prev) => !prev);
-      setImgUrls((prevUrls) => {
-        const [first, ...rest] = prevUrls;
-        return [...rest, first];
-      });
+      setAnimation("animate-slideOutLeft");
+      setTimeout(() => {
+        setImgUrls((prevUrls) => {
+          const [first, ...rest] = prevUrls;
+          return [...rest, first];
+        });
+        setAnimation("animate-slideRight");
+      }, 500); // Sync with animation duration
     }, 3500);
 
     return () => clearInterval(imgIntervals);
@@ -29,7 +34,7 @@ const WhoWeAre = () => {
 
   return (
     <>
-      <Container className="relative bg-webinar-hero ">
+      <Container className="relative bg-webinar-hero">
         {/* Background Overlay */}
         <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-gray-100 via-gray-200 to-white opacity-90"></div>
 
@@ -39,39 +44,28 @@ const WhoWeAre = () => {
             Our Vision{" "}
             <span className="font-extrabold text-yellow-600">& Mission</span>
           </h1>
-          <div className="m-auto my-5 h-1 w-20 rounded-full bg-yellow-600"></div>
+          <div className="m-auto mb-5 mt-2 h-1 w-20 rounded-full bg-yellow-600"></div>
 
           <div className="mx-auto flex max-w-screen-lg items-center justify-evenly">
             <div className="grid w-fit grid-cols-1 overflow-hidden rounded-lg p-2 shadow-md shadow-primary-color">
               {/* Image Section */}
               <div className="flex flex-col">
-                <div className="relative w-full max-w-md">
-                  {/* <div className="flex flex-row">
-                    {" "}
-                    {/* <img
-                      className="animate-slideOutLeft h-44  rounded-lg object-cover shadow-md"
-                      ref={mainImg}
-                      src={imageUrls[imageUrls?.length - 1]}
-                      alt="Main"
-                      key={isChanged}
-                    /> */}
-                  {/* </div> */} 
-                    <img
-                      className="h-44 w-full animate-slideRight rounded-lg object-cover shadow-md"
-                      ref={mainImg}
-                      src={imageUrls[0]}
-                      alt="Main"
-                      key={isChanged}
-                    />
+                <div className="relative w-full">
+                  <img
+                    className={`h-60 ${animation} ${animation !== "animate-slideOutLeft" ? "opacity-100" : "opacity-0"} rounded-lg object-cover shadow-md transition-all duration-500`}
+                    ref={mainImg}
+                    src={imageUrls[0]}
+                    alt="Main"
+                  />
                 </div>
                 <div
                   key={isChanged}
-                  className="animate-slideUp mt-2 grid grid-cols-3 gap-2"
+                  className={` ${animation !== "animate-slideOutLeft" ? "opacity-100" : "opacity-0"} mt-2 grid grid-cols-3 gap-2 transition-all duration-150`}
                 >
                   {imageUrls.slice(1).map((url, index) => (
                     <img
                       key={index}
-                      className="h-16 w-full rounded-lg object-cover shadow-sm"
+                      className="h-28 w-full rounded-lg object-cover shadow-sm"
                       src={url}
                       alt={`Thumbnail ${index}`}
                     />
@@ -81,15 +75,13 @@ const WhoWeAre = () => {
             </div>
 
             {/* Mission and Vision Section */}
-            <div className="space-y-9">
-              <div className="h-36 w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-white px-4 py-2 shadow-lg">
+            <div className="space-y-8">
+              <div className="h-36 w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 px-4 py-2 shadow-lg">
                 <img
                   src="./About/mission.gif"
-                  className="mx-auto my-2 h-10 w-10 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
+                  className="mx-auto my-2 h-10 w-10 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
                   alt=""
-                  srcset=""
                 />
-
                 <p className="text-xs font-semibold text-gray-700">
                   To empower medical students to make lifelong, responsible, and
                   meaningful choices in a global and dynamic world. We will
@@ -98,12 +90,24 @@ const WhoWeAre = () => {
                 </p>
               </div>
 
-              <div className="h-36 w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-white px-4 py-2 shadow-lg">
+              <div className="h-36 w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 px-4 py-2 shadow-lg">
                 <img
                   src="./About/motivationGif.gif"
-                  className="mx-auto my-2 h-10 w-10 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
+                  className="mx-auto my-2 h-10 w-10 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
                   alt=""
-                  srcset=""
+                />
+                <p className="text-xs font-semibold text-gray-700">
+                  Be the most preferred choice for the medical students who are
+                  goal-oriented, determined, and wish to pursue medical
+                  education without any obstacles.
+                </p>
+              </div>
+
+              <div className="h-36 w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 px-4 py-2 shadow-lg">
+                <img
+                  src="./About/motivationGif.gif"
+                  className="mx-auto my-2 h-10 w-10 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
+                  alt=""
                 />
                 <p className="text-xs font-semibold text-gray-700">
                   Be the most preferred choice for the medical students who are

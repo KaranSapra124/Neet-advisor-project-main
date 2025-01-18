@@ -1,37 +1,96 @@
-import React from 'react'
-import Container from '../Helper/Container'
-import "./Ug_seminar.css"
-import { FaGraduationCap } from 'react-icons/fa6'
-import { FaShieldAlt } from 'react-icons/fa'
+import React from "react";
+import Container from "../Helper/Container";
+import Divider from "../Helper/Divider";
+import "./Ug_seminar.css";
+import { FaGraduationCap } from "react-icons/fa6";
+import { FaArrowRight, FaShieldAlt } from "react-icons/fa";
+import ScrollAnimation from "react-animate-on-scroll";
 const Hero = () => {
-
-    return (
-        <>
-            <Container>
-                <div className='flex items-center justify-center gap-4'>
-                    <video className='rounded-xl' src='https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4' autoPlay loop />
-                    <div>
-                        <h1 className='text-4xl text-primary-color font-extrabold'>NEET UG 2024</h1>
-                        <div className='text-3xl font-bold mt-2 text-yellow-500'>All About Central & State Counselling Process! </div>
-                        <p className='text-sm mt-5'>Do justice to your NEET UG score with our Expert-Led Seminars. Gain Essential Insights and Strategic Guidance from Renowned NEET Counselling experts.</p>
-                        <div className='p-2 rounded-lg bg-yellow-500 text-sm w-fit text-white font-bold mt-5'>Book Now</div>
-                        <div className='flex my-5 gap-2'>
-                            <div className='flex  items-center text-xs'>
-                                <FaGraduationCap className='text-primary-color text-lg' />
-                                <span className='px-2 text-gray-700 font-semibold'>20,000+ Attended</span>
-                            </div>
-                            <div className='flex  items-center text-xs'>
-                                <FaShieldAlt className='text-primary-color text-lg' />
-                                <span className='px-2 text-gray-700 font-semibold'>20,000+ Trusted</span>
-                            </div>
-
-                        </div>
+  const seminarData = [
+    {
+      location: "Mumbai",
+      date: "28 January 2025",
+      venue: "Grand Convention Center, Mumbai",
+      video:
+        "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
+      isAvailable: true,
+    },
+    {
+      location: "Delhi",
+      date: "10 February 2025",
+      venue: "Delhi International Auditorium",
+      video:
+        "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
+      isAvailable: false,
+    },
+  ];
+  return (
+    <>
+      <Container className={"relative h-screen"}>
+        <video
+          src="https://videos.pexels.com/video-files/6774224/6774224-uhd_2560_1440_30fps.mp4"
+          autoPlay
+          loop
+          muted
+          className="absolute inset-0 h-full w-full object-cover"
+        ></video>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/80 to-black/40"></div>
+        <div className="relative flex h-full w-full items-center justify-between">
+          <ScrollAnimation animateIn="backInLeft" duration={1.5} delay={1}>
+            <div className="flex flex-col gap-4">
+              <div className="w-fit rounded-l-full rounded-r-full border border-gray-700 bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-300">
+                #1 Neet counsellor
+              </div>
+              <h1 className="text-4xl font-extrabold leading-tight text-yellow-600">
+                Fuel Your Dream <br /> of Becoming a Doctor <br />
+                <span className="text-6xl font-extrabold text-primary-color brightness-200">
+                  NEET UG 2025
+                </span>
+              </h1>
+              <p className="max-w-md text-sm font-extrabold text-gray-300">
+                Prepare yourself for the NEET UG exam with expert guidance and
+                tips. Join us for insightful sessions, mock tests, and career
+                counseling.
+              </p>
+              <button className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-3 py-2 font-bold text-white">
+                Book Now!
+              </button>
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation animateIn="backInRight" className="backdrop-blur-sm" duration={1.5} delay={1}>
+            <div className="h-fit rounded-md bg-gray-200/10 p-8 shadow-md shadow-white/50 backdrop-blur-sm">
+              {seminarData?.map((seminar, index) => {
+                return (
+                  <div className="cursor-pointer hover:scale-105 transition-all duration-100">
+                    <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-200">
+                      # {seminar?.location}
                     </div>
-                </div>
+                    <div className="flex items-center gap-4 p-2">
+                      <h1 className="text-3xl font-extralight text-white">
+                        {seminar?.date}
+                      </h1>
+                      <div
+                        className={`w-fit rounded-md ${seminar?.isAvailable ? "border-2 border-blue-700 bg-white/50 text-blue-700" : "border-2 border-gray-800 bg-white/50 text-gray-800"} px-2 py-1 text-sm font-bold uppercase`}
+                      >
+                        {seminar?.isAvailable ? "Available" : "Not Available"}
+                      </div>
+                      <FaArrowRight className="text-yellow-600 animate-scaleUp" />
+                    </div>
+                    <div className="text-sm font-semibold text-gray-400">
+                      {seminar.venue}
+                    </div>
+                    {index !== seminarData?.length - 1 && (
+                      <Divider className="my-5 h-1 w-full rounded-full bg-yellow-600" />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </Container>
+    </>
+  );
+};
 
-            </Container>
-        </>
-    )
-}
-
-export default Hero
+export default Hero;
