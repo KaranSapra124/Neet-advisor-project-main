@@ -1,38 +1,38 @@
 .typewriter {
   overflow: hidden;
-  border-right: .15em solid orange;
+  border-right: 0.15em solid rgb(154, 101, 27);
   white-space: nowrap;
   margin: 0 auto;
   /* letter-spacing: ; */
   animation:
-    typing 3.5s steps(50, end) forwards,
-    blink-caret .5s step-end backwards;
+    typing 3.5s steps(40, end) forwards,
+    blink-caret 0.5s step-end backwards;
 }
+
+
 
 /* The typing effect */
 @keyframes typing {
   from {
-    width: 0
+    width: 0;
   }
 
   to {
-    width: 100%
+    width: 100%;
   }
 }
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
-
   from,
   to {
-    border-color: transparent
+    border-color: transparent;
   }
 
   50% {
-    border-color: orange
+    border-color: orange;
   }
 }
-
 
 .animateRight {
   animation: slideRight 10s forwards infinite 0.5s;
@@ -43,7 +43,8 @@
 }
 
 @keyframes slideRight {
-  0%,100% {
+  0%,
+  100% {
     left: 10%;
     top: 26.5%;
     background-color: rgb(229 231 235 / var(--tw-text-opacity, 1));
@@ -72,32 +73,26 @@
     top: 25.5%;
     background-color: rgb(229 231 235 / var(--tw-text-opacity, 1));
   } */
-
-
 }
 
 @keyframes slideLeft {
-
   0%,
   100% {
     left: 31.2%;
     top: 45%;
     background-color: rgb(229 231 235 / var(--tw-text-opacity, 1));
-
   }
 
   25% {
     left: 6%;
     top: 45%;
     background-color: rgb(156 163 175 / var(--tw-text-opacity, 1));
-
   }
 
   50% {
     left: 6%;
     top: 26.5%;
     background-color: rgb(75 85 99 / var(--tw-text-opacity, 1));
-
   }
 
   75% {
@@ -126,48 +121,73 @@
 
 /* Smooth fade and slide animation for image */
 
-
 /* Our Values */
 
-.aboutUsStepper .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title {
+.aboutUsStepper
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
   color: #201169;
   /* font-size:0.9rem; */
   font-weight: bold;
   font-size: 1.1rem;
-
 }
 
-.aboutUsStepper .ant-steps-item-process>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title {
+.aboutUsStepper
+  .ant-steps-item-process
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
   color: #201169;
   /* font-size:0.9rem; */
   font-weight: bold;
   font-size: 1.1rem;
-
 }
 
-.aboutUsStepper .ant-steps-item-finish.ant-steps-item-custom .ant-steps-item-icon>.ant-steps-icon {
+.aboutUsStepper
+  .ant-steps-item-finish.ant-steps-item-custom
+  .ant-steps-item-icon
+  > .ant-steps-icon {
   color: #201169;
   font-size: 2rem;
 }
 
-.aboutUsStepper .ant-steps-item-process.ant-steps-item-custom .ant-steps-item-icon>.ant-steps-icon {
+.aboutUsStepper
+  .ant-steps-item-process.ant-steps-item-custom
+  .ant-steps-item-icon
+  > .ant-steps-icon {
   color: #201169;
 }
 
-.aboutUsStepper .ant-steps-item-process.ant-steps-item-custom .ant-steps-item-icon>.ant-steps-icon {
+.aboutUsStepper
+  .ant-steps-item-process.ant-steps-item-custom
+  .ant-steps-item-icon
+  > .ant-steps-icon {
   color: #201169;
 }
 
-.aboutUsStepper .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
+.aboutUsStepper
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-tail::after {
   background-color: #201169;
 }
 
-.aboutUsStepper .ant-steps-item-wait>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title {
+.aboutUsStepper
+  .ant-steps-item-wait
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
   font-size: 0.8rem;
   font-weight: bold;
 }
 
-.aboutUsStepper.ant-steps-inline .ant-steps-item-finish .ant-steps-item-icon .ant-steps-icon .ant-steps-icon-dot {
+.aboutUsStepper.ant-steps-inline
+  .ant-steps-item-finish
+  .ant-steps-item-icon
+  .ant-steps-icon
+  .ant-steps-icon-dot {
   background-color: #201169;
 }
 

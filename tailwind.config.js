@@ -17,8 +17,10 @@ module.exports = {
         rotateIt: 'flipInY 3s linear normal ',
         rubberBand: 'rubberBand 2.5s linear normal',
         fadeUp: 'fadeIn 4s linear infinite',
-        slideRight:'slideInRight 0.5s linear normal',
-        slideLeft:'slideInLeft 0.5s linear normal',
+        slideRight:'slideInRight 0.5s ease-in-out normal',
+        slideLeft:'slideInLeft 0.5s ease-in-out normal',
+        slideUp:'slideInUp 0.5s linear normal',
+        slideOutLeft:'slideOutLeft 0.5s linear normal'
         // slideIn:'fadeIn 4s linear infinite'
       },
       boxShadow: {

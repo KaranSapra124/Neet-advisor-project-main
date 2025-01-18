@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
+import { BsHandIndexFill } from "react-icons/bs";
 
 const Outcome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [stackedCards, setStackedCards] = useState([]);
-  const [isChanged, setIsChanged] = useState(0);
+  const [isChanged, setIsChanged] = useState(true);
   const cards = [
     {
       image: "./Webinar/mission.gif",
@@ -47,7 +48,9 @@ const Outcome = () => {
   ];
 
   const handleNext = () => {
-    setIsChanged((prev) => prev + 1);
+    setIsChanged(!isChanged);
+   
+
     setCurrentIndex((prevIndex) => {
       if (prevIndex < cards.length - 1) {
         return prevIndex + 1;
@@ -67,7 +70,10 @@ const Outcome = () => {
   };
 
   useEffect(() => {
-    setStackedCards((prevCards) => [...prevCards, currentIndex ]);
+
+      setStackedCards((prevCards) => {
+        return [...prevCards, currentIndex];
+      });
   }, [isChanged]);
 
   const getCardStyle = (index) => {
@@ -79,7 +85,7 @@ const Outcome = () => {
       const stackPosition = stackedCards.indexOf(index);
       const leftOffset = stackPosition * 10;
       transform = `translateY(${stackPosition * 0}px)`;
-      left = `${8 + leftOffset}px`;
+      left = `${5 + leftOffset}px`;
       zIndex = 100 + stackPosition;
     }
 
@@ -105,7 +111,7 @@ const Outcome = () => {
             {cards.map((card, index) => (
               <div
                 key={index}
-                className={`mx-5 absolute top-0 my-2 flex h-40 w-[19rem] flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}
+                className={`absolute top-0 mx-5 my-2 flex h-40 w-[19rem] flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}
                 style={getCardStyle(index)}
               >
                 <img

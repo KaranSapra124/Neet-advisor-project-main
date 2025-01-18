@@ -1,82 +1,122 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Container from '../Helper/Container';
-import "./Aboutus.css"
-import { Carousel } from 'antd';
+import React, { useEffect, useRef, useState } from "react";
+import Container from "../Helper/Container";
 
 const WhoWeAre = () => {
-    const mainImg = useRef(null)
+  const mainImg = useRef(null);
+  const [isChanged, setIsChanged] = useState(false);
+  const [imageUrls, setImgUrls] = useState([
+    "https://assets.codepen.io/1506195/unsplash-1.jpg",
+    "https://assets.codepen.io/1506195/unsplash-7.jpg",
+    "https://assets.codepen.io/1506195/unsplash-3.jpg",
+    "https://assets.codepen.io/1506195/unsplash-2.jpg",
+    "https://assets.codepen.io/1506195/unsplash-6.jpg",
+    "https://assets.codepen.io/1506195/unsplash-0.jpg",
+    "https://assets.codepen.io/1506195/unsplash-8.jpg",
+  ]);
 
-    const [isChanged, setIsChanged] = useState(1)
-    const [imageUrls, setImgUrls] = useState([
-        "https://assets.codepen.io/1506195/unsplash-1.jpg",
-        "https://assets.codepen.io/1506195/unsplash-7.jpg",
-        "https://assets.codepen.io/1506195/unsplash-3.jpg",
-        "https://assets.codepen.io/1506195/unsplash-2.jpg",
-        "https://assets.codepen.io/1506195/unsplash-6.jpg",
-        "https://assets.codepen.io/1506195/unsplash-0.jpg",
-        "https://assets.codepen.io/1506195/unsplash-8.jpg"
-    ]);
+  // Image auto-slide effect
+  useEffect(() => {
+    const imgIntervals = setInterval(() => {
+      setIsChanged((prev) => !prev);
+      setImgUrls((prevUrls) => {
+        const [first, ...rest] = prevUrls;
+        return [...rest, first];
+      });
+    }, 3500);
 
-    useEffect(() => {
-        const imgIntervals = setInterval(() => {
-            setImgUrls(imageUrls?.map((elem, index) => {
-                if (index === 0) {
-                    return imageUrls[0] = imageUrls[1]
-                } else if (index === imageUrls.length - 1) {
-                    return imageUrls[imageUrls?.length - 1] = imageUrls[0]
-                }
-                return imageUrls[index] = imageUrls[index + 1]
-            }))
-            setIsChanged((prev) => prev + 1)
-        }, 3500)
+    return () => clearInterval(imgIntervals);
+  }, []);
 
+  return (
+    <>
+      <Container className="relative bg-webinar-hero ">
+        {/* Background Overlay */}
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-gray-100 via-gray-200 to-white opacity-90"></div>
 
-        return () => clearInterval(imgIntervals)
-    }, []);
+        {/* Content */}
+        <div className="relative mx-auto px-4">
+          <h1 className="text-center text-3xl font-bold text-primary-color">
+            Our Vision{" "}
+            <span className="font-extrabold text-yellow-600">& Mission</span>
+          </h1>
+          <div className="m-auto my-5 h-1 w-20 rounded-full bg-yellow-600"></div>
 
-
-
-    // if (mainImg.current) {
-    //     mainImg.current.style.animation = isChanged % 2 === 0 ? "transLeft" : ""
-    //     mainImg.current.style.animationDelay = '0.5s'
-    //     mainImg.current.style.animationDuration = '2s'
-    //     mainImg.current.style.animationPlayState = isChanged % 2 == 0 ? 'running' : 'paused'
-    //     mainImg.current.style.animationIterationCount = "infinite"
-    // }
-    return (
-        <>
-            <Container className={'bg-gray-200/40'} >
-                <h1 className='text-3xl  text-center text-primary-color font-bold'>Our Vision <span className='text-yellow-600 font-extrabold'>& Mission</span></h1>
-                <div className='h-1 w-64 m-auto my-2 bg-yellow-600 rounded-full'></div>
-                <div className='flex h-48 items-center justify-center '>
-                    <div className="flex shadow-xl    rounded-lg shadow-gray-300">
-                        <img className={`w-[15rem] h-48   p-1 object-cover  `} ref={mainImg} src={imageUrls[0]} alt="" />
-
-                        <div className=' columns-3 imgContainer'>
-                            {imageUrls?.slice(1, imageUrls?.length)?.map((elem, index) => {
-                                return <img className='w-[8rem]   h-24 p-1' src={elem} key={index} />
-                            })}
-                        </div>
-                    </div>
-                    <div className='w-1/2 space-y-4'>
-                        <div className='shadow-xl m-1 p-2'>
-                            <h2 className='text-sm font-extrabold text-primary-color py-1'>Mission</h2>
-                            <p className='text-xs text-gray-700 font-semibold'>To empower medical students to make lifelong, responsible and meaningful choices in a global and dynamic world. We will accomplish this by building personal relationship in a professional yet helping environment.
-                            </p>
-                        </div>
-                        <div className='shadow-xl m-1 p-2'>
-                            <h2 className='text-sm font-extrabold text-primary-color py-1'>Vision</h2>
-                            <p className='text-xs text-gray-700 font-semibold'>Be the most preffered choice for the medical students who are goal oriented, determined and wish to pursue medical education without any obstacles.
-                            </p>
-                        </div>
-                    </div>
-
+          <div className="mx-auto flex max-w-screen-lg items-center justify-evenly">
+            <div className="grid w-fit grid-cols-1 overflow-hidden rounded-lg p-2 shadow-md shadow-primary-color">
+              {/* Image Section */}
+              <div className="flex flex-col">
+                <div className="relative w-full max-w-md">
+                  {/* <div className="flex flex-row">
+                    {" "}
+                    {/* <img
+                      className="animate-slideOutLeft h-44  rounded-lg object-cover shadow-md"
+                      ref={mainImg}
+                      src={imageUrls[imageUrls?.length - 1]}
+                      alt="Main"
+                      key={isChanged}
+                    /> */}
+                  {/* </div> */} 
+                    <img
+                      className="h-44 w-full animate-slideRight rounded-lg object-cover shadow-md"
+                      ref={mainImg}
+                      src={imageUrls[0]}
+                      alt="Main"
+                      key={isChanged}
+                    />
                 </div>
+                <div
+                  key={isChanged}
+                  className="animate-slideUp mt-2 grid grid-cols-3 gap-2"
+                >
+                  {imageUrls.slice(1).map((url, index) => (
+                    <img
+                      key={index}
+                      className="h-16 w-full rounded-lg object-cover shadow-sm"
+                      src={url}
+                      alt={`Thumbnail ${index}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
 
+            {/* Mission and Vision Section */}
+            <div className="space-y-9">
+              <div className="h-36 w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-white px-4 py-2 shadow-lg">
+                <img
+                  src="./About/mission.gif"
+                  className="mx-auto my-2 h-10 w-10 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
+                  alt=""
+                  srcset=""
+                />
 
-            </Container>
-        </>
-    );
+                <p className="text-xs font-semibold text-gray-700">
+                  To empower medical students to make lifelong, responsible, and
+                  meaningful choices in a global and dynamic world. We will
+                  accomplish this by building personal relationships in a
+                  professional yet helping environment.
+                </p>
+              </div>
+
+              <div className="h-36 w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-white px-4 py-2 shadow-lg">
+                <img
+                  src="./About/motivationGif.gif"
+                  className="mx-auto my-2 h-10 w-10 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
+                  alt=""
+                  srcset=""
+                />
+                <p className="text-xs font-semibold text-gray-700">
+                  Be the most preferred choice for the medical students who are
+                  goal-oriented, determined, and wish to pursue medical
+                  education without any obstacles.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </>
+  );
 };
 
 export default WhoWeAre;
