@@ -28,7 +28,7 @@ const Hero = () => {
     <>
       <Container className={"relative h-screen"}>
         <video
-          src="https://videos.pexels.com/video-files/6774224/6774224-uhd_2560_1440_30fps.mp4"
+          src="https://videos.pexels.com/video-files/4630096/4630096-sd_640_360_25fps.mp4"
           autoPlay
           loop
           muted
@@ -36,7 +36,12 @@ const Hero = () => {
         ></video>
         <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/80 to-black/40"></div>
         <div className="relative flex h-full w-full items-center justify-between">
-          <ScrollAnimation animateIn="backInLeft" duration={1.5} delay={1}>
+          <ScrollAnimation
+            animateIn="backInLeft"
+            duration={1.5}
+            animateOnce={true}
+            delay={1}
+          >
             <div className="flex flex-col gap-4">
               <div className="w-fit rounded-l-full rounded-r-full border border-gray-700 bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-300">
                 #1 Neet counsellor
@@ -57,11 +62,17 @@ const Hero = () => {
               </button>
             </div>
           </ScrollAnimation>
-          <ScrollAnimation animateIn="backInRight" className="backdrop-blur-sm" duration={1.5} delay={1}>
+          <ScrollAnimation
+            animateIn="backInRight"
+            className="backdrop-blur-sm"
+            duration={1.5}
+            animateOnce={true}
+            delay={1}
+          >
             <div className="h-fit rounded-md bg-gray-200/10 p-8 shadow-md shadow-white/50 backdrop-blur-sm">
               {seminarData?.map((seminar, index) => {
                 return (
-                  <div className="cursor-pointer hover:scale-105 transition-all duration-100">
+                  <div className="cursor-pointer transition-all duration-100 hover:scale-105">
                     <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-200">
                       # {seminar?.location}
                     </div>
@@ -74,7 +85,7 @@ const Hero = () => {
                       >
                         {seminar?.isAvailable ? "Available" : "Not Available"}
                       </div>
-                      <FaArrowRight className="text-yellow-600 animate-scaleUp" />
+                      <FaArrowRight className="animate-scaleUp text-yellow-600" />
                     </div>
                     <div className="text-sm font-semibold text-gray-400">
                       {seminar.venue}

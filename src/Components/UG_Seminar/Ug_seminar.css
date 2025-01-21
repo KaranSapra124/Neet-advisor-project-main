@@ -1,0 +1,62 @@
+.ug-seminar-tab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #201169 !important;
+  /* font-size:0.9rem; */
+  font-weight: bold;
+  font-size: 1.1rem;
+  filter: brightness(200%);
+}
+
+.ug-seminar-tab .ant-tabs-ink-bar {
+  background: #201169;
+  filter: brightness(200%);
+}
+
+.ug-seminar-tab .ant-tabs-tab {
+  color: rgb(175, 175, 175);
+}
+
+.ug-seminar-tab .ant-tabs-tab:hover {
+  color: white;
+}
+
+.ug-seminar-tab
+  .ant-steps-item-process
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
+  color: #201169;
+  /* font-size:0.9rem; */
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.agenda-stepper.ant-steps-item-finish
+  .ant-steps-item-icon
+  > .ant-steps-icon
+  .ant-steps-icon-dot {
+  color: #201169 !important;
+}
+
+.agenda-stepper.ant-steps-item-finish
+  .ant-steps-item-icon
+  > .ant-steps-icon
+  .ant-steps-icon-dot {
+  background: #201169;
+}
+
+.agenda-stepper.ant-steps-inline
+  .ant-steps-item-finish
+  .ant-steps-item-icon
+  .ant-steps-icon
+  .ant-steps-icon-dot {
+  background-color: #201169;
+  border: none;
+  filter: brightness(200%);
+}
+
+.agenda-stepper.ant-steps-inline
+  .ant-steps-item-finish
+  .ant-steps-item-tail::after {
+  background-color: #201169;
+  filter: brightness(200%);
+}
