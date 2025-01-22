@@ -28,7 +28,7 @@ const Hero = () => {
     <>
       <Container className={"relative h-screen"}>
         <video
-          src="https://videos.pexels.com/video-files/4630096/4630096-sd_640_360_25fps.mp4"
+          src="./Seminar/Seminar-video.mp4"
           autoPlay
           loop
           muted

@@ -1,9 +1,10 @@
 import React from "react";
 import Container from "../Helper/Container";
+import ScrollAnimation from "react-animate-on-scroll";
 import Divider from "../Helper/Divider";
 import { FaLinkedin, FaTwitter } from "react-icons/fa6";
-import ScrollAnimation from "react-animate-on-scroll";
-const Speakers = () => {
+
+const OurSpeaker = () => {
   const teamMemberData = [
     {
       name: "Vipin Bansal",
@@ -35,46 +36,45 @@ const Speakers = () => {
     },
   ];
   return (
-    <>
-      <Container 
-        className={"no-repeat h-screen relative bg-seminar-hero bg-cover bg-fixed"}
+    <Container
+      className={
+        "no-repeat relative  bg-webinar-hero bg-cover bg-fixed"
+      }
+    >
+      <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
+      <ScrollAnimation
+        animateIn="backInRight"
+        animateOnce={true}
+        duration={1.5}
       >
-        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-sm"></div>
-        <ScrollAnimation
-          animateIn="backInRight"
-          animateOnce={true}
-          duration={1.5}
-        >
-          <div className="relative">
-            <div className="text-center">
-              <h1 className="my-2 text-3xl font-bold text-yellow-600">
-                Insightful{" "}
-                <span className="font-extrabold text-primary-color brightness-200">
-                  Voices!
-                </span>
-              </h1>
-              <p className="my-2' text-xs font-semibold text-gray-400">
-                You Will Get , Industry Expert's Knowledge
-              </p>
-              <Divider
-                className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
-              />
-            </div>
-            <div className="mx-auto flex max-w-screen-xl justify-between">
-              {teamMemberData?.map((elem, index) => {
-                return <TeamMember member={elem} key={index} />;
-              })}
-            </div>
+        <div className="relative">
+          <div className="text-center">
+            <h1 className="my-2 text-3xl font-bold text-yellow-600">
+              Insightful{" "}
+              <span className="font-extrabold text-primary-color brightness-200">
+                Voices!
+              </span>
+            </h1>
+            <p className="my-2' text-xs font-semibold text-gray-400">
+              You Will Get , Industry Expert's Knowledge
+            </p>
+            <Divider
+              className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            />
           </div>
-        </ScrollAnimation>
-      </Container>
-    </>
+          <div className="mx-auto flex max-w-screen-xl justify-between">
+            {teamMemberData?.map((elem, index) => {
+              return <TeamMember member={elem} key={index} />;
+            })}
+          </div>
+        </div>
+      </ScrollAnimation>
+    </Container>
   );
 };
-
 const TeamMember = ({ member }) => {
   return (
-    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md bg-gradient-to-tr from-black/10 to-gray-500/10 shadow shadow-white transition-all duration-300 hover:scale-105 sm:flex-row">
+    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 shadow shadow-white transition-all duration-300 hover:scale-105 sm:flex-row">
       <img
         src={member.imageUrl}
         alt={member.name}
@@ -84,7 +84,7 @@ const TeamMember = ({ member }) => {
         <div>
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-bold text-primary-color brightness-200 transition-all duration-300 group-hover:font-extrabold">
+              <h3 className="text-lg font-bold text-primary-color brightness-[250%] transition-all duration-300 group-hover:font-extrabold">
                 {member.name}
               </h3>
               <Divider className="my-0.5 h-0.5 w-16 rounded-full bg-yellow-600" />
@@ -144,4 +144,4 @@ const TeamMember = ({ member }) => {
   );
 };
 
-export default Speakers;
+export default OurSpeaker;

@@ -1,64 +1,113 @@
-import React from 'react';
+import React from "react";
 import Container from "../Helper/Container";
-import Divider from '../Helper/Divider';
-
+import Divider from "../Helper/Divider";
+import "./Pg_Seminar.css";
+import { FaGraduationCap } from "react-icons/fa6";
+import { FaArrowRight, FaShieldAlt } from "react-icons/fa";
+import ScrollAnimation from "react-animate-on-scroll";
 const Hero = () => {
-    const seminarImages = [
-        { id: 1, url: "https://picsum.photos/200/300?random=1", title: "Image 1" },
-        { id: 2, url: "https://picsum.photos/200/300?random=2", title: "Image 2" },
-        { id: 3, url: "https://picsum.photos/200/300?random=3", title: "Image 3" },
-        { id: 4, url: "https://picsum.photos/200/300?random=4", title: "Image 4" },
-        { id: 5, url: "https://picsum.photos/200/300?random=5", title: "Image 5" },
-        { id: 6, url: "https://picsum.photos/200/300?random=6", title: "Image 6" },
-        { id: 7, url: "https://picsum.photos/200/300?random=7", title: "Image 7" },
-        { id: 8, url: "https://picsum.photos/200/300?random=8", title: "Image 8" },
-        { id: 9, url: "https://picsum.photos/200/300?random=9", title: "Image 9" },
-    ];
-
-    return (
-        <Container className="bg-gray-100 py-8">
-            <h1 className="text-primary-color max-w-screen-md mx-auto font-bold text-3xl text-center">
-                NEET UG 2024
-            </h1>
-            <p className="text-yellow-500 text-center text-xl py-2 font-bold">
-                All About Central & State Counselling Process!
-            </p>
-            <Divider className="h-1 w-32 bg-yellow-500 mx-auto rounded-lg my-1" />
-
-            <div className="max-w-screen-lg mx-auto mt-10 flex flex-col lg:flex-row gap-8">
-                {/* Masonry Gallery */}
-                <div className="w-96 ">
-                    <div className="grid grid-cols-3 gap-1 space-y-1">
-                        {seminarImages.map((image, index) => (
-                            <div key={image.id} className="break-inside-avoid">
-                                <img
-                                    src={image.url}
-                                    alt={image.title}
-                                    className={`h-24 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300`}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="lg:w-1/2 space-y-4 px-4">
-                    <p className="text-md text-gray-700">
-                        Do justice to your NEET UG score with our Expert-Led Seminars. Gain Essential Insights and Strategic Guidance from Renowned NEET Counselling experts.
-                    </p>
-                    <p className="text-md text-gray-700">
-                        NEET Counseling 2024 is a crucial process for candidates who have qualified the NEET exam and wish to secure admission in medical, dental, and other healthcare courses in India
-                    </p>
-                    <p className="text-md text-gray-700">
-                        It's important for candidates to stay updated with official notifications and prepare all required documents in advance.
-                    </p>
-                    <button className="bg-yellow-500 rounded-full text-white font-extrabold px-6 py-2 hover:bg-yellow-600 transition-colors duration-300">
-                        Book Now
-                    </button>
-                </div>
+  const seminarData = [
+    {
+      location: "Mumbai",
+      date: "28 January 2025",
+      venue: "Grand Convention Center, Mumbai",
+      video:
+        "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
+      isAvailable: true,
+    },
+    {
+      location: "Delhi",
+      date: "10 February 2025",
+      venue: "Delhi International Auditorium",
+      video:
+        "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
+      isAvailable: false,
+    },
+  ];
+  return (
+    <>
+      <Container className={"relative h-screen"}>
+        <video
+          src="./Seminar/Seminar-video.mp4"
+          autoPlay
+          loop
+          muted
+          className="absolute inset-0 h-full w-full object-cover"
+        ></video>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/80 via-black/80 to-gray-900/40"></div>
+        <div className="relative flex h-full w-full flex-col items-center justify-between">
+          <ScrollAnimation
+            animateIn="backInDown"
+            duration={1.5}
+            animateOnce={true}
+            delay={1}
+          >
+            <div className="flex flex-col justify-center items-center gap-4">
+              <div className="w-fit rounded-l-full rounded-r-full border border-gray-700 bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-300">
+                #1 Neet counsellor
+              </div>
+              <h1 className="text-4xl text-center font-extrabold leading-tight text-yellow-600">
+                Fuel Your Dream <br /> of Becoming a Doctor <br />
+                <span className="text-6xl text-center font-extrabold text-primary-color brightness-200">
+                  NEET PG 2025
+                </span>
+              </h1>
+              <p className="max-w-md text-center text-sm font-extrabold text-gray-300">
+                Prepare yourself for the NEET UG exam with expert guidance and
+                tips. Join us for insightful sessions, mock tests, and career
+                counseling.
+              </p>
+             <div className="flex justify-evenly w-full">
+             <button className="w-fit rounded-l-lg rounded-r-lg bg-yellow-600 px-3 py-2 font-bold text-white">
+                Book Now!
+              </button>
+              <button className="w-fit rounded-l-lg rounded-r-lg bg-black/50 shadow shadow-white px-3 py-2 font-bold text-white">
+                Learn more!
+              </button>
+             </div>
             </div>
-        </Container>
-    );
+          </ScrollAnimation>
+          <ScrollAnimation
+            animateIn="backInUp"
+            className="backdrop-blur-sm"
+            duration={1.5}
+            animateOnce={true}
+            delay={1}
+          >
+            <div className="flex h-fit ">
+              {seminarData?.map((seminar, index) => {
+                return (
+                  <div className="cursor-pointer relative shadow mx-2 shadow-gray-100 rounded-lg p-2 transition-all duration-100 hover:scale-105">
+                    <img src="./Webinar/calendar-bg-removed.gif" className="w-7 h-7 absolute -left-3 shadow-md shadow-yellow-600 bg-white rounded-full -top-5 " alt="" srcset="" />
+                    <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-200">
+                      # {seminar?.location}
+                    </div>
+                    <div className="flex items-center gap-4 p-2">
+                      <h1 className="text-3xl font-extralight text-white">
+                        {seminar?.date}
+                      </h1>
+                      <div
+                        className={`w-fit rounded-md ${seminar?.isAvailable ? "border-2 border-blue-700 bg-white/50 text-blue-700" : "border-2 border-gray-800 bg-white/50 text-gray-800"} px-2 py-1 text-sm font-bold uppercase`}
+                      >
+                        {seminar?.isAvailable ? "Available" : "Not Available"}
+                      </div>
+                      <FaArrowRight className="animate-scaleUp text-yellow-600" />
+                    </div>
+                    <div className="text-sm font-semibold text-gray-400">
+                      {seminar.venue}
+                    </div>
+                    {/* {index !== seminarData?.length - 1 && (
+                      <Divider className="my-5 rotate-90 h-1 w-full rounded-full bg-yellow-600" />
+                    )} */}
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </Container>
+    </>
+  );
 };
 
 export default Hero;

@@ -1,108 +1,120 @@
-import React, { useEffect, useState } from 'react';
-import Container from '../Helper/Container';
-import { Steps } from 'antd';
-import { FaCheck } from 'react-icons/fa';
-import Divider from '../Helper/Divider';
+import React from "react";
+import Container from "../Helper/Container";
+import Divider from "../Helper/Divider";
+import { Carousel } from "antd";
+import ScrollAnimation from "react-animate-on-scroll";
 
-// import SleekStepper from "sleekstepper"
-const Why_Attend = ({className}) => {
-    const [currVal, setCurrVal] = useState(0);
-    const values = [
-        {
-            title: (
-                <div className='border border-gray-300 rounded-lg shadow-md p-4 w-64  bg-white'>
-                    <FaCheck className='mx-auto text-primary-color border-2 bg-gray-100 p-1 text-2xl rounded-full' />
-                    <h1 className='text-sm font-bold text-primary-color'>Transparency</h1>
-                    <p className='text-gray-700 text-xs font-semibold'>Develop a deep knowledge base of the current and past NEET UG competition.</p>
-                </div>
-            ),
-            description: '',
-            icon: <FaCheck className='text-green-500' />
-        },
-        {
-            title: (
-                <div className='border border-gray-300 rounded-lg shadow-md p-4 w-64 bg-white'>
-                    <FaCheck className='mx-auto text-primary-color border-2 bg-gray-100 p-1 text-2xl rounded-full' />
+const Why_Attend = () => {
+  const seminarPurposeData = [
+    {
+      icon: "./Webinar/person-speaker.gif",
+      title: "Expert Guidance",
+      paragraph:
+        "Learn directly from top educators and NEET experts who have guided thousands of successful candidates to achieve their dream medical careers.",
+    },
+    {
+      icon: "./Webinar/BookImg.gif",
+      title: "Strategic Preparation",
+      paragraph:
+        "Gain insights into effective preparation strategies, time management tips, and syllabus coverage tailored for NEET UG 2025 aspirants.",
+    },
+    {
+      icon: "./Webinar/creative-removedBg.gif",
+      title: "Mock Tests & Analysis",
+      paragraph:
+        "Participate in live mock tests with detailed performance analysis to identify your strengths and areas for improvement.",
+    },
+    {
+      icon: "graduationCap.gif",
+      title: "Career Counseling",
+      paragraph:
+        "Receive personalized career counseling to choose the right medical college and course based on your aptitude and interests.",
+    },
+    {
+      icon: "motivationGif.gif",
+      title: "Motivation & Inspiration",
+      paragraph:
+        "Hear inspiring success stories and gain the motivation to overcome challenges and stay focused on your goals.",
+    },
+  ];
+  const imageUrls = [
+    "https://neetadvisor.com/assets/images/gallery/seminars/1.webp",
+    "https://neetadvisor.com/assets/images/gallery/seminars/2.webp",
+    "https://neetadvisor.com/assets/images/gallery/seminars/3.webp",
+    "https://neetadvisor.com/assets/images/gallery/seminars/4.webp",
+    "https://neetadvisor.com/assets/images/gallery/seminars/5.webp",
+  ];
+  return (
+    <>
+      <Container
+        className={"no-repeat relative h-screen bg-webinar-hero bg-cover bg-fixed"}
+      >
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
+        <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
+          <div className="relative">
+            <h1 className="text-center text-3xl font-semibold text-yellow-600">
+              Why To{" "}
+              <span className="font-extrabold text-primary-color brightness-200">
+                Attend Our Seminar ?
+              </span>
+            </h1>
+            <p className="my-2 text-center text-xs font-semibold text-gray-400">
+              Preparing for NEET is tough, but the competition for seats is even
+              tougher!!
+            </p>
+            <Divider
+              className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            />
+            <div className="flex flex-row-reverse justify-center">
+              <div className="w-1/2 grid grid-cols-2 gap-5">
+                {seminarPurposeData?.map((seminar, index) => {
+                  return (
+                    <div className="flex border-l-2 p-2 my-1  rounded-l-lg border-b-2 border-white  gap-2  space-y-4">
+                      <img
+                        src={seminar?.icon}
+                        className="h-10 w-10"
+                        alt=""
+                        srcset=""
+                      />
+                      <div className="flex flex-col">
+                        <h1 className="text-lg font-extrabold text-yellow-600">
+                          {seminar?.title}
+                        </h1>
+                        <p className="text-xs font-semibold text-gray-400">
+                          {seminar?.paragraph}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="w-1/2">
+                <Carousel
+                  effect="fade"
+                  infinite
+                  vertical={true}
+                  autoplay
+                  dots={false}
+                  autoplaySpeed={2000}
 
-                    <h1 className='text-sm font-bold text-primary-color'>Commitment</h1>
-                    <p className='text-gray-700 text-xs font-semibold'>Know where you stand among 13,16,268 NEET UG qualifiers. Excel with unparalleled information at your fingertips!</p>
-                </div>
-            ),
-            description: '',
-            icon: <FaCheck className='text-green-500' />
-        },
-        {
-            title: (
-                <div className='border border-gray-300 rounded-lg shadow-md p-4 w-64 bg-white'>
-                    <FaCheck className='mx-auto text-primary-color border-2 bg-gray-100 p-1 text-2xl rounded-full' />
-
-                    <h1 className='text-sm font-bold text-primary-color'>Collaboration</h1>
-                    <p className='text-gray-700 text-xs font-semibold'>Effectively plan your way through MCC and State Counselling processes with concrete, credible NEET UG data.</p>
-                </div>
-            ),
-            description: '',
-            icon: <FaCheck className='text-green-500' />
-        },
-        {
-            title: (
-                <div className='border border-gray-300 rounded-lg shadow-md p-4 w-64 bg-white'>
-                    <FaCheck className='mx-auto text-primary-color border-2 bg-gray-100 p-1 text-2xl rounded-full' />
-
-                    <h1 className='text-sm font-bold text-primary-color'>Quality</h1>
-                    <p className='text-gray-700 text-xs font-semibold'>Make informed choices with NEET UG 2024 MCC and State Counselling timelines.</p>
-                </div>
-            ),
-            description: '',
-            icon: <FaCheck className='text-green-500' />
-        },
-        {
-            title: (
-                <div className='border border-gray-300 rounded-lg shadow-md p-4 w-64 bg-white'>
-                    <FaCheck className='mx-auto text-primary-color border-2 bg-gray-100 p-1 text-2xl rounded-full' />
-
-                    <h1 className='text-sm font-bold text-primary-color'>Integrity</h1>
-                    <p className='text-gray-700 text-xs font-semibold'>Define your goals by knowing all the options for your NEET UG score. Use strategies tailored to your requirements.</p>
-                </div>
-            ),
-            description: '',
-            icon: <FaCheck className='text-green-500' />
-        },
-        {}
-
-    ];
-    useEffect(() => {
-        const stepInterval = setInterval(() => {
-            currVal < values.length - 1 && setCurrVal((prev) => prev + 1);
-        }, 1000);
-        return () => clearInterval(stepInterval);
-    }, [currVal]);
-    return (
-        <>
-            <Container className={className}>
-                
-                <h1 className='text-primary-color text-4xl text-center font-bold'>Why <span className='text-yellow-500 font-extrabold'>Attend?</span></h1>
-                <Divider className={'h-1 w-32 bg-yellow-500 mx-auto rounded-lg my-2'}/>
-                <p className='text-center text-gray-700 font-semibold text-sm py-2'>Tips. Tricks. Techniques. Insights. Updates. Here's why you can't afford to miss out on our seminar!</p>
-                <div className='max-w-screen-xl mx-auto'>
-
-                    <Steps
-                        direction="horizontal"
-                        current={currVal}
-                        items={values?.slice(0, 5)?.map((value, index) => ({
-                            title: value.title,
-                            className:"animate-rubberBand"
-                            // icon: value.icon,
-
-                        }))}
-
-                        type='inline'
-                        labelPlacement={'vertical'}
-                        className=" mx-auto aboutUsStepper"
-                    />
-                </div>
-            </Container>
-        </>
-    );
-}
+                >
+                  {imageUrls?.map((imgData, index) => {
+                    return (
+                      <img
+                        src={imgData}
+                        className="rounded-lg  border-2 border-white"
+                        alt="No Image"
+                      />
+                    );
+                  })}
+                </Carousel>
+              </div>
+            </div>
+          </div>
+        </ScrollAnimation>
+      </Container>
+    </>
+  );
+};
 
 export default Why_Attend;

@@ -13,6 +13,7 @@ module.exports = {
         slideLeft: "slideInLeft 0.5s ease-in-out normal",
         slideUp: "slideInUp 0.5s linear normal",
         slideOutLeft: "slideOutLeft 0.5s forwards normal",
+        backIn:'backInLeft 2.5s ease-in normal'
         // slideIn:'fadeIn 4s linear infinite'
       },
       boxShadow: {
