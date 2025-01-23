@@ -79,7 +79,7 @@ function Navbar() {
 
   return (
     <nav
-      className={` ${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80" : "bg-white"} sticky top-0 z-[1000] p-4 px-20 shadow-lg backdrop-blur-sm`}
+      className={` ${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("careers") || window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80" : "bg-white"} sticky top-0 z-[1000] p-4 px-20 shadow-lg backdrop-blur-sm`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
@@ -102,7 +102,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     isActive
                       ? "font-bold text-indigo-900 transition-all hover:scale-105 hover:font-bold"
-                      : `transition-all hover:scale-105 hover:font-bold ${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ? "text-white" : "text-gray-600"}`
+                      : `transition-all hover:scale-105 hover:font-bold ${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("careers") || window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ? "text-white" : "text-gray-600"}`
                   }
                   to={elem?.link}
                 >
@@ -111,7 +111,7 @@ function Navbar() {
               );
             })}
             <Dropdown
-              className={`cursor-pointer ${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ? "text-white" : "text-gray-600"}`}
+              className={`cursor-pointer ${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("careers") || window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ? "text-white" : "text-gray-600"}`}
               overlay={menu}
               arrow
               placement="bottom"

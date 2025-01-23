@@ -37,7 +37,7 @@ const WhoShouldAttend = () => {
   return (
     <>
       <Container
-        className={"no-repeat  relative h-screen bg-seminar-hero bg-cover bg-fixed"}
+        className={"no-repeat  relative h-full bg-seminar-hero bg-cover bg-fixed"}
       >
         <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-sm"></div>
         <ScrollAnimation

@@ -16,23 +16,23 @@ const Benefits = () => {
       title: "Competitive Salary",
       description:
         "We offer a salary that reflects your skills and experience.",
-      icon: <FaDollarSign />,
+      icon: "./Career/money (1).gif",
     },
     {
       title: "Flexible Work Arrangements",
       description: "Enjoy the freedom of remote work and flexible hours.",
-      icon: <FaRegClock />,
+      icon:"./Career/time.gif",
     },
     {
       title: "Health & Wellness",
       description: "Comprehensive health benefits and wellness programs.",
-      icon: <FaHeartbeat />,
+      icon: "./Career/health.gif",
     },
     {
       title: "Professional Development",
       description:
         "Access to workshops, training, and resources to enhance your skills.",
-      icon: <FaChalkboardTeacher />,
+      icon: "./Career/employee.gif",
     },
   ];
   return (
@@ -43,15 +43,12 @@ const Benefits = () => {
           <div className="grid grid-cols-2 gap-3">
             {benefits?.map((elem, index) => {
               return (
-                <div className="flex w-64 cursor-pointer flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-white p-5 transition-all duration-300 hover:scale-110">
-                  <div className="py-2 text-3xl text-yellow-600 ">
-                    {" "}
-                    {elem?.icon}{" "}
-                  </div>
-                  <h2 className="text-centery text-sm font-semibold text-gray-200">
+                <div className="flex w-60 cursor-pointer flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-white p-4 transition-all duration-300 hover:scale-110">
+                 <img src={elem?.icon} className="h-12 w-12 border border-white rounded-full p-1 shadow-sm shadow-white my-2" alt="" srcset="" />
+                  <h2 className="text-centery text-sm font-bold text-gray-200">
                     {elem?.title}
                   </h2>
-                  <p className="py-2 text-xs font-normal text-gray-300">
+                  <p className="py-2 text-xs font-semibold text-gray-300">
                     {elem?.description}
                   </p>
                 </div>
