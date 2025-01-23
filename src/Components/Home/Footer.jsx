@@ -3,15 +3,11 @@ import React from "react";
 const Footer = () => {
   return (
     <footer
-      className={`${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("careers") || window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80" : "bg-primary-color"} p-20 text-white`}
+      className={`${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("mbbs-abroad") || window.location.pathname.includes("careers") || window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80" : "bg-primary-color"} p-20 text-white`}
     >
       <div className="container mx-auto flex flex-col items-center justify-between md:flex-row">
         <div className="mb-4 md:mb-0">
-          <h3
-            className={`text-white mb-2 text-lg font-bold `}
-          >
-            Stay Updated!
-          </h3>
+          <h3 className={`mb-2 text-lg font-bold text-white`}>Stay Updated!</h3>
           <p className="text-sm">
             Get the latest NEET UG and NEET PG Counselling updates, Policies,
             News, Articles, and Analysis in your inbox.
@@ -28,11 +24,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mb-4 md:mb-0">
-          <h3
-            className={`text-white mb-2 text-lg font-bold `}
-          >
-            Company
-          </h3>
+          <h3 className={`mb-2 text-lg font-bold text-white`}>Company</h3>
           <ul>
             <li className="text-sm">
               <a href="#" className="hover:underline">
@@ -57,7 +49,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="mb-4 md:mb-0">
-          <h3 className={`text-white mb-2 text-lg font-bold `}>Services</h3>
+          <h3 className={`mb-2 text-lg font-bold text-white`}>Services</h3>
           <ul>
             <li className="text-sm">
               <a href="#" className="hover:underline">
@@ -72,7 +64,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="mb-4 md:mb-0">
-          <h3 className={`text-white mb-2 text-lg font-bold `}>Social Media</h3>
+          <h3 className={`mb-2 text-lg font-bold text-white`}>Social Media</h3>
           <ul>
             <li className="text-sm">
               <a href="#" className="hover:underline">

@@ -1,86 +1,101 @@
-import React from 'react';
+import React from "react";
 import {
-    FaCalendarAlt,
-    FaChevronLeft,
-    FaChevronRight,
-    FaMapMarkerAlt
-} from 'react-icons/fa';
+  FaCalendarAlt,
+  FaChevronLeft,
+  FaChevronRight,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
+import Container from "../Helper/Container";
+import Divider from "../Helper/Divider"
 
 const ExploreEvents = () => {
-    // const imagesArr = [
-    //     'https://neetadvisor.com/assets/images/gallery/country/7.webp',
-    //     'https://neetadvisor.com/assets/images/gallery/country/8.webp',
-    //     'https://neetadvisor.com/assets/images/gallery/country/9.webp'
-    // ];
+  // const imagesArr = [
+  //     'https://neetadvisor.com/assets/images/gallery/country/7.webp',
+  //     'https://neetadvisor.com/assets/images/gallery/country/8.webp',
+  //     'https://neetadvisor.com/assets/images/gallery/country/9.webp'
+  // ];
 
+  // Sample event details (you can replace with real data)
+  const events = [
+    { date: "15 Jan", title: "NEET Counseling Session", location: "Delhi" },
+    { date: "22 Jan", title: "Medical Career Workshop", location: "Mumbai" },
+    { date: "29 Jan", title: "Study Abroad Seminar", location: "Bangalore" },
+    { date: "29 Jan", title: "Study Abroad Seminar", location: "Bangalore" },
+    { date: "29 Jan", title: "Study Abroad Seminar", location: "Bangalore" },
+    { date: "29 Jan", title: "Study Abroad Seminar", location: "Bangalore" },
+  ];
 
-    // Sample event details (you can replace with real data)
-    const events = [
-        { date: '15 Jan', title: 'NEET Counseling Session', location: 'Delhi' },
-        { date: '22 Jan', title: 'Medical Career Workshop', location: 'Mumbai' },
-        { date: '29 Jan', title: 'Study Abroad Seminar', location: 'Bangalore' },
-        { date: '29 Jan', title: 'Study Abroad Seminar', location: 'Bangalore' },
-        { date: '29 Jan', title: 'Study Abroad Seminar', location: 'Bangalore' },
-        { date: '29 Jan', title: 'Study Abroad Seminar', location: 'Bangalore' }
+  return (
+    <>
+      <Container
+        className={"bg-mbbs-hero relative bg-cover bg-fixed bg-no-repeat"}
+      >
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-blue-300/10 to-blue-900/60 backdrop-blur-lg"></div>
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header Section */}
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-yellow-600">
+              Explore Upcoming{" "}
+              <span className="font-extrabold text-primary-color">Events</span>
+            </h2>
+            <p className="mx-auto text-xs font-semibold text-gray-700 my-2">
+              Want to know more about{" "}
+              <span className="font-bold">NEET Advisor</span> work? Join our
+              upcoming events and take the first step towards your medical
+              career!
+            </p>
+            <Divider className={"h-1 w-10 bg-yellow-600 rounded-full mx-auto my-4"}/>
+          </div>
 
-    ];
-
-
-
-    return (
-        <div className="bg-gray-100 py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header Section */}
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary-color mb-4">
-                        Explore Upcoming <span className="text-yellow-500 font-extrabold">Events</span>
-                    </h2>
-                    <p className="text-gray-700 text-xs font-semibold mx-auto">
-                        Want to know more about <span className="font-bold">NEET Advisor</span> work?
-                        Join our upcoming events and take the first step towards your medical career!
-                    </p>
+          {/* Main Content */}
+          {/* <div className="mx-auto "> */}
+          {/* Event Cards */}
+          <div className="flex flex-wrap justify-start space-y-1">
+            {events.map((event, index) => (
+              <div
+                key={index}
+                className="m-2 h-full w-72 cursor-pointer rounded-md border-l-2 border-b-2 border-white bg-gradient-to-br from-blue-200/90 via-blue-500/10 to-blue-800/50 p-2 transition-all duration-300 hover:scale-105"
+              >
+                <div className="flex items-start space-x-4">
+                  {/* <div className="rounded-lg bg-primary-color/10 p-3"> */}
+                  <img
+                    src="./Mbbs/calendar-bg-removed.gif"
+                    className="h-8 w-8 rounded-full border border-white shadow-sm shadow-black"
+                  />
+                  {/* </div> */}
+                  <div className="flex-1">
+                    <h3 className="text-sm font-bold text-gray-900">
+                      {event.title}
+                    </h3>
+                    <div className="mt-2 flex items-center space-x-2 text-sm font-extralight text-gray-900">
+                      <img
+                        src="./Mbbs/location-pin-bg-removed.gif"
+                        className="h-5 w-5"
+                      />{" "}
+                      <span>{event.location}</span>
+                    </div>
+                    <div className="mt-2 text-sm font-semibold text-gray-900">
+                      Date: <span className="font-light">{event.date}</span>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            ))}
+          </div>
 
-                {/* Main Content */}
-                {/* <div className="mx-auto "> */}
-                {/* Event Cards */}
-                <div className="flex flex-wrap justify-start     space-y-1">
-                    {events.map((event, index) => (
-                        <div
-                            key={index}
-                            className="bg-white p-2 rounded-md w-72 h-full  shadow-md hover:scale-105  m-2  transition-all cursor-pointer duration-300"
-                        >
-                            <div className="flex  items-start space-x-4">
-                                <div className="bg-primary-color/10 p-3 rounded-lg">
-                                    <FaCalendarAlt className="w-6 h-6 text-primary-color" />
-                                </div>
-                                <div className="flex-1">
-                                    <h3 className="font-bold text-sm text-gray-900">{event.title}</h3>
-                                    <div className="flex items-center space-x-2 text-sm text-gray-600 mt-2">
-                                        <FaMapMarkerAlt className="w-4 h-4" />
-                                        <span>{event.location}</span>
-                                    </div>
-                                    <div className="mt-2 text-primary-color font-semibold">
-                                        {event.date}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+          {/* </div> */}
 
-
-                {/* </div> */}
-
-                {/* CTA Button */}
-                <div className="text-center mt-12">
-                    <button className="bg-primary-color text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md">
-                        View All Events
-                    </button>
-                </div>
-            </div>
+          {/* CTA Button */}
+          <div className="mt-12 text-center">
+            <button className="rounded-lg bg-yellow-600 font-extrabold hover:bg-yellow-700   px-3 py-2  rounded-l-full rounded-r-full text-white shadow-md transition-all duration-300 hover:bg-opacity-90">
+              View All Events
+            </button>
+          </div>
         </div>
-    );
+      </Container>
+    </>
+  );
 };
 
 export default ExploreEvents;

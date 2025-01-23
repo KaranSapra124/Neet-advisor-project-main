@@ -13,7 +13,8 @@ module.exports = {
         slideLeft: "slideInLeft 0.5s ease-in-out normal",
         slideUp: "slideInUp 0.5s linear normal",
         slideOutLeft: "slideOutLeft 0.5s forwards normal",
-        backIn:'backInLeft 2.5s ease-in normal'
+        backIn: "backInLeft 2.5s ease-in normal",
+        fadeIn: "fadeIn 2s linear normal",
         // slideIn:'fadeIn 4s linear infinite'
       },
       boxShadow: {
@@ -27,7 +28,8 @@ module.exports = {
       },
       backgroundImage: {
         "webinar-hero": "url('grid-pattern.jpg')",
-        "seminar-hero":"url('./Seminar/bg-seminar.jpg')"
+        "seminar-hero": "url('./Seminar/bg-seminar.jpg')",
+        "mbbs-hero": "url('./Mbbs/bg-mbbs.jpg')",
       },
       utilities: {
         ".break-inside-avoid": {
