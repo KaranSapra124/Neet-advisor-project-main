@@ -7,13 +7,14 @@ const WhoWeAre = () => {
   const [animation, setAnimation] = useState("animate-slideRight");
   const [gridAnimation, setGridAnimation] = useState("animate-slideOutUp");
   const [imageUrls, setImgUrls] = useState([
-    "https://assets.codepen.io/1506195/unsplash-1.jpg",
-    "https://assets.codepen.io/1506195/unsplash-7.jpg",
-    "https://assets.codepen.io/1506195/unsplash-3.jpg",
-    "https://assets.codepen.io/1506195/unsplash-2.jpg",
-    "https://assets.codepen.io/1506195/unsplash-6.jpg",
-    "https://assets.codepen.io/1506195/unsplash-0.jpg",
-    "https://assets.codepen.io/1506195/unsplash-8.jpg",
+      "https://neetadvisor.com/assets/images/gallery/seminars/1.webp",
+      "https://neetadvisor.com/assets/images/gallery/seminars/2.webp",
+      "https://neetadvisor.com/assets/images/gallery/seminars/3.webp",
+      "https://neetadvisor.com/assets/images/gallery/seminars/4.webp",
+      "https://neetadvisor.com/assets/images/gallery/seminars/5.webp",
+      "https://neetadvisor.com/assets/images/gallery/seminars/4.webp",
+      "https://neetadvisor.com/assets/images/gallery/seminars/5.webp",
+    
   ]);
 
   // Image auto-slide effect

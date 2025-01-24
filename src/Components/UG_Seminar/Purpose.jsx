@@ -54,9 +54,9 @@ const Purpose = () => {
   return (
     <>
       <Container
-        className={"no-repeat relative h-screen bg-seminar-hero bg-cover bg-fixed"}
+        className={"no-repeat relative  h-screen bg-seminar-hero bg-cover bg-fixed"}
       >
-        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
         <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
           <div className="relative">
             <h1 className="text-center text-3xl font-semibold text-yellow-600">

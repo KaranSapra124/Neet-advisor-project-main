@@ -49,7 +49,6 @@ const Outcome = () => {
 
   const handleNext = () => {
     setIsChanged(!isChanged);
-   
 
     setCurrentIndex((prevIndex) => {
       if (prevIndex < cards.length - 1) {
@@ -70,11 +69,19 @@ const Outcome = () => {
   };
 
   useEffect(() => {
+    const changeOutcome = setInterval(() => {
+      handleNext();
+    }, 2000);
+    return clearInterval(changeOutcome);
+  }, []);
 
-      setStackedCards((prevCards) => {
-        return [...prevCards, currentIndex];
-      });
+  useEffect(() => {
+    setStackedCards((prevCards) => {
+      return [...prevCards, currentIndex];
+    });
   }, [isChanged]);
+
+  
 
   const getCardStyle = (index) => {
     let transform = `translateX(${(index - currentIndex) * 320}px)`;

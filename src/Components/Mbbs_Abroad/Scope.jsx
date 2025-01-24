@@ -190,11 +190,11 @@ const Scope = () => {
               Career Opportunities
             </Text>
           </div> */}
-          <h1 className="text-4xl font-bold text-primary-color">
+          <h1 className="text-3xl font-bold text-yellow-600">
             Why To Pursue{" "}
-            <span className="font-extrabold text-yellow-500">MBBS Abroad?</span>
+            <span className="font-extrabold text-primary-color">MBBS Abroad?</span>
           </h1>
-          <p className="my-2 text-xs font-semibold text-gray-700">
+          <p className="my-2 text-xs font-bold text-gray-800">
             MBBS abroad is vast, offering numerous opportunities depending on
             the individual's preferences and qualifications.
           </p>

@@ -35,7 +35,7 @@ const SeminarDetails = () => {
           "no-repeat relative h-screen bg-seminar-hero bg-cover bg-fixed"
         }
       >
-        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
 
         <ScrollAnimation animateIn="fadeIn" duration={1.5} animateOnce={true}>
           <div className="relative">
