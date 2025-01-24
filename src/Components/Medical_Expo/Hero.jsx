@@ -1448,10 +1448,10 @@ const Hero = () => {
 
                 <div>
                     <div className='text-center relative  text-gray-300'>
-                        <h1 className='text-3xl font-bold'>
-                            India's Biggest <strong className='text-yellow-400'>Neet Counselling</strong> Expo
+                        <h1 className='text-3xl font-bold text-yellow-600'>
+                            India's Biggest <strong className='text-primary-color'>Neet Counselling</strong> Expo
                         </h1>
-                        <p className='text-gray-300 my-2 text-xs font-semibold'>
+                        <p className='text-gray-300 w-96 mx-auto my-2 text-xs font-semibold'>
                             The Exclusive Mega Event for <strong>NEET PG</strong> Aspirants. Your Key to Mastering <strong>NEET PG</strong> Counselling and Admission!
                         </p>
                         <div className="gallery mt-20 inset-0 mx-auto flex   z-0">
