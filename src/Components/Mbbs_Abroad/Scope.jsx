@@ -166,7 +166,9 @@ const Scope = () => {
       case "Practice Medicine in the Home Country":
         return <img src="./Mbbs/medical-kit.gif" className="h-10 w-10" />;
       case "Practice Medicine Abroad":
-        return <img src="./Mbbs/location-pin-bg-removed.gif" className="h-10 w-10" />;
+        return (
+          <img src="./Mbbs/location-pin-bg-removed.gif" className="h-10 w-10" />
+        );
 
       case "Pursue Postgraduate Studies":
         return <img src="./Mbbs/graduationCap.gif" className="h-10 w-10" />;
@@ -178,9 +180,9 @@ const Scope = () => {
 
   return (
     <Container
-      className={"bg-mbbs-hero relative bg-cover bg-fixed bg-no-repeat"}
+      className={"relative bg-mbbs-hero bg-cover bg-fixed bg-no-repeat"}
     >
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-blue-300/10 to-blue-900/60 backdrop-blur-lg"></div>
+      <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 to-black/70 backdrop-blur-lg"></div>
 
       <div className="relative mx-auto">
         {/* Header Section */}
@@ -192,9 +194,11 @@ const Scope = () => {
           </div> */}
           <h1 className="text-3xl font-bold text-yellow-600">
             Why To Pursue{" "}
-            <span className="font-extrabold text-primary-color">MBBS Abroad?</span>
+            <span className="font-extrabold brightness-200 text-primary-color">
+              MBBS Abroad?
+            </span>
           </h1>
-          <p className="my-2 text-xs font-bold text-gray-800">
+          <p className="my-2 text-xs font-bold text-gray-200 w-96 mx-auto">
             MBBS abroad is vast, offering numerous opportunities depending on
             the individual's preferences and qualifications.
           </p>
@@ -210,6 +214,7 @@ const Scope = () => {
               return (
                 <Timeline.Item
                   key={index}
+                  
                   // className={index % 2 === 0 ? "text-left" : "text-right"} // Adjust alignment
                   color="#201169"
                 >
@@ -218,15 +223,15 @@ const Scope = () => {
                     duration={1.5}
                   >
                     <Card
-                      className="mx-4 bg-gradient-to-br from-blue-200/90 via-blue-500/10 to-blue-900/50 shadow-lg shadow-gray-400 transition-shadow duration-300 hover:shadow-xl"
+                      className="mx-4 bg-gradient-to-tr from-black/80 to-gray-900/90 shadow-sm shadow-gray-400 transition-shadow duration-300 hover:shadow-xl"
                       title={
-                        <div className="flex items-center space-x-2 py-2">
+                        <div className="flex  items-center space-x-2 py-2">
                           <div className="border-l-2 border-yellow-600 p-2">
                             {getCategoryIcon(item.category)}
                           </div>
                           <Title
                             level={5}
-                            className="!mb-0 !text-lg !font-bold !text-primary-color"
+                            className="!mb-0 !brightness-200 !text-lg  !font-bold !text-primary-color"
                           >
                             {item.category}
                           </Title>
@@ -235,22 +240,23 @@ const Scope = () => {
                     >
                       <Collapse
                         ghost
-                        className="bg-transparent"
+                        className="bg-transparent "
                         expandIconPosition="right"
+                        
                       >
                         {item.options.map((option, idx) => (
                           <Collapse.Panel
                             key={idx}
                             header={
                               <div className="float-left py-2">
-                                <Text className="font-bold text-gray-900">
+                                <Text className="font-bold text-gray-200">
                                   {option.title}
                                 </Text>
                               </div>
                             }
                           >
                             <div className="border-l-2 border-primary-color/30 pl-4 text-left">
-                              <Text className="text-center font-semibold text-gray-800">
+                              <Text className="text-center font-semibold text-gray-300">
                                 {option.details}
                               </Text>
                             </div>

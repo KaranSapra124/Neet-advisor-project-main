@@ -54,8 +54,9 @@ const Gallery = () => {
     <>
       <Root>
         <Container
-          className={"bg-gradient-to-br from-gray-900/30 via-primary-color/45 to-gray-800/20"}
+          className={"bg-webinar-hero relative"}
         >
+          <div className="absolute h-full w-full bg-gradient-to-br from-black/15   to-gray-900/50 inset-0 backdrop-blur-md"></div>
           <Tabs
             activeKey={curr}
             onTabClick={(e) => {

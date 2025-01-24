@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 
 import Container from "../Helper/Container";
-import Divider from "../Helper/Divider"
+import Divider from "../Helper/Divider";
 
 const ExploreEvents = () => {
   // const imagesArr = [
@@ -29,23 +29,27 @@ const ExploreEvents = () => {
   return (
     <>
       <Container
-        className={"bg-mbbs-hero relative bg-cover bg-fixed bg-no-repeat"}
+        className={"relative bg-mbbs-hero bg-cover bg-fixed bg-no-repeat"}
       >
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-blue-300/10 to-blue-900/60 backdrop-blur-lg"></div>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 to-black/70 backdrop-blur-lg"></div>
         <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="text-center">
             <h2 className="text-3xl font-bold text-yellow-600">
               Explore Upcoming{" "}
-              <span className="font-extrabold text-primary-color">Events</span>
+              <span className="font-extrabold text-primary-color brightness-200">
+                Events
+              </span>
             </h2>
-            <p className="mx-auto text-xs font-semibold text-gray-700 my-2">
+            <p className="mx-auto my-2 text-xs font-semibold text-gray-200">
               Want to know more about{" "}
               <span className="font-bold">NEET Advisor</span> work? Join our
               upcoming events and take the first step towards your medical
               career!
             </p>
-            <Divider className={"h-1 w-10 bg-yellow-600 rounded-full mx-auto my-4"}/>
+            <Divider
+              className={"mx-auto my-4 h-1 w-10 rounded-full bg-yellow-600"}
+            />
           </div>
 
           {/* Main Content */}
@@ -55,7 +59,7 @@ const ExploreEvents = () => {
             {events.map((event, index) => (
               <div
                 key={index}
-                className="m-2 h-full w-72 cursor-pointer rounded-md border-l-2 border-b-2 border-white bg-gradient-to-br from-blue-200/90 via-blue-500/10 to-blue-800/50 p-2 transition-all duration-300 hover:scale-105"
+                className="m-2 h-full w-72 cursor-pointer rounded-md border-b-2 border-l-2 border-white bg-gradient-to-tr from-black/80 to-black/20 p-2 transition-all duration-300 hover:scale-105"
               >
                 <div className="flex items-start space-x-4">
                   {/* <div className="rounded-lg bg-primary-color/10 p-3"> */}
@@ -65,7 +69,7 @@ const ExploreEvents = () => {
                   />
                   {/* </div> */}
                   <div className="flex-1">
-                    <h3 className="text-sm font-bold text-gray-900">
+                    <h3 className="text-sm font-bold text-gray-200">
                       {event.title}
                     </h3>
                     <div className="mt-2 flex items-center space-x-2 text-sm font-extralight text-gray-900">
@@ -73,9 +77,9 @@ const ExploreEvents = () => {
                         src="./Mbbs/location-pin-bg-removed.gif"
                         className="h-5 w-5"
                       />{" "}
-                      <span>{event.location}</span>
+                      <span className="text-gray-200">{event.location}</span>
                     </div>
-                    <div className="mt-2 text-sm font-semibold text-gray-900">
+                    <div className="mt-2 text-sm font-semibold text-gray-300">
                       Date: <span className="font-light">{event.date}</span>
                     </div>
                   </div>
@@ -88,7 +92,7 @@ const ExploreEvents = () => {
 
           {/* CTA Button */}
           <div className="mt-12 text-center">
-            <button className="rounded-lg bg-yellow-600 font-extrabold hover:bg-yellow-700   px-3 py-2  rounded-l-full rounded-r-full text-white shadow-md transition-all duration-300 hover:bg-opacity-90">
+            <button className="rounded-lg rounded-l-full rounded-r-full bg-yellow-600 px-3 py-2 font-extrabold text-white shadow-md transition-all duration-300 hover:bg-yellow-700 hover:bg-opacity-90">
               View All Events
             </button>
           </div>
