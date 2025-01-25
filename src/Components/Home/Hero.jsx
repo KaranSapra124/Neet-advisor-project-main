@@ -12,7 +12,7 @@ const Hero = () => {
     <div className="relative px-5 py-10 z-10 flex items-center justify-center">
       <div className=" flex w-full flex-col items-center">
         <div className="flex items-center justify-center">
-          <h1 className="primary text-3xl font-medium">
+          <h1 className="primary text-3xl font-bold">
             Complete Handholding for <br />{" "}
             <span className="font-bold text-yellow-600">
               <span className="font-extrabold">NEET</span> Counselling Guidance

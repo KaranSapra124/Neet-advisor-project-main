@@ -231,7 +231,7 @@ const Scope = () => {
                           </div>
                           <Title
                             level={5}
-                            className="!mb-0 !brightness-200 !text-lg  !font-bold !text-primary-color"
+                            className="!mb-0 !brightness-[300%] !text-lg  !font-bold !text-primary-color"
                           >
                             {item.category}
                           </Title>

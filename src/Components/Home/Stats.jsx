@@ -34,11 +34,11 @@ const Stats = () => {
       <ScrollAnimation animateIn="backInUp" duration={1.2}>
         <div className="mx-auto text-center">
           {/* Header */}
-          <h1 className="text-3xl font-extrabold text-primary-color">
+          <h1 className="text-3xl font-bold text-yellow-600">
             Stats That{" "}
-            <span className="font-extrabold text-yellow-600">Define Us</span>
+            <span className="font-extrabold text-primary-color">Define Us</span>
           </h1>
-          <p className="mt-2 text-sm font-semibold text-gray-700">
+          <p className="mt-2 text-xs font-bold text-gray-700">
             Discover the milestones that showcase our commitment and impact.
           </p>
 

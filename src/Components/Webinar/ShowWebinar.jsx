@@ -47,8 +47,8 @@ const ShowWebinar = () => {
           animateOnce={true}
         >
           <div className="z-50 mx-auto  h-fit rounded-md bg-gradient-to-br from-white to-gray-100 px-4 py-5 shadow-lg shadow-gray-200">
-            <h1 className="font-extrabold text-primary-color text-2xl">
-              What You Will Learn ?
+            <h1 className="font-  bold text-yellow-600 text-2xl">
+              What You <span className="text-primary-color font-extrabold">Will Learn ?</span>
             </h1>
             <Divider className={"my-2 h-1 w-16 rounded-full bg-yellow-600"} />
             {neetWebinarTopics.map((elem, index) => {

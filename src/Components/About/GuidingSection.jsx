@@ -4,6 +4,7 @@ import { GiTeacher } from "react-icons/gi";
 import Container from "../Helper/Container";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Carousel } from "antd";
+import Divider from "../Helper/Divider";
 
 const GuidingSection = () => {
   const imageUrls = [
@@ -19,15 +20,16 @@ const GuidingSection = () => {
 
       <ScrollAnimation animateIn="backInRight" duration={1.5}>
         <div className="relative z-50 mx-auto">
-          <h1 className="mb-12 text-center text-3xl font-bold text-primary-color">
+          <h1 className="text-center text-3xl font-bold text-yellow-600">
             Guiding you towards your{" "}
             <span className="relative inline-block">
-              <span className="font-extrabold text-yellow-600">
+              <span className="font-extrabold text-primary-color">
                 DREAM CAREER
               </span>
-              <div className="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-600"></div>
+              {/* <div className="absolute mx-auto -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-600"></div> */}
             </span>
           </h1>
+          <Divider className={"h-1 w-20 rounded-full my-4 bg-yellow-600 mx-auto"}/>
 
           {/* <div className="h-52 top-10 relative max-w-sm border border-black mx-auto"></div> */}
           <div className="flex">
@@ -53,16 +55,14 @@ const GuidingSection = () => {
                   </p>
                 </div>
               </div>
-              <Carousel className="w-[30rem]" dots={false} autoplay autoplaySpeed={2500}>
+              <Carousel
+                className="w-[30rem]"
+                dots={false}
+                autoplay
+                autoplaySpeed={2500}
+              >
                 {imageUrls?.map((elem, index) => {
-                  return (
-                    <img
-                      className="h-full"
-                      src={elem}
-                      alt=""
-                      srcset=""
-                    />
-                  );
+                  return <img className="h-full" src={elem} alt="" srcset="" />;
                 })}
               </Carousel>
               {/* Second Card */}

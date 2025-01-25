@@ -104,9 +104,9 @@ const Testimonials = () => {
       )}
       <Container >
         <div className="py-2">
-          <h1 className="text-center text-3xl font-bold text-primary-color">
+          <h1 className="text-center text-3xl font-bold text-yellow-600">
             What Our{" "}
-            <span className="font-extrabold text-yellow-600">
+            <span className="font-extrabold text-primary-color">
               {" "}
               Attendees Say ?
             </span>

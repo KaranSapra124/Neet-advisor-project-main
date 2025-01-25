@@ -289,8 +289,8 @@ const UpcomingWebinars = () => {
   return (
     <Container className={'bg-gray-200/40'}>
       <div className="pb-6 text-center">
-        <h1 className="pb-2 text-3xl font-bold text-primary-color">
-          <span className="font-extrabold text-yellow-600">Upcoming</span>{" "}
+        <h1 className="pb-2 text-3xl font-extrabold text-primary-color">
+          <span className="font-bold text-yellow-600">Upcoming</span>{" "}
           Webinars
         </h1>
         <p className="text-xs font-bold text-gray-700">

@@ -82,19 +82,19 @@ const OurValues = () => {
       <ScrollAnimation animateIn="backInRight" duration={1.5}>
         <div className="relative m-auto max-w-screen-xl">
           <div className="pb-5">
-            <h1 className="text-center text-3xl font-bold text-primary-color">
+            <h1 className="text-center text-3xl font-bold text-yellow-600">
               Our Values ,{" "}
-              <span className="font-extrabold text-yellow-600">
+              <span className="font-extrabold text-primary-color">
                 Which Defined Us
               </span>
             </h1>
-            <p className="mx-auto w-[27rem] pt-2 text-center text-xs font-semibold text-gray-700">
+            <p className="mx-auto w-[27rem] my-2 text-center text-xs font-semibold text-gray-700">
               Our values represent the core principles that guide our actions,
               decisions, and relationships. They reflect our commitment to
               integrity, respect, innovation, and collaboration, shaping the way
               we interact with each other and the world.
             </p>
-            <div className="mx-auto my-4 h-1 w-64 rounded-lg bg-yellow-600"></div>
+            <div className="mx-auto my-4 h-1 w-20 rounded-lg bg-yellow-600"></div>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {values?.map((value, index) => {

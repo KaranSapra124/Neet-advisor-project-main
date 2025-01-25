@@ -104,13 +104,13 @@ const WhyUsSection = () => {
       <div ref={sectionRef} key={animationKey} className="mx-auto">
         {/* Header Section */}
         <div className="my-8 text-center">
-          <h1 className="mb-2 text-3xl font-semibold text-primary-color">
+          <h1 className="mb-2 text-3xl font-bold text-yellow-600">
             Why{" "}
-            <span className="font-extrabold text-yellow-600">
+            <span className="font-extrabold text-primary-color">
               NEET Advisor?
             </span>
           </h1>
-          <p className="text-xs text-gray-700">
+          <p className="text-xs w-96 mx-auto text-gray-700 font-bold">
             Unlock Your Success in 4 Simple Steps with our <strong>NEET</strong>{" "}
             Counselling Guidance.
           </p>

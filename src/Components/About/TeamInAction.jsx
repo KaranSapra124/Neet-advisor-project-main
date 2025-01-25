@@ -30,9 +30,9 @@ const TeamInAction = () => {
       <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-gray-100 via-gray-200 to-white opacity-90"></div>
       <ScrollAnimation animateIn="fadeIn" duration={2.5}>
         <div className="relative mx-auto max-w-screen-lg">
-          <h1 className="text-center text-3xl font-bold text-primary-color">
+          <h1 className="text-center text-3xl font-bold text-yellow-600">
             Team In{" "}
-            <span className="font-extrabold text-yellow-600">Action</span>
+            <span className="font-extrabold text-primary-color">Action</span>
           </h1>
           <Divider
             className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}

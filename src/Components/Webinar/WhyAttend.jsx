@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "../Helper/Container";
 import "./Testimonials.css";
 import { motion } from "framer-motion";
+import Divider from "../Helper/Divider";
 const WhyAttend = () => {
   const [isHover, setIsHover] = useState(false);
   const data = [
@@ -33,14 +34,15 @@ const WhyAttend = () => {
   return (
     <>
       <Container>
-        <h1 className="py-2 text-center text-3xl font-bold text-primary-color">
+        <h1 className="py-2 text-center text-3xl font-bold text-yellow-600">
           Why You Can’t Miss Our{" "}
-          <span className="font-extrabold text-yellow-600">Webinar!</span>
+          <span className="font-extrabold text-primary-color">Webinar!</span>
         </h1>
         <p className="py-2 text-center text-xs font-semibold text-gray-700">
           Attend Our Webinar And Get Your Dream Of <strong>NEET </strong>
           Achieved!
         </p>
+        {/* <Divider className={'h-1 w-20 bg-yellow-600 rounded-full mx-auto my-2'}/> */}
         <div className="relative mx-auto grid max-w-screen-md grid-cols-2 items-center gap-2">
           <motion.div drag className="absolute bottom-[9rem] left-[22.7rem] z-50 h-10 w-10 cursor-pointer overflow-hidden rounded-full border-2 bg-yellow-600">
             <img

@@ -76,12 +76,12 @@ const EnrollServices = () => {
 
   return (
     <Container>
-      <div className="mx-auto bg-yellow-100/20">
+      <div className="mx-auto ">
         {/* Hero Section */}
         <div className="my-4 text-center">
-          <h1 className="primary mb-4 text-3xl font-bold md:text-4xl">
+          <h1 className="text-yellow-600 mb-4 text-3xl font-bold md:text-4xl">
             On your marks , get set ,{" "}
-            <span className="font-extrabold text-yellow-600">Enroll!</span>
+            <span className="font-extrabold text-primary-color">Enroll!</span>
           </h1>
           <p className="mx-auto text-xs font-semibold text-gray-700">
             Once you have enrolled, the excitement begins! We focus on helping

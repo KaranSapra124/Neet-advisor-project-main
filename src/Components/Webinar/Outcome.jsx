@@ -108,8 +108,8 @@ const Outcome = () => {
 
   return (
     <Container className={"bg-gray-200/40"}>
-      <h1 className="mb-8 text-center text-3xl font-bold">
-        Webinar <span className="font-extrabold text-yellow-600">Outcomes</span>
+      <h1 className="my-2 text-center text-3xl text-yellow-600 font-bold">
+        Webinar <span className="font-extrabold text-primary-color">Outcomes</span>
       </h1>
 
       <div className="relative flex h-52 flex-col items-center">

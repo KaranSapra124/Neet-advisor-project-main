@@ -44,9 +44,9 @@ const Values = () => {
     <Container>
       <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
         <div>
-          <h1 className="text-center text-3xl font-bold text-primary-color">
+          <h1 className="text-center text-3xl font-bold text-yellow-600">
             Who Is This Webinar{" "}
-            <span className="font-extrabold text-yellow-600">For?</span>
+            <span className="font-extrabold text-primary-color">For?</span>
           </h1>
           <p className="my-2 text-center text-xs font-semibold text-gray-700">
             This webinar is designed to help both parents and students excel in

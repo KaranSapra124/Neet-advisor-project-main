@@ -65,9 +65,9 @@ const CounsellingSection = () => {
         <div className="mx-auto flex items-center justify-center rounded-md">
           <div>
             <div className="mb-4 text-center">
-              <h2 className="my-1 text-3xl font-semibold text-primary-color">
+              <h2 className="my-1 text-3xl font-bold text-yellow-600">
                 What We Have To{" "}
-                <span className="font-extrabold text-yellow-600">Offer ?</span>
+                <span className="font-extrabold text-primary-color">Offer ?</span>
               </h2>
               <p className="my-2 text-xs font-semibold text-gray-700">
                 Get personalized answers and ease your biggest doubts with Video

@@ -41,9 +41,9 @@ const Gems = () => {
 
         <ScrollAnimation animateIn="backInUp" duration={1.5}>
           <div className="relative mx-auto max-w-screen-xl">
-            <h1 className="text-center text-3xl font-bold text-primary-color">
+            <h1 className="text-center text-3xl font-bold text-yellow-600">
               Gems Of{" "}
-              <span className="font-extrabold uppercase text-yellow-600">
+              <span className="font-extrabold uppercase text-primary-color">
                 neet advisor
               </span>
             </h1>

@@ -48,15 +48,15 @@ const Gallery = () => {
   return (
     <Container>
       <div className="mx-auto w-full">
-        <h1 className="py-5 text-center text-3xl font-semibold text-primary-color">
+        <h1 className="py-2 text-center text-3xl font-bold text-yellow-600">
           Conceptualizing{" "}
-          <span className="font-extrabold text-yellow-600">
+          <span className="font-extrabold text-primary-color">
             NEET Counselling
           </span>{" "}
           Easy Way
         </h1>
 
-        <p className="mx-auto mb-8 max-w-2xl text-center text-sm font-medium text-gray-700">
+        <p className="mx-auto mb-8 w-[42rem] text-center text-xs font-bold text-gray-700">
           Our team has developed a set of webinars/seminars and workshops
           exclusively for students aspiring for a successful career in medicine.
           These thoughtfully crafted sessions will cover a wide range of topics

@@ -90,9 +90,9 @@ const Reviews = () => {
   return (
     <Container>
       <div className="flex flex-col items-center max-w-screen-lg mx-auto justify-center">
-        <h1 className="primary text-3xl font-bold">
+        <h1 className="text-yellow-600 text-3xl font-bold">
           Real Experiences,
-          <span className="font-extrabold text-yellow-600"> Real Results</span>
+          <span className="font-extrabold text-primary-color"> Real Results</span>
         </h1>
         <p className="py-2 text-xs font-semibold text-gray-700">
           Our Mentees Speak Out!

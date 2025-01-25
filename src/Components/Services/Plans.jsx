@@ -214,11 +214,11 @@ const PricingComponent = () => {
         <Container className={'bg-gray-200/40'}>
 
             <div className="container mx-auto ">
-                <h1 className="mb-4 text-center text-4xl font-bold md:text-5xl">
-                    <span className="text-indigo-900 font-bold" >Transparent Pricing.</span>{" "}
-                    <span className="text-yellow-600 font-extrabold">Defined Goals.</span>
+                <h1 className="my-2 text-center text-4xl font-bold md:text-5xl">
+                    <span className="text-yellow-600 font-bold" >Transparent Pricing.</span>{" "}
+                    <span className="text-primary-color font-extrabold">Defined Goals.</span>
                 </h1>
-                <p className="text-xs mx-auto mb-12 max-w-3xl text-center text-gray-700 font-semibold">
+                <p className="text-xs mx-auto my-4 w-[40rem] text-center text-gray-700 font-semibold">
                     Our well-defined, pocket-friendly plans reflect our commitment to
                     making your NEET Counselling Process a smooth, hassle-free experience.
                     Choose the one that best suits your goal and budget!
@@ -252,9 +252,9 @@ const PricingComponent = () => {
                     </div>
                 </div>
 
-                <div className="mb-8 mt-20 text-center text-3xl  font-bold text-indigo-900">
+                <div className="my-2 mt-20 text-center text-3xl  font-bold text-yellow-600">
                     Get the
-                    <span className="text-yellow-600 font-extrabold"> Achieve Plan </span>
+                    <span className="text-primary-color font-extrabold"> Achieve Plan </span>
                     For Free !
                 </div>
                 <div className="text-xs font-semibold mb-4 text-center text-gray-700">

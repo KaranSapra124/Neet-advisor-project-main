@@ -41,11 +41,11 @@ const WhoWeAre = () => {
 
         {/* Content */}
         <div className="relative mx-auto px-4">
-          <h1 className="text-center text-3xl font-bold text-primary-color">
+          <h1 className="text-center text-3xl font-bold text-yellow-600">
             Our Vision{" "}
-            <span className="font-extrabold text-yellow-600">& Mission</span>
+            <span className="font-extrabold text-primary-color">& Mission</span>
           </h1>
-          <div className="m-auto mb-5 mt-2 h-1 w-20 rounded-full bg-yellow-600"></div>
+          <div className="m-auto mb-5 my-4 h-1 w-20 rounded-full bg-yellow-600"></div>
 
           <div className="mx-auto flex max-w-screen-lg items-center justify-evenly">
             <div className="grid w-fit grid-cols-1 overflow-hidden rounded-lg p-2 shadow-md shadow-primary-color">

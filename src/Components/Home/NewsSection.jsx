@@ -86,10 +86,10 @@ const NewsSection = () => {
             <Container className={'bg-gray-200/40'}>
 
                 <div className='flex flex-col text-center mx-5'>
-                    <h1 className='text-3xl primary font-semibold text-center '>
-                        Get the <span className='text-yellow-600 font-extrabold'>Latest News and Updates</span> ,  all at One place!
+                    <h1 className='text-3xl text-yellow-600 font-bold text-center '>
+                        Get the <span className='text-primary-color font-extrabold'>Latest News and Updates</span> ,  all at One place!
                     </h1>
-                    <p className='py-2 text-xs text-gray-700 font-semibold'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod veritatis ipsam harum quaerat eaque quam quibusdam dolore voluptates voluptas ratione, quisquam beatae dignissimos debitis recusandae suscipit totam qui nam! Sint.</p>
+                    <p className='py-2 text-xs text-gray-700 font-bold w-[42rem] mx-auto'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod veritatis ipsam harum quaerat eaque quam quibusdam dolore voluptates voluptas ratione, quisquam beatae dignissimos debitis recusandae suscipit totam qui nam! Sint.</p>
 
 
                 </div>

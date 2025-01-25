@@ -53,9 +53,9 @@ const Testimonials = () => {
   return (
     <Container className={"bg-gray-200/40"}>
       {/* <div className=" flex flex-col items-center mx-auto py-2 "> */}
-      <h1 className="text-center text-3xl font-bold leading-none text-primary-color">
+      <h1 className="text-center text-3xl font-bold leading-none text-yellow-600">
         What our customers are{" "}
-        <span className="font-extrabold text-yellow-600">
+        <span className="font-extrabold text-primary-color">
           saying about us ?
         </span>
       </h1>
