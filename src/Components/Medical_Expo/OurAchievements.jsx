@@ -18,7 +18,7 @@ const SuperChargeDream = () => {
                     <h1 className="text-3xl font-semibold text-white my-2">
                         Supercharge Your <span className='font-extrabold text-yellow-600'>Future</span>
                     </h1>
-                    <p className="text-xs text-gray-300 max-w-xl font-semibold mx-auto">
+                    <p className="text-xs w-80 text-gray-300 max-w-xl font-semibold mx-auto">
                         Make your dreams meet direction. Medical mentor Expo is your key to Tips,
                         Tricks, Techniques, Insights and Updates. Here's why you can't afford to miss it!
                     </p>

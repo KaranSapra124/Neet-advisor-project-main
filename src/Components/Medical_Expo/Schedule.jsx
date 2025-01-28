@@ -46,16 +46,16 @@ const Schedule = () => {
         <Container className="bg-gradient-to-tr from-black to-black/85">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h1 className="text-white text-4xl font-semibold mb-4">
-                        Expo <span className="font-extrabold text-yellow-600">Schedule</span>
+                    <h1 className="text-white text-3xl font-semibold my-3">
+                         <span className="font-extrabold text-yellow-600">Schedule</span> For Upcoming Expo
                     </h1>
-                    <p className="text-gray-300 font-semibold text-sm md:text-base max-w-2xl mx-auto">
+                    <p className="text-gray-300 font-semibold text-sm md:text-xs max-w-md mx-auto">
                         Stay informed. Stay ahead. Learn about the event slot and timings.
                         Choose the session that suits you best.
                     </p>
                 </div>
 
-                <div className="mt-8">
+                <div className="mt-2">
 
                     <Tabs
                         className="scheduleTab"
@@ -66,7 +66,7 @@ const Schedule = () => {
                             children: (
                                 <div className="bg-black/30   p-6 rounded-lg border border-gray-800">
                                     <div className="text-gray-300 space-y-4 flex   justify-center flex-col items-center">
-                                        <h2 className="text-sm font-semibold mb-2 ">
+                                        <h2 className="text-md font-bold brightness-200  mb-2 ">
                                             Session Date: {elem.date}
                                         </h2>
                                         <p className="text-gray-400 mb-4 text-xs  font-semibold">

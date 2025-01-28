@@ -25,11 +25,11 @@ const OurPanelists = () => {
     return (
         <Container className="bg-gradient-to-br from-black to-black/85 py-16">
             <div className="max-w-6xl mx-auto px-4">
-                <div className="text-center mb-12">
+                <div className="text-center my-4">
                     <h1 className="text-white text-3xl font-semibold mb-4">
-                        Expo <span className="font-extrabold text-yellow-600">Panelists</span>
+                        Expo <span className="font-extrabold text-yellow-600">Panelists</span> Who Will <span className="font-extrabold text-yellow-600">Guide You!</span>
                     </h1>
-                    <p className="text-gray-300 text-xs md:text-base max-w-2xl mx-auto">
+                    <p className="text-gray-300  text-xs md:text-xs max-w-md font-semibold mx-auto">
                         Learn from doctors, professors, and alumni of India's leading medical colleges. 
                         Carve your path in competitive medical landscape.
                     </p>

@@ -76,10 +76,10 @@ const EnrollServices = () => {
 
   return (
     <Container>
-      <div className="mx-auto ">
+      <div className="mx-auto">
         {/* Hero Section */}
         <div className="my-4 text-center">
-          <h1 className="text-yellow-600 mb-4 text-3xl font-bold md:text-4xl">
+          <h1 className="mb-4 text-3xl font-bold text-yellow-600 md:text-4xl">
             On your marks , get set ,{" "}
             <span className="font-extrabold text-primary-color">Enroll!</span>
           </h1>
@@ -124,34 +124,18 @@ const EnrollServices = () => {
             <div className="absolute inset-0 flex flex-col justify-center gap-4 rounded-md bg-black/50 p-4 text-white">
               <div className="flex items-center gap-2">
                 {/* <span className="text-white">{servicesArr[currIndex].icon}</span>  */}
-                <span className="text-lg  font-bold">
+                <span className="text-lg font-bold">
                   {servicesArr[currIndex].title}
                 </span>
               </div>
-              <p className="text-xs text-gray-300 font-semibold">
-                {expandedCards === currIndex
-                  ? servicesArr[currIndex].content
-                  : servicesArr[currIndex]?.content?.substring(0, 45) +
-                    "..."}
+              <p className="text-xs font-semibold text-gray-300">
+                {servicesArr[currIndex].content}
               </p>
               <div className="flex items-center gap-2">
-                <button
-                  className="mt-2 w-fit rounded-lg bg-yellow-600 px-4 py-2 text-xs font-semibold shadow transition-all duration-300"
-                  onClick={() => toggleExpand(currIndex)}
-                >
-                  {expandedCards === currIndex ? (
-                    <>
-                      <UpOutlined /> Show Less
-                    </>
-                  ) : (
-                    <>
-                      <DownOutlined /> Learn More
-                    </>
-                  )}
-                </button>
+               
                 <FaPlayCircle
                   onClick={() => setModalVideo(servicesArr[currIndex])}
-                  className="mt-2 cursor-pointer text-xl hover:scale-125 hover:text-gray-200 transition-all duration-200"
+                  className="mt-2 cursor-pointer text-xl transition-all duration-200 hover:scale-125 hover:text-gray-200"
                 />
               </div>
             </div>
@@ -159,7 +143,7 @@ const EnrollServices = () => {
         </motion.div>
 
         {/* Navigation Arrows */}
-        <div className="mb-2 flex justify-between">
+        <div className="mb-2 flex">
           <FaArrowLeft
             onClick={() => {
               setCurrIndex((prev) =>
@@ -167,7 +151,7 @@ const EnrollServices = () => {
               );
               setIsChanged(!isChanged);
             }}
-            className="cursor-pointer rounded border p-2 text-3xl"
+            className="my-2 cursor-pointer rounded-full bg-yellow-600 p-2 text-3xl text-white shadow-md shadow-black duration-200 hover:scale-105"
           />
           <FaArrowRight
             onClick={() => {
@@ -176,7 +160,7 @@ const EnrollServices = () => {
               );
               setIsChanged(!isChanged);
             }}
-            className="cursor-pointer rounded border p-2 text-3xl"
+            className="mx-2 my-2 cursor-pointer rounded-full bg-yellow-600 p-2 text-3xl text-white shadow-md shadow-black duration-200 hover:scale-105"
           />
         </div>
 
@@ -269,7 +253,8 @@ const EnrollServices = () => {
                             onClick={() => toggleExpand({})}
                             className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 p-2 py-2 text-xs font-semibold text-white shadow transition-all"
                           >
-                            <UpOutlined className="transition-all duration-150"/> Show Less
+                            <UpOutlined className="transition-all duration-150" />{" "}
+                            Show Less
                           </div>
                         </>
                       ) : (

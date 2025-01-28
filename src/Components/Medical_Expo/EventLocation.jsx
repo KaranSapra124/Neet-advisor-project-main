@@ -11,7 +11,7 @@ const EventLocation = () => {
                     Location <FaMapLocation className="ml-2" />
                 </span>
             </h1>
-            <p className='text-gray-300 text-center my-4 font-semibold text-xs'>Contact us for more details on the Medical Advisor Expo</p>
+            <p className='text-gray-300 text-center my-4 w-64 font-semibold text-xs'>Contact us for more details on the Medical Advisor Expo</p>
             <div className='flex  justify-center items-center'>
                 <div className='flex flex-col justify-center items-center'>
                     <div className='flex'>
