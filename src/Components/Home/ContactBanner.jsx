@@ -22,19 +22,19 @@ const ContactBanner = () => {
     <>
       <Divider className={"mx-auto h-1 w-64 rounded-full bg-yellow-600"} />
       <ScrollAnimation animateIn="backInUp" duration={1.5}>
-        <div className="m-10 mx-auto flex max-w-screen-xl flex-col items-center justify-center space-y-8 rounded-lg border-l-4 border-yellow-600 bg-gray-200/40 p-6 shadow-md lg:flex-row lg:space-y-0 lg:p-4">
+        <div className="my-4 mx-auto flex  max-w-screen-lg flex-col items-center justify-center  rounded-lg border-l-2 border-b-2 border-yellow-600 bg-gray-200/40 p-3 shadow-md lg:flex-row lg:space-y-0 lg:p-2">
           <motion.div
-            className="flex flex-col items-start p-6 lg:w-1/2 lg:p-8"
+            className="flex flex-col items-start p-4 lg:w-1/2 lg:p-2"
             initial="hidden"
             animate="visible"
             variants={textVariants}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="mb-2 text-3xl font-extrabold text-yellow-600">
+            <h1 className="mb-2 text-2xl font-extrabold text-yellow-600">
               Still Got Doubts?
             </h1>
-            <Divider className={"my-1 h-1 w-20 rounded-full bg-yellow-600"} />
-            <h2 className="text-md my-2 font-bold text-primary-color">
+            <Divider className={"my-1 h-1 w-12 rounded-full bg-yellow-600"} />
+            <h2 className="text-sm my-2 font-bold text-primary-color">
               Get Your Doubts Cleared By Booking A 1 to 1 Meet!
             </h2>
             <p className="my-2 text-xs font-semibold text-gray-700">
@@ -47,7 +47,7 @@ const ContactBanner = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="mr-2 font-bold">Book Now</span>
+                <span className="mr-2 text-sm font-bold">Book Now</span>
                 <MdElectricBolt className="text-lg" />
               </motion.button>
               <span>
@@ -56,7 +56,7 @@ const ContactBanner = () => {
             </div>
           </motion.div>
           <motion.div
-            className="flex w-full justify-center lg:w-1/2 lg:justify-end"
+            className="flex w-full  justify-center lg:w-1/2 lg:justify-end"
             initial="hidden"
             animate="visible"
             variants={videoVariants}
@@ -68,7 +68,7 @@ const ContactBanner = () => {
               loop
               autoPlay
               muted
-              className="w-full max-w-sm transform rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
+              className="w-full  max-w-80 transform rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
               aria-label="Promotional video for booking a meeting"
             />
           </motion.div>
