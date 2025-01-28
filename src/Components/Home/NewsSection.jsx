@@ -1,141 +1,190 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation'; // Import navigation styles
+import React from "react";
+
 // import { Navigation } from 'swiper'; // Import navigation module
-import ScrollAnimation from 'react-animate-on-scroll';
-import { Carousel } from "antd"
-import Container from "../Helper/Container"
-import { FaArrowRight, FaLocationArrow, FaRegNewspaper } from 'react-icons/fa'
+import ScrollAnimation from "react-animate-on-scroll";
+import { Carousel } from "antd";
+import Container from "../Helper/Container";
+import { FaArrowRight, FaLocationArrow, FaRegNewspaper } from "react-icons/fa";
 
 const NewsSection = () => {
-    const headerStyle = {
-        background: "url(https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        opacity: 1,
-        backgroundAttachment: "fixed"
-    };
+  const headerStyle = {
+    background:
+      "url(https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    opacity: 1,
+    backgroundAttachment: "fixed",
+  };
 
-    const newsData = [
-        // Sample data (You can keep the existing array)
-        {
-            headline: "Scientists Discover New Species of Ancient Human in the Philippines",
-            description: "The discovery of a new species of ancient human in the Philippines has shed new light on human evolution and migration patterns.",
-            time: "1 hour ago",
-            image: { url: "https://picsum.photos/200/300", alt: "Ancient human fossil" }
-        },
-        {
-            headline: "Global Stock Markets Plummet Amid Fears of Economic Downturn",
-            description: "Global stock markets have plummeted in recent days amid fears of an economic downturn, with investors scrambling to sell off shares and bonds.",
-            time: "3 hours ago",
-            image: { url: "https://picsum.photos/200/301", alt: "Stock market graph" }
-        },
-        {
-            headline: "New Study Reveals the Devastating Impact of Climate Change on Coral Reefs",
-            description: "A new study has revealed the devastating impact of climate change on coral reefs, with rising sea temperatures and acidification causing widespread damage and destruction.",
-            time: "5 hours ago",
-            image: { url: "https://picsum.photos/200/302", alt: "Coral reef damage" }
-        },
-        {
-            headline: "NASA's Artemis Mission Aims to Return Humans to the Moon by 2024",
-            description: "NASA's Artemis mission aims to return humans to the moon by 2024, with the goal of establishing a sustainable presence on the lunar surface.",
-            time: "7 hours ago",
-            image: { url: "https://picsum.photos/200/303", alt: "Artemis mission logo" }
-        },
-        {
-            headline: "New Breakthrough in the Treatment of Parkinson's Disease",
-            description: "Scientists have made a major breakthrough in the treatment of Parkinson's disease, developing a new medication that can slow down the progression of the disease.",
-            time: "9 hours ago",
-            image: { url: "https://picsum.photos/200/304", alt: "Parkinson's disease medication" }
-        },
-        {
-            headline: "Global Leaders Meet to Discuss the Growing Threat of Cybersecurity",
-            description: "Global leaders are meeting in Tokyo today to discuss the growing threat of cybersecurity, with the goal of developing new strategies and technologies to protect against cyber attacks.",
-            time: "11 hours ago",
-            image: { url: "https://picsum.photos/200/305", alt: "Cybersecurity conference" }
-        },
-        {
-            headline: "New Study Reveals the Benefits of Meditation for Mental Health",
-            description: "A new study has revealed the benefits of meditation for mental health, with regular practice shown to reduce stress and anxiety and improve mood and cognitive function.",
-            time: "13 hours ago",
-            image: { url: "https://picsum.photos/200/306", alt: "Person meditating" }
-        },
-        {
-            headline: "Scientists Discover New Species of Giant Squid in the Deep Sea",
-            description: "Scientists have discovered a new species of giant squid in the deep sea, with the massive creature measuring over 20 feet in length.",
-            time: "15 hours ago",
-            image: { url: "https://picsum.photos/200/307", alt: "Giant squid" }
-        },
-        {
-            headline: "New Breakthrough in the Development of Quantum Computing",
-            description: "Scientists have made a major breakthrough in the development of quantum computing, with the goal of creating a new generation of supercomputers that can solve complex problems and simulate complex systems.",
-            time: "17 hours ago",
-            image: { url: "https://picsum.photos/200/308", alt: "Quantum computer" }
-        },
-        {
-            headline: "Global Economic Growth Slows Down Amid Trade Tensions",
-            description: "Global economic growth has slowed down in recent months amid trade tensions and rising interest rates, with investors and policymakers scrambling to respond.",
-            time: "19 hours ago",
-            image: { url: "https://picsum.photos/200/309", alt: "Global economic graph" }
-        }
-    ];
+  const newsData = [
+    // Sample data (You can keep the existing array)
+    {
+      headline:
+        "Scientists Discover New Species of Ancient Human in the Philippines",
+      description:
+        "The discovery of a new species of ancient human in the Philippines has shed new light on human evolution and migration patterns.",
+      time: "1 hour ago",
+      image: {
+        url: "https://picsum.photos/200/300",
+        alt: "Ancient human fossil",
+      },
+    },
+    {
+      headline: "Global Stock Markets Plummet Amid Fears of Economic Downturn",
+      description:
+        "Global stock markets have plummeted in recent days amid fears of an economic downturn, with investors scrambling to sell off shares and bonds.",
+      time: "3 hours ago",
+      image: {
+        url: "https://picsum.photos/200/301",
+        alt: "Stock market graph",
+      },
+    },
+    {
+      headline:
+        "New Study Reveals the Devastating Impact of Climate Change on Coral Reefs",
+      description:
+        "A new study has revealed the devastating impact of climate change on coral reefs, with rising sea temperatures and acidification causing widespread damage and destruction.",
+      time: "5 hours ago",
+      image: { url: "https://picsum.photos/200/302", alt: "Coral reef damage" },
+    },
+    {
+      headline:
+        "NASA's Artemis Mission Aims to Return Humans to the Moon by 2024",
+      description:
+        "NASA's Artemis mission aims to return humans to the moon by 2024, with the goal of establishing a sustainable presence on the lunar surface.",
+      time: "7 hours ago",
+      image: {
+        url: "https://picsum.photos/200/303",
+        alt: "Artemis mission logo",
+      },
+    },
+    {
+      headline: "New Breakthrough in the Treatment of Parkinson's Disease",
+      description:
+        "Scientists have made a major breakthrough in the treatment of Parkinson's disease, developing a new medication that can slow down the progression of the disease.",
+      time: "9 hours ago",
+      image: {
+        url: "https://picsum.photos/200/304",
+        alt: "Parkinson's disease medication",
+      },
+    },
+    {
+      headline:
+        "Global Leaders Meet to Discuss the Growing Threat of Cybersecurity",
+      description:
+        "Global leaders are meeting in Tokyo today to discuss the growing threat of cybersecurity, with the goal of developing new strategies and technologies to protect against cyber attacks.",
+      time: "11 hours ago",
+      image: {
+        url: "https://picsum.photos/200/305",
+        alt: "Cybersecurity conference",
+      },
+    },
+    {
+      headline:
+        "New Study Reveals the Benefits of Meditation for Mental Health",
+      description:
+        "A new study has revealed the benefits of meditation for mental health, with regular practice shown to reduce stress and anxiety and improve mood and cognitive function.",
+      time: "13 hours ago",
+      image: { url: "https://picsum.photos/200/306", alt: "Person meditating" },
+    },
+    {
+      headline:
+        "Scientists Discover New Species of Giant Squid in the Deep Sea",
+      description:
+        "Scientists have discovered a new species of giant squid in the deep sea, with the massive creature measuring over 20 feet in length.",
+      time: "15 hours ago",
+      image: { url: "https://picsum.photos/200/307", alt: "Giant squid" },
+    },
+    {
+      headline: "New Breakthrough in the Development of Quantum Computing",
+      description:
+        "Scientists have made a major breakthrough in the development of quantum computing, with the goal of creating a new generation of supercomputers that can solve complex problems and simulate complex systems.",
+      time: "17 hours ago",
+      image: { url: "https://picsum.photos/200/308", alt: "Quantum computer" },
+    },
+    {
+      headline: "Global Economic Growth Slows Down Amid Trade Tensions",
+      description:
+        "Global economic growth has slowed down in recent months amid trade tensions and rising interest rates, with investors and policymakers scrambling to respond.",
+      time: "19 hours ago",
+      image: {
+        url: "https://picsum.photos/200/309",
+        alt: "Global economic graph",
+      },
+    },
+  ];
 
-    return (
-        <>
-            <Container className={'bg-gray-200/40'}>
+  return (
+    <>
+      <Container className={"bg-gray-200/40"}>
+        <div className="mx-5 flex flex-col text-center">
+          <h1 className="text-center text-3xl font-bold text-yellow-600">
+            Get the{" "}
+            <span className="font-extrabold text-primary-color">
+              Latest News and Updates
+            </span>{" "}
+            , all at One place!
+          </h1>
+          <p className="mx-auto w-[42rem] py-2 text-xs font-bold text-gray-700">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
+            veritatis ipsam harum quaerat eaque quam quibusdam dolore voluptates
+            voluptas ratione, quisquam beatae dignissimos debitis recusandae
+            suscipit totam qui nam! Sint.
+          </p>
+        </div>
+        <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
+          <Carousel
+            slidesToShow={4}
+            dots={false}
+            className="mx-10 my-5 gap-x-1"
+            arrows={true}
+            dotPosition="bottom"
+            autoplay
+          >
+            {/* Render each group of 3 slides here */}
+            {newsData?.map((elem, index) => {
+              // console.log(elem,"ELEM")
+              return (
+                <div className="flex">
+                  <div className="flex w-full items-center whitespace-pre-wrap">
+                    {/* Adjust each box width to 30% to fit 3 items per row */}
+                    <div className="newsBox relative m-2 mx-2 w-full cursor-pointer overflow-hidden rounded border bg-white p-2 shadow-lg transition-all hover:scale-105">
+                      {/* Hover effect container */}
+                      <div className="absolute bottom-0 left-0 right-0 top-0 transform border-4 border-transparent transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:border-yellow-600"></div>
 
-                <div className='flex flex-col text-center mx-5'>
-                    <h1 className='text-3xl text-yellow-600 font-bold text-center '>
-                        Get the <span className='text-primary-color font-extrabold'>Latest News and Updates</span> ,  all at One place!
-                    </h1>
-                    <p className='py-2 text-xs text-gray-700 font-bold w-[42rem] mx-auto'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod veritatis ipsam harum quaerat eaque quam quibusdam dolore voluptates voluptas ratione, quisquam beatae dignissimos debitis recusandae suscipit totam qui nam! Sint.</p>
+                      {/* Inner content */}
+                      <div className="flex items-center">
+                        <FaRegNewspaper className="text-yellow-600" />
+                        <p className="mx-2 text-xs font-bold">{elem.time}</p>
+                      </div>
+                      <div className="flex items-center p-2">
+                        <h4 className="text-wrap text-justify text-xs text-gray-700">
+                          {elem.headline.substring(0, 40) + " ..."}
+                        </h4>
+                        <FaLocationArrow className="mx-5 text-yellow-600 transition-all hover:text-yellow-700" />
+                      </div>
 
-
+                      {/* Before & After pseudo elements */}
+                      <div className="absolute left-0 top-0 h-4 w-full border-r-4 border-t-4 border-transparent bg-transparent transition-all duration-500 group-hover:h-full group-hover:translate-x-0"></div>
+                      <div className="absolute bottom-0 left-0 h-4 w-full border-b-4 border-l-4 border-transparent bg-transparent transition-all duration-500 group-hover:h-full group-hover:translate-x-0"></div>
+                    </div>
+                  </div>
                 </div>
-                <ScrollAnimation animateIn='backInUp' animateOnce={true} duration={1.5}>
-
-                    <Carousel slidesToShow={4} dots={false} className='gap-x-1 my-5 mx-10' arrows={true} dotPosition='bottom' autoplay>
-                        {/* Render each group of 3 slides here */}
-                        {newsData?.map((elem, index) => {
-                            // console.log(elem,"ELEM")
-                            return (
-                                <div className='flex'>
-
-                                    <div className="flex  whitespace-pre-wrap items-center  w-full">
-                                        {/* Adjust each box width to 30% to fit 3 items per row */}
-                                        <div className="relative  newsBox mx-2 border  rounded cursor-pointer hover:scale-105 transition-all shadow-lg bg-white m-2 p-2 w-full overflow-hidden">
-                                            {/* Hover effect container */}
-                                            <div className="absolute top-0 left-0 right-0 bottom-0 border-4 border-transparent transform transition-all duration-300 ease-linear group-hover:border-yellow-600 group-hover:translate-x-0"></div>
-
-                                            {/* Inner content */}
-                                            <div className="flex items-center">
-                                                <FaRegNewspaper className="text-yellow-600" />
-                                                <p className="mx-2 font-bold text-xs">{elem.time}</p>
-                                            </div>
-                                            <div className="flex p-2 items-center ">
-                                                <h4 className='text-xs text-wrap text-justify text-gray-700'>{elem.headline.substring(0, 40) + ' ...'}</h4>
-                                                <FaLocationArrow className="mx-5 hover:text-yellow-700 text-yellow-600 transition-all" />
-                                            </div>
-
-                                            {/* Before & After pseudo elements */}
-                                            <div className="absolute top-0 left-0 w-full h-4 bg-transparent border-t-4 border-r-4 border-transparent group-hover:h-full group-hover:translate-x-0 transition-all duration-500"></div>
-                                            <div className="absolute bottom-0 left-0 w-full h-4 bg-transparent border-b-4 border-l-4 border-transparent group-hover:h-full group-hover:translate-x-0 transition-all duration-500"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </Carousel>
-                    {/* </div>
+              );
+            })}
+          </Carousel>
+          {/* </div>
                     </div> */}
-                    <button className="noselect m-auto bg-yellow-600"><span className="text text-white ">View More</span><span className="icon"><FaArrowRight></FaArrowRight>
-                    </span></button>
-                </ScrollAnimation>
-
-            </Container>
-        </>
-    );
+          <button className="m-auto rounded-md flex hover:scale-105 duration-200 hover:bg-yellow-500 items-center justify-center bg-yellow-600 p-2 font-semibold text-white">
+            View More{" "}
+            <span>
+              <FaArrowRight className="mx-2 text-sm" />
+            </span>
+          </button>
+        </ScrollAnimation>
+      </Container>
+    </>
+  );
 };
 
 export default NewsSection;
