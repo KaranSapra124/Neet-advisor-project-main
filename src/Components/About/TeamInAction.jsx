@@ -39,7 +39,7 @@ const TeamInAction = () => {
           />
           <div className="md:flex items-center justify-between mx-auto space-x-8">
             {/* Image Gallery */}
-            <div className=" flex flex-col items-center border-l-2 border-b-2 border-yellow-600 justify-center space-y-4 rounded-xl p-4 shadow-md shadow-black/50">
+            <div className=" flex flex-col items-center border-l-2 border-b-2 border-yellow-600 justify-center space-y-4 rounded-xl p-4 shadow">
               <div className="grid grid-cols-2 gap-4">
                 {imageUrls.map((elem, index) => (
                   <div key={index} className="relative">

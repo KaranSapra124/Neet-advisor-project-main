@@ -45,10 +45,10 @@ const WhoWeAre = () => {
             Our Vision{" "}
             <span className="font-extrabold text-primary-color">& Mission</span>
           </h1>
-          <div className="m-auto mb-5 my-4 h-1 w-20 rounded-full bg-yellow-600"></div>
+          <div className="m-auto mb-5 my-2 h-1 w-20 rounded-full bg-yellow-600"></div>
 
           <div className="mx-auto flex max-w-screen-lg items-center justify-evenly">
-            <div className="grid w-fit grid-cols-1 overflow-hidden rounded-lg p-2 shadow-md shadow-primary-color">
+            <div className="grid w-fit grid-cols-1 overflow-hidden rounded-lg p-2 border-l-2 border-b-2 border-yellow-600 shadow">
               {/* Image Section */}
               <div className="flex flex-col">
                 <div className="relative w-full">
