@@ -104,7 +104,7 @@ const Reviews = () => {
                  autoplay
                  autoplaySpeed={2500}
                  dots={false}
-                 className="mx-auto my-8 max-w-screen-xl"
+                 className="mx-auto my-2 max-w-screen-xl"
                >
                  {reviews.map((elem) => {
                    return (
@@ -138,13 +138,13 @@ const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
       {/* Testimonial Text */}
       <div className="my-4 flex">
         <span className="text-5xl text-primary-color">❝</span>
-        <p className="mt-5 text-center text-sm font-semibold text-gray-700">
+        <p className="mt-5 text-center text-sm font-medium text-gray-700">
           {review}
         </p>
         <span className="text-5xl text-primary-color">❞</span>
       </div>
       {/* Client Info */}
-      <div className="mt-4 text-center">
+      <div className="mt-2 text-center">
         <p className="text-lg font-bold text-gray-700">{clientName}</p>
         <p className="text-xs font-semibold text-gray-700">{clientCollege}</p>
       </div>

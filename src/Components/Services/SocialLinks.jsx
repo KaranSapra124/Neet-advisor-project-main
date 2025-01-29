@@ -15,7 +15,7 @@ const SocialLinks = () => {
           <h2 className="text-3xl font-bold text-yellow-600">
             Let's Get <span className="text-primary-color font-extrabold">Social</span>
           </h2>
-          <p className="text-gray-700 font-semibold text-xs my-2">Follow On Our Social Media Handles & Remain Up To Date!</p>
+          <p className="text-gray-700 font-semibold text-xs max-w-64 mx-auto  my-1">Follow On Our Social Media Handles & Remain Up To Date!</p>
         </div>
         <div className="social-overlap process-scetion mt100">
           <div className="container">
