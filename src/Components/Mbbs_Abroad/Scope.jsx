@@ -194,11 +194,11 @@ const Scope = () => {
           </div> */}
           <h1 className="text-3xl font-bold text-yellow-600">
             Why To Pursue{" "}
-            <span className="font-extrabold brightness-200 text-primary-color">
+            <span className="font-extrabold brightness-125 text-primary-color ">
               MBBS Abroad?
             </span>
           </h1>
-          <p className="my-2 text-xs font-bold text-gray-200 w-96 mx-auto">
+          <p className="my-1 text-xs font-bold text-gray-200 w-96 mx-auto">
             MBBS abroad is vast, offering numerous opportunities depending on
             the individual's preferences and qualifications.
           </p>
@@ -231,7 +231,7 @@ const Scope = () => {
                           </div>
                           <Title
                             level={5}
-                            className="!mb-0 !brightness-[300%] !text-lg  !font-bold !text-primary-color"
+                            className="!mb-0 !brightness-[350%] !text-lg  !font-bold !text-primary-color"
                           >
                             {item.category}
                           </Title>

@@ -19,9 +19,9 @@ const ApplyForDreamUniversity = () => {
         <div className="relative">
           <h1 className="text-center text-3xl font-bold text-yellow-600">
             Get University Of{" "}
-            <span className="font-extrabold text-primary-color brightness-200">Your Dream</span>{" "}
+            <span className="font-extrabold text-primary-color brightness-125">Your Dream</span>{" "}
           </h1>
-          <p className="py-2 text-center text-xs font-semibold text-gray-200">
+          <p className="py-1 text-center text-xs font-semibold text-gray-200">
             Want to get admission at your dream university , your wish is
             granted!
           </p>

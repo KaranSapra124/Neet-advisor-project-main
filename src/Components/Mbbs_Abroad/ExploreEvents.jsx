@@ -37,11 +37,11 @@ const ExploreEvents = () => {
           <div className="text-center">
             <h2 className="text-3xl font-bold text-yellow-600">
               Explore Upcoming{" "}
-              <span className="font-extrabold text-primary-color brightness-200">
+              <span className="font-extrabold text-primary-color brightness-150">
                 Events
               </span>
             </h2>
-            <p className="mx-auto my-2 text-xs font-semibold text-gray-200">
+            <p className="mx-auto my-2 text-xs font-semibold max-w-sm text-gray-300">
               Want to know more about{" "}
               <span className="font-bold">NEET Advisor</span> work? Join our
               upcoming events and take the first step towards your medical
@@ -69,7 +69,7 @@ const ExploreEvents = () => {
                   />
                   {/* </div> */}
                   <div className="flex-1">
-                    <h3 className="text-sm font-bold text-gray-200">
+                    <h3 className="text-sm font-bold text-gray-300">
                       {event.title}
                     </h3>
                     <div className="mt-2 flex items-center space-x-2 text-sm font-extralight text-gray-900">
@@ -77,7 +77,7 @@ const ExploreEvents = () => {
                         src="./Mbbs/location-pin-bg-removed.gif"
                         className="h-5 w-5"
                       />{" "}
-                      <span className="text-gray-200">{event.location}</span>
+                      <span className="text-gray-200 text-xs font-bold">{event.location}</span>
                     </div>
                     <div className="mt-2 text-sm font-semibold text-gray-300">
                       Date: <span className="font-light">{event.date}</span>

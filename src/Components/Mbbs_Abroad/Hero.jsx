@@ -44,16 +44,16 @@ const Hero = () => {
           src={imageArr[currentImage]}
           className="animate-fadeIn absolute inset-0 h-full w-full object-cover brightness-110"
         />
-        <div className="absolute inset-0 h-full w-full bg-black/80"></div>
+        <div className="absolute inset-0 h-full w-full bg-black/65"></div>
         <div className="flex h-full items-center">
-          <div className="relative flex h-fit w-fit flex-col justify-center gap-5 rounded-md bg-white/35 p-4 shadow-sm shadow-white backdrop-blur-sm">
+          <div className="relative flex h-fit w-fit flex-col justify-center gap-5 rounded-md bg-black/35 p-4 shadow-sm shadow-white backdrop-blur-sm">
             <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-sm font-extrabold uppercase text-white">
               # Neet advisor
             </div>
             <h1 className="text-3xl font-extrabold text-yellow-600 brightness-110">
               Your Gateway to Pursuing MBBS Abroad,
               <br />
-              <span className="text-primary-color">
+              <span className="text-primary-color brightness-200">
                 {" "}
                 Achieve Your Medical Dreams Globally!
               </span>
