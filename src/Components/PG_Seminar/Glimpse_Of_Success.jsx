@@ -81,7 +81,7 @@ const Glimpse_Of_Success = () => {
                             <div className="flex  flex-col items-center">
                               <h1 className="my-2 text-3xl font-semibold text-yellow-600">
                                 Neet PG 2025
-                                <span className="mx-2 font-extrabold text-primary-color brightness-200">
+                                <span className="mx-2 font-extrabold text-primary-color brightness-[300%]">
                                   The Ultimate Guide
                                 </span>
                               </h1>

@@ -59,7 +59,7 @@ const OurPanelists = () => {
             <div className="text-center">
               <h1 className="text-3xl font-semibold text-yellow-600">
                 How It Will{" "}
-                <span className="font-extrabold text-primary-color brightness-200">
+                <span className="font-extrabold text-primary-color brightness-[300%]">
                   Progess?
                 </span>
               </h1>
