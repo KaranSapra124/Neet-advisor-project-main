@@ -61,7 +61,7 @@ const Hero = () => {
               Webinar
             </h1>
 
-            <Paragraph className="my-4 max-w-xl bg-none text-sm font-semibold text-gray-600">
+            <Paragraph className="my-4 max-w-xl bg-none text-sm font-semibold text-gray-700">
               Join expert mentors who've guided 3.5L+ students to medical
               success. Get personalized strategies from exam preparation to
               college admission.
@@ -84,7 +84,7 @@ const Hero = () => {
               </div>
             </Card>
 
-            <button className="rounded-l-full rounded-r-full border-yellow-500 bg-yellow-500 p-2 font-semibold text-white transition-all duration-300 hover:border-yellow-600 hover:bg-yellow-600">
+            <button className="rounded-l-full rounded-r-full border-yellow-500 bg-yellow-600 p-2 font-semibold text-white transition-all duration-300 hover:border-yellow-600 hover:bg-yellow-600">
               Register Now
             </button>
 
@@ -96,7 +96,7 @@ const Hero = () => {
                     <GoogleOutlined className="text-xl" />
                     <Rate disabled defaultValue={5} className="text-sm" />
                   </div>
-                  <div className="text-xs font-semibold text-gray-600">
+                  <div className="text-xs font-semibold text-gray-700">
                     4406+ Students Rated Us 5/5
                   </div>
                 </div>
@@ -104,7 +104,7 @@ const Hero = () => {
                   <div className="text-2xl font-extrabold text-primary-color">
                     3.5L+
                   </div>
-                  <div className="text-xs font-semibold text-gray-600">
+                  <div className="text-xs font-semibold text-gray-700">
                     Students Guided
                   </div>
                 </div>

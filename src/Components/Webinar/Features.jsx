@@ -5,7 +5,7 @@ import { TiTick } from "react-icons/ti";
 import Container from "../Helper/Container";
 import { PiCursorFill } from "react-icons/pi";
 import { Modal, Popover, Steps } from "antd";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaPlay } from "react-icons/fa";
 // import { FaICursor } from 'react-icons/fa';
 import "./Testimonials.css";
 const Features = () => {
@@ -74,8 +74,8 @@ const Features = () => {
           {/* Header Section */}
           <div className="text-center">
             <h1 className="my-2 text-3xl">
-              <span className="font-extrabold text-yellow-600">Features</span>
-              <span className="font-bold text-primary-color">
+              <span className="font-extrabold text-primary-color`">Features</span>
+              <span className="font-bold text-yellow-600">
                 {" "}
                 to Enhance Your Experience
               </span>
@@ -155,7 +155,7 @@ const Features = () => {
 
             {/* Content Section */}
             <div
-              className={`absolute inset-0 left-0 top-24 z-50 flex h-40 w-[30rem] flex-col items-start justify-center rounded-r-md bg-black/20 p-4 shadow-md shadow-gray-500 transition-all ${isHover ? "hidden" : "block"}`}
+              className={`absolute inset-0 left-0 top-24 z-50 flex h-44 w-[30rem] flex-col items-start justify-center rounded-r-md bg-black/50 p-4 shadow-md shadow-gray-500 transition-all ${isHover ? "hidden" : "block"}`}
             >
               <h2 className="text-md mb-2 font-extrabold text-white">
                 {data[activeIndex]?.title}
@@ -169,6 +169,7 @@ const Features = () => {
                     </span>
                   </li>
                 ))}
+                <FaPlay className="text-white border-2 rounded-full p-1 text-xl"/>
               </ul>
             </div>
           </div>

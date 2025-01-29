@@ -309,14 +309,14 @@ const AspirantsSection = () => {
 
   return (
     <Container className={" bg-gray-200/40"}>
-      <div className="mb-8 text-center max-w-screen-xl">
+      <div className="mb-4 text-center max-w-screen-xl">
         <h1 className="mb-2 text-3xl font-bold text-yellow-600">
           Students Coached to{" "}
           <span className="font-extrabold text-primary-color">
             Top Medical Colleges
           </span>
         </h1>
-        <p className="text-xs w-96 mx-auto my-2 font-bold text-gray-700">
+        <p className="text-xs max-w-xl mx-auto my-2 font-bold text-gray-700">
           Check out the medical colleges our attendees have reached with
           enhanced confidence, clarity, and applying our strategies.
         </p>

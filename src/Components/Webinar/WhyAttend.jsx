@@ -38,7 +38,7 @@ const WhyAttend = () => {
           Why You Can’t Miss Our{" "}
           <span className="font-extrabold text-primary-color">Webinar!</span>
         </h1>
-        <p className="py-2 text-center text-xs font-semibold text-gray-700">
+        <p className="py-1 text-center text-xs font-semibold text-gray-700">
           Attend Our Webinar And Get Your Dream Of <strong>NEET </strong>
           Achieved!
         </p>
@@ -58,7 +58,7 @@ const WhyAttend = () => {
               <div
                 className={`flex ${isHover ? "scale-100" : "scale-0"} cursor-pointer flex-col items-center transition-all duration-200`}
               >
-                <div className="h-40 rounded-lg bg-gradient-to-tr from-white to-gray-200/40 px-1 text-center shadow-lg transition-all duration-200 hover:border-2 hover:border-yellow-600">
+                <div className="h-40 rounded-lg bg-gradient-to-tr from-white to-gray-200/40 px-1 text-center shadow-xl transition-all duration-200 hover:border-2 hover:border-yellow-600">
                   <img
                     src={elem.icon}
                     className="m-auto my-3 h-12 w-12 rounded-full border-2 bg-purple-100 p-1 shadow-md group-hover:border-yellow-600"

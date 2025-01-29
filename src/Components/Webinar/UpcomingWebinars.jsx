@@ -288,13 +288,13 @@ const UpcomingWebinars = () => {
 
   return (
     <Container className={'bg-gray-200/40'}>
-      <div className="pb-6 text-center">
+      <div className="pb-2 text-center">
         <h1 className="pb-2 text-3xl font-extrabold text-primary-color">
           <span className="font-bold text-yellow-600">Upcoming</span>{" "}
           Webinars
         </h1>
         <p className="text-xs font-bold text-gray-700">
-          Mark your calendars for Hello Mentor’s upcoming <strong>NEET</strong>{" "}
+          Mark your calendars for Neet Advisor's upcoming <strong>NEET</strong>{" "}
           Counselling webinars.
         </p>
       </div>

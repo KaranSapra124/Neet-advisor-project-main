@@ -48,12 +48,12 @@ const Values = () => {
             Who Is This Webinar{" "}
             <span className="font-extrabold text-primary-color">For?</span>
           </h1>
-          <p className="my-2 text-center text-xs font-semibold text-gray-700">
+          <p className="my-1 text-center text-xs font-semibold text-gray-700">
             This webinar is designed to help both parents and students excel in
             the NEET exam by providing valuable insights and proven strategies.
           </p>
         </div>
-        <div className="m-auto my-4 flex max-w-screen-xl">
+        <div className="m-auto my-2 flex max-w-screen-xl">
           {data.map((item, index) => (
             <div
               key={index}
@@ -123,11 +123,11 @@ const Values = () => {
                     </a>
                   </div>
                 </div>
-                <div className="absolute h-full w-fit rounded-lg border-gray-100 bg-gray-500/10 p-2">
-                  <Badge className="rounded-md bg-black/80 p-2 text-sm font-bold text-white">
+                <div className="absolute h-full w-fit rounded-lg border-gray-100 bg-gray-900/10 p-2">
+                  <Badge className="rounded-md bg-black/90 p-2 text-sm font-bold text-white">
                     {item.title}
                   </Badge>
-                  <p className="mt-2 text-sm font-bold text-white">
+                  <p className="mt-2 text-sm font-bold text-gray-100">
                     {item.description}
                   </p>
                   <Divider
@@ -135,9 +135,9 @@ const Values = () => {
                   />
                   <ul className="list-disc">
                     {item.points.map((point, idx) => (
-                      <li key={idx} className="mt-2 flex items-center text-xs">
+                      <li key={idx} className="mt-2  flex items-center text-xs">
                         <TiTick className="text-2xl text-green-400" />
-                        <span className="font-semibold text-white">
+                        <span className="font-semibold text-gray-50">
                           {point}
                         </span>
                       </li>

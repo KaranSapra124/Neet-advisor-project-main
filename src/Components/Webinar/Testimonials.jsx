@@ -103,7 +103,7 @@ const Testimonials = () => {
         />
       )}
       <Container >
-        <div className="py-2">
+        <div className="py-1">
           <h1 className="text-center text-3xl font-bold text-yellow-600">
             What Our{" "}
             <span className="font-extrabold text-primary-color">
@@ -111,7 +111,7 @@ const Testimonials = () => {
               Attendees Say ?
             </span>
           </h1>
-          <p className="py-2 text-center text-xs font-semibold text-gray-700">
+          <p className="py-1 text-center text-xs font-semibold text-gray-700">
             Here's what future healers speak of Hello Mentor's guidance.
           </p>
         </div>
