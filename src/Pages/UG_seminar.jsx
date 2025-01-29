@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../Components/UG_Seminar/Hero";
 import "../Components/UG_Seminar/Ug_seminar.css";
 import Root from "../Components/Helper/Root";
@@ -8,7 +8,11 @@ import "../Components/UG_Seminar/Ug_seminar.css";
 import Agenda from "../Components/UG_Seminar/Agenda";
 import WhoShouldAttend from "../Components/UG_Seminar/WhoShouldAttend";
 import Speakers from "../Components/UG_Seminar/Speakers";
+import scrollToTop from "../Utils/ScrollToTop";
 const UG_seminar = () => {
+  useEffect(()=>{
+    scrollToTop()
+},[])
   return (
     <>
       <Root>

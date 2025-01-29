@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Hero from '../Components/Home/Hero'
 import CounsellingSection from '../Components/Home/CounsellingSection'
 import WhyUsSection from '../Components/Home/WhyUsSection'
@@ -11,9 +11,13 @@ import Navbar from '../Components/Home/Navbar'
 import UpperNavbar from '../Components/Helper/UpperNavbar'
 import Gallery from '../Components/Home/Gallery'
 import Root from '../Components/Helper/Root'
+import scrollToTop from '../Utils/ScrollToTop'
 // import ImageSection from '../Components/Home/ImageSection'
 
 const Home = () => {
+    useEffect(()=>{
+        scrollToTop()
+    },[])
     return (
         <>
             {/* <UpperNavbar /> */}

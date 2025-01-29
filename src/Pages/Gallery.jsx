@@ -7,6 +7,7 @@ import AccrossCountry from "../Components/Gallery/AccrossCountry";
 import NeetPGSeminar from "../Components/Gallery/NeetPGSeminar";
 import SeminarAndWorkshops from "../Components/Gallery/Seminar&Workshops";
 import HappyClients from "../Components/Gallery/HappyClients";
+import scrollToTop from "../Utils/ScrollToTop";
 
 const Gallery = () => {
   const [curr, setCurr] = useState(1);
@@ -39,24 +40,23 @@ const Gallery = () => {
   ]);
 
   useEffect(() => {
-      const keyInterval = setInterval(() => {
-          setCurr((prev) => {
-              if (prev < 5) {
-                  return prev + 1
-              } else if (prev === 5) {
-                  return 1
-              }
-          })
-      }, 10000)
-      return () => clearInterval(keyInterval)
-  }, [])
+    scrollToTop();
+    const keyInterval = setInterval(() => {
+      setCurr((prev) => {
+        if (prev < 5) {
+          return prev + 1;
+        } else if (prev === 5) {
+          return 1;
+        }
+      });
+    }, 10000);
+    return () => clearInterval(keyInterval);
+  }, []);
   return (
     <>
       <Root>
-        <Container
-          className={"bg-webinar-hero relative"}
-        >
-          <div className="absolute h-full w-full bg-gradient-to-br from-black/15   to-gray-900/50 inset-0 backdrop-blur-md"></div>
+        <Container className={"relative bg-webinar-hero"}>
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/15 to-gray-900/50 backdrop-blur-md"></div>
           <Tabs
             activeKey={curr}
             onTabClick={(e) => {
