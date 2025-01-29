@@ -15,10 +15,10 @@ const SuperChargeDream = () => {
         <Container className={'bg-gradient-to-tr from-black to-black/85 '}>
             <div className='flex items-center'>
                 <div className="text-center w-1/2 my-2">
-                    <h1 className="text-3xl font-semibold text-white my-2">
+                    <h1 className="text-3xl font-medium text-white my-2">
                         Supercharge Your <span className='font-extrabold text-yellow-600'>Future</span>
                     </h1>
-                    <p className="text-xs w-80 text-gray-300 max-w-xl font-semibold mx-auto">
+                    <p className="text-xs w-80 text-gray-400 max-w-xl font-semibold mx-auto">
                         Make your dreams meet direction. Medical mentor Expo is your key to Tips,
                         Tricks, Techniques, Insights and Updates. Here's why you can't afford to miss it!
                     </p>
@@ -26,7 +26,7 @@ const SuperChargeDream = () => {
 
                 <div className="flex shadow-lg  shadow-gray-700 rounded-xl mx-4 p-8 bg-black/10 w-1/2">
                     <div className="flex-1 space-y-2">
-                        <p className="text-sm font-semibold text-gray-400   ">
+                        <p className="text-sm font-semibold text-gray-300   ">
                             Invaluable insights, Exclusive analysis, and Tailored advice from experts
                             in medical field
                         </p>
@@ -39,9 +39,9 @@ const SuperChargeDream = () => {
                                 {listData.map((elem, index) => (
                                     <li key={index} className="flex items-center gap-2 p-1">
                                         <span className="flex-shrink-0">
-                                            <TiTick className="w-4 h-4 text-gray-400" />
+                                            <TiTick className="w-4 h-4 text-gray-300" />
                                         </span>
-                                        <span className="text-gray-400 font-medium text-xs">{elem}</span>
+                                        <span className="text-gray-300 font-semibold text-xs">{elem}</span>
                                     </li>
                                 ))}
                             </ul>

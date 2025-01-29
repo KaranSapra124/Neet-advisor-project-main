@@ -46,10 +46,10 @@ const Schedule = () => {
         <Container className="bg-gradient-to-tr from-black to-black/85">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h1 className="text-white text-3xl font-semibold my-3">
+                    <h1 className="text-white text-3xl font-normal my-2">
                          <span className="font-extrabold text-yellow-600">Schedule</span> For Upcoming Expo
                     </h1>
-                    <p className="text-gray-300 font-semibold text-sm md:text-xs max-w-md mx-auto">
+                    <p className="text-gray-400 font-semibold text-sm md:text-xs max-w-sm mx-auto">
                         Stay informed. Stay ahead. Learn about the event slot and timings.
                         Choose the session that suits you best.
                     </p>

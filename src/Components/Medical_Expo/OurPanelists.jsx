@@ -26,10 +26,10 @@ const OurPanelists = () => {
         <Container className="bg-gradient-to-br from-black to-black/85 py-16">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="text-center my-4">
-                    <h1 className="text-white text-3xl font-semibold mb-4">
+                    <h1 className="text-white  text-3xl font-normal mb-2">
                         Expo <span className="font-extrabold text-yellow-600">Panelists</span> Who Will <span className="font-extrabold text-yellow-600">Guide You!</span>
                     </h1>
-                    <p className="text-gray-300  text-xs md:text-xs max-w-md font-semibold mx-auto">
+                    <p className="text-gray-400  text-xs md:text-xs max-w-md font-semibold mx-auto">
                         Learn from doctors, professors, and alumni of India's leading medical colleges. 
                         Carve your path in competitive medical landscape.
                     </p>
@@ -39,7 +39,7 @@ const OurPanelists = () => {
                     {teamMemberData.map((member, index) => (
                         <div 
                             key={index}
-                            className="bg-[#4C585B]  bg-opacity-50 border border-gray-500 cursor-pointer w-64 p-6 m-4 flex-wrap rounded-lg 
+                            className="bg-[#4C585B]  bg-opacity-50 border-l-2 border-b-2 border-gray-200 cursor-pointer w-64 p-6 m-4 flex-wrap rounded-lg 
                                      transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         >
                             <div className="flex cursor-pointer flex-col items-center">

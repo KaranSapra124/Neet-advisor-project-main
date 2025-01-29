@@ -6,12 +6,12 @@ import { FiMail, FiMapPin, FiPhoneCall } from 'react-icons/fi'
 const EventLocation = () => {
     return (
         <Container className={'bg-gradient-to-br from-black to-black/85 flex flex-col justify-center items-center '}>
-            <h1 className="text-3xl text-center text-white font-semibold">
+            <h1 className="text-3xl text-center text-white font-normal">
                 Event <span className="text-yellow-600 font-extrabold inline-flex items-center">
                     Location <FaMapLocation className="ml-2" />
                 </span>
             </h1>
-            <p className='text-gray-300 text-center my-4 w-64 font-semibold text-xs'>Contact us for more details on the Medical Advisor Expo</p>
+            <p className='text-gray-400 text-center my-2 w-64 font-semibold text-xs'>Contact us for more details on the Medical Advisor Expo</p>
             <div className='flex  justify-center items-center'>
                 <div className='flex flex-col justify-center items-center'>
                     <div className='flex'>

@@ -1449,9 +1449,9 @@ const Hero = () => {
                 <div>
                     <div className='text-center relative  text-gray-300'>
                         <h1 className='text-3xl font-bold text-yellow-600'>
-                            India's Biggest <strong className='text-primary-color'>Neet Counselling</strong> Expo
+                            India's Biggest <strong className='text-primary-color brightness-125'>Neet Counselling</strong> Expo
                         </h1>
-                        <p className='text-gray-300 w-96 mx-auto my-2 text-xs font-semibold'>
+                        <p className='text-gray-400 w-96 mx-auto my-2 text-xs font-semibold'>
                             The Exclusive Mega Event for <strong>NEET PG</strong> Aspirants. Your Key to Mastering <strong>NEET PG</strong> Counselling and Admission!
                         </p>
                         <div className="gallery mt-20 inset-0 mx-auto flex   z-0">
@@ -1462,9 +1462,9 @@ const Hero = () => {
                             ))}
                         </div>
                         <div className='flex justify-center flex-col items-center'>
-                            <p className='text-gray-300 font-semibold'>AUGUST 25th | 9:00 AM - 7:00 PM</p>
-                            <div className='flex items-center text-gray-300 my-4 '>    <MdLocationPin />
-                                <p className='font-semibold'>At Bangalore Medical College and Research Institute</p></div>
+                            <p className='text-gray-400 font-semibold'>AUGUST 25th | 9:00 AM - 7:00 PM</p>
+                            <div className='flex items-center text-gray-400 my-4 '>    <MdLocationPin />
+                                <p className='font-semibold '>At Bangalore Medical College and Research Institute</p></div>
                             <button className='bg-yellow-600 px-3 py-1 font-semibold text-white  rounded-l-full rounded-r-full'>Book Your Slot</button>
                         </div>
                     </div>
