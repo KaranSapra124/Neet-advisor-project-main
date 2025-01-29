@@ -34,7 +34,7 @@ const Hero = () => {
           muted
           className="absolute inset-0 h-full w-full object-cover"
         ></video>
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/80 to-black/40"></div>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/90 to-black/60"></div>
         <div className="relative flex h-full w-full items-center justify-between">
           <ScrollAnimation
             animateIn="backInLeft"

@@ -55,7 +55,7 @@ const RecruitmentProcess = () => {
         <div className="relative mx-auto">
           <h1 className="text-center text-3xl font-semibold text-yellow-600">
             Learn Our{" "}
-            <span className="font-extrabold text-primary-color brightness-200">
+            <span className="font-extrabold text-primary-color brightness-[300%]">
               {" "}
               Recruitment Process
             </span>
@@ -71,7 +71,7 @@ const RecruitmentProcess = () => {
                     alt=""
                     srcset=""
                   />
-                  <h2 className="my-2 text-sm font-semibold text-gray-100">
+                  <h2 className="my-2 text-sm font-semibold text-gray-300">
                     {elem?.title}
                   </h2>
                   <p className="text-xs font-semibold text-gray-200">

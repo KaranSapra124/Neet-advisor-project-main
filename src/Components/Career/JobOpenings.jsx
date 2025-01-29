@@ -247,7 +247,7 @@ const JobOpenings = () => {
           >
             <h1 className="text-center text-3xl font-bold text-yellow-600">
               Apply, To Be{" "}
-              <span className="font-extrabold text-primary-color ">
+              <span className="font-extrabold text-primary-color brightness-200">
                 Part Of Neet Advisor!
               </span>
             </h1>
@@ -262,12 +262,12 @@ const JobOpenings = () => {
               placeholder="Enter Your Search..."
               className="w-full rounded-md border-2 border-white bg-gray-400/10 p-2 text-white shadow-lg"
             />
-            <div className="my-4 flex flex-wrap gap-2">
+            <div className="my-4 flex justify-center flex-wrap gap-2">
               {data?.map((elem, index) => {
                 return (
                   <>
-                    <div className="my-1 flex h-28 w-44 flex-col justify-center rounded-md border-b-2 border-l-2 border-white p-2 shadow-lg">
-                      <h1 className="text-sm font-bold text-gray-200">
+                    <div className="my-1 flex h-28 w-48  flex-col justify-center rounded-md border-b-2 border-l-2 border-white p-2 shadow-lg">
+                      <h1 className="text-sm font-bold text-gray-300">
                         {elem?.title}
                       </h1>
                       <p className="my-2 text-xs font-semibold text-gray-300">

@@ -45,7 +45,7 @@ const Benefits = () => {
               return (
                 <div className="flex w-60 cursor-pointer flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-white p-4 transition-all duration-300 hover:scale-110">
                  <img src={elem?.icon} className="h-12 w-12 border border-white rounded-full p-1 shadow-sm shadow-white my-2" alt="" srcset="" />
-                  <h2 className="text-centery text-sm font-bold text-gray-200">
+                  <h2 className="text-centery text-sm font-bold text-gray-300">
                     {elem?.title}
                   </h2>
                   <p className="py-2 text-xs font-semibold text-gray-300">
@@ -58,7 +58,7 @@ const Benefits = () => {
           <div className="max-w-screen-sm">
             <h1 className="text-3xl font-bold text-yellow-600 ">
               Your Life At{" "}
-              <span className="font-extrabold text-primary-color  brightness-200">
+              <span className="font-extrabold text-primary-color  brightness-[300%]">
                 Neet Advisor
               </span>
             </h1>
