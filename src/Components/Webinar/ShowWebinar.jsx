@@ -13,7 +13,7 @@ const ShowWebinar = () => {
   ];
 
   return (
-    <Container className={"bg-webinar-hero relative h-[30rem]"}>
+    <Container className={" relative h-[30rem]"}>
       {/* Whitish Overlay */}
       <div className="z-1 absolute inset-0 h-[30rem] bg-white/85"></div>
 

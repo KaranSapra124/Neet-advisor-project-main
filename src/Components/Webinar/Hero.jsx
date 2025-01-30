@@ -38,7 +38,7 @@ const images = [
 const Hero = () => {
   return (
     <Container
-      className={"bg-webinar-hero flex flex-col items-center justify-center"}
+      className={"flex flex-col items-center justify-center"}
     >
       <div className="z-1 absolute h-[35rem] w-full bg-white/85"></div>
 

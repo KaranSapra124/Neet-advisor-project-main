@@ -178,7 +178,7 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
         {/* Content Area */}
         <div className="flex h-48 flex-col p-3">
           {/* Quote Design */}
-          <div className="font-serif text-2xl text-primary-color">"</div>
+          <div className="text-2xl  text-primary-color">”</div>
 
           {/* Review Text */}
           <div className="flex-1">

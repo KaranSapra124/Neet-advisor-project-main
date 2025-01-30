@@ -21,10 +21,10 @@ const Hero = () => {
 
               {/* Main Content */}
               <div className="space-y-2">
-                <h1 className="text-3xl font-extrabold text-primary-color/90">
+                <h1 className="text-3xl font-bold text-primary-color/90">
                   Your Trusted{" "}
-                  <span className="typewriter mt-2 block bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text font-bold text-transparent">
-                    NEET Counselling Partner
+                  <span className="typewriter  mt-2 block bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text font-bold text-transparent">
+                    <span className="font-extrabold">NEET</span> Counselling Partner
                   </span>
                 </h1>
                 <Divider

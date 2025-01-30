@@ -30,6 +30,7 @@ module.exports = {
         "webinar-hero": "url('grid-pattern.jpg')",
         "seminar-hero": "url('./Seminar/bg-seminar.jpg')",
         "mbbs-hero": "url('./Mbbs/bg-mbbs.jpg')",
+        "news-bg":"url('https://img.freepik.com/free-vector/man-doctor-professional-medic-hospital-building_107791-13651.jpg?t=st=1738222619~exp=1738226219~hmac=b8dffddd1347fe828a37d86efb4b5b870d8355187798461ba11cd91c7110c641&w=1380')"
       },
       utilities: {
         ".break-inside-avoid": {

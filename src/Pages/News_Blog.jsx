@@ -5,6 +5,8 @@ import LatestNews from "../Components/News_&_Blog/LatestNews";
 import NewsCategories from "../Components/News_&_Blog/NewsCategories";
 import NewsLetter from "../Components/News_&_Blog/NewsLetter";
 import scrollToTop from "../Utils/ScrollToTop";
+import NewsBanner from "../Components/News_&_Blog/NewsBanner";
+import Blog from "../Components/News_&_Blog/Blog";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -19,6 +21,8 @@ const News_Blog = () => {
         <NewsCategories />
         <Hero />
         <LatestNews />
+        <NewsBanner/>
+        <Blog/>
       </Root>
     </>
   );
