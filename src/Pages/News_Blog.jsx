@@ -7,22 +7,24 @@ import NewsLetter from "../Components/News_&_Blog/NewsLetter";
 import scrollToTop from "../Utils/ScrollToTop";
 import NewsBanner from "../Components/News_&_Blog/NewsBanner";
 import Blog from "../Components/News_&_Blog/Blog";
+import SocialLinks from "../Components/Services/SocialLinks";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
-    scrollToTop()
+    scrollToTop();
     const newsLetterTimeout = setTimeout(() => setIsOpen(true), 2000);
-    return clearTimeout(()=>newsLetterTimeout);
+    return clearTimeout(() => newsLetterTimeout);
   }, []);
   return (
     <>
       {isOpen && <NewsLetter isOpen={isOpen} setIsOpen={setIsOpen} />}
       <Root>
-        <NewsCategories />
         <Hero />
+        <NewsCategories />
         <LatestNews />
-        <NewsBanner/>
-        <Blog/>
+        <Blog />
+        <NewsBanner />
+        <SocialLinks/>
       </Root>
     </>
   );

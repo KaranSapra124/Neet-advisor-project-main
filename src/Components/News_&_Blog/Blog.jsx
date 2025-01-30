@@ -51,13 +51,13 @@ const Blog = () => {
 
   return (
     <>
-      <Container>
+      <Container className={'bg-gray-200/40'}>
         <h1 className="border-l-2 border-yellow-600 px-2 text-3xl font-bold uppercase text-primary-color">
           Latest <span className="font-extrabold text-yellow-600">Blogs</span>
         </h1>
         <Divider className={"my-4 h-1 w-20 rounded-full bg-yellow-600"} />
         <div className="my-4">
-          <Carousel slidesToShow={4} dots={false} arrows autoplay infinite autoplaySpeed={1000}>
+          <Carousel slidesToShow={4} dots={false}  autoplay infinite autoplaySpeed={2500}>
             {blogData?.map((elem, index) => {
               return (
                 <div className="relative ">
