@@ -126,10 +126,10 @@ const Hero = () => {
       )}
       <Container className={"relative bg-gray-200/40"}>
         <div className="text-center">
-          <h1 className="text-3xl font-bold uppercase text-yellow-600">
-            News ,{" "}
-            <span className="px-2 py-0.5 font-extrabold text-primary-color brightness-150">
-              Highlighted For You!
+          <h1 className="text-4xl font-bold uppercase text-primary-color">
+            Don't stay behind in race,{" "}
+            <span className="px-2 py-0.5 font-extrabold text-yellow-600">
+              We Got You Covered!
             </span>
           </h1>
           <p className="my-2 text-xs font-bold text-gray-700">
@@ -175,11 +175,18 @@ const Hero = () => {
               vertical={true}
               autoplay
               infinite
-              className="max-w-screen-lg"
+              className="max-w-screen-sm"
             >
               {newsData?.map((elem, index) => {
                 return (
-                  <div className="relative">
+                  <div
+                    className="relative"
+                    onClick={() => {
+                      // console.log(index,'INDEX')
+                      setIsOpen(true);
+                      setNewsData(elem);
+                    }}
+                  >
                     <img
                       src={elem?.imageUrl}
                       className="h-40"
@@ -199,13 +206,7 @@ const Hero = () => {
                           ? elem?.description?.substring(0, 30) + "..."
                           : elem?.description}
                       </p>
-                      <FaArrowRight
-                        onClick={() => {
-                          setIsOpen(true);
-                          setNewsData(elem);
-                        }}
-                        className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125"
-                      />
+                      <FaArrowRight className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125" />
                     </div>
                   </div>
                 );

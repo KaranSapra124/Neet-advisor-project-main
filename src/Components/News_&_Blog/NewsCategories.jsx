@@ -14,18 +14,18 @@ const NewsCategories = () => {
   ];
   return (
     <Container className={"bg-gray-200/40 py-2"}>
-      {/* <h1 className="border-l-2 border-yellow-600 px-2 text-3xl font-semibold uppercase text-yellow-600">
-        Categorize{" "}
-        <span className="font-extrabold text-primary-color">
+      <h1 className="border-l-2 border-yellow-600 px-2 text-3xl font-semibold uppercase text-primary-color">
+        Choose{" "}
+        <span className="font-extrabold text-yellow-600">
           Your interest!
         </span>
       </h1>
-      <Divider className={"w-20 rounded-full my-3 h-1 bg-yellow-600"} /> */}
-      <div className="my-4 flex justify-between">
+      <Divider className={"w-20 rounded-full my-3 h-1 bg-yellow-600"} />
+      <div className="my-5 flex justify-between">
         {newsCategories?.map((elem, index) => {
           return (
             <>
-              <div className="w-fit focus:outline-none  cursor-pointer rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 font-extrabold text-white shadow-md shadow-gray-400 transition-all duration-200 hover:scale-105">
+              <div className="w-fit focus:outline-none  cursor-pointer  rounded-md border-l-2 border-b-2 border-yellow-600  px-2 py-1 font-bold text-gray-900 shadow-sm shadow-gray-400 transition-all duration-200 hover:scale-105">
                 {elem}
               </div>
             </>
