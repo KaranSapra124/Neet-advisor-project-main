@@ -33,7 +33,7 @@ const NewsBanner = () => {
               name=""
               id=""
               placeholder="Enter The Number..."
-              className="w-96 rounded-md border-b-2 border-l-2 border-yellow-600 bg-white/40 p-2 font-extralight text-primary-color"
+              className="w-96 rounded-md  bg-white/40 p-2 font-extralight text-primary-color"
             />
             <FaPaperPlane className="bg-yellow-600 p-4 rounded-md text-[3rem] cursor-pointer hover:scale-105 transition-all text-white"/>
           </div>

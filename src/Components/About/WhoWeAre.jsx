@@ -45,6 +45,7 @@ const WhoWeAre = () => {
             Our Vision{" "}
             <span className="font-extrabold text-primary-color">& Mission</span>
           </h1>
+          <p className="text-xs text-gray-700 text-center font-semibold mx-auto my-2 max-w-sm">Our Vision is to empower individuals to achieve their fullest potential, and our Mission is to provide personalized guidance, resources, and support to help them succeed in their dream careers.</p>
           <div className="m-auto mb-5 my-2 h-1 w-20 rounded-full bg-yellow-600"></div>
 
           <div className="mx-auto flex max-w-screen-lg items-center justify-evenly">
