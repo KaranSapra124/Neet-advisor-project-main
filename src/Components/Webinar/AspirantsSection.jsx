@@ -308,24 +308,32 @@ const AspirantsSection = () => {
   ];
 
   return (
-    <Container className={" bg-gray-200/40"}>
-      <div className="mb-4 text-center max-w-screen-xl">
+    <Container className={"bg-gray-200/40"}>
+      <div className="mb-4 max-w-screen-xl text-center">
         <h1 className="mb-2 text-3xl font-bold text-yellow-600">
           Students Coached to{" "}
           <span className="font-extrabold text-primary-color">
             Top Medical Colleges
           </span>
         </h1>
-        <p className="text-xs max-w-xl mx-auto my-2 font-bold text-gray-700">
+        <p className="mx-auto my-2 max-w-xl text-xs font-bold text-gray-700">
           Check out the medical colleges our attendees have reached with
           enhanced confidence, clarity, and applying our strategies.
         </p>
+        <Divider
+          className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+        />
       </div>
       <Carousel autoplay slidesToShow={3} arrows={false} dots={false}>
         {neetAspirants.map((elem, index) => (
-          <div key={index} className="p-1 relative">
-            <img src="./Webinar/validation-badge-bg-removed.gif" className="w-12 absolute left-[23.5rem] z-20 -top-2 " alt="" srcset="" />
-            <div className="rounded-xl bg-white p-4 border-l-2 border-yellow-600 border-b-2 shadow-md cursor-pointer hover:scale-x-105 transition-all  duration-300 hover:shadow-lg">
+          <div key={index} className="relative p-1">
+            <img
+              src="./Webinar/validation-badge-bg-removed.gif"
+              className="absolute -top-2 left-[23.5rem] z-20 w-12"
+              alt=""
+              srcset=""
+            />
+            <div className="cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white p-4 shadow-md transition-all duration-300 hover:scale-x-105 hover:shadow-lg">
               <div className="flex items-center justify-between gap-2">
                 <div className="min-w-0 flex-1">
                   {/* Student Name and Divider */}
@@ -346,14 +354,17 @@ const AspirantsSection = () => {
                   <div className="mb-3 flex items-center gap-1">
                     <FaRocket className="text-primary-color" />
                     <span className="text-xs font-semibold">
-                      AIR Rank: <span className="text-green-500 font-bold">{elem?.AIR_Rank}</span>
+                      AIR Rank:{" "}
+                      <span className="font-bold text-green-500">
+                        {elem?.AIR_Rank}
+                      </span>
                     </span>
                   </div>
 
                   {/* MBBS Badge */}
                   <div className="inline-flex items-center rounded-full bg-green-100 px-1 py-1 text-green-600">
                     <FaGraduationCap className="mr-1" />
-                    <span className="text-xs font-bold pr-2">
+                    <span className="pr-2 text-xs font-bold">
                       {elem?.MBBS ? "MBBS" : "N/A"}
                     </span>
                   </div>

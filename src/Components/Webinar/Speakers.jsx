@@ -119,6 +119,9 @@ const Speakers = () => {
             Learn from industry experts who have helped thousands of students
             achieve their dreams of becoming medical professionals.
           </p>
+          <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         </div>
 
         <div className="flex flex-wrap justify-center gap-5">

@@ -111,6 +111,9 @@ const Outcome = () => {
       <h1 className="my-2 text-center text-3xl text-yellow-600 font-bold">
         Webinar <span className="font-extrabold text-primary-color">Outcomes</span>
       </h1>
+      <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
 
       <div className="relative flex h-52 flex-col items-center">
         <div className="absolute w-full overflow-hidden">

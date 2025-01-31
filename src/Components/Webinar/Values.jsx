@@ -52,6 +52,9 @@ const Values = () => {
             This webinar is designed to help both parents and students excel in
             the NEET exam by providing valuable insights and proven strategies.
           </p>
+          <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         </div>
         <div className="m-auto my-2 flex max-w-screen-xl">
           {data.map((item, index) => (

@@ -3,6 +3,7 @@ import Container from "../Helper/Container";
 import "./Testimonials.css";
 import { FaPause, FaPlay } from "react-icons/fa";
 import { Carousel, Modal } from "antd";
+import Divider from "../Helper/Divider";
 const Testimonials = () => {
   const [isPlay, setIsPlay] = useState(false);
   const [video, setVideo] = useState("");
@@ -114,6 +115,9 @@ const Testimonials = () => {
           <p className="py-1 text-center text-xs font-semibold text-gray-700">
             Here's what future healers speak of Hello Mentor's guidance.
           </p>
+          <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         </div>
         <div className="flex flex-wrap justify-center">
           <Carousel

@@ -8,6 +8,7 @@ import { Modal, Popover, Steps } from "antd";
 import { FaArrowLeft, FaArrowRight, FaPlay } from "react-icons/fa";
 // import { FaICursor } from 'react-icons/fa';
 import "./Testimonials.css";
+import Divider from "../Helper/Divider";
 const Features = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isChanged, setIsChanged] = useState(false);
@@ -84,6 +85,9 @@ const Features = () => {
               Our best-in-class Webinars effectively communicate your concerns
               with simplified interaction.
             </p>
+            <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
           </div>
           {/* Features Section */}
           <div

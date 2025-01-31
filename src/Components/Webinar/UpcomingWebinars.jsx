@@ -3,6 +3,7 @@ import Container from "../Helper/Container";
 import { Carousel, Tabs, Statistic } from "antd";
 const { Countdown } = Statistic;
 import { FaCalendar, FaClock } from "react-icons/fa";
+import Divider from "../Helper/Divider";
 
 const UpcomingWebinars = () => {
   const [ind, setInd] = useState(0);
@@ -297,6 +298,9 @@ const UpcomingWebinars = () => {
           Mark your calendars for Neet Advisor's upcoming <strong>NEET</strong>{" "}
           Counselling webinars.
         </p>
+        <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
       </div>
       <div>
         <Tabs

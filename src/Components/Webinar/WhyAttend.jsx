@@ -42,6 +42,9 @@ const WhyAttend = () => {
           Attend Our Webinar And Get Your Dream Of <strong>NEET </strong>
           Achieved!
         </p>
+        <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         {/* <Divider className={'h-1 w-20 bg-yellow-600 rounded-full mx-auto my-2'}/> */}
         <div className="relative mx-auto grid max-w-screen-md grid-cols-2 items-center gap-2">
           <motion.div drag className="absolute bottom-[9rem] left-[22.7rem] z-50 h-10 w-10 cursor-pointer overflow-hidden rounded-full border-2 bg-yellow-600">
