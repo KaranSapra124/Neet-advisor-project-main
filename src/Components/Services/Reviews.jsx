@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../Helper/Container";
 import { Carousel } from "antd";
 import ScrollAnimation from "react-animate-on-scroll";
+import Divider from "../Helper/Divider"
 const Reviews = () => {
   const reviews = [
     {
@@ -97,6 +98,9 @@ const Reviews = () => {
         <p className="py-2 text-xs font-semibold text-gray-700">
           Our Mentees Speak Out!
         </p>
+        <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         <ScrollAnimation animateIn="fadeInUp"  duration={1.5}>
                <Carousel
                  dotPosition="bottom"
