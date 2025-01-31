@@ -7,6 +7,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import Container from "../Helper/Container";
+// import Divider from "../Helper/Divider"
 const SocialLinks = () => {
   return (
     <>
@@ -16,6 +17,9 @@ const SocialLinks = () => {
             Let's Get <span className="text-primary-color font-extrabold">Social</span>
           </h2>
           <p className="text-gray-700 font-semibold text-xs max-w-64 mx-auto  my-1">Follow On Our Social Media Handles & Remain Up To Date!</p>
+          {/* <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          /> */}
         </div>
         <div className="social-overlap process-scetion mt100">
           <div className="container">

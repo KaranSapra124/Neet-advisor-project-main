@@ -9,6 +9,7 @@ import {
 // import "../../src/css/costum.css";
 // import { useNavigate } from "react-router-dom";
 import Container from "../Helper/Container";
+import Divider from "../Helper/Divider"
 
 const PricingComponent = () => {
   const [planType, setPlanType] = useState("UG");
@@ -244,6 +245,9 @@ const PricingComponent = () => {
           hassle-free experience. Choose the one that best suits your goal and
           budget!
         </p>
+        <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         <div className="mb-8 flex justify-center">
           <button
             className={`rounded-bl-full rounded-tl-full px-10 py-2 font-bold ${

@@ -14,6 +14,7 @@ import {
 import { motion } from "framer-motion";
 import Container from "../Helper/Container";
 import { FaArrowLeft, FaArrowRight, FaPlayCircle } from "react-icons/fa";
+import Divider from "../Helper/Divider";
 
 const EnrollServices = () => {
   const [isPlaying, setIsPlaying] = useState({});
@@ -87,6 +88,9 @@ const EnrollServices = () => {
             Once you have enrolled, the excitement begins! We focus on helping
             you win the race and are beside you right up to the finish line.
           </p>
+          <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         </div>
       </div>
 
