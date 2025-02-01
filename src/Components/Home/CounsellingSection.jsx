@@ -4,6 +4,7 @@ import { Timeline } from "antd";
 import Container from "../Helper/Container";
 import ScrollAnimation from "react-animate-on-scroll";
 import { TiTick } from "react-icons/ti";
+import Divider from "../Helper/Divider";
 
 const CounsellingSection = () => {
   const [randomIndex, setRandomIndex] = useState(0);
@@ -73,6 +74,9 @@ const CounsellingSection = () => {
                 Get personalized answers and ease your biggest doubts with Video
                 Counselling from our curated experts.
               </p>
+              <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
             </div>
 
             <Timeline

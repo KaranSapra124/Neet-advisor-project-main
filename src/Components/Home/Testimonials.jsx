@@ -5,6 +5,7 @@ import "swiper/css/navigation"; // Not required for AntDesign's Carousel
 // import 'antd/dist/antd.css'; // Ensure you are importing Ant Design's CSS
 import ScrollAnimation from "react-animate-on-scroll";
 import Container from "../Helper/Container";
+import Divider from "../Helper/Divider";
 
 const testimonialsData = [
   {
@@ -59,9 +60,10 @@ const Testimonials = () => {
           saying about us ?
         </span>
       </h1>
+      <Divider className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"} />
       {/* </div> */}
       {/* <div className="flex flex-col"> */}
-      <ScrollAnimation animateIn="fadeInUp"  duration={1.5}>
+      <ScrollAnimation animateIn="fadeInUp" duration={1.5}>
         <Carousel
           dotPosition="bottom"
           slidesToShow={3}
@@ -95,25 +97,25 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative my-12 left-5 border-l-2 border-yellow-600 flex flex-col items-center justify-center rounded-xl bg-gradient-to-tr from-white to-gray-100 p-4 text-white shadow-xl md:p-8 dark:border-gray-300 dark:bg-gray-100 dark:text-black">
+    <div className="relative left-5 my-12 flex flex-col items-center justify-center rounded-xl border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-100 p-4 text-white shadow-xl md:p-8 dark:border-gray-300 dark:bg-gray-100 dark:text-black">
       {/* Client Image */}
       <img
         src={imgUrl}
         alt={clientName}
-        className="absolute -top-10 right-[22rem] md:-top-6  h-8 w-8 rounded-full outline outline-offset-2 outline-yellow-600 md:h-[3.8rem] md:w-[3.8rem]"
+        className="absolute -top-10 right-[22rem] h-8 w-8 rounded-full outline outline-offset-2 outline-yellow-600 md:-top-6 md:h-[3.8rem] md:w-[3.8rem]"
       />
       {/* Testimonial Text */}
-    <div className="flex my-4">
-    <span className="text-5xl text-primary-color">❝</span>
-      <p className=" mt-5 text-center text-sm font-semibold text-gray-700">
-        {review}
-      </p>
-      <span className="text-5xl text-primary-color">❞</span>
-    </div>
+      <div className="my-4 flex">
+        <span className="text-5xl text-primary-color">❝</span>
+        <p className="mt-5 text-center text-sm font-semibold text-gray-700">
+          {review}
+        </p>
+        <span className="text-5xl text-primary-color">❞</span>
+      </div>
       {/* Client Info */}
       <div className="mt-4 text-center">
-        <p className="text-gray-700 text-lg font-bold">{clientName}</p>
-        <p className="font-semibold text-xs text-gray-700">{clientCollege}</p>
+        <p className="text-lg font-bold text-gray-700">{clientName}</p>
+        <p className="text-xs font-semibold text-gray-700">{clientCollege}</p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "../Helper/Container";
+import Divider from "../Helper/Divider";
 
 const imageUrls = [
   { url: "https://picsum.photos/id/10/200/300.webp" },
@@ -63,6 +64,9 @@ const Gallery = () => {
           that will address concerns, answer queries, and clarify doubts of both
           students and parents.
         </p>
+        <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
 
         <div className="mx-auto grid w-fit grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-4">
           <AnimatePresence>

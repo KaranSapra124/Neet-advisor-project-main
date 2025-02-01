@@ -4,6 +4,7 @@ import { PiStudentDuotone } from "react-icons/pi";
 import { IoIosPeople } from "react-icons/io";
 import Container from "../Helper/Container";
 import ScrollAnimation from "react-animate-on-scroll";
+import Divider from "../Helper/Divider";
 
 const Stats = () => {
   const statistics = [
@@ -41,7 +42,9 @@ const Stats = () => {
           <p className="mt-2 text-xs font-bold text-gray-700">
             Discover the milestones that showcase our commitment and impact.
           </p>
-
+          <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
           {/* Stats Grid */}
           <div className="my-5 flex justify-evenly gap-6">
             {statistics.map((stat, index) => (

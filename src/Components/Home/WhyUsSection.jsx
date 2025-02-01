@@ -3,6 +3,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 import { Collapse } from "antd";
 
 import Container from "../Helper/Container";
+import Divider from "../Helper/Divider"
 
 const WhyUsSection = () => {
   const [activeKey, setActiveKey] = useState([1]);
@@ -114,6 +115,9 @@ const WhyUsSection = () => {
             Unlock Your Success in 4 Simple Steps with our <strong>NEET</strong>{" "}
             Counselling Guidance.
           </p>
+          <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         </div>
         {/* Main Content Section */}
         <div className="mx-auto flex max-w-screen-lg flex-col items-center justify-center lg:flex-row">

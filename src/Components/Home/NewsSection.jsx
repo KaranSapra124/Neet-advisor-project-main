@@ -5,6 +5,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 import { Carousel } from "antd";
 import Container from "../Helper/Container";
 import { FaArrowRight, FaLocationArrow, FaRegNewspaper } from "react-icons/fa";
+import Divider from "../Helper/Divider";
 
 const NewsSection = () => {
   const headerStyle = {
@@ -131,6 +132,9 @@ const NewsSection = () => {
             voluptas ratione, quisquam beatae dignissimos debitis recusandae
             suscipit totam qui nam! Sint.
           </p>
+          <Divider
+            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          />
         </div>
         <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
           <Carousel

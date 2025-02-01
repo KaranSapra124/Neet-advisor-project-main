@@ -45,7 +45,7 @@ const Hero = () => {
   return (
     <>
       <ScrollAnimation
-        animateIn="backInRight"
+        animateIn="fadeIn"
         animateOnce={true}
         duration={1.5}
         initiallyVisible
@@ -66,7 +66,7 @@ const Hero = () => {
               <h1 className="text-3xl font-extrabold text-yellow-600 brightness-110">
                 Your Gateway to Pursuing MBBS Abroad,
                 <br />
-                <span className="text-primary-color brightness-200">
+                <span className="text-primary-color brightness-[250%]">
                   {" "}
                   Achieve Your Medical Dreams Globally!
                 </span>
@@ -83,10 +83,10 @@ const Hero = () => {
                 reality!
               </p>
               <div className="flex justify-start">
-                <button className="text-md rounded-l-full rounded-r-full bg-primary-color px-2 py-1 font-bold uppercase text-white transition-all hover:scale-105">
+                <button className="text-sm rounded-l-full rounded-r-full bg-primary-color px-2 py-1 font-bold uppercase text-white transition-all hover:scale-105">
                   Register
                 </button>
-                <button className="text-md mx-2 rounded-l-full rounded-r-full border-2 border-gray-200 px-2 py-1 font-bold uppercase text-gray-200 transition-all duration-200 hover:scale-110 hover:border-none hover:bg-black hover:text-white">
+                <button className="text-sm mx-2 rounded-l-full rounded-r-full border-2 border-gray-200 px-2 py-1 font-bold uppercase text-gray-200 transition-all duration-200 hover:scale-110 hover:border-none hover:bg-black hover:text-white">
                   Learn More
                 </button>
               </div>
