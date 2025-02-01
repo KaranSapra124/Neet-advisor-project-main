@@ -5,21 +5,12 @@ import Divider from "../Helper/Divider";
 import { MdArrowOutward } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+
 const Hero = () => {
-  // const [showInd, setShowInd] = useState(1);
   const [mainNews, setMainNews] = useState({});
   const [news_Data, setNewsData] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const newsCategories = [
-    "Counselling Schedule",
-    "Eligibility Criteria",
-    "Reservation Policies",
-    "Seat Matrix",
-    "Document Verification",
-    "Cut-off Trends",
-    "FAQs and Helpdesk",
-  ];
   const newsData = [
     {
       id: 1,
@@ -104,16 +95,8 @@ const Hero = () => {
   ];
 
   useEffect(() => {
-    setMainNews(
-      newsData?.find((elem, ind) => {
-        return elem?.isTrending == true;
-      }),
-    );
+    setMainNews(newsData?.find((elem) => elem?.isTrending === true));
   }, []);
-
-  // const handleNews = (open, fn, data) => {
-  //   return <IndividualNewsModal data={data} isOpen={open} setIsOpen={fn} />;
-  // };
 
   return (
     <>
@@ -125,6 +108,7 @@ const Hero = () => {
         />
       )}
       <Container className={"relative bg-gray-200/40"}>
+        {/* Hero Title Section */}
         <div className="text-center">
           <h1 className="text-4xl font-bold uppercase text-primary-color">
             Don't stay behind in race,{" "}
@@ -133,19 +117,21 @@ const Hero = () => {
             </span>
           </h1>
           <p className="my-2 text-xs font-bold text-gray-700">
-            Remain ahead of competition , with latest news!
+            Remain ahead of competition, with latest news!
           </p>
           <Divider
             className={"mx-auto my-3 h-1 w-20 rounded-full bg-yellow-600"}
           />
         </div>
+
+        {/* Hero Content Section */}
         <div className="flex justify-center rounded-md">
+          {/* Main News Display Section */}
           <div className="relative h-fit rounded-md">
             <img
               src={mainNews?.imageUrl}
               className="w-[41.5rem]"
-              alt=""
-              srcset=""
+              alt="Main News"
             />
             <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
             <div className="absolute left-10 top-[23rem] flex flex-col justify-center gap-1">
@@ -169,6 +155,8 @@ const Hero = () => {
               />
             </div>
           </div>
+
+          {/* Carousel Section */}
           <div className="w-96">
             <Carousel
               slidesToShow={3}
@@ -180,9 +168,9 @@ const Hero = () => {
               {newsData?.map((elem, index) => {
                 return (
                   <div
+                    key={index}
                     className="relative"
                     onClick={() => {
-                      // console.log(index,'INDEX')
                       setIsOpen(true);
                       setNewsData(elem);
                     }}
@@ -229,44 +217,40 @@ const TrendingNews = ({
   id,
 }) => {
   return (
-    <>
-      <div
-        id={id}
-        className="h-90 my-4 cursor-pointer p-2 shadow-lg transition-all duration-200 hover:scale-105"
-      >
-        <Flex align="center">
-          <div className="w-fit">
-            <img className="w-full" src={image} alt="No Image" />
-
-            <div className="my-2 flex">
-              <div className="rounded border bg-yellow-500 p-1 text-xs font-semibold text-white shadow-lg">
-                {category}
-              </div>
-              <div className="mx-2 rounded border bg-yellow-500 p-1 text-xs font-semibold text-white shadow-lg">
-                {date}
-              </div>
+    <div
+      id={id}
+      className="h-90 my-4 cursor-pointer p-2 shadow-lg transition-all duration-200 hover:scale-105"
+    >
+      <Flex align="center">
+        <div className="w-fit">
+          <img className="w-full" src={image} alt="No Image" />
+          <div className="my-2 flex">
+            <div className="rounded border bg-yellow-500 p-1 text-xs font-semibold text-white shadow-lg">
+              {category}
             </div>
-            <h2 className="text-sm font-bold text-gray-700">{title}</h2>
-            <p className="my-2 text-xs font-light text-gray-700">
-              {description?.length > 20
-                ? description?.substring(0, 70) + "...."
-                : description}
-            </p>
-            <div className="my-1 flex w-fit items-center p-1 text-sm font-normal text-primary-color shadow-sm shadow-gray-200 transition-all duration-300 hover:font-semibold hover:shadow-lg">
-              {" "}
-              <button id={id}>Read More</button>
-              <MdArrowOutward className="mx-1" />{" "}
+            <div className="mx-2 rounded border bg-yellow-500 p-1 text-xs font-semibold text-white shadow-lg">
+              {date}
             </div>
           </div>
-        </Flex>
-      </div>
-    </>
+          <h2 className="text-sm font-bold text-gray-700">{title}</h2>
+          <p className="my-2 text-xs font-light text-gray-700">
+            {description?.length > 20
+              ? description?.substring(0, 70) + "...."
+              : description}
+          </p>
+          <div className="my-1 flex w-fit items-center p-1 text-sm font-normal text-primary-color shadow-sm shadow-gray-200 transition-all duration-300 hover:font-semibold hover:shadow-lg">
+            {" "}
+            <button id={id}>Read More</button>
+            <MdArrowOutward className="mx-1" />{" "}
+          </div>
+        </div>
+      </Flex>
+    </div>
   );
 };
 
 const IndividualNewsModal = ({ isOpen, setIsOpen, data }) => {
   const { title, category, description, imageUrl, date } = data;
-  // console.log("RUNNING");
   return (
     <Modal footer={false} open={isOpen} onCancel={() => setIsOpen(false)}>
       <div className="p-5">
@@ -280,7 +264,6 @@ const IndividualNewsModal = ({ isOpen, setIsOpen, data }) => {
           src={imageUrl}
           className="h-52 rounded-sm object-cover shadow-md shadow-gray-400"
           alt={title}
-          srcset=""
         />
         <p className="my-2 flex justify-end font-bold text-gray-700">
           <span className="px-1 font-normal italic">Published On :</span>

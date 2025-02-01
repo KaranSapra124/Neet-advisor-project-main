@@ -22,9 +22,9 @@ const News_Blog = () => {
         <Hero />
         <NewsCategories />
         <LatestNews />
-        <Blog />
         <NewsBanner />
-        <SocialLinks/>
+        <Blog />
+        <SocialLinks />
       </Root>
     </>
   );

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../Helper/Container";
-import { Carousel } from "antd";
+import { Carousel, Flex, Modal } from "antd";
 import { FaArrowRight } from "react-icons/fa";
 import Divider from "../Helper/Divider";
+import { MdArrowOutward } from "react-icons/md";
 
 const LatestNews = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [news_Data, setNewsData] = useState("");
   const newsData = [
     {
       id: 1,
@@ -87,48 +90,97 @@ const LatestNews = () => {
       imageUrl: "https://picsum.photos/400/300?random=8",
     },
   ];
-  return (
-    <Container className={"bg-gray-200/40 py-10"}>
-      <div>
-        <h1 className="border-l-2 border-yellow-600 px-2 text-3xl font-bold uppercase text-primary-color">
-          Latest <span className="font-extrabold text-yellow-600">News</span>
-        </h1>
-        <Divider className={'h-1 w-20 bg-yellow-600 rounded-full  my-4'}/>
-        <div className="my-4">
-          <Carousel  slidesToShow={4} dots={false} autoplay infinite>
-            {newsData?.map((elem, index) => {
-              return (
-                <div className="relative">
-                  <img
-                    src={elem?.imageUrl}
-                    className="h-40"
-                    alt={elem?.title}
-                  />
-                  <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
 
-                  <div className="absolute top-16 z-10 mx-4">
-                    <h5 className="w-fit border-l-2 border-yellow-600 px-2 font-extrabold text-primary-color brightness-[350%]">
-                      {elem?.category}
-                    </h5>
-                    <h4 className="text-xs font-bold text-white">
-                      {elem?.title?.length > 40
-                        ? elem?.title?.substring(0, 40) + "..."
-                        : elem?.title}
-                    </h4>
-                    <p className="font-light text-gray-400">
-                      {elem?.description?.length > 30
-                        ? elem?.description?.substring(0, 30) + "..."
-                        : elem?.description}
-                    </p>
-                    <FaArrowRight className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125" />
+  const handleOpenNews = (data) => {
+    setIsOpen(true);
+    setNewsData(data);
+  };
+  return (
+    <>
+      {isOpen && (
+        <NewsModal
+          data={news_Data}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          key={isOpen}
+        />
+      )}
+      <Container className={"bg-gray-200/40 py-10"}>
+        <div>
+          <h1 className="border-l-2 border-yellow-600 px-2 text-3xl font-bold uppercase text-primary-color">
+            Latest <span className="font-extrabold text-yellow-600">News</span>
+          </h1>
+          <Divider className={"my-4 h-1 w-20 rounded-full bg-yellow-600"} />
+          <div className="my-4">
+            <Carousel slidesToShow={4} dots={false} autoplay infinite>
+              {newsData?.map((elem, index) => {
+                return (
+                  <div className="relative">
+                    <img
+                      src={elem?.imageUrl}
+                      className="h-40"
+                      alt={elem?.title}
+                    />
+                    <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
+
+                    <div className="absolute top-16 z-10 mx-4">
+                      <h5 className="w-fit border-l-2 border-yellow-600 px-2 font-extrabold text-primary-color brightness-[350%]">
+                        {elem?.category}
+                      </h5>
+                      <h4 className="text-xs font-bold text-white">
+                        {elem?.title?.length > 40
+                          ? elem?.title?.substring(0, 40) + "..."
+                          : elem?.title}
+                      </h4>
+                      <p className="font-light text-gray-400">
+                        {elem?.description?.length > 30
+                          ? elem?.description?.substring(0, 30) + "..."
+                          : elem?.description}
+                      </p>
+                      <FaArrowRight
+                        onClick={() => {
+                          handleOpenNews(elem);
+                        }}
+                        className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125"
+                      />
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </Carousel>
+                );
+              })}
+            </Carousel>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </>
+  );
+};
+
+const NewsModal = ({ data, setIsOpen, isOpen }) => {
+  const { category, date, title, isTrending, imageUrl, description, id } = data;
+  console.log(imageUrl,'IMAGE')
+  return (
+    <>
+      <Modal footer={false} open={isOpen} onCancel={() => setIsOpen(false)}>
+        <div className="p-5">
+          <div className="my-2 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-xs font-bold text-white">
+            # {category}
+          </div>
+          <h1 className="py-2 text-3xl font-extrabold text-primary-color">
+            {title}
+          </h1>
+          <img
+            src={imageUrl}
+            className="h-52 rounded-sm object-cover shadow-md shadow-gray-400"
+            alt={title}
+          />
+          <p className="my-2 flex justify-end font-bold text-gray-700">
+            <span className="px-1 font-normal italic">Published On :</span>
+            {date}
+          </p>
+          <p className="font-semibold text-gray-700">{description}</p>
+        </div>
+      </Modal>
+    </>
   );
 };
 

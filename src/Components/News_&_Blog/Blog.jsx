@@ -1,66 +1,100 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
-import { Carousel } from "antd";
+import { Carousel, Modal } from "antd";
 import { FaArrowRight } from "react-icons/fa";
 const Blog = () => {
+  const [blog_Data, setBlogData] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
   const blogData = [
     {
       title: "5 Tips for NEET Counselling Success",
       description:
         "NEET counselling can be overwhelming. Here are 5 essential tips that will help you make the best decisions during the process.",
       image_url: "https://picsum.photos/800/400?random=1",
+      date: "2025-02-01",
+      author: "Dr. John Doe",
     },
     {
       title: "Understanding the NEET Counselling Process: A Step-by-Step Guide",
       description:
         "Confused about how NEET counselling works? This post will walk you through each step of the process, from registration to seat allotment.",
       image_url: "https://picsum.photos/800/400?random=2",
+      date: "2025-01-29",
+      author: "Dr. Jane Smith",
     },
     {
       title: "How to Choose the Right Medical College After NEET",
       description:
         "Choosing the right medical college after NEET is crucial for your career. Here's how to evaluate your options and select the one that suits your needs.",
       image_url: "https://picsum.photos/800/400?random=3",
+      date: "2025-01-28",
+      author: "Dr. Michael Brown",
     },
     {
       title: "Common Mistakes to Avoid During NEET Counselling",
       description:
         "Don't make these common mistakes during NEET counselling that could affect your chances of securing your desired medical college.",
       image_url: "https://picsum.photos/800/400?random=4",
+      date: "2025-01-25",
+      author: "Dr. Sarah Lee",
     },
     {
       title: "How NEET Counselling Affects Your Future Medical Career",
       description:
         "Your choice during NEET counselling can shape your medical career. Learn how your seat allocation can influence your future success.",
       image_url: "https://picsum.photos/800/400?random=5",
+      date: "2025-01-20",
+      author: "Dr. David Wilson",
     },
     {
       title: "The Importance of Document Verification in NEET Counselling",
       description:
         "Document verification is a crucial step in NEET counselling. Learn what documents are needed and how to ensure everything is in order.",
       image_url: "https://picsum.photos/800/400?random=6",
+      date: "2025-01-15",
+      author: "Dr. Emily Davis",
     },
     {
       title: "How to Stay Calm During NEET Counselling",
       description:
         "Feeling anxious during NEET counselling is normal. Here are a few tips to help you stay calm and make informed decisions.",
       image_url: "https://picsum.photos/800/400?random=7",
+      date: "2025-01-10",
+      author: "Dr. Chris Adams",
     },
   ];
 
+  const handleOpenNews = (data) => {
+    setIsOpen(true);
+    setBlogData(data);
+  };
   return (
     <>
-      <Container className={'bg-gray-200/40'}>
+      {isOpen && (
+        <BlogModal
+          data={blog_Data}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          key={isOpen}
+        />
+      )}
+      <Container className={"bg-gray-200/40"}>
         <h1 className="border-l-2 border-yellow-600 px-2 text-3xl font-bold uppercase text-primary-color">
           Latest <span className="font-extrabold text-yellow-600">Blogs</span>
         </h1>
         <Divider className={"my-4 h-1 w-20 rounded-full bg-yellow-600"} />
         <div className="my-4">
-          <Carousel slidesToShow={4} dots={false}  autoplay infinite autoplaySpeed={2500}>
+          <Carousel
+            slidesToShow={4}
+            dots={false}
+            autoplay
+            infinite
+            autoplaySpeed={2500}
+          >
             {blogData?.map((elem, index) => {
               return (
-                <div className="relative ">
+                <div className="relative">
                   <img
                     src={elem?.image_url}
                     className="h-40"
@@ -68,21 +102,23 @@ const Blog = () => {
                   />
                   <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
 
-                  <div className="absolute top-20 z-10 mx-4 border-l-2 border-yellow-600 ">
+                  <div className="absolute top-20 z-10 mx-4 border-l-2 border-yellow-600">
                     {/* <h5 className="w-fit border-l-2 border-yellow-600 px-2 font-extrabold text-primary-color brightness-[350%]">
                       {elem?.category}
                     </h5> */}
-                    <h4 className="text-xs mx-2 font-bold text-white">
-                      {elem?.title?.length > 40
-                        ? elem?.title?.substring(0, 40) + "..."
-                        : elem?.title}
+                    <h4 className="mx-2 text-xs line-clamp-1 font-bold text-white">
+                    {elem?.title}
                     </h4>
-                    <p className="font-light text-xs mx-2 text-gray-400">
-                      {elem?.description?.length > 30
+                    <p className="mx-2 text-xs font-light line-clamp-1 text-gray-400">
+                      {/* {elem?.description?.length > 30
                         ? elem?.description?.substring(0, 30) + "..."
-                        : elem?.description}
+                        : elem?.description} */}
+                        {elem?.description}
                     </p>
-                    <FaArrowRight className="w-fit mx-2 my-1 cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125" />
+                    <FaArrowRight
+                      onClick={() => handleOpenNews(elem)}
+                      className="mx-2 my-1 w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125"
+                    />
                   </div>
                 </div>
               );
@@ -90,6 +126,42 @@ const Blog = () => {
           </Carousel>
         </div>
       </Container>
+    </>
+  );
+};
+
+const BlogModal = ({ data, setIsOpen, isOpen }) => {
+  const { title, description, image_url, date, author } = data;
+  // console.log(imageUrl,'IMAGE')
+  return (
+    <>
+      <Modal footer={false} open={isOpen} onCancel={() => setIsOpen(false)}>
+        <div className="p-5">
+          {/* <div className="my-2 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-xs font-bold text-white">
+            # {category}
+          </div> */}
+          <h1 className="py-2 text-3xl font-extrabold text-primary-color">
+            {title}
+          </h1>
+          <img
+            src={image_url}
+            className="h-52 rounded-md object-cover shadow-md shadow-gray-400"
+            alt={title}
+          />
+          <div className="flex justify-between">
+            {" "}
+            <p className="my-2 flex justify-end font-bold text-gray-700">
+              <span className="px-1 font-normal italic">Written By :</span>
+              {author}
+            </p>
+            <p className="my-2 flex justify-end font-bold text-gray-700">
+              <span className="px-1 font-normal italic">Published On :</span>
+              {date}
+            </p>
+          </div>
+          <p className="font-semibold text-gray-700">{description}</p>
+        </div>
+      </Modal>
     </>
   );
 };
