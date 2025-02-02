@@ -56,7 +56,7 @@ const Gallery = () => {
     <>
       <Root>
         <Container className={"relative bg-webinar-hero"}>
-          <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/15 to-gray-900/50 backdrop-blur-md"></div>
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-white/50  to-gray-500/60 backdrop-blur-md"></div>
           <Tabs
             activeKey={curr}
             onTabClick={(e) => {
