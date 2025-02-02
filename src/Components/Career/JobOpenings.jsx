@@ -247,7 +247,7 @@ const JobOpenings = () => {
           >
             <h1 className="text-center text-3xl font-bold text-yellow-600">
               Apply, To Be{" "}
-              <span className="font-extrabold text-primary-color ">
+              <span className="font-extrabold text-primary-color  brightness-[350%]">
                 Part Of Neet Advisor!
               </span>
             </h1>

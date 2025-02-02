@@ -23,7 +23,7 @@ const ShowWebinar = () => {
           duration={1.5}
           animateOnce={true}
         >
-          <div>
+          <div >
             <img
               src="macbook-frame-removebg-preview.png"
               className="relative -top-32 z-20 h-[35.5rem] -left-16 w-[40rem]"
