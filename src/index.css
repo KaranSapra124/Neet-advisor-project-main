@@ -394,7 +394,7 @@
 .newsBox:hover:before {
   --tw-text-opacity: 1;
 
-  border-color: rgb(250 204 21 / var(--tw-text-opacity, 1));
+  border-color: #ca8a04;
   height: 100%;
   transform: translateX(0);
   transition:
@@ -405,7 +405,7 @@
 .newsBox:hover:after {
   --tw-text-opacity: 1;
 
-  border-color: rgb(250 204 21 / var(--tw-text-opacity, 1));
+  border-color: #ca8a04;
   height: 100%;
   transform: translateX(0);
   transition:

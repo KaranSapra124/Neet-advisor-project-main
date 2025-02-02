@@ -6,8 +6,10 @@ import { Carousel } from "antd";
 import Container from "../Helper/Container";
 import { FaArrowRight, FaLocationArrow, FaRegNewspaper } from "react-icons/fa";
 import Divider from "../Helper/Divider";
+import { useNavigate } from "react-router-dom";
 
 const NewsSection = () => {
+  const Navigate = useNavigate()
   const headerStyle = {
     background:
       "url(https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid)",
@@ -179,7 +181,7 @@ const NewsSection = () => {
           </Carousel>
           {/* </div>
                     </div> */}
-          <button className="m-auto rounded-md flex hover:scale-105 duration-200 hover:bg-yellow-500 items-center justify-center bg-yellow-600 p-2 font-semibold text-white">
+          <button onClick={()=>Navigate("/news")} className="m-auto rounded-md flex hover:scale-105 duration-200 hover:bg-yellow-500 items-center justify-center bg-yellow-600 p-2 font-semibold text-white">
             View More{" "}
             <span>
               <FaArrowRight className="mx-2 text-sm" />

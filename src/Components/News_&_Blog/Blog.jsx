@@ -132,37 +132,46 @@ const Blog = () => {
 
 const BlogModal = ({ data, setIsOpen, isOpen }) => {
   const { title, description, image_url, date, author } = data;
-  // console.log(imageUrl,'IMAGE')
+
   return (
-    <>
-      <Modal footer={false} open={isOpen} onCancel={() => setIsOpen(false)}>
-        <div className="p-5">
-          {/* <div className="my-2 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-xs font-bold text-white">
-            # {category}
-          </div> */}
-          <h1 className="py-2 text-3xl font-extrabold text-primary-color">
-            {title}
-          </h1>
-          <img
-            src={image_url}
-            className="h-52 rounded-md object-cover shadow-md shadow-gray-400"
-            alt={title}
-          />
-          <div className="flex justify-between">
-            {" "}
-            <p className="my-2 flex justify-end font-bold text-gray-700">
-              <span className="px-1 font-normal italic">Written By :</span>
-              {author}
-            </p>
-            <p className="my-2 flex justify-end font-bold text-gray-700">
-              <span className="px-1 font-normal italic">Published On :</span>
-              {date}
-            </p>
-          </div>
-          <p className="font-semibold text-gray-700">{description}</p>
+    <Modal 
+      footer={false} 
+      open={isOpen} 
+      onCancel={() => setIsOpen(false)}
+      className="rounded-lg"
+    >
+      <div className="p-6 bg-white rounded-lg shadow-xl">
+        {/* Category Badge */}
+        <div className="my-2 w-fit rounded-full bg-yellow-600 px-3 py-1 text-xs font-bold text-white shadow-md">
+          # Category
         </div>
-      </Modal>
-    </>
+
+        {/* Title */}
+        <h1 className="py-2 text-3xl font-extrabold bg-primary-color bg-clip-text text-transparent">
+          {title}
+        </h1>
+
+        {/* Image */}
+        <img
+          src={image_url}
+          className="h-60 w-full rounded-md object-cover shadow-lg"
+          alt={title}
+        />
+
+        {/* Author & Date */}
+        <div className="mt-4 flex justify-between text-sm text-gray-600">
+          <p className="flex items-center">
+            ✍️ <span className="ml-1 italic font-medium">{author}</span>
+          </p>
+          <p className="flex items-center">
+            📅 <span className="ml-1 italic font-medium">{date}</span>
+          </p>
+        </div>
+
+        {/* Description */}
+        <p className="mt-4 text-gray-700 leading-relaxed">{description}</p>
+      </div>
+    </Modal>
   );
 };
 
