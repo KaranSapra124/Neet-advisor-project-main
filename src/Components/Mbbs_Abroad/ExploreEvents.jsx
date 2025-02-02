@@ -37,7 +37,7 @@ const ExploreEvents = () => {
           <div className="text-center">
             <h2 className="text-3xl font-bold text-yellow-600">
               Explore Upcoming{" "}
-              <span className="font-extrabold text-primary-color brightness-[300%]">
+              <span className="font-extrabold text-primary-color brightness-100">
                 Events
               </span>
             </h2>

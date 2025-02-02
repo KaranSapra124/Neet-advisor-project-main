@@ -194,7 +194,7 @@ const Scope = () => {
           </div> */}
           <h1 className="text-3xl font-bold text-yellow-600">
             Why To Pursue{" "}
-            <span className="font-extrabold brightness-[300%] text-primary-color ">
+            <span className="font-extrabold  text-primary-color ">
               MBBS Abroad?
             </span>
           </h1>
@@ -223,7 +223,7 @@ const Scope = () => {
                     duration={1.5}
                   >
                     <Card
-                      className="mx-4 bg-gradient-to-tr from-black/80 to-gray-900/90 shadow-sm shadow-gray-400 transition-shadow duration-300 hover:shadow-xl"
+                      className="mx-4 bg-gradient-to-tr from-black/80 to-gray-900 shadow-sm shadow-gray-400 transition-shadow duration-300 hover:shadow-xl"
                       title={
                         <div className="flex  items-center space-x-2 py-2">
                           <div className="border-l-2 border-yellow-600 p-2">
