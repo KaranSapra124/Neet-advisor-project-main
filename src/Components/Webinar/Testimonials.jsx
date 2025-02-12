@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../Helper/Container";
 import "./Testimonials.css";
 import { FaPause, FaPlay } from "react-icons/fa";
@@ -103,7 +103,7 @@ const Testimonials = () => {
           key={0}
         />
       )}
-      <Container >
+      <Container>
         <div className="py-1">
           <h1 className="text-center text-3xl font-bold text-yellow-600">
             What Our{" "}
@@ -125,7 +125,7 @@ const Testimonials = () => {
             dots={false}
             arrows={false}
             autoplay
-            autoplaySpeed={2500}
+            autoplaySpeed={2000}
             slidesToShow={5}
           >
             {data?.map((elem, index) => {
@@ -177,12 +177,21 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      
       {/* Main Card Container */}
       <div className="absolute inset-0 transform rounded-lg bg-gradient-to-br from-white to-gray-200 shadow-lg transition-all duration-500 ease-out hover:scale-105">
         {/* Content Area */}
+        <img
+            src="./About/validation-badge-bg-removed.gif"
+            className="z-20 w-10 absolute -top-3 -right-5 "
+            alt=""
+            srcset=""
+          />
+        
         <div className="flex h-48 flex-col p-3">
           {/* Quote Design */}
-          <div className="text-2xl  text-primary-color">”</div>
+          
+          <div className="text-2xl text-primary-color">”</div>
 
           {/* Review Text */}
           <div className="flex-1">
@@ -193,6 +202,7 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
 
           {/* Author Info */}
           <div className="mt-2">
+            
             <h3 className="text-sm font-bold text-primary-color">{name}</h3>
             <p className="text-[0.7rem] font-medium text-gray-600">{college}</p>
           </div>
