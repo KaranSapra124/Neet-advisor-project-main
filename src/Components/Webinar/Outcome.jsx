@@ -81,8 +81,6 @@ const Outcome = () => {
     });
   }, [isChanged]);
 
-  
-
   const getCardStyle = (index) => {
     let transform = `translateX(${(index - currentIndex) * 320}px)`;
     let zIndex = 1;
@@ -106,14 +104,22 @@ const Outcome = () => {
     };
   };
 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     handleNext();
+  //   }, 3000);
+  // }, []);
+
   return (
     <Container className={"bg-gray-200/40"}>
-      <h1 className="my-2 text-center text-3xl text-yellow-600 font-bold">
-        Webinar <span className="font-extrabold text-primary-color">Outcomes</span>
+      <h1 className="my-2 text-center text-3xl font-bold text-yellow-600">
+        Webinar{" "}
+        <span className="font-extrabold text-primary-color">Outcomes</span>
       </h1>
-      <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
-          />
+      <p className="my-1 text-center text-xs font-bold text-gray-700">
+        Follow our webinar and ace <strong>NEET</strong>
+      </p>
+      <Divider className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"} />
 
       <div className="relative flex h-52 flex-col items-center">
         <div className="absolute w-full overflow-hidden">
