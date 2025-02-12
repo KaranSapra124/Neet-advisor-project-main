@@ -30,7 +30,7 @@ const EnrollServices = () => {
       title: "Shortlist Your Success",
       content:
         "Based on your expected NEET Score, we shortlist for you the state & college you should apply for.",
-      icon: <MedicineBoxOutlined className="text-xl text-primary-color" />,
+      icon: "./About/motivationGif",
     },
     {
       video:
@@ -38,7 +38,7 @@ const EnrollServices = () => {
       title: "Guidance from our Advisor",
       content:
         "An Intensive one to one NEET counselling session from our Advisor who will answer your queries about AIQ & State Quota NEET Counselling.",
-      icon: <UserOutlined className="text-xl text-primary-color" />,
+      icon: "./About/person-speaker.gif",
     },
     {
       video:
@@ -46,7 +46,7 @@ const EnrollServices = () => {
       title: "Application Filling",
       content:
         "Support with filling of application form of All India Quota/ESI/AFMC/Deemed Universities & different state quota counselling.",
-      icon: <FormOutlined className="text-xl text-primary-color" />,
+      icon: "./About/BookImg.gif",
     },
     {
       video:
@@ -54,7 +54,7 @@ const EnrollServices = () => {
       title: "Look beyond MBBS",
       content:
         "There are many more medical courses like BDS, BAMS, Physiotherapy, DNB, etc.",
-      icon: <BookOutlined className="text-xl text-primary-color" />,
+      icon: "./About/mission.gif",
     },
   ];
 
@@ -136,7 +136,6 @@ const EnrollServices = () => {
                 {servicesArr[currIndex].content}
               </p>
               <div className="flex items-center gap-2">
-               
                 <FaPlayCircle
                   onClick={() => setModalVideo(servicesArr[currIndex])}
                   className="mt-2 cursor-pointer text-xl transition-all duration-200 hover:scale-125 hover:text-gray-200"
@@ -169,7 +168,10 @@ const EnrollServices = () => {
         </div>
 
         {/* Remaining Cards in a Row */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3" key={isChanged}>
+        <div
+          className="grid animate-fadeIn grid-cols-1 gap-5 md:grid-cols-3"
+          key={isChanged}
+        >
           {servicesArr &&
             servicesArr
               .filter((_, index) => index !== currIndex)
@@ -185,7 +187,7 @@ const EnrollServices = () => {
                     transition={{ duration: 0.5 }}
                     whileHover={{ scale: 1.05 }} // Scale effect on hover
                     // whileHover={{ scale: 1.05 }} // Scale effect on hover
-                    className="flex flex-col rounded-md shadow-lg"
+                    className="flex flex-col rounded-md border-b-2 border-yellow-600 shadow-lg"
                   >
                     {/* Video Section */}
                     <div className="group relative w-full">
@@ -198,6 +200,9 @@ const EnrollServices = () => {
                             [serviceIndex]: true,
                           }))
                         }
+                        autoPlay
+                        loop
+                        muted
                         onPause={() =>
                           setIsPlaying((prev) => ({
                             ...prev,
@@ -240,13 +245,17 @@ const EnrollServices = () => {
                     {/* Content Section */}
                     <div className="ml-2 flex-1 px-1.5 py-4">
                       <div className="mb-3 flex items-center gap-2">
-                        {service.icon}
+                        <img
+                          src={service?.icon}
+                          className="w-8 rounded-full p-1 shadow-md shadow-gray-300"
+                        />
                         <span className="text-sm font-bold text-primary-color">
                           {service.title}
                         </span>
                       </div>
+                      <Divider className="my-4 h-0.5 w-full rounded-full bg-yellow-600" />
 
-                      <p className="mb-4 text-xs font-semibold text-gray-900">
+                      <p className="mb-4 text-xs leading-[2] font-semibold text-gray-900">
                         {expandedCards === serviceIndex
                           ? service.content
                           : service?.content?.substring(0, 45) + "..."}
