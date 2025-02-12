@@ -30,7 +30,7 @@ const EnrollServices = () => {
       title: "Shortlist Your Success",
       content:
         "Based on your expected NEET Score, we shortlist for you the state & college you should apply for.",
-      icon: "./About/motivationGif",
+      icon: "./About/motivationGif.gif",
     },
     {
       video:
