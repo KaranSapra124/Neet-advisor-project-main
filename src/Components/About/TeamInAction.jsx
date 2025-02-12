@@ -34,7 +34,7 @@ const TeamInAction = () => {
             Team In{" "}
             <span className="font-extrabold text-primary-color">Action</span>
           </h1>
-          <p className="text-xs text-gray-700 mx-auto max-w-sm font-semibold my-2 text-center">Working together with passion, collaboration, and dedication to turn dreams into reality and achieve success.</p>
+          <p className="text-xs leading-5 text-gray-700 mx-auto max-w-sm font-semibold my-2 text-center">Working together with passion, collaboration, and dedication to turn dreams into reality and achieve success.</p>
           <Divider
             className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
           />
