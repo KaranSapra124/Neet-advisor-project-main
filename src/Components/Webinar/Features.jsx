@@ -173,7 +173,7 @@ const Features = () => {
                     </span>
                   </li>
                 ))}
-                <FaPlay className="text-white border-2 rounded-full p-1 text-xl"/>
+                <FaPlay className="text-white border-2 cursor-pointer rounded-full p-1 text-xl"/>
               </ul>
             </div>
           </div>
