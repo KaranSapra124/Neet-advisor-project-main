@@ -157,7 +157,7 @@ const LatestNews = () => {
 
 const NewsModal = ({ data, setIsOpen, isOpen }) => {
   const { category, date, title, isTrending, imageUrl, description, id } = data;
-  console.log(imageUrl,'IMAGE')
+  // console.log(imageUrl,'IMAGE')
   return (
     <>
       <Modal footer={false} open={isOpen} onCancel={() => setIsOpen(false)}>
