@@ -78,7 +78,7 @@ const UpcomingWebinars = () => {
               return (
                 <div
                   key={index}
-                  className={`relative my-2 flex w-fit transform cursor-pointer flex-row overflow-hidden rounded-xl border border-gray-300 bg-gradient-to-br from-white to-gray-500/10 shadow-lg hover:shadow-xl ${ind === index ? "scale-105" : "scale-100"} transition-all duration-300 ease-in-out`}
+                  className={`relative my-2 flex w-fit transform cursor-pointer flex-row overflow-hidden rounded-xl border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-500/10 shadow-lg hover:shadow-xl ${ind === index ? "scale-105" : "scale-100"} transition-all duration-300 ease-in-out`}
                 >
                   {/* <div className="flex flex-row"> */}
                   <div className="group relative">
@@ -91,11 +91,15 @@ const UpcomingWebinars = () => {
                   </div>
 
                   <div className="w-fit px-2 py-1 pt-0">
-                    <h1 className="my-2 min-h-9 text-sm font-bold text-primary-color">
+                    <h1 className="my-4  text-sm font-bold text-primary-color">
                       {elem.title}
                     </h1>
-
-                    <p className="mt-2 min-h-12 w-64 text-xs font-semibold text-gray-700">
+                    <Divider
+                      className={
+                        " my-4 h-0.5  w-20 rounded-full bg-yellow-600"
+                      }
+                    />
+                    <p className="min-h-10 w-64 text-xs my-3 font-semibold text-gray-700">
                       {elem.description}
                     </p>
 
@@ -288,19 +292,18 @@ const UpcomingWebinars = () => {
   }, []);
 
   return (
-    <Container className={'bg-gray-200/40'}>
+    <Container className={"bg-gray-200/40"}>
       <div className="pb-2 text-center">
         <h1 className="pb-2 text-3xl font-extrabold text-primary-color">
-          <span className="font-bold text-yellow-600">Upcoming</span>{" "}
-          Webinars
+          <span className="font-bold text-yellow-600">Upcoming</span> Webinars
         </h1>
         <p className="text-xs font-bold text-gray-700">
           Mark your calendars for Neet Advisor's upcoming <strong>NEET</strong>{" "}
           Counselling webinars.
         </p>
         <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
-          />
+          className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+        />
       </div>
       <div>
         <Tabs
@@ -308,7 +311,7 @@ const UpcomingWebinars = () => {
           animated={true}
           defaultActiveKey="1"
           items={items}
-          onChange={(key) => console.log(key)}
+          // onChange={(key) => console.log(key)}
           className="antTabs text-primary-color"
           color="#201169"
         />
