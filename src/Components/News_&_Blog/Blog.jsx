@@ -147,7 +147,7 @@ const BlogModal = ({ data, setIsOpen, isOpen }) => {
         </div>
 
         {/* Title */}
-        <h1 className="py-2 text-3xl font-extrabold bg-primary-color bg-clip-text text-transparent">
+        <h1 className="py-2 text-2xl font-extrabold bg-primary-color bg-clip-text text-transparent">
           {title}
         </h1>
 
