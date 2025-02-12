@@ -187,13 +187,13 @@ const EnrollServices = () => {
                     transition={{ duration: 0.5 }}
                     whileHover={{ scale: 1.05 }} // Scale effect on hover
                     // whileHover={{ scale: 1.05 }} // Scale effect on hover
-                    className="flex flex-col rounded-md border-b-2 border-yellow-600 shadow-lg"
+                    className="flex flex-col rounded-md border-b-2 border-l-2 border-yellow-600 shadow-lg"
                   >
                     {/* Video Section */}
                     <div className="group relative w-full">
                       <video
                         id={`video-${serviceIndex}`}
-                        className="aspect-video h-full w-full rounded-md object-cover"
+                        className="aspect-video m-1 h-full w-full rounded-md object-cover"
                         onPlay={() =>
                           setIsPlaying((prev) => ({
                             ...prev,
@@ -212,7 +212,7 @@ const EnrollServices = () => {
                       >
                         <source src={service.video} type="video/mp4" />
                       </video>
-                      <div className="absolute inset-0 flex h-full items-center justify-center gap-2 rounded-lg bg-black bg-opacity-30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="absolute m-1 cursor-pointer inset-0 flex h-full items-center justify-center gap-2 rounded-lg bg-black bg-opacity-30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <Tooltip
                           title={isPlaying[serviceIndex] ? "Pause" : "Play"}
                         >
@@ -244,7 +244,7 @@ const EnrollServices = () => {
 
                     {/* Content Section */}
                     <div className="ml-2 flex-1 px-1.5 py-4">
-                      <div className="mb-3 flex items-center gap-2">
+                      <div className="mb-1 flex items-center gap-2">
                         <img
                           src={service?.icon}
                           className="w-8 rounded-full p-1 shadow-md shadow-gray-300"
