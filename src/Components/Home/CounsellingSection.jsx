@@ -70,7 +70,7 @@ const CounsellingSection = () => {
                 What We Have To{" "}
                 <span className="font-extrabold text-primary-color">Offer ?</span>
               </h2>
-              <p className="my-2 text-xs font-semibold text-gray-700">
+              <p className="my-2 max-w-sm mx-auto text-xs font-semibold text-gray-700">
                 Get personalized answers and ease your biggest doubts with Video
                 Counselling from our curated experts.
               </p>

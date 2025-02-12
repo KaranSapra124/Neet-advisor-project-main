@@ -47,7 +47,7 @@ const Gems = () => {
                 neet advisor
               </span>
             </h1>
-            <p className="mx-auto max-w-sm py-1 text-center text-xs font-semibold text-gray-700">
+            <p className="mx-auto leading-5 max-w-sm py-1 text-center text-xs font-semibold text-gray-700">
               Vipin Bansal and Vivek Singh , two persons who dedicated their
               lives to transforming <strong>NEET</strong> counseling, inspiring
               countless students to achieve their dreams with unwavering support
