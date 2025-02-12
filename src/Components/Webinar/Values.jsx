@@ -48,7 +48,7 @@ const Values = () => {
             Who Is This Webinar{" "}
             <span className="font-extrabold text-primary-color">For?</span>
           </h1>
-          <p className="my-1 text-center text-xs font-semibold text-gray-700">
+          <p className="my-2 max-w-96 mx-auto text-center text-xs font-semibold text-gray-700">
             This webinar is designed to help both parents and students excel in
             the NEET exam by providing valuable insights and proven strategies.
           </p>
@@ -69,7 +69,7 @@ const Values = () => {
                   className="absolute shadow-white shadow-md -top-5 left-[36.5rem] z-50 h-10 w-10 rounded-full bg-gray-300 p-1"
                   srcset=""
                 />
-                <div className="absolute h-full w-full rounded-lg bg-black/50"></div>
+                <div className="absolute h-full w-full rounded-lg bg-black/80"></div>
 
                 <video className="w-fit  rounded-lg" autoPlay loop muted>
                   <source src={item.video} type="video/mp4" />
@@ -127,7 +127,7 @@ const Values = () => {
                   </div>
                 </div>
                 <div className="absolute h-full w-fit rounded-lg border-gray-100 bg-gray-900/10 p-2">
-                  <Badge className="rounded-md bg-black/90 p-2 text-sm font-bold text-white">
+                  <Badge className="rounded-md bg-black/90 p-2 text-sm font-bold text-white ">
                     {item.title}
                   </Badge>
                   <p className="mt-2 text-sm font-bold text-gray-100">
@@ -139,7 +139,7 @@ const Values = () => {
                   <ul className="list-disc">
                     {item.points.map((point, idx) => (
                       <li key={idx} className="mt-2  flex items-center text-xs">
-                        <TiTick className="text-2xl text-green-400" />
+                        <TiTick className="text-2xl text-primary-color brightness-150" />
                         <span className="font-semibold text-gray-50">
                           {point}
                         </span>
