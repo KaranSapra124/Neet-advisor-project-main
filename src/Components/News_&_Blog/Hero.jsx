@@ -257,7 +257,7 @@ const IndividualNewsModal = ({ isOpen, setIsOpen, data }) => {
         <div className="my-2 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-xs font-bold text-white">
           # {category}
         </div>
-        <h1 className="py-2 text-3xl font-extrabold text-primary-color">
+        <h1 className="py-2 text-2xl font-extrabold text-primary-color">
           {title}
         </h1>
         <img
