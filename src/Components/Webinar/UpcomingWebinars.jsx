@@ -91,15 +91,13 @@ const UpcomingWebinars = () => {
                   </div>
 
                   <div className="w-fit px-2 py-1 pt-0">
-                    <h1 className="my-4  text-sm font-bold text-primary-color">
+                    <h1 className="my-4 text-sm font-bold text-primary-color">
                       {elem.title}
                     </h1>
                     <Divider
-                      className={
-                        " my-4 h-0.5  w-20 rounded-full bg-yellow-600"
-                      }
+                      className={"my-4 h-0.5 w-20 rounded-full bg-yellow-600"}
                     />
-                    <p className="min-h-10 w-64 text-xs my-3 font-semibold text-gray-700">
+                    <p className="my-3 min-h-10 w-64 text-xs font-semibold text-gray-700">
                       {elem.description}
                     </p>
 
@@ -193,7 +191,7 @@ const UpcomingWebinars = () => {
               return (
                 <div
                   key={index}
-                  className={`relative my-2 flex w-fit transform cursor-pointer flex-row overflow-hidden rounded-xl border border-gray-300 bg-gradient-to-br from-white to-gray-500/10 shadow-lg hover:shadow-xl ${ind === index ? "scale-105" : "scale-100"} transition-all duration-300 ease-in-out`}
+                  className={`relative my-2 flex w-fit transform cursor-pointer flex-row overflow-hidden rounded-xl border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-500/10 shadow-lg hover:shadow-xl ${ind === index ? "scale-105" : "scale-100"} transition-all duration-300 ease-in-out`}
                 >
                   {/* <div className="flex flex-row"> */}
                   <div className="group relative">
@@ -206,24 +204,36 @@ const UpcomingWebinars = () => {
                   </div>
 
                   <div className="w-fit px-2 py-1 pt-0">
-                    <h1 className="my-2 min-h-9 text-sm font-bold text-primary-color">
+                    <h1 className="my-4 text-sm font-bold text-primary-color">
                       {elem.title}
                     </h1>
-
-                    <p className="mt-2 min-h-12 w-64 text-xs font-semibold text-gray-700">
+                    <Divider
+                      className={"my-4 h-0.5 w-20 rounded-full bg-yellow-600"}
+                    />
+                    <p className="my-3 min-h-10 w-64 text-xs font-semibold text-gray-700">
                       {elem.description}
                     </p>
 
-                    <div className="mt-2 flex items-center space-x-2">
+                    <div className="flex gap-2">
                       <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
-                        <FaCalendar className="mr-2 text-xs text-yellow-600" />
+                        <img
+                          src="./Webinar/calendar-bg-removed.gif"
+                          className="h-6 w-6"
+                          alt=""
+                          srcset=""
+                        />
                         <span className="text-xs font-medium text-gray-700">
                           {elem.book_date}
                         </span>
                       </div>
 
                       <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
-                        <FaClock className="mr-2 text-yellow-600" />
+                        <img
+                          src="./Webinar/stopwatch-bgremoved.gif"
+                          className="h-6 w-6"
+                          alt=""
+                          srcset=""
+                        />
                         <span className="text-xs font-medium text-gray-700">
                           {elem.book_time}
                         </span>
