@@ -104,28 +104,41 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="flex flex-col cursor-pointer  items-center gap-6 rounded-xl border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-gray-50 to-gray-100 p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:flex-row">
-      {/* Client Image */}
-      <div className="flex-shrink-0">
-        <img
-          src={imgUrl}
-          className="h-24 w-24 p-0.5 rounded-full border-2 border-yellow-600 object-cover"
-          alt="Client"
-        />
-      </div>
-      {/* Testimonial Text */}
-      <div className="flex flex-col items-center gap-4 text-gray-700 md:items-start">
-        <p className="text-center text-sm font-semibold italic md:text-left">
-          "{review}"
-        </p>
-        {/* Client Info */}
-        <Divider className={"w-1/2 bg-yellow-600 h-0.5 rounded-full  md:w-1/4"} />
-        <div className="text-center md:text-left">
-          <p className="text-lg  font-bold text-primary-color">{clientName}</p>
-          <p className="text-xs font-bold text-gray-700">{clientCollege}</p>
+    <>
+      <div className="relative flex cursor-pointer flex-col items-center gap-6 rounded-xl border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-gray-200 to-gray-100 p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:flex-row">
+        {/* Client Image */}
+        <div className="flex-shrink-0">
+          <img
+            className="absolute top-12 z-[999] w-8 rounded-md left-5 shadow shadow-yellow-600"
+            src="https://cdn-icons-gif.flaticon.com/11919/11919487.gif"
+            alt=""
+            srcset=""
+          />
+          <img
+            src={imgUrl}
+            className="h-24 w-24 rounded-full border-2 border-yellow-600 object-cover p-0.5"
+            alt="Client"
+          />
+        </div>
+        {/* Testimonial Text */}
+        <div className="flex flex-col-reverse items-center gap-4 text-gray-700 md:items-start">
+          <p className="text-center text-sm font-semibold italic md:text-left">
+            "{review}"
+          </p>
+
+          {/* Client Info */}
+          <div className="text-center md:text-left">
+            <p className="text-lg font-bold text-primary-color">{clientName}</p>
+            <Divider
+              className={
+                "my-3 h-0.5 w-1/2 rounded-full bg-yellow-600 md:w-full"
+              }
+            />
+            <p className="text-xs font-bold text-gray-800">{clientCollege}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
