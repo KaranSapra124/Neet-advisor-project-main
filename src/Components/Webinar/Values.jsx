@@ -139,7 +139,7 @@ const Values = () => {
                   <ul className="list-disc">
                     {item.points.map((point, idx) => (
                       <li key={idx} className="mt-2  flex items-center text-xs">
-                        <TiTick className="text-2xl text-primary-color brightness-150" />
+                        <TiTick className="text-2xl text-primary-color brightness-[400%]" />
                         <span className="font-semibold text-gray-50">
                           {point}
                         </span>
