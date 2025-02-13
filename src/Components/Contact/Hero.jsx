@@ -4,14 +4,15 @@ import Container from "../Helper/Container"
 
 const Hero = () => {
   return (
-    <Container className="flex  items-center justify-center bg-gradient-to-tr from-gray-200 to-gray-200/40">
-      <div className="container mx-auto px-4">
+    <Container className="flex  items-center justify-center bg-gray-500/10">
+      {/* <div className="absolute  h-full mb-16 w-full bg-gray-500/90"></div> */}
+      <div className="container mx-auto  px-4">
         <div className="mb-8 text-center">
           <h1 className="text-4xl font-semibold text-yellow-600">
             Reach Out{" "}
-            <span className="font-extrabold text-primary-color">To Us!</span>
+            <span className="font-extrabold brightness-200 text-primary-color">To Us!</span>
           </h1>
-          <p className="mt-2 text-xs font-semibold text-gray-600">
+          <p className="mt-2 text-xs font-semibold text-gray-700">
             Get in touch with our <strong>Mentors</strong>, fill out the form
             below!
           </p>
@@ -56,7 +57,7 @@ const FormComponent = () => {
   }, [isUG]);
 
   return (
-  <div className={"flex"}>
+  <div className={"flex "}>
 
       <div className="w-full mx-2 relative rounded-xl bg-gray-100 p-6 shadow-xl md:w-1/2">
         <img src="call.gif" className="absolute h-10  -left-5 -top-5 rounded-full shadow-md shadow-yellow-600 w-10" alt="" srcset="" />
