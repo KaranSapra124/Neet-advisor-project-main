@@ -10,22 +10,22 @@ const Stats = () => {
   const statistics = [
     {
       title: "Seminars & Webinars",
-      icon: <GiTeacher className="text-5xl text-yellow-600" />,
+      icon: "./teachingGif.gif",
       count: 1000,
     },
     {
       title: "Students Impacted",
-      icon: <PiStudentDuotone className="text-5xl text-yellow-600" />,
+      icon: "./graduationCap.gif",
       count: 5000,
     },
     {
       title: "Counselling Sessions",
-      icon: <IoIosPeople className="text-5xl text-yellow-600" />,
+      icon: "./Mbbs/calendar-bg-removed.gif",
       count: 3000,
     },
     {
       title: "Successful Clients",
-      icon: <GiPodiumWinner className="text-5xl text-yellow-600" />,
+      icon: "./motivationGif.gif",
       count: 2000,
     },
   ];
@@ -50,11 +50,11 @@ const Stats = () => {
             {statistics.map((stat, index) => (
               <div
                 key={index}
-                className="flex w-60 flex-col items-center justify-center rounded-lg bg-gray-100 p-8 shadow-md transition-all duration-300"
+                className="flex w-60 flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gray-100 p-8 shadow-md transition-all duration-300"
               >
                 {/* Icon */}
                 <div className="flex items-center justify-between">
-                  <div className="mb-1">{stat.icon}</div>
+                  <img src={stat?.icon} className="w-10 mx-2" alt="" srcset="" />
                   {/* Count */}
                   <CountUp
                     num={stat.count}
