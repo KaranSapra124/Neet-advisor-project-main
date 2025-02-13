@@ -10,44 +10,50 @@ import Divider from "../Helper/Divider";
 const testimonialsData = [
   {
     id: 1,
-    name: "John Doe",
+    name: "Smt. Deepali Chandra",
     title: "CEO, ABC Corporation",
-    testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
-    image: "https://picsum.photos/200/300",
+    testimonial: `I want to share that “ there are different types of people/ professionals in the city“ but a truly professional, not only professional in the professional sense but as a good human beings, we have come to know some very nice, fine person like Mr. Bansal and Vivek Ji who have been very helpful throughout the NEET Counselling and have given us time which is most important. We got best possible advise from neet advisor which has GIVEN US A GREAT assurance, apart from the fact that the child has done well but “fine tuning and making good choices at the right time” , is very important, in which they all have helped.We are grateful to the entire team of NEET ADVISOR. All the very best `,
+    image: "./Testimonials/Testimonial-1.jpg",
   },
   {
     id: 2,
-    name: "Jane Smith",
-    title: "Marketing Manager, DEF Agency",
-    testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
-    image: "https://picsum.photos/200/300",
+    name: "Smt. Deepali Chandra",
+    title: "CEO, ABC Corporation",
+    testimonial: `I want to share that “ there are different types of people/ professionals in the city“ but a truly professional, not only professional in the professional sense but as a good human beings, we have come to know some very nice, fine person like Mr. Bansal and Vivek Ji who have been very helpful throughout the NEET Counselling and have given us time which is most important. We got best possible advise from neet advisor which has GIVEN US A GREAT assurance, apart from the fact that the child has done well but “fine tuning and making good choices at the right time” , is very important, in which they all have helped.We are grateful to the entire team of NEET ADVISOR. All the very best `,
+    image: "./Testimonials/Testimonial-1.jpg",
   },
-  {
-    id: 3,
-    name: "Bob Johnson",
-    title: "Founder, GHI Startup",
-    testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    id: 4,
-    name: "Alice Brown",
-    title: "Product Manager, JKL Company",
-    testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    id: 5,
-    name: "Mike Davis",
-    title: "CTO, MNO Corporation",
-    testimonial:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
-    image: "https://picsum.photos/200/300",
-  },
+  // {
+  //   id: 2,
+  //   name: "Jane Smith",
+  //   title: "Marketing Manager, DEF Agency",
+  //   testimonial:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
+  //   image: "https://picsum.photos/200/300",
+  // },
+  // {
+  //   id: 3,
+  //   name: "Bob Johnson",
+  //   title: "Founder, GHI Startup",
+  //   testimonial:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
+  //   image: "https://picsum.photos/200/300",
+  // },
+  // {
+  //   id: 4,
+  //   name: "Alice Brown",
+  //   title: "Product Manager, JKL Company",
+  //   testimonial:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
+  //   image: "https://picsum.photos/200/300",
+  // },
+  // {
+  //   id: 5,
+  //   name: "Mike Davis",
+  //   title: "CTO, MNO Corporation",
+  //   testimonial:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.",
+  //   image: "https://picsum.photos/200/300",
+  // },
 ];
 
 const Testimonials = () => {
@@ -66,10 +72,11 @@ const Testimonials = () => {
       <ScrollAnimation animateIn="fadeInUp" duration={1.5}>
         <Carousel
           dotPosition="bottom"
-          slidesToShow={3}
+          slidesToShow={1}
           autoplay
           autoplaySpeed={2500}
           dots={false}
+          infinite
           className="mx-auto my-8 max-w-screen-xl"
         >
           {testimonialsData.map((elem) => {
@@ -97,25 +104,26 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative left-5 my-12 flex flex-col items-center justify-center rounded-xl border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-100 p-4 text-white shadow-xl md:p-8 dark:border-gray-300 dark:bg-gray-100 dark:text-black">
+    <div className="flex flex-col cursor-pointer  items-center gap-6 rounded-xl border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-gray-50 to-gray-100 p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl md:flex-row">
       {/* Client Image */}
-      <img
-        src={imgUrl}
-        alt={clientName}
-        className="absolute -top-10 right-[22rem] h-8 w-8 rounded-full outline outline-offset-2 outline-yellow-600 md:-top-6 md:h-[3.8rem] md:w-[3.8rem]"
-      />
-      {/* Testimonial Text */}
-      <div className="my-4 flex">
-        <span className="text-5xl text-primary-color">❝</span>
-        <p className="mt-5 text-center text-sm font-semibold text-gray-700">
-          {review}
-        </p>
-        <span className="text-5xl text-primary-color">❞</span>
+      <div className="flex-shrink-0">
+        <img
+          src={imgUrl}
+          className="h-24 w-24 p-0.5 rounded-full border-2 border-yellow-600 object-cover"
+          alt="Client"
+        />
       </div>
-      {/* Client Info */}
-      <div className="mt-4 text-center">
-        <p className="text-lg font-bold text-gray-700">{clientName}</p>
-        <p className="text-xs font-semibold text-gray-700">{clientCollege}</p>
+      {/* Testimonial Text */}
+      <div className="flex flex-col items-center gap-4 text-gray-700 md:items-start">
+        <p className="text-center text-sm font-semibold italic md:text-left">
+          "{review}"
+        </p>
+        {/* Client Info */}
+        <Divider className={"w-1/2 bg-yellow-600 h-0.5 rounded-full  md:w-1/4"} />
+        <div className="text-center md:text-left">
+          <p className="text-lg  font-bold text-primary-color">{clientName}</p>
+          <p className="text-xs font-bold text-gray-700">{clientCollege}</p>
+        </div>
       </div>
     </div>
   );
