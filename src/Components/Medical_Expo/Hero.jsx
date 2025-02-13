@@ -1,24 +1,49 @@
-import React from 'react';
+import React from "react";
 import Container from "../Helper/Container";
 import "./Medical-Expo.css";
-import { MdLocationPin } from 'react-icons/md';
+import { MdLocationPin } from "react-icons/md";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const Hero = () => {
-    const models = [
-        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
-        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
-        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
-        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
-        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
-        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
-        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
-        { "imageUrl": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
-    ];
+  const models = [
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/country/6.webp",
+      imageAlt: "Image 1",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/country/7.webp",
+      imageAlt: "Image 2",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/country/8.webp",
+      imageAlt: "Image 3",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/country/9.webp",
+      imageAlt: "Image 4",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/country/10.webp",
+      imageAlt: "Image 5",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/country/6.webp",
+      imageAlt: "Image 1",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/country/7.webp",
+      imageAlt: "Image 2",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/country/8.webp",
+      imageAlt: "Image 3",
+    },
+  ];
 
-    return (
-        <>
-            <Container className="bg-gradient-to-br from-black to-black/85" >
-                {/* <div className=' grid grid-cols-12 absolute'>
+  return (
+    <>
+      <Container className="bg-gradient-to-br from-black to-black/85">
+        {/* <div className=' grid grid-cols-12 absolute'>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2 14C2 10.2288 2 8.34315 3.17157 7.17157C4.34315 6 6.22876 6 10 6H14C17.7712 6 19.6569 6 20.8284 7.17157C21.4816 7.82475 21.7706 8.69989 21.8985 10M22 14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22878 22 4.34314 22 3.17157 20.8284C2.51839 20.1752 2.22937 19.3001 2.10149 18" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M16 6C16 4.11438 16 3.17157 15.4142 2.58579C14.8284 2 13.8856 2 12 2C10.1144 2 9.17157 2 8.58579 2.58579C8 3.17157 8 4.11438 8 6" stroke="#1C274C" stroke-width="1.5"></path> <path d="M13.5 14H10.5M12 12.5V15.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <circle cx="12" cy="14" r="4" stroke="#1C274C" stroke-width="1.5"></circle> </g></svg>
                     <svg
                         fill="#000000"
@@ -1446,35 +1471,61 @@ const Hero = () => {
 
                 </div> */}
 
-                <div>
-                    <div className='text-center relative  text-gray-300'>
-                        <h1 className='text-3xl font-semibold text-white'>
-                            India's Biggest <strong className='text-yellow-600'>Neet Counselling</strong> Expo
-                        </h1>
-                        <p className='text-gray-400 w-96 mx-auto my-2 text-xs font-semibold'>
-                            The Exclusive Mega Event for <strong>NEET PG</strong> Aspirants. Your Key to Mastering <strong>NEET PG</strong> Counselling and Admission!
-                        </p>
-                        <div className="gallery mt-20 inset-0 mx-auto flex   z-0">
-                            {models.map((model, index) => (
-                                <span key={index} style={{ '--i': index + 1 }} className="relative">
-                                    <img src={model.imageUrl} alt={model.imageAlt} className="w-32   h-auto rounded-lg shadow-lg" />
-                                </span>
-                            ))}
-                        </div>
-                        <div className='flex justify-center flex-col items-center'>
-                            <p className='text-gray-400 font-semibold'>AUGUST 25th | 9:00 AM - 7:00 PM</p>
-                            <div className='flex items-center text-gray-400 my-4 '>    <MdLocationPin />
-                                <p className='font-semibold '>At Bangalore Medical College and Research Institute</p></div>
-                            <button className='bg-yellow-600 px-3 py-1 font-semibold text-white  rounded-l-full rounded-r-full'>Book Your Slot</button>
-                        </div>
-                    </div>
-
+        <ScrollAnimation
+          animateIn="fadeIn"
+          duration={1.5}
+          animateOnce={true}
+          initiallyVisible
+        >
+          <div>
+            <div className="relative text-center text-gray-300">
+              <h1 className="text-3xl font-semibold text-white">
+                India's Biggest{" "}
+                <strong className="text-yellow-600">Neet Counselling</strong>{" "}
+                Expo
+              </h1>
+              <p className="mx-auto my-2 w-96 text-xs font-semibold text-gray-400">
+                The Exclusive Mega Event for <strong>NEET PG</strong> Aspirants.
+                Your Key to Mastering <strong>NEET PG</strong> Counselling and
+                Admission!
+              </p>
+              <div className="gallery inset-0 z-0 mx-auto mt-20 flex">
+                {models.map((model, index) => (
+                  <span
+                    key={index}
+                    style={{ "--i": index + 1 }}
+                    className="relative"
+                  >
+                    <img
+                      src={model.imageUrl}
+                      alt={model.imageAlt}
+                      className="h-auto w-32 rounded-lg shadow-lg"
+                    />
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <p className="font-semibold text-gray-300">
+                  AUGUST 25th | 9:00 AM - 7:00 PM
+                </p>
+                <div className="my-4 flex items-center text-gray-300">
+                  {" "}
+                  <MdLocationPin />
+                  <p className="font-semibold">
+                    At Bangalore Medical College and Research Institute
+                  </p>
                 </div>
-                {/* Gallery Section */}
-
-            </Container>
-        </>
-    );
-}
+                <button className="rounded-l-full rounded-r-full bg-yellow-600 px-3 py-1 font-semibold text-white">
+                  Book Your Slot
+                </button>
+              </div>
+            </div>
+          </div>
+        </ScrollAnimation>
+        {/* Gallery Section */}
+      </Container>
+    </>
+  );
+};
 
 export default Hero;

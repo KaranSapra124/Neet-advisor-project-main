@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../Helper/Container";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import Divider from "../Helper/Divider";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const OurPanelists = () => {
   const teamMemberData = [
@@ -37,33 +38,36 @@ const OurPanelists = () => {
 
   return (
     <Container className="bg-gradient-to-br from-black to-black/85 py-16">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="my-4 text-center">
-          <h1 className="mb-2 text-3xl font-normal text-white">
-            Expo{" "}
-            <span className="font-extrabold text-yellow-600">Panelists</span>{" "}
-            Who Will{" "}
-            <span className="font-extrabold text-yellow-600">Guide You!</span>
-          </h1>
-          <p className="mx-auto max-w-md text-xs font-semibold text-gray-400 md:text-xs">
-            Learn from doctors, professors, and alumni of India's leading
-            medical colleges. Carve your path in competitive medical landscape.
-          </p>
-        </div>
+      <ScrollAnimation animateIn="fadeInUp" animateOnce={true} duration={1.5}> 
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="my-4 text-center">
+            <h1 className="mb-2 text-3xl font-normal text-white">
+              Expo{" "}
+              <span className="font-extrabold text-yellow-600">Panelists</span>{" "}
+              Who Will{" "}
+              <span className="font-extrabold text-yellow-600">Guide You!</span>
+            </h1>
+            <p className="mx-auto max-w-md text-xs font-semibold text-gray-400 md:text-xs">
+              Learn from doctors, professors, and alumni of India's leading
+              medical colleges. Carve your path in competitive medical
+              landscape.
+            </p>
+          </div>
 
-        <div className="flex gap-8 justify-center">
-          {teamMemberData.map((member, index) => (
-            <SpeakerCard key={index} member={member} />
-          ))}
+          <div className="flex justify-center gap-8">
+            {teamMemberData.map((member, index) => (
+              <SpeakerCard key={index} member={member} />
+            ))}
+          </div>
         </div>
-      </div>
+      </ScrollAnimation>
     </Container>
   );
 };
 
 const SpeakerCard = ({ member }) => {
   return (
-    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md border border-b-2 border-l-2 border-gray-300  bg-none  transition-all duration-300 hover:scale-105 sm:flex-row">
+    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md border border-b-2 border-l-2 border-gray-300 bg-none transition-all duration-300 hover:scale-105 sm:flex-row">
       <img
         src={member.imageUrl}
         alt={member.name}
