@@ -1,78 +1,136 @@
-import React from 'react';
+import React from "react";
 import Container from "../Helper/Container";
-import { FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import Divider from "../Helper/Divider";
 
 const OurPanelists = () => {
-    const teamMemberData = [{
-        name: 'Vipin Bansal',
-        title: 'Founder & CEO',
-        imageUrl: 'Vipin-Bansal-square.jpg',
-        socialLinks: [
-            { href: 'https://codepen.io/collection/XdWJOQ/', icon: <FaTwitter /> },
-            { href: 'https://codepen.io/collection/XdWJOQ/', icon: <FaLinkedin /> },
-        ],
+  const teamMemberData = [
+    {
+      name: "Vipin Bansal",
+      title: "Founder & CEO",
+      imageUrl: "Vipin-Bansal-square.jpg",
+      specialty: "NEET Expert",
+      bio: "Leading expert in NEET counseling with over 10 years of experience guiding students to top medical colleges across India.",
+      expertise: ["College Admissions", "NEET Counseling", "Career Guidance"],
+      socialLinks: [
+        { href: "https://codepen.io/collection/XdWJOQ/", icon: <FaTwitter /> },
+        { href: "https://codepen.io/collection/XdWJOQ/", icon: <FaLinkedin /> },
+      ],
     },
     {
-        name: 'Vivek Singh',
-        title: 'Co-Founder',
-        imageUrl: 'vivek-singh-square.jpg',
-        socialLinks: [
-            { href: 'https://codepen.io/collection/XdWJOQ/', icon: <FaTwitter /> },
-            { href: 'https://codepen.io/collection/XdWJOQ/', icon: <FaLinkedin /> },
-        ],
-    }];
+      name: "Vivek Singh",
+      title: "Co-Founder",
+      imageUrl: "vivek-singh-square.jpg",
+      specialty: "Admissions Strategist",
+      bio: "Specialized in helping students navigate the complex medical college admission process with proven success strategies.",
+      expertise: [
+        "Medical Education",
+        "Strategic Planning",
+        "Student Mentoring",
+      ],
+      socialLinks: [
+        { href: "https://codepen.io/collection/XdWJOQ/", icon: <FaTwitter /> },
+        { href: "https://codepen.io/collection/XdWJOQ/", icon: <FaLinkedin /> },
+      ],
+    },
+  ];
 
-    return (
-        <Container className="bg-gradient-to-br from-black to-black/85 py-16">
-            <div className="max-w-6xl mx-auto px-4">
-                <div className="text-center my-4">
-                    <h1 className="text-white  text-3xl font-normal mb-2">
-                        Expo <span className="font-extrabold text-yellow-600">Panelists</span> Who Will <span className="font-extrabold text-yellow-600">Guide You!</span>
-                    </h1>
-                    <p className="text-gray-400  text-xs md:text-xs max-w-md font-semibold mx-auto">
-                        Learn from doctors, professors, and alumni of India's leading medical colleges. 
-                        Carve your path in competitive medical landscape.
-                    </p>
-                </div>
+  return (
+    <Container className="bg-gradient-to-br from-black to-black/85 py-16">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="my-4 text-center">
+          <h1 className="mb-2 text-3xl font-normal text-white">
+            Expo{" "}
+            <span className="font-extrabold text-yellow-600">Panelists</span>{" "}
+            Who Will{" "}
+            <span className="font-extrabold text-yellow-600">Guide You!</span>
+          </h1>
+          <p className="mx-auto max-w-md text-xs font-semibold text-gray-400 md:text-xs">
+            Learn from doctors, professors, and alumni of India's leading
+            medical colleges. Carve your path in competitive medical landscape.
+          </p>
+        </div>
 
-                <div className="flex justify-center">
-                    {teamMemberData.map((member, index) => (
-                        <div 
-                            key={index}
-                            className="bg-[#4C585B]  bg-opacity-50 border-l-2 border-b-2 border-gray-200 cursor-pointer w-64 p-6 m-4 flex-wrap rounded-lg 
-                                     transform transition duration-300 hover:scale-105 hover:shadow-xl"
-                        >
-                            <div className="flex cursor-pointer flex-col items-center">
-                                <div className="mb-4 relative">
-                                    <img 
-                                        className="w-32 h-32 rounded-full object-cover  shadow-md shadow-gray-200" 
-                                        src={member.imageUrl} 
-                                        alt={member.name}
-                                    />
-                                </div>
-                                <h2 className="text-gray-200 text-lg font-bold mb-2">{member.name}</h2>
-                                <p className="text-gray-400 font-semibold mb-4 text-xs ">{member.title}</p>
-                                
-                                <div className="flex space-x-4">
-                                    {member.socialLinks.map((link, linkIndex) => (
-                                        <a
-                                            key={linkIndex}
-                                            href={link.href}
-                                            className="text-gray-400 hover:text-yellow-600 transition-colors duration-300"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            {React.cloneElement(link.icon, { className: "w-5 h-5" })}
-                                        </a>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+        <div className="flex gap-8 justify-center">
+          {teamMemberData.map((member, index) => (
+            <SpeakerCard key={index} member={member} />
+          ))}
+        </div>
+      </div>
+    </Container>
+  );
+};
+
+const SpeakerCard = ({ member }) => {
+  return (
+    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md border border-b-2 border-l-2 border-gray-300  bg-none  transition-all duration-300 hover:scale-105 sm:flex-row">
+      <img
+        src={member.imageUrl}
+        alt={member.name}
+        className="mx-5 my-auto h-32 w-32 rounded-full shadow-md shadow-white transition duration-500"
+      />
+      <div className="flex max-w-screen-sm flex-col justify-between p-2">
+        <div>
+          <div className="flex items-start justify-between">
+            <div>
+              <h3 className="text-lg font-bold text-primary-color brightness-200 transition-all duration-300 group-hover:font-extrabold">
+                {member.name}
+              </h3>
+              <Divider className="my-0.5 h-0.5 w-16 rounded-full bg-yellow-600" />
+              <div className="-mx-1 flex items-center">
+                <img
+                  src="./Webinar/creative-removedBg.gif"
+                  className="h-8 w-8"
+                  alt=""
+                  srcset=""
+                />
+                <p className="mt-1 text-sm font-semibold text-gray-200">
+                  {member.title}
+                </p>
+              </div>
             </div>
-        </Container>
-    );
+            <div className="flex gap-3">
+              {member.socialLinks.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  className="group/icon rounded-full p-2 transition-colors hover:bg-gray-100"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {React.cloneElement(link.icon, {
+                    className:
+                      "w-5 h-5 text-gray-400 group-hover/icon:text-primary-color transition-all dration-300",
+                  })}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="-mx-1 flex">
+            <img
+              src="./Webinar/BookImg.gif"
+              className="h-7 w-7"
+              alt=""
+              srcset=""
+            />
+            <p className="mx-1 my-2 line-clamp-2 text-xs font-medium leading-relaxed text-gray-200">
+              {member.bio}
+            </p>
+          </div>
+        </div>
+        <div className="my-2 flex flex-wrap gap-2">
+          {member.expertise.map((skill, index) => (
+            <span
+              key={index}
+              className="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-500"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default OurPanelists;
