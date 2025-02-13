@@ -4,23 +4,21 @@ import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
 
 const imageUrls = [
-  { url: "https://picsum.photos/id/10/200/300.webp" },
-  { url: "https://picsum.photos/id/20/200/300.webp" },
-  { url: "https://picsum.photos/id/30/200/300.webp" },
-  { url: "https://picsum.photos/id/40/200/300.webp" },
-  { url: "https://picsum.photos/id/50/200/300.webp" },
-  { url: "https://picsum.photos/id/60/200/300.webp" },
-  { url: "https://picsum.photos/id/70/200/300.webp" },
-  { url: "https://picsum.photos/id/80/200/300.webp" },
-  { url: "https://picsum.photos/id/90/200/300.webp" },
-  { url: "https://picsum.photos/id/100/200/300.webp" },
-  { url: "https://picsum.photos/id/110/200/300.webp" },
-  
-  { url: "https://picsum.photos/id/160/200/300.webp" },
-  { url: "https://picsum.photos/id/170/200/300.webp" },
-  { url: "https://picsum.photos/id/180/200/300.webp" },
-  { url: "https://picsum.photos/id/190/200/300.webp" },
-  { url: "https://picsum.photos/id/200/200/300.webp" }
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
+  { "url": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
 ];
 
 const Gallery = () => {
