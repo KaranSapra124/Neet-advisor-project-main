@@ -194,7 +194,7 @@ const Scope = () => {
           </div> */}
           <h1 className="text-3xl font-bold text-yellow-600">
             Why To Pursue{" "}
-            <span className="font-extrabold  text-primary-color ">
+            <span className="font-extrabold brightness-200  text-primary-color ">
               MBBS Abroad?
             </span>
           </h1>
