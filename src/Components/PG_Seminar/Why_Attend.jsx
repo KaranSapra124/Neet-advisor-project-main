@@ -66,10 +66,10 @@ const Why_Attend = () => {
               className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
             />
             <div className="flex flex-row-reverse justify-center">
-              <div className="w-1/2 grid grid-cols-2 gap-5">
+              <div className="w-1/2 grid grid-cols-2 gap-2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex border-l-2 p-2 my-1  rounded-l-lg border-b-2 border-white  gap-2  space-y-4">
+                    <div className="flex border-l-2 p-2    rounded-l-lg border-b-2 border-white  gap-1  space-y-4">
                       <img
                         src={seminar?.icon}
                         className="h-10 w-10"
@@ -77,10 +77,10 @@ const Why_Attend = () => {
                         srcset=""
                       />
                       <div className="flex flex-col">
-                        <h1 className="text-lg font-extrabold text-yellow-600">
+                        <h1 className="text-sm font-extrabold text-yellow-600">
                           {seminar?.title}
                         </h1>
-                        <p className="text-xs font-semibold text-gray-400">
+                        <p className="text-xs font-semibold text-gray-200">
                           {seminar?.paragraph}
                         </p>
                       </div>
