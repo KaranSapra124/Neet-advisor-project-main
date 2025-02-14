@@ -52,7 +52,7 @@ const Schedule = () => {
         initiallyVisible={true}
       >
         <div className="mx-auto max-w-6xl px-4">
-          <div className="mb-12 text-center">
+          <div className="my-4 text-center">
             <h1 className="my-2 text-3xl font-normal text-white">
               <span className="font-extrabold text-yellow-600">Schedule</span>{" "}
               For Upcoming Expo
@@ -63,7 +63,7 @@ const Schedule = () => {
             </p>
           </div>
 
-          <div className="mt-2">
+          <div className="">
             <Tabs
               className="scheduleTab"
               tabPosition="left"
