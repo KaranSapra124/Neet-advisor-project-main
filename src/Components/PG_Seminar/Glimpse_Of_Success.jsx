@@ -73,7 +73,7 @@ const Glimpse_Of_Success = () => {
                           ></video>
                           <div className="flex  bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40  flex-col gap-1 px-2 py-2">
                             <img
-                              className="ml-auto h-10 w-10 rounded-full bg-white p-1"
+                              className="ml-auto h-10 w-10 rounded-sm bg-white p-1"
                               src="neet-advisor-logo-Photoroom.png"
                               alt=""
                               srcset=""
