@@ -73,20 +73,20 @@ const Schedule = () => {
                 children: (
                   <div className="rounded-lg border border-gray-800 bg-black/30 p-6">
                     <div className="flex flex-col items-center justify-center space-y-4 text-gray-300">
-                      <h2 className="text-md mb-2 font-bold brightness-200">
+                      <h2 className="text-md my-1 font-bold brightness-200">
                         Session Date: {elem.date}
                       </h2>
-                      <p className="mb-4 text-xs font-semibold text-gray-400">
+                      <p className="mb-4 text-xs font-semibold text-gray-200">
                         Venue: {elem.venue}
                       </p>
                       <Timeline
                         className="flex w-full flex-col py-4 text-gray-300"
                         mode="left"
                         items={elem.sessions.map((detail) => ({
-                          label: detail.time,
+                          label:<h1 className="text-gray-200 font-semibold text-sm">{detail.time}</h1>,
                           color: "gray",
                           children: (
-                            <div className="font-medium">{detail.topic}</div>
+                            <div className="font-semibold">{detail.topic}</div>
                           ),
                         }))}
                       />
