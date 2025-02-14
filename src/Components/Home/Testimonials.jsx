@@ -130,9 +130,9 @@ const Testimonials = () => {
         >
           {slides.map((group, groupIndex) => (
             <div key={groupIndex} className="px-4">
-              <div className="flex justify-center  gap-6">
+              <div className="flex gap-4">
                 {group.map((testimonial) => (
-                  <div key={testimonial.id} className="flex justify-center">
+                  <div key={testimonial.id} className="flex relative flex-col">
                     <TestimonialCard
                       clientCollege={testimonial.title}
                       clientName={testimonial.name}
@@ -152,28 +152,13 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative h-full w-full   cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-gray-200 to-gray-100 p-6 shadow-lg transition-shadow duration-300 hover:shadow-2xl">
-      <div className="flex flex-row items-center gap-2">
-        <div className="relative ">
-          <img
-            className="absolute -left-4 -top-4 z-[999] w-8 rounded-md shadow shadow-yellow-600"
-            src="https://cdn-icons-gif.flaticon.com/11919/11919487.gif"
-            alt="Quote icon"
-          />
-          <img
-            src={imgUrl}
-            className="w-96 h-auto rounded-full border-2 border-yellow-600 object-cover p-0.5"
-            alt="Client"
-          />
-        </div>
-        <div className="flex flex-col items-center gap-4 text-gray-700">
-          <div className="text-left">
-            <p className="text-lg font-bold text-primary-color">{clientName}</p>
-            <Divider className="mx-auto my-3 h-0.5 w-1/2 rounded-full bg-yellow-600" />
-            <p className="text-xs font-bold text-gray-800">{clientCollege}</p>
-          </div>
-          <p className="text-center text-sm font-semibold italic">"{review}"</p>
-        </div>
+    <div className="flex gap-4 h-auto relative p-4 shadow shadow-yellow-600 rounded">
+      <img className=" rounded-full h-14 shadow shadow-yellow-600 w-14  absolute -top-3 -left-3" src={imgUrl} alt="" srcset="" />
+      <div className="px-6 py-5">
+        <h1 className="text-sm font-bold text-primary-color">{clientName}</h1>
+        <h2 className="text-xs font-bold text-gray-800 my-1">{clientCollege}</h2>
+        <Divider className=" my-4 h-1 w-20 rounded-full bg-yellow-600" />
+        <p className="text-xs font-semibold">{review}</p>
       </div>
     </div>
   );
