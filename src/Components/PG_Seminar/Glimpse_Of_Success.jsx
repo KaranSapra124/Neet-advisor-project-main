@@ -138,7 +138,7 @@ const Glimpse_Of_Success = () => {
                                   </div>
                                 </p>
                               </div>
-                              <button className="my-2 rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-lg font-bold text-white transition-all hover:bg-yellow-700">
+                              <button className="my-2 rounded-l-full rounded-r-full bg-yellow-600 px-3 py-1.5 text-lg font-bold text-white transition-all hover:bg-yellow-700">
                                 Book Now
                               </button>
                             </div>
