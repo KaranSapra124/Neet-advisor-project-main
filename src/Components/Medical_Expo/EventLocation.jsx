@@ -28,23 +28,23 @@ const EventLocation = () => {
 const EventDetails = () => {
     const eventDetailsData = [
         {
-            icon: <FiMail />,
+            icon: <FiMail className='text-gray-200' />,
             content: 'info@neetadvisor.com'
         },
         {
-            icon: <FiMapPin />,
+            icon: <FiMapPin className='text-gray-200' />,
             content: 'US 1 & 2, Ground Floor, U.S. Complex,Jasola, New Delhi - 110076'
         },
         {
-            icon: <FiPhoneCall />,
+            icon: <FiPhoneCall className='text-gray-200' />,
             content: '+91-991-120-3280'
         },
     ]
     return <>
         <div className='flex flex-col h-full  justify-center items-center '>
             {eventDetailsData?.map((elem, index) => {
-                return <div key={index} className='text-gray-300  text-center w-64 p-4 justify-center items-center flex flex-col my-1 rounded-md  bg-black/5  hover:bg-gray-500/10 transition-all cursor-pointer hover:scale-105 border-l-2 border-b-2 border-gray-200 mx-2'>
-                    <p className=' text-lg py-1  border p-1  rounded-full my-1'> {elem?.icon}</p>
+                return <div key={index} className='text-gray-200  text-center w-64 p-4 justify-center items-center flex flex-col my-1 rounded-md  bg-black/5  hover:bg-gray-500/10 transition-all cursor-pointer hover:scale-105 border-l-2 border-b-2 border-gray-200 mx-2'>
+                    <p className=' text-lg  py-1  shadow-sm shadow-white p-1  rounded-full my-1'> {elem?.icon}</p>
                     <p className='text-xs font-semibold text-gray-400'>{elem?.content}</p>
                 </div>
             })}
