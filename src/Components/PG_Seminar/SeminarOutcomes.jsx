@@ -46,7 +46,7 @@ const SeminarOutcomes = () => {
             Gain ?
           </span>
         </h1>
-        <p className="mx-auto w-96 text-xs font-semibold text-gray-300">
+        <p className="mx-auto my-4 w-96 text-xs font-semibold text-gray-300">
           Leave prepared for the NEET PG counselling journey. Here's how our
           attendees benefit from Medical Mentor's seminar!
         </p>
@@ -59,7 +59,7 @@ const SeminarOutcomes = () => {
           return (
             <div
               key={index}
-              className="my-2 h-[21rem] w-72 animate-rubberBand cursor-pointer rounded bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 p-4 text-center shadow-sm shadow-white transition-all duration-500 hover:scale-105"
+              className="my-2 h-[21rem]  w-72 animate-rubberBand cursor-pointer rounded bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 p-4 text-center shadow-sm shadow-white transition-all duration-500 hover:scale-105"
             >
               {index < 2 ? (
                 <img
@@ -81,7 +81,7 @@ const SeminarOutcomes = () => {
                 # {elem?.title}
               </h2>
               <Divider
-                className={"my-3 h-1 w-10 rounded-full bg-yellow-600"}
+                className={"my-3 h-0.5 w-10 rounded-full bg-yellow-600"}
               />
               <p className="text-xs font-semibold text-justify text-gray-300">
                 {elem?.description}
