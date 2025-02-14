@@ -55,7 +55,7 @@ const OurSpeaker = () => {
                 Voices!
               </span>
             </h1>
-            <p className="my-2' text-xs font-semibold text-gray-400">
+            <p className="my-2 text-xs font-semibold text-gray-400">
               You Will Get , Industry Expert's Knowledge
             </p>
             <Divider
