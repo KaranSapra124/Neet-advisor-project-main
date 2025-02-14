@@ -46,7 +46,7 @@ const Glimpse_Of_Success = () => {
                   Reach?
                 </span>
               </h1>
-              <p className="my-2 text-xs font-semibold text-gray-400">
+              <p className="my-3 text-xs font-semibold text-gray-400">
                 Want To Reach To Us , Checkout The Details!
               </p>
               <Divider
