@@ -52,7 +52,7 @@ const Hero = () => {
                   NEET PG 2025
                 </span>
               </h1>
-              <p className="max-w-md text-center text-sm font-extrabold text-gray-300">
+              <p className="max-w-md text-center text-xs font-extrabold text-gray-300">
                 Prepare yourself for the NEET UG exam with expert guidance and
                 tips. Join us for insightful sessions, mock tests, and career
                 counseling.
