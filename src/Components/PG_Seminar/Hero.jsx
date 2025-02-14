@@ -93,7 +93,7 @@ const Hero = () => {
                       </div>
                       <FaArrowRight className="animate-scaleUp text-yellow-600" />
                     </div>
-                    <div className="text-sm mx-2 font-semibold text-gray-400">
+                    <div className="text-xs mx-2 font-semibold text-gray-200">
                       {seminar.venue}
                     </div>
                     {/* {index !== seminarData?.length - 1 && (
