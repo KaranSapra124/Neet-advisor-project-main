@@ -15,17 +15,25 @@ const SuperChargeDream = () => {
   return (
     <Container className={"bg-gradient-to-tr from-black to-black/85"}>
       <ScrollAnimation animateIn="fadeIn" duration={1.5} animateOnce={true}>
-        <div className="flex items-center">
-          <div className="my-2 w-1/2 text-center">
-            <h1 className="my-2 text-3xl font-medium text-white">
-              Supercharge Your{" "}
-              <span className="font-extrabold text-yellow-600">Future</span>
-            </h1>
-            <p className="mx-auto w-80 max-w-xl text-xs font-semibold text-gray-400">
-              Make your dreams meet direction. Medical mentor Expo is your key
-              to Tips, Tricks, Techniques, Insights and Updates. Here's why you
-              can't afford to miss it!
-            </p>
+        <div className="flex items-center ">
+          <div className="my-2 flex justify-center  w-1/2 text-center">
+            <div>
+              <h1 className="my-2 text-3xl font-medium text-white">
+                Supercharge Your{" "}
+                <span className="font-extrabold text-yellow-600">Future</span>
+              </h1>
+              <p className="mx-auto w-80 max-w-xl text-xs font-semibold text-gray-400">
+                Make your dreams meet direction. Medical mentor Expo is your key
+                to Tips, Tricks, Techniques, Insights and Updates. Here's why
+                you can't afford to miss it!
+              </p>
+            </div>
+            <img
+              className="w-28 mx-10 h-18 rotate-180"
+              src="left-arrow-bg.gif"
+              alt=""
+              srcset=""
+            />
           </div>
 
           <div className="mx-4 flex w-1/2 rounded-xl bg-black/10 p-8 shadow-lg shadow-gray-700">
