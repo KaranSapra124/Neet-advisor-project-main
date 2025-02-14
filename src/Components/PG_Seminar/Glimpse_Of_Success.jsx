@@ -99,7 +99,7 @@ const Glimpse_Of_Success = () => {
                               </p>
                               <div className="my-2">
                                 <p className="flex w-fit items-center justify-evenly rounded-lg border border-white p-2 font-bold text-gray-400">
-                                  <div className="flex items-center justify-between">
+                                  <div className="flex gap-2 items-center justify-between">
                                     <img
                                       src="./Webinar/person-speaker.gif"
                                       className="h-8 w-8"
@@ -113,7 +113,7 @@ const Glimpse_Of_Success = () => {
                                       "h-0.5 w-5 rotate-90 bg-yellow-600"
                                     }
                                   />
-                                  <div className="flex items-center justify-between">
+                                  <div className="flex gap-2 items-center justify-between">
                                     <img
                                       src="./Webinar/calendar-bg-removed.gif"
                                       className="h-8 w-8"
@@ -127,7 +127,7 @@ const Glimpse_Of_Success = () => {
                                       "h-0.5 w-5 rotate-90 bg-yellow-600"
                                     }
                                   />
-                                  <div className="flex items-center justify-between">
+                                  <div className="flex gap-2 items-center justify-between">
                                     <img
                                       src="./Seminar/location-pin-bg-removed.gif"
                                       className="h-8 w-8"
