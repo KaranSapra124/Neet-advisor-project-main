@@ -37,9 +37,7 @@ const OurSpeaker = () => {
   ];
   return (
     <Container
-      className={
-        "no-repeat relative  bg-webinar-hero bg-cover bg-fixed"
-      }
+      className={"no-repeat relative bg-webinar-hero bg-cover bg-fixed"}
     >
       <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
       <ScrollAnimation
@@ -74,7 +72,7 @@ const OurSpeaker = () => {
 };
 const TeamMember = ({ member }) => {
   return (
-    <div className="group flex w-[35rem]  cursor-pointer flex-col overflow-hidden rounded-md bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 shadow shadow-white transition-all duration-300 hover:scale-105 sm:flex-row">
+    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 shadow shadow-white transition-all duration-300 hover:scale-105 sm:flex-row">
       <img
         src={member.imageUrl}
         alt={member.name}
@@ -124,8 +122,8 @@ const TeamMember = ({ member }) => {
               alt=""
               srcset=""
             />
-            <p className="mx-1 my-2 line-clamp-2 text-xs font-thin leading-relaxed text-gray-400 brightness-200">
-              {member.bio}
+            <p className="mx-1 my-2 line-clamp-2 text-xs font-semibold italic leading-relaxed text-gray-400 brightness-200">
+              "{member.bio}"
             </p>
           </div>
         </div>
@@ -135,7 +133,7 @@ const TeamMember = ({ member }) => {
               key={index}
               className="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-primary-color"
             >
-            # {skill}
+              # {skill}
             </span>
           ))}
         </div>
