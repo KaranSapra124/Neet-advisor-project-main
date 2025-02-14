@@ -76,7 +76,7 @@ const Purpose = () => {
               <div className="w-1/2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex items-center gap-2 space-y-7">
+                    <div className="flex items-center gap-2 p-4 my-2 border-b-2  border-l-2 border-yellow-600 rounded-md">
                       <img
                         src={seminar?.icon}
                         className="h-10 w-10"
@@ -84,7 +84,7 @@ const Purpose = () => {
                         srcset=""
                       />
                       <div className="flex flex-col">
-                        <h1 className="text-lg font-extrabold text-yellow-600">
+                        <h1 className="text-sm font-extrabold text-yellow-600">
                           {seminar?.title}
                         </h1>
                         <p className="text-xs font-semibold text-gray-400">
