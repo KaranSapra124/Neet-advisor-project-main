@@ -90,7 +90,7 @@ const Glimpse_Of_Success = () => {
                                   "my-2 h-0.5 w-20 rounded-full bg-yellow-600"
                                 }
                               />
-                              <h2 className="my-2 text-xl font-extralight text-gray-400">
+                              <h2 className="my-2 text-xl font-thin text-gray-200">
                                 Get your neet preparation to next level rocket
                                 🚀
                               </h2>
