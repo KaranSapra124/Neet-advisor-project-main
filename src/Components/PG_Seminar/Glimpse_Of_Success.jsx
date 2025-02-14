@@ -94,12 +94,12 @@ const Glimpse_Of_Success = () => {
                                 Get your neet preparation to next level rocket
                                 🚀
                               </h2>
-                              <p className="my-2 text-center text-xs font-semibold text-gray-400">
+                              <p className="my-2 text-center text-xs font-semibold text-gray-200">
                                 {elem?.description}
                               </p>
                               <div className="my-2">
                                 <p className="flex w-fit items-center justify-evenly rounded-lg border border-white p-2 font-bold text-gray-400">
-                                  <div className="flex gap-2 items-center justify-between">
+                                  <div className="flex gap-2 text-gray-200 items-center justify-between">
                                     <img
                                       src="./Webinar/person-speaker.gif"
                                       className="h-8 w-8"
@@ -113,7 +113,7 @@ const Glimpse_Of_Success = () => {
                                       "h-0.5 w-5 rotate-90 bg-yellow-600"
                                     }
                                   />
-                                  <div className="flex gap-2 items-center justify-between">
+                                  <div className="flex gap-2 text-gray-200 items-center justify-between">
                                     <img
                                       src="./Webinar/calendar-bg-removed.gif"
                                       className="h-8 w-8"
@@ -127,7 +127,7 @@ const Glimpse_Of_Success = () => {
                                       "h-0.5 w-5 rotate-90 bg-yellow-600"
                                     }
                                   />
-                                  <div className="flex gap-2 items-center justify-between">
+                                  <div className="flex gap-2 text-gray-200 items-center justify-between">
                                     <img
                                       src="./Seminar/location-pin-bg-removed.gif"
                                       className="h-8 w-8"
