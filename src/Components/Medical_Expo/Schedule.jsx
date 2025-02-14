@@ -90,7 +90,7 @@ const Schedule = () => {
                           ),
                         }))}
                       />
-                      <button className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 font-semibold text-gray-300">
+                      <button className="w-fit rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all  px-4 py-2 text-sm font-bold text-gray-300">
                         Book Now
                       </button>
                     </div>
