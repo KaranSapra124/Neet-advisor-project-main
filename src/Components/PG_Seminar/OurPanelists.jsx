@@ -80,7 +80,7 @@ const OurPanelists = () => {
                     children: (
                       <>
                         <div
-                          className={` ${(index + 1) % 2 === 0 && "ml-[20.8rem]"} m-2 h-40 w-80 rounded-md bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center shadow shadow-white`}
+                          className={` ${(index + 1) % 2 === 0 && "ml-[20.8rem]"} m-2 h-40 w-80 rounded-md bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center border shadow-sm shadow-white border-white`}
                         >
                           <img
                             src="./Seminar/validation-badge-bg-removed.gif"
@@ -100,7 +100,7 @@ const OurPanelists = () => {
                             <h1 className="text-sm font-bold text-white">
                               {elem?.time}
                             </h1>
-                            <p className="my-2 text-wrap text-xs font-semibold text-gray-400">
+                            <p className="my-2 text-wrap text-xs font-bold text-gray-200">
                               {elem?.description}
                             </p>
                           </div>
