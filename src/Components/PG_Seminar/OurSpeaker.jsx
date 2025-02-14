@@ -133,7 +133,7 @@ const TeamMember = ({ member }) => {
           {member.expertise.map((skill, index) => (
             <span
               key={index}
-              className="rounded-full bg-green-300 px-3 py-1 text-xs font-semibold text-green-800"
+              className="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-primary-color"
             >
               {skill}
             </span>
