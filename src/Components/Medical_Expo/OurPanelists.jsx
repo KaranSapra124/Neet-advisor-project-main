@@ -80,7 +80,7 @@ const SpeakerCard = ({ member }) => {
               <h3 className="text-lg font-bold text-primary-color brightness-200 transition-all duration-300 group-hover:font-extrabold">
                 {member.name}
               </h3>
-              <Divider className="my-0.5 h-0.5 w-16 rounded-full bg-yellow-600" />
+              <Divider className="my-2 h-0.5 w-16 rounded-full bg-yellow-600" />
               <div className="-mx-1 flex items-center">
                 <img
                   src="./Webinar/creative-removedBg.gif"
@@ -117,8 +117,8 @@ const SpeakerCard = ({ member }) => {
               alt=""
               srcset=""
             />
-            <p className="mx-1 my-2 line-clamp-2 text-xs font-medium leading-relaxed text-gray-200">
-              {member.bio}
+            <p className="mx-1 my-2 line-clamp-2  text-xs font-semibolld italic leading-relaxed text-gray-200">
+              "{member.bio}"
             </p>
           </div>
         </div>
@@ -126,9 +126,9 @@ const SpeakerCard = ({ member }) => {
           {member.expertise.map((skill, index) => (
             <span
               key={index}
-              className="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-500"
+              className="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-primary-color"
             >
-              {skill}
+              # {skill}
             </span>
           ))}
         </div>
