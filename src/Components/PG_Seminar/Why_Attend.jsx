@@ -72,7 +72,7 @@ const Why_Attend = () => {
                     <div className="flex border-l-2 p-2    rounded-l-lg border-b-2 border-white  gap-1  space-y-4">
                       <img
                         src={seminar?.icon}
-                        className="h-10 w-10"
+                        className="h-9 w-9"
                         alt=""
                         srcset=""
                       />
