@@ -57,7 +57,7 @@ const Hero = () => {
                 tips. Join us for insightful sessions, mock tests, and career
                 counseling.
               </p>
-             <div className="flex justify-evenly w-full">
+             <div className="flex gap-4 justify-center my-2 w-full">
              <button className="w-fit rounded-l-lg rounded-r-lg bg-yellow-600 px-3 py-2 font-bold text-white">
                 Book Now!
               </button>
