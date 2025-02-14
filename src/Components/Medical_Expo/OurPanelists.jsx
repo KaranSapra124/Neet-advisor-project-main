@@ -84,7 +84,7 @@ const SpeakerCard = ({ member }) => {
               <div className="-mx-1 flex items-center">
                 <img
                   src="./Webinar/creative-removedBg.gif"
-                  className="h-8 w-8"
+                  className="h-8 mx-1 w-8"
                   alt=""
                   srcset=""
                 />
@@ -113,7 +113,7 @@ const SpeakerCard = ({ member }) => {
           <div className="-mx-1 flex">
             <img
               src="./Webinar/BookImg.gif"
-              className="h-7 w-7"
+              className="h-7 mx-1 w-7"
               alt=""
               srcset=""
             />
