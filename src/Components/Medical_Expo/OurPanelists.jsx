@@ -104,7 +104,7 @@ const SpeakerCard = ({ member }) => {
                 >
                   {React.cloneElement(link.icon, {
                     className:
-                      "w-5 h-5 text-gray-400 group-hover/icon:text-primary-color transition-all dration-300",
+                      "w-5 h-5 text-gray-200 group-hover/icon:text-primary-color transition-all dration-300",
                   })}
                 </a>
               ))}
