@@ -77,7 +77,7 @@ const Hero = () => {
             <div className="flex h-fit ">
               {seminarData?.map((seminar, index) => {
                 return (
-                  <div className="cursor-pointer relative shadow mx-4 shadow-gray-100 rounded-lg p-2 transition-all duration-100 hover:scale-105">
+                  <div className="cursor-pointer relative shadow mx-4  border bg-white/10 border-white rounded-lg p-2 transition-all duration-100 hover:scale-105">
                     <img src="./Webinar/calendar-bg-removed.gif" className="w-7 h-7 absolute -left-3 shadow-md shadow-yellow-600 bg-white rounded-full -top-5 " alt="" srcset="" />
                     <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-200">
                       # {seminar?.location}
@@ -87,7 +87,7 @@ const Hero = () => {
                         {seminar?.date}
                       </h1>
                       <div
-                        className={`w-fit rounded-md ${seminar?.isAvailable ? "border-2 border-blue-700 bg-white/50 text-blue-700" : "border-2 border-gray-800 bg-white/50 text-gray-800"} px-2 py-1 text-sm font-bold uppercase`}
+                        className={`w-fit rounded-md ${seminar?.isAvailable ? "border-2 border-primary-color bg-white/50 text-primary-color" : "border-2 border-gray-800 bg-white/50 text-gray-800"} px-2 py-1 text-sm font-bold uppercase`}
                       >
                         {seminar?.isAvailable ? "Available" : "Not Available"}
                       </div>
