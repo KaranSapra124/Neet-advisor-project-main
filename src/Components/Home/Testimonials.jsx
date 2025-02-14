@@ -152,13 +152,13 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="flex gap-4 h-auto relative p-4 shadow shadow-yellow-600 rounded">
+    <div className="flex gap-4 h-auto relative p-4 shadow-md bg-gray-200/5 shadow-gray-400 border-l-2 border-yellow-600 rounded-md ">
       <img className=" rounded-full h-14 shadow shadow-yellow-600 w-14  absolute -top-3 -left-3" src={imgUrl} alt="" srcset="" />
       <div className="px-6 py-5">
         <h1 className="text-sm font-bold text-primary-color">{clientName}</h1>
         <h2 className="text-xs font-bold text-gray-800 my-1">{clientCollege}</h2>
         <Divider className=" my-4 h-1 w-20 rounded-full bg-yellow-600" />
-        <p className="text-xs font-semibold">{review}</p>
+        <p className="text-xs italic font-semibold">"{review}"</p>
       </div>
     </div>
   );
