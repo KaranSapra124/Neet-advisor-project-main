@@ -81,10 +81,10 @@ const WhoWeAre = () => {
               <div className="h-36 w-96 hover:scale-110 transition-all cursor-pointer rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 px-4 py-2 shadow-lg">
                 <img
                   src="./About/mission.gif"
-                  className="mx-auto my-2 h-10 w-10 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
+                  className="mx-auto my-2 h-8 w-8 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
                   alt=""
                 />
-                <p className="text-xs leading-[1.2] font-semibold text-gray-700">
+                <p className="text-xs leading-[1.2] font-semibold text-gray-800">
                   To empower medical students to make lifelong, responsible, and
                   meaningful choices in a global and dynamic world. We will
                   accomplish this by building personal relationships in a
@@ -95,10 +95,10 @@ const WhoWeAre = () => {
               <div className="h-36 hover:scale-110 transition-all cursor-pointer w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 px-4 py-2 shadow-lg">
                 <img
                   src="./About/motivationGif.gif"
-                  className="mx-auto my-2 h-10 w-10 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
+                  className="mx-auto my-2 h-8 w-8 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
                   alt=""
                 />
-                <p className="text-xs font-semibold text-gray-700">
+                <p className="text-xs font-semibold text-gray-800">
                   Be the most preferred choice for the medical students who are
                   goal-oriented, determined, and wish to pursue medical
                   education without any obstacles.
@@ -108,10 +108,10 @@ const WhoWeAre = () => {
               <div className="h-36 hover:scale-110 transition-all cursor-pointer w-96 rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 px-4 py-2 shadow-lg">
                 <img
                   src="./About/motivationGif.gif"
-                  className="mx-auto my-2 h-10 w-10 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
+                  className="mx-auto my-2 h-8 w-8 mb-4 rounded-full border bg-gray-200 shadow-md shadow-yellow-600"
                   alt=""
                 />
-                <p className="text-xs font-semibold text-gray-700">
+                <p className="text-xs font-semibold text-gray-800">
                   Be the most preferred choice for the medical students who are
                   goal-oriented, determined, and wish to pursue medical
                   education without any obstacles.
