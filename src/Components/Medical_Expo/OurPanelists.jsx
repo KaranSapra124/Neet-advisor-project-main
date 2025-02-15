@@ -47,11 +47,12 @@ const OurPanelists = () => {
               Who Will{" "}
               <span className="font-extrabold text-yellow-600">Guide You!</span>
             </h1>
-            <p className="mx-auto max-w-md text-xs font-semibold my-4 text-gray-400 md:text-xs">
+            <p className="mx-auto max-w-md text-xs font-semibold my-4 text-gray-200 md:text-xs">
               Learn from doctors, professors, and alumni of India's leading
               medical colleges. Carve your path in competitive medical
               landscape.
             </p>
+            <Divider className="mx-auto w-12 my-4 h-0.5 bg-yellow-600 rounded-full" />
           </div>
 
           <div className="flex justify-center gap-8">
