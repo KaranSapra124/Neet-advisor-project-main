@@ -1020,3 +1020,14 @@ a {
 .ant-card .ant-card-body {
   padding: 1rem;
 }
+
+
+
+
+.ant-timeline-item-tail{
+  background-color: #201169;
+}
+
+.ant-timeline-item-head{
+  background-color: #201169;
+}
