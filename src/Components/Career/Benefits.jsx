@@ -44,7 +44,7 @@ const Benefits = () => {
             {benefits?.map((elem, index) => {
               return (
                 <div className="flex w-60 cursor-pointer flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-white p-4 transition-all duration-300 hover:scale-110">
-                 <img src={elem?.icon} className="h-10 w-10 border border-white rounded-full p-1 shadow-sm shadow-white my-2" alt="" srcset="" />
+                 <img src={elem?.icon} className="h-10 w-10 border bg-white border-white rounded-full p-1 shadow-sm shadow-white my-2" alt="" srcset="" />
                   <h2 className="text-centery text-sm font-bold text-white my-1">
                     {elem?.title}
                   </h2>
