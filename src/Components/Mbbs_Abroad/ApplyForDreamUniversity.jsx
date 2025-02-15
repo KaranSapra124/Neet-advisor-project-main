@@ -26,11 +26,11 @@ const ApplyForDreamUniversity = () => {
             granted!
           </p>
           <Divider className={"h-1 w-12 my-4 mx-auto bg-yellow-600 rounded-full"}/>
-          <Carousel autoplay dots={false} infinite slidesToShow={4} className="my-4">
+          <Carousel autoplay dots={false} infinite slidesToShow={5} className="my-4">
             {universities?.map((elem, index) => {
               return (
                 <>
-                  <img className="mx-auto shadow-md shadow-blue-500 w-44 h-44 rounded-full" src={elem} />
+                  <img className="mx-auto shadow-md shadow-white w-32 h-32 rounded-full my-4" src={elem} />
                 </>
               );
             })}
