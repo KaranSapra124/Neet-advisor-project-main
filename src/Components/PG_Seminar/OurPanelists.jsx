@@ -63,7 +63,7 @@ const OurPanelists = () => {
                   Progess?
                 </span>
               </h1>
-              <p className="my-2 text-xs font-semibold text-gray-400">
+              <p className="my-2 text-xs font-semibold text-gray-200">
                 Checkout timeline of our seminar!
               </p>
               <Divider
