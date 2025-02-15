@@ -116,7 +116,7 @@ const Outcome = () => {
         Webinar{" "}
         <span className="font-extrabold text-primary-color">Outcomes</span>
       </h1>
-      <p className="my-1 text-center text-xs font-bold text-gray-700">
+      <p className="my-4 text-center text-xs font-bold text-gray-800">
         Follow our webinar and ace <strong>NEET</strong>
       </p>
       <Divider className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"} />
@@ -127,7 +127,7 @@ const Outcome = () => {
             {cards.map((card, index) => (
               <div
                 key={index}
-                className={`absolute top-0 mx-5 my-2 flex h-40 w-[19rem] flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}
+                className={`absolute top-0 mx-5 my-2 flex h-44 w-[19rem] flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}
                 style={getCardStyle(index)}
               >
                 <img
@@ -139,9 +139,9 @@ const Outcome = () => {
                   {card.title}
                 </h3>
                 <Divider
-                  className={"my-0.5 h-0.5 w-12 rounded-full bg-yellow-600"}
+                  className={"my-1 h-0.5 w-12 rounded-full bg-yellow-600"}
                 />
-                <p className="text-justify text-xs font-semibold leading-relaxed text-gray-700">
+                <p className="text-justify text-xs font-semibold leading-relaxed text-gray-800">
                   {card.description}
                 </p>
               </div>
