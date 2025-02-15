@@ -83,9 +83,9 @@ const Reviews = () => {
   // Calculate slides to show based on testimonial length
   const getSlideCount = (testimonial) => {
     const length = testimonial.length;
-    if (length <= 250) return 3;
-    if (length <= 500) return 2;
-    return 1;
+    if (length > 0 && length <= 200) return 3;
+    else if (length > 200 && length < 500) return 2;
+    else return 1;
   };
 
   // Group testimonials by how many should show at once
@@ -123,8 +123,9 @@ const Reviews = () => {
         <Carousel
           dotPosition="bottom"
           autoplay
-          autoplaySpeed={2500}
-          dots={false}
+          autoplaySpeed={3000}
+          dots={true}
+          arrows
           infinite
           className="mx-auto my-8 max-w-screen-xl"
         >
@@ -132,7 +133,7 @@ const Reviews = () => {
             <div key={groupIndex} className="px-4">
               <div className="flex gap-4">
                 {group.map((testimonial) => (
-                  <div key={testimonial.id} className="relative flex flex-col">
+                  <div key={testimonial.id} className="relative flex flex-col max-[600px]:flex-wrap">
                     <TestimonialCard
                       clientCollege={testimonial.title}
                       clientName={testimonial.name}
@@ -152,7 +153,7 @@ const Reviews = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative flex h-auto gap-4 rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400">
+    <div className="relative flex h-full max-h-72 gap-4 rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400">
       <img
         className="absolute -left-3 -top-3 h-14 w-14 rounded-full shadow shadow-yellow-600"
         src={imgUrl}
@@ -161,11 +162,11 @@ const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
       />
       <div className="px-6 py-5">
         <h1 className="text-sm font-bold text-primary-color">{clientName}</h1>
-        <h2 className="my-1 text-xs font-bold text-gray-800">
+        <h2 className="my-1 text-xs font-medium text-gray-800">
           {clientCollege}
         </h2>
         <Divider className="my-4 h-1 w-20 rounded-full bg-yellow-600" />
-        <p className="text-xs font-semibold italic">"{review}"</p>
+        <p className="text-xs font-bold italic">"{review}"</p>
       </div>
     </div>
   );
