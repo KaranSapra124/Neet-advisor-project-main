@@ -60,7 +60,7 @@ const Speakers = () => {
                 className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
               />
             </div>
-            <div className="mx-auto flex max-w-screen-xl justify-between">
+            <div className="mx-auto flex max-w-screen-xl justify-center gap-4">
               {teamMemberData?.map((elem, index) => {
                 return <TeamMember member={elem} key={index} />;
               })}
@@ -74,7 +74,7 @@ const Speakers = () => {
 
 const TeamMember = ({ member }) => {
   return (
-    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md bg-gradient-to-tr from-black/10 to-gray-500/10 shadow shadow-white transition-all duration-300 hover:scale-105 sm:flex-row">
+    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md bg-gradient-to-tr from-black/10 to-gray-500/10 border border-white transition-all duration-300 hover:scale-105 sm:flex-row">
       <img
         src={member.imageUrl}
         alt={member.name}
