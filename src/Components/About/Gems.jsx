@@ -120,8 +120,8 @@ const TeamMember = ({ member }) => {
               alt=""
               srcset=""
             />
-            <p className="mx-1 my-2 line-clamp-2 text-xs font-medium leading-relaxed text-gray-700">
-              {member.bio}
+            <p className="mx-1 my-2 font-semibold italic line-clamp-2 text-xs font-medium leading-relaxed text-gray-700">
+              "{member.bio}"
             </p>
           </div>
         </div>
