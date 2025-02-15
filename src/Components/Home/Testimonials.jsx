@@ -130,7 +130,7 @@ const Testimonials = () => {
         <Carousel
           dotPosition="bottom"
           autoplay
-          autoplaySpeed={2500}
+          autoplaySpeed={3000}
           dots={true}
           arrows
           infinite
@@ -169,7 +169,7 @@ const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
       />
       <div className="px-6 py-5">
         <h1 className="text-sm font-bold text-primary-color">{clientName}</h1>
-        <h2 className="my-1 text-xs font-extrabold text-gray-800">
+        <h2 className="my-1 text-xs font-medium text-gray-800">
           {clientCollege}
         </h2>
         <Divider className="my-4 h-1 w-20 rounded-full bg-yellow-600" />
