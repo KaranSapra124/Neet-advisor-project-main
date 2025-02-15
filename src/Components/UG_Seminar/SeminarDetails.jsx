@@ -46,7 +46,7 @@ const SeminarDetails = () => {
                   Reach?
                 </span>
               </h1>
-              <p className="my-2 text-xs font-semibold text-gray-400">
+              <p className="my-2 text-xs font-semibold text-gray-200">
                 Want To Reach To Us , Checkout The Details!
               </p>
               <Divider
