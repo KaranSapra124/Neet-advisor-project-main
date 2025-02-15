@@ -76,7 +76,7 @@ const Purpose = () => {
               <div className="w-1/2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex items-center gap-1 p-4 my-1 border-b-2  border-l-2 border-white rounded-md">
+                    <div className="flex items-center gap-1 p-4 border-b-2  border-l-2 border-white rounded-md">
                       <img
                         src={seminar?.icon}
                         className="h-9 w-9"
@@ -88,7 +88,7 @@ const Purpose = () => {
                         <h1 className="text-sm font-extrabold text-yellow-600">
                           {seminar?.title}
                         </h1>
-                        <p className="text-xs font-semibold text-gray-400">
+                        <p className="text-xs font-semibold text-gray-200 my-0.5">
                           {seminar?.paragraph}
                         </p>
                       </div>
