@@ -34,7 +34,7 @@ const Hero = () => {
           muted
           className="absolute inset-0 h-full w-full object-cover"
         ></video>
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/90 to-black/60"></div>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/90 to-black/50"></div>
         <div className="relative flex h-full w-full items-center justify-between">
           <ScrollAnimation
             animateIn="backInLeft"
@@ -42,11 +42,11 @@ const Hero = () => {
             animateOnce={true}
             delay={1}
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
               <div className="w-fit rounded-l-full rounded-r-full border border-gray-700 bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-300">
                 #1 Neet counsellor
               </div>
-              <h1 className="text-4xl font-extrabold leading-tight text-yellow-600">
+              <h1 className="text-4xl  font-extrabold leading-tight text-yellow-600">
                 Fuel Your Dream <br /> of Becoming a Doctor <br />
                 <span className="text-6xl font-extrabold text-primary-color brightness-200">
                   NEET UG 2025
@@ -91,7 +91,7 @@ const Hero = () => {
                       {seminar.venue}
                     </div>
                     {index !== seminarData?.length - 1 && (
-                      <Divider className="my-5 h-1 w-full rounded-full bg-yellow-600" />
+                      <Divider className="my-5 h-0.5 w-full rounded-full bg-yellow-600" />
                     )}
                   </div>
                 );
