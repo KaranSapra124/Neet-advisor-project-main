@@ -76,7 +76,7 @@ const Purpose = () => {
               <div className="w-1/2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex items-center gap-2 p-4 my-2 border-b-2  border-l-2 border-white rounded-md">
+                    <div className="flex items-center gap-2 p-4 my-1 border-b-2  border-l-2 border-white rounded-md">
                       <img
                         src={seminar?.icon}
                         className="h-10 w-10"
