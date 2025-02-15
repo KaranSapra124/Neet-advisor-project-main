@@ -63,7 +63,7 @@ const SeminarDetails = () => {
 
                     children: (
                       <>
-                        <div className="mx-auto flex max-w-screen-xl items-center justify-between rounded-md p-1 shadow shadow-gray-200">
+                        <div className="mx-auto flex max-w-screen-xl items-center justify-between rounded-md  border border-white">
                           <video
                             className="w-1/2 rounded-lg"
                             src={elem?.video}
