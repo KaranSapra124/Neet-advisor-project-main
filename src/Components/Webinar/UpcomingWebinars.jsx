@@ -97,7 +97,7 @@ const UpcomingWebinars = () => {
                     <Divider
                       className={"my-4 h-0.5 w-20 rounded-full bg-yellow-600"}
                     />
-                    <p className="my-3 min-h-10 w-64 text-xs font-semibold text-gray-700">
+                    <p className="my-3 min-h-10 w-64 text-xs font-semibold text-gray-800">
                       {elem.description}
                     </p>
 
@@ -109,7 +109,7 @@ const UpcomingWebinars = () => {
                           alt=""
                           srcset=""
                         />
-                        <span className="text-xs font-medium text-gray-700">
+                        <span className="text-xs font-medium text-gray-800">
                           {elem.book_date}
                         </span>
                       </div>
@@ -121,7 +121,7 @@ const UpcomingWebinars = () => {
                           alt=""
                           srcset=""
                         />
-                        <span className="text-xs font-medium text-gray-700">
+                        <span className="text-xs font-medium text-gray-800">
                           {elem.book_time}
                         </span>
                       </div>
@@ -307,7 +307,7 @@ const UpcomingWebinars = () => {
         <h1 className="pb-2 text-3xl font-extrabold text-primary-color">
           <span className="font-bold text-yellow-600">Upcoming</span> Webinars
         </h1>
-        <p className="text-xs font-bold text-gray-700">
+        <p className="text-xs font-bold text-gray-800 max-w-sm mx-auto my-4">
           Mark your calendars for Neet Advisor's upcoming <strong>NEET</strong>{" "}
           Counselling webinars.
         </p>
