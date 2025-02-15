@@ -72,7 +72,7 @@ const Purpose = () => {
             <Divider
               className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
             />
-            <div className="flex justify-center">
+            <div className="flex justify-center ">
               <div className="w-1/2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
@@ -96,7 +96,7 @@ const Purpose = () => {
                   );
                 })}
               </div>
-              <div className="w-1/2">
+              <div className="w-1/2 ">
                 <Carousel
                   effect="fade"
                   infinite
@@ -104,12 +104,13 @@ const Purpose = () => {
                   autoplay
                   dots={false}
                   autoplaySpeed={2000}
+                  // className="border border-white rounded w-fit"
                 >
                   {imageUrls?.map((imgData, index) => {
                     return (
                       <img
                         src={imgData}
-                        className="rounded-lg shadow-sm shadow-white"
+                        className="rounded-lg  border-2 border-white"
                         alt="No Image"
                       />
                     );
