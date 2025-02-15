@@ -40,6 +40,13 @@ const testimonialsData = [
     testimonial: `Thank you so much to the NEET Advisor team for being a true guiding light for my child. From college selection to documentation, everything was seamless, which gave us immense peace of mind. We felt secure in making decisions with their honest and expert advice.`,
     image: "https://picsum.photos/200/300?random=4",
   },
+  // {
+  //   id: 5,
+  //   name: "Dr. Kavita Sharma",
+  //   title: "Parent of NEET Aspirant",
+  //   testimonial: `Thank you so much to the NEET Advisor team for being a true guiding light for my child. From college selection to documentation, everything was seamless, which gave us immense peace of mind. We felt secure in making decisions with their honest and expert advice.`,
+  //   image: "https://picsum.photos/200/300?random=4",
+  // },
   {
     id: 6,
     name: "Sneha Gupta",
@@ -83,9 +90,9 @@ const Testimonials = () => {
   // Calculate slides to show based on testimonial length
   const getSlideCount = (testimonial) => {
     const length = testimonial.length;
-    if (length <= 250) return 3;
-    if (length <= 500) return 2;
-    return 1;
+    if (length > 0 && length <= 200) return 3;
+    else if (length > 200 && length < 500) return 2;
+    else return 1;
   };
 
   // Group testimonials by how many should show at once
@@ -124,7 +131,8 @@ const Testimonials = () => {
           dotPosition="bottom"
           autoplay
           autoplaySpeed={2500}
-          dots={false}
+          dots={true}
+          arrows
           infinite
           className="mx-auto my-8 max-w-screen-xl"
         >
@@ -132,7 +140,7 @@ const Testimonials = () => {
             <div key={groupIndex} className="px-4">
               <div className="flex gap-4">
                 {group.map((testimonial) => (
-                  <div key={testimonial.id} className="flex relative flex-col">
+                  <div key={testimonial.id} className="relative flex flex-col max-[600px]:flex-wrap">
                     <TestimonialCard
                       clientCollege={testimonial.title}
                       clientName={testimonial.name}
@@ -152,13 +160,20 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="flex gap-4 h-auto relative p-4 shadow-md bg-gray-200/5 shadow-gray-400 border-l-2 border-yellow-600 rounded-md ">
-      <img className=" rounded-full h-14 shadow shadow-yellow-600 w-14  absolute -top-3 -left-3" src={imgUrl} alt="" srcset="" />
+    <div className="relative flex h-full max-h-72 gap-4 rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400">
+      <img
+        className="absolute -left-3 -top-3 h-14 w-14 rounded-full shadow shadow-yellow-600"
+        src={imgUrl}
+        alt=""
+        srcset=""
+      />
       <div className="px-6 py-5">
         <h1 className="text-sm font-bold text-primary-color">{clientName}</h1>
-        <h2 className="text-xs font-bold text-gray-800 my-1">{clientCollege}</h2>
-        <Divider className=" my-4 h-1 w-20 rounded-full bg-yellow-600" />
-        <p className="text-xs italic font-semibold">"{review}"</p>
+        <h2 className="my-1 text-xs font-extrabold text-gray-800">
+          {clientCollege}
+        </h2>
+        <Divider className="my-4 h-1 w-20 rounded-full bg-yellow-600" />
+        <p className="text-xs font-bold italic">"{review}"</p>
       </div>
     </div>
   );
