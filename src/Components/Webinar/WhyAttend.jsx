@@ -38,7 +38,7 @@ const WhyAttend = () => {
           Why You Can’t Miss Our{" "}
           <span className="font-extrabold text-primary-color">Webinar!</span>
         </h1>
-        <p className="py-1 text-center text-xs font-semibold text-gray-700">
+        <p className="py-1 text-center text-xs font-bold text-gray-800">
           Attend Our Webinar And Get Your Dream Of <strong>NEET </strong>
           Achieved!
         </p>
