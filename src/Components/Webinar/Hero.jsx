@@ -52,7 +52,7 @@ const Hero = () => {
           <div>
             <h1
               level={1}
-              className="mb-6 text-3xl font-bold text-primary-color"
+              className="mb-4 text-3xl font-bold text-primary-color"
             >
               Shape Your Medical Future at India's Premier <br />
               <span className="bg-clip-text font-extrabold text-transparent text-yellow-600">
@@ -60,26 +60,27 @@ const Hero = () => {
               </span>{" "}
               Webinar
             </h1>
+            <Divider className={"h-1 w-12 bg-yellow-600 rounded-full my-4"}/>
 
-            <Paragraph className="my-4 max-w-xl bg-none text-sm font-semibold text-gray-700">
+            <Paragraph className="my-4 max-w-xl bg-none text-xs font-bold text-gray-700">
               Join expert mentors who've guided 3.5L+ students to medical
               success. Get personalized strategies from exam preparation to
               college admission.
             </Paragraph>
 
-            <Card className="my-4 border-none bg-gray-200/10">
-              <div className="flex flex-wrap gap-6">
+            <Card className="my-4 -mx-4 border-none bg-gray-200/10">
+              <div className="flex flex-wrap gap-5">
                 <div className="flex items-center gap-2">
                   <CalendarOutlined className="text-xl text-indigo-900" />
-                  <span className="font-semibold">20-12-2024</span>
+                  <span className="font-bold text-gray-700 ">20-12-2024</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <ClockCircleOutlined className="text-xl text-indigo-900" />
-                  <span className="font-semibold">11:00 AM</span>
+                  <span className="font-bold text-gray-700 ">11:00 AM</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <UserOutlined className="text-xl text-indigo-900" />
-                  <span className="font-semibold">Limited Seats</span>
+                  <span className="font-bold text-gray-700 ">Limited Seats</span>
                 </div>
               </div>
             </Card>
