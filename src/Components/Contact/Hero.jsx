@@ -12,7 +12,7 @@ const Hero = () => {
             Reach Out{" "}
             <span className="font-extrabold brightness-200 text-primary-color">To Us!</span>
           </h1>
-          <p className="mt-2 text-xs font-semibold text-gray-700">
+          <p className="my-4 max-w-sm mx-auto text-xs font-semibold text-gray-800">
             Get in touch with our <strong>Mentors</strong>, fill out the form
             below!
           </p>
