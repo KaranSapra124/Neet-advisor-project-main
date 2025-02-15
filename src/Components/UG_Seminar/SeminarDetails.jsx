@@ -90,19 +90,19 @@ const SeminarDetails = () => {
                                   "my-2 h-0.5 w-20 rounded-full bg-yellow-600"
                                 }
                               />
-                              <h2 className="my-2 text-xl font-extralight text-gray-400">
+                              <h2 className="my-2 text-xl font-extralight text-gray-200">
                                 Get your neet preparation to next level rocket
                                 🚀
                               </h2>
-                              <p className="my-2 text-right text-xs font-semibold text-gray-400">
+                              <p className="my-2 text-right text-xs font-semibold text-gray-200">
                                 {elem?.description}
                               </p>
                               <div className="my-2">
-                                <p className="flex w-fit items-center justify-evenly rounded-lg border border-yellow-600 p-2 font-bold text-gray-400">
+                                <p className="flex w-fit items-center justify-evenly rounded-lg border border-yellow-600 p-2 font-semibold text-gray-200">
                                   <div className="flex items-center justify-between">
                                     <img
                                       src="./Webinar/person-speaker.gif"
-                                      className="h-8 w-8"
+                                      className="h-8 w-8 mx-2"
                                       alt=""
                                       srcset=""
                                     />
@@ -116,7 +116,7 @@ const SeminarDetails = () => {
                                   <div className="flex items-center justify-between">
                                     <img
                                       src="./Webinar/calendar-bg-removed.gif"
-                                      className="h-8 w-8"
+                                      className="h-8 w-8 mx-2"
                                       alt=""
                                       srcset=""
                                     />
@@ -130,7 +130,7 @@ const SeminarDetails = () => {
                                   <div className="flex items-center justify-between">
                                     <img
                                       src="./Seminar/location-pin-bg-removed.gif"
-                                      className="h-8 w-8"
+                                      className="h-8 w-8 mx-2"
                                       alt=""
                                       srcset=""
                                     />
