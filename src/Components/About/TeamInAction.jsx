@@ -34,14 +34,14 @@ const TeamInAction = () => {
             Team In{" "}
             <span className="font-extrabold text-primary-color">Action</span>
           </h1>
-          <p className="text-xs leading-5 text-gray-700 mx-auto max-w-sm font-semibold my-2 text-center">Working together with passion, collaboration, and dedication to turn dreams into reality and achieve success.</p>
+          <p className="text-xs leading-5 text-gray-800 mx-auto max-w-sm font-semibold my-4 text-center">Working together with passion, collaboration, and dedication to turn dreams into reality and achieve success.</p>
           <Divider
             className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
           />
           <div className="md:flex items-center justify-between mx-auto space-x-8">
             {/* Image Gallery */}
-            <div className=" flex flex-col items-center border-l-2 border-b-2 border-yellow-600 justify-center space-y-4 rounded-xl p-4 shadow">
-              <div className="grid grid-cols-2 gap-4">
+            <div className=" flex flex-col items-center border-l-2 border-b-2 border-yellow-600 justify-center space-y-4 rounded-xl p-2 shadow">
+              <div className="grid grid-cols-2 gap-3">
                 {imageUrls.map((elem, index) => (
                   <div key={index} className="relative">
                     <img
@@ -73,11 +73,11 @@ const TeamInAction = () => {
                 <>
                   <p
                     key={idx}
-                    className="cursor-pointer rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 p-6 text-justify text-xs font-semibold text-gray-700 shadow-md shadow-black/30 transition-all duration-300 hover:scale-105"
+                    className="cursor-pointer rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 p-6 text-justify text-xs font-semibold text-gray-800 shadow-md shadow-black/30 transition-all duration-300 hover:scale-105"
                   >
                     <img
                       src="./About/validation-badge-bg-removed.gif"
-                      className="absolute md:left-[29rem]   -mt-8 h-7 w-7 rounded-full bg-white shadow-md shadow-yellow-600"
+                      className="absolute md:left-[30rem]   -mt-8 h-7 w-7 rounded-full bg-white shadow-md shadow-yellow-600"
                       alt=""
                       srcset=""
                     />
