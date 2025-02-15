@@ -316,7 +316,7 @@ const AspirantsSection = () => {
             Top Medical Colleges
           </span>
         </h1>
-        <p className="mx-auto my-2 max-w-xl text-xs font-bold text-gray-700">
+        <p className="mx-auto my-4 max-w-xl text-xs font-bold text-gray-800">
           Check out the medical colleges our attendees have reached with
           enhanced confidence, clarity, and applying our strategies.
         </p>
