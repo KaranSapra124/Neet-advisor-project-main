@@ -127,7 +127,7 @@ const Outcome = () => {
             {cards.map((card, index) => (
               <div
                 key={index}
-                className={`absolute top-0 mx-5 my-2 flex h-44 w-[19rem] flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}
+                className={`absolute top-0 mx-5 my-2 flex h-40 w-[19rem] flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}
                 style={getCardStyle(index)}
               >
                 <img
