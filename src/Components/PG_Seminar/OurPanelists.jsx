@@ -3,6 +3,7 @@ import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
 import { Steps, Timeline } from "antd";
 import ScrollAnimation from "react-animate-on-scroll";
+import "./Pg_Seminar.css"
 
 const OurPanelists = () => {
   const [progress, setProgress] = useState(0);
@@ -73,7 +74,7 @@ const OurPanelists = () => {
             <div>
               <Timeline
                 mode="alternate"
-                // className="brightness-200"
+                className="ug-seminar-tab"
 
                 items={agenda?.map((elem, index) => {
                   return {
@@ -109,6 +110,7 @@ const OurPanelists = () => {
                     ),
 
                     color: "#201169",
+
 
                     // className:"brightness-200"
                   };
