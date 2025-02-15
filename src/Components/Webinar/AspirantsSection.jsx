@@ -329,7 +329,7 @@ const AspirantsSection = () => {
           <div key={index} className="relative p-1">
             <img
               src="./Webinar/validation-badge-bg-removed.gif"
-              className="absolute -top-2 left-[23.5rem] z-20 w-12"
+              className="absolute -top-2 left-[23.5rem] z-20 w-10"
               alt=""
               srcset=""
             />
