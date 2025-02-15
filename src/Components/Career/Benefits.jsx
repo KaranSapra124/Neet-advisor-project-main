@@ -44,11 +44,13 @@ const Benefits = () => {
             {benefits?.map((elem, index) => {
               return (
                 <div className="flex w-60 cursor-pointer flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-white p-4 transition-all duration-300 hover:scale-110">
-                 <img src={elem?.icon} className="h-12 w-12 border border-white rounded-full p-1 shadow-sm shadow-white my-2" alt="" srcset="" />
-                  <h2 className="text-centery text-sm font-bold text-gray-300">
+                 <img src={elem?.icon} className="h-10 w-10 border border-white rounded-full p-1 shadow-sm shadow-white my-2" alt="" srcset="" />
+                  <h2 className="text-centery text-sm font-bold text-white my-1">
                     {elem?.title}
                   </h2>
-                  <p className="py-2 text-xs font-semibold text-gray-300">
+                  <Divider className={"my-2 h-0.5 w-10 rounded-full bg-yellow-600"} />
+
+                  <p className="py-2 text-xs font-semibold text-gray-200">
                     {elem?.description}
                   </p>
                 </div>
@@ -62,7 +64,7 @@ const Benefits = () => {
                 Neet Advisor
               </span>
             </h1>
-            <Divider className={"my-2 h-1 w-12 rounded-full bg-yellow-600"} />
+            <Divider className={"my-4 h-1 w-12 rounded-full bg-yellow-600"} />
             <p className="my-4 text-justify text-xs font-semibold text-gray-200">
               At Neet Advisor, life is vibrant, collaborative, and
               purpose-driven. Our team is composed of passionate individuals who
