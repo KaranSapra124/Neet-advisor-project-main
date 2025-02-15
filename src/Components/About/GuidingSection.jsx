@@ -36,7 +36,7 @@ const GuidingSection = () => {
           <div className="flex">
             <div className="mx-auto flex h-full items-center justify-center gap-8">
               {/* First Card */}
-              <div className="group h-full w-96 transform cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white shadow-lg transition-transform duration-300 hover:scale-x-105 hover:shadow-xl">
+              <div className="group h-full w-96 transform cursor-pointer rounded-md border-b-2 border-l-2 border-yellow-600 bg-white shadow-lg transition-transform duration-300 hover:scale-x-105 hover:shadow-xl">
                 <div className="flex flex-col items-center p-6 text-center">
                   <div className="relative mb-4">
                     <div className="absolute inset-0 animate-pulse rounded-full bg-primary-color/10"></div>
@@ -67,7 +67,7 @@ const GuidingSection = () => {
                 })}
               </Carousel>
               {/* Second Card */}
-              <div className="h-full w-96 transform cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white shadow-lg transition-transform duration-300 hover:scale-x-105 hover:shadow-xl">
+              <div className="h-full w-96 transform cursor-pointer rounded-md border-b-2 border-l-2 border-yellow-600 bg-white shadow-lg transition-transform duration-300 hover:scale-x-105 hover:shadow-xl">
                 <div className="flex flex-col items-center p-6 text-center">
                   <div className="relative mb-4">
                     <div className="absolute inset-0 animate-pulse rounded-full bg-primary-color/10"></div>
