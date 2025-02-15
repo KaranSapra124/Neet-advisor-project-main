@@ -57,7 +57,7 @@ const Schedule = () => {
               <span className="font-extrabold text-yellow-600">Schedule</span>{" "}
               For Upcoming Expo
             </h1>
-            <p className="mx-auto max-w-sm text-sm font-semibold text-gray-200 md:text-xs">
+            <p className="mx-auto my-4 max-w-sm text-sm font-semibold text-gray-200 md:text-xs">
               Stay informed. Stay ahead. Learn about the event slot and timings.
               Choose the session that suits you best.
             </p>
