@@ -67,13 +67,14 @@ const RecruitmentProcess = () => {
                 <div className="m-2 flex w-64 cursor-pointer flex-col items-center justify-center rounded-md border-b-2 border-l-2 border-white p-4 shadow-2xl duration-300 hover:scale-105">
                   <img
                     src={elem?.icon}
-                    className="h-12 w-12 rounded-full border border-white p-1 shadow-sm shadow-white"
+                    className="h-10 bg-white w-10 rounded-full border border-white p-1 shadow-sm shadow-white"
                     alt=""
                     srcset=""
                   />
-                  <h2 className="my-2 text-sm font-semibold text-gray-300">
+                  <h2 className="my-1.5 text-sm font-semibold text-gray-200">
                     {elem?.title}
                   </h2>
+                  <Divider className="h-0.5 w-12 my-3.5 bg-yellow-600" />
                   <p className="text-xs font-semibold text-gray-200">
                     {elem?.description}
                   </p>
