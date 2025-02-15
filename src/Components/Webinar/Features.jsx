@@ -75,19 +75,21 @@ const Features = () => {
           {/* Header Section */}
           <div className="text-center">
             <h1 className="my-2 text-3xl">
-              <span className="font-extrabold text-primary-color`">Features</span>
+              <span className="text-primary-color` font-extrabold">
+                Features
+              </span>
               <span className="font-bold text-yellow-600">
                 {" "}
                 to Enhance Your Experience
               </span>
             </h1>
-            <p className="mx-auto text-xs font-bold text-gray-700">
+            <p className="mx-auto my-4 text-xs font-bold text-gray-800">
               Our best-in-class Webinars effectively communicate your concerns
               with simplified interaction.
             </p>
             <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
-          />
+              className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            />
           </div>
           {/* Features Section */}
           <div
@@ -173,7 +175,10 @@ const Features = () => {
                     </span>
                   </li>
                 ))}
-                <FaPlay className="text-white border-2 cursor-pointer rounded-full p-1 text-xl"/>
+                <FaPlay
+                  onMouseEnter={() => setIsHover(true)}
+                  className="cursor-pointer rounded-full border-2 p-1 text-xl text-white"
+                />
               </ul>
             </div>
           </div>
