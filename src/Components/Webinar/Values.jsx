@@ -48,7 +48,7 @@ const Values = () => {
             Who Is This Webinar{" "}
             <span className="font-extrabold text-primary-color">For?</span>
           </h1>
-          <p className="my-2 max-w-96 mx-auto text-center text-xs font-semibold text-gray-700">
+          <p className="my-4 max-w-96 mx-auto text-center text-xs font-semibold text-gray-800">
             This webinar is designed to help both parents and students excel in
             the NEET exam by providing valuable insights and proven strategies.
           </p>
