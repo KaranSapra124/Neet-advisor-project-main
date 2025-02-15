@@ -96,7 +96,8 @@ const Purpose = () => {
                   );
                 })}
               </div>
-              <div className="w-1/2 ">
+              <div className="w-1/2 relative">
+              <img src="./Webinar/validation-badge-bg-removed.gif" className="absolute w-10 h-10 left-5 z-[999] bg-white  rounded-full shadow shadow-yellow-600" alt="" srcset="" />
                 <Carousel
                   effect="fade"
                   infinite
