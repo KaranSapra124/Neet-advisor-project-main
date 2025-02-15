@@ -41,7 +41,7 @@ const ExploreEvents = () => {
                 Events
               </span>
             </h2>
-            <p className="mx-auto my-2 text-xs font-semibold max-w-sm text-gray-300">
+            <p className="mx-auto my-4 text-xs font-semibold max-w-sm text-gray-300">
               Want to know more about{" "}
               <span className="font-bold">NEET Advisor</span> work? Join our
               upcoming events and take the first step towards your medical
@@ -65,8 +65,9 @@ const ExploreEvents = () => {
                   {/* <div className="rounded-lg bg-primary-color/10 p-3"> */}
                   <img
                     src="./Mbbs/calendar-bg-removed.gif"
-                    className="h-8 w-8 rounded-full border border-white shadow-sm shadow-black"
+                    className="h-8 w-8 rounded-full bg-white/80 border border-white shadow-sm shadow-black"
                   />
+                  <Divider className="h-8 w-0.5 bg-white my-auto rounded-full rotate-180" />
                   {/* </div> */}
                   <div className="flex-1">
                     <h3 className="text-sm font-bold text-gray-300">
