@@ -1484,7 +1484,7 @@ const Hero = () => {
                 <strong className="text-yellow-600">Neet Counselling</strong>{" "}
                 Expo
               </h1>
-              <p className="mx-auto my-2 w-96 text-xs font-semibold text-gray-400">
+              <p className="mx-auto my-4 w-96 text-xs font-semibold text-gray-200">
                 The Exclusive Mega Event for <strong>NEET PG</strong> Aspirants.
                 Your Key to Mastering <strong>NEET PG</strong> Counselling and
                 Admission!
@@ -1505,17 +1505,17 @@ const Hero = () => {
                 ))}
               </div>
               <div className="flex flex-col items-center justify-center">
-                <p className="font-semibold text-gray-300">
+                <p className="font-bold text-sm text-gray-200">
                   AUGUST 25th | 9:00 AM - 7:00 PM
                 </p>
-                <div className="my-4 flex items-center text-gray-300">
+                <div className="my-4 flex items-center text-gray-200">
                   {" "}
                   <MdLocationPin />
-                  <p className="font-semibold">
+                  <p className="font-semibold text-sm">
                     At Bangalore Medical College and Research Institute
                   </p>
                 </div>
-                <button className="rounded-l-full rounded-r-full bg-yellow-600 px-3 py-1 font-semibold text-white">
+                <button className="rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all px-3 py-1 font-semibold text-white">
                   Book Your Slot
                 </button>
               </div>
