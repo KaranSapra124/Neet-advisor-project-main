@@ -21,7 +21,7 @@ const ApplyForDreamUniversity = () => {
             Get University Of{" "}
             <span className="font-extrabold text-primary-color brightness-200">Your Dream</span>{" "}
           </h1>
-          <p className="py-1 text-center text-xs font-semibold text-gray-200">
+          <p className="my-4 text-center text-xs font-semibold text-gray-200">
             Want to get admission at your dream university , your wish is
             granted!
           </p>
