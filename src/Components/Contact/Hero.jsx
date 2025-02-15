@@ -69,7 +69,7 @@ const FormComponent = () => {
               type="text"
               name="Name"
               onChange={handleChange}
-              className="w-full rounded-lg bg-gray-200 px-4 py-2 text-gray-500 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-600"
+              className="w-full rounded-lg bg-white px-4 py-2 text-gray-500 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-600"
             />
             <input
               placeholder="Enter Your Number..."
@@ -77,14 +77,14 @@ const FormComponent = () => {
               min={0}
               name="phoneNumber"
               onChange={handleChange}
-              className="w-full rounded-lg bg-gray-200 px-4 py-2 text-gray-500 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-600"
+              className="w-full rounded-lg bg-white px-4 py-2 text-gray-500 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-600"
             />
             <input
               placeholder="Enter Your Email..."
               type="email"
               name="email"
               onChange={handleChange}
-              className="w-full rounded-lg bg-gray-200 px-4 py-2 text-gray-500 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-600 md:col-span-2"
+              className="w-full rounded-lg bg-white px-4 py-2 text-gray-500 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-600 md:col-span-2"
             />
           </div>
 
@@ -118,7 +118,7 @@ const FormComponent = () => {
                   })),
                 }}
               >
-                <button className="rounded-lg bg-gray-200 px-4 py-2 text-gray-400 shadow-md transition-colors hover:bg-gray-300">
+                <button className="rounded-lg bg-white px-4 py-2 text-gray-400 shadow-md transition-colors hover:bg-gray-300">
                   Select Option
                 </button>
               </Dropdown>
@@ -129,7 +129,7 @@ const FormComponent = () => {
               placeholder="Description (Optional)"
               rows={3}
               onChange={handleChange}
-              className="w-full resize-none rounded-lg bg-gray-200 px-4 py-2 text-gray-500 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-600"
+              className="w-full resize-none rounded-lg bg-white px-4 py-2 text-gray-500 placeholder-gray-400 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-600"
             />
           </div>
 
