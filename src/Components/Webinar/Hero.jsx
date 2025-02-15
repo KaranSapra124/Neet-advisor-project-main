@@ -85,7 +85,7 @@ const Hero = () => {
               </div>
             </Card>
 
-            <button className="rounded-l-full rounded-r-full border-yellow-500 bg-yellow-600 p-2 font-semibold text-white transition-all duration-300 hover:border-yellow-600 hover:bg-yellow-600">
+            <button className="rounded-l-full rounded-r-full border-yellow-500 bg-yellow-600  p-2 font-semibold text-white transition-all duration-300 hover:bg-yellow-700 ">
               Register Now
             </button>
 
@@ -97,7 +97,7 @@ const Hero = () => {
                     <GoogleOutlined className="text-xl" />
                     <Rate disabled defaultValue={5} className="text-sm" />
                   </div>
-                  <div className="text-xs font-semibold text-gray-700">
+                  <div className="text-xs font-bold text-gray-800">
                     4406+ Students Rated Us 5/5
                   </div>
                 </div>
@@ -105,7 +105,7 @@ const Hero = () => {
                   <div className="text-2xl font-extrabold text-primary-color">
                     3.5L+
                   </div>
-                  <div className="text-xs font-semibold text-gray-700">
+                  <div className="text-xs font-bold text-gray-800">
                     Students Guided
                   </div>
                 </div>
