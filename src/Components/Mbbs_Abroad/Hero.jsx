@@ -83,10 +83,10 @@ const Hero = () => {
                 reality!
               </p>
               <div className="flex justify-start">
-                <button className="text-sm rounded-l-full rounded-r-full bg-primary-color px-2 py-1 font-bold uppercase text-white transition-all hover:scale-105">
+                <button className="text-sm rounded-l-full rounded-r-full bg-primary-color px-2 py-1 font-bold  text-white transition-all hover:scale-105">
                   Register
                 </button>
-                <button className="text-sm mx-2 rounded-l-full rounded-r-full border-2 border-gray-200 px-2 py-1 font-bold uppercase text-gray-200 transition-all duration-200 hover:scale-110 hover:border-none hover:bg-black hover:text-white">
+                <button className="text-sm mx-2 rounded-l-full rounded-r-full border-2 border-gray-200 px-2 py-1 font-bold  text-gray-200 transition-all duration-200 hover:scale-110 hover:border-none hover:bg-black hover:text-white">
                   Learn More
                 </button>
               </div>
