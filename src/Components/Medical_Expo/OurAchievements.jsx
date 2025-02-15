@@ -5,11 +5,11 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 const SuperChargeDream = () => {
   const listData = [
-    "Master NEET PG 2025 Counselling",
-    "Specialization Wise Pros and Cons",
-    "PG Medical Career Scope For Every Branch",
-    "Clinical vs Non-Clinical/Pros & Cons",
-    "Branch Selection By Your Requirement",
+    "Master NEET PG 2025 Counselling.",
+    "Specialization Wise Pros and Cons.",
+    "PG Medical Career Scope For Every Branch.",
+    "Clinical vs Non-Clinical/Pros & Cons.",
+    "Branch Selection By Your Requirement.",
   ];
 
   return (
@@ -22,7 +22,7 @@ const SuperChargeDream = () => {
                 Supercharge Your{" "}
                 <span className="font-extrabold text-yellow-600">Future</span>
               </h1>
-              <p className="mx-auto w-80 max-w-xl text-xs font-semibold text-gray-400">
+              <p className="mx-auto my-2 w-80 max-w-xl text-xs font-semibold text-gray-200">
                 Make your dreams meet direction. Medical mentor Expo is your key
                 to Tips, Tricks, Techniques, Insights and Updates. Here's why
                 you can't afford to miss it!
@@ -36,24 +36,24 @@ const SuperChargeDream = () => {
             />
           </div>
 
-          <div className="mx-4 flex w-1/2 rounded-xl bg-black/10 p-8 shadow-lg shadow-gray-700">
+          <div className="mx-4 flex w-1/2 rounded-xl bg-black/10 p-4 border border-white">
             <div className="flex-1 space-y-2">
-              <p className="text-sm font-semibold text-gray-300">
+              <p className="text-sm font-semibold text-gray-200">
                 Invaluable insights, Exclusive analysis, and Tailored advice
                 from experts in medical field
               </p>
 
               <div>
-                <h2 className="mb-1 text-lg font-bold text-yellow-500">
+                <h2 className="mb-1 text-lg font-extrabold text-yellow-500">
                   Highlights:
                 </h2>
                 <ul className="space-y-1">
                   {listData.map((elem, index) => (
                     <li key={index} className="flex items-center gap-2 p-1">
                       <span className="flex-shrink-0">
-                        <TiTick className="h-4 w-4 text-gray-300" />
+                        <TiTick className="h-4 w-4 text-gray-200" />
                       </span>
-                      <span className="text-xs font-semibold text-gray-300">
+                      <span className="text-xs font-semibold text-gray-200">
                         {elem}
                       </span>
                     </li>
