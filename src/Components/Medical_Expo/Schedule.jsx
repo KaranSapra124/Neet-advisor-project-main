@@ -73,7 +73,7 @@ const Schedule = () => {
                 children: (
                   <div className="rounded-lg border border-gray-800 bg-black/30 p-6">
                     <div className="flex flex-col items-center justify-center space-y-4 text-gray-300">
-                      <h2 className="text-md my-1 font-bold brightness-200">
+                      <h2 className="text-md my-1 text-white font-bold brightness-200">
                         Session Date: {elem.date}
                       </h2>
                       <p className="mb-4 text-xs font-semibold text-gray-200">
