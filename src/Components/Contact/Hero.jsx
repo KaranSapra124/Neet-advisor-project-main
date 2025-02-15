@@ -4,7 +4,7 @@ import Container from "../Helper/Container"
 
 const Hero = () => {
   return (
-    <Container className="flex  items-center justify-center bg-[#fff]">
+    <Container className="flex  items-center justify-center bg-gray-100/90">
       {/* <div className="absolute  h-full mb-16 w-full bg-gray-500/90"></div> */}
       <div className="container mx-auto  px-4">
         <div className="mb-8 text-center">
