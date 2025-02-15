@@ -74,7 +74,7 @@ const OurPanelists = () => {
             <div>
               <Timeline
                 mode="alternate"
-                className="ug-seminar-tab"
+                className="pg-seminar"
 
                 items={agenda?.map((elem, index) => {
                   return {
