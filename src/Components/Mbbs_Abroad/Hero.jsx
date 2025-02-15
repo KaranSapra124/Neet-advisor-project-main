@@ -71,7 +71,7 @@ const Hero = () => {
                   Achieve Your Medical Dreams Globally!
                 </span>
               </h1>
-              <p className="max-w-screen-sm text-justify text-[0.8rem] font-semibold text-gray-200">
+              <p className="max-w-screen-sm text-justify text-xs font-semibold text-gray-200">
                 Pursuing an MBBS abroad opens doors to world-class medical
                 education, cutting-edge facilities, and global exposure. With
                 opportunities to study in renowned universities across countries
@@ -91,7 +91,7 @@ const Hero = () => {
                 </button>
               </div>
             </div>
-            <div className="absolute left-[20.5rem] top-[32rem] flex gap-2">
+            <div className="absolute left-[20.5rem] top-[31rem] flex gap-2">
               <Carousel
                 autoplay
                 infinite
