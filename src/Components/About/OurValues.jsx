@@ -12,6 +12,7 @@ import {
 import Container from "../Helper/Container";
 import { Steps } from "antd";
 import ScrollAnimation from "react-animate-on-scroll";
+import Divider from "../Helper/Divider";
 
 const OurValues = () => {
   const [currVal, setCurrVal] = useState(0);
@@ -88,7 +89,7 @@ const OurValues = () => {
                 Which Defined Us
               </span>
             </h1>
-            <p className="mx-auto leading-5 w-[27rem] my-2 text-center text-xs font-semibold text-gray-700">
+            <p className="mx-auto my-4 w-[27rem] text-center text-xs font-semibold leading-5 text-gray-800">
               Our values represent the core principles that guide our actions,
               decisions, and relationships. They reflect our commitment to
               integrity, respect, innovation, and collaboration, shaping the way
@@ -100,16 +101,19 @@ const OurValues = () => {
             {values?.map((value, index) => {
               return (
                 <div
-                  className={`${index === currVal ? "border-b-2 border-l-2 border-yellow-600" : ""} flex w-96 flex-col items-center justify-center rounded-lg bg-gradient-to-tr from-white to-black/5 p-4 shadow-md shadow-white transition-all  duration-300`}
+                  className={`${index === currVal ? "border-b-2 border-l-2 border-yellow-600" : ""} flex w-96 flex-col items-center justify-center rounded-lg bg-gradient-to-tr from-white to-black/5 p-4 shadow-md shadow-white transition-all duration-300`}
                 >
                   <img
                     src={value?.icon}
-                    className="mx-auto w-10 rounded-full bg-white p-1 shadow-md shadow-yellow-600"
+                    className="mx-auto w-9 rounded-full bg-white p-1 shadow-md shadow-yellow-600"
                     alt=""
                     srcset=""
                   />
                   <h2 className="my-2 text-sm font-bold">{value?.title}</h2>
-                  <p className="text-xs leading-5 font-semibold text-gray-700">
+                  <Divider
+                    className={"mx-auto h-0.5 my-2 w-12 rounded-full bg-yellow-600"}
+                  />
+                  <p className="text-xs font-semibold leading-5 text-gray-800">
                     {value?.description}
                   </p>
                 </div>
