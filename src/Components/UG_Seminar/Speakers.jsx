@@ -87,7 +87,7 @@ const TeamMember = ({ member }) => {
               <h3 className="text-lg font-bold text-primary-color brightness-200 transition-all duration-300 group-hover:font-extrabold">
                 {member.name}
               </h3>
-              <Divider className="my-0.5 h-0.5 w-16 rounded-full bg-yellow-600" />
+              <Divider className="my-2 h-0.5 w-16 rounded-full bg-yellow-600" />
               <div className="-mx-1 flex items-center">
                 <img
                   src="./About/creative-removedBg.gif"
