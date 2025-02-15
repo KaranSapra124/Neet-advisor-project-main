@@ -343,9 +343,9 @@ const AspirantsSection = () => {
                   <div className="mb-4 h-0.5 w-16 rounded-full bg-yellow-600" />
 
                   {/* College Info */}
-                  <div className="mb-3 flex items-start gap-1">
-                    <FaUniversity className="mt-1 flex-shrink-0 text-primary-color" />
-                    <p className="line-clamp-1 text-xs font-semibold text-gray-800">
+                  <div className="mb-3 flex items-center gap-1">
+                    <FaUniversity className="mt-1  flex-shrink-0 text-primary-color" />
+                    <p className="line-clamp-1 mx-1 text-xs font-semibold text-gray-800">
                       {elem?.College_Name}
                     </p>
                   </div>
@@ -353,9 +353,9 @@ const AspirantsSection = () => {
                   {/* Rank */}
                   <div className="mb-3 flex items-center gap-1">
                     <FaRocket className="text-primary-color" />
-                    <span className="text-xs font-semibold">
+                    <span className="text-xs mx-1 font-semibold">
                       AIR Rank:{" "}
-                      <span className="font-bold text-primary-color">
+                      <span className="font-bold  text-primary-color">
                         {elem?.AIR_Rank}
                       </span>
                     </span>
