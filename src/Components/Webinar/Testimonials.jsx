@@ -112,7 +112,7 @@ const Testimonials = () => {
               Attendees Say ?
             </span>
           </h1>
-          <p className="py-1 text-center text-xs font-semibold text-gray-700">
+          <p className="my-4 text-center text-xs font-semibold text-gray-800">
             Here's what future healers speak of Hello Mentor's guidance.
           </p>
           <Divider
@@ -195,7 +195,7 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
 
           {/* Review Text */}
           <div className="flex-1">
-            <p className="text-xs font-semibold leading-relaxed text-gray-700">
+            <p className="text-xs font-semibold leading-relaxed text-gray-800">
               {review}
             </p>
           </div>
@@ -204,7 +204,7 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
           <div className="mt-2">
             
             <h3 className="text-sm font-bold text-primary-color">{name}</h3>
-            <p className="text-[0.7rem] font-medium text-gray-600">{college}</p>
+            <p className="text-[0.7rem] font-semibold text-gray-800">{college}</p>
           </div>
         </div>
       </div>
