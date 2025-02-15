@@ -95,7 +95,7 @@ const TeamMember = ({ member }) => {
                   alt=""
                   srcset=""
                 />
-                <p className="mt-1 text-sm font-semibold text-gray-400 brightness-150">
+                <p className="mt-1 text-sm font-semibold text-gray-200  mx-2">
                   {member.title}
                 </p>
               </div>
@@ -117,15 +117,15 @@ const TeamMember = ({ member }) => {
               ))}
             </div>
           </div>
-          <div className="-mx-1 flex">
+          <div className="-mx-1 flex gap-2">
             <img
               src="./About/BookImg.gif"
               className="h-7 w-7"
               alt=""
               srcset=""
             />
-            <p className="mx-1 my-2 line-clamp-2 text-xs font-thin leading-relaxed text-gray-400 brightness-200">
-              {member.bio}
+            <p className="mx-1 my-2 line-clamp-2 italic text-xs font-semibold leading-relaxed text-gray-400 brightness-200">
+              "{member.bio}"
             </p>
           </div>
         </div>
@@ -133,9 +133,9 @@ const TeamMember = ({ member }) => {
           {member.expertise.map((skill, index) => (
             <span
               key={index}
-              className="rounded-full bg-green-300 px-3 py-1 text-xs font-semibold text-green-800"
+              className="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-primary-color"
             >
-              {skill}
+             # {skill}
             </span>
           ))}
         </div>
