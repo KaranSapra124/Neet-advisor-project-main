@@ -253,11 +253,11 @@ const EnrollServices = () => {
                           {service.title}
                         </span>
                       </div>
-                      <Divider className="my-4 h-0.5 w-full rounded-full bg-yellow-600" />
+                      <Divider className="my-4 h-0.5 w-12  rounded-full bg-yellow-600" />
 
-                      <p className="mb-4 text-xs leading-[2] font-semibold text-gray-900">
+                      <p className="mb-4 text-xs leading-[1.5] italic font-semibold text-gray-900">
                         {expandedCards === serviceIndex
-                          ? service.content
+                          ? `"${service.content}"`
                           : service?.content?.substring(0, 45) + "..."}
                       </p>
                       {expandedCards === serviceIndex ? (
