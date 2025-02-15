@@ -81,26 +81,26 @@ const Agenda = () => {
                   return {
                     title: (
                       <>
-                        <div className="m-2 h-36 w-80 rounded-md bg-gradient-to-tr from-black/10 to-black/70 shadow shadow-white">
+                        <div className="m-2 h-40 w-80 my-4 rounded-md bg-gradient-to-tr from-black/10 to-black/70 shadow shadow-white">
                           <img
                             src="./Seminar/validation-badge-bg-removed.gif"
-                            className="absolute -top-2 left-[18.7rem] h-9 w-9"
+                            className="absolute -top-0.5 left-[19.5rem] h-9 w-9"
                             alt=""
                             srcset=""
                           />
                           <div className="p-4">
-                            <h2 className="text-md my-1 font-semibold text-white">
+                            <h2 className="text-sm my-1 font-semibold text-white">
                               {elem?.topic}
                             </h2>
                             <Divider
                               className={
-                                "mx-auto my-2 h-0.5 w-8 rounded-full bg-gray-400"
+                                "mx-auto my-4 h-0.5 w-8 rounded-full bg-gray-400"
                               }
                             />
-                            <h1 className="text-sm font-bold text-white">
+                            <h1 className="text-xs font-bold text-white">
                               {elem?.time}
                             </h1>
-                            <p className="my-2 text-wrap text-xs font-semibold text-gray-400">
+                            <p className="my-2 text-wrap text-xs font-semibold text-gray-200">
                               {elem?.description}
                             </p>
                           </div>
