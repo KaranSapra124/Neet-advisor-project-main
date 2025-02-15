@@ -355,14 +355,14 @@ const AspirantsSection = () => {
                     <FaRocket className="text-primary-color" />
                     <span className="text-xs font-semibold">
                       AIR Rank:{" "}
-                      <span className="font-bold text-green-500">
+                      <span className="font-bold text-primary-color">
                         {elem?.AIR_Rank}
                       </span>
                     </span>
                   </div>
 
                   {/* MBBS Badge */}
-                  <div className="inline-flex items-center rounded-full bg-green-100 px-1 py-1 text-green-600">
+                  <div className="inline-flex items-center rounded-full bg-white border border-primary-color px-1 py-1 text-primary-color ">
                     <FaGraduationCap className="mr-1" />
                     <span className="pr-2 text-xs font-bold">
                       {elem?.MBBS ? "MBBS" : "N/A"}
