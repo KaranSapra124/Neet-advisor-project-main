@@ -39,7 +39,7 @@ const Stats = () => {
             Stats That{" "}
             <span className="font-extrabold text-primary-color">Define Us</span>
           </h1>
-          <p className="mt-2 text-xs w-80 mx-auto font-bold text-gray-700">
+          <p className="my-4 text-xs w-80 mx-auto font-bold text-gray-700">
             Discover the milestones that showcase our commitment and impact.
           </p>
           <Divider
