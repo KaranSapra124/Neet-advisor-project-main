@@ -65,7 +65,7 @@ const Purpose = () => {
                 Attend Our Seminar ?
               </span>
             </h1>
-            <p className="my-2 text-center text-xs font-semibold text-gray-400">
+            <p className="my-4 text-center text-xs font-semibold text-gray-200">
               Preparing for NEET is tough, but the competition for seats is even
               tougher!!
             </p>
