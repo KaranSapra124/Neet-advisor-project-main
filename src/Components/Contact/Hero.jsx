@@ -59,7 +59,7 @@ const FormComponent = () => {
   return (
   <div className={"flex "}>
 
-      <div className="w-full mx-2 relative rounded-md bg-white p-6 shadow-xl md:w-1/2">
+      <div className="w-full mx-2 relative rounded-md bg-gray-500/5 p-6 shadow-xl md:w-1/2">
         <img src="call.gif" className="absolute h-10  -left-5 -top-5 rounded-full shadow-md shadow-yellow-600 w-10" alt="" srcset="" />
 
         <div className="space-y-4">
