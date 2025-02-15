@@ -46,11 +46,11 @@ const ShowWebinar = () => {
           duration={1.5}
           // animateOnce={true}
         >
-          <div className="z-50 mx-auto border-yellow-600 border-l-2 border-b-2  h-fit rounded-md bg-gradient-to-br from-white to-gray-100 px-4 py-5 shadow-lg shadow-gray-200">
+          <div className="z-50 w-full mx-auto border-yellow-600 border-l-2 border-b-2  h-fit rounded-md bg-gradient-to-br from-white to-gray-100 px-4 py-5 shadow-lg shadow-gray-200">
             <h1 className="font-bold text-yellow-600 text-2xl">
               What You <span className="text-primary-color font-extrabold">Will Learn ?</span>
             </h1>
-            <Divider className={"my-2 h-1 w-16 rounded-full bg-yellow-600"} />
+            <Divider className={"my-3 h-0.5  w-16 rounded-full bg-yellow-600"} />
             {neetWebinarTopics.map((elem, index) => {
               return (
                 <div className="my-2 flex items-center" key={index}>
