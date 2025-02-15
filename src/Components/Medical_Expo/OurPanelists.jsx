@@ -118,7 +118,7 @@ const SpeakerCard = ({ member }) => {
               alt=""
               srcset=""
             />
-            <p className="mx-1 my-2 line-clamp-2  text-xs font-semibolld italic leading-relaxed text-gray-200">
+            <p className="mx-1 my-2 line-clamp-2  text-xs font-semibold italic leading-relaxed text-gray-200">
               "{member.bio}"
             </p>
           </div>
