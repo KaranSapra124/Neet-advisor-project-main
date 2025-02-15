@@ -47,7 +47,7 @@ const GuidingSection = () => {
                       srcset=""
                     />
                   </div>
-                  <p className="text-xs font-semibold text-justify leading-relaxed text-gray-700">
+                  <p className="text-xs font-semibold text-justify leading-relaxed text-gray-800">
                     At NEET advisor, we are a team of young professionals
                     dedicated to resolving your doubts about NEET Counselling
                     and supporting you in the crucial application process,
@@ -78,7 +78,7 @@ const GuidingSection = () => {
                       srcset=""
                     />{" "}
                   </div>
-                  <p className="text-xs font-semibold text-justify leading-relaxed text-gray-700">
+                  <p className="text-xs font-semibold text-justify leading-relaxed text-gray-800">
                     Our innovative offerings have been exclusively designed for
                     NEET UG and NEET PG aspirants. Our programs are like having
                     your own personal coach who will empower you with all the
