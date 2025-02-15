@@ -53,7 +53,7 @@ const WhoShouldAttend = () => {
                   Attend Our Seminar?
                 </span>
               </h1>
-              <p className="my-2 text-xs font-semibold text-gray-400">
+              <p className="my-4 text-xs font-semibold text-gray-200">
                 Attend our seminar & reach newer heights!
               </p>
               <Divider
@@ -78,7 +78,7 @@ const WhoShouldAttend = () => {
                     <Divider
                       className={"my-3 h-0.5 w-12 rounded-full bg-yellow-600"}
                     />
-                    <p className="my-4 text-sm font-semibold text-gray-400">
+                    <p className="my-4 text-xs font-semibold text-gray-200">
                       {elem?.description}
                     </p>
                   </div>
