@@ -86,7 +86,7 @@ const Schedule = () => {
                           label:<h1 className="text-gray-200 font-semibold text-sm">{detail.time}</h1>,
                           color: "gray",
                           children: (
-                            <div className="font-semibold">{detail.topic}</div>
+                            <div className="font-semibold text-gray-200">{detail.topic}</div>
                           ),
                         }))}
                       />
