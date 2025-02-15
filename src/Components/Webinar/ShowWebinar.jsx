@@ -17,11 +17,11 @@ const ShowWebinar = () => {
       {/* Whitish Overlay */}
       <div className="z-1 absolute inset-0 h-[30rem] bg-white/85"></div>
 
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly max-w-screen-xl mx-auto">
         <ScrollAnimation
           animateIn="backInLeft"
           duration={1.5}
-          animateOnce={true}
+          // animateOnce={true}
         >
           <div >
             <img
@@ -44,7 +44,7 @@ const ShowWebinar = () => {
         <ScrollAnimation
           animateIn="backInRight"
           duration={1.5}
-          animateOnce={true}
+          // animateOnce={true}
         >
           <div className="z-50 mx-auto border-yellow-600 border-l-2 border-b-2  h-fit rounded-md bg-gradient-to-br from-white to-gray-100 px-4 py-5 shadow-lg shadow-gray-200">
             <h1 className="font-bold text-yellow-600 text-2xl">
