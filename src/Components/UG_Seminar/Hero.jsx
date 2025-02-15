@@ -52,7 +52,7 @@ const Hero = () => {
                   NEET UG 2025
                 </span>
               </h1>
-              <p className="max-w-md text-xs font-extrabold text-gray-300">
+              <p className="max-w-md text-xs font-extrabold text-gray-200">
                 Prepare yourself for the NEET UG exam with expert guidance and
                 tips. Join us for insightful sessions, mock tests, and career
                 counseling.
@@ -76,12 +76,12 @@ const Hero = () => {
                     <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-200">
                       # {seminar?.location}
                     </div>
-                    <div className="flex items-center justify-between gap-5 p-2">
-                      <h1 className="text-3xl font-extralight text-white">
+                    <div className="flex items-center justify-between py-2">
+                      <h1 className="text-3xl font-bold text-gray-200">
                         {seminar?.date}
                       </h1>
                       <div
-                        className={`w-fit rounded-md ${seminar?.isAvailable ? "border-2 border-blue-700 bg-white/50 text-blue-700" : "border-2 border-gray-800 bg-white/50 text-gray-800"} px-2 py-1 text-sm font-bold uppercase`}
+                        className={`w-fit mx-4 rounded-md ${seminar?.isAvailable ? "border-2 border-primary-color bg-white/50 text-primary-color" : "border-2 border-gray-800 bg-white/50 text-gray-800"} px-2 py-1 text-sm font-bold uppercase`}
                       >
                         {seminar?.isAvailable ? "Available" : "Not Available"}
                       </div>
