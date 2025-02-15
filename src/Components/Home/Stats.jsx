@@ -63,7 +63,7 @@ const Stats = () => {
                   />
                 </div>
                 {/* Title */}
-                <h3 className="mt-2 text-sm font-bold text-gray-600">
+                <h3 className="my-2 text-sm font-bold text-gray-600">
                   {stat.title}
                 </h3>
               </div>
