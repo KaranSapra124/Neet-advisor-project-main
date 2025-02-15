@@ -4,6 +4,7 @@ import { FaBook, FaUser, FaArrowRight, FaGraduationCap } from "react-icons/fa";
 import Divider from "../Helper/Divider";
 import ScrollAnimation from "react-animate-on-scroll";
 const Hero = () => {
+  
   return (
     <Container className="relative w-full bg-webinar-hero">
         <div className="absolute inset-0 opacity-90 h-full w-full bg-gradient-to-tr from-gray-100 via-gray-200 to-white"></div>
@@ -20,7 +21,7 @@ const Hero = () => {
               </div>
 
               {/* Main Content */}
-              <div className="space-y-2">
+              <div className="space-y-4">
                 <h1 className="text-3xl font-bold text-primary-color/90">
                   Your Trusted{" "}
                   <span className="typewriter  mt-2 block bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text font-bold text-transparent">
@@ -28,25 +29,25 @@ const Hero = () => {
                   </span>
                 </h1>
                 <Divider
-                  className={"my-2 h-1 w-20 rounded-full bg-yellow-600"}
+                  className={" h-1 w-20 rounded-full bg-yellow-600"}
                 />
 
                 <div className="space-y-6">
-                  <p className="text-sm font-semibold text-gray-800">
+                  <p className="text-xs font-semibold text-gray-800">
                     Achieve your dream of becoming a doctor with expert guidance
                     at every step. Our personalized{" "}
                     <strong className="text-yellow-600">NEET</strong> counseling
                     services ensure the best college selection based on your
                     goals.
                   </p>
-                  <p className="text-sm font-semibold text-gray-800">
+                  <p className="text-xs font-semibold text-gray-800">
                     Let us simplify your journey—trusted, reliable, and
                     committed to your success.
                   </p>
                 </div>
 
                 <div className="flex gap-4 py-4">
-                  <button className="group flex items-center gap-4 rounded-full bg-yellow-600 px-2 py-1 text-sm font-bold text-white transition-all duration-300 hover:bg-yellow-500">
+                  <button className="group flex items-center gap-4 rounded-full bg-yellow-600 px-2 py-1 text-sm font-bold text-white transition-all duration-300 hover:bg-yellow-700">
                     Get Started Today
                     <FaArrowRight className=" transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
