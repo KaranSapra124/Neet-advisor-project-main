@@ -7,7 +7,12 @@ const ApplyForDreamUniversity = () => {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfIKkCC_hPP54YE4ckBhp1tLUHA9UxjXnFIw&s",
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc9CHrWVSlfLaZdv1Z8gHBwiAx-YiYMdSOKA&s',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIeRI1VmXFwBGt96AW8K1OyXIgNoMuzjnZeQ&s',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoLe9XasaFDlE6FB5xI-Csx8yKiBbLvI2L7g&s'
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoLe9XasaFDlE6FB5xI-Csx8yKiBbLvI2L7g&s',
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfIKkCC_hPP54YE4ckBhp1tLUHA9UxjXnFIw&s",
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc9CHrWVSlfLaZdv1Z8gHBwiAx-YiYMdSOKA&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIeRI1VmXFwBGt96AW8K1OyXIgNoMuzjnZeQ&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoLe9XasaFDlE6FB5xI-Csx8yKiBbLvI2L7g&s',
+    
   ]
   return (
     <>
@@ -26,11 +31,11 @@ const ApplyForDreamUniversity = () => {
             granted!
           </p>
           <Divider className={"h-1 w-12 my-4 mx-auto bg-yellow-600 rounded-full"}/>
-          <Carousel autoplay dots={false} infinite slidesToShow={5} className="my-4">
+          <Carousel autoplay autoplaySpeed={2000} dots={false} arrows infinite  slidesToShow={5} className="my-4">
             {universities?.map((elem, index) => {
               return (
                 <>
-                  <img className="mx-auto shadow-md shadow-white w-32 h-32 rounded-full my-4" src={elem} />
+                  <img className="mx-auto outline outline-yellow-600 p-1  w-32 h-32 rounded-full my-4" src={elem} />
                 </>
               );
             })}
