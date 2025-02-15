@@ -129,7 +129,7 @@ const SpeakerCard = ({ member }) => {
               key={index}
               className="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-primary-color"
             >
-              # {skill}
+              #{skill}
             </span>
           ))}
         </div>
