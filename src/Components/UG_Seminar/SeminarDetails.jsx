@@ -73,7 +73,7 @@ const SeminarDetails = () => {
                           ></video>
                           <div className="flex flex-col gap-2 px-2">
                             <img
-                              className="ml-auto h-10 w-10 rounded-full bg-white p-1"
+                              className="ml-auto h-10 w-10 rounded bg-white p-1"
                               src="neet-advisor-logo-Photoroom.png"
                               alt=""
                               srcset=""
@@ -138,7 +138,7 @@ const SeminarDetails = () => {
                                   </div>
                                 </p>
                               </div>
-                              <button className="my-2 rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-lg font-bold text-white transition-all hover:bg-yellow-500">
+                              <button className="my-2 rounded-l-full rounded-r-full bg-yellow-600 px-4 py-2 text-lg font-bold text-white transition-all hover:bg-yellow-700">
                                 Book Now
                               </button>
                             </div>
