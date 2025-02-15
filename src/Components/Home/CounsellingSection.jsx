@@ -6,6 +6,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 import { TiTick } from "react-icons/ti";
 import Divider from "../Helper/Divider";
 
+
 const CounsellingSection = () => {
   const [randomIndex, setRandomIndex] = useState(0);
   const counselingContent = [
@@ -81,7 +82,7 @@ const CounsellingSection = () => {
 
             <Timeline
               mode="alternate"
-              className="mx-auto mt-10"
+              className="mx-auto home-timeline mt-10"
               items={counselingContent?.map((elem, index) => ({
                 children: (
                   <ScrollAnimation
