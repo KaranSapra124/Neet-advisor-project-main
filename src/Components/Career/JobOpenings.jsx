@@ -267,13 +267,13 @@ const JobOpenings = () => {
                 return (
                   <>
                     <div className="my-1 flex h-28 w-48  flex-col justify-center rounded-md border-b-2 border-l-2 border-white p-2 shadow-lg">
-                      <h1 className="text-sm font-bold text-gray-300">
+                      <h1 className="text-sm font-bold text-gray-200">
                         {elem?.title}
                       </h1>
-                      <p className="my-2 text-xs font-semibold text-gray-300">
+                      <p className="my-2 text-xs font-semibold text-gray-200">
                         {elem?.jobType}
                       </p>
-                      <button className="w-fit rounded-l-full rounded-r-full bg-yellow-500 px-2 py-1 text-xs font-bold text-white">
+                      <button className="w-fit rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all px-2 py-1 text-xs font-bold text-white">
                         Apply Now
                       </button>
                     </div>
