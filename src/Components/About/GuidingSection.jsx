@@ -29,7 +29,7 @@ const GuidingSection = () => {
               {/* <div className="absolute mx-auto -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-600"></div> */}
             </span>
           </h1>
-          <p className="text-gray-800 font-semibold text-center text-xs my-4  ">Guiding you towards your dream career with personalized advice, expert guidance, and a clear roadmap to success.</p>
+          <p className="text-gray-800 font-semibold text-center text-xs my-4  max-w-xl mx-auto">Guiding you towards your dream career with personalized advice, expert guidance, and a clear roadmap to success.</p>
           <Divider className={"h-1 w-20 rounded-full my-4 bg-yellow-600 mx-auto"}/>
 
           {/* <div className="h-52 top-10 relative max-w-sm border border-black mx-auto"></div> */}
