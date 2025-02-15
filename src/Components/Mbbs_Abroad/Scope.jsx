@@ -198,7 +198,7 @@ const Scope = () => {
               MBBS Abroad?
             </span>
           </h1>
-          <p className="my-1 text-xs font-bold text-gray-200 w-96 mx-auto">
+          <p className="my-4 text-xs font-bold text-gray-200 w-96 mx-auto">
             MBBS abroad is vast, offering numerous opportunities depending on
             the individual's preferences and qualifications.
           </p>
