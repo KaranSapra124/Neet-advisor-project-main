@@ -90,7 +90,7 @@ const Benefits = () => {
               hours and remote work options to ensure our employees can excel in
               their roles while enjoying their personal lives.
             </p>
-            <button className="rounded-l-full rounded-r-full bg-yellow-600 p-2 text-xs font-extrabold text-white">
+            <button className="rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all p-2 text-xs font-extrabold text-white">
               Learn More
             </button>
           </div>
