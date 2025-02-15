@@ -47,15 +47,15 @@ const Gems = () => {
                 neet advisor
               </span>
             </h1>
-            <p className="mx-auto leading-5 max-w-sm py-1 text-center text-xs font-semibold text-gray-700">
+            <p className="mx-auto leading-5 max-w-sm my-4 text-center text-xs font-semibold text-gray-800">
               Vipin Bansal and Vivek Singh , two persons who dedicated their
               lives to transforming <strong>NEET</strong> counseling, inspiring
               countless students to achieve their dreams with unwavering support
               and expertise.
             </p>
-            <Divider className="mx-auto my-3.5 h-1 w-16 rounded-full bg-yellow-600" />
+            <Divider className="mx-auto my-4 h-1 w-16 rounded-full bg-yellow-600" />
 
-            <div className="flex items-center justify-evenly">
+            <div className="flex items-center justify-center gap-4">
               {teamMemberData?.map((member, index) => {
                 return <TeamMember key={index} member={member} />;
               })}
@@ -91,7 +91,7 @@ const TeamMember = ({ member }) => {
                   alt=""
                   srcset=""
                 />
-                <p className="mt-1 text-sm font-semibold text-gray-600">
+                <p className="mt-1 mx-2 text-sm font-semibold text-gray-800">
                   {member.title}
                 </p>
               </div>
@@ -120,7 +120,7 @@ const TeamMember = ({ member }) => {
               alt=""
               srcset=""
             />
-            <p className="mx-1 my-2 font-semibold italic line-clamp-2 text-xs  leading-relaxed text-gray-700">
+            <p className="mx-2 my-2  font-semibold italic line-clamp-2 text-xs  leading-relaxed text-gray-800">
               "{member.bio}"
             </p>
           </div>
@@ -129,9 +129,9 @@ const TeamMember = ({ member }) => {
           {member.expertise.map((skill, index) => (
             <span
               key={index}
-              className="rounded-full bg-green-200 px-3 py-1 text-xs font-semibold text-green-500"
+              className="rounded-full border border-primary-color px-3 py-1 text-xs font-semibold text-primary-color"
             >
-              {skill}
+              #{skill}
             </span>
           ))}
         </div>
