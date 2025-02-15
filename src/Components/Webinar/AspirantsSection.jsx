@@ -345,7 +345,7 @@ const AspirantsSection = () => {
                   {/* College Info */}
                   <div className="mb-3 flex items-start gap-1">
                     <FaUniversity className="mt-1 flex-shrink-0 text-primary-color" />
-                    <p className="line-clamp-1 text-xs font-semibold text-gray-700">
+                    <p className="line-clamp-1 text-xs font-semibold text-gray-800">
                       {elem?.College_Name}
                     </p>
                   </div>
