@@ -52,12 +52,12 @@ const Hero = () => {
                   NEET UG 2025
                 </span>
               </h1>
-              <p className="max-w-md text-sm font-extrabold text-gray-300">
+              <p className="max-w-md text-xs font-extrabold text-gray-300">
                 Prepare yourself for the NEET UG exam with expert guidance and
                 tips. Join us for insightful sessions, mock tests, and career
                 counseling.
               </p>
-              <button className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-3 py-2 font-bold text-white">
+              <button className="bg-yellow-600 w-fit rounded-l-full rounded-r-full transition-all px-3 py-2 font-bold text-white hover:bg-yellow-700">
                 Book Now!
               </button>
             </div>
@@ -76,7 +76,7 @@ const Hero = () => {
                     <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-sm font-bold uppercase text-yellow-200">
                       # {seminar?.location}
                     </div>
-                    <div className="flex items-center gap-4 p-2">
+                    <div className="flex items-center justify-between gap-5 p-2">
                       <h1 className="text-3xl font-extralight text-white">
                         {seminar?.date}
                       </h1>
@@ -87,7 +87,7 @@ const Hero = () => {
                       </div>
                       <FaArrowRight className="animate-scaleUp text-yellow-600" />
                     </div>
-                    <div className="text-sm font-semibold text-gray-400">
+                    <div className="text-xs font-semibold text-gray-200 ">
                       {seminar.venue}
                     </div>
                     {index !== seminarData?.length - 1 && (
