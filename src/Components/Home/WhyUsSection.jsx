@@ -141,7 +141,7 @@ const WhyUsSection = () => {
           </div>
 
           {/* Right Accordion Section */}
-          <div className="h-96 w-full space-y-6  lg:w-1/2">
+          <div className=" w-full space-y-6  lg:w-1/2">
             {services.map((service, index) => (
               <ScrollAnimation
                 initiallyVisible
@@ -157,7 +157,7 @@ const WhyUsSection = () => {
                     {
                       ...service,
                       label: (
-                        <div className="flex items-center gap-2">
+                        <div className="flex  items-center gap-2">
                           <div
                             className={`rounded-lg ${
                               random === index &&
@@ -176,7 +176,7 @@ const WhyUsSection = () => {
                         </div>
                       ),
                       children: (
-                        <div className="rounded-lg bg-gray-50 p-4 shadow-inner">
+                        <div className="rounded-lg bg-gray-50 p-4  shadow-inner">
                           <p className="font-medium leading-relaxed text-gray-700">
                             {service.children}
                           </p>
@@ -185,6 +185,7 @@ const WhyUsSection = () => {
                     },
                   ]}
                   activeKey={activeKey}
+                  accordion
                   onChange={handleCollapseChange}
                   className="border-none bg-transparent"
                   expandIconPosition="right"
