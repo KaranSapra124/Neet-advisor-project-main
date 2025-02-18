@@ -63,7 +63,7 @@ const CounsellingSection = () => {
 
   return (
     <Container className="bg-gray-200/40">
-      <ScrollAnimation animateIn="backInUp" duration={1.5}>
+      <ScrollAnimation animateIn="backInUp" duration={0.5}>
         <div className="mx-auto flex items-center justify-center rounded-md">
           <div>
             <div className="mb-4 text-center">
@@ -86,7 +86,7 @@ const CounsellingSection = () => {
               items={counselingContent?.map((elem, index) => ({
                 children: (
                   <ScrollAnimation
-                    animateIn={`${(index + 1) % 2 === 0 ? "backInLeft" : "backInRight"}`}
+                    animateIn={`backInUp`}
                     duration={1.5}
                   >
                     <div
