@@ -13,7 +13,7 @@ const GlobalImageComponent = ({ image }) => {
           <img
             key={mainImage}
             src={image[mainImage].imageUrl}
-            className="animate-zoomIn relative"
+            className="animate-zoomIn relative h-screen"
             alt=""
             srcset=""
 
@@ -31,7 +31,7 @@ const GlobalImageComponent = ({ image }) => {
             autoplay
           >
             {image?.map((elem, index) => {
-              return <img src={elem.imageUrl} alt={elem} />;
+              return <img className="shadow-sm shadow-white" src={elem.imageUrl} alt={elem} />;
             })}
           </Carousel>
         </div>
