@@ -15,6 +15,7 @@ module.exports = {
         slideOutLeft: "slideOutLeft 0.5s forwards normal",
         backIn: "backInLeft 2.5s ease-in normal",
         fadeIn: "fadeIn 2s linear normal",
+        zoomIn: "zoomIn 1s linear normal",
         // slideIn:'fadeIn 4s linear infinite'
       },
       boxShadow: {
@@ -30,7 +31,8 @@ module.exports = {
         "webinar-hero": "url('grid-pattern.jpg')",
         "seminar-hero": "url('./Seminar/bg-seminar.jpg')",
         "mbbs-hero": "url('./Mbbs/bg-mbbs.jpg')",
-        "news-bg":"url('https://img.freepik.com/free-photo/copy-space-medical-desk-with-coffee-cup_23-2148519791.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid')"
+        "news-bg":
+          "url('https://img.freepik.com/free-photo/copy-space-medical-desk-with-coffee-cup_23-2148519791.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid')",
       },
       utilities: {
         ".break-inside-avoid": {

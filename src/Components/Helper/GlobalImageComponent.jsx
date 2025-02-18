@@ -1,19 +1,32 @@
 import { Carousel } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const GlobalImageComponent = ({ image }) => {
   const [mainImage, setMainImage] = useState(0);
-  console.log(image);
+  //   console.log(image);
   const [isChanged, setIsChanged] = useState(false);
-
+  useEffect(() => console.log(mainImage), [mainImage]);
   return (
     <>
-      <div className="max-w-screen-sm">
+      <div className="max-w-screen-lg mx-auto">
         <div>
+          <img
+            key={mainImage}
+            src={image[mainImage].imageUrl}
+            className="animate-zoomIn relative"
+            alt=""
+            srcset=""
+
+          />
           <Carousel
             dots={false}
-            afterChange={() => setMainImage((prev) => prev + 1)}
+            afterChange={() =>
+              setMainImage((prev) => (prev < image.length - 1 ? prev + 1 : 0))
+            }
+            className="absolute -top-52 left-10"
             slidesToShow={4}
+            autoplaySpeed={3000}
+
             infinite
             autoplay
           >
@@ -21,7 +34,6 @@ const GlobalImageComponent = ({ image }) => {
               return <img src={elem.imageUrl} alt={elem} />;
             })}
           </Carousel>
-          <img key={mainImage} src={image[mainImage].imageUrl} className="scale-105" alt="" srcset="" />
         </div>
       </div>
     </>
