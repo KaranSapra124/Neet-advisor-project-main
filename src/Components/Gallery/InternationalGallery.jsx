@@ -31,45 +31,45 @@ const InternationalGallery = () => {
       imageAlt: "No Image",
     },
     {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/1.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/2.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/3.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/4.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/5.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/1.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/2.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/3.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/4.webp",
-        imageAlt: "No Image",
-      },
-      {
-        imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/5.webp",
-        imageAlt: "No Image",
-      },
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/1.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/2.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/3.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/4.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/5.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/1.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/2.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/3.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/4.webp",
+      imageAlt: "No Image",
+    },
+    {
+      imageUrl: "https://neetadvisor.com/assets/images/gallery/seminars/5.webp",
+      imageAlt: "No Image",
+    },
   ]);
 
   const getPartitions = (arr, num) => {
@@ -100,7 +100,7 @@ const InternationalGallery = () => {
       <div className="mb-5 space-y-3 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
           Explore Our{" "}
-          <span className="font-extrabold  italic text-primary-color">
+          <span className="font-extrabold italic text-primary-color">
             Achievements
           </span>
         </h1>
@@ -133,7 +133,10 @@ const InternationalGallery = () => {
                   )
                   ?.map((ele, ind) => {
                     return (
-                      <img className="m-2 h-64 w-64 shadow-md shadow-white" src={ele?.imageUrl} />
+                      <img
+                        className="m-2 h-64 w-64 shadow-md shadow-white"
+                        src={ele?.imageUrl}
+                      />
                     );
                   })}
               </Carousel>
