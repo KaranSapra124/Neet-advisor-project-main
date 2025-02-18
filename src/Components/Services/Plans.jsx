@@ -162,7 +162,7 @@ const PricingComponent = () => {
   const renderPricingPlans = () => {
     const plans = pricingData[planType];
 
-    return plans.map((plan, index) => (
+    return plans.filter((elem)=>elem.title !== "Free").map((plan, index) => (
       <div
         key={plan.id}
         className="relative w-full flex-shrink-0 cursor-pointer p-6  md:max-w-sm"
