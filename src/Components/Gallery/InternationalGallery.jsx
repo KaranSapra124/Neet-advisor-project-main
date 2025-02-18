@@ -5,6 +5,7 @@ import { BsZoomIn } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { Carousel, Spin } from "antd";
 import Divider from "../Helper/Divider";
+import GlobalImageComponent from "../Helper/GlobalImageComponent";
 
 const InternationalGallery = () => {
   let count = 0;
@@ -114,34 +115,7 @@ const InternationalGallery = () => {
 
       {!isLoading ? (
         <div className={`flex max-w-screen-xl flex-col`}>
-          {partitions?.map((_, index) => {
-            return (
-              <Carousel
-                autoplay
-                autoplaySpeed={2000}
-                rtl={index % 2 === 0 ? true : false}
-                dots={false}
-                slidesToShow={3}
-                infinite
-              >
-                {images
-                  ?.slice(
-                    partitions[index],
-                    index + 1 < partitions.length
-                      ? partitions[index + 1] + 1
-                      : partitions.length,
-                  )
-                  ?.map((ele, ind) => {
-                    return (
-                      <img
-                        className="m-2 h-64 w-64 shadow-md shadow-white"
-                        src={ele?.imageUrl}
-                      />
-                    );
-                  })}
-              </Carousel>
-            );
-          })}
+          <GlobalImageComponent image={images} />
         </div>
       ) : (
         <div className="flex items-center justify-center">
