@@ -22,7 +22,7 @@ const GlobalImageComponent = ({ image }) => {
             afterChange={() =>
               setMainImage((prev) => (prev < image.length - 1 ? prev + 1 : 0))
             }
-            className="absolute max-w-screen-sm -top-14 left-40"
+            className="absolute max-w-screen-sm -top-14 left-36"
             slidesToShow={5}
             
             autoplaySpeed={5000}
