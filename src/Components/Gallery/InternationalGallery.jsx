@@ -96,7 +96,7 @@ const InternationalGallery = () => {
 
   return (
     // <Container>
-    <div className="container mx-auto px-4">
+    <div className=" mx-auto px-4">
       {/* Elegant Header */}
       <div className="mb-5 space-y-3 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
@@ -106,9 +106,9 @@ const InternationalGallery = () => {
           </span>
         </h1>
         <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="mx-auto w-96 text-xs font-bold text-gray-700">
+        <p className="mx-auto w-full text-xs font-bold text-gray-700">
           Through dedication and innovation, we have successfully achieved
-          greater heights, <br /> setting new standards of excellence in
+          greater heights,  setting new standards of excellence in
           education.
         </p>
       </div>
