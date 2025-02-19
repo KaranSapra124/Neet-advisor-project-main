@@ -117,14 +117,14 @@ const CounsellingSection = () => {
                         </div>
                       </div>
                       <div className="w-96  pl-4 ">
-                        <h1 className="pb-0.5 text-left lg:text-lg text-xs  font-extrabold lg:font-bold text-gray-700">
+                        <h1 className="pb-0.5 text-left lg:text-lg text-[0.7rem]  font-extrabold lg:font-bold text-gray-700">
                           {elem?.title}
                         </h1>
-                        <ul className="my-1 flex lg:w-[30rem] w-full flex-col space-y-2">
+                        <ul className="lg:my-1  flex lg:w-[30rem] w-full flex-col lg:space-y-2 space-y-0 ">
                           {elem?.keyPoints?.map((point, idx) => (
                             <li key={idx} className="group flex items-center">
                               <TiTick className="text-xl text-green-500 transition-transform duration-200 group-hover:scale-110" />
-                              <span className="ml-2   text-left lg:text-sm text-[0.7rem] font-semibold text-gray-800">
+                              <span className="ml-2  text-left lg:text-sm text-[0.5rem] font-semibold text-gray-800">
                                 {point}
                               </span>
                             </li>
