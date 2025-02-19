@@ -219,8 +219,8 @@ const Scope = () => {
                   color="#201169"
                 >
                   <ScrollAnimation
-                    animateIn={index % 2 !== 0 ? "backInLeft" : "backInRight"}
-                    duration={1.5}
+                    animateIn={"backInUp"}
+                    duration={0.5}
                   >
                     <Card
                       className="mx-4 bg-gradient-to-tr from-black/80 to-gray-900 shadow-sm shadow-gray-400 transition-shadow duration-300 hover:shadow-xl"
