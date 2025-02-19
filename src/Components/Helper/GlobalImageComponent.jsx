@@ -22,7 +22,7 @@ const GlobalImageComponent = ({ image }) => {
             afterChange={() =>
               setMainImage((prev) => (prev < image.length - 1 ? prev + 1 : 0))
             }
-            className="absolute max-w-screen-sm -top-20 left-36"
+            className="absolute max-w-screen-sm -top-20 left-36 "
             slidesToShow={5}
             
             autoplaySpeed={3000}
@@ -32,8 +32,8 @@ const GlobalImageComponent = ({ image }) => {
           >
             {image?.map((elem, index) => {
               return <>
-              <div key={index} className="absolute w-full h-full bg-black/10 z-[999]"></div>
-              <img key={index} className="shadow-sm  relative   shadow-white" src={elem.imageUrl} alt={elem} />
+              {/* <div key={index} className="absolute w-full h-full bg-black/10 z-[999]"></div> */}
+              <img key={index} className="shadow-sm     shadow-white" src={elem.imageUrl} alt={elem} />
               </>
             })}
           </Carousel>
