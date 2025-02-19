@@ -108,7 +108,7 @@ const SeminarAndWorkshops = () => {
 
       {!isLoading ? (
         <div
-          className={`grid grid-cols-${partitions?.length - 1} max-w-screen-xl`}
+          className={` max-w-screen-xl`}
         >
           <GlobalImageComponent image={images} />
         </div>
