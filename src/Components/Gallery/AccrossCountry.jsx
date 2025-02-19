@@ -100,10 +100,9 @@ const AccrossCountry = () => {
           </span>
         </h1>
         <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="mx-auto w-96 text-xs font-bold text-gray-700">
+        <p className="mx-auto  text-xs font-bold text-gray-700">
           Through dedication and innovation, we have successfully achieved
-          greater heights, <br /> setting new standards of excellence in
-          education.
+          greater heights.
         </p>
       </div>
 
