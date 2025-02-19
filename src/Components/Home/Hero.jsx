@@ -9,7 +9,7 @@ import ImageContainer from "../Home/ImageSection";
 
 const Hero = () => {
   return (
-    <div className="px-2 py-5 relative z-10 flex items-center justify-center lg:px-5 lg:py-10">
+    <div className="px-10  py-8  relative z-10 flex items-center justify-center lg:flex-row flex-col lg:px-5 lg:py-10">
       <div className="flex w-full flex-col  items-center">
         <div className="flex  items-center justify-center">
           <h1 className="primary lg:text-3xl text-sm font-bold ">
@@ -25,8 +25,8 @@ const Hero = () => {
           />
         </div>
         <div className="text-xs text-gray-700">
-          <p className="">
-            <span className="font-extrabold"> 23,33,863</span> students in India
+          <p className="text-wrap">
+            <span className="lg:font-extrabold font-bold "> 23,33,863</span> students in India
             aspire to study MBBS and BDS & AYUSH.Only 8.3% could achieve it in
             2024.
           </p>
@@ -36,12 +36,12 @@ const Hero = () => {
             2016.
           </p>
         </div>
-        <button className="mt-5 rounded-lg bg-yellow-600 px-4 py-2 font-bold text-white transition-all duration-300 hover:bg-yellow-500">
+        <button className="mt-5 lg:text-sm text-xs rounded-lg bg-yellow-600 px-4 py-2 font-bold text-white transition-all duration-300 hover:bg-yellow-500">
           Book a Free session
         </button>
         <div className="flex py-5">
           <div className="gabriela-regular mr-10">
-            <h1 className="mb-2 text-2xl font-bold text-indigo-950">50K+</h1>
+            <h1 className="mb-2 lg:text-2xl text-sm font-bold text-indigo-950">50K+</h1>
             <p className="text-md font-semibold text-gray-700">
               Sessions Completed
             </p>
