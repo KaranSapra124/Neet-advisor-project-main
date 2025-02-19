@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div className="px-7  py-8  relative z-10 flex items-center justify-center lg:flex-row flex-col lg:px-5 lg:py-10">
       <div className="flex w-full flex-col  items-center">
-        <div className="flex  items-center justify-center">
+        <div className="flex  items-center lg:justify-center justify-around w-full">
           <h1 className="primary lg:text-3xl text-sm font-bold ">
             Complete Handholding for <br />{" "}
             <span className="font-bold text-yellow-600">
@@ -24,13 +24,13 @@ const Hero = () => {
             loop={true}
           />
         </div>
-        <div className="text-xs text-gray-700">
-          <p className="text-wrap">
+        <div className=" text-gray-700">
+          <p className="text-wrap lg:text-sm text-[0.5rem] ">
             <span className="lg:font-extrabold font-bold "> 23,33,863</span> students in India
             aspire to study MBBS and BDS & AYUSH.Only 8.3% could achieve it in
             2024.
           </p>
-          <p className="py-2 text-xs">
+          <p className="py-2 lg:text-sm text-[0.5rem]">
             Complete <span className="font-extrabold">NEET</span> Counselling
             Guidance till Admission. NEET UG & NEET PG Counselling Experts Since
             2016.
