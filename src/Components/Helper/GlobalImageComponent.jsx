@@ -33,7 +33,7 @@ const GlobalImageComponent = ({ image }) => {
             {image?.map((elem, index) => {
               return <>
               {/* <div key={index} className="absolute w-full h-full bg-black/10 z-[999]"></div> */}
-              <img key={index} className="shadow-sm     shadow-white" src={elem.imageUrl} alt={elem} />
+              <img key={index} className="shadow-sm shadow-black" src={elem.imageUrl} alt={elem} />
               </>
             })}
           </Carousel>
