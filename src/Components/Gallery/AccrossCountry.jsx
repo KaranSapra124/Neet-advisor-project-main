@@ -95,10 +95,12 @@ const AccrossCountry = () => {
       <div className="mb-5 space-y-4 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
           Guidance Across{" "}
-          <span className="font-extrabold italic text-primary-color">Country</span>
+          <span className="font-extrabold italic text-primary-color">
+            Country
+          </span>
         </h1>
-       <Divider className={"h-1 w-12 bg-yellow-600 rounded-full mx-auto"}/>
-        <p className="w-96 mx-auto text-xs font-bold text-gray-700">
+        <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
+        <p className="mx-auto w-96 text-xs font-bold text-gray-700">
           Through dedication and innovation, we have successfully achieved
           greater heights, <br /> setting new standards of excellence in
           education.
@@ -106,10 +108,8 @@ const AccrossCountry = () => {
       </div>
 
       {!isLoading ? (
-        <div
-          className={`flex flex-col max-w-screen-xl`}
-        >
-         <GlobalImageComponent image={images}/>
+        <div className={`flex max-w-screen-xl flex-col`}>
+          <GlobalImageComponent image={images} />
         </div>
       ) : (
         <div className="flex items-center justify-center">
