@@ -142,7 +142,7 @@ const WhyUsSection = () => {
           </div>
 
           {/* Right Accordion Section */}
-          <div className=" w-full lg:space-y-6   lg:w-1/2">
+          <div className=" w-full lg:space-y-6 space-y-3 lg:mt-0 my-8   lg:w-1/2">
             {services.map((service, index) => (
               <ScrollAnimation
                 initiallyVisible

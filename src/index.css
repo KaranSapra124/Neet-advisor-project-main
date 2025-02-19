@@ -216,6 +216,28 @@
   object-fit: cover;
 }
 
+@media screen and (max-width: 640px) {
+  .why-us-gallery {
+    --size: min(60vmin, 400px);
+    width: 17rem;
+    height: 17rem;
+    /* transform: translate(-50%, -50%); */
+    margin: 1rem auto;
+    box-shadow:
+      0 0 10px #0002,
+      0 20px 40px -20px #0004;
+    background: #fff;
+    border: 6px solid #fff;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    gap: 6px;
+  }
+}
+
 @keyframes moveHorizontal {
   to {
     object-position: 100% 0;
@@ -1021,13 +1043,10 @@ a {
   padding: 1rem;
 }
 
-
-
-
-.ant-timeline-item-tail{
+.ant-timeline-item-tail {
   background-color: #201169;
 }
 
-.ant-timeline-item-head{
+.ant-timeline-item-head {
   background-color: #201169;
 }
