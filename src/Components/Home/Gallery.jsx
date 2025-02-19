@@ -47,7 +47,7 @@ const Gallery = () => {
   return (
     <Container>
       <div className="mx-auto w-full">
-        <h1 className="py-2 text-center text-3xl font-bold text-yellow-600">
+        <h1 className="py-2 text-center lg:text-3xl text-[0.7rem] font-bold text-yellow-600">
           Conceptualizing{" "}
           <span className="font-extrabold text-primary-color">
             NEET Counselling
@@ -55,7 +55,7 @@ const Gallery = () => {
           Easy Way
         </h1>
 
-        <p className="mx-auto mb-8 w-[42rem] text-center text-xs font-bold text-gray-700">
+        <p className="mx-auto lg:mb-8 lg:w-[42rem]  text-center text-[0.4rem] font-bold text-gray-700">
           Our team has developed a set of webinars/seminars and workshops
           exclusively for students aspiring for a successful career in medicine.
           These thoughtfully crafted sessions will cover a wide range of topics
@@ -63,10 +63,10 @@ const Gallery = () => {
           students and parents.
         </p>
         <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={"mx-auto my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
 
-        <div className="mx-auto grid w-fit grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-4">
+        <div className="mx-auto grid w-fit grid-cols-3 gap-3 md:grid-cols-4 lg:grid-cols-4">
           <AnimatePresence>
             {images.slice(0, 12).map(
               (
@@ -84,7 +84,7 @@ const Gallery = () => {
                   <img
                     loading="lazy"
                     src={image.url}
-                    className="h-32 w-60 object-cover"
+                    className="lg:h-32 h-20 lg:w-60 lg:object-cover"
                     alt=""
                   />
                 </motion.div>
