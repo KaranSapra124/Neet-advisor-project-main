@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // import { Navigation } from 'swiper'; // Import navigation module
 import ScrollAnimation from "react-animate-on-scroll";
@@ -9,7 +9,8 @@ import Divider from "../Helper/Divider";
 import { useNavigate } from "react-router-dom";
 
 const NewsSection = () => {
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
+  const [slidesToShow, setSlidesToShow] = useState(4);
   const headerStyle = {
     background:
       "url(https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid)",
@@ -117,32 +118,46 @@ const NewsSection = () => {
     },
   ];
 
+  useEffect(() => {
+    const updateSlides = () => {
+      const currWidth = window.innerWidth;
+      if (currWidth <= 768) {
+        setSlidesToShow(1);
+      } else if (currWidth <= 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(4);
+      }
+    };
+    updateSlides();
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
   return (
     <>
       <Container className={"bg-gray-200/40"}>
         <div className="mx-5 flex flex-col text-center">
-          <h1 className="text-center text-3xl font-bold text-yellow-600">
+          <h1 className="text-center text-[0.8rem] font-bold text-yellow-600 lg:text-3xl">
             Get the{" "}
             <span className="font-extrabold text-primary-color">
               Latest News and Updates
             </span>{" "}
-            , all at One place!
+            all at One place!
           </h1>
-          <p className="mx-auto w-[42rem] py-2 text-xs font-bold text-gray-700">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
-            veritatis ipsam harum quaerat eaque quam quibusdam dolore voluptates
-            voluptas ratione, quisquam beatae dignissimos debitis recusandae
-            suscipit totam qui nam! Sint.
+          <p className="mx-auto py-2 text-[0.5rem] font-bold text-gray-700 lg:w-[42rem] lg:text-xs">
+            Stay Updated With Our Realtime News Feed!
           </p>
           <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={
+              "mx-auto my-4 h-1 w-12 rounded-full bg-yellow-600 lg:w-20"
+            }
           />
         </div>
         <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
           <Carousel
-            slidesToShow={4}
+            slidesToShow={slidesToShow}
             dots={false}
-            className="mx-10 my-5 gap-x-1"
+            className="lg:mx-10 lg:my-5  gap-x-1"
             arrows={true}
             dotPosition="bottom"
             autoplay
@@ -154,17 +169,17 @@ const NewsSection = () => {
                 <div className="flex">
                   <div className="flex w-full items-center whitespace-pre-wrap">
                     {/* Adjust each box width to 30% to fit 3 items per row */}
-                    <div className="newsBox relative m-2 mx-2 w-full cursor-pointer overflow-hidden rounded border bg-white p-2 shadow-lg transition-all hover:scale-105">
+                    <div className="newsBox relative m-2 mx-2 w-full cursor-pointer overflow-hidden rounded border bg-white lg:p-2 p-2.5 shadow-lg transition-all hover:scale-105">
                       {/* Hover effect container */}
                       <div className="absolute bottom-0 left-0 right-0 top-0 transform border-4 border-transparent transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:border-yellow-600"></div>
 
                       {/* Inner content */}
                       <div className="flex items-center">
                         <FaRegNewspaper className="text-yellow-600" />
-                        <p className="mx-2 text-xs font-bold">{elem.time}</p>
+                        <p className="mx-2 text-[0.6rem] lg:text-xs font-bold">{elem.time}</p>
                       </div>
                       <div className="flex items-center p-2">
-                        <h4 className="text-wrap text-justify text-xs text-gray-700">
+                        <h4 className="text-wrap text-justify lg:text-xs text-[0.5rem] text-gray-700">
                           {elem.headline.substring(0, 40) + " ..."}
                         </h4>
                         <FaLocationArrow className="mx-5 text-yellow-600 transition-all hover:text-yellow-700" />
@@ -181,7 +196,10 @@ const NewsSection = () => {
           </Carousel>
           {/* </div>
                     </div> */}
-          <button onClick={()=>Navigate("/news")} className="m-auto rounded-md flex hover:scale-105 duration-200 hover:bg-yellow-500 items-center justify-center bg-yellow-600 p-2 font-semibold text-white">
+          <button
+            onClick={() => Navigate("/news")}
+            className="m-auto flex items-center justify-center rounded-md bg-yellow-600 p-2 font-semibold text-white duration-200 hover:scale-105 hover:bg-yellow-500"
+          >
             View More{" "}
             <span>
               <FaArrowRight className="mx-2 text-sm" />
