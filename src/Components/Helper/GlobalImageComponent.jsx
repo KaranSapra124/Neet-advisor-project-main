@@ -13,7 +13,7 @@ const GlobalImageComponent = ({ image }) => {
             <img
               key={mainImage}
               src={image[mainImage].imageUrl}
-              className="h-[30.5rem] w-full object-cover rounded-lg animate-zoomIn"
+              className="h-[30.5rem] shadow-md shadow-black w-full object-cover rounded-lg animate-zoomIn"
               alt="Main product"
             />
           </div>
@@ -37,7 +37,7 @@ const GlobalImageComponent = ({ image }) => {
               <div key={index} className="p-1">
                 <img
                   src={elem.imageUrl}
-                  className="w-full h-28 object-cover rounded shadow-sm shadow-black cursor-pointer"
+                  className="w-full h-28 object-cover rounded shadow-md shadow-black cursor-pointer"
                   alt={`Product view ${index + 1}`}
                 />
               </div>
