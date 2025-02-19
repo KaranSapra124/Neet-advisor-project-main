@@ -117,7 +117,7 @@ const InternationalGallery = () => {
           <GlobalImageComponent image={images} />
         </div>
       ) : (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center h-screen justify-center">
           <Spin className="m-auto" />
         </div>
       )}
