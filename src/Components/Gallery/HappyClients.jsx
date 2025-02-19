@@ -106,7 +106,7 @@ const HappyClients = () => {
       </div>
 
       {!isLoading ? (
-        <div className={`flex max-w-screen-xl flex-col`}>
+        <div className={`flex max-w-screen-xl justify-center items-center mx-auto flex-col`}>
           <GlobalImageComponent image={images} />
         </div>
       ) : (
