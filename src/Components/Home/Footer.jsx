@@ -14,13 +14,13 @@ const Footer = () => {
             Get the latest NEET UG and NEET PG Counselling updates, Policies,
             News, Articles, and Analysis in your inbox.
           </p>
-          <div className="mt-4 flex">
+          <div className="mt-4  flex">
             <input
               type="email"
               className="mr-2 lg:w-full w-44 rounded-md border border-gray-300 px-4 py-2 text-gray-700"
               placeholder="Enter your Email"
             />
-            <button className="rounded-md bg-yellow-600 px-4 py-2 font-bold text-white transition-all hover:bg-yellow-700">
+            <button className="rounded-md text-sm  bg-yellow-600 px-4 py-2 font-bold text-white transition-all hover:bg-yellow-700">
               Subscribe
             </button>
           </div>
