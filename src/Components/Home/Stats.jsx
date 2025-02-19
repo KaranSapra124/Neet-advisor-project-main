@@ -35,7 +35,7 @@ const Stats = () => {
       <ScrollAnimation animateIn="backInUp" duration={1.2}>
         <div className="mx-auto text-center">
           {/* Header */}
-          <h1 className="text-3xl font-bold text-yellow-600">
+          <h1 className="lg:text-3xl text-sm font-bold text-yellow-600">
             Stats That{" "}
             <span className="font-extrabold text-primary-color">Define Us</span>
           </h1>
@@ -43,27 +43,27 @@ const Stats = () => {
             Discover the milestones that showcase our commitment and impact.
           </p>
           <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={"mx-auto my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
           {/* Stats Grid */}
-          <div className="my-5 flex justify-evenly gap-6">
+          <div className="lg:my-5 my-7 lg:flex-row flex-col flex justify-center lg:justify-evenly lg:gap-6 gap-3">
             {statistics.map((stat, index) => (
               <div
                 key={index}
-                className="flex w-60 flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gray-100 p-8 shadow-md transition-all duration-300"
+                className="flex lg:w-60 w-44 lg:mx-0 mx-auto flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gray-100 lg:p-8 p-4 shadow-md transition-all duration-300"
               >
                 {/* Icon */}
                 <div className="flex items-center justify-between">
-                  <img src={stat?.icon} className="w-10 mx-2" alt="" srcset="" />
+                  <img src={stat?.icon} className="lg:w-10 w-8 mx-2" alt="" srcset="" />
                   {/* Count */}
                   <CountUp
                     num={stat.count}
                     speed={1}
-                    className="ml-5 text-4xl font-bold text-primary-color"
+                    className="ml-5 lg:text-4xl text-2xl font-bold text-primary-color"
                   />
                 </div>
                 {/* Title */}
-                <h3 className="my-2 text-sm font-bold text-gray-600">
+                <h3 className="my-2 lg:text-sm text-[0.7rem] font-bold text-gray-600">
                   {stat.title}
                 </h3>
               </div>
