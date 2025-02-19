@@ -47,10 +47,10 @@ const ImageSection = () => {
         {/* First Carousel */}
         <div className="relative">
           {/* Gradient Overlay - Left */}
-          <div className="absolute top-0 z-10 -ml-10 h-full w-[20rem] bg-gradient-to-r from-white to-transparent" />
+          <div className="absolute top-0 z-10 -ml-10 h-full lg:w-[20rem] w-[6rem] bg-gradient-to-r from-white to-transparent" />
 
           {/* Gradient Overlay - Right */}
-          <div className="absolute right-0 top-0 z-10 -mr-[1rem] h-full w-[20rem] rotate-180 bg-gradient-to-r from-white to-transparent" />
+          <div className="absolute right-0 top-0 z-10 -mr-[1rem] h-full lg:w-[20rem] w-[6rem] rotate-180 bg-gradient-to-r from-white to-transparent" />
 
           <Carousel
             className="relative mx-1 overflow-hidden lg:-mx-2"
@@ -78,10 +78,10 @@ const ImageSection = () => {
         {/* Second Carousel - Reverse Direction */}
         <div className="relative">
           {/* Gradient Overlay - Left */}
-          <div className="absolute top-0 z-10 -ml-10 h-full w-[20rem] bg-gradient-to-r from-white to-transparent" />
+          <div className="absolute top-0 z-10 -ml-10 h-full lg:w-[20rem] w-[6rem] bg-gradient-to-r from-white to-transparent" />
 
           {/* Gradient Overlay - Right */}
-          <div className="absolute right-0 top-0 z-10 -mr-[1rem] h-full w-[20rem] rotate-180 bg-gradient-to-r from-white to-transparent" />
+          <div className="absolute right-0 top-0 z-10 -mr-[1rem] h-full lg:w-[20rem] w-[6rem] rotate-180 bg-gradient-to-r from-white to-transparent" />
 
           <Carousel
             className="relative mx-1 overflow-hidden lg:-mx-2"
@@ -110,10 +110,10 @@ const ImageSection = () => {
         {/* Third Carousel - Reverse Direction */}
         <div className="relative">
           {/* Gradient Overlay - Left */}
-          <div className="absolute top-0 z-10 -ml-10 h-full w-[20rem] bg-gradient-to-r from-white to-transparent" />
+          <div className="absolute top-0 z-10 -ml-10 h-full lg:w-[20rem] w-[6rem] bg-gradient-to-r from-white to-transparent" />
 
           {/* Gradient Overlay - Right */}
-          <div className="absolute right-0 top-0 z-10 -mr-[1rem] h-full w-[20rem] rotate-180 bg-gradient-to-r from-white to-transparent" />
+          <div className="absolute right-0 top-0 z-10 -mr-[1rem] h-full lg:w-[20rem] w-[6rem] rotate-180 bg-gradient-to-r from-white to-transparent" />
 
           <Carousel
             className="relative mx-1 overflow-hidden lg:-mx-2"
