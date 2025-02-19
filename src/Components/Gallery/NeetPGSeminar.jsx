@@ -98,10 +98,9 @@ const NeetPGSeminar = () => {
           </span>
         </h1>
         <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="text-sm font-bold text-gray-700">
+        <p className="text-xs font-bold text-gray-700">
           Through dedication and innovation, we have successfully conducted NEET
-          PG seminars, <br /> setting new standards of excellence in medical
-          education and preparation.
+          PG seminars.
         </p>
       </div>
 
