@@ -1,54 +1,51 @@
+import React, { useState } from "react";
 import { Carousel } from "antd";
-import React, { useEffect, useState } from "react";
 
 const GlobalImageComponent = ({ image }) => {
   const [mainImage, setMainImage] = useState(0);
-  //   console.log(image);
-  const [isChanged, setIsChanged] = useState(false);
+
   return (
-    <>
-      <div className="flex items-center justify-center">
-      <div className="mx-auto max-w-screen-2xl">
-        <div className="mx-auto flex items-center max-w-screen-sm justify-center">
-          <img
-            key={mainImage}
-            src={image[mainImage].imageUrl}
-            className="h-[30.5rem] w-full animate-zoomIn"
-            alt=""
-            srcset=""
-          />
-          <div className="mx-auto">
-            <Carousel
-              dots={false}
-              vertical={true}
-              afterChange={() =>
-                setMainImage((prev) => (prev < image.length - 1 ? prev + 1 : 0))
-              }
-              className="max-w-screen-sm mx-auto"
-              slidesToShow={4}
-              autoplaySpeed={3000}
-              infinite
-              autoplay
-            >
-              {image?.map((elem, index) => {
-                return (
-                  <>
-                    {/* <div key={index} className="absolute w-full h-full bg-black/10 z-[999]"></div> */}
-                    <img
-                      key={index}
-                      className="w-40 shadow-sm shadow-black"
-                      src={elem.imageUrl}
-                      alt={elem}
-                    />
-                  </>
-                );
-              })}
-            </Carousel>
+    <div className="w-full max-w-screen-lg mx-auto p-4">
+      <div className="flex flex-row items-center justify-center gap-8">
+        {/* Main Image Container */}
+        <div className="flex-1">
+          <div className="relative w-full flex justify-center">
+            <img
+              key={mainImage}
+              src={image[mainImage].imageUrl}
+              className="h-[30.5rem] w-full object-cover rounded-lg animate-zoomIn"
+              alt="Main product"
+            />
           </div>
         </div>
+
+        {/* Vertical Carousel Container */}
+        <div className="w-40">
+          <Carousel
+            dots={false}
+            vertical
+            afterChange={() =>
+              setMainImage((prev) => (prev < image.length - 1 ? prev + 1 : 0))
+            }
+            slidesToShow={4}
+            autoplaySpeed={3000}
+            infinite
+            autoplay
+            className="h-[30.5rem]"
+          >
+            {image?.map((elem, index) => (
+              <div key={index} className="p-1">
+                <img
+                  src={elem.imageUrl}
+                  className="w-full h-28 object-cover rounded shadow-sm shadow-black cursor-pointer"
+                  alt={`Product view ${index + 1}`}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
       </div>
-      </div>
-    </>
+    </div>
   );
 };
 
