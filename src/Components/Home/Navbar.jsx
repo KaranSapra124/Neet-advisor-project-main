@@ -79,14 +79,14 @@ function Navbar() {
 
   return (
     <nav
-      className={` ${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80" : window.location.pathname.includes("mbbs-abroad") ? "bg-gradient-to-tr from-black/80 to-black/70" : window.location.pathname.includes("ug-seminar") ? "bg-black/95" : window.location.pathname.includes("careers") ? "bg-gradient-to-r from-black/50 via-gray-700 to-black/90" : window.location.pathname.includes("gallery") ? "bg-gradient-to-tr from-white/40 to-gray-900/90" : "bg-white"} sticky top-0 z-[1000] p-4 px-20 shadow-lg backdrop-blur-sm`}
+      className={` ${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80" : window.location.pathname.includes("mbbs-abroad") ? "bg-gradient-to-tr from-black/80 to-black/70" : window.location.pathname.includes("ug-seminar") ? "bg-black/95" : window.location.pathname.includes("careers") ? "bg-gradient-to-r from-black/50 via-gray-700 to-black/90" : window.location.pathname.includes("gallery") ? "bg-gradient-to-tr from-white/40 to-gray-900/90" : "bg-white"} sticky top-0 z-[1000] p-4 lg:px-20 px-8 shadow-lg backdrop-blur-sm`}
     >
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between ">
         <div className="flex items-center">
           {!window?.location?.pathname?.includes("medical-expo") && (
             <img
               src="neet-advisor-logo-Photoroom.png"
-              className="h-[4rem]"
+              className="lg:h-[4rem] h-10"
               alt=""
               srcset=""
             />
