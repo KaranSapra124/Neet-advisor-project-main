@@ -107,7 +107,7 @@ const CounsellingSection = () => {
                         index % 2 === 0
                           ? "flex lg:w-[30.5rem] w-[20rem] cursor-pointer bg-gradient-to-tr from-gray-100 to-blue-100/50 p-5 shadow-md hover:shadow-xl"
                           : "lg:mr-[30rem]  flex lg:w-[27.5rem] w-[20rem] cursor-pointer bg-gradient-to-tr from-gray-100 to-blue-100/50 p-5 shadow-md hover:shadow-xl"
-                      } ${index == randomIndex ? "scale-[101%] border-l-2 border-yellow-600 transition-all" : "border-none"}`}
+                      } ${index == randomIndex ? "lg:scale-105 scale-[101%] border-l-2 border-yellow-600 transition-all" : "border-none"}`}
                     >
                       <div className="my-auto flex-shrink-0 lg:text-xl text-[0.8rem] ">
                         <div
