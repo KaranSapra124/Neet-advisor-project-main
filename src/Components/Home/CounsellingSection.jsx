@@ -81,13 +81,13 @@ const CounsellingSection = () => {
         <div className="mx-auto flex items-center justify-center rounded-md">
           <div>
             <div className="mb-4 text-center">
-              <h2 className="text-md my-1 font-bold text-yellow-600 lg:text-3xl">
+              <h2 className="text-sm my-1 font-bold text-yellow-600 lg:text-3xl">
                 What We Have To{" "}
                 <span className="font-extrabold text-primary-color">
                   Offer ?
                 </span>
               </h2>
-              <p className="mx-auto my-2 max-w-72 text-xs font-semibold text-gray-700 lg:max-w-sm">
+              <p className="mx-auto my-2 max-w-72 lg:text-xs text-[0.5rem] font-semibold text-gray-700 lg:max-w-sm">
                 Get personalized answers and ease your biggest doubts with Video
                 Counselling from our curated experts.
               </p>
