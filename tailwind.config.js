@@ -39,6 +39,9 @@ module.exports = {
           "break-inside": "avoid",
         },
       },
+      screens: {
+        xs: "500px",
+      },
     },
   },
 

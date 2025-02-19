@@ -9,17 +9,17 @@ import ImageContainer from "../Home/ImageSection";
 
 const Hero = () => {
   return (
-    <div className="relative px-5 py-10 z-10 flex items-center justify-center">
-      <div className=" flex w-full flex-col items-center">
-        <div className="flex items-center justify-center">
-          <h1 className="primary text-3xl font-bold">
+    <div className="px-2 py-5 relative z-10 flex items-center justify-center lg:px-5 lg:py-10">
+      <div className="flex w-full flex-col  items-center">
+        <div className="flex  items-center justify-center">
+          <h1 className="primary lg:text-3xl text-sm font-bold ">
             Complete Handholding for <br />{" "}
             <span className="font-bold text-yellow-600">
               <span className="font-extrabold">NEET</span> Counselling Guidance
             </span>
           </h1>
           <Lottie
-            className="z-0 w-[8rem]"
+            className="z-0 lg:w-[8rem] w-[4rem] "
             animationData={medicalReception}
             loop={true}
           />
