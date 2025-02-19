@@ -105,6 +105,16 @@ const Testimonials = () => {
     return acc;
   }, {});
 
+  useEffect(() => {
+    const updateSlides = () => {
+      const currWidth = window.innerWidth;
+      setSlidesToShow(currWidth);
+    };
+    updateSlides();
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
   // Create slides array with proper grouping
   const slides = Object.entries(groupedTestimonials).flatMap(
     ([count, items]) => {
@@ -118,13 +128,13 @@ const Testimonials = () => {
 
   return (
     <Container className="bg-gray-200/40">
-      <h1 className="text-center text-3xl font-bold leading-none text-yellow-600">
+      <h1 className="text-center text-sm font-bold leading-none text-yellow-600 lg:text-3xl">
         What our customers are{" "}
         <span className="font-extrabold text-primary-color">
           saying about us?
         </span>
       </h1>
-      <Divider className="mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600" />
+      <Divider className="mx-auto my-4 h-1 w-12 rounded-full bg-yellow-600 lg:w-20" />
 
       <ScrollAnimation animateIn="fadeInUp" duration={1.5}>
         <Carousel
@@ -136,22 +146,38 @@ const Testimonials = () => {
           infinite
           className="mx-auto my-8 max-w-screen-xl"
         >
-          {slides.map((group, groupIndex) => (
-            <div key={groupIndex} className="px-4">
-              <div className="flex gap-4">
-                {group.map((testimonial) => (
-                  <div key={testimonial.id} className="relative flex flex-col max-[600px]:flex-wrap">
+          {slidesToShow > 768
+            ? slides.map((group, groupIndex) => (
+                <div key={groupIndex} className="px-4">
+                  <div className="flex gap-4">
+                    {group.map((testimonial) => (
+                      <div
+                        key={testimonial.id}
+                        className="relative flex flex-col max-[600px]:flex-wrap"
+                      >
+                        <TestimonialCard
+                          clientCollege={testimonial.title}
+                          clientName={testimonial.name}
+                          review={testimonial.testimonial}
+                          imgUrl={testimonial.image}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            : testimonialsData?.map((testimonial, index) => {
+                return (
+                  <>
                     <TestimonialCard
                       clientCollege={testimonial.title}
                       clientName={testimonial.name}
                       review={testimonial.testimonial}
                       imgUrl={testimonial.image}
                     />
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+                  </>
+                );
+              })}
         </Carousel>
       </ScrollAnimation>
     </Container>
@@ -160,20 +186,20 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative flex h-full max-h-72 gap-4 rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400">
+    <div className="relative lg:my-0 my-10 lg:mx-0 mx-auto flex h-full rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:max-h-72 max-h-80 lg:gap-4">
       <img
-        className="absolute -left-3 -top-3 h-14 w-14 rounded-full shadow shadow-yellow-600"
+        className="absolute -left-3 -top-3 lg:h-14 lg:w-14 w-10 h-10 rounded-full shadow shadow-yellow-600"
         src={imgUrl}
         alt=""
         srcset=""
       />
-      <div className="px-6 py-5">
-        <h1 className="text-sm font-bold text-primary-color">{clientName}</h1>
-        <h2 className="my-1 text-xs font-medium text-gray-800">
+      <div className="lg:px-6 lg:py-5 px-3 py-4">
+        <h1 className="lg:text-sm text-[0.7rem] font-bold text-primary-color">{clientName}</h1>
+        <h2 className="my-1 lg:text-xs text-[0.5rem] font-medium text-gray-800">
           {clientCollege}
         </h2>
-        <Divider className="my-4 h-1 w-20 rounded-full bg-yellow-600" />
-        <p className="text-xs font-bold italic">"{review}"</p>
+        <Divider className="my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600" />
+        <p className="lg:text-xs text-[0.5rem] font-bold italic">"{review}"</p>
       </div>
     </div>
   );
