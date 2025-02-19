@@ -3,10 +3,10 @@ import React from "react";
 const Footer = () => {
   return (
     <footer
-      className={`${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80" : window.location.pathname.includes("mbbs-abroad") ? "bg-gradient-to-br from-black/80 to-black/70" : window.location.pathname.includes("gallery") ? "bg-gradient-to-tr from-black/15 to-gray-900/50" : window.location.pathname.includes("ug-seminar") ? "bg-black/95" : window.location.pathname.includes("careers") ? "bg-gradient-to-br from-black/50 via-gray-700 to-black/90" : "bg-primary-color"} p-5 text-white lg:p-20`}
+      className={`${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80" : window.location.pathname.includes("mbbs-abroad") ? "bg-gradient-to-br from-black/80 to-black/70" : window.location.pathname.includes("gallery") ? "bg-gradient-to-tr from-black/15 to-gray-900/50" : window.location.pathname.includes("ug-seminar") ? "bg-black/95" : window.location.pathname.includes("careers") ? "bg-gradient-to-br from-black/50 via-gray-700 to-black/90" : "bg-primary-color"} p-10 text-white lg:p-20`}
     >
-      <div className="mx-auto flex flex-col items-center md:flex-row lg:justify-between">
-        <div className="mb-2 md:mb-0 lg:mb-4 lg:p-0 p-8">
+      <div className="mx-auto flex flex-col items-center md:flex-row lg:justify-between lg:p-0 ">
+        <div className="mb-2 md:mb-0 lg:mb-4 ">
           <h3 className={`mb-2 text-sm font-bold text-white lg:text-lg`}>
             Stay Updated!
           </h3>
