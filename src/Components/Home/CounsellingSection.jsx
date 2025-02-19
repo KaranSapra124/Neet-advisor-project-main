@@ -124,7 +124,7 @@ const CounsellingSection = () => {
                           {elem?.keyPoints?.map((point, idx) => (
                             <li key={idx} className="group flex items-center">
                               <TiTick className="text-xl text-green-500 transition-transform duration-200 group-hover:scale-110" />
-                              <span className="ml-2   text-left lg:text-sm text-xs font-semibold text-gray-800">
+                              <span className="ml-2   text-left lg:text-sm text-[0.7rem] font-semibold text-gray-800">
                                 {point}
                               </span>
                             </li>
