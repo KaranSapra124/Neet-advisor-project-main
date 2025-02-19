@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="mt-4 flex">
             <input
               type="email"
-              className="mr-2 rounded-md border border-gray-300 px-4 py-2 text-gray-700"
+              className="mr-2 lg:w-full w-52 rounded-md border border-gray-300 px-4 py-2 text-gray-700"
               placeholder="Enter your Email"
             />
             <button className="rounded-md bg-yellow-600 px-4 py-2 font-bold text-white transition-all hover:bg-yellow-700">
