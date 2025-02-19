@@ -100,10 +100,9 @@ const SeminarAndWorkshops = () => {
           </span>
         </h1>
         <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="whitespace-pre-wrap text-sm font-bold text-gray-700">
+        <p className="whitespace-pre-wrap text-xs font-bold text-gray-700">
           Through dedication and innovation, we have successfully hosted
-          impactful seminars and workshops, <br /> setting new standards of
-          excellence in education and professional development.
+          impactful seminars and workshops.
         </p>
       </div>
 
