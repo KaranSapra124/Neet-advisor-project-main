@@ -59,7 +59,7 @@ const Stats = () => {
                   <CountUp
                     num={stat.count}
                     speed={1}
-                    className="ml-5 lg:text-4xl text-2xl font-bold text-primary-color"
+                    className="lg:ml-5 ml-2.5 lg:text-4xl text-xl font-bold text-primary-color"
                   />
                 </div>
                 {/* Title */}
