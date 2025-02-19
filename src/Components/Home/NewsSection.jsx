@@ -198,7 +198,7 @@ const NewsSection = () => {
                     </div> */}
           <button
             onClick={() => Navigate("/news")}
-            className="m-auto flex items-center justify-center rounded-md bg-yellow-600 p-2 font-semibold text-white duration-200 hover:scale-105 hover:bg-yellow-500"
+            className="m-auto flex lg:text-sm text-[0.5rem]  items-center justify-center rounded-md bg-yellow-600 p-2 font-semibold text-white duration-200 hover:scale-105 hover:bg-yellow-500"
           >
             View More{" "}
             <span>
