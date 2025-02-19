@@ -96,7 +96,7 @@ const InternationalGallery = () => {
 
   return (
     // <Container>
-    <div className=" mx-auto px-4">
+    <div className="mx-auto px-4">
       {/* Elegant Header */}
       <div className="mb-5 space-y-3 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
@@ -113,11 +113,13 @@ const InternationalGallery = () => {
       </div>
 
       {!isLoading ? (
-        <div className={`flex max-w-screen-xl flex-col`}>
+        <div
+          className={`mx-auto flex max-w-screen-xl flex-col items-center justify-center`}
+        >
           <GlobalImageComponent image={images} />
         </div>
       ) : (
-        <div className="flex items-center h-screen justify-center">
+        <div className="flex h-screen items-center justify-center">
           <Spin className="m-auto" />
         </div>
       )}
