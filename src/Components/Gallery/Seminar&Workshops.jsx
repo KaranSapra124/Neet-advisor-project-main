@@ -2,6 +2,7 @@ import { Carousel, Spin } from "antd";
 import React, { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import Divider from "../Helper/Divider";
+import GlobalImageComponent from "../Helper/GlobalImageComponent";
 
 const SeminarAndWorkshops = () => {
   let count = 0;
@@ -98,7 +99,7 @@ const SeminarAndWorkshops = () => {
             Workshops
           </span>
         </h1>
-        <Divider className={"mx-auto h-1 w-12 bg-yellow-600 rounded-full "} />
+        <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
         <p className="whitespace-pre-wrap text-sm font-bold text-gray-700">
           Through dedication and innovation, we have successfully hosted
           impactful seminars and workshops, <br /> setting new standards of
@@ -110,33 +111,7 @@ const SeminarAndWorkshops = () => {
         <div
           className={`grid grid-cols-${partitions?.length - 1} max-w-screen-xl`}
         >
-          {partitions?.map((_, index) => {
-            return (
-              <Carousel
-                autoplay
-                autoplaySpeed={2000}
-                rtl={index % 2 === 0 ? true : false}
-                dots={false}
-                vertical={true}
-                slidesToShow={3}
-                infinite
-              >
-                {images
-                  ?.slice(
-                    partitions[index],
-                    index + 1 < partitions.length
-                      ? partitions[index + 1] + 1
-                      : partitions.length,
-                  )
-                  ?.map((ele, ind) => {
-                    // {console.log(ele,ind,"FIRST")}
-                    return (
-                      <img className="m-2 h-64 w-64" src={ele?.imageUrl} />
-                    );
-                  })}
-              </Carousel>
-            );
-          })}
+          <GlobalImageComponent image={images} />
         </div>
       ) : (
         <div className="flex items-center justify-center">
