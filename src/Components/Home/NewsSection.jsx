@@ -123,7 +123,7 @@ const NewsSection = () => {
       const currWidth = window.innerWidth;
       if (currWidth <= 768) {
         setSlidesToShow(1);
-      } else if (currWidth <= 1024) {
+      } else if (currWidth >= 768 && currWidth <= 1024) {
         setSlidesToShow(2);
       } else {
         setSlidesToShow(4);
@@ -157,7 +157,7 @@ const NewsSection = () => {
           <Carousel
             slidesToShow={slidesToShow}
             dots={false}
-            className="lg:mx-10 lg:my-5  gap-x-1"
+            className="gap-x-1 lg:mx-10 lg:my-5"
             arrows={true}
             dotPosition="bottom"
             autoplay
@@ -169,17 +169,19 @@ const NewsSection = () => {
                 <div className="flex">
                   <div className="flex w-full items-center whitespace-pre-wrap">
                     {/* Adjust each box width to 30% to fit 3 items per row */}
-                    <div className="newsBox relative m-2 mx-2 w-full cursor-pointer overflow-hidden rounded border bg-white lg:p-2 p-2.5 shadow-lg transition-all hover:scale-105">
+                    <div className="newsBox relative m-2 mx-2 w-full cursor-pointer overflow-hidden rounded border bg-white p-2.5 shadow-lg transition-all hover:scale-105 lg:p-2">
                       {/* Hover effect container */}
                       <div className="absolute bottom-0 left-0 right-0 top-0 transform border-4 border-transparent transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:border-yellow-600"></div>
 
                       {/* Inner content */}
                       <div className="flex items-center">
                         <FaRegNewspaper className="text-yellow-600" />
-                        <p className="mx-2 text-[0.6rem] lg:text-xs font-bold">{elem.time}</p>
+                        <p className="mx-2 text-[0.6rem] font-bold lg:text-xs">
+                          {elem.time}
+                        </p>
                       </div>
                       <div className="flex items-center p-2">
-                        <h4 className="text-wrap text-justify lg:text-xs text-[0.5rem] text-gray-700">
+                        <h4 className="text-wrap text-justify text-[0.5rem] text-gray-700 lg:text-xs">
                           {elem.headline.substring(0, 40) + " ..."}
                         </h4>
                         <FaLocationArrow className="mx-5 text-yellow-600 transition-all hover:text-yellow-700" />
@@ -198,7 +200,7 @@ const NewsSection = () => {
                     </div> */}
           <button
             onClick={() => Navigate("/news")}
-            className="m-auto flex lg:text-sm text-[0.5rem]  items-center justify-center rounded-md bg-yellow-600 p-2 font-semibold text-white duration-200 hover:scale-105 hover:bg-yellow-500"
+            className="m-auto flex items-center justify-center rounded-md bg-yellow-600 p-2 text-[0.5rem] font-semibold text-white duration-200 hover:scale-105 hover:bg-yellow-500 lg:text-sm"
           >
             View More{" "}
             <span>
