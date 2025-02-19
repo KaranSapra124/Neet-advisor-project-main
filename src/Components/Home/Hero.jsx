@@ -39,20 +39,20 @@ const Hero = () => {
         <button className="mt-5 lg:text-sm text-xs rounded-lg bg-yellow-600 px-4 py-2 font-bold text-white transition-all duration-300 hover:bg-yellow-500">
           Book a Free session
         </button>
-        <div className="flex py-5">
+        <div className="flex  lg:py-5 py-8">
           <div className="gabriela-regular mr-10">
-            <h1 className="mb-2 lg:text-2xl text-sm font-bold text-indigo-950">50K+</h1>
-            <p className="text-md font-semibold text-gray-700">
+            <h1 className="mb-2 lg:text-2xl text-base font-bold text-indigo-950">50K+</h1>
+            <p className="lg:text-md text-xs font-semibold text-gray-700">
               Sessions Completed
             </p>
           </div>
           <div className="flex items-center">
-            <FcGoogle className="mr-3 text-4xl" />
+            <FcGoogle className="mr-3  lg:text-4xl text-xl" />
             <div className="flex flex-col">
               <div className="mb-2 flex">
-                <Rate className="text-lg" count={5} value={5} />
+                <Rate className="lg:text-lg text-sm " count={5} value={5} />
               </div>
-              <p className="text-md font-bold text-gray-700">
+              <p className="lg:text-md text-[0.7rem]  font-bold text-gray-700">
                 5 / 5 | 4406 Reviews
               </p>
             </div>
