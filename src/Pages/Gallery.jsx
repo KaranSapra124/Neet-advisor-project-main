@@ -49,7 +49,7 @@ const Gallery = () => {
           return 1;
         }
       });
-    }, 100000);
+    }, 10000);
     return () => clearInterval(keyInterval);
   }, []);
   return (
