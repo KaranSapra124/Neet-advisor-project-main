@@ -5,11 +5,10 @@ const GlobalImageComponent = ({ image }) => {
   const [mainImage, setMainImage] = useState(0);
   //   console.log(image);
   const [isChanged, setIsChanged] = useState(false);
-  useEffect(() => console.log(mainImage), [mainImage]);
   return (
     <>
-      <div className="mx-auto ">
-        <div className="flex flex-row max-w-screen-xl">
+      <div className="mx-auto flex justify-center items-center">
+        <div className="flex flex-row justify-center items-center mx-auto max-w-screen-2xl">
           <img
             key={mainImage}
             src={image[mainImage].imageUrl}
