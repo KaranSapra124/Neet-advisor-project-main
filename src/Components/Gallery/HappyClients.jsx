@@ -99,10 +99,9 @@ const HappyClients = () => {
           </span>
         </h1>
         <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="whitespace-pre-wrap text-sm font-bold text-gray-700">
+        <p className="whitespace-pre-wrap text-xs font-bold text-gray-700">
           Thanks to our dedication and innovation, we have earned the trust of
-          our clients, <br /> consistently exceeding expectations and setting
-          new standards of excellence.
+          our clients.
         </p>
       </div>
 
