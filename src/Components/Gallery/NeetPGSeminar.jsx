@@ -1,6 +1,7 @@
 import { Carousel, Spin } from "antd";
 import React, { useEffect, useState } from "react";
 import Divider from "../Helper/Divider";
+import GlobalImageComponent from "../Helper/GlobalImageComponent";
 
 const NeetPGSeminar = () => {
   let count = 0;
@@ -97,7 +98,7 @@ const NeetPGSeminar = () => {
           </span>
         </h1>
         <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className=" text-sm font-bold text-gray-700">
+        <p className="text-sm font-bold text-gray-700">
           Through dedication and innovation, we have successfully conducted NEET
           PG seminars, <br /> setting new standards of excellence in medical
           education and preparation.
@@ -105,36 +106,8 @@ const NeetPGSeminar = () => {
       </div>
 
       {!isLoading ? (
-        <div
-          className={`flex flex-col max-w-screen-xl`}
-        >
-          {partitions?.map((_, index) => {
-            return (
-              <Carousel
-                autoplay
-                autoplaySpeed={2000}
-                rtl={index % 2 === 0 ? true : false}
-                dots={false}
-                // vertical={true}
-                slidesToShow={3}
-                infinite
-              >
-                {images
-                  ?.slice(
-                    partitions[index],
-                    index + 1 < partitions.length
-                      ? partitions[index + 1] + 1
-                      : partitions.length,
-                  )
-                  ?.map((ele, ind) => {
-                    // {console.log(ele,ind,"FIRST")}
-                    return (
-                      <img className="m-2 shadow-md shadow-white h-64 w-64" src={ele?.imageUrl} />
-                    );
-                  })}
-              </Carousel>
-            );
-          })}
+        <div className={`flex max-w-screen-xl flex-col`}>
+          <GlobalImageComponent image={images} />
         </div>
       ) : (
         <div className="flex items-center justify-center">
