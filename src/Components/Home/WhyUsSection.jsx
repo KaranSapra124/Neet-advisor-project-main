@@ -105,28 +105,29 @@ const WhyUsSection = () => {
       <div ref={sectionRef} key={animationKey} className="mx-auto">
         {/* Header Section */}
         <div className="lg:my-8 my-4 text-center">
-          <h1 className="mb-2  lg:text-3xl  font-bold text-yellow-600">
+          <h1 className="mb-2  lg:text-3xl text-sm font-bold text-yellow-600">
             Why{" "}
-            <span className="font-extrabold text-primary-color">
+            <span className="font-extrabold  text-primary-color">
               NEET Advisor?
             </span>
           </h1>
-          <p className="text-xs w-96 mx-auto text-gray-700 font-bold">
+          <p className="lg:text-xs text-[0.5rem]  lg:w-96 mx-auto text-gray-700 font-bold">
             Unlock Your Success in 4 Simple Steps with our <strong>NEET</strong>{" "}
             Counselling Guidance.
           </p>
           <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={"mx-auto my-4 h-1 lg:w-20 w-10 rounded-full bg-yellow-600"}
           />
         </div>
         {/* Main Content Section */}
-        <div className="mx-auto flex max-w-screen-lg flex-col items-center justify-center lg:flex-row">
+        <div className="mx-auto flex lg:max-w-screen-lg flex-col items-center justify-center lg:flex-row">
           {/* Left Image Section */}
-          <div className="w-full ml-32 lg:w-1/2">
+          <div className="w-full  lg:ml-32 lg:w-1/2">
             <ScrollAnimation
               initiallyVisible
               animateIn="fadeInLeft"
               duration={1}
+
             >
               <div className="why-us-gallery rounded-lg">
                 {images.map((src, index) => (
@@ -141,7 +142,7 @@ const WhyUsSection = () => {
           </div>
 
           {/* Right Accordion Section */}
-          <div className=" w-full space-y-6  lg:w-1/2">
+          <div className=" w-full lg:space-y-6   lg:w-1/2">
             {services.map((service, index) => (
               <ScrollAnimation
                 initiallyVisible
@@ -164,20 +165,20 @@ const WhyUsSection = () => {
                               "border-2 border-yellow-600 transition-all"
                             } bg-gray-100 p-2 shadow-sm transition-transform duration-300 hover:scale-110`}
                           >
-                            <img className="w-10" src={service?.icon} />
+                            <img className="lg:w-10 w-8" src={service?.icon} />
                           </div>
                           <span
-                            className={`text-lg ${
+                            className={`lg:text-lg text-[0.7rem] ${
                               index === random ? "font-extrabold" : "font-bold"
-                            } text-gray-600 transition-colors group-hover:text-yellow-600`}
+                            } text-gray-600  transition-colors group-hover:text-yellow-600`}
                           >
                             {service.label}
                           </span>
                         </div>
                       ),
                       children: (
-                        <div className="rounded-lg bg-gray-50 p-4  shadow-inner">
-                          <p className="font-medium leading-relaxed text-gray-700">
+                        <div className="rounded-lg bg-gray-50 lg:p-4 p-2  shadow-inner">
+                          <p className="font-medium lg:text-sm text-[0.5rem] leading-relaxed text-gray-700">
                             {service.children}
                           </p>
                         </div>
