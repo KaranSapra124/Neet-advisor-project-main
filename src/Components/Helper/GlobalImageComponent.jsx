@@ -8,7 +8,7 @@ const GlobalImageComponent = ({ image }) => {
   useEffect(() => console.log(mainImage), [mainImage]);
   return (
     <>
-      <div className="max-w-screen-md mx-auto">
+      <div className="max-w-screen-md  mx-auto">
         <div>
           <img
             key={mainImage}

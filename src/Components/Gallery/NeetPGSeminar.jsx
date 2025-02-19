@@ -88,7 +88,7 @@ const NeetPGSeminar = () => {
     return () => clearTimeout(loadingInterval, 2500);
   }, []);
   return (
-    <div className="container mx-auto px-4">
+    <div className="mx-auto px-4">
       {/* Elegant Header */}
       <div className="mb-5 space-y-4 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
@@ -105,7 +105,7 @@ const NeetPGSeminar = () => {
       </div>
 
       {!isLoading ? (
-        <div className={`flex max-w-screen-xl flex-col`}>
+        <div className={`flex  justify-center items-center mx-auto `}>
           <GlobalImageComponent image={images} />
         </div>
       ) : (
