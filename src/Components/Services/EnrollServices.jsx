@@ -264,7 +264,7 @@ const EnrollServices = () => {
                         <>
                           <div
                             onClick={() => toggleExpand({})}
-                            className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 p-2 py-2 text-xs font-semibold text-white shadow transition-all"
+                            className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 p-2 py-2 lg:text-xs text-[0.6rem] font-semibold text-white shadow transition-all"
                           >
                             <UpOutlined className="transition-all duration-150" />{" "}
                             Show Less
@@ -274,7 +274,7 @@ const EnrollServices = () => {
                         <>
                           <div
                             onClick={() => toggleExpand(serviceIndex)}
-                            className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 p-2 py-2 text-xs font-semibold text-white shadow transition-all"
+                            className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 lg:p-2 lg:py-2 p-1.5 lg:text-xs text-[0.6rem] font-semibold text-white shadow transition-all"
                           >
                             <DownOutlined /> Learn More
                           </div>
