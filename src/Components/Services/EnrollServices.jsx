@@ -169,7 +169,7 @@ const EnrollServices = () => {
 
         {/* Remaining Cards in a Row */}
         <div
-          className="grid animate-fadeIn grid-cols-1 gap-5 md:grid-cols-3"
+          className="animate-fadeIn   gap-5   grid lg:grid-cols-3 grid-cols-1"
           key={isChanged}
         >
           {servicesArr &&
@@ -187,10 +187,10 @@ const EnrollServices = () => {
                     transition={{ duration: 0.5 }}
                     whileHover={{ scale: 1.05 }} // Scale effect on hover
                     // whileHover={{ scale: 1.05 }} // Scale effect on hover
-                    className="flex flex-col rounded-md border-b-2 border-l-2 border-yellow-600 shadow-lg"
+                    className="flex flex-col  rounded-md border-b-2 border-l-2 border-yellow-600 shadow-lg"
                   >
                     {/* Video Section */}
-                    <div className="group relative w-full">
+                    <div className="group relative ">
                       <video
                         id={`video-${serviceIndex}`}
                         className="aspect-video m-1 h-full w-full rounded-md object-cover"
