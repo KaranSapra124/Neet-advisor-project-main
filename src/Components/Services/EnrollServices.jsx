@@ -154,7 +154,7 @@ const EnrollServices = () => {
               );
               setIsChanged(!isChanged);
             }}
-            className="my-2 cursor-pointer rounded-full bg-yellow-600 p-2 text-3xl text-white shadow-md shadow-black duration-200 hover:scale-105"
+            className="my-2 cursor-pointer rounded-full bg-yellow-600 lg:p-2 p-1.5 lg:text-3xl text-xl text-white shadow-md shadow-black duration-200 hover:scale-105"
           />
           <FaArrowRight
             onClick={() => {
@@ -163,7 +163,7 @@ const EnrollServices = () => {
               );
               setIsChanged(!isChanged);
             }}
-            className="mx-2 my-2 cursor-pointer rounded-full bg-yellow-600 p-2 text-3xl text-white shadow-md shadow-black duration-200 hover:scale-105"
+            className="mx-2 my-2 cursor-pointer rounded-full bg-yellow-600 lg:p-2 p-1.5 lg:text-3xl text-xl text-white shadow-md shadow-black duration-200 hover:scale-105"
           />
         </div>
 
