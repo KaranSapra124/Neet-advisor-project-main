@@ -42,7 +42,7 @@ const Hero = () => {
     >
       <div className="z-1 absolute lg:h-[35rem] h-full w-full bg-white/85"></div>
 
-      <div className="z-[99] mx-auto flex lg:flex-row flex-col lg:max-w-screen-xl items-center justify-center">
+      <div className="z-[99] lg:py-0 py-4 mx-auto flex lg:flex-row flex-col lg:max-w-screen-xl items-center justify-center">
         {/* Left Content */}
         <ScrollAnimation
           animateIn="backInLeft"

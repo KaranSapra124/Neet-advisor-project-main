@@ -13,11 +13,11 @@ const ShowWebinar = () => {
   ];
 
   return (
-    <Container className={" relative lg:h-[30rem] h-[35rem]"}>
+    <Container className={"relative lg:h-[30rem] h-[29rem]"}>
       {/* Whitish Overlay */}
       <div className="z-1 absolute inset-0 h-[30rem] bg-white/85"></div>
 
-      <div className="flex lg:flex-row lg:h-0 h-[37rem] lg:mb-0  flex-col-reverse lg:justify-evenly lg:max-w-screen-xl mx-auto">
+      <div className="flex lg:flex-row lg:h-0 h-[32rem] lg:mb-0  flex-col-reverse lg:justify-evenly lg:max-w-screen-xl mx-auto">
         <ScrollAnimation
           animateIn="backInLeft"
           duration={1.5}
@@ -47,7 +47,7 @@ const ShowWebinar = () => {
           duration={1.5}
           // animateOnce={true}
         >
-          <div className="z-50 w-full mx-auto border-yellow-600 border-l-2 border-b-2  h-fit rounded-md bg-gradient-to-br from-white to-gray-100 p-2.5 lg:px-4 lg:py-5 shadow-lg shadow-gray-200">
+          <div className="z-50 lg:w-full   mx-auto border-yellow-600 border-l-2 border-b-2  h-fit rounded-md bg-gradient-to-br from-white to-gray-100 p-2.5 lg:px-4 lg:py-5 shadow-lg shadow-gray-200">
             <h1 className="font-bold text-yellow-600 lg:text-2xl text-sm">
               What You <span className="text-primary-color font-extrabold">Will Learn ?</span>
             </h1>
