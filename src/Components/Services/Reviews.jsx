@@ -127,7 +127,7 @@ const Reviews = () => {
           dots={true}
           arrows
           infinite
-          className="mx-auto my-8 max-w-screen-xl"
+          className="mx-auto lg:my-8 my-4 max-w-screen-xl"
         >
           {window.innerWidth > 768 ? (
             slides.map((group, groupIndex) => (
