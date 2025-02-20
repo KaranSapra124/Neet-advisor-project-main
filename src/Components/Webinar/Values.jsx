@@ -44,34 +44,34 @@ const Values = () => {
     <Container>
       <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
         <div>
-          <h1 className="text-center text-3xl font-bold text-yellow-600">
+          <h1 className="text-center lg:text-3xl text-sm font-bold text-yellow-600">
             Who Is This Webinar{" "}
             <span className="font-extrabold text-primary-color">For?</span>
           </h1>
-          <p className="my-4 max-w-96 mx-auto text-center text-xs font-semibold text-gray-800">
+          <p className="lg:my-4 my-2 lg:max-w-96  mx-auto text-center lg:text-xs text-[0.6rem] font-semibold text-gray-800">
             This webinar is designed to help both parents and students excel in
             the NEET exam by providing valuable insights and proven strategies.
           </p>
           <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={"mx-auto lg:my-4 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
         </div>
-        <div className="m-auto my-2 flex max-w-screen-xl">
+        <div className="m-auto my-2 flex lg:max-w-screen-xl lg:flex-row flex-col justify-center items-center">
           {data.map((item, index) => (
             <div
               key={index}
-              className="mx-4 mt-5  w-[40rem] rounded-lg border bg-white shadow-md"
+              className="mx-4 mt-5  lg:w-[40rem] w-full  rounded-lg border bg-white shadow-md"
             >
-              <div className="relative  flex">
+              <div className="relative flex">
                 <img
                   src="./Webinar/output-onlinegiftools.gif"
                   alt=""
-                  className="absolute shadow-white shadow-md -top-5 left-[36.5rem] z-50 h-10 w-10 rounded-full bg-gray-300 p-1"
+                  className="absolute shadow-white shadow-md lg:-top-5 -top-2 left-64 w-8 lg:left-[36.5rem] z-50 lg:h-10 lg:w-10 rounded-full bg-gray-300 p-1"
                   srcset=""
                 />
                 <div className="absolute h-full w-full rounded-lg bg-black/80"></div>
 
-                <video className="w-fit  rounded-lg" autoPlay loop muted>
+                <video className="w-full  rounded-lg" autoPlay loop muted>
                   <source src={item.video} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -83,7 +83,7 @@ const Values = () => {
                   }`}
                 >
                   <div
-                    className={`mt-24 w-full text-center ${
+                    className={`lg:mt-24 mt-16 w-full text-center ${
                       hoveredIndex === index ? "block" : "hidden"
                     }`}
                   >
@@ -100,7 +100,7 @@ const Values = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 213.7 213.7"
-                        className="h-40 w-40"
+                        className="lg:h-40 lg:w-40 w-10"
                       >
                         <polygon
                           className="triangle"
@@ -126,27 +126,27 @@ const Values = () => {
                     </a>
                   </div>
                 </div>
-                <div className="absolute h-full w-fit rounded-lg border-gray-100 bg-gray-900/10 p-2">
-                  <Badge className="rounded-md bg-black/90 p-2 text-sm font-bold text-white ">
+                <div className="absolute h-full w-fit rounded-lg border-gray-100 bg-gray-900/10 lg:p-2 lg:px-2 px-1 ">
+                  <Badge className="rounded-md bg-black/90 lg:p-2 p-1 lg:text-sm text-[0.5rem] font-bold text-white ">
                     {item.title}
                   </Badge>
-                  <p className="mt-2 text-sm font-bold text-gray-100">
+                  <p className="lg:mt-2 mt-1 lg:text-sm text-[0.5rem]  lg:font-bold font-extrabold text-gray-100">
                     {item.description}
                   </p>
                   <Divider
-                    className={"my-2 h-0.5 w-16 rounded-full bg-yellow-600"}
+                    className={"lg:my-2 my-1 h-0.5 lg:w-16 w-12 rounded-full bg-yellow-600"}
                   />
                   <ul className="list-disc">
                     {item.points.map((point, idx) => (
-                      <li key={idx} className="mt-2  flex items-center text-xs">
-                        <TiTick className="text-2xl text-primary-color brightness-[400%]" />
-                        <span className="font-semibold text-gray-50">
+                      <li key={idx} className="lg:mt-2 mt-0.5   flex items-center lg:text-xs text-[0.5rem]">
+                        <TiTick className="lg:text-2xl text-xs text-primary-color brightness-[400%]" />
+                        <span className="font-semibold lg:text-xs text-[0.48rem] mx-1 text-gray-50">
                           {point}
                         </span>
                       </li>
                     ))}
                   </ul>
-                  <FaPlayCircle className="mx-2 my-1.5 cursor-pointer rounded-md text-lg font-bold text-white" />
+                  <FaPlayCircle className="mx-2 my-1.5 cursor-pointer rounded-md lg:text-lg text-xs font-bold text-white" />
                 </div>
               </div>
             </div>
