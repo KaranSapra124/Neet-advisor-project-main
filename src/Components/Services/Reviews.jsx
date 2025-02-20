@@ -110,7 +110,7 @@ const Reviews = () => {
   );
 
   return (
-    <Container className="bg-gray-200/40">
+    <Container className="bg-white">
       <h1 className="text-center text-sm font-bold leading-none text-yellow-600 lg:text-3xl">
         What our customers are{" "}
         <span className="font-extrabold text-primary-color">
@@ -171,7 +171,7 @@ const Reviews = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative lg:my-0 my-10 lg:mx-0 mx-auto flex h-full rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:max-h-72 max-h-80 lg:gap-4">
+    <div className="relative lg:my-0 my-10 lg:mx-0 mx-auto flex lg:h-full h-96 rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:max-h-72 max-h-80 lg:gap-4">
       <img
         className="absolute -left-3 -top-3 lg:h-14 lg:w-14 w-10 h-10 rounded-full shadow shadow-yellow-600"
         src={imgUrl}
