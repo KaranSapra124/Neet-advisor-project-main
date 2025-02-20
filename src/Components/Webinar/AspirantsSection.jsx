@@ -308,28 +308,35 @@ const AspirantsSection = () => {
   ];
 
   return (
-    <Container className={"bg-gray-200/40"}>
-      <div className="mb-4 max-w-screen-xl text-center">
-        <h1 className="mb-2 text-3xl font-bold text-yellow-600">
+    <Container className={"bg-gray-200/40  lg:py-0"}>
+      <div className="mb-4 lg:max-w-screen-xl lg:text-center">
+        <h1 className="mb-1.5 text-[0.8rem] font-bold text-yellow-600 lg:mb-2 lg:text-3xl">
           Students Coached to{" "}
           <span className="font-extrabold text-primary-color">
             Top Medical Colleges
           </span>
         </h1>
-        <p className="mx-auto my-4 max-w-xl text-xs font-bold text-gray-800">
+        <p className="mx-auto my-2 text-[0.6rem] font-bold text-gray-800 lg:my-4 lg:max-w-xl lg:text-xs">
           Check out the medical colleges our attendees have reached with
           enhanced confidence, clarity, and applying our strategies.
         </p>
         <Divider
-          className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          className={
+            "mx-auto my-2.5 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+          }
         />
       </div>
-      <Carousel autoplay slidesToShow={3} arrows={false} dots={false}>
+      <Carousel
+        autoplay
+        slidesToShow={window.innerWidth > 786 ? 3 : 1}
+        arrows={false}
+        dots={false}
+      >
         {neetAspirants.map((elem, index) => (
           <div key={index} className="relative p-1">
             <img
               src="./Webinar/validation-badge-bg-removed.gif"
-              className="absolute -top-2 left-[23.5rem] z-20 w-10"
+              className="absolute -top-2 left-[33rem] lg:left-[23.5rem] z-20 w-10"
               alt=""
               srcset=""
             />
@@ -337,32 +344,32 @@ const AspirantsSection = () => {
               <div className="flex items-center justify-between gap-2">
                 <div className="min-w-0 flex-1">
                   {/* Student Name and Divider */}
-                  <h2 className="mb-2 text-sm font-extrabold text-primary-color">
+                  <h2 className="mb-2 lg:text-sm text-xs font-extrabold text-primary-color">
                     {elem?.Name}
                   </h2>
-                  <div className="mb-4 h-0.5 w-16 rounded-full bg-yellow-600" />
+                  <div className="lg:mb-4 mb-2 h-0.5 lg:w-16 w-12 rounded-full bg-yellow-600" />
 
                   {/* College Info */}
-                  <div className="mb-3 flex items-center gap-1">
-                    <FaUniversity className="mt-1  flex-shrink-0 text-primary-color" />
-                    <p className="line-clamp-1 mx-1 text-xs font-semibold text-gray-800">
+                  <div className="lg:mb-3 mb-1.5 flex items-center gap-1">
+                    <FaUniversity className="mt-1 flex-shrink-0 text-primary-color" />
+                    <p className="mx-1 line-clamp-1 text-xs font-semibold text-gray-800">
                       {elem?.College_Name}
                     </p>
                   </div>
 
                   {/* Rank */}
-                  <div className="mb-3 flex items-center gap-1">
+                  <div className="lg:mb-3 mb-1.5 flex items-center gap-1">
                     <FaRocket className="text-primary-color" />
-                    <span className="text-xs mx-1 font-semibold">
+                    <span className="mx-1 text-xs font-semibold">
                       AIR Rank:{" "}
-                      <span className="font-bold  text-primary-color">
+                      <span className="font-bold text-primary-color">
                         {elem?.AIR_Rank}
                       </span>
                     </span>
                   </div>
 
                   {/* MBBS Badge */}
-                  <div className="inline-flex items-center rounded-full bg-white border border-primary-color px-1 py-1 text-primary-color ">
+                  <div className="inline-flex items-center rounded-full border border-primary-color bg-white px-1 py-1 text-primary-color">
                     <FaGraduationCap className="mr-1" />
                     <span className="pr-2 text-xs font-bold">
                       {elem?.MBBS ? "MBBS" : "N/A"}
@@ -373,7 +380,7 @@ const AspirantsSection = () => {
                 {/* Profile Image */}
                 <div className="flex-shrink-0">
                   <img
-                    className="h-full w-full rounded-lg object-cover shadow-md"
+                    className="lg:h-full w-20 lg:w-full rounded-lg object-cover shadow-md"
                     src={elem?.ImageName}
                     alt={elem?.Name}
                   />
