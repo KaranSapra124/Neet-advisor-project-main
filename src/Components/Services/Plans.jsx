@@ -165,7 +165,7 @@ const PricingComponent = () => {
     return plans.filter((elem)=>elem.title !== "Free").map((plan, index) => (
       <div
         key={plan.id}
-        className="relative w-full flex-shrink-0 cursor-pointer p-6  md:max-w-sm"
+        className="relative w-full flex-shrink-0 cursor-pointer p-6  md:max-w-sm  "
       >
         <div
           ref={(el) => (cardRefs.current[index] = el)}
@@ -274,7 +274,7 @@ const PricingComponent = () => {
           className="custom-scrollbar-style overflow-x-auto md:overflow-x-hidden"
           ref={pricingRef}
         >
-          <div className="flex space-x-4 md:justify-center md:space-x-0">
+          <div className="flex space-x-4  md:justify-center md:space-x-0">
             {renderPricingPlans()}
           </div>
         </div>
