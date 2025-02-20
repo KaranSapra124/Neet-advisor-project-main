@@ -49,7 +49,7 @@ const Hero = () => {
           duration={1.5}
           animateOnce={true}
         >
-          <div className="-ml-5 lg:ml-0">
+          <div className=" lg:ml-0">
             <h1
               level={1}
               className="lg:mb-4 mb-2 lg:text-3xl text-sm font-bold text-primary-color"
@@ -127,7 +127,7 @@ const Hero = () => {
               autoplaySpeed={1500}
               infinite
               dots={false}
-              className="lg:w-[30rem] max-w-96 -ml-[3.2rem] lg:ml-0"
+              className="lg:w-[30rem] -ml-5 w-80 mx-auto lg:ml-0"
             >
               {images?.map((elem, index) => {
                 return (
