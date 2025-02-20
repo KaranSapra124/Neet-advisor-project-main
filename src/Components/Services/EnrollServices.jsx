@@ -125,21 +125,21 @@ const EnrollServices = () => {
             </video>
 
             {/* Content Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-center gap-4 rounded-md bg-black/50 p-4 text-white">
-              <div className="flex items-center gap-2">
+            <div className="absolute  inset-0 flex flex-col justify-center lg:gap-4 gap-2 rounded-md lg:bg-black/50 bg-black/60 p-4 text-white">
+              <div className="flex flex-col absolute top-36 lg:gap-2 gap-1 ">
                 {/* <span className="text-white">{servicesArr[currIndex].icon}</span>  */}
-                <span className="text-lg font-bold">
+                <span className="lg:text-lg text-xs font-bold">
                   {servicesArr[currIndex].title}
                 </span>
-              </div>
               <p className="text-xs font-semibold text-gray-300">
                 {servicesArr[currIndex].content}
               </p>
               <div className="flex items-center gap-2">
                 <FaPlayCircle
                   onClick={() => setModalVideo(servicesArr[currIndex])}
-                  className="mt-2 cursor-pointer text-xl transition-all duration-200 hover:scale-125 hover:text-gray-200"
+                  className="mt-2 cursor-pointer text-xs lg:text-xl transition-all duration-200 hover:scale-125 hover:text-gray-200"
                 />
+              </div>
               </div>
             </div>
           </div>
