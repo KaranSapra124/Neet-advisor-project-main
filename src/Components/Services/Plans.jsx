@@ -230,7 +230,7 @@ const PricingComponent = () => {
   return (
     <Container className={"bg-gray-200/40"}>
       <div className="container mx-auto">
-        <h1 className="my-2 text-center text-5xl font-bold md:text-4xl">
+        <h1 className="my-2 text-center lg:text-5xl text-sm font-bold md:text-4xl">
           <span className="font-bold text-yellow-600">
             Transparent Pricing.
           </span>
@@ -239,31 +239,31 @@ const PricingComponent = () => {
             Defined Goals.
           </span>
         </h1>
-        <p className="mx-auto my-4 w-[40rem] text-center text-xs font-semibold text-gray-700">
+        <p className="mx-auto lg:my-4 lg:w-[40rem] text-center text-[0.5rem] lg:text-xs font-semibold text-gray-700">
           Our well-defined, pocket-friendly plans reflect our commitment to
           making your <strong>NEET</strong> Counselling Process a smooth,
           hassle-free experience. Choose the one that best suits your goal and
           budget!
         </p>
         <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={"mx-auto my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
         <div className="mb-8 flex justify-center">
           <button
-            className={`rounded-bl-full rounded-tl-full px-10 py-2 font-bold ${
+            className={`rounded-bl-full  rounded-tl-full lg:px-10 px-4 py-2 font-bold ${
               planType === "UG"
-                ? "bg-indigo-900 text-white"
-                : "bg-gray-200 text-gray-800"
+                ? "bg-indigo-900 text-xs lg:text-sm text-white"
+                : "bg-gray-200 text-xs lg:text-sm text-gray-800"
             }`}
             onClick={() => setPlanType("UG")}
           >
             UG
           </button>
           <button
-            className={`rounded-br-full rounded-tr-full px-10 py-2 font-bold ${
+            className={`rounded-br-full rounded-tr-full lg:px-10 px-4 py-2 font-bold ${
               planType === "PG"
-                ? "bg-indigo-900 text-white"
-                : "bg-gray-300 text-gray-800"
+                ? "bg-indigo-900 text-xs lg:text-sm text-white"
+                : "bg-gray-300 text-xs lg:text-sm text-gray-800"
             }`}
             onClick={() => setPlanType("PG")}
           >
