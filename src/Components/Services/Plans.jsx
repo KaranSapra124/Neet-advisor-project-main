@@ -173,14 +173,14 @@ const PricingComponent = () => {
         >
           <img
             src={plan.icon}
-            className="absolute -left-5 -top-4 w-12 rounded-full p-0.5 shadow-lg "
+            className="absolute -left-5 -top-4 lg:w-12 w-10 rounded-full p-0.5 shadow-lg "
             alt="No Image"
             srcset=""
           />
-          <h2 className="mb-2 flex items-center gap-10 text-2xl font-bold sm:gap-[10px] md:gap-[20px] lg:gap-[80px] xl:gap-[100px]">
+          <h2 className="mb-2 flex items-center gap-10 lg:text-2xl text-lg font-bold sm:gap-[10px] md:gap-[20px] lg:gap-[80px] xl:gap-[100px]">
             {plan.title}{" "}
             <span
-              className={`ml-auto rounded-md px-5 py-1.5 text-xs font-semibold transition duration-300 ${
+              className={`ml-auto rounded-md lg:px-5 px-2 lg:py-1.5 py-0.5  lg:text-xs text-[0.6rem] lg:font-semibold font-bold transition duration-300 ${
                 plan.offer === "PREMIUM"
                   ? "ml-auto border-amber-700 text-amber-600 hover:border-inherit hover:bg-amber-600 hover:text-white"
                   : "ml-auto border-indigo-800 text-indigo-900 hover:border-inherit hover:bg-indigo-900 hover:text-white"
@@ -190,22 +190,22 @@ const PricingComponent = () => {
             </span>
           </h2>
 
-          <div className="mb-4 text-xl font-bold text-gray-800">
+          <div className="mb-4 lg:text-xl text-sm lg:font-bold font-extrabold text-gray-800">
             {plan.price}
           </div>
           {plan.discountedPrice && (
-            <div className="mb-4 text-sm text-gray-500 line-through">
+            <div className="mb-4 lg:text-sm text-xs text-gray-500 line-through">
               {plan.discountedPrice}
             </div>
           )}
-          <ul className="mb-4 h-[29rem] list-inside list-disc text-sm">
+          <ul className="lg:mb-4 mb-2 h-[29rem] list-inside list-disc text-sm">
             {plan.features.map((feature, index) => (
               <li
                 key={index}
-                className="mb-5 mt-5 flex items-center text-[13px] text-primary-color"
+                className="mb-5 mt-5 flex items-center lg:text-[13px] text-xs text-primary-color"
               >
                 {feature.icon}{" "}
-                <span className="ml-2 text-sm font-extralight text-gray-900">
+                <span className="ml-2 lg:text-sm text-xs lg:font-extralight font-light  text-gray-900">
                   {feature.text}
                 </span>
               </li>
@@ -217,7 +217,7 @@ const PricingComponent = () => {
             </div>
           )}
           <button
-            className="duration-400 mt-4 rounded bg-yellow-600 px-4 py-2 font-bold text-white shadow-lg transition ease-in-out hover:bg-yellow-700 hover:shadow-xl"
+            className="duration-400 lg:text-lg text-sm lg:mt-4 mt-1 rounded bg-yellow-600 px-4 py-2 font-bold text-white shadow-lg transition ease-in-out hover:bg-yellow-700 hover:shadow-xl"
             onClick={handleClick}
           >
             {plan.title === "Free" ? "Sign Up" : "Buy Now"}
