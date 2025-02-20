@@ -3,6 +3,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
 import { BsHandIndexFill } from "react-icons/bs";
+import { Carousel } from "antd";
 
 const Outcome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -112,61 +113,99 @@ const Outcome = () => {
 
   return (
     <Container className={"bg-gray-200/40"}>
-      <h1 className="my-2 text-center text-3xl font-bold text-yellow-600">
+      <h1 className="my-1 text-center text-sm font-bold text-yellow-600 lg:my-2 lg:text-3xl">
         Webinar{" "}
         <span className="font-extrabold text-primary-color">Outcomes</span>
       </h1>
-      <p className="my-4 text-center text-xs font-bold text-gray-800">
+      <p className="text-center text-[0.5rem] font-bold text-gray-800 lg:my-4 lg:text-xs">
         Follow our webinar and ace <strong>NEET</strong>
       </p>
-      <Divider className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"} />
+      <Divider
+        className={
+          "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+        }
+      />
 
-      <div className="relative flex h-52 flex-col items-center">
-        <div className="absolute w-full overflow-hidden">
-          <div className="relative h-96" style={{ perspective: "1200px" }}>
-            {cards.map((card, index) => (
+      {window.outerWidth > 900 ? (
+        <div className="relative flex h-52 flex-col items-center">
+          <div className="absolute w-full overflow-hidden">
+            <div className="relative h-96" style={{ perspective: "1200px" }}>
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className={`absolute top-0 mx-5 my-2 flex h-40 w-[19rem] flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}
+                  style={getCardStyle(index)}
+                >
+                  <img
+                    src={card.image}
+                    className="absolute -top-2 left-[17.5rem] h-8 w-8 rounded-full shadow-sm shadow-yellow-600"
+                    alt=""
+                  />
+                  <h3 className="text-sm font-semibold text-primary-color">
+                    {card.title}
+                  </h3>
+                  <Divider
+                    className={"my-1 h-0.5 w-12 rounded-full bg-yellow-600"}
+                  />
+                  <p className="text-justify text-xs font-semibold leading-relaxed text-gray-800">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative top-52 flex">
+            <button
+              onClick={handlePrev}
+              disabled={currentIndex === 0}
+              className="rounded-full bg-yellow-600 p-2 text-white shadow-lg transition-colors hover:bg-yellow-700 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <FaArrowLeft className="h-6 w-6" />
+            </button>
+
+            <button
+              onClick={handleNext}
+              disabled={currentIndex === cards.length - 1}
+              className="mx-5 rounded-full bg-yellow-600 p-2 text-white shadow-lg transition-colors hover:bg-yellow-700 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <FaArrowRight className="h-6 w-6" />
+            </button>
+          </div>
+        </div>
+      ) : (
+        <Carousel
+          className="h-full max-w-sm"
+          dots={false}
+          autoplay
+          autoplaySpeed={2500}
+        >
+          {cards.map((card, index) => (
+            <>
               <div
                 key={index}
-                className={`absolute top-0 mx-5 my-2 flex h-40 w-[19rem] flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}
-                style={getCardStyle(index)}
+                className={`relative z-0 my-2 flex h-44 flex-col rounded-md border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-50 p-6 backdrop-blur-sm transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] lg:mx-5 lg:h-40 lg:w-[19rem]`}
+                // style={getCardStyle(index)}
               >
                 <img
                   src={card.image}
-                  className="absolute -top-2 left-[17.5rem] h-8 w-8 rounded-full shadow-sm shadow-yellow-600"
+                  className="absolute -top-2 left-56 z-[999] w-8 rounded-full shadow-md shadow-yellow-600 lg:h-10 lg:w-10"
                   alt=""
                 />
-                <h3 className="text-sm font-semibold text-primary-color">
+                <h3 className="lg:text-sm text-xs font-extrabold text-primary-color">
                   {card.title}
                 </h3>
                 <Divider
-                  className={"my-1 h-0.5 w-12 rounded-full bg-yellow-600"}
+                  className={"lg:my-1 my-2 h-0.5 w-12 rounded-full bg-yellow-600"}
                 />
-                <p className="text-justify text-xs font-semibold leading-relaxed text-gray-800">
-                  {card.description}
+                <p className="text-justify lg:text-xs text-[0.7rem] italic font-semibold leading-relaxed text-gray-800">
+                  "{card.description}"
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative top-52 flex">
-          <button
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-            className="rounded-full bg-yellow-600 p-2 text-white shadow-lg transition-colors hover:bg-yellow-700 disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            <FaArrowLeft className="h-6 w-6" />
-          </button>
-
-          <button
-            onClick={handleNext}
-            disabled={currentIndex === cards.length - 1}
-            className="mx-5 rounded-full bg-yellow-600 p-2 text-white shadow-lg transition-colors hover:bg-yellow-700 disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            <FaArrowRight className="h-6 w-6" />
-          </button>
-        </div>
-      </div>
+            </>
+          ))}
+        </Carousel>
+      )}
     </Container>
   );
 };
