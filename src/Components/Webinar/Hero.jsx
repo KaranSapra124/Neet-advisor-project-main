@@ -120,14 +120,14 @@ const Hero = () => {
           duration={1.5}
           animateOnce={true}
         >
-          <div className="lg:mx-10 mx-0 flex flex-col items-center justify-center">
+          <div className="lg:mx-10 mx-0 lg:flex lg:flex-col lg:items-center lg:justify-center">
             {/* Video Section */}
             <Carousel
               autoplay
               autoplaySpeed={1500}
               infinite
               dots={false}
-              className="lg:w-[30rem] w-80"
+              className="lg:w-[30rem] max-w-96 -ml-12"
             >
               {images?.map((elem, index) => {
                 return (
@@ -135,7 +135,7 @@ const Hero = () => {
                     <img
                       key={index}
                       src={elem?.imageUrl}
-                      className="h-96"
+                      className="h-96 "
                       alt={elem?.imageAlt}
                     />
                   </>
