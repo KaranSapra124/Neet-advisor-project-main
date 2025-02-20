@@ -279,7 +279,7 @@ const PricingComponent = () => {
           </div>
         </div>
 
-        <div className="my-2 mt-20 text-center text-3xl font-bold text-yellow-600">
+        <div className="my-2 lg:mt-20 mt-10 text-center lg:text-3xl text-sm font-bold text-yellow-600">
           Get the
           <span className="font-extrabold text-primary-color">
             {" "}
@@ -287,11 +287,11 @@ const PricingComponent = () => {
           </span>
           For Free !
         </div>
-        <div className="mb-4 text-center text-xs font-semibold text-gray-700">
+        <div className="lg:mb-4 mb-2 text-center lg:text-xs text-[0.5rem] font-semibold text-gray-700">
           Have you scored an All-India Ranking within the top 5000? Let’s reward
           you with a complimentary plan!
         </div>
-        <div className="mb-8 text-center text-sm font-bold text-gray-600">
+        <div className="lg:mb-8 mb-4 text-center lg:text-sm text-[0.5rem] font-bold text-gray-600">
           *Terms and Conditions Apply
         </div>
       </div>
