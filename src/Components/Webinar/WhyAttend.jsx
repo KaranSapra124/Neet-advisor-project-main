@@ -34,22 +34,22 @@ const WhyAttend = () => {
   return (
     <>
       <Container>
-        <h1 className="py-2 text-center text-3xl font-bold text-yellow-600">
+        <h1 className="py-2 text-center lg:text-3xl text-sm font-bold text-yellow-600">
           Why You Can’t Miss Our{" "}
           <span className="font-extrabold text-primary-color">Webinar!</span>
         </h1>
-        <p className="py-1 text-center text-xs font-bold text-gray-800">
+        <p className="py-1 text-center lg:text-xs text-[0.6rem] font-bold text-gray-800">
           Attend Our Webinar And Get Your Dream Of <strong>NEET </strong>
           Achieved!
         </p>
         <Divider
-          className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          className={"mx-auto my-4 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
         />
         {/* <Divider className={'h-1 w-20 bg-yellow-600 rounded-full mx-auto my-2'}/> */}
-        <div className="relative mx-auto grid max-w-screen-md grid-cols-2 items-center gap-2">
+        <div className="relative mx-auto grid lg:max-w-screen-md grid-cols-1 lg:grid-cols-2 items-center gap-2">
           <motion.div
             drag
-            className="absolute bottom-[11rem] left-[22.7rem] z-50 h-10 w-10 cursor-pointer overflow-hidden rounded-full border-2 bg-yellow-600"
+            className="absolute lg:block hidden bottom-[11rem] left-[22.7rem] z-50 h-10 w-10 cursor-pointer overflow-hidden rounded-full border-2 bg-yellow-600"
           >
             <img
               src="./Webinar/click-bg-removed.gif"
@@ -62,21 +62,21 @@ const WhyAttend = () => {
           {data.map((elem, index) => (
             <React.Fragment key={index}>
               <div
-                className={`flex ${isHover ? "scale-100" : "scale-0"} cursor-pointer flex-col items-center transition-all duration-200`}
+                className={`flex ${isHover ? "scale-100" : "scale-0"} cursor-pointer  flex-col lg:my-0 my-2 items-center transition-all duration-200`}
               >
-                <div className="h-48 rounded-lg bg-gradient-to-tr from-white to-gray-200/40 px-1 text-center shadow-xl transition-all duration-200 hover:border-2 hover:border-yellow-600">
+                <div className="lg:h-48 h-44 rounded-lg bg-gradient-to-tr from-white to-gray-200/40 lg:px-1 px-2 text-center shadow-xl transition-all duration-200 hover:border-2 hover:border-yellow-600">
                   <img
                     src={elem.icon}
-                    className="m-auto my-3 h-10 w-10 rounded-full border-2 bg-purple-100 p-1 shadow-md group-hover:border-yellow-600"
+                    className="m-auto my-3 lg:h-10 lg:w-10 w-8 rounded-full border-2 bg-purple-100 p-1 shadow-md group-hover:border-yellow-600"
                     alt=""
                   />
-                  <h1 className="my-1 text-sm font-bold text-primary-color">
+                  <h1 className="my-1 lg:text-sm text-[0.68rem] font-extrabold lg:font-bold text-primary-color">
                     {elem.title}
                   </h1>
                   <Divider
                     className={"h-0.5 w-12 rounded-full bg-yellow-600 mx-auto my-2"}
                    />
-                  <p className="px-2 py-2 text-xs font-semibold text-gray-800">
+                  <p className="lg:px-2 lg:py-2 p-1.5 lg:text-xs text-[0.6rem] font-semibold text-gray-800">
                     {elem.text}
                   </p>
                 </div>
