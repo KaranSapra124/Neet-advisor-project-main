@@ -13,15 +13,15 @@ const SocialLinks = () => {
     <>
       <Container className={"flex justify-center bg-gray-200/40"}>
         <div className="section-title pb-20 text-center">
-          <h2 className="text-3xl font-bold text-yellow-600">
+          <h2 className="lg:text-3xl text-sm font-bold text-yellow-600">
             Let's Get <span className="text-primary-color font-extrabold">Social</span>
           </h2>
-          <p className="text-gray-700 font-semibold text-xs max-w-64 mx-auto  my-1">Follow On Our Social Media Handles & Remain Up To Date!</p>
+          <p className="text-gray-700 font-semibold lg:text-xs text-[0.5rem] lg:max-w-64 mx-auto my-2 lg:my-1">Follow On Our Social Media Handles & Remain Up To Date!</p>
           {/* <Divider
             className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
           /> */}
         </div>
-        <div className="social-overlap process-scetion mt100">
+        <div className="social-overlap process-scetion mt-36">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-10">

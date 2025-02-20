@@ -770,6 +770,13 @@ h2 {
   font-size: 22px;
 }
 
+@media screen and (max-width: 768px) {
+  .social-icons a {
+    margin: 140px 5px;
+    font-size: 20px;
+  }
+}
+
 a {
   text-decoration: none !important;
   color: #3f345f;
