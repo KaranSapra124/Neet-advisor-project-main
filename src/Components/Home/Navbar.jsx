@@ -31,10 +31,16 @@ function Navbar() {
   );
 
   return (
-    <nav className="sticky top-0 z-[1000] p-4 lg:px-20 px-8 shadow-lg backdrop-blur-sm bg-white">
+    <nav
+      className={`sticky top-0 z-[1000] p-4 px-8 shadow-lg backdrop-blur-sm lg:px-20 ${window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ||  window.location.pathname.includes("careers") ||  window.location.pathname.includes("mbbs-abroad") || window.location.pathname.includes("medical-expo") ? "bg-black/85" : "bg-white"}`}
+    >
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <img src="neet-advisor-logo-Photoroom.png" className="lg:h-[4rem] h-10" alt="Logo" />
+          <img
+            src="neet-advisor-logo-Photoroom.png"
+            className="h-10 lg:h-[4rem]"
+            alt="Logo"
+          />
         </div>
 
         {/* Desktop Menu */}
@@ -46,7 +52,7 @@ function Navbar() {
                 className={({ isActive }) =>
                   isActive
                     ? "font-bold text-indigo-900 transition-all hover:scale-105 hover:font-bold"
-                    : "transition-all hover:scale-105 hover:font-bold text-gray-600"
+                    : `${window.location.pathname.includes("ug-seminar") ||  window.location.pathname.includes("mbbs-abroad") ||  window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ||  window.location.pathname.includes("careers") ? "text-white" : "text-gray-600"} transition-all hover:scale-105 hover:font-bold`
                 }
                 to={elem.link}
               >
@@ -54,7 +60,11 @@ function Navbar() {
               </NavLink>
             ))}
             <Dropdown overlay={menu} arrow placement="bottom">
-              <a className="cursor-pointer text-gray-600">More</a>
+              <a
+                className={`cursor-pointer ${window.location.pathname.includes("ug-seminar") ||  window.location.pathname.includes("mbbs-abroad") ||  window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ||  window.location.pathname.includes("careers") ? "text-white" : "text-gray-600"}`}
+              >
+                More
+              </a>
             </Dropdown>
           </ul>
         </div>
@@ -66,12 +76,32 @@ function Navbar() {
             className="rounded-lg text-gray-800 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
             {isOpen ? (
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             )}
           </button>
@@ -80,7 +110,7 @@ function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-md absolute w-full left-0 top-16 z-50 py-4">
+        <div className="absolute left-0 top-16 z-50 w-full bg-white py-4 shadow-md md:hidden">
           <ul className="flex flex-col items-center space-y-4">
             {links.map((elem, index) => (
               <NavLink
@@ -88,7 +118,7 @@ function Navbar() {
                 className={({ isActive }) =>
                   isActive
                     ? "font-bold text-indigo-900"
-                    : "text-gray-600 hover:scale-105 transition-all"
+                    : "text-gray-600 transition-all hover:scale-105"
                 }
                 to={elem.link}
                 onClick={() => setIsOpen(false)}
@@ -97,7 +127,12 @@ function Navbar() {
               </NavLink>
             ))}
             {items.map((item) => (
-              <Link key={item.key} to={item.label.props.to} className="text-gray-600 hover:scale-105 transition-all" onClick={() => setIsOpen(false)}>
+              <Link
+                key={item.key}
+                to={item.label.props.to}
+                className="text-gray-600 transition-all hover:scale-105"
+                onClick={() => setIsOpen(false)}
+              >
                 {item.label.props.children}
               </Link>
             ))}
