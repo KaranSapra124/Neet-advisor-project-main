@@ -112,15 +112,15 @@ const Speakers = () => {
     <Container>
       <ScrollAnimation animateIn="backInLeft" animateOnce={true} duration={1.5}>
         <div className="mb-4 text-center">
-          <h2 className="mb-2 text-3xl font-bold text-yellow-600">
+          <h2 className="lg:mb-2 mb-1 lg:text-3xl text-sm font-bold text-yellow-600">
             Our <span className="font-extrabold text-primary-color">Speakers</span> Who Will Guide You
           </h2>
-          <p className="mx-auto line-clamp-2 max-w-lg my-4 text-xs font-semibold text-gray-800">
+          <p className="mx-auto line-clamp-2 lg:max-w-lg lg:my-4 my-2 lg:text-xs text-[0.6rem] font-semibold text-gray-800">
             Learn from industry experts who have helped thousands of students
             achieve their dreams of becoming medical professionals.
           </p>
           <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={"mx-auto lg:my-4  lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
         </div>
 
