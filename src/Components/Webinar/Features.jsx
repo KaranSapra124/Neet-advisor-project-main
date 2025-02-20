@@ -4,7 +4,7 @@ import { useState } from "react";
 import { TiTick } from "react-icons/ti";
 import Container from "../Helper/Container";
 import { PiCursorFill } from "react-icons/pi";
-import { Modal, Popover, Steps } from "antd";
+import { Carousel, Modal, Popover, Steps } from "antd";
 import { FaArrowLeft, FaArrowRight, FaPlay } from "react-icons/fa";
 // import { FaICursor } from 'react-icons/fa';
 import "./Testimonials.css";
@@ -13,6 +13,7 @@ const Features = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isChanged, setIsChanged] = useState(false);
   const [isHover, setIsHover] = useState(false);
+  const [currWidth, setCurrWidth] = useState(0);
   const [modalVideo, setModalVideo] = useState({
     isOpen: false,
     video: "",
@@ -68,13 +69,24 @@ const Features = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const updateSlides = () => {
+      const currWidth = window.innerWidth;
+      console.log(currWidth)
+      setCurrWidth(currWidth);
+    };
+    updateSlides();
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
   return (
     <>
       <Container className={"bg-gray-200/40"}>
         <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="text-center">
-            <h1 className="my-2 lg:text-3xl text-sm">
+            <h1 className="my-2 text-sm lg:text-3xl">
               <span className="text-primary-color` font-extrabold">
                 Features
               </span>
@@ -83,12 +95,14 @@ const Features = () => {
                 to Enhance Your Experience
               </span>
             </h1>
-            <p className="mx-auto lg:my-4 my-2 lg:text-xs text-[0.5rem] font-bold text-gray-800">
+            <p className="mx-auto my-2 text-[0.5rem] font-bold text-gray-800 lg:my-4 lg:text-xs">
               Our best-in-class Webinars effectively communicate your concerns
               with simplified interaction.
             </p>
             <Divider
-              className={"mx-auto my-4 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
+              className={
+                "mx-auto my-4 h-0.5 w-12 rounded-full bg-yellow-600 lg:h-1 lg:w-20"
+              }
             />
           </div>
           {/* Features Section */}
@@ -104,7 +118,7 @@ const Features = () => {
                 autoPlay
                 loop
                 muted
-                className="m-auto lg:h-96 h-full w-full rounded-lg object-cover"
+                className="m-auto h-full w-full rounded-lg object-cover lg:h-96"
                 alt="Video content"
               ></video>
 
@@ -115,7 +129,7 @@ const Features = () => {
                 className={`absolute inset-0 left-0 top-0 z-20 m-auto w-full cursor-pointer rounded-lg ${isHover ? "bg-gray-100/20" : "bg-gray-100/30"}`}
               >
                 <div
-                  className={`lg:mt-24 w-full text-center ${isHover ? "block" : "hidden"}`}
+                  className={`w-full text-center lg:mt-24 ${isHover ? "block" : "hidden"}`}
                 >
                   <a
                     onClick={() =>
@@ -131,7 +145,7 @@ const Features = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       xmlnsXlink="http://www.w3.org/1999/xlink"
                       viewBox="0 0 213.7 213.7"
-                      className="lg:h-40 lg:w-40 w-28 pt-4"
+                      className="w-28 pt-4 lg:h-40 lg:w-40"
                     >
                       <polygon
                         className="triangle"
@@ -161,23 +175,23 @@ const Features = () => {
 
             {/* Content Section */}
             <div
-              className={`absolute inset-0 left-0 lg:top-24 z-50 flex lg:h-44 lg:w-[30rem] flex-col items-start justify-center lg:rounded-r-md rounded-md bg-black/50 lg:p-4 p-2  shadow-md shadow-gray-500 transition-all ${isHover ? "hidden" : "block"}`}
+              className={`absolute inset-0 left-0 z-50 flex flex-col items-start justify-center rounded-md bg-black/50 p-2 shadow-md shadow-gray-500 transition-all lg:top-24 lg:h-44 lg:w-[30rem] lg:rounded-r-md lg:p-4 ${isHover ? "hidden" : "block"}`}
             >
-              <h2 className="lg:text-md text-[0.6rem] mb-2 font-extrabold text-white">
+              <h2 className="lg:text-md mb-2 text-[0.6rem] font-extrabold text-white">
                 {data[activeIndex]?.title}
               </h2>
-              <ul className="lg:space-y-2 space-y-1.5">
+              <ul className="space-y-1.5 lg:space-y-2">
                 {data[activeIndex]?.content.map((item, index) => (
                   <li key={index} className="flex items-center space-x-2">
-                    <TiTick className="lg:text-xl text-sm text-green-500" />
-                    <span className="lg:text-xs text-[0.5rem] font-semibold text-gray-100">
+                    <TiTick className="text-sm text-green-500 lg:text-xl" />
+                    <span className="text-[0.5rem] font-semibold text-gray-100 lg:text-xs">
                       {item}
                     </span>
                   </li>
                 ))}
                 <FaPlay
                   onMouseEnter={() => setIsHover(true)}
-                  className="cursor-pointer rounded-full border-2 lg:p-1 p-0.5 lg:text-xl text-sm text-white"
+                  className="cursor-pointer rounded-full border-2 p-0.5 text-sm text-white lg:p-1 lg:text-xl"
                 />
               </ul>
             </div>
@@ -192,7 +206,7 @@ const Features = () => {
                 );
                 setIsChanged(true);
               }}
-              className="mx-4 cursor-pointer rounded-full bg-yellow-600 p-1 text-2xl text-white shadow-md shadow-black transition-all hover:scale-110"
+              className="mx-2 cursor-pointer rounded-full bg-yellow-600 p-0.5 text-xl text-white shadow-md shadow-black transition-all hover:scale-110 lg:mx-4 lg:p-1 lg:text-2xl"
             />
             <FaArrowRight
               onClick={() => {
@@ -201,50 +215,103 @@ const Features = () => {
                 );
                 setIsChanged(false);
               }}
-              className="cursor-pointer rounded-full bg-yellow-600 p-1 text-2xl text-white shadow-md shadow-black transition-all hover:scale-110"
+              className="cursor-pointer rounded-full bg-yellow-600 p-0.5 text-xl text-white shadow-md shadow-black transition-all hover:scale-110 lg:p-1 lg:text-2xl"
             />
           </div>
           {/* Remaining Cards Section */}
           <div className="animate-slideIn mt-4">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {data.map((item, index) => (
-                <div
-                  key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className={`group relative cursor-pointer transition-all duration-300 ${
-                    activeIndex === index ? "scale-105" : "hover:scale-105"
-                  }`}
-                >
-                  {/* Video Element */}
-                  <video
-                    src={item.video}
-                    autoPlay
-                    loop
-                    muted
-                    className={`h-40 w-full rounded-lg object-cover transition-transform duration-500 ${
-                      activeIndex === index ? "brightness-100" : "brightness-75"
-                    }`}
-                  ></video>
-
-                  {/* Overlay */}
+            {currWidth > 900 ? (
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {data.map((item, index) => (
                   <div
-                    className={`absolute inset-0 rounded-lg bg-gradient-to-t from-black/60 via-black/30 to-transparent transition-opacity duration-300 ${
-                      activeIndex === index
-                        ? "opacity-60"
-                        : "opacity-100 group-hover:opacity-80"
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`group relative cursor-pointer transition-all duration-300 ${
+                      activeIndex === index ? "scale-105" : "hover:scale-105"
                     }`}
-                  ></div>
+                  >
+                    {/* Video Element */}
+                    <video
+                      src={item.video}
+                      autoPlay
+                      loop
+                      muted
+                      className={`h-40 w-full rounded-lg object-cover transition-transform duration-500 ${
+                        activeIndex === index
+                          ? "brightness-100"
+                          : "brightness-75"
+                      }`}
+                    ></video>
 
-                  {/* Content */}
-                  <div className="absolute top-24 flex flex-col items-center justify-center space-y-2 p-2 text-center">
-                    {/* <PiCursorFill className="text-3xl text-white transition-transform duration-300 group-hover:scale-110" /> */}
-                    <span className="text-sm font-semibold text-white">
-                      {item.title}
-                    </span>
+                    {/* Overlay */}
+                    <div
+                      className={`absolute inset-0 rounded-lg bg-gradient-to-t from-black/60 via-black/30 to-transparent transition-opacity duration-300 ${
+                        activeIndex === index
+                          ? "opacity-60"
+                          : "opacity-100 group-hover:opacity-80"
+                      }`}
+                    ></div>
+
+                    {/* Content */}
+                    <div className="absolute top-28 flex flex-col items-center justify-center space-y-2 p-2 text-center lg:top-24">
+                      {/* <PiCursorFill className="text-3xl text-white transition-transform duration-300 group-hover:scale-110" /> */}
+                      <span className="text-center text-[0.6rem] font-semibold text-white lg:text-sm">
+                        {item.title}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <Carousel
+                className="max-w-lg"
+                autoplay
+                autoplaySpeed={1500}
+                arrows={true}
+                slidesToShow={1}
+                dots={false}
+              >
+                {data.map((item, index) => (
+                  <div
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`group relative cursor-pointer transition-all duration-300 ${
+                      activeIndex === index ? "scale-105" : "hover:scale-105"
+                    }`}
+                  >
+                    {/* Video Element */}
+                    <video
+                      src={item.video}
+                      autoPlay
+                      loop
+                      muted
+                      className={`h-40 w-full rounded-lg object-cover transition-transform duration-500 ${
+                        activeIndex === index
+                          ? "brightness-100"
+                          : "brightness-75"
+                      }`}
+                    ></video>
+
+                    {/* Overlay */}
+                    <div
+                      className={`absolute inset-0 rounded-lg bg-gradient-to-t from-black/60 via-black/30 to-black/40 transition-opacity duration-300 ${
+                        activeIndex === index
+                          ? "opacity-60"
+                          : "opacity-100 group-hover:opacity-80"
+                      }`}
+                    ></div>
+
+                    {/* Content */}
+                    <div className="absolute top-28 flex flex-col items-center justify-center space-y-2 p-2 text-center lg:top-24">
+                      {/* <PiCursorFill className="text-3xl text-white transition-transform duration-300 group-hover:scale-110" /> */}
+                      <span className="text-[0.6rem] font-semibold text-white lg:text-sm">
+                        {item.title}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </Carousel>
+            )}
           </div>
         </div>
       </Container>
@@ -269,7 +336,11 @@ const Features = () => {
           <video
             controls
             autoPlay
-            style={{ maxWidth: "100%", maxHeight: "80vh" }}
+            // style={
+            //   window.innerWidth > 768
+            //     ? { maxWidth: "100%", maxHeight: "80vh" }
+            //     : { maxWidth: "100%", maxHeight: "100 }
+            // }
             className="rounded-xl"
           >
             <source src={modalVideo?.video} type="video/mp4" />
