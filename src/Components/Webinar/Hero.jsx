@@ -135,7 +135,7 @@ const Hero = () => {
                     <img
                       key={index}
                       src={elem?.imageUrl}
-                      className="h-96 "
+                      className="lg:h-96 h-full "
                       alt={elem?.imageAlt}
                     />
                   </>
