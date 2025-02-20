@@ -74,7 +74,7 @@ const Features = () => {
         <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="text-center">
-            <h1 className="my-2 text-3xl">
+            <h1 className="my-2 lg:text-3xl text-sm">
               <span className="text-primary-color` font-extrabold">
                 Features
               </span>
@@ -83,12 +83,12 @@ const Features = () => {
                 to Enhance Your Experience
               </span>
             </h1>
-            <p className="mx-auto my-4 text-xs font-bold text-gray-800">
+            <p className="mx-auto lg:my-4 my-2 lg:text-xs text-[0.5rem] font-bold text-gray-800">
               Our best-in-class Webinars effectively communicate your concerns
               with simplified interaction.
             </p>
             <Divider
-              className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+              className={"mx-auto my-4 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
             />
           </div>
           {/* Features Section */}
@@ -104,7 +104,7 @@ const Features = () => {
                 autoPlay
                 loop
                 muted
-                className="m-auto h-96 w-full rounded-lg object-cover"
+                className="m-auto lg:h-96 h-full w-full rounded-lg object-cover"
                 alt="Video content"
               ></video>
 
@@ -115,7 +115,7 @@ const Features = () => {
                 className={`absolute inset-0 left-0 top-0 z-20 m-auto w-full cursor-pointer rounded-lg ${isHover ? "bg-gray-100/20" : "bg-gray-100/30"}`}
               >
                 <div
-                  className={`mt-24 w-full text-center ${isHover ? "block" : "hidden"}`}
+                  className={`lg:mt-24 w-full text-center ${isHover ? "block" : "hidden"}`}
                 >
                   <a
                     onClick={() =>
@@ -131,7 +131,7 @@ const Features = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       xmlnsXlink="http://www.w3.org/1999/xlink"
                       viewBox="0 0 213.7 213.7"
-                      className="h-40 w-40"
+                      className="lg:h-40 lg:w-40 w-28 pt-4"
                     >
                       <polygon
                         className="triangle"
@@ -161,23 +161,23 @@ const Features = () => {
 
             {/* Content Section */}
             <div
-              className={`absolute inset-0 left-0 top-24 z-50 flex h-44 w-[30rem] flex-col items-start justify-center rounded-r-md bg-black/50 p-4 shadow-md shadow-gray-500 transition-all ${isHover ? "hidden" : "block"}`}
+              className={`absolute inset-0 left-0 lg:top-24 z-50 flex lg:h-44 lg:w-[30rem] flex-col items-start justify-center lg:rounded-r-md rounded-md bg-black/50 lg:p-4 p-2  shadow-md shadow-gray-500 transition-all ${isHover ? "hidden" : "block"}`}
             >
-              <h2 className="text-md mb-2 font-extrabold text-white">
+              <h2 className="lg:text-md text-[0.6rem] mb-2 font-extrabold text-white">
                 {data[activeIndex]?.title}
               </h2>
-              <ul className="space-y-2">
+              <ul className="lg:space-y-2 space-y-1.5">
                 {data[activeIndex]?.content.map((item, index) => (
                   <li key={index} className="flex items-center space-x-2">
-                    <TiTick className="text-xl text-green-500" />
-                    <span className="text-xs font-semibold text-gray-100">
+                    <TiTick className="lg:text-xl text-sm text-green-500" />
+                    <span className="lg:text-xs text-[0.5rem] font-semibold text-gray-100">
                       {item}
                     </span>
                   </li>
                 ))}
                 <FaPlay
                   onMouseEnter={() => setIsHover(true)}
-                  className="cursor-pointer rounded-full border-2 p-1 text-xl text-white"
+                  className="cursor-pointer rounded-full border-2 lg:p-1 p-0.5 lg:text-xl text-sm text-white"
                 />
               </ul>
             </div>
