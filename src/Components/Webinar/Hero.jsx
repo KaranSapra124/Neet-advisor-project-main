@@ -127,7 +127,7 @@ const Hero = () => {
               autoplaySpeed={1500}
               infinite
               dots={false}
-              className="lg:w-[30rem] max-w-96 -ml-12 lg:ml-0"
+              className="lg:w-[30rem] max-w-96 -ml-[3.2rem] lg:ml-0"
             >
               {images?.map((elem, index) => {
                 return (
