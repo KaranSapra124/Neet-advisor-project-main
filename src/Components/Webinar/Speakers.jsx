@@ -6,33 +6,33 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 const SpeakerCard = ({ member }) => {
   return (
-    <div className="group flex w-[35rem] cursor-pointer flex-col overflow-hidden rounded-md border border-b-2 border-l-2 border-gray-300 border-b-yellow-600 border-l-yellow-600 bg-gradient-to-tr from-white to-gray-500/10 shadow-md shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row">
+    <div className="group flex lg:w-[35rem] w-full cursor-pointer  flex-row  overflow-hidden rounded-md border border-b-2 border-l-2 border-gray-300 border-b-yellow-600 border-l-yellow-600 bg-gradient-to-tr from-white to-gray-500/10 shadow-md shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row">
       <img
         src={member.imageUrl}
         alt={member.name}
-        className="mx-5 my-auto h-32 w-32 rounded-full shadow-md shadow-yellow-600 transition duration-500"
+        className="mx-5 my-auto lg:h-32 lg:w-32 w-16 rounded-full shadow-md shadow-yellow-600 transition duration-500"
       />
       <div className="flex max-w-screen-sm flex-col justify-between p-2">
         <div>
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-bold text-primary-color transition-all duration-300 group-hover:font-extrabold">
+              <h3 className="lg:text-lg text-[0.6rem] font-bold text-primary-color transition-all duration-300 group-hover:font-extrabold">
                 {member.name}
               </h3>
-              <Divider className="my-1 h-0.5 w-16 rounded-full bg-yellow-600" />
+              <Divider className="my-1 h-0.5 lg:w-16 w-8 rounded-full bg-yellow-600" />
               <div className="-mx-1 flex items-center">
                 <img
                   src="./Webinar/creative-removedBg.gif"
-                  className="h-8 w-8"
+                  className="lg:h-8 lg:w-8 w-6 h-6 "
                   alt=""
                   srcset=""
                 />
-                <p className="mt-1 mx-1 text-sm font-semibold text-gray-800">
+                <p className="mt-1 mx-1 lg:text-sm text-[0.6rem] font-semibold text-gray-800">
                   {member.title}
                 </p>
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex  lg:gap-3 gap-1">
               {member.socialLinks.map((link, i) => (
                 <a
                   key={i}
@@ -43,7 +43,7 @@ const SpeakerCard = ({ member }) => {
                 >
                   {React.cloneElement(link.icon, {
                     className:
-                      "w-5 h-5 text-gray-400 group-hover/icon:text-primary-color transition-all dration-300",
+                      "lg:w-5 lg:h-5 w-4 h-4 text-gray-400 group-hover/icon:text-primary-color transition-all dration-300",
                   })}
                 </a>
               ))}
@@ -52,20 +52,20 @@ const SpeakerCard = ({ member }) => {
           <div className="-mx-1 flex">
             <img
               src="./Webinar/BookImg.gif"
-              className="h-7 w-7"
+              className="lg:h-8 lg:w-8 w-6 h-6 "
               alt=""
               srcset=""
             />
-            <p className="mx-2 my-2 italic line-clamp-2 text-xs font-semibold leading-relaxed text-gray-800">
+            <p className="lg:mx-2 lg:my-2 mx-0.5 my-0.5 italic line-clamp-2 lg:text-xs text-[0.6rem] font-semibold leading-relaxed text-gray-800">
               "{member.bio}"
             </p>
           </div>
         </div>
-        <div className="my-2 flex flex-wrap gap-2">
+        <div className="my-2 flex flex-wrap    lg:gap-2 gap-1">
           {member.expertise.map((skill, index) => (
             <span
               key={index}
-              className="rounded-full border border-primary-color px-3 py-1 text-xs font-semibold text-primary-color"
+              className="rounded-full w-fit border border-primary-color lg:px-3 lg:py-1 px-0.5 py-0.5 lg:text-xs text-[0.46rem] font-semibold text-primary-color"
             >
               #{skill}
             </span>
