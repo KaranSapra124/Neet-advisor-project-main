@@ -333,10 +333,10 @@ const AspirantsSection = () => {
         dots={false}
       >
         {neetAspirants.map((elem, index) => (
-          <div key={index} className="relative p-1">
+          <div key={index} className="relative p-1 lg:mx-0 mx-auto">
             <img
               src="./Webinar/validation-badge-bg-removed.gif"
-              className="absolute -top-2 left-[33rem] lg:left-[23.5rem] z-20 w-10"
+              className="absolute -top-2  left-[33rem] lg:left-[23.5rem] z-20 w-10"
               alt=""
               srcset=""
             />
