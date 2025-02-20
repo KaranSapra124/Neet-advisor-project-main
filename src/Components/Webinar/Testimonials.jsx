@@ -105,28 +105,30 @@ const Testimonials = () => {
       )}
       <Container>
         <div className="py-1">
-          <h1 className="text-center text-3xl font-bold text-yellow-600">
+          <h1 className="text-center text-sm font-bold text-yellow-600 lg:text-3xl">
             What Our{" "}
             <span className="font-extrabold text-primary-color">
               {" "}
               Attendees Say ?
             </span>
           </h1>
-          <p className="my-4 text-center text-xs font-semibold text-gray-800">
+          <p className="my-1 text-center text-[0.6rem] font-semibold text-gray-800 lg:my-4 lg:text-xs">
             Here's what future healers speak of Hello Mentor's guidance.
           </p>
           <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={
+              "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+            }
           />
         </div>
         <div className="flex flex-wrap justify-center">
           <Carousel
-            className="max-w-screen-xl"
+            className="max-w-sm lg:max-w-screen-xl"
             dots={false}
             arrows={false}
             autoplay
             autoplaySpeed={2000}
-            slidesToShow={5}
+            slidesToShow={window.outerWidth > 800 ? 5 : 1}
           >
             {data?.map((elem, index) => {
               return (
@@ -173,38 +175,38 @@ const InteractiveCard = ({ review, name, college, videoUrl }) => {
 
   return (
     <div
-      className="group relative m-2 h-48 w-56"
+      className="group relative lg:m-2 m-4 mx-auto lg:h-48 h-44 w-56"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      
       {/* Main Card Container */}
       <div className="absolute inset-0 transform rounded-lg bg-gradient-to-br from-white to-gray-200 shadow-lg transition-all duration-500 ease-out hover:scale-105">
         {/* Content Area */}
         <img
-            src="./About/validation-badge-bg-removed.gif"
-            className="z-20 w-10 absolute -top-3 -right-5 "
-            alt=""
-            srcset=""
-          />
-        
-        <div className="flex h-48 flex-col p-3">
+          src="./About/validation-badge-bg-removed.gif"
+          className="absolute -right-5 -top-3 z-20 lg:w-10 w-9"
+          alt=""
+          srcset=""
+        />
+
+        <div className="flex lg:h-48 h-44 flex-col p-3">
           {/* Quote Design */}
-          
+
           <div className="text-2xl text-primary-color">”</div>
 
           {/* Review Text */}
           <div className="flex-1">
-            <p className="text-xs font-semibold leading-relaxed text-gray-800">
+            <p className="lg:text-xs text-[0.7rem] font-semibold leading-relaxed text-gray-800">
               {review}
             </p>
           </div>
 
           {/* Author Info */}
           <div className="mt-2">
-            
-            <h3 className="text-sm font-bold text-primary-color">{name}</h3>
-            <p className="text-[0.7rem] font-semibold text-gray-800">{college}</p>
+            <h3 className="lg:text-sm text-xs font-bold text-primary-color">{name}</h3>
+            <p className="lg:text-[0.7rem] text-[0.6rem] font-semibold text-gray-800">
+              {college}
+            </p>
           </div>
         </div>
       </div>
