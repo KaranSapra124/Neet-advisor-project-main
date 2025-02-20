@@ -249,13 +249,13 @@ const EnrollServices = () => {
                           src={service?.icon}
                           className="w-8 rounded-full p-1 shadow-md shadow-gray-300"
                         />
-                        <span className="text-sm font-bold text-primary-color">
+                        <span className="lg:text-sm text-[0.75rem] font-bold text-primary-color">
                           {service.title}
                         </span>
                       </div>
-                      <Divider className="my-4 h-0.5 w-12  rounded-full bg-yellow-600" />
+                      <Divider className="lg:my-4 my-1.5 h-0.5 w-12  rounded-full bg-yellow-600" />
 
-                      <p className="mb-4 text-xs leading-[1.5] italic font-semibold text-gray-900">
+                      <p className="mb-4 lg:text-xs text-[0.5rem] leading-[1.5] italic font-semibold text-gray-900">
                         {expandedCards === serviceIndex
                           ? `"${service.content}"`
                           : service?.content?.substring(0, 45) + "..."}
