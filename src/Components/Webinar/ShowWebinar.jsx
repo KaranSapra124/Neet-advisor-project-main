@@ -31,7 +31,7 @@ const ShowWebinar = () => {
               alt="MacBook Frame"
               srcSet=""
             />
-            <div className="relative lg:-top-[36.4rem]  -top-[13.2rem] lg:left-[0.1rem] z-30 lg:w-[31.75rem] w-[14.7rem] left-[1.9rem]">
+            <div className="relative lg:-top-[36.4rem] md:w-[33rem]  -top-[13.2rem] lg:left-[0.1rem] z-30 lg:w-[31.75rem] w-[14.7rem] left-[1.9rem]">
               <video
                 loop
                 muted
