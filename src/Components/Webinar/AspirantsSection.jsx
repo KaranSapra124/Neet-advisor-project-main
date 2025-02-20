@@ -336,7 +336,7 @@ const AspirantsSection = () => {
           <div key={index} className="relative p-1 lg:mx-0 mx-auto">
             <img
               src="./Webinar/validation-badge-bg-removed.gif"
-              className="absolute -top-2  left-[33rem] lg:left-[23.5rem] z-20 w-10"
+              className="absolute -top-2 max-[380px]:left-[31.7rem]  left-[33rem] lg:left-[23.5rem] z-20 w-10"
               alt=""
               srcset=""
             />
@@ -344,7 +344,7 @@ const AspirantsSection = () => {
               <div className="flex items-center justify-between gap-2">
                 <div className="min-w-0 flex-1">
                   {/* Student Name and Divider */}
-                  <h2 className="mb-2 lg:text-sm text-xs font-extrabold text-primary-color">
+                  <h2 className="mb-2 lg:text-sm text-[0.7rem] font-extrabold text-primary-color">
                     {elem?.Name}
                   </h2>
                   <div className="lg:mb-4 mb-2 h-0.5 lg:w-16 w-12 rounded-full bg-yellow-600" />
@@ -352,7 +352,7 @@ const AspirantsSection = () => {
                   {/* College Info */}
                   <div className="lg:mb-3 mb-1.5 flex items-center gap-1">
                     <FaUniversity className="mt-1 flex-shrink-0 text-primary-color" />
-                    <p className="mx-1 line-clamp-1 text-xs font-semibold text-gray-800">
+                    <p className="mx-1 line-clamp-1 lg:text-xs text-[0.6rem] font-semibold text-gray-800">
                       {elem?.College_Name}
                     </p>
                   </div>
@@ -360,7 +360,7 @@ const AspirantsSection = () => {
                   {/* Rank */}
                   <div className="lg:mb-3 mb-1.5 flex items-center gap-1">
                     <FaRocket className="text-primary-color" />
-                    <span className="mx-1 text-xs font-semibold">
+                    <span className="mx-1 lg:text-xs text-[0.6rem] font-semibold">
                       AIR Rank:{" "}
                       <span className="font-bold text-primary-color">
                         {elem?.AIR_Rank}
@@ -371,7 +371,7 @@ const AspirantsSection = () => {
                   {/* MBBS Badge */}
                   <div className="inline-flex items-center rounded-full border border-primary-color bg-white px-1 py-1 text-primary-color">
                     <FaGraduationCap className="mr-1" />
-                    <span className="pr-2 text-xs font-bold">
+                    <span className="pr-2 lg:text-xs text-[0.6rem] font-bold">
                       {elem?.MBBS ? "MBBS" : "N/A"}
                     </span>
                   </div>
