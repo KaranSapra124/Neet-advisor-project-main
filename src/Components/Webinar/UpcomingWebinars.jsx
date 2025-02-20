@@ -7,6 +7,7 @@ import Divider from "../Helper/Divider";
 
 const UpcomingWebinars = () => {
   const [ind, setInd] = useState(0);
+  const [currWidth, setCurrWidth] = useState(0);
   const [hoverStates, setHoverStates] = useState(Array(5).fill(false)); // Initialize hover states for 5 webinars
   const deadline = Date.now() + 10 * 10 * 6000;
   const webinars = [
@@ -61,6 +62,16 @@ const UpcomingWebinars = () => {
     },
   ];
 
+  const changeSlides = () => {
+    if (currWidth > 900) {
+      return 4;
+    } else if (currWidth < 900 && currWidth > 800) {
+      return 3;
+    } else {
+      return 1;
+    }
+  };
+
   const items = [
     {
       key: "1",
@@ -70,7 +81,7 @@ const UpcomingWebinars = () => {
           <Carousel
             dots={false}
             draggable={true}
-            slidesToShow={4}
+            slidesToShow={changeSlides()}
             autoplaySpeed={2000}
             autoplay
           >
@@ -91,13 +102,15 @@ const UpcomingWebinars = () => {
                   </div>
 
                   <div className="w-fit px-2 py-1 pt-0">
-                    <h1 className="my-4 text-sm font-bold text-primary-color">
+                    <h1 className="my-2 text-[0.7rem] font-extrabold text-primary-color lg:my-4 lg:text-sm lg:font-bold">
                       {elem.title}
                     </h1>
                     <Divider
-                      className={"my-4 h-0.5 w-20 rounded-full bg-yellow-600"}
+                      className={
+                        "my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:w-20"
+                      }
                     />
-                    <p className="my-3 min-h-10 w-64 text-xs font-semibold text-gray-800">
+                    <p className="my-3 min-h-10 text-[0.6rem] font-semibold text-gray-800 lg:w-64 lg:text-xs">
                       {elem.description}
                     </p>
 
@@ -105,11 +118,11 @@ const UpcomingWebinars = () => {
                       <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
                         <img
                           src="./Webinar/calendar-bg-removed.gif"
-                          className="h-6 w-6"
+                          className="w-5 lg:h-6 lg:w-6"
                           alt=""
                           srcset=""
                         />
-                        <span className="text-xs font-medium text-gray-800">
+                        <span className="text-[0.6rem] font-medium text-gray-800 lg:text-xs">
                           {elem.book_date}
                         </span>
                       </div>
@@ -117,11 +130,11 @@ const UpcomingWebinars = () => {
                       <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
                         <img
                           src="./Webinar/stopwatch-bgremoved.gif"
-                          className="h-6 w-6"
+                          className="w-5 lg:h-6 lg:w-6"
                           alt=""
                           srcset=""
                         />
-                        <span className="text-xs font-medium text-gray-800">
+                        <span className="text-[0.6rem] font-medium text-gray-800 lg:text-xs">
                           {elem.book_time}
                         </span>
                       </div>
@@ -143,12 +156,12 @@ const UpcomingWebinars = () => {
                             return newStates;
                           });
                         }}
-                        className="mt-3 w-1/2 transform rounded-lg bg-yellow-600 py-1 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+                        className="mt-4 w-1/2 transform rounded-lg bg-yellow-600 py-1 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 lg:mt-3"
                       >
                         {hoverStates[index] ? (
                           <>
                             <span
-                              className={`text-xs ${elem.free_status ? "line-through" : ""}`}
+                              className={`text-[0.6rem] lg:text-xs ${elem.free_status ? "line-through" : ""}`}
                             >
                               {elem.free_status
                                 ? "Free"
@@ -156,7 +169,9 @@ const UpcomingWebinars = () => {
                             </span>
                           </>
                         ) : (
-                          <span className="text-xs">Book Now</span>
+                          <span className="text-[0.6rem] lg:text-xs">
+                            Book Now
+                          </span>
                         )}
                       </button>
                       <img
@@ -183,7 +198,7 @@ const UpcomingWebinars = () => {
           <Carousel
             dots={false}
             draggable={true}
-            slidesToShow={4}
+            slidesToShow={changeSlides()}
             autoplaySpeed={2000}
             autoplay
           >
@@ -204,25 +219,27 @@ const UpcomingWebinars = () => {
                   </div>
 
                   <div className="w-fit px-2 py-1 pt-0">
-                    <h1 className="my-4 text-sm font-bold text-primary-color">
+                    <h1 className="my-2 text-[0.7rem] font-extrabold text-primary-color lg:my-4 lg:text-sm lg:font-bold">
                       {elem.title}
                     </h1>
                     <Divider
-                      className={"my-4 h-0.5 w-20 rounded-full bg-yellow-600"}
+                      className={
+                        "my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:w-20"
+                      }
                     />
-                    <p className="my-3 min-h-10 w-64 text-xs font-semibold text-gray-800">
+                    <p className="my-3 min-h-10 text-[0.6rem] font-semibold text-gray-800 lg:w-64 lg:text-xs">
                       {elem.description}
                     </p>
 
-                    <div className="flex gap-2">
+                    <div className="mt-2 flex items-center space-x-2">
                       <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
                         <img
                           src="./Webinar/calendar-bg-removed.gif"
-                          className="h-6 w-6"
+                          className="w-5 lg:h-6 lg:w-6"
                           alt=""
                           srcset=""
                         />
-                        <span className="text-xs font-medium text-gray-800">
+                        <span className="text-[0.6rem] font-medium text-gray-800 lg:text-xs">
                           {elem.book_date}
                         </span>
                       </div>
@@ -230,11 +247,11 @@ const UpcomingWebinars = () => {
                       <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
                         <img
                           src="./Webinar/stopwatch-bgremoved.gif"
-                          className="h-6 w-6"
+                          className="w-5 lg:h-6 lg:w-6"
                           alt=""
                           srcset=""
                         />
-                        <span className="text-xs font-medium text-gray-800">
+                        <span className="text-[0.6rem] font-medium text-gray-800 lg:text-xs">
                           {elem.book_time}
                         </span>
                       </div>
@@ -256,12 +273,12 @@ const UpcomingWebinars = () => {
                             return newStates;
                           });
                         }}
-                        className="mt-3 w-1/2 transform rounded-lg bg-yellow-600 py-1 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+                        className="mt-4 w-1/2 transform rounded-lg bg-yellow-600 py-1 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 lg:mt-3"
                       >
                         {hoverStates[index] ? (
                           <>
                             <span
-                              className={`text-xs ${elem.free_status ? "line-through" : ""}`}
+                              className={`text-[0.6rem] lg:text-xs ${elem.free_status ? "line-through" : ""}`}
                             >
                               {elem.free_status
                                 ? "Free"
@@ -269,7 +286,9 @@ const UpcomingWebinars = () => {
                             </span>
                           </>
                         ) : (
-                          <span className="text-xs">Book Now</span>
+                          <span className="text-[0.6rem] lg:text-xs">
+                            Book Now
+                          </span>
                         )}
                       </button>
                       <img
@@ -301,23 +320,36 @@ const UpcomingWebinars = () => {
     return () => clearInterval(webinarInterval);
   }, []);
 
+  useEffect(() => {
+    const updateSlides = () => {
+      const currWidth = window.outerWidth;
+      // console.log(currWidth)
+      setCurrWidth(currWidth);
+    };
+    updateSlides();
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
   return (
     <Container className={"bg-gray-200/40"}>
       <div className="pb-2 text-center">
-        <h1 className="pb-2 text-3xl font-extrabold text-primary-color">
+        <h1 className="pb-1 text-sm font-extrabold text-primary-color lg:pb-2 lg:text-3xl">
           <span className="font-bold text-yellow-600">Upcoming</span> Webinars
         </h1>
-        <p className="text-xs font-bold text-gray-800 max-w-sm mx-auto my-4">
+        <p className="mx-auto text-[0.5rem] font-bold text-gray-800 lg:my-4 lg:max-w-sm lg:text-xs">
           Mark your calendars for Neet Advisor's upcoming <strong>NEET</strong>{" "}
           Counselling webinars.
         </p>
         <Divider
-          className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+          className={
+            "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+          }
         />
       </div>
       <div>
         <Tabs
-          tabPosition="left"
+          tabPosition={currWidth > 900 ? "left" : "top"}
           animated={true}
           defaultActiveKey="1"
           items={items}
