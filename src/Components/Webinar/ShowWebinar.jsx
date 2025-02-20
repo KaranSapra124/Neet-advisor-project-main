@@ -27,11 +27,11 @@ const ShowWebinar = () => {
           <div  >
             <img
               src="macbook-frame-removebg-preview.png"
-              className="relative lg:-top-32 h-[16.5rem] max-[400px]:-top-2 max-[400px]:h-[16rem]  z-20 lg:h-[35.5rem] lg:-left-16 lg:w-[40rem]"
+              className="relative lg:-top-32 h-[16.5rem] max-[400px]:-top-[0.48rem] max-[400px]:h-[16rem]  z-20 lg:h-[35.5rem] lg:-left-16 lg:w-[40rem]"
               alt="MacBook Frame"
               srcSet=""
             />
-            <div className="relative lg:-top-[36.4rem]  max-[400px]:w-[13.9rem] max-[400px]:left-[1.7rem]   -top-[13.2rem] lg:left-[0.1rem] z-30 lg:w-[31.75rem] w-[14.7rem] left-[1.9rem]">
+            <div className="relative lg:-top-[36.4rem]  max-[400px]:w-[13.88rem] max-[400px]:left-[1.7rem]   max-[600px]:-top-[13.2rem] lg:left-[0.1rem] z-30 lg:w-[31.75rem] max-[600px]:w-[14.7rem] max-[600px]:left-[1.9rem]">
               <video
                 loop
                 muted
