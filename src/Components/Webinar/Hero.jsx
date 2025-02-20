@@ -49,7 +49,7 @@ const Hero = () => {
           duration={1.5}
           animateOnce={true}
         >
-          <div>
+          <div className="-ml-5 lg:ml-0">
             <h1
               level={1}
               className="lg:mb-4 mb-2 lg:text-3xl text-sm font-bold text-primary-color"
@@ -71,15 +71,15 @@ const Hero = () => {
             <Card className="my-4 -mx-4 border-none bg-gray-200/10">
               <div className="flex flex-wrap gap-5">
                 <div className="flex items-center gap-2">
-                  <CalendarOutlined className="text-xl text-indigo-900" />
+                  <CalendarOutlined className="text-sm lg:text-xl text-indigo-900" />
                   <span className="font-bold lg:text-sm text-[0.7rem]  text-gray-700 ">20-12-2024</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <ClockCircleOutlined className="text-xl text-indigo-900" />
+                  <ClockCircleOutlined className="text-sm lg:text-xl text-indigo-900" />
                   <span className="font-bold lg:text-sm text-[0.7rem]  text-gray-700 ">11:00 AM</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <UserOutlined className="text-xl text-indigo-900" />
+                  <UserOutlined className="text-sm lg:text-xl text-indigo-900" />
                   <span className="font-bold lg:text-sm text-[0.7rem]  text-gray-700 ">Limited Seats</span>
                 </div>
               </div>
