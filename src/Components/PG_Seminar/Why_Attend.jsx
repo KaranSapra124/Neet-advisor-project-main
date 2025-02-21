@@ -47,32 +47,36 @@ const Why_Attend = () => {
   return (
     <>
       <Container
-        className={"no-repeat relative h-screen bg-webinar-hero bg-cover bg-fixed"}
+        className={
+          "no-repeat relative h-screen bg-webinar-hero bg-cover bg-fixed"
+        }
       >
         <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
         <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
-          <div className="relative">
-            <h1 className="text-center text-3xl font-semibold text-yellow-600">
+          <div className="relative ">
+            <h1 className="text-center text-sm font-semibold text-yellow-600 lg:text-3xl">
               Why To{" "}
               <span className="font-extrabold text-primary-color brightness-200">
                 Attend Our Seminar ?
               </span>
             </h1>
-            <p className="my-2 text-center text-xs font-semibold text-gray-200">
+            <p className="my-2 text-center text-[0.5rem] font-semibold text-gray-200 lg:text-xs">
               Preparing for NEET is tough, but the competition for seats is even
               tougher!!
             </p>
             <Divider
-              className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+              className={
+                "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+              }
             />
-            <div className="flex flex-row-reverse justify-center">
-              <div className="w-1/2 grid grid-cols-2 gap-2">
+            <div className="flex flex-col-reverse   justify-center lg:flex-row-reverse">
+              <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-0 lg:w-1/2 lg:grid-cols-2 lg:gap-2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex border-l-2 p-2    rounded-l-lg border-b-2 border-white  gap-1  space-y-4">
+                    <div className="flex lg:flex-row flex-col gap-1 rounded-l-lg border-b-2 border-l-2 border-white p-2 lg:space-y-4">
                       <img
                         src={seminar?.icon}
-                        className="h-9 w-9"
+                        className="h-4 w-4 lg:h-9 lg:w-9"
                         alt=""
                         srcset=""
                       />
@@ -80,7 +84,7 @@ const Why_Attend = () => {
                         <h1 className="text-sm font-extrabold text-yellow-600">
                           {seminar?.title}
                         </h1>
-                        <p className="text-xs font-semibold text-gray-200">
+                        <p className="text-[0.6rem] font-semibold text-gray-200 lg:text-xs">
                           {seminar?.paragraph}
                         </p>
                       </div>
@@ -88,7 +92,7 @@ const Why_Attend = () => {
                   );
                 })}
               </div>
-              <div className="w-1/2">
+              <div className="lg:w-1/2  ">
                 <Carousel
                   effect="fade"
                   infinite
@@ -96,13 +100,12 @@ const Why_Attend = () => {
                   autoplay
                   dots={false}
                   autoplaySpeed={2000}
-
                 >
                   {imageUrls?.map((imgData, index) => {
                     return (
                       <img
                         src={imgData}
-                        className="rounded-lg  border-2 border-white"
+                        className="rounded-lg lg:border-2 border border-white"
                         alt="No Image"
                       />
                     );
