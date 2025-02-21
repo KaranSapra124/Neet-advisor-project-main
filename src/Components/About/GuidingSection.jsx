@@ -64,7 +64,7 @@ const GuidingSection = () => {
                 </div>
               </div>
               <Carousel
-                className="max-w-xs lg:w-[30rem]"
+                className="max-w-xs lg:max-w-[30rem]"
                 dots={false}
                 autoplay
                 autoplaySpeed={2500}

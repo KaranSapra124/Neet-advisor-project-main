@@ -41,14 +41,14 @@ const WhoWeAre = () => {
 
         {/* Content */}
         <div className="relative mx-auto px-4">
-          <h1 className="text-center text-3xl font-bold text-yellow-600">
+          <h1 className="text-center lg:text-3xl text-sm font-bold text-yellow-600">
             Our Vision{" "}
             <span className="font-extrabold text-primary-color">& Mission</span>
           </h1>
-          <p className="text-xs text-gray-800  my-4 text-center font-semibold mx-auto  max-w-sm leading-[1.4]">Our Vision is to empower individuals to achieve their fullest potential, and our Mission is to provide personalized guidance, resources, and support to help them succeed in their dream careers.</p>
-          <div className="m-auto mb-5 my-2 h-1 w-20 rounded-full bg-yellow-600"></div>
+          <p className="lg:text-xs text-[0.5rem] text-gray-800  lg:my-4 my-2 text-center font-semibold mx-auto  max-w-sm leading-[1.4]">Our Vision is to empower individuals to achieve their fullest potential, and our Mission is to provide personalized guidance, resources, and support to help them succeed in their dream careers.</p>
+          <div className="m-auto lg:my-4 my-2.5 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"></div>
 
-          <div className="mx-auto flex max-w-screen-lg items-center justify-evenly">
+          <div className="mx-auto flex lg:flex-row flex-col lg:max-w-screen-lg items-center lg:justify-evenly justify-center">
             <div className="grid w-fit grid-cols-1 overflow-hidden rounded-lg p-2 border-l-2 border-b-2 border-yellow-600 shadow">
               {/* Image Section */}
               <div className="flex flex-col">
