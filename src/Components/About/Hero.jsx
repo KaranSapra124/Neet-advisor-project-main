@@ -12,12 +12,10 @@ const Hero = () => {
         <div className="relative z-10 flex lg:flex-row flex-col h-full w-full items-center justify-between">
           {/* Left Content */}
           <div className="flex lg:w-1/2 flex-col justify-center">
-            <div className="lg:max-w-xl lg:space-y-6 space-y-3">
+            <div className="lg:max-w-xl lg:space-y-6 space-y-2">
               {/* Badge */}
-              <div className="w-fit rounded-full bg-yellow-600 lg:px-4 lg:py-1 py-0.5  px-2 ">
-                <span className="lg:text-sm text-[0.5rem] font-bold text-white/95">
+              <div className="w-fit h-fit rounded-full bg-yellow-600 lg:text-sm  text-[0.5rem] font-bold text-white/95 lg:px-4 py-1  px-2 ">
                   #1 NEET Counselling Service
-                </span>
               </div>
 
               {/* Main Content */}
@@ -71,9 +69,9 @@ const Hero = () => {
             </div>
           </div>
           {/* Right Content */}
-          <div className="relative mx-4 h-96 w-1/2  rounded-lg shadow-lg shadow-white">
+          <div className="relative mx-4 lg:h-96 lg:my-0 my-10 lg:w-1/2 h-52 w-full  rounded-lg shadow-lg shadow-white">
             {/* Video Container */}
-            <div className="absolute inset-0 overflow-hidden rounded-lg shadow-md shadow-black/40">
+            <div className="absolute  inset-0 overflow-hidden rounded-lg shadow-md shadow-black/40">
               <video
                 src="/About/About-Us-Bg.mp4"
                 loop
@@ -87,21 +85,21 @@ const Hero = () => {
             {/* Floating Cards */}
             <div className="flex items-center justify-center">
               <div>
-                <div className="absolute inset-0 -left-10 -top-8 h-fit w-52 rounded-lg bg-gray-100/80 p-2 text-center shadow-md shadow-black">
-                <img src="./About/person-speaker.gif" className="w-8 h-8 mx-auto" alt="" srcset="" />
-                  <h1 className="my-2 text-center font-bold text-yellow-600">
+                <div className="absolute inset-0 lg:-left-10 lg:-top-8 -left-3 -top-4 h-fit lg:w-52 w-36 rounded-lg bg-gray-100/80 p-2 text-center shadow-md shadow-black">
+                <img src="./About/person-speaker.gif" className="lg:w-8 lg:h-8 h-6 w-6 mx-auto" alt="" srcset="" />
+                  <h1 className="lg:my-2 my-0.5 lg:text-sm text-[0.6rem] text-center font-bold text-yellow-600">
                     Expert Guidance
                   </h1>
-                  <p className="text-xs font-semibold text-gray-800">
+                  <p className="lg:text-xs text-[0.5rem] font-semibold text-gray-800">
                     Personalized mentoring from top counsellors
                   </p>
                 </div>
-                <div className="absolute inset-0 left-[31rem] top-72 h-fit w-52 rounded-lg bg-gray-100/80 p-2 text-center shadow-md shadow-black">
-                <img src="./About/BookImg.gif" className="w-8 h-8 mx-auto" alt="" srcset="" />
-                  <h1 className="my-2 text-center font-bold text-yellow-600">
+                <div className="absolute inset-0 lg:left-[31rem] lg:top-72 top-[9.5rem] h-fit lg:w-52 w-36 left-[9.5rem] rounded-lg bg-gray-100/80 p-2 text-center shadow-md shadow-black">
+                <img src="./About/BookImg.gif" className="lg:w-8 lg:h-8 h-6 w-6 mx-auto" alt="" srcset="" />
+                  <h1 className="lg:my-2 my-0.5 lg:text-sm text-[0.6rem] text-center font-bold text-yellow-600">
                     Educational Events
                   </h1>
-                  <p className="text-xs font-semibold text-gray-800">
+                  <p className="lg:text-xs text-[0.5rem] font-semibold text-gray-800">
                     Regular workshops and training sessions
                   </p>
                 </div>
