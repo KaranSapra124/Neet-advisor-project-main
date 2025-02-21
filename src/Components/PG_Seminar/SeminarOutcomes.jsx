@@ -40,50 +40,50 @@ const SeminarOutcomes = () => {
       <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
 
       <div className="relative text-center">
-        <h1 className="py-1 text-4xl font-bold text-yellow-600">
+        <h1 className="py-1 lg:text-4xl text-sm font-bold text-yellow-600">
           What You Will{" "}
           <span className="font-extrabold text-primary-color brightness-200">
             Gain ?
           </span>
         </h1>
-        <p className="mx-auto my-4 w-96 text-xs font-semibold text-gray-300">
+        <p className="mx-auto lg:my-4 lg:w-96 my-2 lg:text-xs text-[0.5rem] font-semibold text-gray-300">
           Leave prepared for the NEET PG counselling journey. Here's how our
           attendees benefit from Medical Mentor's seminar!
         </p>
         <Divider
-          className={"mx-auto mt-4 h-1 w-32 rounded-full bg-yellow-600"}
+          className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-32 w-12 rounded-full bg-yellow-600"}
         />
       </div>
-      <div className="relative my-5 flex justify-center gap-2">
+      <div className="relative my-5 flex lg:flex-row flex-col justify-center gap-2">
         {data?.map((elem, index) => {
           return (
             <div
               key={index}
-              className="my-2 h-[21rem]  w-72 animate-rubberBand cursor-pointer rounded bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 p-4 text-center shadow-sm shadow-white transition-all duration-500 hover:scale-105"
+              className="my-2 lg:h-[21rem]  lg:w-72 w-fit animate-rubberBand cursor-pointer rounded bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 p-4 text-center shadow-sm shadow-white transition-all duration-500 hover:scale-105"
             >
               {index < 2 ? (
                 <img
                   src={elem?.image}
-                  className="animate-backIn mx-auto h-52 w-64"
+                  className="animate-backIn mx-auto lg:h-52 lg:w-64 w-36 h-36 mb-2 lg:mb-0 max-[600px]:object-cover "
                   alt="No Image"
                   srcset=""
                 />
               ) : (
                 <video
-                  className="mx-auto h-52"
+                  className="mx-auto lg:h-52   mb-2 rounded-md lg:mb-0 max-[600px]:object-cover"
                   autoPlay
                   loop
                   muted
                   src={elem?.image}
                 />
               )}
-              <h2 className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-xs font-bold text-white">
+              <h2 className="w-fit  text-[0.6rem] rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 lg:text-xs font-bold text-white">
                 # {elem?.title}
               </h2>
               <Divider
-                className={"my-3 h-0.5 w-10 rounded-full bg-yellow-600"}
+                className={"lg:my-3 my-2 h-0.5 w-10 rounded-full bg-yellow-600"}
               />
-              <p className="text-xs font-semibold text-justify text-gray-300">
+              <p className="lg:text-xs text-[0.7rem] font-semibold text-justify text-gray-300">
                 {elem?.description}
               </p>
             </div>
