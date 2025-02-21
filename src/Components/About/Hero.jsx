@@ -6,62 +6,62 @@ import ScrollAnimation from "react-animate-on-scroll";
 const Hero = () => {
   
   return (
-    <Container className="relative w-full bg-webinar-hero">
+    <Container className="relative  w-full bg-webinar-hero">
         <div className="absolute inset-0 opacity-90 h-full w-full bg-gradient-to-tr from-gray-100 via-gray-200 to-white"></div>
       <ScrollAnimation animateIn="backInLeft" duration={1.5}>
-        <div className="relative z-10 flex h-full w-full items-center justify-between">
+        <div className="relative z-10 flex lg:flex-row flex-col h-full w-full items-center justify-between">
           {/* Left Content */}
-          <div className="flex w-1/2 flex-col justify-center">
-            <div className="max-w-xl space-y-6">
+          <div className="flex lg:w-1/2 flex-col justify-center">
+            <div className="lg:max-w-xl lg:space-y-6 space-y-3">
               {/* Badge */}
-              <div className="w-fit rounded-full bg-yellow-600 px-4 py-1">
-                <span className="text-sm font-bold text-white/95">
+              <div className="w-fit rounded-full bg-yellow-600 lg:px-4 lg:py-1 py-0.5  px-2 ">
+                <span className="lg:text-sm text-[0.5rem] font-bold text-white/95">
                   #1 NEET Counselling Service
                 </span>
               </div>
 
               {/* Main Content */}
               <div className="space-y-4">
-                <h1 className="text-3xl font-bold text-primary-color/90">
+                <h1 className="lg:text-3xl text-sm font-bold text-primary-color/90">
                   Your Trusted{" "}
                   <span className="typewriter  mt-2 block bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text font-bold text-transparent">
                     <span className="font-extrabold">NEET</span> Counselling Partner
                   </span>
                 </h1>
                 <Divider
-                  className={" h-1 w-20 rounded-full bg-yellow-600"}
+                  className={" lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
                 />
 
-                <div className="space-y-6">
-                  <p className="text-xs font-semibold text-gray-800">
+                <div className="lg:space-y-6 space-y-3">
+                  <p className="lg:text-xs text-[0.6rem] font-semibold text-gray-800">
                     Achieve your dream of becoming a doctor with expert guidance
                     at every step. Our personalized{" "}
                     <strong className="text-yellow-600">NEET</strong> counseling
                     services ensure the best college selection based on your
                     goals.
                   </p>
-                  <p className="text-xs font-semibold text-gray-800">
+                  <p className="lg:text-xs text-[0.6rem] font-semibold text-gray-800">
                     Let us simplify your journey—trusted, reliable, and
                     committed to your success.
                   </p>
                 </div>
 
-                <div className="flex gap-4 py-4">
-                  <button className="group flex items-center gap-4 rounded-full bg-yellow-600 px-2 py-1 text-sm font-bold text-white transition-all duration-300 hover:bg-yellow-700">
+                <div className="flex lg:gap-4 gap-2 lg:py-4 py-2">
+                  <button className="group flex items-center lg:gap-4 gap-2 rounded-full bg-yellow-600 px-2 py-1 lg:text-sm text-[0.5rem] font-bold text-white transition-all duration-300 hover:bg-yellow-700">
                     Get Started Today
-                    <FaArrowRight className=" transition-transform duration-300 group-hover:translate-x-1" />
+                    <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                   <div className="flex items-center gap-2">
                     <div className="flex -space-x-2">
                       {[1, 2, 3].map((i) => (
                         <img
                           key={i}
-                          className="h-10 w-10 rounded-full border border-gray-200 bg-gray-300"
+                          className="lg:h-10 lg:w-10 w-8 rounded-full border border-gray-200 bg-gray-300"
                           src="https://neetadvisor.com/assets/images/gallery/international/1.webp"
                         />
                       ))}
                     </div>
-                    <p className="text-sm font-semibold text-gray-800">
+                    <p className="text-[0.5rem] lg:text-sm font-semibold text-gray-800">
                       <span className="font-bold text-yellow-600">1000+</span>{" "}
                       Success Stories
                     </p>
