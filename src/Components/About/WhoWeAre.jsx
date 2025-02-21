@@ -48,7 +48,7 @@ const WhoWeAre = () => {
           <p className="lg:text-xs text-[0.5rem] text-gray-800  lg:my-4 my-2 text-center font-semibold mx-auto  max-w-sm leading-[1.4]">Our Vision is to empower individuals to achieve their fullest potential, and our Mission is to provide personalized guidance, resources, and support to help them succeed in their dream careers.</p>
           <div className="m-auto lg:my-4 my-2.5 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"></div>
 
-          <div className="mx-auto flex lg:flex-row flex-col lg:max-w-screen-lg lg:gap-0 gap-4    items-center lg:justify-evenly justify-center">
+          <div className="mx-auto flex lg:flex-row flex-col lg:max-w-screen-lg  lg:gap-0 gap-4    items-center lg:justify-evenly justify-center">
             <div className="grid w-fit grid-cols-1 overflow-hidden rounded-lg p-2 border-l-2 border-b-2 border-yellow-600 shadow">
               {/* Image Section */}
               <div className="flex flex-col">
@@ -77,7 +77,7 @@ const WhoWeAre = () => {
             </div>
 
             {/* Mission and Vision Section */}
-            <div className="lg:space-y-8 space-y-4 w-full">
+            <div className="lg:space-y-8 space-y-4  ">
               <div className="lg:h-36 lg:w-96   hover:scale-110 transition-all cursor-pointer rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 px-4 py-2 shadow-lg">
                 <img
                   src="./About/mission.gif"

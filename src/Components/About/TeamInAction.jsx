@@ -29,14 +29,14 @@ const TeamInAction = () => {
     <Container className="relative bg-webinar-hero">
       <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-gray-100 via-gray-200 to-white opacity-90"></div>
       <ScrollAnimation animateIn="fadeIn" duration={2.5}>
-        <div className="relative mx-auto max-w-screen-lg">
-          <h1 className="text-center text-3xl font-bold text-yellow-600">
+        <div className="relative mx-auto lg:max-w-screen-lg">
+          <h1 className="text-center lg:text-3xl text-sm font-bold text-yellow-600">
             Team In{" "}
             <span className="font-extrabold text-primary-color">Action</span>
           </h1>
-          <p className="text-xs leading-5 text-gray-800 mx-auto max-w-sm font-semibold my-4 text-center">Working together with passion, collaboration, and dedication to turn dreams into reality and achieve success.</p>
+          <p className="lg:text-xs text-[0.5rem] lg:leading-5 text-gray-800 mx-auto lg:max-w-sm font-semibold lg:my-4 my-2 text-center">Working together with passion, collaboration, and dedication to turn dreams into reality and achieve success.</p>
           <Divider
-            className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+            className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
           <div className="md:flex items-center justify-between mx-auto space-x-8">
             {/* Image Gallery */}
