@@ -19,7 +19,7 @@ const Hero = () => {
               </div>
 
               {/* Main Content */}
-              <div className="space-y-4">
+              <div className="lg:space-y-4 space-y-2">
                 <h1 className="lg:text-3xl text-sm font-bold text-primary-color/90">
                   Your Trusted{" "}
                   <span className="typewriter  mt-2 block bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text font-bold text-transparent">
@@ -27,7 +27,7 @@ const Hero = () => {
                   </span>
                 </h1>
                 <Divider
-                  className={" lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
+                  className={"lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
                 />
 
                 <div className="lg:space-y-6 space-y-3">
