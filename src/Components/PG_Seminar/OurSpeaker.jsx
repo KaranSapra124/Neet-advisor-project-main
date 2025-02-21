@@ -145,7 +145,7 @@ const OurSpeaker = () => {
 // };
 const TeamMember = ({ member }) => {
   return (
-    <div className="group flex w-full cursor-pointer flex-row overflow-hidden rounded-md border border-b-2 border-l-2 border-gray-300 border-b-yellow-600 border-l-yellow-600 bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 shadow-md shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row lg:w-[35rem]">
+    <div className="group flex w-full cursor-pointer flex-row overflow-hidden rounded-md border   border-gray-300  bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 lg:shadow-md shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row lg:w-[35rem]">
       <img
         src={member.imageUrl}
         alt={member.name}
