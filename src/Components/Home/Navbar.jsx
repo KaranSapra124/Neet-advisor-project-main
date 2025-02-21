@@ -73,7 +73,7 @@ function Navbar() {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-lg text-gray-800 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="rounded-lg text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
           >
             {isOpen ? (
               <svg
