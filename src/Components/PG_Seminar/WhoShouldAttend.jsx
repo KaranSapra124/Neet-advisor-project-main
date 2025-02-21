@@ -46,7 +46,7 @@ const WhoShouldAttend = () => {
     <>
       <Container
         className={
-          "no-repeat relative h-screen bg-webinar-hero bg-cover bg-fixed"
+          "no-repeat relative lg:h-screen  bg-webinar-hero bg-cover bg-fixed"
         }
       >
         <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
