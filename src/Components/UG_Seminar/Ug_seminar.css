@@ -6,6 +6,12 @@
   filter: brightness(200%);
 }
 
+@media screen and (max-width: 800px) {
+  .ug-seminar-tab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+ font-size: 0.8rem;
+  }
+}
+
 .ug-seminar-tab .ant-tabs-ink-bar {
   background: #201169;
   filter: brightness(200%);

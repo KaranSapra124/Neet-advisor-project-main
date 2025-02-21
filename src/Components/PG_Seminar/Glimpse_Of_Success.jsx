@@ -72,7 +72,7 @@ const Glimpse_Of_Success = () => {
                             loop
                             muted
                           ></video>
-                          <div className="flex flex-col gap-1 bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 lg:px-2 lg:py-2 px-1 py-0.5">
+                          <div className="flex flex-col gap-1 bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 px-1 py-0.5 lg:px-2 lg:py-2">
                             <img
                               className="ml-auto h-6 w-6 rounded-sm bg-white p-1 lg:h-10 lg:w-10"
                               src="neet-advisor-logo-Photoroom.png"
@@ -139,7 +139,7 @@ const Glimpse_Of_Success = () => {
                                   </div>
                                 </p>
                               </div>
-                              <button className="my-2 rounded-l-full rounded-r-full bg-yellow-600 lg:px-3 px-2 lg:py-1.5 py-0.5 lg:text-lg text-[0.5rem] font-bold text-white transition-all hover:bg-yellow-700">
+                              <button className="my-2 rounded-l-full rounded-r-full bg-yellow-600 px-2 py-0.5 text-[0.5rem] font-bold text-white transition-all hover:bg-yellow-700 lg:px-3 lg:py-1.5 lg:text-lg">
                                 Book Now
                               </button>
                             </div>

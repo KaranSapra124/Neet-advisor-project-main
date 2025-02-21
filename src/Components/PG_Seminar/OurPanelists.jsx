@@ -3,7 +3,7 @@ import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
 import { Steps, Timeline } from "antd";
 import ScrollAnimation from "react-animate-on-scroll";
-import "./Pg_Seminar.css"
+import "./Pg_Seminar.css";
 
 const OurPanelists = () => {
   const [progress, setProgress] = useState(0);
@@ -58,50 +58,51 @@ const OurPanelists = () => {
         >
           <div className="relative">
             <div className="text-center">
-              <h1 className="text-3xl font-semibold text-yellow-600">
+              <h1 className="text-sm font-semibold text-yellow-600 lg:text-3xl">
                 How It Will{" "}
                 <span className="font-extrabold text-primary-color brightness-[300%]">
                   Progess?
                 </span>
               </h1>
-              <p className="my-2 text-xs font-semibold text-gray-200">
+              <p className="my-2 text-[0.5rem] font-semibold text-gray-200 lg:text-xs">
                 Checkout timeline of our seminar!
               </p>
               <Divider
-                className={"mx-auto my-4 mb-10 h-1 w-20 rounded-full bg-yellow-600"}
+                className={
+                  "mx-auto my-2 mb-5 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:mb-10 lg:h-1 lg:w-20"
+                }
               />
             </div>
             <div>
               <Timeline
-                mode="alternate"
+                mode={window.outerWidth > 800 ? "alternate" : "left"}
                 className="pg-seminar"
-
                 items={agenda?.map((elem, index) => {
                   return {
                     children: (
                       <>
                         <div
-                          className={` ${(index + 1) % 2 === 0 && "ml-[20.8rem]"} m-2 h-40 w-80 rounded-md bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center border shadow-sm shadow-white border-white`}
+                          className={` ${(index + 1) % 2 === 0 && "lg:ml-[20.8rem] m-0"} m-2 lg:h-40 lg:w-80  rounded-md border border-white bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center shadow-sm shadow-white`}
                         >
                           <img
                             src="./Seminar/validation-badge-bg-removed.gif"
-                            className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "left-[39.5rem]" : "left-[19.2rem]"}`}
+                            className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "lg:left-[39.5rem] left-[14rem]" : "lg:left-[19.2rem] left-[14rem]"}`}
                             alt=""
                             srcset=""
                           />
-                          <div className="p-4">
-                            <h2 className="text-md my-1 font-semibold text-white">
+                          <div className="lg:p-4 p-2">
+                            <h2 className="text-md max-[800px]:text-[0.6rem] my-1 lg:font-semibold font-extrabold text-white">
                               {elem?.topic}
                             </h2>
                             <Divider
                               className={
-                                "mx-auto my-2 h-0.5 w-8 rounded-full bg-gray-400"
+                                "mx-auto my-4 lg:my-2 h-0.5 w-8 rounded-full bg-gray-400"
                               }
                             />
-                            <h1 className="text-sm font-bold text-white">
+                            <h1 className="lg:text-sm text-xs lg:font-bold font-thin text-white">
                               {elem?.time}
                             </h1>
-                            <p className="my-2 text-wrap text-xs font-bold text-gray-200">
+                            <p className="lg:my-2 my-3 text-wrap lg:text-xs text-[0.7rem] font-bold text-gray-200">
                               {elem?.description}
                             </p>
                           </div>
@@ -110,7 +111,6 @@ const OurPanelists = () => {
                     ),
 
                     color: "#201169",
-
 
                     // className:"brightness-200"
                   };
