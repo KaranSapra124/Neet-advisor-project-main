@@ -46,7 +46,7 @@ const TeamInAction = () => {
                   <div key={index} className="relative">
                     <img
                       src={elem}
-                      className={`aspect-square lg:h-40 lg:w-60 rounded-lg object-cover shadow-lg transition-all duration-500 ${
+                      className={`lg:aspect-square  lg:h-40 lg:w-60 rounded-lg object-cover shadow-lg transition-all duration-500 ${
                         imageIndex === index
                           ? `${animation} ${
                               animation === "animate-slideOutLeft"
@@ -77,7 +77,7 @@ const TeamInAction = () => {
                   >
                     <img
                       src="./About/validation-badge-bg-removed.gif"
-                      className="absolute lg:left-[30rem]   lg:-mt-8 -mt-7 w-6 left-[16.5rem]  lg:h-7 lg:w-7 rounded-full bg-white shadow-md shadow-yellow-600"
+                      className="absolute lg:left-[30rem]   lg:-mt-8 -mt-7 w-6 left-[16.5rem]  lg:h-7 lg:w-7  rounded-full bg-white shadow-md shadow-yellow-600"
                       alt=""
                       srcset=""
                     />
