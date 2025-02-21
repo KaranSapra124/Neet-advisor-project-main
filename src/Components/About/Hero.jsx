@@ -45,7 +45,7 @@ const Hero = () => {
                 </div>
 
                 <div className="flex lg:gap-4 gap-2 lg:py-4 py-2">
-                  <button className="group flex items-center lg:gap-4 gap-2 rounded-full bg-yellow-600 px-2 py-1 lg:text-sm text-[0.5rem] font-bold text-white transition-all duration-300 hover:bg-yellow-700">
+                  <button className="group flex items-center lg:gap-4 gap-1 rounded-full bg-yellow-600 px-2 py-1 lg:text-sm text-[0.5rem] lg:font-bold font-extrabold text-white transition-all duration-300 hover:bg-yellow-700">
                     Get Started Today
                     <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
