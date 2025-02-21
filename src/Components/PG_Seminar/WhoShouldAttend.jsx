@@ -57,22 +57,22 @@ const WhoShouldAttend = () => {
         >
           <div className="relative">
             <div className="text-center">
-              <h1 className="text-3xl font-bold text-yellow-600">
+              <h1 className="lg:text-3xl text-sm font-bold text-yellow-600">
                 Who Should{" "}
                 <span className="font-extrabold text-primary-color brightness-200">
                   Attend Our Seminar?
                 </span>
               </h1>
-              <p className="my-2 text-xs font-semibold text-gray-400">
+              <p className="my-2 lg:text-xs text-[0.5rem] font-semibold text-gray-400">
                 Attend our seminar & reach newer heights!
               </p>
               <Divider
-                className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+                className={"mx-auto lg:my-4 lg:h-1 lg:w-20 w-12 h-0.5 my-2 rounded-full bg-yellow-600"}
               />
             </div>
 
-            <div className="flex">
-              <div className="w-1/2">
+            <div className="flex lg:flex-row flex-col">
+              <div className="lg:w-1/2">
                 <Carousel autoplay dots={false} infinite>
                   {imageUrls?.map((elem, index) => {
                     return <img key={index} src={elem} alt={index} />;
@@ -80,25 +80,25 @@ const WhoShouldAttend = () => {
                 </Carousel>
               </div>
 
-              <div className="mx-auto grid max-w-screen-md grid-cols-2 gap-2">
+              <div className="mx-auto grid lg:max-w-screen-md lg:grid-cols-2 lg:gap-2 gap-1 lg:mt-0 mt-4">
                 {whoShouldAttend?.map((elem, index) => {
                   return (
                     <div
-                      className={`${isIndex === index && "border-b-2 border-l-2"} relative m-4 mx-3 cursor-pointer rounded-lg border-yellow-600 bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 p-2 shadow-sm shadow-white transition-all duration-200`}
+                      className={`${isIndex === index && "border-b-2 border-l-2"} relative lg:m-4 m-2 mx-3 cursor-pointer rounded-lg border-yellow-600 bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 p-2 shadow-sm shadow-white transition-all duration-200`}
                     >
                       <img
                         src="./Webinar/creative-removedBg.gif"
-                        className="absolute -top-4 left-[18.5rem] h-9 w-9"
+                        className="absolute -top-3 lg:left-[18.5rem] left-[15rem] lg:h-9 lg:w-9 w-7 h-7"
                         alt=""
                         srcset=""
                       />
-                      <h1 className="my-1 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-xs font-semibold text-white">
+                      <h1 className="my-1 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 lg:text-xs text-[0.5rem] font-bold lg:font-semibold text-white">
                         # {elem?.category}
                       </h1>
                       <Divider
-                        className={"my-3 h-0.5 w-12 rounded-full bg-yellow-600"}
+                        className={"lg:my-3 my-2 h-0.5 w-12 rounded-full bg-yellow-600"}
                       />
-                      <p className="my-4 text-sm font-semibold text-gray-300/90">
+                      <p className="lg:my-4 my-0 lg:text-sm text-[0.5rem] font-semibold text-gray-300/90">
                         {elem?.description}
                       </p>
                     </div>
