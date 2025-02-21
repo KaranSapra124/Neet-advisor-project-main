@@ -66,7 +66,7 @@ const Glimpse_Of_Success = () => {
                       <>
                         <div className="mx-auto flex lg:max-w-screen-xl lg:flex-row flex-col justify-between rounded-md shadow shadow-gray-200">
                           <video
-                            className="lg:w-1/2 w-full rounded-l-lg"
+                            className="lg:w-1/2 w-full lg:rounded-l-lg rounded-md"
                             src={elem?.video}
                             autoPlay
                             loop
