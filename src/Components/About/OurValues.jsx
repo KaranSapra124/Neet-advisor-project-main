@@ -81,39 +81,39 @@ const OurValues = () => {
     <Container className={"relative bg-webinar-hero"}>
       <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-gray-100 via-gray-200 to-white opacity-90"></div>
       <ScrollAnimation animateIn="backInRight" duration={1.5}>
-        <div className="relative m-auto max-w-screen-xl">
-          <div className="pb-5">
-            <h1 className="text-center text-3xl font-bold text-yellow-600">
+        <div className="relative m-auto lg:max-w-screen-xl ">
+          <div className="lg:pb-5 pb-2">
+            <h1 className="text-center lg:text-3xl text-sm font-bold text-yellow-600">
               Our Values ,{" "}
               <span className="font-extrabold text-primary-color">
                 Which Defined Us
               </span>
             </h1>
-            <p className="mx-auto my-4 w-[27rem] text-center text-xs font-semibold leading-5 text-gray-800">
+            <p className="mx-auto lg:my-4 my-2 lg:w-[27rem] text-center lg:text-xs text-[0.5rem] font-semibold lg:leading-5 text-gray-800">
               Our values represent the core principles that guide our actions,
               decisions, and relationships. They reflect our commitment to
               integrity, respect, innovation, and collaboration, shaping the way
               we interact with each other and the world.
             </p>
-            <div className="mx-auto my-4 h-1 w-20 rounded-lg bg-yellow-600"></div>
+            <div className="mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-lg bg-yellow-600"></div>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {values?.map((value, index) => {
               return (
                 <div
-                  className={`${index === currVal ? "border-b-2 border-l-2 border-yellow-600" : ""} flex w-96 flex-col items-center justify-center rounded-lg bg-gradient-to-tr from-white to-black/5 p-4 shadow-md shadow-white transition-all duration-300`}
+                  className={`${index === currVal ? "border-b-2 border-l-2 border-yellow-600" : ""} flex lg:w-96 flex-col items-center justify-center rounded-lg bg-gradient-to-tr from-white to-black/5 lg:p-4 p-2.5 shadow-md shadow-white transition-all duration-300`}
                 >
                   <img
                     src={value?.icon}
-                    className="mx-auto w-9 rounded-full bg-white p-1 shadow-md shadow-yellow-600"
+                    className="mx-auto lg:w-9 w-6 rounded-full bg-white p-1 shadow-md shadow-yellow-600"
                     alt=""
                     srcset=""
                   />
-                  <h2 className="my-2 text-sm font-bold">{value?.title}</h2>
+                  <h2 className="lg:my-2 my-1.5 lg:text-sm text-xs font-bold">{value?.title}</h2>
                   <Divider
-                    className={"mx-auto h-0.5 my-2 w-12 rounded-full bg-yellow-600"}
+                    className={"mx-auto h-0.5 my-2 lg:w-12 w-8 rounded-full bg-yellow-600"}
                   />
-                  <p className="text-xs font-semibold leading-5 text-gray-800">
+                  <p className="lg:text-xs text-[0.5rem] font-semibold lg:leading-5 text-gray-800">
                     {value?.description}
                   </p>
                 </div>
