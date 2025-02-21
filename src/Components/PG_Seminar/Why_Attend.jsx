@@ -48,7 +48,7 @@ const Why_Attend = () => {
     <>
       <Container
         className={
-          "no-repeat relative h-screen bg-webinar-hero bg-cover bg-fixed"
+          "no-repeat relative lg:h-screen h-full bg-webinar-hero bg-cover bg-fixed"
         }
       >
         <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
@@ -69,11 +69,11 @@ const Why_Attend = () => {
                 "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
               }
             />
-            <div className="flex flex-col-reverse   justify-center lg:flex-row-reverse">
+            <div className="flex flex-col-reverse  w-full justify-center lg:flex-row-reverse">
               <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-0 lg:w-1/2 lg:grid-cols-2 lg:gap-2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex lg:flex-row flex-col gap-1 rounded-l-lg border-b-2 border-l-2 border-white p-2 lg:space-y-4">
+                    <div className="flex lg:flex-row flex-col gap-1 rounded-l-lg lg:border-b-2 lg:border-l-2 border-b border-l border-white p-2 lg:space-y-4">
                       <img
                         src={seminar?.icon}
                         className="h-4 w-4 lg:h-9 lg:w-9"
@@ -105,7 +105,7 @@ const Why_Attend = () => {
                     return (
                       <img
                         src={imgData}
-                        className="rounded-lg lg:border-2 border border-white"
+                        className="rounded-lg  lg:border-2 border border-white"
                         alt="No Image"
                       />
                     );
