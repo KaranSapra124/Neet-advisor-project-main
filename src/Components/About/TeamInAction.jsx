@@ -38,15 +38,15 @@ const TeamInAction = () => {
           <Divider
             className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
-          <div className="md:flex items-center justify-between mx-auto space-x-8">
+          <div className="md:flex items-center justify-between mx-auto lg:space-x-8">
             {/* Image Gallery */}
-            <div className=" flex flex-col items-center border-l-2 border-b-2 border-yellow-600 justify-center space-y-4 rounded-xl p-2 shadow">
+            <div className=" flex flex-col  items-center border-l-2 border-b-2 border-yellow-600 justify-center space-y-4 rounded-xl p-2 shadow">
               <div className="grid grid-cols-2 gap-3">
                 {imageUrls.map((elem, index) => (
                   <div key={index} className="relative">
                     <img
                       src={elem}
-                      className={`aspect-square h-40 w-60 rounded-lg object-cover shadow-lg transition-all duration-500 ${
+                      className={`aspect-square lg:h-40 lg:w-60 rounded-lg object-cover shadow-lg transition-all duration-500 ${
                         imageIndex === index
                           ? `${animation} ${
                               animation === "animate-slideOutLeft"
@@ -63,7 +63,7 @@ const TeamInAction = () => {
             </div>
 
             {/* Paragraph Content */}
-            <div className="relative mt-2 flex w-full flex-col space-y-6 md:w-1/2">
+            <div className="relative lg:mt-2 mt-4 flex w-full flex-col lg:space-y-6 lg:w-1/2 space-y-4">
               {[
                 "We are a team of young professionals dedicated to equip students with the clarity, courage, and determination to follow their dreams.",
                 "We are very passionate about adding value to the education sector and establishing world-class career counseling services in India.",
@@ -73,11 +73,11 @@ const TeamInAction = () => {
                 <>
                   <p
                     key={idx}
-                    className="cursor-pointer rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 p-6 text-justify text-xs font-semibold text-gray-800 shadow-md shadow-black/30 transition-all duration-300 hover:scale-105"
+                    className="cursor-pointer rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gradient-to-tr from-white to-gray-300/50 lg:p-6 p-4 text-justify lg:text-xs text-[0.5rem] font-semibold text-gray-800 shadow-md shadow-black/30 transition-all duration-300 hover:scale-105"
                   >
                     <img
                       src="./About/validation-badge-bg-removed.gif"
-                      className="absolute md:left-[30rem]   -mt-8 h-7 w-7 rounded-full bg-white shadow-md shadow-yellow-600"
+                      className="absolute lg:left-[30rem]   lg:-mt-8 -mt-7 w-6 left-[16.5rem]  lg:h-7 lg:w-7 rounded-full bg-white shadow-md shadow-yellow-600"
                       alt=""
                       srcset=""
                     />
@@ -85,7 +85,7 @@ const TeamInAction = () => {
                   </p>
                   {idx !== 3 && (
                     <Divider
-                      className={"mx-auto h-1 w-20 rounded-full bg-yellow-600"}
+                      className={"mx-auto lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
                     />
                   )}
                 </>
