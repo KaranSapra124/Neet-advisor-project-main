@@ -186,7 +186,7 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative lg:my-0  lg:mx-0 mx-auto flex h-full rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:max-h-72 max-h-full lg:gap-4">
+    <div className="relative lg:my-0 my-3.5 lg:mx-0 mx-auto flex h-full rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:max-h-72 max-h-full lg:gap-4">
       <img
         className="absolute -left-3 -top-3 lg:h-14 lg:w-14 w-10 h-10 rounded-full shadow shadow-yellow-600"
         src={imgUrl}
