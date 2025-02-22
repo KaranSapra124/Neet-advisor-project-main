@@ -107,42 +107,52 @@ const LatestNews = () => {
       )}
       <Container className={"bg-gray-200/40 py-10"}>
         <div>
-          <h1 className="border-l-2 border-yellow-600 px-2 text-3xl font-bold uppercase text-primary-color">
+          <h1 className="border-l-2 border-yellow-600 px-2 text-sm font-bold uppercase text-primary-color lg:text-3xl">
             Latest <span className="font-extrabold text-yellow-600">News</span>
           </h1>
-          <Divider className={"my-4 h-1 w-20 rounded-full bg-yellow-600"} />
+          <Divider
+            className={
+              "my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+            }
+          />
           <div className="my-4">
-            <Carousel slidesToShow={4} dots={false} autoplay infinite>
+            <Carousel
+              slidesToShow={window.outerWidth > 800 ? 4 : 1}
+              dots={false}
+              autoplay
+              arrows
+              infinite
+            >
               {newsData?.map((elem, index) => {
                 return (
-                  <div className="relative">
+                  <div
+                    key={index}
+                    className="relative"
+                    onClick={() => {
+                      setIsOpen(true);
+                      setNewsData(elem);
+                    }}
+                  >
                     <img
                       src={elem?.imageUrl}
-                      className="h-40"
+                      className="lg:h-40"
                       alt={elem?.title}
                     />
                     <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
 
-                    <div className="absolute top-16 z-10 mx-4">
-                      <h5 className="w-fit border-l-2 border-yellow-600 px-2 font-extrabold text-primary-color brightness-[350%]">
+                    <div className="absolute top-20 z-10 mx-4 lg:top-[25rem]">
+                      <h5 className="w-fit border-l-2 border-yellow-600 px-2 text-xs font-extrabold text-primary-color brightness-[250%] lg:text-sm">
                         {elem?.category}
                       </h5>
-                      <h4 className="text-xs font-bold text-white">
-                        {elem?.title?.length > 40
-                          ? elem?.title?.substring(0, 40) + "..."
-                          : elem?.title}
+                      <h4 className="my-1 text-[0.8rem] font-bold text-white lg:my-0 lg:text-xs">
+                        {elem?.title}
                       </h4>
-                      <p className="font-light text-gray-400">
+                      <p className="text-[0.6rem] font-light text-gray-400 lg:text-sm">
                         {elem?.description?.length > 30
                           ? elem?.description?.substring(0, 30) + "..."
                           : elem?.description}
                       </p>
-                      <FaArrowRight
-                        onClick={() => {
-                          handleOpenNews(elem);
-                        }}
-                        className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125"
-                      />
+                      <FaArrowRight className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-xl text-white transition-all duration-200 hover:scale-125 lg:text-lg" />
                     </div>
                   </div>
                 );
@@ -176,7 +186,9 @@ const NewsModal = ({ data, setIsOpen, isOpen }) => {
             <span className="px-1 font-normal italic">Published On :</span>
             {date}
           </p>
-          <p className="font-semibold text-gray-700 text-justify">{description}</p>
+          <p className="text-justify font-semibold text-gray-700">
+            {description}
+          </p>
         </div>
       </Modal>
     </>
