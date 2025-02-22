@@ -5,39 +5,39 @@ const GlobalImageComponent = ({ image }) => {
   const [mainImage, setMainImage] = useState(0);
 
   return (
-    <div className="w-full max-w-screen-lg mx-auto p-4">
-      <div className="flex flex-row items-center justify-center gap-8">
+    <div className="mx-auto w-full lg:p-4 p-1 lg:max-w-screen-lg ">
+      <div className="flex flex-col items-center justify-center lg:gap-8 gap-2 lg:flex-row">
         {/* Main Image Container */}
         <div className="flex-1">
-          <div className="relative w-full flex justify-center">
+          <div className="relative flex w-full justify-center">
             <img
               key={mainImage}
               src={image[mainImage].imageUrl}
-              className="h-[30.5rem] shadow-md shadow-black w-full object-cover rounded-lg animate-zoomIn"
+              className="lg:h-[30.5rem] h-full w-full  animate-zoomIn rounded-lg object-cover shadow-md shadow-black"
               alt="Main product"
             />
           </div>
         </div>
 
         {/* Vertical Carousel Container */}
-        <div className="w-40">
+        <div className="lg:w-40 w-96 lg:px-0 px-10">
           <Carousel
             dots={false}
-            vertical
+            vertical={window.outerWidth > 800 ? true : false}
             afterChange={() =>
               setMainImage((prev) => (prev < image.length - 1 ? prev + 1 : 0))
             }
-            slidesToShow={4}
+            slidesToShow={window.outerWidth > 800 ? 4 : 3}
             autoplaySpeed={3000}
             infinite
             autoplay
-            className="h-[30.5rem]"
+            className="lg:h-[30.5rem] px-10"
           >
             {image?.map((elem, index) => (
               <div key={index} className="p-1">
                 <img
                   src={elem.imageUrl}
-                  className="w-full h-28 object-cover rounded shadow-md shadow-black cursor-pointer"
+                  className="lg:h-28 w-full cursor-pointer rounded object-cover shadow-md shadow-black"
                   alt={`Product view ${index + 1}`}
                 />
               </div>

@@ -99,14 +99,14 @@ const InternationalGallery = () => {
     <div className="mx-auto px-4">
       {/* Elegant Header */}
       <div className="mb-5 space-y-3 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
+        <h1 className="lg:text-3xl text-sm font-bold tracking-tight text-yellow-600">
           Explore Our{" "}
           <span className="font-extrabold italic text-primary-color">
             Achievements
           </span>
         </h1>
-        <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="mx-auto w-full text-xs font-bold text-gray-700">
+        <Divider className={"mx-auto lg:h-1 lg:w-12 h-0.5 w-12 rounded-full bg-yellow-600"} />
+        <p className="mx-auto w-full lg:text-xs text-[0.5rem] font-bold text-gray-700">
           Through dedication and innovation, we have successfully achieved
           greater heights in education.
         </p>
@@ -114,7 +114,7 @@ const InternationalGallery = () => {
 
       {!isLoading ? (
         <div
-          className={`mx-auto flex max-w-screen-xl flex-col items-center justify-center`}
+          className={`mx-auto flex lg:max-w-screen-xl  flex-col items-center justify-center`}
         >
           <GlobalImageComponent image={images} />
         </div>
