@@ -80,15 +80,20 @@ const Blog = () => {
         />
       )}
       <Container className={"bg-gray-200/40"}>
-        <h1 className="border-l-2 border-yellow-600 px-2 text-3xl font-bold uppercase text-primary-color">
+        <h1 className="border-l-2 border-yellow-600 px-2 text-sm font-bold uppercase text-primary-color lg:text-3xl">
           Latest <span className="font-extrabold text-yellow-600">Blogs</span>
         </h1>
-        <Divider className={"my-4 h-1 w-20 rounded-full bg-yellow-600"} />
+        <Divider
+          className={
+            "my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+          }
+        />
         <div className="my-4">
           <Carousel
-            slidesToShow={4}
+            slidesToShow={window.outerWidth > 800 ? 4 : 1}
             dots={false}
             autoplay
+            arrows
             infinite
             autoplaySpeed={2500}
           >
@@ -106,18 +111,18 @@ const Blog = () => {
                     {/* <h5 className="w-fit border-l-2 border-yellow-600 px-2 font-extrabold text-primary-color brightness-[350%]">
                       {elem?.category}
                     </h5> */}
-                    <h4 className="mx-2 text-xs line-clamp-1 font-bold text-white">
-                    {elem?.title}
+                    <h4 className="mx-2 line-clamp-1 text-xs font-bold text-white">
+                      {elem?.title}
                     </h4>
-                    <p className="mx-2 text-xs font-light line-clamp-1 text-gray-400">
+                    <p className="mx-2 line-clamp-1 text-[0.6rem] font-light text-gray-400 lg:text-xs">
                       {/* {elem?.description?.length > 30
                         ? elem?.description?.substring(0, 30) + "..."
                         : elem?.description} */}
-                        {elem?.description}
+                      {elem?.description}
                     </p>
                     <FaArrowRight
                       onClick={() => handleOpenNews(elem)}
-                      className="mx-2 my-1 w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125"
+                      className="mx-2 my-1 w-fit cursor-pointer rounded-full bg-primary-color p-1 text-xl text-white transition-all duration-200 hover:scale-125 lg:text-lg"
                     />
                   </div>
                 </div>
@@ -134,20 +139,20 @@ const BlogModal = ({ data, setIsOpen, isOpen }) => {
   const { title, description, image_url, date, author } = data;
 
   return (
-    <Modal 
-      footer={false} 
-      open={isOpen} 
+    <Modal
+      footer={false}
+      open={isOpen}
       onCancel={() => setIsOpen(false)}
       className="rounded-lg"
     >
-      <div className="p-6 bg-white rounded-lg shadow-xl">
+      <div className="rounded-lg bg-white p-6 shadow-xl">
         {/* Category Badge */}
         <div className="my-2 w-fit rounded-full bg-yellow-600 px-3 py-1 text-xs font-bold text-white shadow-md">
           # Category
         </div>
 
         {/* Title */}
-        <h1 className="py-2 text-2xl font-extrabold bg-primary-color bg-clip-text text-transparent">
+        <h1 className="bg-primary-color bg-clip-text py-2 text-2xl font-extrabold text-transparent">
           {title}
         </h1>
 
@@ -161,15 +166,15 @@ const BlogModal = ({ data, setIsOpen, isOpen }) => {
         {/* Author & Date */}
         <div className="mt-4 flex justify-between text-sm text-gray-600">
           <p className="flex items-center">
-            ✍️ <span className="ml-1 italic font-medium">{author}</span>
+            ✍️ <span className="ml-1 font-medium italic">{author}</span>
           </p>
           <p className="flex items-center">
-            📅 <span className="ml-1 italic font-medium">{date}</span>
+            📅 <span className="ml-1 font-medium italic">{date}</span>
           </p>
         </div>
 
         {/* Description */}
-        <p className="mt-4 text-gray-700 leading-relaxed">{description}</p>
+        <p className="mt-4 leading-relaxed text-gray-700">{description}</p>
       </div>
     </Modal>
   );
