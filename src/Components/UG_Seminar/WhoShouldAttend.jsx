@@ -47,20 +47,20 @@ const WhoShouldAttend = () => {
         >
           <div className="relative">
             <div className="text-center">
-              <h1 className="text-3xl font-bold text-yellow-600">
+              <h1 className="lg:text-3xl text-sm font-bold text-yellow-600">
                 Who Should{" "}
                 <span className="font-extrabold text-primary-color brightness-200">
                   Attend Our Seminar?
                 </span>
               </h1>
-              <p className="my-4 text-xs font-semibold text-gray-200">
+              <p className="lg:my-4 my-2 text-xs font-semibold text-gray-200">
                 Attend our seminar & reach newer heights!
               </p>
               <Divider
-                className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+                className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
               />
             </div>
-            <div className="mx-auto grid max-w-screen-md grid-cols-2">
+            <div className="mx-auto grid lg:max-w-screen-md lg:grid-cols-2">
               {whoShouldAttend?.map((elem, index) => {
                 return (
                   <div
@@ -72,13 +72,13 @@ const WhoShouldAttend = () => {
                       alt=""
                       srcset=""
                     />
-                    <h1 className="my-1 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-xs font-semibold text-white">
+                    <h1 className="my-1 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 lg:text-xs text-[0.6rem] font-semibold text-white">
                       # {elem?.category}
                     </h1>
                     <Divider
                       className={"my-3 h-0.5 w-12 rounded-full bg-yellow-600"}
                     />
-                    <p className="my-4 text-xs font-semibold text-gray-200">
+                    <p className="my-4 lg:text-xs text-[0.7rem] font-semibold text-gray-200">
                       {elem?.description}
                     </p>
                   </div>
