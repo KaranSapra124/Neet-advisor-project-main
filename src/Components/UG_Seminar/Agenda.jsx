@@ -47,7 +47,7 @@ const Agenda = () => {
   return (
     <>
       <Container
-        className={"no-repeat relative  bg-seminar-hero bg-cover bg-fixed"}
+        className={"no-repeat relative bg-seminar-hero bg-cover bg-fixed"}
       >
         <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
         <ScrollAnimation
@@ -57,17 +57,19 @@ const Agenda = () => {
         >
           <div className="relative">
             <div className="text-center">
-              <h1 className="text-3xl font-semibold text-yellow-600">
+              <h1 className="text-sm font-semibold text-yellow-600 lg:text-3xl">
                 How It Will{" "}
                 <span className="font-extrabold text-primary-color brightness-200">
                   Progess?
                 </span>
               </h1>
-              <p className="my-4 text-xs font-semibold text-gray-200">
+              <p className="my-2 text-[0.5rem] font-semibold text-gray-200 lg:my-4 lg:text-xs">
                 Checkout timeline of our seminar!
               </p>
               <Divider
-                className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+                className={
+                  "mx-auto h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+                }
               />
             </div>
             <div>
@@ -76,31 +78,31 @@ const Agenda = () => {
                 progressDot={true}
                 current={progress}
                 direction="horizontal"
-                type="inline"
+                type={window.outerWidth > 800 ? "inline" : "default"}
                 items={agenda?.map((elem, index) => {
                   return {
                     title: (
                       <>
-                        <div className="m-2 h-40 w-80 my-4 rounded-md bg-gradient-to-tr from-black/10 to-black/70 shadow shadow-white">
+                        <div className="m-2 my-4 h-40 lg:w-80 rounded-md bg-gradient-to-tr from-black/10 to-black/70 shadow shadow-white">
                           <img
                             src="./Seminar/validation-badge-bg-removed.gif"
-                            className="absolute -top-0.5 left-[19.5rem] h-9 w-9"
+                            className="absolute lg:-top-0.5 top-0 lg:left-[19.5rem] lg:h-9 lg:w-9 w-7 left-[13.5rem] "
                             alt=""
                             srcset=""
                           />
-                          <div className="p-4">
-                            <h2 className="text-sm my-1 font-semibold text-white">
+                          <div className="lg:p-4 p-2">
+                            <h2 className="my-1 lg:text-sm  text-xs  font-semibold text-white">
                               {elem?.topic}
                             </h2>
                             <Divider
                               className={
-                                "mx-auto my-4 h-0.5 w-8 rounded-full bg-gray-400"
+                                "lg:mx-auto text-left lg:my-4 my-2   h-0.5 w-8 rounded-full bg-gray-400"
                               }
                             />
-                            <h1 className="text-xs font-bold text-white">
+                            <h1 className="lg:text-xs text-[0.8rem] font-bold text-white">
                               {elem?.time}
                             </h1>
-                            <p className="my-2 text-wrap text-xs font-semibold text-gray-200">
+                            <p className="lg:my-2 my-1.5 text-wrap text-xs font-semibold text-gray-200">
                               {elem?.description}
                             </p>
                           </div>
