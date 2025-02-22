@@ -144,7 +144,7 @@ const Testimonials = () => {
           dots={true}
           arrows
           infinite
-          className="mx-auto my-8 max-w-screen-xl"
+          className="mx-auto lg:my-8 max-w-screen-xl"
         >
           {slidesToShow > 768
             ? slides.map((group, groupIndex) => (
@@ -186,7 +186,7 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative lg:my-0 my-10 lg:mx-0 mx-auto flex h-full rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:max-h-72 max-h-80 lg:gap-4">
+    <div className="relative lg:my-0  lg:mx-0 mx-auto flex h-full rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:max-h-72 max-h-full lg:gap-4">
       <img
         className="absolute -left-3 -top-3 lg:h-14 lg:w-14 w-10 h-10 rounded-full shadow shadow-yellow-600"
         src={imgUrl}
