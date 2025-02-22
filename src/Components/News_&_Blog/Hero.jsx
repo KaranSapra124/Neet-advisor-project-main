@@ -110,38 +110,40 @@ const Hero = () => {
       <Container className={"relative bg-gray-200/40"}>
         {/* Hero Title Section */}
         <div className="text-center">
-          <h1 className="text-4xl font-bold uppercase text-primary-color">
+          <h1 className="text-sm font-bold uppercase text-primary-color lg:text-4xl">
             Don't stay behind in race,{" "}
             <span className="px-2 py-0.5 font-extrabold text-yellow-600">
               We Got You Covered!
             </span>
           </h1>
-          <p className="my-2 text-xs font-bold text-gray-700">
+          <p className="my-2 text-[0.5rem] font-bold text-gray-700 lg:text-xs">
             Remain ahead of competition, with latest news!
           </p>
           <Divider
-            className={"mx-auto my-3 h-1 w-20 rounded-full bg-yellow-600"}
+            className={
+              "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-3 lg:h-1 lg:w-20"
+            }
           />
         </div>
 
         {/* Hero Content Section */}
-        <div className="flex justify-center rounded-md">
+        <div className="flex flex-col justify-center rounded-md lg:flex-row">
           {/* Main News Display Section */}
           <div className="relative h-fit rounded-md">
             <img
               src={mainNews?.imageUrl}
-              className="w-[41.5rem]"
+              className="w-full lg:w-[41.5rem]"
               alt="Main News"
             />
             <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
-            <div className="absolute left-10 top-[23rem] flex flex-col justify-center gap-1">
-              <h5 className="w-fit border-l-2 border-yellow-600 px-2 font-extrabold text-primary-color brightness-[250%]">
+            <div className="absolute left-10 top-24 flex flex-col justify-center gap-1 lg:top-[23rem]">
+              <h5 className="w-fit border-l-2 border-yellow-600 px-2 text-xs font-extrabold text-primary-color brightness-[250%] lg:text-sm">
                 {mainNews?.category}
               </h5>
-              <h4 className="text-xl font-extrabold text-white">
+              <h4 className="text-sm font-extrabold text-white lg:text-xl">
                 {mainNews?.title}
               </h4>
-              <p className="font-light text-gray-400">
+              <p className="text-[0.6rem] font-light text-gray-400 lg:text-xs">
                 {mainNews?.description?.length > 30
                   ? mainNews?.description?.substring(0, 30) + "..."
                   : mainNews?.description}
@@ -151,19 +153,21 @@ const Hero = () => {
                   setIsOpen(true);
                   setNewsData(mainNews);
                 }}
-                className="float-right w-fit cursor-pointer rounded-full bg-primary-color p-1 text-xl text-white transition-all duration-200 hover:scale-125"
+                className="float-right w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125 lg:text-xl"
               />
             </div>
           </div>
 
           {/* Carousel Section */}
-          <div className="w-96">
+          <div className="my-4 lg:my-0 lg:w-96">
             <Carousel
-              slidesToShow={3}
-              vertical={true}
+              slidesToShow={window.outerWidth > 800 ? 3 : 1}
+              vertical={window.outerWidth > 800 ? true : false}
               autoplay
               infinite
-              className="max-w-screen-sm"
+              arrows
+              dots={false}
+              className="w-full lg:max-w-screen-sm"
             >
               {newsData?.map((elem, index) => {
                 return (
@@ -177,24 +181,24 @@ const Hero = () => {
                   >
                     <img
                       src={elem?.imageUrl}
-                      className="h-40"
+                      className="lg:h-40"
                       alt={elem?.title}
                     />
                     <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
 
-                    <div className="absolute top-[25rem] z-10 mx-4">
-                      <h5 className="w-fit border-l-2 border-yellow-600 px-2 font-extrabold text-primary-color brightness-[250%]">
+                    <div className="absolute top-16 z-10 mx-4 lg:top-[25rem]">
+                      <h5 className="w-fit border-l-2 border-yellow-600 px-2 text-xs font-extrabold text-primary-color brightness-[250%] lg:text-sm">
                         {elem?.category}
                       </h5>
-                      <h4 className="text-xs font-bold text-white">
+                      <h4 className="my-1 text-[0.8rem] font-bold text-white lg:my-0 lg:text-xs">
                         {elem?.title}
                       </h4>
-                      <p className="font-light text-gray-400">
+                      <p className="text-[0.6rem] font-light text-gray-400 lg:text-sm">
                         {elem?.description?.length > 30
                           ? elem?.description?.substring(0, 30) + "..."
                           : elem?.description}
                       </p>
-                      <FaArrowRight className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125" />
+                      <FaArrowRight className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-xl text-white transition-all duration-200 hover:scale-125 lg:text-lg" />
                     </div>
                   </div>
                 );
