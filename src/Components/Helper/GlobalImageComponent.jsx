@@ -31,7 +31,7 @@ const GlobalImageComponent = ({ image }) => {
             autoplaySpeed={3000}
             infinite
             autoplay
-            className="lg:h-[30.5rem] px-10"
+            className="lg:h-[30.5rem] lg:px-0 px-10"
           >
             {image?.map((elem, index) => (
               <div key={index} className="p-1">

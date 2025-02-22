@@ -92,22 +92,22 @@ const AccrossCountry = () => {
     // <Container>
     <div className="container mx-auto px-4">
       {/* Elegant Header */}
-      <div className="mb-5 space-y-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
+      <div className="mb-5 lg:space-y-4 space-y-2 text-center">
+        <h1 className="lg:text-3xl text-sm font-bold tracking-tight text-yellow-600">
           Guidance Across{" "}
           <span className="font-extrabold italic text-primary-color">
             Country
           </span>
         </h1>
-        <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="mx-auto  text-xs font-bold text-gray-700">
+        <Divider className={"mx-auto lg:h-1 h-0.5 w-12 rounded-full bg-yellow-600"} />
+        <p className="mx-auto  lg:text-xs text-[0.5rem] font-bold text-gray-700">
           Through dedication and innovation, we have successfully achieved
           greater heights.
         </p>
       </div>
 
       {!isLoading ? (
-        <div className={`flex max-w-screen-xl flex-col`}>
+        <div className={`flex lg:max-w-screen-xl  flex-col`}>
           <GlobalImageComponent image={images} />
         </div>
       ) : (
