@@ -54,41 +54,41 @@ const Purpose = () => {
   return (
     <>
       <Container
-        className={"no-repeat relative  h-screen bg-seminar-hero bg-cover bg-fixed"}
+        className={"no-repeat relative  lg:h-screen h-full bg-seminar-hero bg-cover bg-fixed"}
       >
         <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
         <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
           <div className="relative">
-            <h1 className="text-center text-3xl font-semibold text-yellow-600">
+            <h1 className="text-center lg:text-3xl text-sm font-semibold text-yellow-600">
               Why To{" "}
               <span className="font-extrabold text-primary-color brightness-200">
                 Attend Our Seminar ?
               </span>
             </h1>
-            <p className="my-4 text-center text-xs font-semibold text-gray-200">
+            <p className="lg:my-4 my-2 text-center lg:text-xs text-[0.5rem] font-semibold text-gray-200">
               Preparing for NEET is tough, but the competition for seats is even
               tougher!!
             </p>
             <Divider
-              className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+              className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
             />
-            <div className="flex justify-center ">
-              <div className="w-1/2">
+            <div className="flex lg:flex-row flex-col-reverse justify-center lg:gap-0 gap-5">
+              <div className="lg:w-1/2 flex flex-col lg:gap-0 gap-2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
                     <div className="flex items-center gap-1 p-4 border-b-2  border-l-2 border-white rounded-md">
                       <img
                         src={seminar?.icon}
-                        className="h-9 w-9"
+                        className="lg:h-9 lg:w-9 w-6"
                         alt=""
                         srcset=""
                       />
                       <Divider className={"h-0.5 w-12 bg-yellow-600 rouded-full rotate-90 m-0"}/>
                       <div className="flex flex-col">
-                        <h1 className="text-sm font-extrabold text-yellow-600">
+                        <h1 className="lg:text-sm text-xs font-extrabold text-yellow-600">
                           {seminar?.title}
                         </h1>
-                        <p className="text-xs font-semibold text-gray-200 my-0.5">
+                        <p className="lg:text-xs text-[0.6rem] font-semibold text-gray-200 my-0.5">
                           {seminar?.paragraph}
                         </p>
                       </div>
@@ -96,8 +96,8 @@ const Purpose = () => {
                   );
                 })}
               </div>
-              <div className="w-1/2 relative">
-              <img src="./Webinar/validation-badge-bg-removed.gif" className="absolute w-10 h-10 left-5 z-[999] bg-white  rounded-full shadow shadow-yellow-600" alt="" srcset="" />
+              <div className="lg:w-1/2  relative">
+              <img src="./Webinar/validation-badge-bg-removed.gif" className="absolute lg:w-10 lg:h-10 w-9 lg:left-5 left-[15rem] z-[999] bg-white  rounded-full shadow shadow-yellow-600" alt="" srcset="" />
                 <Carousel
                   effect="fade"
                   infinite
