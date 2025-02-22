@@ -64,7 +64,7 @@ const WhoShouldAttend = () => {
               {whoShouldAttend?.map((elem, index) => {
                 return (
                   <div
-                    className={`${isIndex === index && "border-b-4 border-l-4"} 4 relative m-4 mx-3 h-40 cursor-pointer rounded-lg border-yellow-600 p-5 shadow-sm shadow-white transition-all duration-200`}
+                    className={`${isIndex === index && "lg:border-b-4 border-b-2 border-l-2 lg:border-l-4"} 4 relative m-4 mx-3 h-40 cursor-pointer rounded-lg border-yellow-600 p-5 shadow-sm shadow-white transition-all duration-200`}
                   >
                     <img
                       src="./Webinar/creative-removedBg.gif"
