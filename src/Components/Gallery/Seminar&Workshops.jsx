@@ -92,24 +92,24 @@ const SeminarAndWorkshops = () => {
   return (
     <div className="container mx-auto px-4">
       {/* Elegant Header */}
-      <div className="mb-5 space-y-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
+      <div className="mb-5 space-y-2 text-center lg:space-y-4">
+        <h1 className="text-sm font-bold tracking-tight text-yellow-600 lg:text-3xl">
           Seminar And{" "}
           <span className="font-extrabold italic text-primary-color">
             Workshops
           </span>
         </h1>
-        <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="whitespace-pre-wrap text-xs font-bold text-gray-700">
+        <Divider
+          className={"mx-auto h-0.5 w-12 rounded-full bg-yellow-600 lg:h-1"}
+        />
+        <p className="whitespace-pre-wrap lg:text-xs text-[0.5rem] font-bold text-gray-700">
           Through dedication and innovation, we have successfully hosted
           impactful seminars and workshops.
         </p>
       </div>
 
       {!isLoading ? (
-        <div
-          className={` max-w-screen-xl`}
-        >
+        <div className={`lg:max-w-screen-xl`}>
           <GlobalImageComponent image={images} />
         </div>
       ) : (
