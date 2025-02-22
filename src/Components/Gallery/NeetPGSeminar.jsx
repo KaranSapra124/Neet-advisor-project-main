@@ -90,15 +90,15 @@ const NeetPGSeminar = () => {
   return (
     <div className="mx-auto px-4">
       {/* Elegant Header */}
-      <div className="mb-5 space-y-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
+      <div className="mb-5 lg:space-y-4 space-y-2 text-center">
+        <h1 className="lg:text-3xl text-sm font-bold tracking-tight text-yellow-600">
           NEET PG{" "}
           <span className="font-extrabold italic text-primary-color">
             Info Sessions
           </span>
         </h1>
-        <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="text-xs font-bold text-gray-700">
+        <Divider className={"mx-auto lg:h-1 h-0.5 w-12 rounded-full bg-yellow-600"} />
+        <p className="lg:text-xs text-[0.5rem] font-bold text-gray-700">
           Through dedication and innovation, we have successfully conducted NEET
           PG seminars.
         </p>
