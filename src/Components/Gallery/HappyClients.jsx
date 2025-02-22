@@ -91,22 +91,22 @@ const HappyClients = () => {
   return (
     <div className="container mx-auto px-4">
       {/* Elegant Header */}
-      <div className="mb-5 space-y-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-yellow-600">
+      <div className="mb-5 lg:space-y-4 space-y-2 text-center">
+        <h1 className="lg:text-3xl text-sm font-bold tracking-tight text-yellow-600">
           Our Happy{" "}
           <span className="font-extrabold italic text-primary-color">
             Clients
           </span>
         </h1>
-        <Divider className={"mx-auto h-1 w-12 rounded-full bg-yellow-600"} />
-        <p className="whitespace-pre-wrap text-xs font-bold text-gray-700">
+        <Divider className={"mx-auto h-0.5 lg:h-1 w-12 rounded-full bg-yellow-600"} />
+        <p className="whitespace-pre-wrap lg:text-xs text-[0.6rem] font-bold text-gray-700">
           Thanks to our dedication and innovation, we have earned the trust of
           our clients.
         </p>
       </div>
 
       {!isLoading ? (
-        <div className={`flex max-w-screen-xl justify-center items-center mx-auto flex-col`}>
+        <div className={`flex lg:max-w-screen-xl justify-center items-center mx-auto flex-col`}>
           <GlobalImageComponent image={images} />
         </div>
       ) : (
