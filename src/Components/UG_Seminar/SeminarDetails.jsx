@@ -32,7 +32,7 @@ const SeminarDetails = () => {
     <>
       <Container
         className={
-          "no-repeat relative h-screen bg-seminar-hero bg-cover bg-fixed"
+          "no-repeat relative h-full bg-seminar-hero bg-cover bg-fixed lg:h-screen"
         }
       >
         <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
@@ -40,7 +40,7 @@ const SeminarDetails = () => {
         <ScrollAnimation animateIn="fadeIn" duration={1.5} animateOnce={true}>
           <div className="relative">
             <div className="my-2 text-center">
-              <h1 className="text-3xl font-bold text-yellow-600">
+              <h1 className="text-sm font-bold text-yellow-600 lg:text-3xl">
                 Where & When To{" "}
                 <span className="font-extrabold text-primary-color brightness-200">
                   Reach?
@@ -50,7 +50,9 @@ const SeminarDetails = () => {
                 Want To Reach To Us , Checkout The Details!
               </p>
               <Divider
-                className={"mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600"}
+                className={
+                  "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+                }
               />
             </div>
             <div>
@@ -63,46 +65,46 @@ const SeminarDetails = () => {
 
                     children: (
                       <>
-                        <div className="mx-auto flex max-w-screen-xl items-center justify-between rounded-md  border border-white">
+                        <div className="mx-auto flex flex-col justify-between rounded-md shadow shadow-gray-200 lg:max-w-screen-xl lg:flex-row">
                           <video
-                            className="w-1/2 rounded-lg"
+                            className="w-full rounded-md lg:w-1/2 lg:rounded-l-lg"
                             src={elem?.video}
                             autoPlay
                             loop
                             muted
                           ></video>
-                          <div className="flex flex-col gap-2 px-2">
+                          <div className="flex flex-col gap-1 bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 px-1 py-0.5 lg:px-2 lg:py-2">
                             <img
-                              className="ml-auto h-10 w-10 rounded bg-white p-1"
+                              className="ml-auto h-6 w-6 rounded-sm bg-white p-1 lg:h-10 lg:w-10"
                               src="neet-advisor-logo-Photoroom.png"
                               alt=""
                               srcset=""
                             />
-                            <div className="flex flex-col items-end">
-                              <h1 className="my-2 text-3xl font-semibold text-yellow-600">
-                                Neet UG 2025
-                                <span className="mx-2 font-extrabold text-primary-color brightness-200">
+                            <div className="flex flex-col items-center">
+                              <h1 className="my-2 text-sm font-semibold text-yellow-600 lg:text-3xl">
+                                Neet PG 2025
+                                <span className="mx-2 font-extrabold text-primary-color brightness-[300%]">
                                   The Ultimate Guide
                                 </span>
                               </h1>
                               <Divider
                                 className={
-                                  "my-2 h-0.5 w-20 rounded-full bg-yellow-600"
+                                  "my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:w-20"
                                 }
                               />
-                              <h2 className="my-2 text-xl font-extralight text-gray-200">
+                              <h2 className="my-2 text-[0.7rem] font-light text-gray-200 lg:text-xl lg:font-thin">
                                 Get your neet preparation to next level rocket
                                 🚀
                               </h2>
-                              <p className="my-2 text-right text-xs font-semibold text-gray-200">
+                              <p className="my-2 text-center text-[0.5rem] font-extrabold text-gray-200 lg:text-xs lg:font-semibold">
                                 {elem?.description}
                               </p>
                               <div className="my-2">
-                                <p className="flex w-fit items-center justify-evenly rounded-lg border border-yellow-600 p-2 font-semibold text-gray-200">
-                                  <div className="flex items-center justify-between">
+                                <p className="flex w-fit items-center justify-evenly rounded-lg border border-white p-1 font-extrabold text-gray-400 lg:p-2 lg:font-bold">
+                                  <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-gray-200 lg:gap-2 lg:text-sm">
                                     <img
                                       src="./Webinar/person-speaker.gif"
-                                      className="h-8 w-8 mx-2"
+                                      className="w-4 lg:h-8 lg:w-8"
                                       alt=""
                                       srcset=""
                                     />
@@ -110,13 +112,13 @@ const SeminarDetails = () => {
                                   </div>
                                   <Divider
                                     className={
-                                      "h-0.5 w-5 rotate-90 bg-yellow-600"
+                                      "h-0.5 w-3.5 rotate-90 bg-yellow-600 lg:w-5"
                                     }
                                   />
-                                  <div className="flex items-center justify-between">
+                                  <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-gray-200 lg:gap-2 lg:text-sm">
                                     <img
                                       src="./Webinar/calendar-bg-removed.gif"
-                                      className="h-8 w-8 mx-2"
+                                      className="w-4 lg:h-8 lg:w-8"
                                       alt=""
                                       srcset=""
                                     />
@@ -124,13 +126,13 @@ const SeminarDetails = () => {
                                   </div>
                                   <Divider
                                     className={
-                                      "h-0.5 w-5 rotate-90 bg-yellow-600"
+                                      "h-0.5 w-3.5 rotate-90 bg-yellow-600 lg:w-5"
                                     }
                                   />
-                                  <div className="flex items-center justify-between">
+                                  <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-gray-200 lg:gap-2 lg:text-sm">
                                     <img
                                       src="./Seminar/location-pin-bg-removed.gif"
-                                      className="h-8 w-8 mx-2"
+                                      className="w-4 lg:h-8 lg:w-8"
                                       alt=""
                                       srcset=""
                                     />
@@ -138,7 +140,7 @@ const SeminarDetails = () => {
                                   </div>
                                 </p>
                               </div>
-                              <button className="my-2 rounded-l-full rounded-r-full bg-yellow-600 px-4 py-2 text-lg font-bold text-white transition-all hover:bg-yellow-700">
+                              <button className="my-2 rounded-l-full rounded-r-full bg-yellow-600 px-2 py-0.5 text-[0.5rem] font-bold text-white transition-all hover:bg-yellow-700 lg:px-3 lg:py-1.5 lg:text-lg">
                                 Book Now
                               </button>
                             </div>
