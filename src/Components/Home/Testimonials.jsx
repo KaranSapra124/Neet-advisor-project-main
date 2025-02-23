@@ -128,13 +128,13 @@ const Testimonials = () => {
 
   return (
     <Container className="bg-gray-200/40">
-      <h1 className="text-center text-sm font-bold leading-none text-yellow-600 lg:text-3xl">
+      <h1 className="text-center text-lg font-bold leading-none text-yellow-600 lg:text-3xl">
         What our customers are{" "}
         <span className="font-extrabold text-primary-color">
           saying about us?
         </span>
       </h1>
-      <Divider className="mx-auto my-4 h-1 w-12 rounded-full bg-yellow-600 lg:w-20" />
+      <Divider className="mx-auto lg:my-4 my-2 h-1 w-12 rounded-full bg-yellow-600 lg:w-20" />
 
       <ScrollAnimation animateIn="fadeInUp" duration={1.5}>
         <Carousel
