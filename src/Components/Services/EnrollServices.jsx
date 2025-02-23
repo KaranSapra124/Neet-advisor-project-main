@@ -80,7 +80,7 @@ const EnrollServices = () => {
       <div className="mx-auto">
         {/* Hero Section */}
         <div className="my-4 text-center">
-          <h1 className="lg:mb-2 mb-1.5 lg:text-3xl text-sm font-bold text-yellow-600 md:text-4xl">
+          <h1 className="lg:mb-2 mb-1.5 lg:text-3xl text-lg font-bold text-yellow-600 md:text-4xl">
             On your marks , get set ,{" "}
             <span className="font-extrabold text-primary-color">Enroll!</span>
           </h1>

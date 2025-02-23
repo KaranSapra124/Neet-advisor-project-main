@@ -246,7 +246,7 @@ const PricingComponent = () => {
           budget!
         </p>
         <Divider
-            className={"mx-auto lg:my-4 my-2 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
+            className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
         <div className="mb-8 flex justify-center">
           <button
