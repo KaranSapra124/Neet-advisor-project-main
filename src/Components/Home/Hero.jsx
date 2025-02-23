@@ -12,11 +12,11 @@ const Hero = () => {
     <div className="px-7  py-8  relative z-10 flex items-center justify-center lg:flex-row flex-col lg:px-5 lg:py-10">
       <div className="flex w-full flex-col  items-center">
         <div className="flex  items-center lg:justify-center justify-around w-full">
-          <h1 className="primary lg:text-3xl text-sm font-bold ">
+          <h1 className="primary lg:text-3xl text-lg font-bold ">
             Complete Handholding for <br />{" "}
-            <span className="font-bold text-yellow-600">
-              <span className="font-extrabold">NEET</span> Counselling Guidance
-            </span>
+            {/* <span className="font-bold text-yellow-600"> */}
+              <span className="font-extrabold text-yellow-600">NEET Counselling Guidance</span> 
+            {/* </span> */}
           </h1>
           <Lottie
             className="z-0 lg:w-[8rem] w-[4rem] "
@@ -36,7 +36,7 @@ const Hero = () => {
             2016.
           </p>
         </div>
-        <button className="mt-5 lg:text-sm text-xs rounded-lg bg-yellow-600 px-4 py-2 font-bold text-white transition-all duration-300 hover:bg-yellow-500">
+        <button className="lg:mt-5 mt-4 lg:text-sm text-xs rounded-lg bg-yellow-600 px-4 py-2 font-bold text-white transition-all duration-300 hover:bg-yellow-500">
           Book a Free session
         </button>
         <div className="flex  lg:py-5 py-8">
