@@ -34,11 +34,11 @@ const WhyAttend = () => {
   return (
     <>
       <Container>
-        <h1 className="py-2 text-center lg:text-3xl text-sm font-bold text-yellow-600">
+        <h1 className="py-2 text-center lg:text-3xl text-lg font-bold text-yellow-600">
           Why You Can’t Miss Our{" "}
           <span className="font-extrabold text-primary-color">Webinar!</span>
         </h1>
-        <p className="py-1 text-center lg:text-xs text-[0.6rem] font-bold text-gray-800">
+        <p className="py-1 text-center lg:text-xs text-[0.5rem] font-bold text-gray-800">
           Attend Our Webinar And Get Your Dream Of <strong>NEET </strong>
           Achieved!
         </p>
