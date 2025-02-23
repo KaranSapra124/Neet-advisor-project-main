@@ -52,14 +52,13 @@ const ExploreEvents = () => {
             />
           </div>
 
-          {/* Main Content */}
-          {/* <div className="mx-auto "> */}
+       
           {/* Event Cards */}
           <div className="flex flex-wrap  lg:gap-0 gap-2  justify-start space-y-1 ">
             {events.map((event, index) => (
               <div
                 key={index}
-                className="lg:m-2 h-full lg:w-72 w-full cursor-pointer rounded-md border-b-2 border-l-2 border-white bg-gradient-to-tr from-black/80 to-black/20 p-2 transition-all duration-300 hover:scale-105"
+                className="lg:m-2 h-full lg:w-72 w-full cursor-pointer rounded-md border-b border-l lg:border-b-2 lg:border-l-2 border-white bg-gradient-to-tr from-black/80 to-black/20 p-2 transition-all duration-300 hover:scale-105"
               >
                 <div className="flex  items-start lg:space-x-4 space-x-3 ">
                   {/* <div className="rounded-lg bg-primary-color/10 p-3"> */}
@@ -89,11 +88,10 @@ const ExploreEvents = () => {
             ))}
           </div>
 
-          {/* </div> */}
 
           {/* CTA Button */}
-          <div className="mt-12 text-center">
-            <button className="rounded-lg rounded-l-full rounded-r-full bg-yellow-600 px-3 py-2 font-extrabold text-white shadow-md transition-all duration-300 hover:bg-yellow-700 hover:bg-opacity-90">
+          <div className="lg:mt-12 mt-4 text-center">
+            <button className="lg:text-sm text-xs rounded-lg rounded-l-full rounded-r-full bg-yellow-600 lg:px-3 lg:py-2 px-2 py-1.5 font-extrabold text-white shadow-md transition-all duration-300 hover:bg-yellow-700 hover:bg-opacity-90">
               View All Events
             </button>
           </div>
