@@ -44,7 +44,7 @@ const Values = () => {
     <Container>
       <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
         <div>
-          <h1 className="text-center lg:text-3xl text-sm font-bold text-yellow-600">
+          <h1 className="text-center lg:text-3xl text-lg font-bold text-yellow-600">
             Who Is This Webinar{" "}
             <span className="font-extrabold text-primary-color">For?</span>
           </h1>
