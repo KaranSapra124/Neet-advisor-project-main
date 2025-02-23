@@ -86,7 +86,7 @@ const Hero = () => {
                 <button className="lg:text-sm text-[0.7rem] rounded-l-full rounded-r-full bg-primary-color px-2 py-1 font-bold  text-white transition-all hover:scale-105">
                   Register
                 </button>
-                <button className="lg:text-sm text-[0.7rem] mx-2 rounded-l-full rounded-r-full border-2 border-gray-200 px-2 py-1 font-bold  text-gray-200 transition-all duration-200 hover:scale-110 hover:border-none hover:bg-black hover:text-white">
+                <button className="lg:text-sm text-[0.7rem] mx-2 rounded-l-full rounded-r-full border lg:border-2 border-gray-200 px-2 py-1 font-bold  text-gray-200 transition-all duration-200 hover:scale-110 hover:border-none hover:bg-black hover:text-white">
                   Learn More
                 </button>
               </div>
