@@ -217,7 +217,7 @@ const PricingComponent = () => {
             </div>
           )}
           <button
-            className="duration-400 lg:text-lg text-sm lg:mt-4 mt-1 rounded bg-yellow-600 px-4 py-2 font-bold text-white shadow-lg transition ease-in-out hover:bg-yellow-700 hover:shadow-xl"
+            className="duration-400 lg:text-lg text-xs lg:mt-4 mt-1 rounded bg-yellow-600 px-4 py-2 font-bold text-white shadow-lg transition ease-in-out hover:bg-yellow-700 hover:shadow-xl"
             onClick={handleClick}
           >
             {plan.title === "Free" ? "Sign Up" : "Buy Now"}
@@ -230,7 +230,7 @@ const PricingComponent = () => {
   return (
     <Container className={"bg-gray-200/40"}>
       <div className="container mx-auto">
-        <h1 className="my-2 text-center lg:text-5xl text-sm font-bold md:text-4xl">
+        <h1 className="my-2 text-center lg:text-5xl text-lg font-bold md:text-4xl">
           <span className="font-bold text-yellow-600">
             Transparent Pricing.
           </span>
@@ -246,7 +246,7 @@ const PricingComponent = () => {
           budget!
         </p>
         <Divider
-            className={"mx-auto my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
+            className={"mx-auto lg:my-4 my-2 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
         <div className="mb-8 flex justify-center">
           <button
@@ -279,7 +279,7 @@ const PricingComponent = () => {
           </div>
         </div>
 
-        <div className="my-2 lg:mt-20 mt-10 text-center lg:text-3xl text-sm font-bold text-yellow-600">
+        <div className="my-2 lg:mt-20 mt-10 text-center lg:text-3xl text-lg font-bold text-yellow-600">
           Get the
           <span className="font-extrabold text-primary-color">
             {" "}
