@@ -53,28 +53,28 @@ const RecruitmentProcess = () => {
 
       <ScrollAnimation animateIn="backInLeft" animateOnce={true} duration={1.5}>
         <div className="relative mx-auto">
-          <h1 className="text-center text-3xl font-semibold text-yellow-600">
+          <h1 className="text-center lg:text-3xl text-sm font-semibold text-yellow-600">
             Learn Our{" "}
             <span className="font-extrabold text-primary-color brightness-[300%]">
               {" "}
               Recruitment Process
             </span>
           </h1>
-          <Divider className="mx-auto my-4 h-1 w-20 rounded-full bg-yellow-600" />
+          <Divider className="mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600" />
           <div className="my-4 flex flex-wrap justify-around">
             {recruitmentProcess?.map((elem, index) => {
               return (
-                <div className="m-2 flex w-64 cursor-pointer flex-col items-center justify-center rounded-md border-b-2 border-l-2 border-white p-4 shadow-2xl duration-300 hover:scale-105">
+                <div key={index} className="m-2 flex lg:w-64 cursor-pointer flex-col items-center justify-center rounded-md border-b-2 border-l-2 border-white p-4 shadow-2xl duration-300 hover:scale-105">
                   <img
                     src={elem?.icon}
-                    className="h-10 bg-white w-10 rounded-full border border-white p-1 shadow-sm shadow-white"
+                    className="lg:h-10 h-7 bg-white lg:w-10 w-7 rounded-full border border-white p-1 shadow-sm shadow-white"
                     alt=""
                     srcset=""
                   />
                   <h2 className="my-1.5 text-sm font-semibold text-gray-200">
                     {elem?.title}
                   </h2>
-                  <Divider className="h-0.5 w-12 my-3.5 bg-yellow-600" />
+                  <Divider className="h-0.5 w-12 lg:my-3.5 my-1.5 bg-yellow-600" />
                   <p className="text-xs font-semibold text-gray-200">
                     {elem?.description}
                   </p>
