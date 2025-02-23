@@ -164,17 +164,17 @@ const Scope = () => {
   const getCategoryIcon = (category) => {
     switch (category) {
       case "Practice Medicine in the Home Country":
-        return <img src="./Mbbs/medical-kit.gif" className="h-10 w-10" />;
+        return <img src="./Mbbs/medical-kit.gif" className="lg:h-10 lg:w-10 w-6" />;
       case "Practice Medicine Abroad":
         return (
-          <img src="./Mbbs/location-pin-bg-removed.gif" className="h-10 w-10" />
+          <img src="./Mbbs/location-pin-bg-removed.gif" className="lg:h-10 lg:w-10 w-6" />
         );
 
       case "Pursue Postgraduate Studies":
-        return <img src="./Mbbs/graduationCap.gif" className="h-10 w-10" />;
+        return <img src="./Mbbs/graduationCap.gif" className="lg:h-10 lg:w-10 w-6" />;
 
       default:
-        return <img src="./Mbbs/graduationCap.gif" className="h-10 w-10" />;
+        return <img src="./Mbbs/graduationCap.gif" className="lg:h-10 lg:w-10 w-6" />;
     }
   };
 
@@ -182,7 +182,7 @@ const Scope = () => {
     <Container
       className={"relative bg-mbbs-hero bg-cover bg-fixed bg-no-repeat"}
     >
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 to-black/70 backdrop-blur-lg"></div>
+      <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 to-black/50 backdrop-blur-lg lg:to-black/70"></div>
 
       <div className="relative mx-auto">
         {/* Header Section */}
@@ -192,46 +192,45 @@ const Scope = () => {
               Career Opportunities
             </Text>
           </div> */}
-          <h1 className="text-3xl font-bold text-yellow-600">
+          <h1 className="text-lg font-bold text-yellow-600 lg:text-3xl">
             Why To Pursue{" "}
-            <span className="font-extrabold brightness-200  text-primary-color ">
+            <span className="text-xl font-extrabold text-primary-color lg:text-sm lg:brightness-200">
               MBBS Abroad?
             </span>
           </h1>
-          <p className="my-4 text-xs font-bold text-gray-200 w-96 mx-auto">
+          <p className="mx-auto my-2 text-[0.5rem] font-bold text-gray-200 lg:my-4 lg:w-96 lg:text-xs">
             MBBS abroad is vast, offering numerous opportunities depending on
             the individual's preferences and qualifications.
           </p>
           <Divider
-            className={"mx-auto my-4 h-1 w-12 rounded-full bg-yellow-600"}
+            className={
+              "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1"
+            }
           />
         </div>
 
         {/* Cards Grid */}
-        <div className="">
-          <Timeline mode="alternate">
+        <div>
+          <Timeline mode={window.outerWidth > 800 ? "alternate" : "left"} >
             {mbbsAbroadScope.map((item, index) => {
               return (
                 <Timeline.Item
                   key={index}
-                  
                   // className={index % 2 === 0 ? "text-left" : "text-right"} // Adjust alignment
                   color="#201169"
+                  
                 >
-                  <ScrollAnimation
-                    animateIn={"backInUp"}
-                    duration={0.5}
-                  >
+                  <ScrollAnimation animateIn={"backInUp"} duration={0.5}>
                     <Card
-                      className="mx-4 bg-gradient-to-tr from-black/80 to-gray-900 shadow-sm shadow-gray-400 transition-shadow duration-300 hover:shadow-xl"
+                      className="lg:mx-4   bg-gradient-to-tr from-black/80 to-gray-900 shadow-sm shadow-gray-400 transition-shadow duration-300 hover:shadow-xl"
                       title={
-                        <div className="flex  items-center space-x-2 py-2">
-                          <div className="border-l-2 border-yellow-600 p-2">
-                            {getCategoryIcon(item.category)}
+                        <div className="flex items-center lg:space-x-2 space-x-0.5 py-2">
+                          <div className="border-l-2 h-5 border-yellow-600 p-0.5">
                           </div>
+                            {getCategoryIcon(item.category)}
                           <Title
                             level={5}
-                            className="!mb-0 !brightness-[300%] !text-lg  !font-bold !text-primary-color"
+                            className="!mb-0 lg:!text-lg !text-xs !font-bold !text-primary-color !brightness-[300%]"
                           >
                             {item.category}
                           </Title>
@@ -240,23 +239,22 @@ const Scope = () => {
                     >
                       <Collapse
                         ghost
-                        className="bg-transparent "
+                        className="bg-transparent"
                         expandIconPosition="right"
-                        
                       >
                         {item.options.map((option, idx) => (
                           <Collapse.Panel
                             key={idx}
                             header={
-                              <div className="float-left py-2">
-                                <Text className="font-bold text-gray-200">
+                              <div className="float-left lg:py-2 ">
+                                <Text className="font-bold lg:!text-sm !text-[0.7rem] text-gray-200">
                                   {option.title}
                                 </Text>
                               </div>
                             }
                           >
-                            <div className="border-l-2 border-primary-color/30 pl-4 text-left">
-                              <Text className="text-center font-semibold text-gray-300">
+                            <div className="border-l-2 border-yellow-600 lg:pl-4 pl-1.5 text-left">
+                              <Text className="text-center font-semibold lg:text-xs text-[0.6rem] text-gray-300">
                                 {option.details}
                               </Text>
                             </div>
@@ -272,8 +270,8 @@ const Scope = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 text-center">
-          <button className="rounded-lg rounded-l-full rounded-r-full bg-yellow-600 px-3 py-2 font-extrabold text-white shadow-md transition-all duration-300 hover:bg-yellow-700 hover:bg-opacity-90">
+        <div className="lg:mt-12 mt-2 text-center">
+          <button className="rounded-lg rounded-l-full rounded-r-full bg-yellow-600 lg:px-3 lg:py-2 px-2 py-1 lg:text-sm text-xs font-extrabold text-white shadow-md transition-all duration-300 hover:bg-yellow-700 hover:bg-opacity-90">
             Explore Opportunities
           </button>
         </div>
