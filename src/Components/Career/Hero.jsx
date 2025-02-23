@@ -46,7 +46,7 @@ const Hero = () => {
           className="absolute inset-0 h-full w-full object-cover"
           autoPlay loop muted
         ></video>
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 to-black/70"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-900/70"></div>
         <ScrollAnimation animateIn="backInUp" className="h-full inset-0" animateOnce={true} duration={1.5}>
           <div className="relative inset-0 mx-auto flex h-full flex-col items-center justify-center lg:gap-5 gap-2">
             <div className="flex items-center justify-center">
