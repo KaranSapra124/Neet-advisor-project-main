@@ -52,15 +52,15 @@ const Hero = () => {
           <div className=" lg:ml-0">
             <h1
               level={1}
-              className="lg:mb-4 mb-2 lg:text-3xl text-sm font-bold text-primary-color"
+              className="lg:mb-4 mb-2 lg:text-3xl text-lg font-bold text-primary-color"
             >
-              Shape Your Medical Future at India's Premier <br />
+              Shape Your Medical Future at India's Premier <br className="lg:block hidden" />
               <span className="bg-clip-text  font-extrabold text-transparent text-yellow-600">
                 NEET Counselling
               </span>{" "}
               Webinar
             </h1>
-            <Divider className={"h-1 w-12 bg-yellow-600 rounded-full my-4"}/>
+            <Divider className={"lg:h-1 h-0.5 w-12 bg-yellow-600 rounded-full my-2 lg:my-4"}/>
 
             <Paragraph className="lg:my-4 my-2 lg:max-w-xl bg-none lg:text-xs text-[0.7rem] font-bold text-gray-700">
               Join expert mentors who've guided 3.5L+ students to medical
