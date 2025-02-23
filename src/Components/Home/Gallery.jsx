@@ -47,7 +47,7 @@ const Gallery = () => {
   return (
     <Container>
       <div className="mx-auto w-full">
-        <h1 className="py-2 text-center lg:text-3xl text-[0.7rem] font-bold text-yellow-600">
+        <h1 className="py-2 text-center lg:text-3xl text-lg font-bold text-yellow-600">
           Conceptualizing{" "}
           <span className="font-extrabold text-primary-color">
             NEET Counselling
@@ -63,7 +63,7 @@ const Gallery = () => {
           students and parents.
         </p>
         <Divider
-            className={"mx-auto my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
+            className={"mx-auto my-2 lg:my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
 
         <div className="mx-auto grid w-fit grid-cols-3 gap-3 md:grid-cols-4 lg:grid-cols-4">
