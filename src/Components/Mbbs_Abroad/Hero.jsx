@@ -60,7 +60,7 @@ const Hero = () => {
           <div className="absolute inset-0  h-full w-full lg:bg-black/35 bg-black/20"></div>
           <div className="flex h-full lg:items-center items-end">
             <div className="relative flex h-fit w-fit flex-col justify-center lg:gap-5 gap-2 rounded-md lg:bg-black/70 bg-black/80 lg:p-4 p-2 shadow-sm shadow-white backdrop-blur-none">
-              <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 lg:text-sm text-xs font-extrabold uppercase text-white">
+              <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 lg:text-sm text-[0.5rem] font-extrabold uppercase text-white">
                 # Neet advisor
               </div>
               <h1 className="lg:text-3xl text-md font-extrabold text-yellow-600 brightness-110">
@@ -91,7 +91,7 @@ const Hero = () => {
                 </button>
               </div>
             </div>
-            <div className="absolute lg:left-[20.5rem] left-[12.5rem]  lg:top-[31rem] top-[27rem]  flex gap-2">
+            <div className="absolute lg:left-[20.5rem] left-[12.5rem]  lg:top-[31rem] top-[28rem]  flex gap-2">
               <Carousel
                 autoplay
                 infinite
@@ -99,7 +99,7 @@ const Hero = () => {
                 dots={false}
                 className="lg:max-w-screen-sm max-w-40"
               >
-                {features?.map((elem, index) => {
+                {features?.map((elem) => {
                   return (
                     <div className="flex lg:h-20  lg:w-32  w-fit flex-col items-center justify-center lg:space-y-4 space-y-2 rounded-md border border-white bg-black/75 lg:p-2 p-1.5 text-center shadow-md">
                       <div className="m-auto">{elem?.icon}</div>
