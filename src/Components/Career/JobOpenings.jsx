@@ -245,14 +245,14 @@ const JobOpenings = () => {
             onClick={handleOpen}
             className="relative mx-auto max-w-screen-xl"
           >
-            <h1 className="text-center text-3xl font-bold text-yellow-600">
+            <h1 className="text-center lg:text-3xl text-sm font-bold text-yellow-600">
               Apply, To Be{" "}
-              <span className="font-extrabold text-primary-color  brightness-[350%]">
+              <span className="font-extrabold text-primary-color  lg:brightness-[350%]">
                 Part Of Neet Advisor!
               </span>
             </h1>
             <Divider
-              className={"mx-auto my-4 h-1 w-16 rounded-full bg-yellow-600"}
+              className={"mx-auto lg:my-4 lg:h-1 lg:w-16 my-2 h-0.5 w-12 rounded-full bg-yellow-600"}
             />
             <input
               onChange={handleSearch}
@@ -260,13 +260,13 @@ const JobOpenings = () => {
               name=""
               id=""
               placeholder="Enter Your Search..."
-              className="w-full rounded-md border-2 border-white bg-gray-400/10 p-2 text-white shadow-lg"
+              className="lg:text-sm text-xs w-full rounded-md border lg:border-2 border-white bg-gray-400/10 p-2 text-white shadow-lg"
             />
-            <div className="my-4 flex justify-center flex-wrap gap-2">
+            <div className="lg:my-4 my-2 flex justify-center flex-wrap gap-2">
               {data?.map((elem, index) => {
                 return (
                   <>
-                    <div className="my-1 flex h-28 w-48  flex-col justify-center rounded-md border-b-2 border-l-2 border-white p-2 shadow-lg">
+                    <div className="my-1 flex lg:h-28 lg:w-48 w-full flex-col justify-center rounded-md border-b-2 border-l-2 border-white p-2 shadow-lg">
                       <h1 className="text-sm font-bold text-gray-200">
                         {elem?.title}
                       </h1>
