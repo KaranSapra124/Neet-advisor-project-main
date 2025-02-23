@@ -125,7 +125,7 @@ const SpeakerCard = ({ member }) => {
             </div>
           </div>
         </div>
-        <div className="my-2 flex justify-center flex-row lg:gap-2 gap-1">
+        <div className="my-2 lg:my-4 flex justify-center flex-row lg:gap-2 gap-1">
           {member.expertise.map((skill, index) => (
             <span
               key={index}
