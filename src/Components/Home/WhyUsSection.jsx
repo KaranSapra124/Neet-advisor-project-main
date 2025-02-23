@@ -105,7 +105,7 @@ const WhyUsSection = () => {
       <div ref={sectionRef} key={animationKey} className="mx-auto">
         {/* Header Section */}
         <div className="lg:my-8 my-4 text-center">
-          <h1 className="mb-2  lg:text-3xl text-sm font-bold text-yellow-600">
+          <h1 className="mb-2  lg:text-3xl text-lg font-bold text-yellow-600">
             Why{" "}
             <span className="font-extrabold  text-primary-color">
               NEET Advisor?
