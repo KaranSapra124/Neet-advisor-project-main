@@ -66,31 +66,40 @@ const Schedule = () => {
           <div className="">
             <Tabs
               className="scheduleTab"
-              tabPosition="left"
+              tabPosition={window.outerWidth > 800 ? "left" : "top"}
               items={counsellingSchedule.map((elem, index) => ({
                 key: index + 1,
                 label: `Slot ${index + 1}`,
                 children: (
-                  <div className="rounded-lg border border-gray-800 bg-black/30 p-6">
-                    <div className="flex flex-col items-center justify-center space-y-4 text-gray-300">
-                      <h2 className="text-md my-1 text-white font-bold brightness-200">
+                  <div className="rounded-lg border border-gray-800 bg-black/30 p-2 lg:p-6">
+                    <div className="flex flex-col items-center justify-center space-y-2 text-gray-300 lg:space-y-4">
+                      <h2 className="lg:text-md my-1 text-sm font-bold text-white lg:brightness-200">
                         Session Date: {elem.date}
                       </h2>
-                      <p className="mb-4 text-xs font-semibold text-gray-200">
+                      <p className="mb-2 text-[0.7rem] font-semibold text-gray-200 lg:mb-4">
                         Venue: {elem.venue}
                       </p>
                       <Timeline
-                        className="flex w-full flex-col py-4 text-gray-300"
+                        className="flex w-full  flex-col py-4 text-gray-300 lg:py-4"
                         mode="left"
+                        key={index}
                         items={elem.sessions.map((detail) => ({
-                          label:<h1 className="text-gray-200 font-semibold text-sm">{detail.time}</h1>,
+                          label: (
+                            <h1 className="text-[0.7rem] font-thin text-gray-200 lg:text-sm lg:font-semibold">
+                              {detail.time}
+                            </h1>
+                          ),
                           color: "gray",
                           children: (
-                            <div className="font-semibold text-gray-200">{detail.topic}</div>
+                            <>
+                              <div className="-ml-2 text-[0.67rem]  font-semibold text-gray-200 lg:ml-0 lg:text-sm">
+                                {detail.topic}
+                              </div>
+                            </>
                           ),
                         }))}
                       />
-                      <button className="w-fit rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all  px-4 py-2 text-sm font-bold text-gray-300">
+                      <button className="w-fit  rounded-l-full rounded-r-full bg-yellow-600 lg:px-4 px-2 lg:py-2 py-1 lg:text-sm text-xs font-semibold lg:font-bold text-gray-300 transition-all hover:bg-yellow-700">
                         Book Now
                       </button>
                     </div>
