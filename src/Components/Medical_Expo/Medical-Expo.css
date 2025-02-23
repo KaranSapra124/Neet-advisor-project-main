@@ -1,99 +1,99 @@
-
 /* Optional overlay for better text readability */
 .medical-expo-background--with-overlay::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.845);
-    pointer-events: none;
-    background-attachment: fixed;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.845);
+  pointer-events: none;
+  background-attachment: fixed;
 }
 
 .gallery {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    transform-style: preserve-3d;
-    animation: rotate 10s linear infinite;
-    /* display: flex; */
+  position: relative;
+  width: 300px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: rotate 10s linear infinite;
+  /* display: flex; */
 }
 
-@keyframes rotate {
-    from {
-        transform: perspective(1200px) rotateY(0deg);
-    }
 
-    to {
-        transform: perspective(1200px) rotateY(360deg);
-    }
+@keyframes rotate {
+  from {
+    transform: perspective(1200px) rotateY(0deg);
+  }
+
+  to {
+    transform: perspective(1200px) rotateY(360deg);
+  }
 }
 
 .gallery span {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-origin: center;
-    transform-style: preserve-3d;
-    transform: rotateY(calc(var(--i) * 45deg)) translateZ(380px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(380px);
 }
 
 .gallery span img {
-    position: absolute;
-    object-fit: cover;
+  position: absolute;
+  object-fit: cover;
 }
 
 /* Schedule */
 
 .scheduleTab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-    color: #D1D5DB;
-    font-weight: bold;
+  color: #d1d5db;
+  font-weight: bold;
 }
-.scheduleTab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn:hover{
-    color: #D1D5DB;
-    font-weight: bold;
+.scheduleTab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn:hover {
+  color: #d1d5db;
+  font-weight: bold;
 }
 
 .scheduleTab .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn:hover {
-    color: #fff;
-}
-
-.scheduleTab .ant-tabs-ink-bar{
-background-color: #D1D5DB;
-}
-
-.scheduleTab .ant-tabs-tab {
-    background-color: transparent !important;
-    color: #D1D5DB !important;
-    padding: 12px 24px !important;
-    margin: 4px 0 !important;
-    border-radius: 8px !important;
-    transition: all 0.3s ease;
-}
-
-.scheduleTab .ant-tabs-tab-active {
-    background-color: rgba(245, 158, 11, 0.1) !important;
-    color: #F59E0B !important;
+  color: #fff;
 }
 
 .scheduleTab .ant-tabs-ink-bar {
-    background: #F59E0B !important;
+  background-color: #d1d5db;
+}
+
+.scheduleTab .ant-tabs-tab {
+  background-color: transparent !important;
+  color: #d1d5db !important;
+  padding: 12px 24px !important;
+  margin: 4px 0 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease;
+}
+
+.scheduleTab .ant-tabs-tab-active {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  color: #f59e0b !important;
+}
+
+.scheduleTab .ant-tabs-ink-bar {
+  background: #f59e0b !important;
 }
 
 .scheduleTab .ant-timeline-item-label {
-    color: #D1D5DB !important;
+  color: #d1d5db !important;
 }
 
 .scheduleTab .ant-timeline-item-content {
-    color: #D1D5DB !important;
+  color: #d1d5db !important;
 }
 
 .scheduleTab .ant-timeline-item-tail {
-    border-left-color: #4B5563 !important;
+  border-left-color: #4b5563 !important;
 }
 
 .scheduleTab .ant-timeline-item-head {
-    background-color: #F59E0B !important;
+  background-color: #f59e0b !important;
 }
