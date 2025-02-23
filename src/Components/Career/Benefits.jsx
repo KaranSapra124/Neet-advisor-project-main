@@ -40,7 +40,7 @@ const Benefits = () => {
       <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/50 via-gray-700 to-black/90"></div>
       <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={1.5}>
         <div className="relative flex lg:flex-row flex-col-reverse justify-evenly">
-          <div className="grid lg:my-0 my-5 grid-cols-1 lg:gap-3 gap-5">
+          <div className="grid lg:my-0 my-5  lg:grid-cols-2 grid-cols-1 lg:gap-3 gap-5">
             {benefits?.map((elem, index) => {
               return (
                 <div className="flex lg:w-60   cursor-pointer flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-white lg:p-4 p-2 transition-all duration-300 hover:scale-110">
@@ -58,7 +58,7 @@ const Benefits = () => {
             })}
           </div>
           <div className="lg:max-w-screen-sm ">
-            <h1 className="lg:text-3xl text-sm font-bold text-yellow-600 ">
+            <h1 className="lg:text-3xl text-lg font-bold text-yellow-600 ">
               Your Life At{" "}
               <span className="font-extrabold text-primary-color  brightness-[300%]">
                 Neet Advisor
@@ -90,7 +90,7 @@ const Benefits = () => {
               hours and remote work options to ensure our employees can excel in
               their roles while enjoying their personal lives.
             </p>
-            <button className="rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all lg:p-2 p-1 text-xs font-extrabold text-white">
+            <button className="rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all lg:p-2 p-1.5 lg:my-4 my-2 text-xs font-extrabold text-white">
               Learn More
             </button>
           </div>
