@@ -30,14 +30,14 @@ const ContactBanner = () => {
             variants={textVariants}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="lg:mb-2 mb-1  lg:text-2xl text-[0.5rem] font-extrabold text-yellow-600">
+            <h1 className="lg:mb-2 mb-1  lg:text-2xl text-sm font-extrabold text-yellow-600">
               Still Got Doubts?
             </h1>
             <Divider className={"lg:my-1 my-0.5  h-1 lg:w-12 w-6 rounded-full bg-yellow-600"} />
-            <h2 className="lg:text-sm text-[0.4rem] lg:my-2 my-1 font-bold text-primary-color">
+            <h2 className="lg:text-sm text-[0.5rem] lg:my-2 my-1 font-bold text-primary-color">
               Get Your Doubts Cleared By Booking A 1 to 1 Meet!
             </h2>
-            <p className="my-2 lg:text-xs text-[0.4rem] font-semibold text-gray-700">
+            <p className="my-2 lg:text-xs text-[0.5rem] font-semibold text-gray-700">
               Limited slots available! Don’t miss your chance to get
               personalized guidance.
             </p>
