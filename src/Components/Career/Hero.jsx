@@ -33,7 +33,7 @@ const Hero = () => {
   ];
   return (
     <>
-      <Container className={"relative h-screen"}>
+      <Container className={"relative lg:h-screen h-full"}>
         {/* <ScrollAnimation
           animateIn="JackInTheBox"
           duration={1.5}
@@ -48,18 +48,18 @@ const Hero = () => {
         ></video>
         <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 to-black/70"></div>
         <ScrollAnimation animateIn="backInUp" className="h-full inset-0" animateOnce={true} duration={1.5}>
-          <div className="relative inset-0 mx-auto flex h-full flex-col items-center justify-center gap-5">
+          <div className="relative inset-0 mx-auto flex h-full flex-col items-center justify-center lg:gap-5 gap-2">
             <div className="flex items-center justify-center">
               {" "}
-              <h1 className="text-4xl font-bold text-primary-color brightness-[300%]">
+              <h1 className="lg:text-4xl text-lg font-bold text-primary-color brightness-[300%]">
                 Join Our Team At
               </h1>
-              <span className="mx-2 text-4xl font-extrabold text-yellow-600">
+              <span className="lg:mx-2 mx-1 lg:text-4xl text-xl font-extrabold text-yellow-600">
                 Neet Advisor
               </span>
             </div>
-            <Divider className={"h-1 w-20 rounded-full bg-yellow-600"} />
-            <p className="max-w-screen-sm text-center text-sm font-semibold text-gray-300">
+            <Divider className={"lg:h-1 lg:w-20 h-0.5 w-12 rounded-full bg-yellow-600"} />
+            <p className="lg:max-w-screen-sm text-center lg:text-sm text-[0.6rem] font-semibold text-gray-300">
               Are you passionate about education and helping students achieve
               their dreams? At <strong>Neet Advisor!</strong>, we are on a
               mission to guide aspiring medical students through their{" "}
@@ -71,19 +71,19 @@ const Hero = () => {
                 return (
                   <>
                     <span className="flex justify-center">
-                      <TiTick className="mx-1 text-xl text-yellow-600" />
+                      <TiTick className="lg:mx-1 mx-0.5 lg:text-xl text-2xl text-yellow-600" />
                       <li className="list-none font-bold text-gray-300">
-                        <strong className="text-sm text-yellow-600">
+                        <strong className="lg:text-sm text-xs text-yellow-600">
                           {elem?.title} :{" "}
                         </strong>{" "}
-                        <span className="text-xs">{elem?.description}</span>
+                        <span className="lg:text-xs text-[0.7rem]">{elem?.description}</span>
                       </li>
                     </span>
                   </>
                 );
               })}
             </div>
-            <button className="my-4 rounded-l-full rounded-r-full bg-yellow-600 px-2.5 py-3.5 text-base font-extrabold text-white transition-all duration-200 hover:bg-yellow-700">
+            <button className="lg:my-4 rounded-l-full rounded-r-full bg-yellow-600 lg:px-2.5 px-1.5 lg:py-3.5 py-1.5 lg:text-base text-xs font-extrabold text-white transition-all duration-200 hover:bg-yellow-700">
               View Openings
             </button>
           </div>
