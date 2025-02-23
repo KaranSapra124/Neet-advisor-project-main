@@ -102,7 +102,7 @@ const UpcomingWebinars = () => {
                   </div>
 
                   <div className="w-fit px-2 py-1 pt-0">
-                    <h1 className="my-2 text-[0.7rem] font-extrabold text-primary-color lg:my-4 lg:text-sm lg:font-bold">
+                    <h1 className="my-2 text-[0.8rem] font-extrabold text-primary-color lg:my-4 lg:text-sm lg:font-bold">
                       {elem.title}
                     </h1>
                     <Divider
@@ -219,7 +219,7 @@ const UpcomingWebinars = () => {
                   </div>
 
                   <div className="w-fit px-2 py-1 pt-0">
-                    <h1 className="my-2 text-[0.7rem] font-extrabold text-primary-color lg:my-4 lg:text-sm lg:font-bold">
+                    <h1 className="my-2 text-[0.8rem] font-extrabold text-primary-color lg:my-4 lg:text-sm lg:font-bold">
                       {elem.title}
                     </h1>
                     <Divider
@@ -334,7 +334,7 @@ const UpcomingWebinars = () => {
   return (
     <Container className={"bg-gray-200/40"}>
       <div className="pb-2 text-center">
-        <h1 className="pb-1 text-sm font-extrabold text-primary-color lg:pb-2 lg:text-3xl">
+        <h1 className="pb-1 text-lg font-extrabold text-primary-color lg:pb-2 lg:text-3xl">
           <span className="font-bold text-yellow-600">Upcoming</span> Webinars
         </h1>
         <p className="mx-auto text-[0.5rem] font-bold text-gray-800 lg:my-4 lg:max-w-sm lg:text-xs">
