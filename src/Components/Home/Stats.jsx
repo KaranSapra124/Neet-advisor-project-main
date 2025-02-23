@@ -35,15 +35,15 @@ const Stats = () => {
       <ScrollAnimation animateIn="backInUp" duration={1.2}>
         <div className="mx-auto text-center">
           {/* Header */}
-          <h1 className="lg:text-3xl text-sm font-bold text-yellow-600">
+          <h1 className="lg:text-3xl text-lg font-bold text-yellow-600">
             Stats That{" "}
             <span className="font-extrabold text-primary-color">Define Us</span>
           </h1>
-          <p className="lg:my-4 my-2 text-xs lg:w-80 mx-auto font-bold text-gray-700">
+          <p className="lg:my-4 my-2 text-[0.5rem] lg:w-80 mx-auto font-bold text-gray-700">
             Discover the milestones that showcase our commitment and impact.
           </p>
           <Divider
-            className={"mx-auto my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
+            className={"mx-auto lg:my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
           />
           {/* Stats Grid */}
           <div className="lg:my-5 my-7 lg:flex-row flex-col flex justify-center lg:justify-evenly lg:gap-6 gap-3">
