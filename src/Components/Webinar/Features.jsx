@@ -86,7 +86,7 @@ const Features = () => {
         <div className="mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="text-center">
-            <h1 className="my-2 text-sm lg:text-3xl">
+            <h1 className="my-2 text-lg lg:text-3xl">
               <span className="text-primary-color` font-extrabold">
                 Features
               </span>
