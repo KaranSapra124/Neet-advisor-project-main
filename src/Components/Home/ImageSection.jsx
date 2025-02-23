@@ -29,7 +29,7 @@ const ImageSection = () => {
   useEffect(() => {
     const updateSlides = () => {
       const width = window.innerWidth;
-      if (width < 480) setSlidesToShow(1);
+      if (width < 350) setSlidesToShow(1);
       else if (width < 768) setSlidesToShow(2);
       else if (width < 1024) setSlidesToShow(3);
       else setSlidesToShow(4);
