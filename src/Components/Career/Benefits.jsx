@@ -37,7 +37,7 @@ const Benefits = () => {
   ];
   return (
     <Container className={"relative"}>
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/50 via-gray-700 to-black/90"></div>
+      <div className="absolute inset-0 h-full w-full bg-gray-900/70"></div>
       <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={1.5}>
         <div className="relative flex lg:flex-row flex-col-reverse justify-evenly">
           <div className="grid lg:my-0 my-5  lg:grid-cols-2 grid-cols-1 lg:gap-3 gap-5">
@@ -60,7 +60,7 @@ const Benefits = () => {
           <div className="lg:max-w-screen-sm ">
             <h1 className="lg:text-3xl text-lg font-bold text-yellow-600 ">
               Your Life At{" "}
-              <span className="font-extrabold text-primary-color  brightness-[300%]">
+              <span className="font-extrabold text-primary-color  ">
                 Neet Advisor
               </span>
             </h1>

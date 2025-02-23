@@ -238,16 +238,16 @@ const JobOpenings = () => {
     <>
       {isOpen && <CareerModal isOpen={isOpen} setIsOpen={setIsOpen} />}
       <Container className={"relative"}>
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/50 via-gray-700 to-black/90"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-900/70"></div>
 
         <ScrollAnimation animateIn="backInRight" animateOnce={true}>
           <div
             onClick={handleOpen}
             className="relative mx-auto max-w-screen-xl"
           >
-            <h1 className="text-center lg:text-3xl text-sm font-bold text-yellow-600">
+            <h1 className="text-center lg:text-3xl text-lg font-bold text-yellow-600">
               Apply, To Be{" "}
-              <span className="font-extrabold text-primary-color  lg:brightness-[350%]">
+              <span className="font-extrabold text-primary-color  ">
                 Part Of Neet Advisor!
               </span>
             </h1>
