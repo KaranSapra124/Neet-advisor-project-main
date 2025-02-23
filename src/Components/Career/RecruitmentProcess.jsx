@@ -49,13 +49,13 @@ const RecruitmentProcess = () => {
   ];
   return (
     <Container className={"relative"}>
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/50 via-gray-700 to-black/90"></div>
+      <div className="absolute inset-0 h-full w-full bg-gray-900/70"></div>
 
       <ScrollAnimation animateIn="backInLeft" animateOnce={true} duration={1.5}>
         <div className="relative mx-auto">
-          <h1 className="text-center lg:text-3xl text-sm font-semibold text-yellow-600">
+          <h1 className="text-center lg:text-3xl text-lg font-semibold text-yellow-600">
             Learn Our{" "}
-            <span className="font-extrabold text-primary-color brightness-[300%]">
+            <span className="font-extrabold text-primary-color">
               {" "}
               Recruitment Process
             </span>
