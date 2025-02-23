@@ -310,7 +310,7 @@ const AspirantsSection = () => {
   return (
     <Container className={"bg-gray-200/40  lg:py-0"}>
       <div className="mb-4 lg:max-w-screen-xl lg:text-center">
-        <h1 className="mb-1.5 text-[0.8rem] max-[380px]:text-[0.7rem] max-[380px]:text-center font-bold text-yellow-600 lg:mb-2 lg:text-3xl">
+        <h1 className="mb-1.5 text-lg max-[380px]:text-lg max-[380px]:text-center font-bold text-yellow-600 lg:mb-2 lg:text-3xl">
           Students Coached to{" "}
           <span className="font-extrabold text-primary-color">
             Top Medical Colleges
