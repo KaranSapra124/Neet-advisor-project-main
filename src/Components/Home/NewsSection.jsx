@@ -137,7 +137,7 @@ const NewsSection = () => {
     <>
       <Container className={"bg-gray-200/40"}>
         <div className="mx-5 flex flex-col text-center">
-          <h1 className="text-center text-[0.8rem] font-bold text-yellow-600 lg:text-3xl">
+          <h1 className="text-center text-md font-bold text-yellow-600 lg:text-3xl">
             Get the{" "}
             <span className="font-extrabold text-primary-color">
               Latest News and Updates
@@ -149,7 +149,7 @@ const NewsSection = () => {
           </p>
           <Divider
             className={
-              "mx-auto my-4 h-1 w-12 rounded-full bg-yellow-600 lg:w-20"
+              "mx-auto lg:my-4 my-2 h-1 w-12 rounded-full bg-yellow-600 lg:w-20"
             }
           />
         </div>
@@ -200,11 +200,11 @@ const NewsSection = () => {
                     </div> */}
           <button
             onClick={() => Navigate("/news")}
-            className="m-auto flex items-center justify-center rounded-md bg-yellow-600 p-2 text-[0.5rem] font-semibold text-white duration-200 hover:scale-105 hover:bg-yellow-500 lg:text-sm"
+            className="m-auto flex items-center  justify-center rounded-md bg-yellow-600 p-2 text-[0.5rem] font-extrabold lg:font-semibold text-white duration-200 hover:scale-105 hover:bg-yellow-500 lg:text-sm"
           >
             View More{" "}
             <span>
-              <FaArrowRight className="mx-2 text-sm" />
+              <FaArrowRight className="mx-2 text-xs lg:text-sm" />
             </span>
           </button>
         </ScrollAnimation>
