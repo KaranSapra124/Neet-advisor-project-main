@@ -111,12 +111,15 @@ const Reviews = () => {
 
   return (
     <Container className="bg-white">
-      <h1 className="text-center text-sm font-bold leading-none text-yellow-600 lg:text-3xl">
+      <h1 className="text-center text-lg font-bold leading-none text-yellow-600 lg:text-3xl">
         What our customers are{" "}
         <span className="font-extrabold text-primary-color">
           saying about us?
         </span>
       </h1>
+      <p className="my-2 text-center text-xs font-semibold text-gray-700 lg:text-sm">
+        Have a look at what our clients are saying about us!
+      </p>
       <Divider className="mx-auto my-2.5 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20" />
 
       <ScrollAnimation animateIn="fadeInUp" duration={1.5}>
@@ -127,30 +130,29 @@ const Reviews = () => {
           dots={true}
           arrows
           infinite
-          className="mx-auto lg:my-8 my-4 max-w-screen-xl"
+          className="mx-auto my-4 max-w-screen-xl lg:my-8"
         >
-          {window.innerWidth > 768 ? (
-            slides.map((group, groupIndex) => (
-              <div key={groupIndex} className="px-4">
-                <div className="flex gap-4">
-                  {group.map((testimonial) => (
-                    <div
-                      key={testimonial.id}
-                      className="relative flex flex-col max-[600px]:flex-wrap"
-                    >
-                      <TestimonialCard
-                        clientCollege={testimonial.title}
-                        clientName={testimonial.name}
-                        review={testimonial.testimonial}
-                        imgUrl={testimonial.image}
-                      />
-                    </div>
-                  ))}
+          {window.innerWidth > 768
+            ? slides.map((group, groupIndex) => (
+                <div key={groupIndex} className="px-4">
+                  <div className="flex gap-4">
+                    {group.map((testimonial) => (
+                      <div
+                        key={testimonial.id}
+                        className="relative flex flex-col max-[600px]:flex-wrap"
+                      >
+                        <TestimonialCard
+                          clientCollege={testimonial.title}
+                          clientName={testimonial.name}
+                          review={testimonial.testimonial}
+                          imgUrl={testimonial.image}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            // <div >
+              ))
+            : // <div >
               testimonialsData?.map((testimonial, index) => {
                 return (
                   <TestimonialCard
@@ -161,8 +163,8 @@ const Reviews = () => {
                   />
                 );
               })
-            // </div>
-          )}
+              // </div>
+          }
         </Carousel>
       </ScrollAnimation>
     </Container>
@@ -171,20 +173,22 @@ const Reviews = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative lg:my-0 my-10 lg:mx-0 mx-auto flex lg:h-full h-96 rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:max-h-72 max-h-80 lg:gap-4">
+    <div className="relative mx-auto my-10 flex h-96 max-h-80 rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:mx-0 lg:my-0 lg:h-full lg:max-h-72 lg:gap-4">
       <img
-        className="absolute -left-3 -top-3 lg:h-14 lg:w-14 w-10 h-10 rounded-full shadow shadow-yellow-600"
+        className="absolute -left-3 -top-3 h-10 w-10 rounded-full shadow shadow-yellow-600 lg:h-14 lg:w-14"
         src={imgUrl}
         alt=""
         srcset=""
       />
-      <div className="lg:px-6 lg:py-5 px-3 py-4">
-        <h1 className="lg:text-sm text-[0.7rem] font-bold text-primary-color">{clientName}</h1>
-        <h2 className="my-1 lg:text-xs text-[0.5rem] font-medium text-gray-800">
+      <div className="px-3 py-4 lg:px-6 lg:py-5">
+        <h1 className="text-[0.7rem] font-bold text-primary-color lg:text-sm">
+          {clientName}
+        </h1>
+        <h2 className="my-1 text-[0.5rem] font-medium text-gray-800 lg:text-xs">
           {clientCollege}
         </h2>
-        <Divider className="my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600" />
-        <p className="lg:text-xs text-[0.5rem] font-bold italic">"{review}"</p>
+        <Divider className="my-4 h-1 w-12 rounded-full bg-yellow-600 lg:w-20" />
+        <p className="text-[0.5rem] font-bold italic lg:text-xs">"{review}"</p>
       </div>
     </div>
   );
