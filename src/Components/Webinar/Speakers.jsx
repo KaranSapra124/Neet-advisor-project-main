@@ -67,7 +67,7 @@ const SpeakerCard = ({ member }) => {
           {member.expertise.map((skill, index) => (
             <span
               key={index}
-              className="w-fit rounded-full border border-gray-500 bg-gray-200 px-0.5 py-1 text-[0.5rem] font-semibold text-primary-color lg:px-3 lg:text-sm lg:font-semibold"
+              className="w-fit rounded-full border border-gray-100  px-0.5 py-1 text-[0.5rem] font-semibold text-primary-color lg:px-3 lg:text-sm lg:font-semibold"
             >
               # {skill}
             </span>
@@ -113,7 +113,7 @@ const Speakers = () => {
     <Container>
       <ScrollAnimation animateIn="backInLeft" animateOnce={true} duration={1.5}>
         <div className="mb-4 text-center">
-          <h2 className="mb-1 text-sm font-bold text-yellow-600 lg:mb-2 lg:text-3xl">
+          <h2 className="mb-1 text-lg font-bold text-yellow-600 lg:mb-2 lg:text-3xl">
             Our{" "}
             <span className="font-extrabold text-primary-color">Speakers</span>{" "}
             Who Will Guide You
