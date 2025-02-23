@@ -113,7 +113,7 @@ const Outcome = () => {
 
   return (
     <Container className={"bg-gray-200/40"}>
-      <h1 className="my-1 text-center text-sm font-bold text-yellow-600 lg:my-2 lg:text-3xl">
+      <h1 className="my-1 text-center text-lg font-bold text-yellow-600 lg:my-2 lg:text-3xl">
         Webinar{" "}
         <span className="font-extrabold text-primary-color">Outcomes</span>
       </h1>
