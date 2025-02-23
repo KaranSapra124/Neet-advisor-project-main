@@ -39,50 +39,50 @@ const Benefits = () => {
     <Container className={"relative"}>
       <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/50 via-gray-700 to-black/90"></div>
       <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={1.5}>
-        <div className="relative flex justify-evenly">
-          <div className="grid grid-cols-2 gap-3">
+        <div className="relative flex lg:flex-row flex-col-reverse justify-evenly">
+          <div className="grid lg:my-0 my-5 grid-cols-1 lg:gap-3 gap-5">
             {benefits?.map((elem, index) => {
               return (
-                <div className="flex w-60 cursor-pointer flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-white p-4 transition-all duration-300 hover:scale-110">
-                 <img src={elem?.icon} className="h-10 w-10 border bg-white border-white rounded-full p-1 shadow-sm shadow-white my-2" alt="" srcset="" />
-                  <h2 className="text-centery text-sm font-bold text-white my-1">
+                <div className="flex lg:w-60   cursor-pointer flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-white lg:p-4 p-2 transition-all duration-300 hover:scale-110">
+                 <img src={elem?.icon} className="lg:h-10 lg:w-10 w-7 border bg-white border-white rounded-full p-1 shadow-sm shadow-white my-2" alt="" srcset="" />
+                  <h2 className="text-center lg:text-sm text-xs font-bold text-white my-1">
                     {elem?.title}
                   </h2>
                   <Divider className={"my-2 h-0.5 w-10 rounded-full bg-yellow-600"} />
 
-                  <p className="py-2 text-xs font-semibold text-gray-200">
+                  <p className="py-2 lg:text-xs text-[0.5rem] font-semibold text-gray-200">
                     {elem?.description}
                   </p>
                 </div>
               );
             })}
           </div>
-          <div className="max-w-screen-sm">
-            <h1 className="text-3xl font-bold text-yellow-600 ">
+          <div className="lg:max-w-screen-sm ">
+            <h1 className="lg:text-3xl text-sm font-bold text-yellow-600 ">
               Your Life At{" "}
               <span className="font-extrabold text-primary-color  brightness-[300%]">
                 Neet Advisor
               </span>
             </h1>
-            <Divider className={"my-4 h-1 w-12 rounded-full bg-yellow-600"} />
-            <p className="my-4 text-justify text-xs font-semibold text-gray-200">
+            <Divider className={"lg:my-4 my-2 lg:h-1 h-0.5 w-12 rounded-full bg-yellow-600"} />
+            <p className="lg:my-4 my-2 text-justify text-xs font-semibold text-gray-200">
               At Neet Advisor, life is vibrant, collaborative, and
               purpose-driven. Our team is composed of passionate individuals who
               share a common goal: to empower aspiring medical students to
               achieve their dreams.
             </p>
-            <p className="my-4 text-justify text-xs font-semibold text-gray-200">
+            <p className="lg:my-4 text-justify text-xs font-semibold text-gray-200">
               Join us at Neet Advisor, where your contributions make a real
               difference, and every day is an opportunity to learn, grow, and
               inspire.
             </p>
-            <p className="my-4 text-justify text-xs font-semibold text-gray-200">
+            <p className="lg:my-4 text-justify text-xs font-semibold text-gray-200">
               We foster a culture of innovation and inclusivity, where every
               voice is heard and valued. Our open and flexible work environment
               encourages creativity and collaboration, allowing team members to
               thrive both personally and professionally.
             </p>
-            <p className="my-4 text-justify text-xs font-semibold text-gray-200">
+            <p className="lg:my-4 text-justify text-xs font-semibold text-gray-200">
               Regular team-building activities, workshops, and social events
               create a strong sense of community, making every day at Neet
               Advisor not just about work, but about building lasting
@@ -90,7 +90,7 @@ const Benefits = () => {
               hours and remote work options to ensure our employees can excel in
               their roles while enjoying their personal lives.
             </p>
-            <button className="rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all p-2 text-xs font-extrabold text-white">
+            <button className="rounded-l-full rounded-r-full bg-yellow-600 hover:bg-yellow-700 transition-all lg:p-2 p-1 text-xs font-extrabold text-white">
               Learn More
             </button>
           </div>
