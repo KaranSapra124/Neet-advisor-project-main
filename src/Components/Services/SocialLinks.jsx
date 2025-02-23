@@ -13,7 +13,7 @@ const SocialLinks = () => {
     <>
       <Container className={"flex justify-center bg-gray-200/40"}>
         <div className="section-title pb-20 text-center">
-          <h2 className="lg:text-3xl text-sm font-bold text-yellow-600">
+          <h2 className="lg:text-3xl text-lg font-bold text-yellow-600">
             Let's Get <span className="text-primary-color font-extrabold">Social</span>
           </h2>
           <p className="text-gray-700 font-semibold lg:text-xs text-[0.5rem] lg:max-w-64 mx-auto my-2 lg:my-1">Follow On Our Social Media Handles & Remain Up To Date!</p>
