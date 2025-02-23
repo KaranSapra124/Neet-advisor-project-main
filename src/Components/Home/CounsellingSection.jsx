@@ -81,7 +81,7 @@ const CounsellingSection = () => {
         <div className="mx-auto flex items-center justify-center rounded-md">
           <div>
             <div className="mb-4 text-center">
-              <h2 className="text-sm my-1 font-bold text-yellow-600 lg:text-3xl">
+              <h2 className="text-lg my-1 font-bold text-yellow-600 lg:text-3xl">
                 What We Have To{" "}
                 <span className="font-extrabold text-primary-color">
                   Offer ?
