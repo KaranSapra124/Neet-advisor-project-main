@@ -6,4 +6,9 @@ export const newsData = {
   registration_link: "https://neet.nta.nic.in",
   status: "OUT",
   exam: "NEET 2025",
+  event: {
+    eventName: "Neet Counselling 2025",
+    status: true,
+  },
+  categories: ["Education", "Exams", "Medical Entrance", "NEET"],
 };
