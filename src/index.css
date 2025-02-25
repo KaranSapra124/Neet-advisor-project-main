@@ -1073,4 +1073,7 @@ a {
     border-radius: 100%;
     border: 2px solid white !important;
   }
+  .slick-dots {
+    top: 8rem !important;
+  }
 }

@@ -139,7 +139,7 @@ const Hero = () => {
                         prev !== newsData?.length - 1 ? prev + 1 : 0,
                       )
                     }
-                    dots={false}
+                    dots={true}
                     arrows={true}
                     slidesToShow={3}
                     autoplay
