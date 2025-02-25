@@ -12,7 +12,7 @@ const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
-  const newsData = [
+   const newsData = [
     {
       id: 1,
       category: "Counselling Schedule",
@@ -118,7 +118,7 @@ const Hero = () => {
           <h1 className="py-4 text-center text-lg font-extrabold text-white lg:text-3xl">
             {newsData[mainNews]?.title}
           </h1>
-          <div className="max-w-screen-xl mx-auto flex h-full items-center justify-between">
+          <div className="mx-auto flex h-full max-w-screen-xl items-center justify-between">
             <div className="max-w-lg">
               <p className="text-sm font-extralight text-white">
                 {newsData[mainNews]?.description}
@@ -128,7 +128,7 @@ const Hero = () => {
                   setNewsData(newsData[mainNews]);
                   setIsOpen(true);
                 }}
-                className="my-2 rounded bg-yellow-600 px-1.5 py-1 text-sm font-semibold text-white"
+                className="my-4 rounded bg-yellow-600 px-8 py-1 text-sm font-light text-white"
               >
                 More
               </button>

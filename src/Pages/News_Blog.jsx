@@ -8,6 +8,7 @@ import scrollToTop from "../Utils/ScrollToTop";
 import NewsBanner from "../Components/News_&_Blog/NewsBanner";
 import Blog from "../Components/News_&_Blog/Blog";
 import SocialLinks from "../Components/Services/SocialLinks";
+import MoreNews from "../Components/News_&_Blog/MoreNews";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -20,6 +21,7 @@ const News_Blog = () => {
       {isOpen && <NewsLetter isOpen={isOpen} setIsOpen={setIsOpen} />}
       <Root>
         <Hero />
+        <MoreNews />
         <NewsCategories />
         <LatestNews />
         <NewsBanner />
