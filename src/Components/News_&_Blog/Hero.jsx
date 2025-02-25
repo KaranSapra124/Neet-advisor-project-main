@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "../Helper/Container";
 import { newsData } from "../../Utils/NewsMockData";
 import { FaDownload } from "react-icons/fa";
+import { Carousel } from "antd";
 const Hero = () => {
   const { event, date, editor, title, registration_link, categories } =
     newsData;
@@ -25,6 +26,11 @@ const Hero = () => {
             </div>
           </div>
         </div>
+        <Carousel adaptiveHeight>
+          {categories?.map((elem, index) => (
+            <button>{elem}</button>
+          ))}
+        </Carousel>
       </Container>
     </>
   );
