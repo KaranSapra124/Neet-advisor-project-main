@@ -118,7 +118,7 @@ const Hero = () => {
           <h1 className="py-4 text-center text-lg font-extrabold text-white lg:text-3xl">
             {newsData[mainNews]?.title}
           </h1>
-          <div className="mx-5 flex h-full items-center justify-between">
+          <div className="max-w-screen-xl mx-auto flex h-full items-center justify-between">
             <div className="max-w-lg">
               <p className="text-sm font-extralight text-white">
                 {newsData[mainNews]?.description}
