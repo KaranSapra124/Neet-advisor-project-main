@@ -1057,3 +1057,20 @@ a {
 .ant-timeline-item-head {
   background-color: #201169;
 }
+
+.news-carousel {
+  .slick-prev {
+    background: white !important;
+    background-color: white !important;
+    left: -3%;
+    border-radius: 100%;
+    border: 2px solid white !important;
+  }
+  .slick-next {
+    background: white !important;
+    background-color: white !important;
+    right: -3%;
+    border-radius: 100%;
+    border: 2px solid white !important;
+  }
+}

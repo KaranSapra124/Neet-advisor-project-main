@@ -4,12 +4,13 @@ import { Badge, Carousel, Flex, Modal } from "antd";
 import Divider from "../Helper/Divider";
 import { MdArrowOutward } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Hero = () => {
-  const [mainNews, setMainNews] = useState({});
+  const [mainNews, setMainNews] = useState(0);
   const [news_Data, setNewsData] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
   const newsData = [
     {
@@ -95,7 +96,11 @@ const Hero = () => {
   ];
 
   useEffect(() => {
-    setMainNews(newsData?.find((elem) => elem?.isTrending === true));
+    // setMainNews(newsData?.find((elem) => elem?.isTrending === true));
+    const loadedInterval = setTimeout(() => {
+      setIsLoaded((prev) => !prev);
+    }, 1500);
+    return () => clearTimeout(loadedInterval);
   }, []);
 
   return (
@@ -107,106 +112,66 @@ const Hero = () => {
           isOpen={isOpen}
         />
       )}
-      <Container className={"relative bg-gray-200/40"}>
-        {/* Hero Title Section */}
-        <div className="text-center">
-          <h1 className="text-sm font-bold uppercase text-primary-color lg:text-4xl">
-            Don't stay behind in race,{" "}
-            <span className="px-2 py-0.5 font-extrabold text-yellow-600">
-              We Got You Covered!
-            </span>
+      {/* <Container className={"relative bg-gray-200/40"}> */}
+      <div className="relative">
+        <div className="absolute inset-0 z-[99] h-full bg-black/60">
+          <h1 className="py-4 text-center text-lg font-extrabold text-white lg:text-3xl">
+            {newsData[mainNews]?.title}
           </h1>
-          <p className="my-2 text-[0.5rem] font-bold text-gray-700 lg:text-xs">
-            Remain ahead of competition, with latest news!
-          </p>
-          <Divider
-            className={
-              "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-3 lg:h-1 lg:w-20"
-            }
-          />
-        </div>
-
-        {/* Hero Content Section */}
-        <div className="flex flex-col justify-center rounded-md lg:flex-row">
-          {/* Main News Display Section */}
-          <div className="relative h-fit rounded-md">
-            <img
-              src={mainNews?.imageUrl}
-              className="w-full lg:w-[41.5rem]"
-              alt="Main News"
-            />
-            <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
-            <div className="absolute left-10 top-24 flex flex-col justify-center gap-1 lg:top-[23rem]">
-              <h5 className="w-fit border-l-2 border-yellow-600 px-2 text-xs font-extrabold text-primary-color brightness-[250%] lg:text-sm">
-                {mainNews?.category}
-              </h5>
-              <h4 className="text-sm font-extrabold text-white lg:text-xl">
-                {mainNews?.title}
-              </h4>
-              <p className="text-[0.6rem] font-light text-gray-400 lg:text-xs">
-                {mainNews?.description?.length > 30
-                  ? mainNews?.description?.substring(0, 30) + "..."
-                  : mainNews?.description}
+          <div className="mx-5 flex h-full items-center justify-between">
+            <div className="max-w-lg">
+              <p className="text-sm font-extralight text-white">
+                {newsData[mainNews]?.description}
               </p>
-              <FaArrowRight
-                onClick={() => {
-                  setIsOpen(true);
-                  setNewsData(mainNews);
-                }}
-                className="float-right w-fit cursor-pointer rounded-full bg-primary-color p-1 text-lg text-white transition-all duration-200 hover:scale-125 lg:text-xl"
-              />
+              <button className="my-2 rounded bg-yellow-600 px-1.5 py-1 text-sm font-semibold text-white">
+                More
+              </button>
+            </div>
+            <div className="ml-auto max-w-lg">
+              {isLoaded && (
+                <>
+                  <Carousel
+                  prevArrow={<FaArrowLeft />}
+                  nextArrow={<FaArrowRight/>}
+                    className="news-carousel"
+                    afterChange={() =>
+                      setMainNews((prev) =>
+                        prev !== newsData?.length - 1 ? prev + 1 : 0,
+                      )
+                    }
+                    dots={false}
+                    arrows={true}
+                    slidesToShow={3}
+                    autoplay
+                    autoplaySpeed={2000}
+                  >
+                    {newsData?.map((elem, index) => {
+                      return (
+                        <div className="relative rounded-md border border-white">
+                          <img src={elem?.imageUrl} alt={elem?.title} />
+                          <div className="absolute inset-0 z-[999] h-full w-full rounded-md bg-gray-900/60">
+                            <h1 className="mt-6 p-2 text-center text-xs font-semibold text-white">
+                              {elem?.title}
+                            </h1>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </Carousel>
+              
+                </>
+              )}
             </div>
           </div>
-
-          {/* Carousel Section */}
-          <div className="my-4 lg:my-0 lg:w-96">
-            <Carousel
-              slidesToShow={window.outerWidth > 800 ? 3 : 1}
-              vertical={window.outerWidth > 800 ? true : false}
-              autoplay
-              infinite
-              arrows
-              dots={false}
-              className="w-full lg:max-w-screen-sm"
-            >
-              {newsData?.map((elem, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="relative"
-                    onClick={() => {
-                      setIsOpen(true);
-                      setNewsData(elem);
-                    }}
-                  >
-                    <img
-                      src={elem?.imageUrl}
-                      className="lg:h-40"
-                      alt={elem?.title}
-                    />
-                    <div className="absolute inset-0 h-full rounded-md bg-black/80"></div>
-
-                    <div className="absolute top-16 z-10 mx-4 lg:top-[25rem]">
-                      <h5 className="w-fit border-l-2 border-yellow-600 px-2 text-xs font-extrabold text-primary-color brightness-[250%] lg:text-sm">
-                        {elem?.category}
-                      </h5>
-                      <h4 className="my-1 text-[0.8rem] font-bold text-white lg:my-0 lg:text-xs">
-                        {elem?.title}
-                      </h4>
-                      <p className="text-[0.6rem] font-light text-gray-400 lg:text-sm">
-                        {elem?.description?.length > 30
-                          ? elem?.description?.substring(0, 30) + "..."
-                          : elem?.description}
-                      </p>
-                      <FaArrowRight className="w-fit cursor-pointer rounded-full bg-primary-color p-1 text-xl text-white transition-all duration-200 hover:scale-125 lg:text-lg" />
-                    </div>
-                  </div>
-                );
-              })}
-            </Carousel>
-          </div>
         </div>
-      </Container>
+        <img
+          className="h-96 rounded-none"
+          src={newsData[mainNews]?.imageUrl}
+          alt=""
+          srcset=""
+        />
+      </div>
+      {/* </Container> */}
     </>
   );
 };
