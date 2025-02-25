@@ -123,7 +123,13 @@ const Hero = () => {
               <p className="text-sm font-extralight text-white">
                 {newsData[mainNews]?.description}
               </p>
-              <button className="my-2 rounded bg-yellow-600 px-1.5 py-1 text-sm font-semibold text-white">
+              <button
+                onClick={() => {
+                  setNewsData(newsData[mainNews]);
+                  setIsOpen(true);
+                }}
+                className="my-2 rounded bg-yellow-600 px-1.5 py-1 text-sm font-semibold text-white"
+              >
                 More
               </button>
             </div>
@@ -131,8 +137,8 @@ const Hero = () => {
               {isLoaded && (
                 <>
                   <Carousel
-                  prevArrow={<FaArrowLeft />}
-                  nextArrow={<FaArrowRight/>}
+                    prevArrow={<FaArrowLeft />}
+                    nextArrow={<FaArrowRight />}
                     className="news-carousel"
                     afterChange={() =>
                       setMainNews((prev) =>
@@ -158,7 +164,6 @@ const Hero = () => {
                       );
                     })}
                   </Carousel>
-              
                 </>
               )}
             </div>
