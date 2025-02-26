@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "../Helper/Container";
 import { newsData } from "../../Utils/NewsMockData";
 import { FaArrowLeft, FaArrowRight, FaDownload } from "react-icons/fa";
+import Divider from "../Helper/Divider";
 import { Carousel } from "antd";
 const Hero = () => {
   const { event, date, editor, title, registration_link, categories } =
@@ -9,9 +10,16 @@ const Hero = () => {
   return (
     <>
       <Container className={"bg-gray-200/10"}>
-        <div className="flex justify-between">
-          <div>
+        <div className="flex justify-between rounded border-l-2 border-yellow-600 px-2">
+          <div className="">
+            <img
+              src="https://cdn-icons-gif.flaticon.com/15747/15747337.gif"
+              className="w-9"
+              alt=""
+              srcset=""
+            />
             <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+            <Divider className={"lg:h-1 w-12 rounded-full bg-yellow-600 my-2 h-0.5 "}/>
             <p className="my-2 flex font-extralight text-black">
               Edited By :{" "}
               <p className="mx-1 font-semibold text-gray-900/90">
@@ -24,11 +32,11 @@ const Hero = () => {
               <FaDownload className="mx-2 text-white" />
               Download PDF
             </button>
-            <div className="rounded bg-white p-1 shadow-sm shadow-black">
+            <div className="rounded bg-white py-1.5 px-2 shadow-sm shadow-black">
               <div className="w-fit rounded-full bg-yellow-600 px-2 py-1 text-xs font-semibold text-white">
                 {event?.status ? "Ongoing Event" : "Expired"}
               </div>
-              <p className="py-1 text-sm font-semibold text-gray-700">
+              <p className="py-1.5  text-sm font-semibold text-gray-700">
                 {event?.eventName}
               </p>
             </div>
@@ -36,7 +44,7 @@ const Hero = () => {
         </div>
         <Carousel
           infinite
-          className="my-8"
+          // className="my-4"
           nextArrow={<FaArrowRight />}
           prevArrow={<FaArrowLeft />}
           slidesToShow={window.outerWidth > 800 ? 5 : 1}
@@ -46,7 +54,7 @@ const Hero = () => {
           adaptiveHeight
         >
           {categories?.map((elem, index) => (
-            <button className="hover:text-md hover:font-semibold text-sm font-light text-gray-900 transition-all">
+            <button className="hover:text-md text-sm font-light text-gray-900 transition-all hover:font-semibold">
               {elem}
             </button>
           ))}
