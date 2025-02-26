@@ -23,10 +23,10 @@ const News_Blog = () => {
         <Hero />
         <NewsCategories />
         <MoreNews />
-        <LatestNews />
+        {/* <LatestNews />
         <NewsBanner />
         <Blog />
-        <SocialLinks />
+        <SocialLinks /> */}
       </Root>
     </>
   );
