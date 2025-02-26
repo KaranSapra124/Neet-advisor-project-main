@@ -33,4 +33,12 @@ export const newsData = {
     },
     { PYQs: "NEET PYQ's & Solutions: Physics | Chemistry | Biology" },
   ],
+  neetSchedule: {
+    "2025-02-07": "NEET 2025 Application Form Start",
+    "2025-03-07": "NEET 2025 Form Submission Last Date",
+    "2025-04-10": "NEET 2025 Admit Card Release",
+    "2025-05-04": "NEET 2025 Exam Date",
+    "2025-06-15": "NEET 2025 Result Declaration",
+    "2025-07-01": "NEET 2025 Counseling Start",
+  },
 };
