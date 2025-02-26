@@ -16,19 +16,20 @@ const NewsCategories = () => {
   ];
   return (
     // <Container className={"bg-gray-200/10 p-0 border-t "}>
-    <div className="border-t border-b bg-gray-200/10 px-20 py-5">
+    <div className="border-b border-t bg-gray-200/30 px-20 py-5">
       <Carousel
         infinite
         nextArrow={<FaArrowRight />}
         prevArrow={<FaArrowLeft />}
-        slidesToShow={window.outerWidth > 800 ? 8 : 1}
+        slidesToShow={window.outerWidth > 800 ? 7 : 1}
         // autoplay
         dots={false}
         arrows
         adaptiveHeight
+        className="news-carousel"
       >
         {newsCategories?.map((elem, index) => (
-          <button className="hover:text-md text-sm font-light text-gray-900 transition-all hover:font-semibold">
+          <button className="mb-1 rounded-md border border-primary-color p-0.5 text-sm font-semibold text-gray-900 transition-all hover:scale-x-110 hover:bg-primary-color hover:font-semibold hover:text-white">
             {elem}
           </button>
         ))}
