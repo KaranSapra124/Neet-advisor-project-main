@@ -22,14 +22,15 @@ const NewsCategories = () => {
         nextArrow={<FaArrowRight />}
         prevArrow={<FaArrowLeft />}
         slidesToShow={window.outerWidth > 800 ? 7 : 1}
-        // autoplay
+        autoplay
         dots={false}
         arrows
         adaptiveHeight
         className="news-carousel"
       >
         {newsCategories?.map((elem, index) => (
-          <button className="mb-1 rounded-md border border-primary-color p-0.5 text-sm font-semibold text-gray-900 transition-all hover:scale-x-110 hover:bg-primary-color hover:font-semibold hover:text-white">
+          <button className="relative my-1 rounded-md border border-primary-color p-0.5 text-sm font-semibold text-gray-900 transition-all hover:scale-x-105 hover:bg-primary-color hover:font-semibold hover:text-white">
+            <img src="https://cdn-icons-gif.flaticon.com/16104/16104340.gif" className="w-6 -top-3 shadow shadow-yellow-600 rounded-full -left-3  absolute" alt="" srcset="" />
             {elem}
           </button>
         ))}
