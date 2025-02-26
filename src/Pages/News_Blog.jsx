@@ -10,6 +10,7 @@ import Blog from "../Components/News_&_Blog/Blog";
 import SocialLinks from "../Components/Services/SocialLinks";
 import MoreNews from "../Components/News_&_Blog/MoreNews";
 import Schedule from "../Components/News_&_Blog/Schedule";
+import EligibilityCriteria from "../Components/News_&_Blog/EligibilityCriteria";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -25,6 +26,7 @@ const News_Blog = () => {
         <NewsCategories />
         <MoreNews />
         <Schedule/>
+        <EligibilityCriteria/>
         {/* <LatestNews />
         <NewsBanner />
         <Blog />

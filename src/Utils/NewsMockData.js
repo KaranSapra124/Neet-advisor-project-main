@@ -41,4 +41,14 @@ export const newsData = {
     "2025-06-15": "NEET 2025 Result Declaration",
     "2025-07-01": "NEET 2025 Counseling Start",
   },
+  eligibilityCriteria:{
+    "Minimum Age": "Candidate must be at least 17 years old as of December 31, 2025.",
+    "Maximum Age": "No upper age limit for NEET 2025.",
+    "Educational Qualification": "Candidate must have passed 10+2 or equivalent with Physics, Chemistry, Biology/Biotechnology, and English as core subjects.",
+    "Minimum Marks (General)": "50% aggregate in PCB (Physics, Chemistry, Biology).",
+    "Minimum Marks (OBC/SC/ST)": "40% aggregate in PCB.",
+    "Minimum Marks (PwD)": "45% aggregate in PCB.",
+    "Number of Attempts": "No attempt limit.",
+    "Nationality": "Indian Nationals, NRIs, OCIs, PIOs, and Foreign Nationals are eligible.",
+  }
 };
