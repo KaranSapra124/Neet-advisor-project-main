@@ -16,7 +16,7 @@ const NewsCategories = () => {
   ];
   return (
     // <Container className={"bg-gray-200/10 p-0 border-t "}>
-    <div className="border-t bg-gray-200/10 px-20 py-5">
+    <div className="border-t border-b bg-gray-200/10 px-20 py-5">
       <Carousel
         infinite
         nextArrow={<FaArrowRight />}
