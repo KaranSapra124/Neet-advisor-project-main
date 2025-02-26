@@ -8,7 +8,7 @@ export const newsData = {
   exam: "NEET 2025",
   event: {
     eventName: "Neet Counselling 2025",
-    status: true,
+    status: false,
   },
   categories: ["Education", "Exams", "Medical Entrance", "NEET"],
 };
