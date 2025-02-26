@@ -8,7 +8,7 @@ import Divider from "../Helper/Divider";
 const Schedule = () => {
   const { neetSchedule } = newsData;
   return (
-    <Container className={"bg-gray-200/10"}>
+    <Container className={"bg-gray-200/40"}>
       <div className="flex flex-col gap-2">
         <h1 className="font-semibold text-yellow-600 lg:text-xl">
           NEET 2025 <span className="text-primary-color font-extrabold">application form date</span>
@@ -21,7 +21,7 @@ const Schedule = () => {
           application date here.
         </p>
         <Divider className={"h-1 w-12 bg-yellow-600 rounded-full "}/>
-        <h1 className="text-lg font-bold">NEET application form date</h1>
+        <h1 className="text-lg text-primary-color font-bold">NEET application form date</h1>
         <Timeline
           className="pg-seminar"
           mode={window.outerWidth > 800 ? "alternate" : "left"}
@@ -30,7 +30,7 @@ const Schedule = () => {
               children: (
                 <ScrollAnimation animateIn="backInUp" animateOnce={true}>
                   <div
-                    className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} relative flex w-fit cursor-pointer flex-col rounded-md border-l-2 border-yellow-600 bg-gray-400/5 p-4 text-center shadow-sm shadow-gray-500 transition-all hover:scale-105 lg:w-80`}
+                    className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} relative flex w-fit cursor-pointer flex-col rounded-md border-l-2 border-yellow-600 bg-white p-4 text-center shadow-sm shadow-gray-500 transition-all hover:scale-105 lg:w-80`}
                   >
                     <img
                       src="./Webinar/BookImg.gif"
