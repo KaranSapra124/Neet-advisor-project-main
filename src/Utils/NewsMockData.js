@@ -22,6 +22,15 @@ export const newsData = {
     " NEET application form 2025 pdf download",
     "NEET application form - Image correction",
     "NEET form 2025 correction window",
-    "NEET applicant statistics over the years"
+    "NEET applicant statistics over the years",
+  ],
+  importantLinks: [
+    { News: "NEET 2025 Application Form OUT; Direct Link to Apply" },
+    { Biology: "NEET 2025: Biology: Mind Maps & Important Diagrams" },
+    {
+      Syllabus:
+        "NEET 2025: Syllabus | Most Scoring concepts | NEET PYQ's (2015-24)",
+    },
+    { PYQs: "NEET PYQ's & Solutions: Physics | Chemistry | Biology" },
   ],
 };
