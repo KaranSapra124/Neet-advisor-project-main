@@ -9,7 +9,7 @@ const MoreNews = () => {
     <Container className={"bg-gray-200/10"}>
       <div className="flex flex-col gap-2">
         <p className="text-sm font-thin text-gray-800">{heading}</p>
-        <Divider className={"my-4 h-1 w-12 rounded-full bg-yellow-600"} />
+        <Divider className={"my-2 h-1 w-12 rounded-full bg-yellow-600"} />
         <StoryContent storyData={storyData} />
         <ImportantLinks importantLinks={importantLinks} />
       </div>
@@ -55,14 +55,10 @@ const StoryContent = ({ storyData }) => {
 const ImportantLinks = ({ importantLinks }) => {
   return (
     <>
-      {/* <div className="flex  w-full "> */}
-        {/* <img
-          className="w-1/2"
-          src="https://img.freepik.com/premium-vector/portrait-doctor-one-line-drawing-isolated-vector_566661-900.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid"
-          alt=""
-          srcset=""
-        /> */}
-        <div className="w-full rounded flex flex-col gap-3.5 border py-4  px-5 relative bg-gray-200/10 ">
+     <h1 className="lg:text-xl text-lg font-bold text-yellow-600">Get Your <span className="text-primary-color font-extrabold">Preparation</span> To Newer Heights 🚀</h1>
+     <p className="text-xs font-semibold text-gray-700">Refer Below Links To Get Help From Our Study Material.</p>
+     <Divider className={'lg:h-1 w-12 bg-yellow-600 rounded-full my-1'}/>
+        <div className="w-full my-4 rounded flex flex-col gap-3.5 border py-4  px-5 relative bg-gray-200/10 ">
         <img
             src="./Webinar/BookImg.gif"
             className="absolute -left-3 -top-4 w-7 rounded-full bg-white shadow shadow-yellow-600"
@@ -73,8 +69,8 @@ const ImportantLinks = ({ importantLinks }) => {
             {
               return Object.keys(elem)?.map((key) => {
                 return (
-                  <li className="list-none text-primary-color">
-                    <span className="border-b border-yellow-600 font-thin mx-1 text-gray-900">{key}:</span>
+                  <li className="list-none text-sm  text-primary-color">
+                    <span className="border-b border-yellow-600 font-thin mx-1 text-sm text-gray-900">{key}:</span>
                     {elem[key]}
                   </li>
                 );
@@ -82,7 +78,6 @@ const ImportantLinks = ({ importantLinks }) => {
             }
           })}
         </div>
-      {/* </div> */}
     </>
   );
 };
