@@ -18,12 +18,12 @@ const Hero = () => {
               alt=""
               srcset=""
             />
-            <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+            <h1 className="text-2xl font-bold text-primary-color">{title}</h1>
             <Divider className={"lg:h-1 w-12 rounded-full bg-yellow-600 my-2 h-0.5 "}/>
             <p className="my-2 flex font-extralight text-black">
               Edited By :{" "}
-              <p className="mx-1 font-semibold text-gray-900/90">
-                {editor} | {date}
+              <p className="mx-1 flex items-center font-bold text-primary-color">
+                {editor} <Divider className={"h-0.5 w-4 bg-yellow-600 rounded-full rotate-90"}/> {date}
               </p>
             </p>
           </div>
