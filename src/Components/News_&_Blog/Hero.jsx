@@ -18,7 +18,7 @@ const Hero = () => {
               alt=""
               srcset=""
             />
-            <h1 className="text-2xl font-bold text-primary-color">{title}</h1>
+            <h1 className="text-xl font-bold text-primary-color">{title}</h1>
             <Divider className={"lg:h-1 w-12 rounded-full bg-yellow-600 my-2 h-0.5 "}/>
             <p className="my-2 flex font-extralight text-black">
               Edited By :{" "}
@@ -27,16 +27,16 @@ const Hero = () => {
               </p>
             </p>
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex items-center justify-center flex-col gap-5">
             <button className="flex items-center rounded bg-yellow-600 px-2 py-1 text-sm font-semibold text-white">
               <FaDownload className="mx-2 text-white" />
               Download PDF
             </button>
             <div className="rounded bg-white py-1.5 px-2 border-l-2 border-b-2 border-yellow-600 relative">
 
-            <img className="w-7 -top-4 -left-4 shadow shadow-yellow-600 rounded-full absolute" src={event?.status ? 'https://cdn-icons-gif.flaticon.com/12761/12761189.gif':'https://cdn-icons-gif.flaticon.com/12146/12146036.gif'} alt="" srcset="" />
-              <p className="py-1.5  text-sm font-semibold text-gray-700">
-                {event?.eventName}
+            <img className="w-6 -top-3 -left-3 shadow shadow-yellow-600 rounded-full absolute" src={event?.status ? 'https://cdn-icons-gif.flaticon.com/12761/12761189.gif':'https://cdn-icons-gif.flaticon.com/12146/12146036.gif'} alt="" srcset="" />
+              <p className="py-1.5  text-xs font-semibold text-gray-700">
+                {event?.eventName} 
               </p>
             </div>
           </div>
