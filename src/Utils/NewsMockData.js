@@ -19,5 +19,9 @@ export const newsData = {
     "How to fill NEET UG 2025 application form?",
     "NEET 2025 application form - Specification of scanned documents",
     "NEET application form 2025 documents required",
+    " NEET application form 2025 pdf download",
+    "NEET application form - Image correction",
+    "NEET form 2025 correction window",
+    "NEET applicant statistics over the years"
   ],
 };
