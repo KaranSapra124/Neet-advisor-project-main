@@ -6,9 +6,10 @@ import { newsData } from "../../Utils/NewsMockData";
 const MoreNews = () => {
   const { heading, storyData } = newsData;
   return (
-    <Container className={"bg-gray-200/40"}>
+    <Container className={"bg-gray-200/10"}>
       <div>
         <p className="text-sm font-thin text-gray-800">{heading}</p>
+        <Divider className={'w-12 h-1 rounded-full bg-yellow-600 my-4'}/>
         <StoryContent storyData={storyData}/>
       </div>
 
@@ -20,7 +21,9 @@ const StoryContent = ({storyData}) => {
   return (
     <>
       <div className="flex py-5 items-center justify-between">
-        <ol className="flex h-80 w-1/2 flex-col gap-3.5 rounded border bg-gray-200/10 px-5 py-4">
+
+        <ol className="flex relative h-80 w-1/2 flex-col gap-3.5 rounded border bg-gray-200/10 px-5 py-4">
+        <img src="./Webinar/BookImg.gif" className="w-7 shadow shadow-yellow-600 rounded-full absolute -top-4 -left-4 bg-white" alt="" srcset="" />
           {storyData?.map((elem, index) => {
             return (
               <>
