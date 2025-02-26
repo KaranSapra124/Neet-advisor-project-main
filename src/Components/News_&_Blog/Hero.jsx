@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Container from "../Helper/Container";
 import { newsData } from "../../Utils/NewsMockData";
-import { FaArrowLeft, FaArrowRight, FaDownload } from "react-icons/fa";
+import {  FaDownload } from "react-icons/fa";
 import Divider from "../Helper/Divider";
-import { Carousel } from "antd";
+// import { Carousel } from "antd";
 const Hero = () => {
   const { event, date, editor, title, registration_link, categories } =
     newsData;
@@ -42,23 +42,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <Carousel
-          infinite
-          // className="my-4"
-          nextArrow={<FaArrowRight />}
-          prevArrow={<FaArrowLeft />}
-          slidesToShow={window.outerWidth > 800 ? 5 : 1}
-          autoplay
-          dots={false}
-          arrows
-          adaptiveHeight
-        >
-          {categories?.map((elem, index) => (
-            <button className="hover:text-md text-sm font-light text-gray-900 transition-all hover:font-semibold">
-              {elem}
-            </button>
-          ))}
-        </Carousel>
+       
       </Container>
     </>
   );

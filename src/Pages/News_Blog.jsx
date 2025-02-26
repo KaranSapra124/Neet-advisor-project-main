@@ -21,8 +21,8 @@ const News_Blog = () => {
       {isOpen && <NewsLetter isOpen={isOpen} setIsOpen={setIsOpen} />}
       <Root>
         <Hero />
-        <MoreNews />
         <NewsCategories />
+        <MoreNews />
         <LatestNews />
         <NewsBanner />
         <Blog />
