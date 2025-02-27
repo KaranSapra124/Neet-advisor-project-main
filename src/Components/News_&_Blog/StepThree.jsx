@@ -45,7 +45,7 @@ const CollapseData = ({ data }) => {
         {data?.map((elem, index) => (
           <Collapse
             key={index}
-            className="mx-auto mb-2 w-96"
+            className="mx-auto mb-2 w-[40rem]"
             activeKey={activeKey === index ? index : null}
             onChange={() => setActiveKey(activeKey === index ? null : index)}
             items={[
