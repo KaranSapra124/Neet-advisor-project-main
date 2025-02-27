@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Children } from "react";
 import Container from "../Helper/Container";
 import { newsData } from "../../Utils/NewsMockData";
+import { Collapse } from "antd";
 
 const StepOne = () => {
-  const { neetDetails } = newsData;
+  const { neetDetails, stepOneDetails } = newsData;
   return (
     <>
       <Container>
@@ -27,8 +28,27 @@ const StepOne = () => {
               return <li>{elem}</li>;
             })}
           </div>
+          <StepOneDetails data={stepOneDetails} />
         </div>
       </Container>
+    </>
+  );
+};
+
+const StepOneDetails = ({ data }) => {
+  return (
+    <>
+      <div>
+        <Collapse accordion 
+          items={data?.map((elem, index) => {
+            return {
+              key: index,
+              label: elem?.title,
+              children: <p>{elem?.desc}</p>,
+            };
+          })}
+        />
+      </div>
     </>
   );
 };

@@ -80,4 +80,18 @@ export const newsData = {
     "Scanned Photograph Upload",
     "Scanned Signature Upload",
   ],
+  stepOneDetails: [
+    {
+      title: "Choose a password",
+      desc: "In the next step, candidates will have to choose a password, retype the same, enter a security question, and choose the answer. Candidates are advised to keep the security question and answer safe as this may be required to retrieve the password. in case a candidate forgets it.To complete the NEET 2025 registration, candidates must verify the above details and submit them"
+    },
+    {
+      title:"Generation of provisional application number",
+      desc:"After the successful registration for NEET, the provisional application number is displayed. This must be noted down as it is the NEET 2025 login ID for all future logins."
+    },
+    {
+      title:"Particular checklist to be verified",
+      desc:'Candidates need to verify all the details by clicking on each section. Aspirants are not allowed to proceed without ticking on the particulars.Aspirants are advised to verify all the details carefully, as after submission, changes are not allowed.'
+    }
+  ],
 };
