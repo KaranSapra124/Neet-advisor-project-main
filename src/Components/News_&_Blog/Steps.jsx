@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { newsData } from "../../Utils/NewsMockData";
 import { Steps } from "antd";
 import Container from "../Helper/Container";
+import Divider from "../Helper/Divider";
 const NeetSteps = () => {
   const { stepsData } = newsData;
   const [curr, setCurr] = useState(0);
@@ -16,7 +17,7 @@ const NeetSteps = () => {
   }, []);
 
   return (
-    <Container>
+    <Container className={'bg-gray-200/40'}>
       <div className="flex flex-col gap-2">
         <h1 className="text-xl font-bold text-yellow-600">
           NEET{" "}
@@ -31,6 +32,8 @@ const NeetSteps = () => {
           registration 2025 link' which will lead to the instructions papage
           which must be read carefully.
         </p>
+        <Divider className={"h-1 w-12 bg-yellow-600 rounded-full "}/>
+        <h2 className="text-xl text-primary-color font-bold">Steps To Fill NEET Application</h2>
         <Steps
           type="inline"
           current={2}
@@ -39,7 +42,7 @@ const NeetSteps = () => {
             return {
               title: (
                 <div
-                  className={`${index < curr ? "relative m-4 h-10 w-52 rounded border-l-2 border-yellow-600 bg-white text-gray-900 shadow shadow-gray-900" : "m-4 relative h-10 w-52 rounded border border-gray-900 "}`}
+                  className={`${index < curr ? "relative m-4 h-10 w-52 hover:scale-x-105 transition-all rounded border-l-2 border-yellow-600 bg-white text-gray-900 shadow shadow-gray-900" : "relative m-4 h-10 w-52 rounded border border-gray-900"}`}
                 >
                   <h2
                     className={`${index < curr ? "absolute -left-2 -top-2 w-fit rounded-full bg-yellow-600 px-1.5 text-sm font-bold text-white shadow shadow-yellow-600" : "absolute -left-2 -top-2 w-fit rounded-full bg-white px-1.5 text-sm font-bold text-gray-500 shadow shadow-yellow-600"}`}
