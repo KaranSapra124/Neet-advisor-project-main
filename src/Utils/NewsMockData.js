@@ -153,4 +153,22 @@ export const newsData = {
       },
     },
   ],
+  stepThree:[
+    {
+      title:"Passport Photograph",
+      desc:"It must be passport-size with a white background having the name of the candidate and the date of the photograph underneath the image. The size of the file can be 10 kb to 200 kb in JPEG format."
+    },
+    {
+      title:"Signature",
+      desc:"This must be done with a black ink pen on white paper and should be scanned to a file with size 4 kb to 30 kb in JPG format."
+    },
+    {
+      title:"Left-hand thumb impression",
+      desc:"Candidates must upload a digital image of the left-hand thumb impression on white paper with blue ink in JPG format and the size should be between 10 kb to 200 kb"
+    },
+    {
+      title:"Postcard size photo",
+      desc:"Apart from the passport size photo, candidates are required to upload postcard-size photographs in JPG format with size between 10 kb to 200 kb."
+    }
+  ]
 };
