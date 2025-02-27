@@ -25,29 +25,42 @@ const EligibilityCriteria = () => {
           <h1 className="text-xl font-semibold text-primary-color">
             NEET 2025 application eligibility criteria
           </h1>
-          <EligibityComponent data={eligibilityCriteria} />
+          <EligibilityComponent data={eligibilityCriteria} />
         </div>
       </Container>
     </>
   );
 };
-
-const EligibityComponent = ({ data }) => {
+const EligibilityComponent = ({ data }) => {
   return (
-    <>
-      <table >
-        <thead>
-          {Object.keys(data)?.map((elem) => (
-            <th className="border border-gray-900 text-xs  font-bold p-2 w-auto">{elem}</th>
-          ))}
+    <div className="overflow-x-auto">
+      <table className="min-w-full border border-gray-300 shadow-md rounded-lg">
+        <thead className="bg-gray-200 text-gray-800">
+          <tr>
+            {Object.keys(data).map((elem, index) => (
+              <th
+                key={index}
+                className="border border-gray-400 px-4 py-2 text-xs font-semibold text-center"
+              >
+                {elem}
+              </th>
+            ))}
+          </tr>
         </thead>
-        <tbody >
-          {Object.keys(data)?.map((elem) => (
-            <th className="border border-gray-900 text-[0.7rem] p-2 text-gray-700 font-semibold text-center ">{data[elem]}</th>
-          ))}
+        <tbody>
+          <tr className="hover:bg-gray-100 transition">
+            {Object.keys(data).map((elem, index) => (
+              <td
+                key={index}
+                className="border border-gray-900 px-2 py-2 text-[0.7rem] text-gray-700 font-semibold text-center"
+              >
+                {data[elem]}
+              </td>
+            ))}
+          </tr>
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 
