@@ -175,4 +175,43 @@ export const newsData = {
       desc: "Apart from the passport size photo, candidates are required to upload postcard-size photographs in JPG format with size between 10 kb to 200 kb.",
     },
   ],
+  stepFour: [
+    {
+      document: "Passport Photograph",
+      Specifications: [
+        "Latest photograph taken after January 1, 2025",
+        "White background",
+        "80% face coverage, ears clearly visible, on while background",
+      ],
+      size_and_format: "Size - 10 Kb to 200 Kb Format - JPG",
+      Specification_for_tool: "2.5 x 3.5 inches with 72 DPI",
+    },
+    {
+      document: "Postcard Size Picture",
+      Specifications: [
+        "Must be taken after January 1, 2025.",
+        "Preferably with the name and date of taking the photograph.",
+        "The photograph should not be with a cap or goggles.",
+        "80% face coverage, ears clearly visible, on white background",
+      ],
+      size_and_format: "4x6 Size 10 kb - 200 kb",
+      Specification_for_tool: "4.5 x 3.5 inches with 72 DPI",
+    },
+    {
+      document: "Signature",
+      Specifications: [
+        "White Background",
+        "Sign With Black Pen",
+        "Signature must not be in capital letters.",
+      ],
+      size_and_format: "Size - 4Kb to 30 kb Format - JPG",
+      Specification_for_tool: "2.5 x 3.5 inches with 72 DPI",
+    },
+  ],
+  stepFourHeader: [
+    "Documents",
+    "Specifications",
+    "Size and Format",
+    "Specification for tool",
+  ],
 };

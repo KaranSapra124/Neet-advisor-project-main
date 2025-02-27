@@ -15,6 +15,7 @@ import NeetSteps from "../Components/News_&_Blog/Steps";
 import StepOne from "../Components/News_&_Blog/StepOne";
 import StepTwo from "../Components/News_&_Blog/StepTwo";
 import StepThree from "../Components/News_&_Blog/StepThree";
+import StepFour from "../Components/News_&_Blog/StepFour";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -35,6 +36,7 @@ const News_Blog = () => {
         <StepOne />
         <StepTwo />
         <StepThree/>
+        <StepFour/>
         {/* <LatestNews />
         <NewsBanner />
         <Blog />
