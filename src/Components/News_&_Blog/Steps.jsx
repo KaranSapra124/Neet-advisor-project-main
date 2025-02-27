@@ -39,10 +39,10 @@ const NeetSteps = () => {
             return {
               title: (
                 <div
-                  className={`${index < curr ? "relative m-4 h-10 w-52 rounded border-l-2 border-yellow-600 bg-white text-gray-900 shadow shadow-gray-900" : "m-4 h-10 w-52 rounded border border-gray-900 py-2"}`}
+                  className={`${index < curr ? "relative m-4 h-10 w-52 rounded border-l-2 border-yellow-600 bg-white text-gray-900 shadow shadow-gray-900" : "m-4 relative h-10 w-52 rounded border border-gray-900 "}`}
                 >
                   <h2
-                    className={`${index < curr ? "absolute -left-2 -top-2 w-fit rounded-full bg-yellow-600 px-1.5 text-sm font-bold text-white shadow shadow-yellow-600" : "absolute -left-2 -top-2 w-fit rounded-full bg-white px-1.5 text-sm font-bold text-gray-200 shadow shadow-yellow-600"}`}
+                    className={`${index < curr ? "absolute -left-2 -top-2 w-fit rounded-full bg-yellow-600 px-1.5 text-sm font-bold text-white shadow shadow-yellow-600" : "absolute -left-2 -top-2 w-fit rounded-full bg-white px-1.5 text-sm font-bold text-gray-500 shadow shadow-yellow-600"}`}
                   >
                     {index + 1}
                   </h2>
