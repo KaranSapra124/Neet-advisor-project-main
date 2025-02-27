@@ -12,6 +12,7 @@ import MoreNews from "../Components/News_&_Blog/MoreNews";
 import Schedule from "../Components/News_&_Blog/Schedule";
 import EligibilityCriteria from "../Components/News_&_Blog/EligibilityCriteria";
 import NeetSteps from "../Components/News_&_Blog/Steps";
+import StepOne from "../Components/News_&_Blog/StepOne";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -29,6 +30,7 @@ const News_Blog = () => {
         <Schedule/>
         <EligibilityCriteria/>
         <NeetSteps/>
+        <StepOne/>
         {/* <LatestNews />
         <NewsBanner />
         <Blog />

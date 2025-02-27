@@ -1,7 +1,9 @@
 import React from "react";
 import Container from "../Helper/Container";
+import { newsData } from "../../Utils/NewsMockData";
 
 const StepOne = () => {
+  const { neetDetails } = newsData;
   return (
     <>
       <Container>
@@ -21,7 +23,9 @@ const StepOne = () => {
             2025. This user ID is used to login to NEET form fill up 2025.
           </p>
           <div>
-            
+            {neetDetails?.map((elem, index) => {
+              return <li>{elem}</li>;
+            })}
           </div>
         </div>
       </Container>
