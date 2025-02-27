@@ -8,6 +8,7 @@ const NeetSteps = () => {
   return (
     <Container>
       <div>
+        <h1 className="text-xl font-bold text-yellow-600">NEET <span className="text-primary-color font-extrabold">Registration</span> 2025</h1>
         <Steps
         
           type="inline"
