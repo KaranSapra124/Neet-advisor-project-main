@@ -11,6 +11,7 @@ import SocialLinks from "../Components/Services/SocialLinks";
 import MoreNews from "../Components/News_&_Blog/MoreNews";
 import Schedule from "../Components/News_&_Blog/Schedule";
 import EligibilityCriteria from "../Components/News_&_Blog/EligibilityCriteria";
+import NeetSteps from "../Components/News_&_Blog/Steps";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -27,6 +28,7 @@ const News_Blog = () => {
         <MoreNews />
         <Schedule/>
         <EligibilityCriteria/>
+        <NeetSteps/>
         {/* <LatestNews />
         <NewsBanner />
         <Blog />
