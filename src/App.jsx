@@ -14,6 +14,7 @@ import CareerPage from './Pages/CareerPage'
 import MBBS_Abroad from './Pages/MBBS-Abroad'
 import MedicalExpo from './Pages/MedicalExpo'
 import Contact from './Pages/Contact'
+import AdminLayout from './Admin/Pages/AdminLayout'
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -69,6 +70,10 @@ const App = () => {
     {
       path: "/contact",
       element: <Contact />
+    },
+    {
+      path:"/admin",
+      element:<AdminLayout/>
     }
   ])
   return <>
