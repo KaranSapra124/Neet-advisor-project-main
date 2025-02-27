@@ -13,6 +13,7 @@ import Schedule from "../Components/News_&_Blog/Schedule";
 import EligibilityCriteria from "../Components/News_&_Blog/EligibilityCriteria";
 import NeetSteps from "../Components/News_&_Blog/Steps";
 import StepOne from "../Components/News_&_Blog/StepOne";
+import StepTwo from "../Components/News_&_Blog/StepTwo";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -27,10 +28,11 @@ const News_Blog = () => {
         <Hero />
         <NewsCategories />
         <MoreNews />
-        <Schedule/>
-        <EligibilityCriteria/>
-        <NeetSteps/>
-        <StepOne/>
+        <Schedule />
+        <EligibilityCriteria />
+        <NeetSteps />
+        <StepOne />
+        <StepTwo />
         {/* <LatestNews />
         <NewsBanner />
         <Blog />
