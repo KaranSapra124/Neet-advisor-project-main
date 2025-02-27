@@ -8,8 +8,8 @@ const StepOne = () => {
   return (
     <>
       <Container>
-        <div>
-          <h1>NEET Registration 2025</h1>
+        <div className="flex flex-col">
+          <h1 className="text-yellow-600 text-2xl font-bold">NEET Registration 2025</h1>
           <p>
             To fill the NEET application form 2025, candidates are required to
             click on 'fill application form'.On the new page, click on 'NTA NEET
