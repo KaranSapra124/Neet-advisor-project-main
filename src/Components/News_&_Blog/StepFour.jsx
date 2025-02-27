@@ -15,7 +15,7 @@ const StepFour = () => {
           detailed understanding, candidates can check the article on NEET 2025
           photo and document format.
         </p>
-        <Divider className={"h-1 w-12 bg-yellow-600 rounded-full"}/>
+        <Divider className={"h-1 w-12 my-2.5 bg-yellow-600 rounded-full"}/>
         <div>
           <table className="min-w-full rounded-lg border border-gray-300 shadow-md">
             <thead className="bg-gray-200 text-gray-800">
