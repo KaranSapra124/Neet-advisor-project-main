@@ -20,7 +20,7 @@ const NeetSteps = () => {
     <Container className={'bg-gray-200/40'}>
       <div className="flex flex-col gap-2">
         <h1 className="text-xl font-bold text-yellow-600">
-          NEET{" "}
+          How To Fill NEET{" "}
           <span className="font-extrabold text-primary-color">
             Registration
           </span>{" "}
