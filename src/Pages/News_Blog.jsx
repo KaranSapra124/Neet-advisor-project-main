@@ -14,6 +14,7 @@ import EligibilityCriteria from "../Components/News_&_Blog/EligibilityCriteria";
 import NeetSteps from "../Components/News_&_Blog/Steps";
 import StepOne from "../Components/News_&_Blog/StepOne";
 import StepTwo from "../Components/News_&_Blog/StepTwo";
+import StepThree from "../Components/News_&_Blog/StepThree";
 const News_Blog = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -33,6 +34,7 @@ const News_Blog = () => {
         <NeetSteps />
         <StepOne />
         <StepTwo />
+        <StepThree/>
         {/* <LatestNews />
         <NewsBanner />
         <Blog />

@@ -28,17 +28,16 @@ const StepThree = () => {
 const CollapseData = ({ data }) => {
   return (
     <>
-      <div>
+      <div className="flex flex-col gap-2">
         {data?.map((elem, index) => {
           return (
             <>
               <Collapse
                 defaultActiveKey={[0]}
-                className="mx-auto mb-2 w-96"
+                className="mx-auto w-96"
                 accordion
                 items={[
                   {
-                    key: index,
                     label: (
                       <h1 className="font-semibold text-primary-color">
                         {elem?.title}
