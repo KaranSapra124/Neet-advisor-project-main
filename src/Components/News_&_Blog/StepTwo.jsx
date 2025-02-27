@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../Helper/Container";
 import { newsData } from "../../Utils/NewsMockData";
 import Divider from "../Helper/Divider";
+import { FaArrowRight } from "react-icons/fa";
 
 const StepTwo = () => {
   const { stepTwoDetails } = newsData;
@@ -22,25 +23,36 @@ const StepTwo = () => {
             NEET online appication form 2025 are:{" "}
           </p>
           <Divider className={"h-1 w-12 rounded-full bg-yellow-600"} />
-          <div className="grid grid-cols-1 space-x-1 lg:grid-cols-3 lg:space-x-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3">
             {stepTwoDetails?.map((elem, index) => {
               return (
                 <>
-                  <div className="w-fit border p-4">
-                    <h1 className="text-lg font-bold">{elem?.title}</h1>
-                    <p className="text-xs font-semibold text-gray-700">
-                      {elem?.desc}
-                    </p>
-                    <ol className="flex my-2 flex-col">
-                      {Object.keys(elem?.content)?.map((key, index) => {
-                        return (
-                          <li className="text-sm my-1 text-primary-color ">
-                            <span className="text-gray-900 text-sm font-semibold mx-1"> {key?.replaceAll("_", " ")}:</span>
-                            {elem.content[key]}
-                          </li>
-                        );
-                      })}
-                    </ol>
+                  <div className="flex justify-center">
+                    <div className="my-2 flex w-fit flex-col gap-1.5 rounded border bg-gray-100/50 px-2 py-1.5 lg:my-0">
+                      <h1 className="text-lg font-extrabold">{elem?.title}</h1>
+                      <Divider
+                        className={"h-1 w-12 rounded-full bg-yellow-600"}
+                      />
+                      <p className="text-xs font-semibold text-gray-700">
+                        {elem?.desc}
+                      </p>
+                      <ol className="my-2 flex flex-col">
+                        {Object.keys(elem?.content)?.map((key, index) => {
+                          return (
+                            <li className="my-1 text-sm text-primary-color">
+                              <span className="mx-1 text-sm font-semibold text-gray-900">
+                                {" "}
+                                {key?.replaceAll("_", " ")}:
+                              </span>
+                              {elem.content[key]}
+                            </li>
+                          );
+                        })}
+                      </ol>
+                    </div>
+                    {index < stepTwoDetails?.length - 1 && (
+                      <FaArrowRight className="mx-2 my-auto hidden w-4 animate-pulse lg:block" />
+                    )}
                   </div>
                 </>
               );
