@@ -83,15 +83,74 @@ export const newsData = {
   stepOneDetails: [
     {
       title: "Choose a password",
-      desc: "In the next step, candidates will have to choose a password, retype the same, enter a security question, and choose the answer. Candidates are advised to keep the security question and answer safe as this may be required to retrieve the password. in case a candidate forgets it.To complete the NEET 2025 registration, candidates must verify the above details and submit them"
+      desc: "In the next step, candidates will have to choose a password, retype the same, enter a security question, and choose the answer. Candidates are advised to keep the security question and answer safe as this may be required to retrieve the password. in case a candidate forgets it.To complete the NEET 2025 registration, candidates must verify the above details and submit them",
     },
     {
-      title:"Generation of provisional application number",
-      desc:"After the successful registration for NEET, the provisional application number is displayed. This must be noted down as it is the NEET 2025 login ID for all future logins."
+      title: "Generation of provisional application number",
+      desc: "After the successful registration for NEET, the provisional application number is displayed. This must be noted down as it is the NEET 2025 login ID for all future logins.",
     },
     {
-      title:"Particular checklist to be verified",
-      desc:'Candidates need to verify all the details by clicking on each section. Aspirants are not allowed to proceed without ticking on the particulars.Aspirants are advised to verify all the details carefully, as after submission, changes are not allowed.'
-    }
+      title: "Particular checklist to be verified",
+      desc: "Candidates need to verify all the details by clicking on each section. Aspirants are not allowed to proceed without ticking on the particulars.Aspirants are advised to verify all the details carefully, as after submission, changes are not allowed.",
+    },
+  ],
+  stepTwoDetails: [
+    {
+      title: "Section 1",
+      desc: "Some details from registration are auto displayed and these cannot be changed.However, many other details are to be filled in the NEET application form as follows:",
+      content: {
+        Candidate_Name: "Full Name",
+        Date_of_Birth: "DD/MM/YYYY",
+        Gender: "Male/Female/Other",
+        Nationality: "Indian/NRI/OCI/PIO/Foreign",
+        Category: "General/OBC/SC/ST/EWS",
+        Person_with_Disability: "Yes/No",
+        State_of_Eligibility: "State Name",
+        Identification_Type: "Aadhaar Card/Voter ID/Passport/Other",
+        Identification_Number: "XXXX-XXXX-XXXX",
+        Mobile_Number: "+91 XXXXXXXXXX",
+        Email_ID: "example@email.com",
+        Exam_Center_Choices: [
+          "First Preference",
+          "Second Preference",
+          "Third Preference",
+        ],
+        "12th_Board_Name": "Board Name",
+        "12th_Year_of_Passing": "YYYY",
+        Subjects_Studied: ["Physics", "Chemistry", "Biology", "English"],
+        Photograph: "Passport-size photo upload",
+        Signature: "Scanned signature upload",
+        Category_Certificate: "If applicable, upload",
+        PwD_Certificate: "If applicable, upload",
+        Payment_Mode: "Credit Card/Debit Card/Net Banking/UPI",
+        Declaration: "I hereby declare that the information provided is true.",
+      },
+    },
+    {
+      title: "Section 2",
+      desc: "Apply for: In this section, Candidates have to provide the following details:",
+      content: {
+        Medium_of_NEET_question_paper:
+          "The NEET exam paper is conducted in 13 languages namely, English, Hindi, Assamese, Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu, and Urdu.",
+        Selection_of_NEET_2025_exam_city:
+          "Candidates have to choose four preferences of exam cities where the test is conducted.",
+      },
+    },
+    {
+      title: "Section 3",
+      desc: "Academic details (Class 12 or equivalent): Enter the following 10+2 qualifying details:",
+      content: {
+        "12th_Board_Name": "CBSE/ICSE/State Board/Others",
+        School_Name: "Full School Name",
+        School_Address: "Full Address with PIN Code",
+        "12th_Year_of_Passing": "YYYY",
+        "12th_Roll_Number": "XXXXXXXXX",
+        Subjects_Studied: ["Physics", "Chemistry", "Biology", "English"],
+        Total_Marks_Obtained: "XXX",
+        Maximum_Marks: "XXX",
+        Percentage: "XX.XX%",
+        Result_Status: "Passed/Appearing",
+      },
+    },
   ],
 };
