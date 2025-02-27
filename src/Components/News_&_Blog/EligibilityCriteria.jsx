@@ -52,7 +52,7 @@ const EligibilityComponent = ({ data }) => {
             {Object.keys(data).map((elem, index) => (
               <td
                 key={index}
-                className="border border-gray-900 px-2 py-2 text-[0.7rem] text-gray-700 font-semibold text-center"
+                className="border border-gray-400 px-2 py-2 text-[0.7rem] text-gray-700 font-semibold text-center"
               >
                 {data[elem]}
               </td>
