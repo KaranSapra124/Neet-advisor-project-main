@@ -30,13 +30,18 @@ const StepOne = () => {
             2025. This user ID is used to login to NEET form fill up 2025.
           </p>
           <Divider className={"h-1 w-12 rounded-full bg-yellow-600"} />
-          <div className="flex w-full justify-between">
+          <div className="flex w-full my-4 justify-between">
             <div className="w-1/2">
-              <div className="rounded border bg-gray-100/80 p-2">
+              <div className="rounded  relative border bg-gray-100/50 p-2">
+                <img
+                  src="https://cdn-icons-gif.flaticon.com/17644/17644518.gif" className="w-6 absolute shadow shadow-yellow-600 rounded-full -top-4 -left-2"
+                  alt=""
+                  srcset=""
+                />
                 {neetDetails?.map((elem, index) => {
                   return (
                     <li className="list-none text-sm text-primary-color">
-                      <span className="mx-1 border-b border-yellow-600 font-semibold">
+                      <span className="mx-1 border-b border-yellow-600 font-sans text-gray-900">
                         {" "}
                         {index + 1}.{" "}
                       </span>
@@ -64,7 +69,7 @@ const StepOneDetails = ({ data }) => {
           return (
             <Collapse
               defaultActiveKey={[0]}
-              className="mx-auto my-2 w-96"
+              className="mx-auto mb-2 w-96"
               accordion
               items={[
                 {
