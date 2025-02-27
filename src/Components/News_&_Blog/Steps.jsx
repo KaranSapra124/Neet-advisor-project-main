@@ -12,7 +12,7 @@ const NeetSteps = () => {
         
           type="inline"
           current={2}
-          
+          className="custom-stepper"
           items={stepsData?.map((elem, index) => {
             return {
               title: (
@@ -22,7 +22,7 @@ const NeetSteps = () => {
                   </p>
                 </div>
               ),
-              status:index < curr ? "process" : "wait",
+              status:index < curr ? "finish" : "wait",
               
               
             };

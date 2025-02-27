@@ -1015,7 +1015,7 @@ a {
   .ant-steps-item-icon
   > .ant-steps-icon
   .ant-steps-icon-dot {
-  background-color: #201169;
+  background-color: #201169 !important;
 }
 
 .custom-stepper
@@ -1023,7 +1023,7 @@ a {
   .ant-steps-item-icon
   > .ant-steps-icon
   .ant-steps-icon-dot {
-  background-color: #201169;
+  background-color: #201169 !important;
 }
 
 .custom-stepper
