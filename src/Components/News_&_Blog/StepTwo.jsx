@@ -23,12 +23,13 @@ const StepTwo = () => {
             NEET online appication form 2025 are:{" "}
           </p>
           <Divider className={"h-1 w-12 rounded-full bg-yellow-600"} />
-          <div className="grid grid-cols-1 lg:grid-cols-3">
+          <div className="grid my-2 grid-cols-1 lg:grid-cols-3">
             {stepTwoDetails?.map((elem, index) => {
               return (
                 <>
                   <div className="flex justify-center">
-                    <div className="my-2 flex w-fit flex-col gap-1.5 rounded border bg-gray-100/50 px-2 py-1.5 lg:my-0">
+                    <div className="my-2 flex w-fit flex-col gap-1.5 rounded border bg-gray-100/50 px-2 py-1.5 lg:my-0 relative">
+                    <img src="https://cdn-icons-gif.flaticon.com/18986/18986425.gif" className="w-7 shadow shadow-yellow-600 rounded-full p-1 -top-4 -left-4 bg-white absolute" alt="" srcset="" />
                       <h1 className="text-lg font-extrabold">{elem?.title}</h1>
                       <Divider
                         className={"h-1 w-12 rounded-full bg-yellow-600"}
