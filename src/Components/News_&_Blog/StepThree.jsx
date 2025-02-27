@@ -3,6 +3,7 @@ import { newsData } from "../../Utils/NewsMockData";
 import Container from "../Helper/Container";
 import { Collapse } from "antd";
 import Divider from "../Helper/Divider";
+import ScrollAnimation from "react-animate-on-scroll";
 const StepThree = () => {
   const { stepThree } = newsData;
 
@@ -35,35 +36,37 @@ const CollapseData = ({ data }) => {
   const [activeKey, setActiveKey] = useState(null);
 
   return (
-    <div className="flex justify-evenly">
+    <div className="flex justify-between">
       <img
         src="https://img.freepik.com/free-vector/isometric-pharmaceutic-laboratory-research-scientists-composition-with-isolated-character-female-with-laptop-microscope-vector-illustration_1284-66452.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid"
-        className="w-96"
+        className="w-[28rem] mx-auto"
         alt=""
       />
       <div className="flex flex-col items-center justify-center gap-2">
         {data?.map((elem, index) => (
-          <Collapse
-            key={index}
-            className="mx-auto mb-2 w-[40rem]"
-            activeKey={activeKey === index ? index : null}
-            onChange={() => setActiveKey(activeKey === index ? null : index)}
-            items={[
-              {
-                key: index,
-                label: (
-                  <h1 className="font-semibold text-primary-color">
-                    {elem.title}
-                  </h1>
-                ),
-                children: (
-                  <p className="rounded border p-1.5 text-xs font-semibold text-gray-700">
-                    {elem.desc}
-                  </p>
-                ),
-              },
-            ]}
-          />
+          <ScrollAnimation animateIn="backInRight" animateOnce>
+            <Collapse
+              key={index}
+              className="mx-auto mb-2 w-[40rem]"
+              activeKey={activeKey === index ? index : null}
+              onChange={() => setActiveKey(activeKey === index ? null : index)}
+              items={[
+                {
+                  key: index,
+                  label: (
+                    <h1 className="font-semibold text-primary-color">
+                      {elem.title}
+                    </h1>
+                  ),
+                  children: (
+                    <p className="rounded border p-1.5 text-xs font-semibold text-gray-700">
+                      {elem.desc}
+                    </p>
+                  ),
+                },
+              ]}
+            />
+          </ScrollAnimation>
         ))}
       </div>
     </div>
