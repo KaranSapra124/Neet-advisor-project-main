@@ -12,7 +12,13 @@ const Testimonial = () => {
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
   const [testimonialsData, setTestimonialsData] = useState([]);
-
+  const fetchTestimonials = async () => {
+    const res = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}admin/get-testimonials`,
+    );
+    const { data } = res;
+    setTestimonialsData(data?.testimonials);
+  };
   // const testimonialsData = [
   //   {
   //     id: 1,
@@ -150,21 +156,24 @@ const Testimonial = () => {
             }}
             className="cursor-pointer text-primary-color"
           />
-          <FaTrash className="cursor-pointer text-primary-color" />
+          <FaTrash
+            onClick={async () => {
+              const res = await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}admin/delete-testimonial/${record?._id}`,
+              );
+
+              fetchTestimonials();
+            }}
+            className="cursor-pointer text-primary-color"
+          />
         </div>
       ),
     },
   ];
 
   useEffect(() => {
-    const fetchTestimonials = async () => {
-      const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}admin/get-testimonials`,
-      );
-      const { data } = res;
-      setTestimonialsData(data?.testimonials);
-    };
-    fetchTestimonials();
+    const fn = async () => fetchTestimonials();
+    fn();
   }, []);
   return (
     <>

@@ -55,3 +55,14 @@ exports.editTestimonial = async (req, res) => {
     return res.status(200).send({ mmessage: "Error Occured", err });
   }
 };
+exports.deleteTestimonial = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const testimonial = await Testimonial.findByIdAndDelete(id);
+    return res
+      .status(200)
+      .send({ message: "Testimonial Deleted Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error Occured", err });
+  }
+};
