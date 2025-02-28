@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Table } from "antd";
+import { Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 
 const Testimonial = () => {
+  const [isEdit, setIsEdit] = useState(false);
+  const [isView, setIsView] = useState(false);
+  const [editItem, setEditItem] = useState({});
   const testimonialsData = [
     {
       id: 1,
@@ -112,11 +115,14 @@ const Testimonial = () => {
       title: "Actions",
       dataIndex: "action",
       key: "action",
-      render: () => (
+      render: (_, record) => (
         <div className="flex gap-5">
           <FaEye className="cursor-pointer text-primary-color" />
 
-          <FaEdit className="cursor-pointer text-primary-color" />
+          <FaEdit
+            onClick={() => setEditItem(record)}
+            className="cursor-pointer text-primary-color"
+          />
           <FaTrash className="cursor-pointer text-primary-color" />
         </div>
       ),
@@ -124,6 +130,7 @@ const Testimonial = () => {
   ];
   return (
     <>
+      {isView && <Modal />}
       <Container>
         <Table
           className="h-full"
