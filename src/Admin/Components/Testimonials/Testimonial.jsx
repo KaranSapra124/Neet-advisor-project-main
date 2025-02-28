@@ -316,10 +316,15 @@ const AddCard = ({ open, onCancel }) => {
       return;
     }
     setFormData({ imgUrl: "", review: "", clientName: "", clientCollege: "" });
-    setIsOpen(false); // Close modal after submission
+    onCancel(); // Close modal after submission
     await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/admin/add-testimonial`,
+      `${import.meta.env.VITE_BACKEND_URL}admin/add-testimonial`,
       formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data", // Important for file upload
+        },
+      },
     );
   };
 
@@ -330,6 +335,7 @@ const AddCard = ({ open, onCancel }) => {
         open={open}
         onClose={onCancel}
         onCancel={onCancel}
+        footer={false}
       >
         {/* <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"> */}
         <div className="rounded-lg bg-white p-6 shadow-lg">
@@ -380,21 +386,21 @@ const AddCard = ({ open, onCancel }) => {
               className="w-full rounded-md border p-2"
             />
 
-            {/* <div className="flex justify-between">
-                <button
-                  type="button"
-                  onClick={() => setIsOpen(false)}
-                  className="rounded-md border px-4 py-2 text-gray-700"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
-                >
-                  Add
-                </button>
-              </div> */}
+            <div className="flex justify-between">
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="rounded-md border px-4 py-2 text-gray-700"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
+              >
+                Add
+              </button>
+            </div>
           </form>
         </div>
         {/* </div> */}
