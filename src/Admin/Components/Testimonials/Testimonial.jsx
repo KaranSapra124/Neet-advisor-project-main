@@ -163,6 +163,7 @@ const Testimonial = () => {
           columns={columns}
           pagination={{
             pageSize: 5,
+          
           }}
         />
       </Container>

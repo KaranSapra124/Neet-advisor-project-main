@@ -11,10 +11,10 @@ import { RiDashboardFill } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
 
 const AdminLayout = () => {
-  const [activeTab, setActiveTab] = useState("Dashboard");
+  const [activeTab, setActiveTab] = useState(null);
 
   const menuItems = [
-    { name: "Dashboard", link: "/", icon: <RiDashboardFill /> },
+    { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
     { name: "Testimonials", link: "/admin/testimonial", icon: <FaComments /> },
     { name: "Webinars", link: "/", icon: <FaVideo /> },
     { name: "Queries", link: "/", icon: <FaQuestionCircle /> },
@@ -25,7 +25,7 @@ const AdminLayout = () => {
   return (
     <div className="flex  bg-gray-50">
       {/* Sidebar */}
-      <div className="w-60 bg-[#272E6A] p-4 text-white shadow-md">
+      <div className="w-60 bg-[#272E6A] p-4 text-white shadow-md ">
         <h1 className="text-center text-lg font-semibold text-white">
           Admin Panel
         </h1>
