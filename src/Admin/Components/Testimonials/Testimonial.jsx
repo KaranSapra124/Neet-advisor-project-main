@@ -1,5 +1,7 @@
 import React from "react";
 import Container from "../../../Components/Helper/Container";
+import { Table } from "antd";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Testimonial = () => {
   const testimonialsData = [
@@ -81,10 +83,54 @@ const Testimonial = () => {
       image: "https://picsum.photos/200/300?random=9",
     },
   ];
+  const columns = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Designation",
+      dataIndex: "title",
+      key: "title",
+    },
+    {
+      title: "Review",
+      dataIndex: "testimonial",
+      key: "testimonial",
+      render: (text) => (
+        <p className="line-clamp-3 text-xs font-semibold">{text}</p>
+      ),
+    },
+    {
+      title: "Image",
+      dataIndex: "image",
+      key: "image",
+      render: (image) => <img className="h-10 w-10" src={image} />,
+    },
+    {
+      title: "Actions",
+      dataIndex: "action",
+      key: "action",
+      render: () => (
+        <div className="flex justify-between">
+          <FaEdit  className="text-primary-color"/>
+          <FaTrash className="text-primary-color"/>
+        </div>
+      ),
+    },
+  ];
   return (
     <>
       <Container>
-        <table></table>
+        <Table
+        className="h-full"
+          dataSource={testimonialsData}
+          columns={columns}
+          pagination={{
+            pageSize: 5,
+          }}
+        />
       </Container>
     </>
   );
