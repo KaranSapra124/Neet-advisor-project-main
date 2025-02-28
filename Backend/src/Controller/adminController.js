@@ -1,3 +1,4 @@
 export const addTestimonial = (req, res) => {
-  console.log(req.body);
+  const { filename } = req.file;
+  
 };
