@@ -28,7 +28,7 @@ const AdminLayout = () => {
   return (
     <div className="flex bg-gray-50">
       {/* Sidebar */}
-      <div className="w-60 bg-[#272E6A] p-4 text-white shadow-md">
+      <div className="w- h-screen bg-[#272E6A] p-4 text-white shadow-md">
         <h1 className="text-center text-lg font-semibold text-white">
           Admin Panel
         </h1>
