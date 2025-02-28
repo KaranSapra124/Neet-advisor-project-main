@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../../../Components/Helper/Container";
 import { Table } from "antd";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 
 const Testimonial = () => {
   const testimonialsData = [
@@ -113,9 +113,11 @@ const Testimonial = () => {
       dataIndex: "action",
       key: "action",
       render: () => (
-        <div className="flex justify-between">
-          <FaEdit  className="text-primary-color"/>
-          <FaTrash className="text-primary-color"/>
+        <div className="flex gap-5">
+          <FaEye className="cursor-pointer text-primary-color" />
+
+          <FaEdit className="cursor-pointer text-primary-color" />
+          <FaTrash className="cursor-pointer text-primary-color" />
         </div>
       ),
     },
@@ -124,7 +126,7 @@ const Testimonial = () => {
     <>
       <Container>
         <Table
-        className="h-full"
+          className="h-full"
           dataSource={testimonialsData}
           columns={columns}
           pagination={{
