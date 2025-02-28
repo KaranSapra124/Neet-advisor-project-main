@@ -24,3 +24,34 @@ exports.getTestimonials = async (req, res) => {
     return res.json({ status: 401, err });
   }
 };
+exports.editTestimonial = async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (req.file) {
+      const editedTestimonial = await Testimonial.findByIdAndUpdate(
+        id,
+        {
+          imgUrl: req?.file?.filename,
+          ...req.body,
+        },
+        { new: true },
+      );
+      return res
+        .status(200)
+        .send({ mmessage: "Testimonial Edited", editedTestimonial });
+    } else {
+      const editedTestimonial = await Testimonial.findByIdAndUpdate(
+        id,
+        {
+          ...req.body,
+        },
+        { new: true },
+      );
+      return res
+        .status(200)
+        .send({ mmessage: "Testimonial Edited", editedTestimonial });
+    }
+  } catch (err) {
+    return res.status(200).send({ mmessage: "Error Occured", err });
+  }
+};

@@ -184,12 +184,12 @@ const Testimonial = () => {
       )}
       {isEdit && (
         <EditCard
-          clientCollege={editItem?.title}
-          clientName={editItem?.name}
-          imgUrl={editItem?.image}
-          review={editItem?.testimonial}
+          id={editItem?._id}
+          clientCollege={editItem?.clientCollege}
+          clientName={editItem?.clientName}
+          imgUrl={editItem?.imgUrl}
+          review={editItem?.review}
           onCancel={() => setIsEdit(false)}
-          onSave={setEditItem}
         />
       )}
       {isAdd && <AddCard open={isAdd} onCancel={() => setIsAdd(false)} />}
@@ -239,11 +239,11 @@ const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
 };
 
 const EditCard = ({
+  id,
   imgUrl,
   review,
   clientName,
   clientCollege,
-  onSave,
   onCancel,
 }) => {
   const [editedName, setEditedName] = useState(clientName);
@@ -251,13 +251,22 @@ const EditCard = ({
   const [editedReview, setEditedReview] = useState(review);
   const [editImage, setEditImage] = useState({ file: "", url: imgUrl });
 
-  const handleSave = () => {
-    onSave({
-      imgUrl: editImage,
-      review: editedReview,
+  const handleSave = async () => {
+    const formData = {
       clientName: editedName,
       clientCollege: editedCollege,
-    });
+      review: editedReview,
+      file: editImage?.file ? editImage?.file : null,
+    };
+    await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      },
+    );
     onCancel();
   };
 
@@ -270,7 +279,7 @@ const EditCard = ({
     >
       <div className="flex flex-col gap-4 p-5">
         <img
-          src={editImage?.url}
+          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${editImage?.url}`}
           alt="Client"
           className="mx-auto h-20 w-20 rounded-full"
         />
@@ -363,7 +372,11 @@ const AddCard = ({ open, onCancel }) => {
               placeholder="Image URL"
               className="w-full rounded-md border p-2"
             /> */}
-            <img src={formData?.imgUrl} alt="" srcset="" />
+            <img
+              className="mx-auto h-32 w-32 rounded-full"
+              src={formData?.imgUrl}
+              alt=""
+            />
             <input
               type="file"
               name="file"
