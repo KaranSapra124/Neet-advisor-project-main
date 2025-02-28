@@ -19,7 +19,7 @@ exports.addTestimonial = async (req, res) => {
 exports.getTestimonials = async (req, res) => {
   try {
     const testimonials = await Testimonial.find();
-    return res.json({ status: 201, testimonials });
+    return res.json({ status: 200, testimonials });
   } catch (err) {
     return res.json({ status: 401, err });
   }
