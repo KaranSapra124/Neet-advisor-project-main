@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Modal, Table } from "antd";
+import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import Divider from "../../../Components/Helper/Divider";
 
@@ -9,6 +9,7 @@ const Testimonial = () => {
   const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
+
   const testimonialsData = [
     {
       id: 1,
@@ -93,14 +94,17 @@ const Testimonial = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render:(text)=><p className="text-xs font-semibold w-32 max-w-40">{text}</p>
+      render: (text) => (
+        <p className="w-32 max-w-40 text-xs font-semibold">{text}</p>
+      ),
     },
     {
       title: "Designation",
       dataIndex: "title",
       key: "title",
-      render:(text)=><p className="text-xs font-semibold w-32 max-w-40">{text}</p>
-
+      render: (text) => (
+        <p className="w-32 max-w-40 text-xs font-semibold">{text}</p>
+      ),
     },
     {
       title: "Review",
@@ -126,13 +130,15 @@ const Testimonial = () => {
             onClick={() => {
               setIsView(true);
               setViewItem(record);
-              console.log("here");
             }}
             className="cursor-pointer text-primary-color"
           />
 
           <FaEdit
-            onClick={() => setEditItem(record)}
+            onClick={() => {
+              setIsEdit(true);
+              setEditItem(record);
+            }}
             className="cursor-pointer text-primary-color"
           />
           <FaTrash className="cursor-pointer text-primary-color" />
@@ -140,6 +146,8 @@ const Testimonial = () => {
       ),
     },
   ];
+
+  useEffect(() => console.log(editItem), [editItem]);
   return (
     <>
       {isView && (
@@ -156,6 +164,16 @@ const Testimonial = () => {
           />
         </Modal>
       )}
+      {isEdit && (
+        <EditCard
+          clientCollege={editItem?.title}
+          clientName={editItem?.name}
+          imgUrl={editItem?.image}
+          review={editItem?.testimonial}
+          onCancel={() => setIsEdit(false)}
+          onSave={setEditItem}
+        />
+      )}
       <Container>
         <Table
           className="h-full"
@@ -163,7 +181,6 @@ const Testimonial = () => {
           columns={columns}
           pagination={{
             pageSize: 5,
-          
           }}
         />
       </Container>
@@ -173,7 +190,7 @@ const Testimonial = () => {
 
 const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
   return (
-    <div className="relative mx-auto my-3.5 flex h-full max-h-full rounded-md  bg-gray-200/5 p-4  lg:mx-0 lg:my-0 lg:max-h-72 lg:gap-4">
+    <div className="relative mx-auto my-3.5 flex h-full max-h-full rounded-md bg-gray-200/5 p-4 lg:mx-0 lg:my-0 lg:max-h-72 lg:gap-4">
       <img
         className="absolute -left-3 -top-3 h-10 w-10 rounded-full shadow shadow-yellow-600 lg:h-14 lg:w-14"
         src={imgUrl}
@@ -191,6 +208,62 @@ const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
         <p className="text-[0.5rem] font-bold italic lg:text-xs">"{review}"</p>
       </div>
     </div>
+  );
+};
+
+const EditCard = ({
+  imgUrl,
+  review,
+  clientName,
+  clientCollege,
+  onSave,
+  onCancel,
+}) => {
+  const [editedName, setEditedName] = useState(clientName);
+  const [editedCollege, setEditedCollege] = useState(clientCollege);
+  const [editedReview, setEditedReview] = useState(review);
+
+  const handleSave = () => {
+    onSave({
+      imgUrl,
+      review: editedReview,
+      clientName: editedName,
+      clientCollege: editedCollege,
+    });
+    onCancel();
+  };
+
+  return (
+    <Modal
+      title="Edit Testimonial"
+      open={true}
+      onOk={handleSave}
+      onCancel={onCancel}
+    >
+      <div className="flex flex-col gap-4 p-5">
+        <img
+          src={imgUrl}
+          alt="Client"
+          className="mx-auto h-20 w-20 rounded-full"
+        />
+        <Input
+          value={editedName}
+          onChange={(e) => setEditedName(e.target.value)}
+          placeholder="Client Name"
+        />
+        <Input
+          value={editedCollege}
+          onChange={(e) => setEditedCollege(e.target.value)}
+          placeholder="Client College"
+        />
+        <Input.TextArea
+          value={editedReview}
+          onChange={(e) => setEditedReview(e.target.value)}
+          placeholder="Review"
+          rows={4}
+        />
+      </div>
+    </Modal>
   );
 };
 
