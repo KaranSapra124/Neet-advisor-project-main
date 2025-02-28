@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import Container from "../../../Components/Helper/Container";
 import { Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
+import Divider from "../../../Components/Helper/Divider";
 
 const Testimonial = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
+  const [viewItem, setViewItem] = useState({});
   const testimonialsData = [
     {
       id: 1,
       name: "Smt. Deepali Chandra",
       title: "CEO, ABC Corporation",
       testimonial: `I want to share that “ there are different types of people/ professionals in the city“ but a truly professional, not only professional in the professional sense but as a good human beings, we have come to know some very nice, fine person like Mr. Bansal and Vivek Ji who have been very helpful throughout the NEET Counselling and have given us time which is most important. We got best possible advise from neet advisor which has GIVEN US A GREAT assurance, apart from the fact that the child has done well but “fine tuning and making good choices at the right time” , is very important, in which they all have helped. We are grateful to the entire team of NEET ADVISOR. All the very best.`,
-      image: "./Testimonials/Testimonial-1.jpg",
+      image: "../Testimonials/Testimonial-1.jpg",
     },
     {
       id: 2,
@@ -91,11 +93,14 @@ const Testimonial = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
+      render:(text)=><p className="text-xs font-semibold w-32 max-w-40">{text}</p>
     },
     {
       title: "Designation",
       dataIndex: "title",
       key: "title",
+      render:(text)=><p className="text-xs font-semibold w-32 max-w-40">{text}</p>
+
     },
     {
       title: "Review",
@@ -117,7 +122,14 @@ const Testimonial = () => {
       key: "action",
       render: (_, record) => (
         <div className="flex gap-5">
-          <FaEye className="cursor-pointer text-primary-color" />
+          <FaEye
+            onClick={() => {
+              setIsView(true);
+              setViewItem(record);
+              console.log("here");
+            }}
+            className="cursor-pointer text-primary-color"
+          />
 
           <FaEdit
             onClick={() => setEditItem(record)}
@@ -130,7 +142,20 @@ const Testimonial = () => {
   ];
   return (
     <>
-      {isView && <Modal />}
+      {isView && (
+        <Modal
+          open={isView}
+          onClose={() => setIsView(false)}
+          onCancel={() => setIsView(false)}
+        >
+          <TestimonialCard
+            clientCollege={viewItem?.title}
+            clientName={viewItem?.name}
+            imgUrl={viewItem?.image}
+            review={viewItem?.testimonial}
+          />
+        </Modal>
+      )}
       <Container>
         <Table
           className="h-full"
@@ -142,6 +167,29 @@ const Testimonial = () => {
         />
       </Container>
     </>
+  );
+};
+
+const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
+  return (
+    <div className="relative mx-auto my-3.5 flex h-full max-h-full rounded-md  bg-gray-200/5 p-4  lg:mx-0 lg:my-0 lg:max-h-72 lg:gap-4">
+      <img
+        className="absolute -left-3 -top-3 h-10 w-10 rounded-full shadow shadow-yellow-600 lg:h-14 lg:w-14"
+        src={imgUrl}
+        alt=""
+        srcset=""
+      />
+      <div className="px-3 py-4 lg:px-6 lg:py-5">
+        <h1 className="text-[0.7rem] font-bold text-primary-color lg:text-sm">
+          {clientName}
+        </h1>
+        <h2 className="my-1 text-[0.5rem] font-medium text-gray-800 lg:text-xs">
+          {clientCollege}
+        </h2>
+        <Divider className="my-4 h-1 w-12 rounded-full bg-yellow-600 lg:w-20" />
+        <p className="text-[0.5rem] font-bold italic lg:text-xs">"{review}"</p>
+      </div>
+    </div>
   );
 };
 
