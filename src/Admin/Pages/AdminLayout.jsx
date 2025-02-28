@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   FaTachometerAlt,
   FaComments,
@@ -11,7 +11,7 @@ import { RiDashboardFill } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
 
 const AdminLayout = () => {
-  const [activeTab, setActiveTab] = useState(null);
+  const location = useLocation(); // Get current path
 
   const menuItems = [
     { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
@@ -22,10 +22,13 @@ const AdminLayout = () => {
     { name: "Blogs", link: "/", icon: <FaBlog /> },
   ];
 
+  // Find the active tab based on the current route
+  const activeTab = menuItems.find((item) => item.link === location.pathname)?.name || "Admin Panel";
+
   return (
-    <div className="flex  bg-gray-50">
+    <div className="flex bg-gray-50">
       {/* Sidebar */}
-      <div className="w-60 bg-[#272E6A] p-4 text-white shadow-md ">
+      <div className="w-60 bg-[#272E6A] p-4 text-white shadow-md">
         <h1 className="text-center text-lg font-semibold text-white">
           Admin Panel
         </h1>
@@ -34,12 +37,11 @@ const AdminLayout = () => {
             <li key={item.name}>
               <Link
                 className={`flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition ${
-                  activeTab === item.name
+                  location.pathname === item.link
                     ? "bg-white text-gray-900"
                     : "hover:bg-white hover:text-gray-900"
                 }`}
-                to={item?.link}
-                onClick={() => setActiveTab(item.name)}
+                to={item.link}
               >
                 <span className="mr-2 text-base">{item.icon}</span> {item.name}
               </Link>
