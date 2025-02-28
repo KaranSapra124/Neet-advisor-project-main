@@ -94,6 +94,7 @@ const Testimonial = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
+
       render: (text) => (
         <p className="w-32 max-w-40 text-xs font-semibold">{text}</p>
       ),
@@ -182,6 +183,7 @@ const Testimonial = () => {
           pagination={{
             pageSize: 5,
           }}
+          bordered={true}
         />
       </Container>
     </>
@@ -222,10 +224,11 @@ const EditCard = ({
   const [editedName, setEditedName] = useState(clientName);
   const [editedCollege, setEditedCollege] = useState(clientCollege);
   const [editedReview, setEditedReview] = useState(review);
+  const [editImage, setEditImage] = useState({ file: "", url: imgUrl });
 
   const handleSave = () => {
     onSave({
-      imgUrl,
+      imgUrl: editImage,
       review: editedReview,
       clientName: editedName,
       clientCollege: editedCollege,
@@ -242,9 +245,20 @@ const EditCard = ({
     >
       <div className="flex flex-col gap-4 p-5">
         <img
-          src={imgUrl}
+          src={editImage?.url}
           alt="Client"
           className="mx-auto h-20 w-20 rounded-full"
+        />
+        <input
+          type="file"
+          name=""
+          onChange={(e) => {
+            setEditImage({
+              file: e.target.files[0],
+              url: URL.createObjectURL(e.target.files[0]),
+            });
+          }}
+          id=""
         />
         <Input
           value={editedName}
