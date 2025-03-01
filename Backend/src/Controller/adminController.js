@@ -1,4 +1,5 @@
 const { generateOTP, sendMail } = require("../Middlewares/sendEmail");
+const SuperAdmin = require("../Models/SuperAdmin");
 const Testimonial = require("../Models/Testimonial");
 
 // Testimonials Started
@@ -85,6 +86,7 @@ exports.sendOTP = async (req, res) => {
     const { email } = req.body;
     const otp = generateOTP();
     await sendMail(email, `OTP for account creation`, `<h1>OTP is ${otp}</h1>`);
+    await SuperAdmin.create({ email: email, otp: otp });
     return res.status(201).send({ message: "OTP Sent Successfully!" });
   } catch (err) {
     return res.status(401).send({ message: "Something Badly Broke" });
