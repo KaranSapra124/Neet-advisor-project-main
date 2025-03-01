@@ -5,6 +5,7 @@ import SocialLinks from '../Components/Services/SocialLinks'
 import Reviews from '../Components/Services/Reviews'
 import Root from '../Components/Helper/Root'
 import scrollToTop from '../Utils/ScrollToTop'
+import Testimonials from '../Components/Home/Testimonials'
 
 const Services = () => {
     useEffect(()=>{
@@ -17,7 +18,7 @@ const Services = () => {
                 <PricingComponent />
                 <EnrollServices />
                 <SocialLinks />
-                <Reviews />
+                <Testimonials/>
             </Root>
         </>
     )
