@@ -1,3 +1,4 @@
+const { generateOTP } = require("../Middlewares/sendEmail");
 const Testimonial = require("../Models/Testimonial");
 
 // Testimonials Started
@@ -71,4 +72,5 @@ exports.deleteTestimonial = async (req, res) => {
 // Authentiction Controller
 exports.addSuperAdmin = async (req, res) => {
   const { email } = req.body;
+  console.log(generateOTP())
 };
