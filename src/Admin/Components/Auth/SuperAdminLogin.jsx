@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import Container from "../../../Components/Helper/Container";
 import Divider from "../../../Components/Helper/Divider";
 import { FaPaperPlane } from "react-icons/fa";
+import axios from "axios";
 const SuperAdminLogin = () => {
   const [email, setEmail] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(email);
-    setEmail("")
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/add-super-admin`,
+      { email: email },
+    );
+    setEmail("");
   };
   return (
     <>
@@ -26,7 +30,10 @@ const SuperAdminLogin = () => {
             <Divider
               className={"my-2 h-1 w-12 rounded-full bg-primary-color"}
             />
-            <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-4">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col items-center justify-center gap-4"
+            >
               <label className="flex flex-col text-sm font-semibold text-primary-color lg:text-lg">
                 Email:
                 <input
