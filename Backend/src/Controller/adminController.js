@@ -71,10 +71,22 @@ exports.deleteTestimonial = async (req, res) => {
 
 // Authentiction Controller
 exports.addSuperAdmin = async (req, res) => {
-  const { email } = req.body;
-  await sendMail({
-    email: email,
-    subject: `OTP for account creation`,
-    message: `<h1>OTP is ${generateOTP()}</h1>`,
-  });
+  try {
+    const { email } = req.body;
+    const otp = generateOTP();
+    await sendMail(email, `OTP for account creation`, `<h1>OTP is ${otp}</h1>`);
+    return res.status(201).send({ message: "OTP Sent Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Badly Broke" });
+  }
+};
+exports.sendOTP = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const otp = generateOTP();
+    await sendMail(email, `OTP for account creation`, `<h1>OTP is ${otp}</h1>`);
+    return res.status(201).send({ message: "OTP Sent Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Badly Broke" });
+  }
 };

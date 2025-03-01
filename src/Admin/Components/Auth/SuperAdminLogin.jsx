@@ -8,7 +8,7 @@ const SuperAdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/add-super-admin`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/send-super-admin-otp`,
       { email: email },
     );
     setEmail("");
