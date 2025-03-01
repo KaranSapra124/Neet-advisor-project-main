@@ -91,15 +91,17 @@ const Testimonials = () => {
 
   // Calculate slides to show based on testimonial length
   const getSlideCount = (testimonial) => {
-    const length = testimonial?.length;
-    if (length > 0 && length <= 200) return 3;
+    console.log(testimonial)
+    const length = testimonial?.review?.length;
+    if (length > 0 && length < 100) return 3;
     else if (length > 200 && length < 500) return 2;
     else return 1;
   };
 
   // Group testimonials by how many should show at once
   const groupedTestimonials = testimonialsData.reduce((acc, testimonial) => {
-    const slideCount = getSlideCount(testimonial.testimonial);
+    console.log(testimonial)
+    const slideCount = getSlideCount(testimonial);
     if (!acc[slideCount]) {
       acc[slideCount] = [];
     }
@@ -126,6 +128,8 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", updateSlides);
   }, []);
 
+  // useEffect(() => console.log(slidesToShow), [slidesToShow]);
+
   // Create slides array with proper grouping
   const slides = Object.entries(groupedTestimonials).flatMap(
     ([count, items]) => {
@@ -136,6 +140,8 @@ const Testimonials = () => {
       return groups;
     },
   );
+
+  console.log(slides)
 
   return (
     <Container className="bg-gray-200/40">
@@ -160,11 +166,11 @@ const Testimonials = () => {
           {slidesToShow > 768
             ? slides.map((group, groupIndex) => (
                 <div key={groupIndex} className="px-4">
-                  <div className="flex gap-4">
+                  <div className="flex  gap-4">
                     {group.map((testimonial) => (
                       <div
                         key={testimonial.id}
-                        className="relative flex flex-col max-[600px]:flex-wrap"
+                        className="relative w-full flex flex-col max-[600px]:flex-wrap"
                       >
                         <TestimonialCard
                           clientCollege={testimonial.clientCollege}
