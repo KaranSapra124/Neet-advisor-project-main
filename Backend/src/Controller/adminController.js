@@ -72,5 +72,9 @@ exports.deleteTestimonial = async (req, res) => {
 // Authentiction Controller
 exports.addSuperAdmin = async (req, res) => {
   const { email } = req.body;
-  await sendMail(email, `OTP for account creation`);
+  await sendMail({
+    email: email,
+    subject: `OTP for account creation`,
+    message: `<h1>OTP is ${generateOTP()}</h1>`,
+  });
 };
