@@ -15,6 +15,7 @@ import MedicalExpo from "./Pages/MedicalExpo";
 import Contact from "./Pages/Contact";
 import AdminLayout from "./Admin/Pages/AdminLayout";
 import Testimonial from "./Admin/Components/Testimonials/Testimonial";
+import Login from "./Admin/Components/Auth/Login";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -80,6 +81,10 @@ const App = () => {
         },
       ],
     },
+    {
+      path:"/admin/login",
+      element:<Login/>
+    }
   ]);
   return (
     <>
