@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "../../../Components/Helper/Container";
-const Login = () => {
+const SuperAdminLogin = () => {
   return (
     <>
       <Container>
@@ -45,4 +45,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SuperAdminLogin;
