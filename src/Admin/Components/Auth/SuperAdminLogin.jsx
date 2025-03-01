@@ -12,6 +12,7 @@ const SuperAdminLogin = () => {
       { email: email },
     );
     setEmail("");
+    alert(data?.message);
   };
   return (
     <>

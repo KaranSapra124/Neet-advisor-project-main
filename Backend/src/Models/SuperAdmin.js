@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const SuperAdmin = new mongoose.Schema({
   email: {
     type: String,
-    required,
+    required:true,
   },
   otp: {
     type: String,
