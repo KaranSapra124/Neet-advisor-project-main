@@ -50,6 +50,9 @@ const OTPForm = () => {
       toast.error(err?.response?.data?.message);
     }
   };
+  const handleResendOTP =()=>{
+    alert("OTP Sent!")
+  }
   useEffect(() => {
     if (time >= 30) return;
     const timeout = setInterval(() => {
@@ -97,8 +100,8 @@ const OTPForm = () => {
                 Resend OTP in {time < 10 ? `0${time}` : time}
               </p>
             ) : (
-              <p className="py-2 text-sm font-light text-primary-color underline">
-                Send OTP
+              <p onClick={handleResendOTP} className="py-2 cursor-pointer text-sm font-light text-primary-color underline">
+                Resend OTP
               </p>
             )}
             <button
