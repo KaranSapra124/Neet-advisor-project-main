@@ -19,6 +19,7 @@ import SuperAdminLogin from "./Admin/Components/Auth/SuperAdminLogin";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import OTPForm from "./Admin/Components/Auth/OTPForm";
+import { SuperAdminProvider } from "./Admin/Components/Context/SuperAdminContext";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -96,7 +97,9 @@ const App = () => {
   return (
     <>
       <ToastContainer></ToastContainer>
-      <RouterProvider router={appRoutes} />
+      <SuperAdminProvider>
+        <RouterProvider router={appRoutes} />
+      </SuperAdminProvider>
     </>
   );
 };

@@ -12,10 +12,13 @@ import { Link, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { userSuperAdminAuth } from "../Components/Context/SuperAdminContext";
 
 const AdminLayout = () => {
   const location = useLocation(); // Get current path
   const navigate = useNavigate();
+  const SuperAdminContext = userSuperAdminAuth();
+  console.log(SuperAdminContext);
 
   const menuItems = [
     { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
@@ -39,6 +42,7 @@ const AdminLayout = () => {
           {},
           { withCredentials: true },
         );
+
         toast.success(data?.message);
       } catch (err) {
         toast.error(err?.response?.data);

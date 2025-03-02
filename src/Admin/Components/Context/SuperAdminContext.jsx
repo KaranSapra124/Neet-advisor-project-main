@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useContext, useEffect } from "react";
-import { useState } from "react";
+import { useState, createContext } from "react";
 
-const { createContext } = require("react");
+// const { createContext } = require("react");
 
 const superAdminContext = createContext(null);
 
@@ -17,14 +17,18 @@ export const SuperAdminProvider = ({ children }) => {
           {},
           { withCredentials: true },
         );
-
-        setSuperAdmin(data?.superAdmin);
+        const userData = data?.superAdmin;
+        setSuperAdmin((prev) => ({
+          ...prev,
+          ...userData,
+          role: "Super Admin",
+        }));
       } catch (err) {
         throw new Error(err.response);
       }
     };
     fetchSuperAdmin();
-  });
+  }, []);
   return (
     <superAdminContext.Provider value={{ superAdmin, setSuperAdmin }}>
       {children}
@@ -32,4 +36,4 @@ export const SuperAdminProvider = ({ children }) => {
   );
 };
 
-export const superAdminAuth = () => useContext(superAdminContext);
+export const userSuperAdminAuth = () => useContext(superAdminContext);
