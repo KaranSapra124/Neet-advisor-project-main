@@ -123,10 +123,11 @@ exports.verifySuperAdminOTP = async (req, res) => {
             process.env.SECRET_KEY,
           );
           res.cookie("token", token, {
-            httpOnly: false,
-            secure: false,
+            httpOnly: true,
+            secure: true,
             sameSite: "none",
             path: "/",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
           });
           res.status(201).send({ message: "Logged In Successfully!", token });
         })()
