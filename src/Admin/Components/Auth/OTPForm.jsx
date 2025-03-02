@@ -3,6 +3,7 @@ import Container from "../../../Components/Helper/Container";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Divider from "../../../Components/Helper/Divider";
 
 const OTPForm = () => {
   const location = useLocation();
@@ -12,7 +13,8 @@ const OTPForm = () => {
 
   const [otp, setOTP] = useState([]);
   const [otpCount, setOtpCount] = useState(6);
-  const [currIndex, setCurrIndex] = useState(0);
+  //   const [currIndex, setCurrIndex] = useState(0);
+  const [time, setTime] = useState(0);
   const inputRef = useRef([]);
   const handleChange = (e, index) => {
     //Change fn for filling OTP
@@ -35,7 +37,6 @@ const OTPForm = () => {
       setOTP(newOTP);
     }
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -46,16 +47,29 @@ const OTPForm = () => {
       );
       toast.success(data?.message);
     } catch (err) {
-    //   console.log(err)
       toast.error(err?.response?.data?.message);
     }
   };
+  useEffect(() => {
+    if (time >= 30) return;
+    const timeout = setInterval(() => {
+      setTime((prev) => {
+        return prev + 1;
+      });
+    }, 1000);
+    return () => clearInterval(timeout);
+  }, [time]);
 
   return (
     <>
       <Container>
         <div className="mx-auto flex w-full max-w-sm flex-col rounded py-4 shadow shadow-black">
-          <h1 className="my-2 text-center text-xl font-bold">Fill The OTP</h1>
+          <h1 className="text-center text-xl font-bold text-primary-color">
+            Fill The OTP
+          </h1>
+          <Divider
+            className={"mx-auto my-2 h-1 w-12 rounded-full bg-yellow-600"}
+          />
           <form
             onSubmit={handleSubmit}
             className="mx-auto flex flex-col items-center justify-evenly"
@@ -78,9 +92,18 @@ const OTPForm = () => {
                 );
               })}
             </div>
+            {time !== 30 ? (
+              <p className="py-2 text-sm font-light text-primary-color underline">
+                Resend OTP in {time < 10 ? `0${time}` : time}
+              </p>
+            ) : (
+              <p className="py-2 text-sm font-light text-primary-color underline">
+                Send OTP
+              </p>
+            )}
             <button
               type="submit"
-              className="mx-auto my-2 w-fit rounded-md bg-yellow-600 p-1 font-medium text-white"
+              className="mx-auto my-1 w-fit rounded-md bg-yellow-600 p-1 font-medium text-white"
             >
               Submit
             </button>
