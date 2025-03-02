@@ -3,6 +3,7 @@ import Container from "../../../Components/Helper/Container";
 import Divider from "../../../Components/Helper/Divider";
 import { FaPaperPlane } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
 const SuperAdminLogin = () => {
   const [email, setEmail] = useState("");
   const handleSubmit = async (e) => {
@@ -12,7 +13,7 @@ const SuperAdminLogin = () => {
       { email: email },
     );
     setEmail("");
-    alert(data?.message);
+    toast.success(data?.message);
   };
   return (
     <>

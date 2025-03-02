@@ -16,6 +16,8 @@ import Contact from "./Pages/Contact";
 import AdminLayout from "./Admin/Pages/AdminLayout";
 import Testimonial from "./Admin/Components/Testimonials/Testimonial";
 import SuperAdminLogin from "./Admin/Components/Auth/SuperAdminLogin";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -82,12 +84,13 @@ const App = () => {
       ],
     },
     {
-      path:"/admin/login",
-      element:<SuperAdminLogin/>
-    }
+      path: "/admin/login",
+      element: <SuperAdminLogin />,
+    },
   ]);
   return (
     <>
+      <ToastContainer />
       <RouterProvider router={appRoutes} />
     </>
   );
