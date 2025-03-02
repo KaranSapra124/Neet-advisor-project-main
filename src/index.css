@@ -670,9 +670,9 @@ body {
   padding: 0;
   margin: 0;
 }
-section {
+/* section {
   padding: 100px 0;
-}
+} */
 
 .shadow3 {
   background-image: url("http://www.commixturesoft.com/img/shadow3.png");

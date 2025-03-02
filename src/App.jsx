@@ -95,7 +95,7 @@ const App = () => {
   ]);
   return (
     <>
-      <ToastContainer />
+      <ToastContainer></ToastContainer>
       <RouterProvider router={appRoutes} />
     </>
   );

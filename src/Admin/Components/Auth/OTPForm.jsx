@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Divider from "../../../Components/Helper/Divider";
@@ -16,6 +16,7 @@ const OTPForm = () => {
   //   const [currIndex, setCurrIndex] = useState(0);
   const [time, setTime] = useState(0);
   const inputRef = useRef([]);
+  const navigate = useNavigate()
   const handleChange = (e, index) => {
     //Change fn for filling OTP
     const { value } = e.target;
@@ -46,6 +47,7 @@ const OTPForm = () => {
         { email: email, otp: finalOTP },
       );
       toast.success(data?.message);
+      navigate("/admin")
     } catch (err) {
       toast.error(err?.response?.data?.message);
     }
@@ -56,7 +58,6 @@ const OTPForm = () => {
       `${import.meta.env.VITE_BACKEND_URL}super-admin/send-super-admin-otp`,
       { email: email },
     );
-
     toast.success(data?.message);
   };
   useEffect(() => {
