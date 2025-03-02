@@ -41,7 +41,7 @@ const OTPForm = () => {
     const finalOTP = otp.join("");
     const { data } = await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/verify-otp`,
-      { email: email, otp: otp },
+      { email: email, otp: finalOTP },
     );
     toast.success(data?.message);
   };
@@ -61,7 +61,7 @@ const OTPForm = () => {
                   <input
                     key={index}
                     ref={(el) => (inputRef.current[index] = el)}
-                    type="number"
+                    type="text"
                     maxLength={1}
                     min={0}
                     className="mx-1 h-7 w-7 rounded border border-black text-center"
