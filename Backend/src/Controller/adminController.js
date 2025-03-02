@@ -147,7 +147,7 @@ exports.getSuperAdmin = async (req, res) => {
     if (!superAdmin)
       return res.status(401).send({ message: "No Super Admin Found!" });
 
-    return res.status(201).send({ message: "Logged In Successfully!" });
+    return res.status(201).send({ message: "Logged In Successfully!" , superAdmin });
   } catch (err) {
     return res.status(401).send({ message: "Unable To Login!" });
   }
