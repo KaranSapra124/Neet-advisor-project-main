@@ -11,6 +11,7 @@ import { RiDashboardFill } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const AdminLayout = () => {
   const location = useLocation(); // Get current path
@@ -32,11 +33,17 @@ const AdminLayout = () => {
 
   useEffect(() => {
     const authAdmin = async () => {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
-        {},
-        { withCredentials: true },
-      );
+      try {
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
+          {},
+          { withCredentials: true },
+        );
+        toast.success(data?.message);
+      } catch (err) {
+        toast.error(err?.response?.data);
+        navigate("/admin/login");
+      }
     };
     authAdmin();
   }, []);

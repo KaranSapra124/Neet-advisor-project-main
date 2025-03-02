@@ -149,6 +149,6 @@ exports.getSuperAdmin = async (req, res) => {
 
     return res.status(201).send({ message: "Logged In Successfully!" });
   } catch (err) {
-    return res.status(401).send({ message: "Unable TO Login!" });
+    return res.status(401).send({ message: "Unable To Login!" });
   }
 };
