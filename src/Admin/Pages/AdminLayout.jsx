@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   FaTachometerAlt,
   FaComments,
@@ -9,9 +9,12 @@ import {
 } from "react-icons/fa";
 import { RiDashboardFill } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 const AdminLayout = () => {
   const location = useLocation(); // Get current path
+  const navigate = useNavigate();
 
   const menuItems = [
     { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
@@ -23,10 +26,23 @@ const AdminLayout = () => {
   ];
 
   // Find the active tab based on the current route
-  const activeTab = menuItems.find((item) => item.link === location.pathname)?.name || "Admin Panel";
+  const activeTab =
+    menuItems.find((item) => item.link === location.pathname)?.name ||
+    "Admin Panel";
+
+  useEffect(() => {
+    const authAdmin = async () => {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
+        {},
+        { withCredentials: true },
+      );
+    };
+    authAdmin();
+  }, []);
 
   return (
-    <div className="flex  bg-gray-50">
+    <div className="flex bg-gray-50">
       {/* Sidebar */}
       <div className="h-screen bg-[#272E6A] p-4 text-white shadow-md">
         <h1 className="text-center text-lg font-semibold text-white">
