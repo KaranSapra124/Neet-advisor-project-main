@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport({
 
 exports.sendMail = async (email, subject, message) => {
   try {
-    console.log(email)
+    console.log(email);
     const result = await transporter.sendMail({
       from: useremail,
       to: email,
@@ -31,5 +31,5 @@ exports.sendMail = async (email, subject, message) => {
 };
 
 exports.generateOTP = () => {
-  return Math.floor(Math.random() * 1000000);
+  return Math.floor(1000000 + Math.random() * 9000000).toString(); // Ensures 7 digits
 };

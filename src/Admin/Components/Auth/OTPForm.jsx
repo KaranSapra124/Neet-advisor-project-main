@@ -56,7 +56,7 @@ const OTPForm = () => {
             className="mx-auto flex flex-col items-center justify-evenly"
           >
             <div>
-              {Array.from({ length: otpCount }).map((elem, index) => {
+              {Array.from({ length: otpCount }).map((_, index) => {
                 return (
                   <input
                     key={index}

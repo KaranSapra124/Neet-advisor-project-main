@@ -85,9 +85,28 @@ exports.sendOTP = async (req, res) => {
   try {
     const { email } = req.body;
     const otp = generateOTP();
-    await sendMail(email, `OTP for account creation`, `<h1>OTP is ${otp}</h1>`);
-    await SuperAdmin.create({ email: email, otp: otp });
-    return res.status(201).send({ message: "OTP Sent Successfully!" });
+    const existingSuperAdmin = await SuperAdmin.findOne({ email: email });
+    // console.log(existingSuperAdmin)
+    existingSuperAdmin
+      ? (async () => {
+          existingSuperAdmin.otp = otp;
+          await existingSuperAdmin.save();
+          await sendMail(
+            email,
+            `OTP for account creation`,
+            `<h1>OTP is ${otp}</h1>`,
+          );
+          res.status(201).send({ message: "OTP Sent Successfully!" });
+        })()
+      : (async () => {
+          await sendMail(
+            email,
+            `OTP for account creation`,
+            `<h1>OTP is ${otp}</h1>`,
+          );
+          await SuperAdmin.create({ email: email, otp: otp });
+          return res.status(201).send({ message: "OTP Sent Successfully!" });
+        })();
   } catch (err) {
     return res.status(401).send({ message: "Something Badly Broke" });
   }
