@@ -42,7 +42,10 @@ const OTPForm = () => {
       const finalOTP = otp.join("");
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/verify-otp`,
-        { email, otp: finalOTP }
+        { email, otp: finalOTP },
+        {
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
       navigate("/admin");
@@ -54,7 +57,10 @@ const OTPForm = () => {
   const handleResendOTP = async () => {
     const { data } = await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/send-super-admin-otp`,
-      { email }
+      { email },
+      {
+        withCredentials: true,
+      },
     );
     toast.success(data?.message);
   };
@@ -67,8 +73,10 @@ const OTPForm = () => {
 
   return (
     <Container>
-      <div className="mx-auto w-full max-w-sm rounded-xl bg-white p-6 shadow-lg ">
-        <h1 className="text-center text-2xl font-bold text-yellow-600">Enter OTP</h1>
+      <div className="mx-auto w-full max-w-sm rounded-xl bg-white p-6 shadow-lg">
+        <h1 className="text-center text-2xl font-bold text-yellow-600">
+          Enter OTP
+        </h1>
         <Divider className="mx-auto my-3 h-1 w-16 rounded-full bg-yellow-600" />
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
           <div className="flex gap-2">

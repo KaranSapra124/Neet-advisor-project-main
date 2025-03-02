@@ -1,6 +1,7 @@
 const { generateOTP, sendMail } = require("../Middlewares/sendEmail");
 const SuperAdmin = require("../Models/SuperAdmin");
 const Testimonial = require("../Models/Testimonial");
+const Jwt = require("jsonwebtoken");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -116,10 +117,23 @@ exports.verifySuperAdminOTP = async (req, res) => {
     const { otp, email } = req.body;
     const existingSuperAdmin = await SuperAdmin.findOne({ email: email });
     existingSuperAdmin?.otp == otp
-      ? res.status(201).send({ message: "Logged In Successfully!" })
-      : res.status(403).send({ message: "Invalid OTP!" });
+      ? (async () => {
+          const token = Jwt.sign(
+            existingSuperAdmin?._id?.toString(),
+            process.env.SECRET_KEY,
+          );
+          res.cookie("token", token, {
+            httpOnly: false,
+            secure: false,
+            sameSite: "none",
+            path: "/",
+          });
+          res.status(201).send({ message: "Logged In Successfully!", token });
+        })()
+      : (() => {
+          res.status(403).send({ message: "Invalid OTP!" });
+        })();
   } catch (err) {
     return res.status(401).send({ message: "Something Badly Broke", err });
   }
 };
-
