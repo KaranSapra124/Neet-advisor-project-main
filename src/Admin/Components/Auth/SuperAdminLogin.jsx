@@ -17,7 +17,7 @@ const SuperAdminLogin = () => {
     setEmail("");
     toast.success(data?.message);
     navigate("/admin/otp-form", {
-      email: email,
+      state: { email: email },
     });
   };
   return (

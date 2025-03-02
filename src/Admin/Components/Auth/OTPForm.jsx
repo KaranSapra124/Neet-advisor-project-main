@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import Container from "../../../Components/Helper/Container";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const OTPForm = () => {
   const location = useLocation();
   //   const { state } = location;
+  //   console.log(location)
   const { email } = location?.state || {};
 
   const [otp, setOTP] = useState([]);
@@ -33,10 +36,14 @@ const OTPForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const finalOTP = otp.join("");
-    console.log({ email: email, otp: finalOTP });
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/verify-otp`,
+      { email: email, otp: otp },
+    );
+    toast.success(data?.message);
   };
 
   return (
