@@ -4,8 +4,9 @@ import { useLocation } from "react-router-dom";
 
 const OTPForm = () => {
   const location = useLocation();
-  const { state } = location;
-  console.log(state);
+  //   const { state } = location;
+  const { email } = location?.state;
+
   const [otp, setOTP] = useState([]);
   const [otpCount, setOtpCount] = useState(6);
   const [currIndex, setCurrIndex] = useState(0);
@@ -32,12 +33,21 @@ const OTPForm = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const finalOTP = otp.join("");
+    console.log({ email: email, otp: finalOTP });
+  };
+
   return (
     <>
       <Container>
         <div className="mx-auto flex w-full max-w-sm flex-col rounded py-4 shadow shadow-black">
           <h1 className="my-2 text-center text-xl font-bold">Fill The OTP</h1>
-          <form className="mx-auto flex flex-col items-center justify-evenly">
+          <form
+            onSubmit={handleSubmit}
+            className="mx-auto flex flex-col items-center justify-evenly"
+          >
             <div>
               {Array.from({ length: otpCount }).map((elem, index) => {
                 return (
@@ -56,7 +66,10 @@ const OTPForm = () => {
                 );
               })}
             </div>
-            <button className="mx-auto my-2 w-fit rounded-md bg-yellow-600 p-1 font-medium text-white">
+            <button
+              type="submit"
+              className="mx-auto my-2 w-fit rounded-md bg-yellow-600 p-1 font-medium text-white"
+            >
               Submit
             </button>
           </form>
