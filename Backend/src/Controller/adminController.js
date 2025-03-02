@@ -2,6 +2,7 @@ const { generateOTP, sendMail } = require("../Middlewares/sendEmail");
 const SuperAdmin = require("../Models/SuperAdmin");
 const Testimonial = require("../Models/Testimonial");
 const Jwt = require("jsonwebtoken");
+const { generateToken } = require("../Utils/JwtFn");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -117,10 +118,12 @@ exports.verifySuperAdminOTP = async (req, res) => {
     const existingSuperAdmin = await SuperAdmin.findOne({ email: email });
     existingSuperAdmin?.otp == otp
       ? (async () => {
-          const token = Jwt.sign(
-            existingSuperAdmin?._id?.toString(),
-            process.env.SECRET_KEY,
-          );
+          const adminData = {
+            id: existingSuperAdmin?._id,
+            role: "Super Admin",
+          };
+          console.log(existingSuperAdmin?._id.toString());
+          const token = generateToken(adminData);
           res.cookie("token", token, {
             httpOnly: true,
             secure: true,
@@ -135,5 +138,17 @@ exports.verifySuperAdminOTP = async (req, res) => {
         })();
   } catch (err) {
     return res.status(401).send({ message: "Something Badly Broke", err });
+  }
+};
+exports.getSuperAdmin = async (req, res) => {
+  try {
+    const { id } = req?.user;
+    const superAdmin = await SuperAdmin.findById(id);
+    if (!superAdmin)
+      return res.status(401).send({ message: "No Super Admin Found!" });
+
+    return res.status(201).send({ message: "Logged In Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Unable TO Login!" });
   }
 };

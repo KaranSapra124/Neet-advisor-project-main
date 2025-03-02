@@ -4,7 +4,8 @@ const superRouter = require("./src/Routes/superAdminRoutes")
 const app = express();
 const cors = require("cors");
 const dbConfig = require("./src/Middlewares/dbConfig");
-const path = require("path")
+const path = require("path");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 dbConfig();
 app.use(
@@ -13,6 +14,7 @@ app.use(
     credentials: true,
   }),
 );
+app.use(cookieParser())
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
