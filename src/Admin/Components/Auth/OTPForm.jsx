@@ -38,12 +38,17 @@ const OTPForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const finalOTP = otp.join("");
-    const { data } = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/verify-otp`,
-      { email: email, otp: finalOTP },
-    );
-    toast.success(data?.message);
+    try {
+      const finalOTP = otp.join("");
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/verify-otp`,
+        { email: email, otp: finalOTP },
+      );
+      toast.success(data?.message);
+    } catch (err) {
+    //   console.log(err)
+      toast.error(err?.response?.data?.message);
+    }
   };
 
   return (

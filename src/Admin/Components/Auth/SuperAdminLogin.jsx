@@ -19,6 +19,7 @@ const SuperAdminLogin = () => {
     navigate("/admin/otp-form", {
       state: { email: email },
     });
+    
   };
   return (
     <>
