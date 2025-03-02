@@ -86,7 +86,6 @@ exports.sendOTP = async (req, res) => {
     const { email } = req.body;
     const otp = generateOTP();
     const existingSuperAdmin = await SuperAdmin.findOne({ email: email });
-    // console.log(existingSuperAdmin)
     existingSuperAdmin
       ? (async () => {
           existingSuperAdmin.otp = otp;
