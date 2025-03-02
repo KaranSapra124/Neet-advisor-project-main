@@ -18,6 +18,7 @@ import Testimonial from "./Admin/Components/Testimonials/Testimonial";
 import SuperAdminLogin from "./Admin/Components/Auth/SuperAdminLogin";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import OTPForm from "./Admin/Components/Auth/OTPForm";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -86,6 +87,10 @@ const App = () => {
     {
       path: "/admin/login",
       element: <SuperAdminLogin />,
+    },
+    {
+      path: "/admin/otp-form",
+      element: <OTPForm />,
     },
   ]);
   return (
