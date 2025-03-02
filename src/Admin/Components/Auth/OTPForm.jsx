@@ -50,9 +50,15 @@ const OTPForm = () => {
       toast.error(err?.response?.data?.message);
     }
   };
-  const handleResendOTP =()=>{
-    alert("OTP Sent!")
-  }
+  const handleResendOTP = async () => {
+    // e.preventDefault();
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/send-super-admin-otp`,
+      { email: email },
+    );
+
+    toast.success(data?.message);
+  };
   useEffect(() => {
     if (time >= 30) return;
     const timeout = setInterval(() => {
@@ -100,7 +106,10 @@ const OTPForm = () => {
                 Resend OTP in {time < 10 ? `0${time}` : time}
               </p>
             ) : (
-              <p onClick={handleResendOTP} className="py-2 cursor-pointer text-sm font-light text-primary-color underline">
+              <p
+                onClick={handleResendOTP}
+                className="cursor-pointer py-2 text-sm font-light text-primary-color underline"
+              >
                 Resend OTP
               </p>
             )}
