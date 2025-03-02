@@ -95,7 +95,11 @@ exports.sendOTP = async (req, res) => {
 exports.verifySuperAdminOTP = async (req, res) => {
   try {
     const { otp, email } = req.body;
-    const existingSuperAdmin = await SuperAdmin.findOne({email:email})
-    // existingSuperAdmin.otp === otp ? 
-  } catch (err) {}
+    const existingSuperAdmin = await SuperAdmin.findOne({ email: email });
+    existingSuperAdmin?.otp == otp
+      ? res.status(201).send({ message: "Logged In Successfully!" })
+      : res.status(403).send({ message: "Invalid OTP!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Badly Broke", err });
+  }
 };

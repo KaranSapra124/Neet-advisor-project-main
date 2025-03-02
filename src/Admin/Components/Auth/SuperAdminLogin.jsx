@@ -4,7 +4,9 @@ import Divider from "../../../Components/Helper/Divider";
 import { FaPaperPlane } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const SuperAdminLogin = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,6 +16,9 @@ const SuperAdminLogin = () => {
     );
     setEmail("");
     toast.success(data?.message);
+    navigate("/admin/otp-form", {
+      email: email,
+    });
   };
   return (
     <>

@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 const OTPForm = () => {
   const location = useLocation();
   //   const { state } = location;
-  const { email } = location?.state;
+  const { email } = location?.state || {};
 
   const [otp, setOTP] = useState([]);
   const [otpCount, setOtpCount] = useState(6);
