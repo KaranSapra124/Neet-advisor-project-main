@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { userSuperAdminAuth } from "../Components/Context/SuperAdminContext";
+import { BsFileBarGraph } from "react-icons/bs";
 
 const AdminLayout = () => {
   const location = useLocation(); // Get current path
@@ -24,6 +25,7 @@ const AdminLayout = () => {
     { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
     { name: "Testimonials", link: "/admin/testimonial", icon: <FaComments /> },
     { name: "Queries", link: "/", icon: <FaQuestionCircle /> },
+    { name: "Services", link: "/admin/services", icon: <BsFileBarGraph /> },
     { name: "Alerts & News", link: "/", icon: <FaBell /> },
     { name: "Blogs", link: "/", icon: <FaBlog /> },
   ];
