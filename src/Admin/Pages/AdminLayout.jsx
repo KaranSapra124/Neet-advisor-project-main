@@ -18,12 +18,11 @@ const AdminLayout = () => {
   const location = useLocation(); // Get current path
   const navigate = useNavigate();
   const SuperAdminContext = userSuperAdminAuth();
-  console.log(SuperAdminContext);
+  // console.log(SuperAdminContext);
 
   const menuItems = [
     { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
     { name: "Testimonials", link: "/admin/testimonial", icon: <FaComments /> },
-    { name: "Webinars", link: "/", icon: <FaVideo /> },
     { name: "Queries", link: "/", icon: <FaQuestionCircle /> },
     { name: "Alerts & News", link: "/", icon: <FaBell /> },
     { name: "Blogs", link: "/", icon: <FaBlog /> },
