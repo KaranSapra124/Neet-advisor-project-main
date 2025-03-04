@@ -20,6 +20,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import OTPForm from "./Admin/Components/Auth/OTPForm";
 import { SuperAdminProvider } from "./Admin/Components/Context/SuperAdminContext";
+import AdminServices from "./Admin/Components/Services/Services";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -82,6 +83,10 @@ const App = () => {
         {
           path: "/admin/testimonial",
           element: <Testimonial />,
+        },
+        {
+          path: "/admin/Services",
+          element: <AdminServices />,
         },
       ],
     },
