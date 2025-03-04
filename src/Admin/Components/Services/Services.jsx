@@ -74,7 +74,8 @@ const AdminServices = () => {
     <>
       <Container>
         <div>
-          <h1>Services</h1>
+          {/* <h1 className="text-2xl">Services</h1> */}
+          <button className="bg-yellow-600 text-white font-semibold p-1 rounded float-right my-2">Add New +</button>
           <Table columns={columns} dataSource={servicesArr}></Table>
         </div>
       </Container>
