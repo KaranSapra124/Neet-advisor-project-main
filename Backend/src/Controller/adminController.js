@@ -156,3 +156,23 @@ exports.getSuperAdmin = async (req, res) => {
   }
 };
 
+// Zoom API
+exports.getZoomMeetings = async (req, res) => {
+  // console.log(req.code)
+  try {
+    const { data } = await axios.get(
+      `https://api.zoom.us/v2/users/sapra7112@gmail.com/meetings`,
+      {
+        headers: {
+          Authorization: `Bearer ${req.code}`,
+        },
+      },
+    );
+
+    return res
+      .status(200)
+      .send({ message: "Meetings Fetched!", meetings: data?.meetings });
+  } catch (err) {
+    console.log(err);
+  }
+};

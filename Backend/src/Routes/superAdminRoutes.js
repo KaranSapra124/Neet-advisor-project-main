@@ -4,6 +4,7 @@ const {
   sendOTP,
   verifySuperAdminOTP,
   getSuperAdmin,
+  getZoomMeetings,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -16,5 +17,6 @@ Router.post("/send-super-admin-otp", sendOTP);
 Router.post("/verify-otp", verifySuperAdminOTP);
 Router.post("/super-admin-auth", superAdminAuth, getSuperAdmin);
 Router.post("/get-zoom-token", getAuthTokenZoom);
+Router.get("/get-zoom-meetings", getAuthTokenZoom, getZoomMeetings);
 
 module.exports = Router;
