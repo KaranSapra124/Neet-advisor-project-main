@@ -3,6 +3,7 @@ const SuperAdmin = require("../Models/SuperAdmin");
 const Testimonial = require("../Models/Testimonial");
 const Jwt = require("jsonwebtoken");
 const { generateToken } = require("../Utils/JwtFn");
+const { default: axios } = require("axios");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -147,8 +148,11 @@ exports.getSuperAdmin = async (req, res) => {
     if (!superAdmin)
       return res.status(401).send({ message: "No Super Admin Found!" });
 
-    return res.status(201).send({ message: "Logged In Successfully!" , superAdmin });
+    return res
+      .status(201)
+      .send({ message: "Logged In Successfully!", superAdmin });
   } catch (err) {
     return res.status(401).send({ message: "Unable To Login!" });
   }
 };
+
