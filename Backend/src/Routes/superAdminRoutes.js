@@ -1,18 +1,13 @@
 const express = require("express");
 const {
-  // addTestimonial,
-  // getTestimonials,
-  // editTestimonial,
-  // deleteTestimonial,
   addSuperAdmin,
   sendOTP,
   verifySuperAdminOTP,
   getSuperAdmin,
-  // getAuthTokenZoom,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
-const {getAuthTokenZoom} = require("../Middlewares/ZoomTokenGenerator");
+const { getAuthTokenZoom } = require("../Middlewares/ZoomTokenGenerator");
 
 const Router = express.Router();
 
