@@ -100,16 +100,16 @@ const Testimonial = () => {
   // ];
   const columns = [
     {
-      title: "Name",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Name</h1>,
       dataIndex: "clientName",
       key: "clientName",
 
       render: (text) => (
-        <p className="w-32 max-w-40 text-xs font-semibold">{text}</p>
+        <p className="text-gray-800  text-xs font-bold w-32">{text}</p>
       ),
     },
     {
-      title: "Designation",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Designation</h1>,
       dataIndex: "clientCollege",
       key: "clientCollege",
       render: (text) => (
@@ -117,7 +117,7 @@ const Testimonial = () => {
       ),
     },
     {
-      title: "Review",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Review</h1>,
       dataIndex: "review",
       key: "review",
       render: (text) => (
@@ -125,7 +125,7 @@ const Testimonial = () => {
       ),
     },
     {
-      title: "Image",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Image</h1>,
       dataIndex: "imgUrl",
       key: "imageUrl",
       render: (image) => (
@@ -136,7 +136,7 @@ const Testimonial = () => {
       ),
     },
     {
-      title: "Actions",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Actions</h1>,
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
