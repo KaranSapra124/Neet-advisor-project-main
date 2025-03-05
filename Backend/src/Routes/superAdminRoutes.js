@@ -7,6 +7,7 @@ const {
   getZoomMeetings,
   editService,
   AddService,
+  getServices,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -31,6 +32,7 @@ Router.post(
   ]),
   AddService,
 );
+Router.get("/get-services", getServices);
 
 Router.post("/edit-service", editService);
 

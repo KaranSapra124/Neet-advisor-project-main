@@ -194,7 +194,14 @@ exports.AddService = async (req, res) => {
     return res.status(401).send({ message: "Something Went Wrong!" });
   }
 };
-
+exports.getServices = async (req, res) => {
+  try {
+    const services = await Service.find();
+    return res.status(200).send({ message: "Services Fetched!", services });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong!" });
+  }
+};
 exports.editService = async (req, res) => {
   console.log(req.body);
 };

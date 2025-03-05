@@ -10,40 +10,41 @@ const AdminServices = () => {
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
-  const servicesArr = [
-    {
-      video:
-        "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-      title: "Shortlist Your Success",
-      content:
-        "Based on your expected NEET Score, we shortlist for you the state & college you should apply for.",
-      icon: "../../../About/motivationGif.gif",
-    },
-    {
-      video:
-        "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-      title: "Guidance from our Advisor",
-      content:
-        "An Intensive one to one NEET counselling session from our Advisor who will answer your queries about AIQ & State Quota NEET Counselling.",
-      icon: "../../../About/person-speaker.gif",
-    },
-    {
-      video:
-        "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-      title: "Application Filling",
-      content:
-        "Support with filling of application form of All India Quota/ESI/AFMC/Deemed Universities & different state quota counselling.",
-      icon: "../../../About/BookImg.gif",
-    },
-    {
-      video:
-        "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-      title: "Look beyond MBBS",
-      content:
-        "There are many more medical courses like BDS, BAMS, Physiotherapy, DNB, etc.",
-      icon: "../../../About/mission.gif",
-    },
-  ];
+  const [servicesArr, setServicesArr] = useState([]);
+  // const servicesArr = [
+  //   {
+  //     video:
+  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
+  //     title: "Shortlist Your Success",
+  //     content:
+  //       "Based on your expected NEET Score, we shortlist for you the state & college you should apply for.",
+  //     icon: "../../../About/motivationGif.gif",
+  //   },
+  //   {
+  //     video:
+  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
+  //     title: "Guidance from our Advisor",
+  //     content:
+  //       "An Intensive one to one NEET counselling session from our Advisor who will answer your queries about AIQ & State Quota NEET Counselling.",
+  //     icon: "../../../About/person-speaker.gif",
+  //   },
+  //   {
+  //     video:
+  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
+  //     title: "Application Filling",
+  //     content:
+  //       "Support with filling of application form of All India Quota/ESI/AFMC/Deemed Universities & different state quota counselling.",
+  //     icon: "../../../About/BookImg.gif",
+  //   },
+  //   {
+  //     video:
+  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
+  //     title: "Look beyond MBBS",
+  //     content:
+  //       "There are many more medical courses like BDS, BAMS, Physiotherapy, DNB, etc.",
+  //     icon: "../../../About/mission.gif",
+  //   },
+  // ];
   const columns = [
     {
       title: "Service",
@@ -60,7 +61,13 @@ const AdminServices = () => {
       key: "video",
 
       render: (video) => (
-        <video src={video} className="h-24 w-24 rounded"></video>
+        <video
+          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${video}`}
+          autoPlay
+          loop
+          muted
+          className="h-24 w-24 rounded"
+        ></video>
       ),
     },
     {
@@ -75,7 +82,12 @@ const AdminServices = () => {
       key: "icon",
       render: (img) => {
         console.log(img);
-        return <img className="h-10 w-10" src={img} />;
+        return (
+          <img
+            className="h-10 w-10"
+            src={`${import.meta.env.VITE_BACKEND_URL}uploads/${img}`}
+          />
+        );
       },
     },
     {
@@ -94,6 +106,7 @@ const AdminServices = () => {
 
           <FaEdit
             onClick={() => {
+              // console.log(record)
               setIsEdit(true);
               setEditItem(record);
             }}
@@ -113,6 +126,15 @@ const AdminServices = () => {
       ),
     },
   ];
+  useEffect(() => {
+    const fetchServices = async () => {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+      );
+      setServicesArr(data?.services);
+    };
+    fetchServices();
+  }, []);
 
   return (
     <>
@@ -143,7 +165,13 @@ const AdminServices = () => {
           video={editItem?.video}
         />
       )}
-      {isAdd && <AddCard open={isAdd} onCancel={() => setIsAdd(false)} title={"Add Service"} />}
+      {isAdd && (
+        <AddCard
+          open={isAdd}
+          onCancel={() => setIsAdd(false)}
+          title={"Add Service"}
+        />
+      )}
 
       <Container>
         <div>
@@ -165,7 +193,7 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
   const [editedVideo, setEditedVideo] = useState({ file: "", url: video });
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedContent, setEditedContent] = useState(content);
-  const [editedIcon, setEditedIcon] = useState(icon);
+  const [editedIcon, setEditedIcon] = useState({ file: "", url: icon });
   const [editImage, setEditImage] = useState(null);
 
   const handleSave = async () => {
@@ -190,10 +218,7 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
     onCancel();
   };
 
-  // useEffect(
-  //   () => console.log(editedVideo, editedTitle, editedIcon, editedContent),
-  //   [editedVideo, editedTitle, editedIcon, editedContent],
-  // );
+  // useEffect(() => console.log(editedIcon), [editedIcon]);
   return (
     <Modal
       title="Edit Testimonial"
@@ -204,7 +229,11 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
       <div className="flex flex-col gap-4 p-5">
         {/* Display Image Preview */}
         <img
-          src={editImage?.url || editedIcon}
+          src={
+            editedIcon?.file !== ""
+              ? editedIcon.url
+              : `${import.meta.env.VITE_BACKEND_URL}uploads/${editedIcon?.url}`
+          }
           alt="Icon"
           className="mx-auto h-20 w-20 rounded-full"
         />
@@ -215,15 +244,23 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
           accept="image/*"
           onChange={(e) => {
             const file = e.target.files[0];
-            setEditImage({
-              file,
+            setEditedIcon({
+              file: file,
               url: URL.createObjectURL(file),
             });
           }}
         />
 
         {/* Video Input */}
-        <video src={editedVideo?.url} autoPlay className="w-52 rounded"></video>
+        <video
+          src={
+            editedVideo?.file !== ""
+              ? editedVideo?.url
+              : `${import.meta.env.VITE_BACKEND_URL}uploads/${editedVideo?.url}`
+          }
+          autoPlay
+          className="w-52 rounded"
+        ></video>
         <input
           type="file"
           // accept="image/*"
@@ -329,7 +366,7 @@ const AddCard = ({ open, onCancel, title }) => {
 
   return (
     <Modal title={title} open={open} onCancel={onCancel} footer={null}>
-      <div className="space-y-4 flex flex-col p-5">
+      <div className="flex flex-col space-y-4 p-5">
         {/* Icon Upload & Preview */}
         <label>Upload Image:</label>
         {formData.iconUrl && (
@@ -404,11 +441,17 @@ const ViewItem = ({ video, title, content, icon }) => {
   return (
     <div className="flex flex-col gap-3 p-4 shadow-lg">
       <div className="flex items-center gap-2">
-        <img src={icon} className="w-7" />
+        <img
+          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${icon}`}
+          className="w-7"
+        />
         <h2 className="text-lg font-semibold">{title}</h2>
       </div>
       <video autoPlay controls className="w-full rounded-lg">
-        <source src={video} type="video/mp4" />
+        <source
+          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${video}`}
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
       <p className="text-gray-700">{content}</p>
