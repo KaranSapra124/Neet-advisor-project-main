@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
 import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
+import axios from "axios";
 
 const AdminServices = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -112,9 +113,7 @@ const AdminServices = () => {
       ),
     },
   ];
-  const handleSave = (data) => {
-    console.log(data);
-  };
+
   return (
     <>
       {isView && (
@@ -134,9 +133,10 @@ const AdminServices = () => {
       )}
       {isEdit && (
         <EditCard
-          onSave={handleSave}
+          // onSave={handleSave}
           onCancel={() => setIsEdit(false)}
           key={editItem?._id}
+          id={editItem?._id}
           title={editItem?.title}
           content={editItem?.content}
           icon={editItem?.icon}
@@ -156,7 +156,7 @@ const AdminServices = () => {
   );
 };
 
-const EditCard = ({ video, title, content, icon, onCancel, onSave }) => {
+const EditCard = ({ video, title, content, icon, onCancel, id }) => {
   const [editedVideo, setEditedVideo] = useState({ file: "", url: video });
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedContent, setEditedContent] = useState(content);
@@ -176,6 +176,10 @@ const EditCard = ({ video, title, content, icon, onCancel, onSave }) => {
     // await axios.post(`${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`, formData, {
     //   headers: { "Content-Type": "multipart/form-data" },
     // });
+    await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-service/${id}`,
+      formData,
+    );
 
     onSave(formData); // Pass formData to parent if needed
     onCancel();
