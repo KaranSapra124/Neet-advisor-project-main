@@ -8,6 +8,7 @@ const {
   editService,
   AddService,
   getServices,
+  deleteService,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -42,5 +43,7 @@ Router.post(
   ]),
   editService,
 );
+
+Router.post("/delete-service/:id",deleteService)
 
 module.exports = Router;

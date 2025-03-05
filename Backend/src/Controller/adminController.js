@@ -206,14 +206,24 @@ exports.editService = async (req, res) => {
   const { id } = req.params;
 
   try {
+    // Fetch existing service to retain current video & icon if not updated
+    const existingService = await Service.findById(id);
+    if (!existingService) {
+      return res.status(404).send({ message: "Service Not Found!" });
+    }
+
     let updateData = { ...req.body };
 
     if (req.files) {
-      const video = req.files.video; // Correctly extracting video
-      const icon = req.files.icon; // Correctly extracting icon
+      const video = req.files.video; // Get video if uploaded
+      const icon = req.files.icon; // Get icon if uploaded
 
-      if (video) updateData.video = video?.[0]?.filename;
-      if (icon) updateData.icon = icon?.[0]?.filename;
+      updateData.video = video ? video[0]?.filename : existingService.video; // Retain old if no new file
+      updateData.icon = icon ? icon[0]?.filename : existingService.icon; // Retain old if no new file
+    } else {
+      // If no new files, keep existing video and icon
+      updateData.video = existingService.video;
+      updateData.icon = existingService.icon;
     }
 
     const updatedService = await Service.findByIdAndUpdate(id, updateData, {
@@ -223,6 +233,15 @@ exports.editService = async (req, res) => {
     return res.status(200).send({ message: "Service Updated", updatedService });
   } catch (err) {
     console.error("Error updating service:", err);
-    return res.status(500).send({ message: "Something Went Wrong!"  });
+    return res.status(500).send({ message: "Something Went Wrong!" });
+  }
+};
+exports.deleteService = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Service.findByIdAndDelete(id);
+    return res.status(200).send({ message: "Service Deleted!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong!", err });
   }
 };

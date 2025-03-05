@@ -3,6 +3,7 @@ import Container from "../../../Components/Helper/Container";
 import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const AdminServices = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -114,11 +115,19 @@ const AdminServices = () => {
           />
           <FaTrash
             onClick={async () => {
-              const res = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}admin/delete-testimonial/${record?._id}`,
+              const { data } = await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-service/${record?._id}`,
               );
 
-              fetchTestimonials();
+              toast.success(data?.message);
+
+              const fetchServices = async () => {
+                const { data } = await axios.get(
+                  `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+                );
+                setServicesArr(data?.services);
+              };
+              fetchServices();
             }}
             className="cursor-pointer text-primary-color"
           />
@@ -163,6 +172,7 @@ const AdminServices = () => {
           content={editItem?.content}
           icon={editItem?.icon}
           video={editItem?.video}
+          setServicesArr={setServicesArr}
         />
       )}
       {isAdd && (
@@ -189,7 +199,15 @@ const AdminServices = () => {
   );
 };
 
-const EditCard = ({ video, title, content, icon, onCancel, id }) => {
+const EditCard = ({
+  video,
+  title,
+  content,
+  icon,
+  onCancel,
+  id,
+  setServicesArr,
+}) => {
   const [editedVideo, setEditedVideo] = useState({ file: "", url: video });
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedContent, setEditedContent] = useState(content);
@@ -206,7 +224,7 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
     // await axios.post(`${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`, formData, {
     //   headers: { "Content-Type": "multipart/form-data" },
     // });
-    await axios.post(
+    const { data } = await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-service/${id}`,
       formData,
       {
@@ -216,8 +234,17 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
       },
     );
 
+    toast.success(data?.message);
+
     // onSave(formData); // Pass formData to parent if needed
     onCancel();
+    const fetchServices = async () => {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+      );
+      setServicesArr(data?.services);
+    };
+    fetchServices();
   };
 
   // useEffect(() => console.log(editedIcon), [editedIcon]);
@@ -340,7 +367,7 @@ const AddCard = ({ open, onCancel, title }) => {
     submissionData.append("icon", formData.iconFile);
 
     try {
-      await axios.post(
+      const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-service`,
         submissionData,
         {
@@ -349,6 +376,8 @@ const AddCard = ({ open, onCancel, title }) => {
           },
         },
       );
+
+      toast.success(data?.message);
 
       setFormData({
         videoUrl: "",
