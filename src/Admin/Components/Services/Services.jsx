@@ -143,10 +143,15 @@ const AdminServices = () => {
           video={editItem?.video}
         />
       )}
+      {isAdd && <AddCard open={isAdd} onCancel={() => setIsAdd(false)} title={"Add Service"} />}
+
       <Container>
         <div>
           {/* <h1 className="text-2xl">Services</h1> */}
-          <button className="float-right my-2 rounded bg-yellow-600 p-1 font-semibold text-white">
+          <button
+            onClick={() => setIsAdd(true)}
+            className="float-right my-2 rounded bg-yellow-600 p-1 font-semibold text-white"
+          >
             Add New +
           </button>
           <Table columns={columns} dataSource={servicesArr}></Table>
@@ -249,126 +254,149 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
     </Modal>
   );
 };
-
-const AddCard = ({ open, onCancel }) => {
+const AddCard = ({ open, onCancel, title }) => {
   const [formData, setFormData] = useState({
-    imgUrl: "",
-    file: "",
-    review: "",
-    clientName: "",
-    clientCollege: "",
+    videoUrl: "",
+    videoFile: null,
+    iconUrl: "",
+    iconFile: null,
+    content: "",
+    title: "",
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e, type) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const url = URL.createObjectURL(file);
+
+    setFormData((prev) => ({
+      ...prev,
+      [`${type}File`]: file,
+      [`${type}Url`]: url,
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (
-      !formData.imgUrl ||
-      !formData.review ||
-      !formData.clientName ||
-      !formData.clientCollege
+      !formData.videoFile ||
+      !formData.iconFile ||
+      !formData.title ||
+      !formData.content
     ) {
       alert("All fields are required!");
       return;
     }
-    setFormData({ imgUrl: "", review: "", clientName: "", clientCollege: "" });
-    onCancel(); // Close modal after submission
-    await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}admin/add-testimonial`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data", // Important for file upload
+
+    const submissionData = new FormData();
+    submissionData.append("title", formData.title);
+    submissionData.append("content", formData.content);
+    submissionData.append("video", formData.videoFile);
+    submissionData.append("icon", formData.iconFile);
+
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}admin/add-video`,
+        submissionData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         },
-      },
-    );
+      );
+
+      setFormData({
+        videoUrl: "",
+        videoFile: null,
+        iconUrl: "",
+        iconFile: null,
+        content: "",
+        title: "",
+      });
+
+      onCancel(); // Close modal after success
+    } catch (error) {
+      console.error("Error submitting:", error);
+      alert("Something went wrong. Please try again!");
+    }
   };
 
   return (
-    <>
-      <Modal
-        title="Add Testimonial"
-        open={open}
-        onClose={onCancel}
-        onCancel={onCancel}
-        footer={false}
-      >
-        {/* <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"> */}
-        <div className="rounded-lg bg-white p-6 shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* <input
-              type="text"
-              name="imgUrl"
-              value={formData.imgUrl}
-              onChange={handleChange}
-              placeholder="Image URL"
-              className="w-full rounded-md border p-2"
-            /> */}
-            <img
-              className="mx-auto h-32 w-32 rounded-full"
-              src={formData?.imgUrl}
-              alt=""
-            />
-            <input
-              type="file"
-              name="file"
-              onChange={(e) => {
-                setFormData((prev) => ({
-                  ...prev,
-                  file: e.target.files[0],
-                  imgUrl: URL.createObjectURL(e.target.files[0]),
-                }));
-              }}
-              id=""
-            />
-            <textarea
-              name="review"
-              value={formData.review}
-              onChange={handleChange}
-              placeholder="Review"
-              className="w-full rounded-md border p-2"
-              rows={3}
-            />
-            <input
-              type="text"
-              name="clientName"
-              value={formData.clientName}
-              onChange={handleChange}
-              placeholder="Client Name"
-              className="w-full rounded-md border p-2"
-            />
-            <input
-              type="text"
-              name="clientCollege"
-              value={formData.clientCollege}
-              onChange={handleChange}
-              placeholder="Client College"
-              className="w-full rounded-md border p-2"
-            />
+    <Modal title={title} open={open} onCancel={onCancel} footer={null}>
+      <div className="space-y-4 flex flex-col p-5">
+        {/* Icon Upload & Preview */}
+        <label>Upload Image:</label>
+        {formData.iconUrl && (
+          <img
+            src={formData.iconUrl}
+            alt="Icon Preview"
+            className="mx-auto h-16 w-16"
+          />
+        )}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => handleFileChange(e, "icon")}
+        />
 
-            <div className="flex justify-between">
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                className="rounded-md border px-4 py-2 text-gray-700"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
-              >
-                Add
-              </button>
-            </div>
-          </form>
+        {/* Video Upload & Preview */}
+        <label>Upload Video:</label>
+
+        {formData.videoUrl && (
+          <video className="mx-auto w-full rounded-lg" controls>
+            <source src={formData.videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+        <input
+          type="file"
+          accept="video/*"
+          onChange={(e) => handleFileChange(e, "video")}
+        />
+
+        {/* Title & Content Inputs */}
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Enter Title"
+          className="w-full rounded-md border p-2"
+        />
+        <textarea
+          name="content"
+          value={formData.content}
+          onChange={handleChange}
+          placeholder="Enter Content"
+          className="w-full rounded-md border p-2"
+          rows={3}
+        />
+
+        {/* Buttons */}
+        <div className="flex justify-between">
+          <button
+            type="button"
+            onClick={onCancel}
+            className="rounded-md border px-4 py-2 text-gray-700"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
+          >
+            Add
+          </button>
         </div>
-        {/* </div> */}
-      </Modal>
-    </>
+      </div>
+    </Modal>
   );
 };
 

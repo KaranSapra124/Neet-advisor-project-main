@@ -178,6 +178,10 @@ exports.getZoomMeetings = async (req, res) => {
 };
 
 // Services Started
+exports.AddService = async (req, res) => {
+  console.log(req.body, req.files);
+};
+
 exports.editService = async (req, res) => {
   console.log(req.body);
 };
