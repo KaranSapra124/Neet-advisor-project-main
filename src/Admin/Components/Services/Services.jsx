@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Table } from "antd";
+import { Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 
 const AdminServices = () => {
+  const [isEdit, setIsEdit] = useState(false);
+  const [isView, setIsView] = useState(false);
+  const [editItem, setEditItem] = useState({});
+  const [viewItem, setViewItem] = useState({});
+  const [isAdd, setIsAdd] = useState(false);
   const servicesArr = [
     {
       video:
@@ -109,6 +114,21 @@ const AdminServices = () => {
   ];
   return (
     <>
+      {isView && (
+        <Modal
+          onOk={() => setIsView(false)}
+          open={isView}
+          onClose={() => setIsView(false)}
+          onCancel={() => setIsView(false)}
+        >
+          <ViewItem
+            title={viewItem?.title}
+            content={viewItem?.content}
+            icon={viewItem?.icon}
+            video={viewItem?.video}
+          />
+        </Modal>
+      )}
       <Container>
         <div>
           {/* <h1 className="text-2xl">Services</h1> */}
@@ -122,4 +142,211 @@ const AdminServices = () => {
   );
 };
 
+const EditCard = ({ video, title, content, icon }) => {
+  const [editedName, setEditedName] = useState(clientName);
+  const [editedCollege, setEditedCollege] = useState(clientCollege);
+  const [editedReview, setEditedReview] = useState(review);
+  const [editImage, setEditImage] = useState({ file: "", url: imgUrl });
+
+  const handleSave = async () => {
+    const formData = {
+      clientName: editedName,
+      clientCollege: editedCollege,
+      review: editedReview,
+      file: editImage?.file ? editImage?.file : null,
+    };
+    // await axios.post(
+    //   `${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`,
+    //   formData,
+    //   {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   },
+    // );
+    onCancel();
+  };
+
+  return (
+    <Modal
+      title="Edit Testimonial"
+      open={true}
+      onOk={handleSave}
+      onCancel={onCancel}
+    >
+      <div className="flex flex-col gap-4 p-5">
+        <img
+          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${editImage?.url}`}
+          alt="Client"
+          className="mx-auto h-20 w-20 rounded-full"
+        />
+        <input
+          type="file"
+          name=""
+          onChange={(e) => {
+            setEditImage({
+              file: e.target.files[0],
+              url: URL.createObjectURL(e.target.files[0]),
+            });
+          }}
+          id=""
+        />
+        <Input
+          value={editedName}
+          onChange={(e) => setEditedName(e.target.value)}
+          placeholder="Client Name"
+        />
+        <Input
+          value={editedCollege}
+          onChange={(e) => setEditedCollege(e.target.value)}
+          placeholder="Client College"
+        />
+        <Input.TextArea
+          value={editedReview}
+          onChange={(e) => setEditedReview(e.target.value)}
+          placeholder="Review"
+          rows={4}
+        />
+      </div>
+    </Modal>
+  );
+};
+
+const AddCard = ({ open, onCancel }) => {
+  const [formData, setFormData] = useState({
+    imgUrl: "",
+    file: "",
+    review: "",
+    clientName: "",
+    clientCollege: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      !formData.imgUrl ||
+      !formData.review ||
+      !formData.clientName ||
+      !formData.clientCollege
+    ) {
+      alert("All fields are required!");
+      return;
+    }
+    setFormData({ imgUrl: "", review: "", clientName: "", clientCollege: "" });
+    onCancel(); // Close modal after submission
+    await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}admin/add-testimonial`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data", // Important for file upload
+        },
+      },
+    );
+  };
+
+  return (
+    <>
+      <Modal
+        title="Add Testimonial"
+        open={open}
+        onClose={onCancel}
+        onCancel={onCancel}
+        footer={false}
+      >
+        {/* <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"> */}
+        <div className="rounded-lg bg-white p-6 shadow-lg">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* <input
+              type="text"
+              name="imgUrl"
+              value={formData.imgUrl}
+              onChange={handleChange}
+              placeholder="Image URL"
+              className="w-full rounded-md border p-2"
+            /> */}
+            <img
+              className="mx-auto h-32 w-32 rounded-full"
+              src={formData?.imgUrl}
+              alt=""
+            />
+            <input
+              type="file"
+              name="file"
+              onChange={(e) => {
+                setFormData((prev) => ({
+                  ...prev,
+                  file: e.target.files[0],
+                  imgUrl: URL.createObjectURL(e.target.files[0]),
+                }));
+              }}
+              id=""
+            />
+            <textarea
+              name="review"
+              value={formData.review}
+              onChange={handleChange}
+              placeholder="Review"
+              className="w-full rounded-md border p-2"
+              rows={3}
+            />
+            <input
+              type="text"
+              name="clientName"
+              value={formData.clientName}
+              onChange={handleChange}
+              placeholder="Client Name"
+              className="w-full rounded-md border p-2"
+            />
+            <input
+              type="text"
+              name="clientCollege"
+              value={formData.clientCollege}
+              onChange={handleChange}
+              placeholder="Client College"
+              className="w-full rounded-md border p-2"
+            />
+
+            <div className="flex justify-between">
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="rounded-md border px-4 py-2 text-gray-700"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
+              >
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+        {/* </div> */}
+      </Modal>
+    </>
+  );
+};
+
+const ViewItem = ({ video, title, content, icon }) => {
+  return (
+    <div className="flex flex-col gap-3 p-4 shadow-lg">
+      <div className="flex items-center gap-2">
+        <img src={icon} className="w-7" />
+        <h2 className="text-lg font-semibold">{title}</h2>
+      </div>
+      <video autoPlay controls className="w-full rounded-lg">
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p className="text-gray-700">{content}</p>
+    </div>
+  );
+};
 export default AdminServices;
