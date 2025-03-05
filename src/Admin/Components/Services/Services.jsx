@@ -68,7 +68,7 @@ const AdminServices = () => {
           autoPlay
           loop
           muted
-          className="w-24 rounded"
+          className="w-24 mx-auto rounded"
         ></video>
       ),
     },
@@ -83,10 +83,9 @@ const AdminServices = () => {
       dataIndex: "icon",
       key: "icon",
       render: (img) => {
-        console.log(img);
         return (
           <img
-            className="h-10 w-10"
+            className="h-10 mx-auto w-10"
             src={`${import.meta.env.VITE_BACKEND_URL}uploads/${img}`}
           />
         );
