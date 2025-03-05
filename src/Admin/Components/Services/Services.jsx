@@ -193,7 +193,7 @@ const AdminServices = () => {
           >
             Add New +
           </button>
-          <Table tableLayout="fixed" loading={servicesArr?.length < 0} bordered className="shadow  rounded" columns={columns} dataSource={servicesArr}></Table>
+          <Table  tableLayout="fixed" loading={servicesArr?.length < 0} bordered className="shadow  rounded" columns={columns} dataSource={servicesArr}></Table>
         </div>
       </Container>
     </>
