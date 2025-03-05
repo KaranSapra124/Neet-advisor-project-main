@@ -21,6 +21,7 @@ import { ToastContainer } from "react-toastify";
 import OTPForm from "./Admin/Components/Auth/OTPForm";
 import { SuperAdminProvider } from "./Admin/Components/Context/SuperAdminContext";
 import AdminServices from "./Admin/Components/Services/Services";
+import StudentsData from "./Admin/Components/StudentsData/StudentsData";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -87,6 +88,10 @@ const App = () => {
         {
           path: "/admin/Services",
           element: <AdminServices />,
+        },
+        {
+          path: "/admin/students",
+          element: <StudentsData />,
         },
       ],
     },
