@@ -203,5 +203,26 @@ exports.getServices = async (req, res) => {
   }
 };
 exports.editService = async (req, res) => {
-  console.log(req.body);
+  const { id } = req.params;
+
+  try {
+    let updateData = { ...req.body };
+
+    if (req.files) {
+      const video = req.files.video; // Correctly extracting video
+      const icon = req.files.icon; // Correctly extracting icon
+
+      if (video) updateData.video = video?.[0]?.filename;
+      if (icon) updateData.icon = icon?.[0]?.filename;
+    }
+
+    const updatedService = await Service.findByIdAndUpdate(id, updateData, {
+      new: true,
+    });
+
+    return res.status(200).send({ message: "Service Updated", updatedService });
+  } catch (err) {
+    console.error("Error updating service:", err);
+    return res.status(500).send({ message: "Something Went Wrong!"  });
+  }
 };

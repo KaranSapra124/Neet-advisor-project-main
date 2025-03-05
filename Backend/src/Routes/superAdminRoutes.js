@@ -34,6 +34,13 @@ Router.post(
 );
 Router.get("/get-services", getServices);
 
-Router.post("/edit-service", editService);
+Router.post(
+  "/edit-service/:id",
+  upload.fields([
+    { name: "video", maxCount: 1 },
+    { name: "icon", maxCount: 1 },
+  ]),
+  editService,
+);
 
 module.exports = Router;

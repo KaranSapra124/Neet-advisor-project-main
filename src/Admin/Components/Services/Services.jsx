@@ -198,13 +198,10 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
 
   const handleSave = async () => {
     const formData = new FormData();
-    formData.append("video", editedVideo);
+    formData.append("video", editedVideo?.file);
     formData.append("title", editedTitle);
     formData.append("content", editedContent);
-    if (editImage?.file) {
-      formData.append("file", editImage.file);
-    }
-
+    formData.append("icon", editedIcon?.file);
     // Example API call (uncomment to use)
     // await axios.post(`${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`, formData, {
     //   headers: { "Content-Type": "multipart/form-data" },
@@ -212,9 +209,14 @@ const EditCard = ({ video, title, content, icon, onCancel, id }) => {
     await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-service/${id}`,
       formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      },
     );
 
-    onSave(formData); // Pass formData to parent if needed
+    // onSave(formData); // Pass formData to parent if needed
     onCancel();
   };
 
