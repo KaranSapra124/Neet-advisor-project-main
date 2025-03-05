@@ -6,6 +6,7 @@ const {
   getSuperAdmin,
   getZoomMeetings,
   editService,
+  AddService,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -22,6 +23,8 @@ Router.post("/get-zoom-token", getAuthTokenZoom);
 Router.get("/get-zoom-meetings", getAuthTokenZoom, getZoomMeetings);
 
 // Services
+Router.post("/add-service", AddService);
+
 Router.post("/edit-service", editService);
 
 module.exports = Router;

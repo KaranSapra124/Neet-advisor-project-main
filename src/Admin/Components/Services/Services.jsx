@@ -302,7 +302,7 @@ const AddCard = ({ open, onCancel, title }) => {
 
     try {
       await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}admin/add-video`,
+        `${import.meta.env.VITE_BACKEND_URL}admin/add-service`,
         submissionData,
         {
           headers: {
