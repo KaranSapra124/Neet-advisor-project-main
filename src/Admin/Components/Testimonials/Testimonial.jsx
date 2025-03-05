@@ -100,32 +100,48 @@ const Testimonial = () => {
   // ];
   const columns = [
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Name</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Name
+        </h1>
+      ),
       dataIndex: "clientName",
       key: "clientName",
 
       render: (text) => (
-        <p className="text-gray-800  text-xs font-bold w-32">{text}</p>
+        <p className="w-32 text-xs font-semibold text-gray-800">{text}</p>
       ),
     },
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Designation</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Designation
+        </h1>
+      ),
       dataIndex: "clientCollege",
       key: "clientCollege",
       render: (text) => (
-        <p className="w-32 max-w-40 text-xs font-semibold">{text}</p>
+        <p className="w-44 max-w-52 text-center text-xs font-semibold">{text}</p>
       ),
     },
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Review</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Review
+        </h1>
+      ),
       dataIndex: "review",
       key: "review",
       render: (text) => (
-        <p className="line-clamp-3 text-xs font-semibold">{text}</p>
+        <p className="line-clamp-3 text-center  text-xs font-semibold">{text}</p>
       ),
     },
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Image</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Image
+        </h1>
+      ),
       dataIndex: "imgUrl",
       key: "imageUrl",
       render: (image) => (
@@ -136,7 +152,11 @@ const Testimonial = () => {
       ),
     },
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Actions</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Actions
+        </h1>
+      ),
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
@@ -154,7 +174,7 @@ const Testimonial = () => {
               setIsEdit(true);
               setEditItem(record);
             }}
-            className="cursor-pointer text-primary-color"
+            className="cursor-pointer text-green-500"
           />
           <FaTrash
             onClick={async () => {
@@ -164,7 +184,7 @@ const Testimonial = () => {
 
               fetchTestimonials();
             }}
-            className="cursor-pointer text-primary-color"
+            className="cursor-pointer text-red-500"
           />
         </div>
       ),
@@ -211,6 +231,7 @@ const Testimonial = () => {
         </button>
 
         <Table
+          loading={testimonialsData?.length < 0}
           className="h-full"
           dataSource={testimonialsData}
           columns={columns}
