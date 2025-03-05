@@ -302,7 +302,7 @@ const AddCard = ({ open, onCancel, title }) => {
 
     try {
       await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}admin/add-service`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-service`,
         submissionData,
         {
           headers: {

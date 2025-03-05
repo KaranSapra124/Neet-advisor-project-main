@@ -3,6 +3,7 @@ const SuperAdmin = require("../Models/SuperAdmin");
 const Testimonial = require("../Models/Testimonial");
 const Jwt = require("jsonwebtoken");
 const { generateToken } = require("../Utils/JwtFn");
+const Service = require("../Models/Service");
 const { default: axios } = require("axios");
 
 // Testimonials Started
@@ -179,7 +180,19 @@ exports.getZoomMeetings = async (req, res) => {
 
 // Services Started
 exports.AddService = async (req, res) => {
-  console.log(req.body, req.files);
+  try {
+    const { video, icon } = req.files;
+    const uploadedVideo = video[0]?.filename;
+    const uploadedIcon = icon[0]?.filename;
+    const service = await Service.create({
+      ...req.body,
+      video: uploadedVideo,
+      icon: uploadedIcon,
+    });
+    return res.status(201).send({ message: "Service Added!", service });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong!" });
+  }
 };
 
 exports.editService = async (req, res) => {

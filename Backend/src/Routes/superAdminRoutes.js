@@ -23,7 +23,14 @@ Router.post("/get-zoom-token", getAuthTokenZoom);
 Router.get("/get-zoom-meetings", getAuthTokenZoom, getZoomMeetings);
 
 // Services
-Router.post("/add-service", AddService);
+Router.post(
+  "/add-service",
+  upload.fields([
+    { name: "video", maxCount: 1 },
+    { name: "icon", maxCount: 1 },
+  ]),
+  AddService,
+);
 
 Router.post("/edit-service", editService);
 
