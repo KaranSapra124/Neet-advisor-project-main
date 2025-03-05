@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../../../Components/Helper/Container";
 import { Table } from "antd";
+import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 
 const AdminServices = () => {
   const servicesArr = [
@@ -52,7 +53,9 @@ const AdminServices = () => {
       dataIndex: "video",
       key: "video",
 
-      render: (video) => <video src={video} className="h-24 rounded w-24"></video>,
+      render: (video) => (
+        <video src={video} className="h-24 w-24 rounded"></video>
+      ),
     },
     {
       title: "Content",
@@ -66,8 +69,42 @@ const AdminServices = () => {
       key: "icon",
       render: (img) => {
         console.log(img);
-        return <img className="w-10 h-10" src={img} />;
+        return <img className="h-10 w-10" src={img} />;
       },
+    },
+    {
+      title: "Actions",
+      dataIndex: "action",
+      key: "action",
+      render: (_, record) => (
+        <div className="flex gap-5">
+          <FaEye
+            onClick={() => {
+              setIsView(true);
+              setViewItem(record);
+            }}
+            className="cursor-pointer text-primary-color"
+          />
+
+          <FaEdit
+            onClick={() => {
+              setIsEdit(true);
+              setEditItem(record);
+            }}
+            className="cursor-pointer text-primary-color"
+          />
+          <FaTrash
+            onClick={async () => {
+              const res = await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}admin/delete-testimonial/${record?._id}`,
+              );
+
+              fetchTestimonials();
+            }}
+            className="cursor-pointer text-primary-color"
+          />
+        </div>
+      ),
     },
   ];
   return (
@@ -75,7 +112,9 @@ const AdminServices = () => {
       <Container>
         <div>
           {/* <h1 className="text-2xl">Services</h1> */}
-          <button className="bg-yellow-600 text-white font-semibold p-1 rounded float-right my-2">Add New +</button>
+          <button className="float-right my-2 rounded bg-yellow-600 p-1 font-semibold text-white">
+            Add New +
+          </button>
           <Table columns={columns} dataSource={servicesArr}></Table>
         </div>
       </Container>
