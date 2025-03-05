@@ -176,3 +176,8 @@ exports.getZoomMeetings = async (req, res) => {
     console.log(err);
   }
 };
+
+// Services Started
+exports.editService = async (req, res) => {
+  console.log(req.body);
+};
