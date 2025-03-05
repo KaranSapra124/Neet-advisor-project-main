@@ -53,8 +53,9 @@ const AdminServices = () => {
       key: "title",
 
       render: (text) => (
-        <p className="w-32 max-w-40 text-xs font-semibold">{text}</p>
+        <p className="text-center text-xs font-bold">{text}</p>
       ),
+
     },
     {
       title: "Video",
@@ -67,7 +68,7 @@ const AdminServices = () => {
           autoPlay
           loop
           muted
-          className="h-24 w-24 rounded"
+          className="w-24 rounded"
         ></video>
       ),
     },
@@ -75,7 +76,7 @@ const AdminServices = () => {
       title: "Content",
       dataIndex: "content",
       key: "content",
-      render: (text) => <p className="line-clamp-1 w-52 text-xs">{text}</p>,
+      render: (text) => <p className="line-clamp-1 w-52 text-gray-800 font-semibold text-xs">{text}</p>,
     },
     {
       title: "Icon",
@@ -111,7 +112,7 @@ const AdminServices = () => {
               setIsEdit(true);
               setEditItem(record);
             }}
-            className="cursor-pointer text-primary-color"
+            className="cursor-pointer text-green-700 "
           />
           <FaTrash
             onClick={async () => {
@@ -129,7 +130,7 @@ const AdminServices = () => {
               };
               fetchServices();
             }}
-            className="cursor-pointer text-primary-color"
+            className="cursor-pointer text-red-500"
           />
         </div>
       ),
@@ -192,7 +193,7 @@ const AdminServices = () => {
           >
             Add New +
           </button>
-          <Table columns={columns} dataSource={servicesArr}></Table>
+          <Table tableLayout="fixed" loading={servicesArr?.length < 0} bordered className="shadow  rounded" columns={columns} dataSource={servicesArr}></Table>
         </div>
       </Container>
     </>
