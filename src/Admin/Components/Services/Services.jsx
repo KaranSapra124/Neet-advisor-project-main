@@ -48,17 +48,15 @@ const AdminServices = () => {
   // ];
   const columns = [
     {
-      title: "Service",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Services</h1>,
+      columnTitle:(text)=>console.log(text),
       dataIndex: "title",
       key: "title",
 
-      render: (text) => (
-        <p className="text-center text-xs font-bold">{text}</p>
-      ),
-
+      render: (text) => <p className="text-center text-xs font-bold">{text}</p>,
     },
     {
-      title: "Video",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Video</h1>,
       dataIndex: "video",
       key: "video",
 
@@ -68,31 +66,35 @@ const AdminServices = () => {
           autoPlay
           loop
           muted
-          className="w-24 mx-auto rounded"
+          className="mx-auto w-24 rounded"
         ></video>
       ),
     },
     {
-      title: "Content",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Content</h1>,
       dataIndex: "content",
       key: "content",
-      render: (text) => <p className="line-clamp-1 w-52 text-gray-800 font-semibold text-xs">{text}</p>,
+      render: (text) => (
+        <p className="line-clamp-1 w-52 text-xs font-semibold text-gray-800">
+          {text}
+        </p>
+      ),
     },
     {
-      title: "Icon",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Icon</h1>,
       dataIndex: "icon",
       key: "icon",
       render: (img) => {
         return (
           <img
-            className="h-10 mx-auto w-10"
+            className="mx-auto h-10 w-10"
             src={`${import.meta.env.VITE_BACKEND_URL}uploads/${img}`}
           />
         );
       },
     },
     {
-      title: "Actions",
+      title: <h1 className="text-lg font-bold text-primary-color text-center">Actions</h1>,
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
@@ -111,7 +113,7 @@ const AdminServices = () => {
               setIsEdit(true);
               setEditItem(record);
             }}
-            className="cursor-pointer text-green-700 "
+            className="cursor-pointer text-green-700"
           />
           <FaTrash
             onClick={async () => {
@@ -185,14 +187,23 @@ const AdminServices = () => {
 
       <Container>
         <div>
-          {/* <h1 className="text-2xl">Services</h1> */}
           <button
             onClick={() => setIsAdd(true)}
-            className="float-right my-2 rounded bg-yellow-600 p-1 font-semibold text-white"
+            className="float-right my-2 rounded bg-yellow-500 hover:bg-yellow-600 transition-all p-1 font-semibold text-white"
           >
             Add New +
           </button>
-          <Table  tableLayout="fixed" loading={servicesArr?.length < 0} bordered className="shadow  rounded" columns={columns} dataSource={servicesArr}></Table>
+          <Table
+            onHeaderRow={(column, index) => {
+              return <h1 className="text-4xl">{column}</h1>;
+            }}
+            tableLayout="fixed"
+            loading={servicesArr?.length < 0}
+            bordered
+            className="rounded shadow"
+            columns={columns}
+            dataSource={servicesArr}
+          ></Table>
         </div>
       </Container>
     </>
