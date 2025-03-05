@@ -245,3 +245,14 @@ exports.deleteService = async (req, res) => {
     return res.status(401).send({ message: "Something Went Wrong!", err });
   }
 };
+
+// Services Ended
+
+// Students Started
+exports.addStudents = async (req, res) => {
+  try {
+    console.log(req.body);
+  } catch (err) {
+    console.log(err);
+  }
+};

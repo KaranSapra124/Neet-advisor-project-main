@@ -9,6 +9,7 @@ const {
   AddService,
   getServices,
   deleteService,
+  addStudents,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -44,6 +45,10 @@ Router.post(
   editService,
 );
 
-Router.post("/delete-service/:id",deleteService)
+Router.post("/delete-service/:id",deleteService);
+// Services Ended
+
+// Students Started
+Router.post("/add-student",addStudents)
 
 module.exports = Router;
