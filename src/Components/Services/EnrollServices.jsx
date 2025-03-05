@@ -15,6 +15,7 @@ import { motion } from "framer-motion";
 import Container from "../Helper/Container";
 import { FaArrowLeft, FaArrowRight, FaPlayCircle } from "react-icons/fa";
 import Divider from "../Helper/Divider";
+import axios from "axios";
 
 const EnrollServices = () => {
   const [isPlaying, setIsPlaying] = useState({});
@@ -22,41 +23,42 @@ const EnrollServices = () => {
   const [expandedCards, setExpandedCards] = useState({});
   const [currIndex, setCurrIndex] = useState(0);
   const [isChanged, setIsChanged] = useState(false);
+  const [servicesArr, setServicesArr] = useState([]);
 
-  const servicesArr = [
-    {
-      video:
-        "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-      title: "Shortlist Your Success",
-      content:
-        "Based on your expected NEET Score, we shortlist for you the state & college you should apply for.",
-      icon: "./About/motivationGif.gif",
-    },
-    {
-      video:
-        "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-      title: "Guidance from our Advisor",
-      content:
-        "An Intensive one to one NEET counselling session from our Advisor who will answer your queries about AIQ & State Quota NEET Counselling.",
-      icon: "./About/person-speaker.gif",
-    },
-    {
-      video:
-        "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-      title: "Application Filling",
-      content:
-        "Support with filling of application form of All India Quota/ESI/AFMC/Deemed Universities & different state quota counselling.",
-      icon: "./About/BookImg.gif",
-    },
-    {
-      video:
-        "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-      title: "Look beyond MBBS",
-      content:
-        "There are many more medical courses like BDS, BAMS, Physiotherapy, DNB, etc.",
-      icon: "./About/mission.gif",
-    },
-  ];
+  // const servicesArr = [
+  //   {
+  //     video:
+  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
+  //     title: "Shortlist Your Success",
+  //     content:
+  //       "Based on your expected NEET Score, we shortlist for you the state & college you should apply for.",
+  //     icon: "./About/motivationGif.gif",
+  //   },
+  //   {
+  //     video:
+  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
+  //     title: "Guidance from our Advisor",
+  //     content:
+  //       "An Intensive one to one NEET counselling session from our Advisor who will answer your queries about AIQ & State Quota NEET Counselling.",
+  //     icon: "./About/person-speaker.gif",
+  //   },
+  //   {
+  //     video:
+  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
+  //     title: "Application Filling",
+  //     content:
+  //       "Support with filling of application form of All India Quota/ESI/AFMC/Deemed Universities & different state quota counselling.",
+  //     icon: "./About/BookImg.gif",
+  //   },
+  //   {
+  //     video:
+  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
+  //     title: "Look beyond MBBS",
+  //     content:
+  //       "There are many more medical courses like BDS, BAMS, Physiotherapy, DNB, etc.",
+  //     icon: "./About/mission.gif",
+  //   },
+  // ];
 
   const togglePlay = (index) => {
     const video = document.getElementById(`video-${index}`);
@@ -75,21 +77,34 @@ const EnrollServices = () => {
     setExpandedCards(index);
   };
 
+  useEffect(() => {
+    const fetchServices = async () => {
+      // console.log("HEREEHRHEHRHEHR")
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+      );
+      setServicesArr(data?.services);
+    };
+    fetchServices();
+  }, []);
+
   return (
     <Container>
       <div className="mx-auto">
         {/* Hero Section */}
         <div className="my-4 text-center">
-          <h1 className="lg:mb-2 mb-1.5 lg:text-3xl text-lg font-bold text-yellow-600 md:text-4xl">
+          <h1 className="mb-1.5 text-lg font-bold text-yellow-600 md:text-4xl lg:mb-2 lg:text-3xl">
             On your marks , get set ,{" "}
             <span className="font-extrabold text-primary-color">Enroll!</span>
           </h1>
-          <p className="mx-auto lg:max-w-lg lg:text-xs text-[0.5rem] font-semibold text-gray-700">
+          <p className="mx-auto text-[0.5rem] font-semibold text-gray-700 lg:max-w-lg lg:text-xs">
             Once you have enrolled, the excitement begins! We focus on helping
             you win the race and are beside you right up to the finish line.
           </p>
           <Divider
-            className={"mx-auto my-4 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
+            className={
+              "mx-auto my-4 h-0.5 w-12 rounded-full bg-yellow-600 lg:h-1 lg:w-20"
+            }
           />
         </div>
       </div>
@@ -120,33 +135,35 @@ const EnrollServices = () => {
               onPause={() =>
                 setIsPlaying((prev) => ({ ...prev, [currIndex]: false }))
               }
+              src={`${import.meta.env.VITE_BACKEND_URL}uploads/${servicesArr[currIndex]?.video}`}
             >
-              <source src={servicesArr[currIndex].video} type="video/mp4" />
+              {/* {console.log(servicesArr[currIndex]?.video)} */}
+              {/* <source  /> */}
             </video>
 
             {/* Content Overlay */}
-            <div className="absolute  inset-0 flex flex-col justify-center lg:gap-4 gap-2 rounded-md lg:bg-black/50 bg-black/60 p-4 text-white">
-              <div className="flex flex-col absolute top-36 lg:gap-2 gap-1 ">
+            <div className="absolute inset-0 flex flex-col justify-center gap-2 rounded-md bg-black/60 p-4 text-white lg:gap-4 lg:bg-black/50">
+              <div className="absolute top-36 flex flex-col gap-1 lg:gap-2">
                 {/* <span className="text-white">{servicesArr[currIndex].icon}</span>  */}
-                <span className="lg:text-lg text-xs font-bold">
-                  {servicesArr[currIndex].title}
+                <span className="text-xs font-bold lg:text-lg">
+                  {servicesArr[currIndex]?.title}
                 </span>
-              <p className="text-xs font-semibold text-gray-300">
-                {servicesArr[currIndex].content}
-              </p>
-              <div className="flex items-center gap-2">
-                <FaPlayCircle
-                  onClick={() => setModalVideo(servicesArr[currIndex])}
-                  className="mt-2 cursor-pointer text-xs lg:text-xl transition-all duration-200 hover:scale-125 hover:text-gray-200"
-                />
-              </div>
+                <p className="text-xs font-semibold text-gray-300">
+                  {servicesArr[currIndex]?.content}
+                </p>
+                <div className="flex items-center gap-2">
+                  <FaPlayCircle
+                    onClick={() => setModalVideo(servicesArr[currIndex])}
+                    className="mt-2 cursor-pointer text-xs transition-all duration-200 hover:scale-125 hover:text-gray-200 lg:text-xl"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </motion.div>
 
         {/* Navigation Arrows */}
-        <div className="mb-2 flex">
+        <div className={servicesArr?.length > 1 ? `mb-2 flex` : "hidden"}>
           <FaArrowLeft
             onClick={() => {
               setCurrIndex((prev) =>
@@ -154,7 +171,7 @@ const EnrollServices = () => {
               );
               setIsChanged(!isChanged);
             }}
-            className="my-2 cursor-pointer rounded-full bg-yellow-600 lg:p-2 p-1.5 lg:text-3xl text-xl text-white shadow-md shadow-black duration-200 hover:scale-105"
+            className="my-2 cursor-pointer rounded-full bg-yellow-600 p-1.5 text-xl text-white shadow-md shadow-black duration-200 hover:scale-105 lg:p-2 lg:text-3xl"
           />
           <FaArrowRight
             onClick={() => {
@@ -163,13 +180,13 @@ const EnrollServices = () => {
               );
               setIsChanged(!isChanged);
             }}
-            className="mx-2 my-2 cursor-pointer rounded-full bg-yellow-600 lg:p-2 p-1.5 lg:text-3xl text-xl text-white shadow-md shadow-black duration-200 hover:scale-105"
+            className="mx-2 my-2 cursor-pointer rounded-full bg-yellow-600 p-1.5 text-xl text-white shadow-md shadow-black duration-200 hover:scale-105 lg:p-2 lg:text-3xl"
           />
         </div>
 
         {/* Remaining Cards in a Row */}
         <div
-          className="animate-fadeIn   gap-5   grid lg:grid-cols-3 grid-cols-1"
+          className="grid animate-fadeIn grid-cols-1 gap-5 lg:grid-cols-3"
           key={isChanged}
         >
           {servicesArr &&
@@ -187,13 +204,13 @@ const EnrollServices = () => {
                     transition={{ duration: 0.5 }}
                     whileHover={{ scale: 1.05 }} // Scale effect on hover
                     // whileHover={{ scale: 1.05 }} // Scale effect on hover
-                    className="flex flex-col  rounded-md border-b-2 border-l-2 border-yellow-600 shadow-lg"
+                    className="flex flex-col rounded-md border-b-2 border-l-2 border-yellow-600 shadow-lg"
                   >
                     {/* Video Section */}
-                    <div className="group relative ">
+                    <div className="group relative">
                       <video
                         id={`video-${serviceIndex}`}
-                        className="aspect-video m-1 h-full w-full rounded-md object-cover"
+                        className="m-1 aspect-video h-full w-full rounded-md object-cover"
                         onPlay={() =>
                           setIsPlaying((prev) => ({
                             ...prev,
@@ -209,10 +226,9 @@ const EnrollServices = () => {
                             [serviceIndex]: false,
                           }))
                         }
-                      >
-                        <source src={service.video} type="video/mp4" />
-                      </video>
-                      <div className="absolute m-1 cursor-pointer inset-0 flex h-full items-center justify-center gap-2 rounded-lg bg-black bg-opacity-30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        src={`${import.meta.env.VITE_BACKEND_URL}uploads/${service.video}`}
+                      ></video>
+                      <div className="absolute inset-0 m-1 flex h-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-black bg-opacity-30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <Tooltip
                           title={isPlaying[serviceIndex] ? "Pause" : "Play"}
                         >
@@ -246,25 +262,25 @@ const EnrollServices = () => {
                     <div className="ml-2 flex-1 px-1.5 py-4">
                       <div className="mb-1 flex items-center gap-2">
                         <img
-                          src={service?.icon}
+                          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${service?.icon}`}
                           className="w-8 rounded-full p-1 shadow-md shadow-gray-300"
                         />
-                        <span className="lg:text-sm text-[0.75rem] font-bold text-primary-color">
-                          {service.title}
+                        <span className="text-[0.75rem] font-bold text-primary-color lg:text-sm">
+                          {service?.title}
                         </span>
                       </div>
-                      <Divider className="lg:my-4 my-1.5 h-0.5 w-12  rounded-full bg-yellow-600" />
+                      <Divider className="my-1.5 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4" />
 
-                      <p className="mb-4 lg:text-xs text-[0.5rem] leading-[1.5] italic font-semibold text-gray-900">
+                      <p className="mb-4 text-[0.5rem] font-semibold italic leading-[1.5] text-gray-900 lg:text-xs">
                         {expandedCards === serviceIndex
-                          ? `"${service.content}"`
+                          ? `"${service?.content}"`
                           : service?.content?.substring(0, 45) + "..."}
                       </p>
                       {expandedCards === serviceIndex ? (
                         <>
                           <div
                             onClick={() => toggleExpand({})}
-                            className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 p-2 py-2 lg:text-xs text-[0.6rem] font-semibold text-white shadow transition-all"
+                            className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 p-2 py-2 text-[0.6rem] font-semibold text-white shadow transition-all lg:text-xs"
                           >
                             <UpOutlined className="transition-all duration-150" />{" "}
                             Show Less
@@ -274,7 +290,7 @@ const EnrollServices = () => {
                         <>
                           <div
                             onClick={() => toggleExpand(serviceIndex)}
-                            className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 lg:p-2 lg:py-2 p-1.5 lg:text-xs text-[0.6rem] font-semibold text-white shadow transition-all"
+                            className="duration=300 mt-2 w-fit cursor-pointer rounded-lg bg-yellow-600 p-1.5 text-[0.6rem] font-semibold text-white shadow transition-all lg:p-2 lg:py-2 lg:text-xs"
                           >
                             <DownOutlined /> Learn More
                           </div>
@@ -303,9 +319,8 @@ const EnrollServices = () => {
             autoPlay
             style={{ maxWidth: "100%", maxHeight: "80vh" }}
             className="rounded-xl"
-          >
-            <source src={modalVideo.video} type="video/mp4" />
-          </video>
+            src={`${import.meta.env.VITE_BACKEND_URL}uploads/${modalVideo.video}`}
+          ></video>
         )}
       </Modal>
     </Container>
