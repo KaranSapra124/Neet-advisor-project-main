@@ -109,7 +109,7 @@ const Testimonial = () => {
       key: "clientName",
 
       render: (text) => (
-        <p className="w-32 text-xs font-semibold text-gray-800">{text}</p>
+        <p className="w-32 text-xs font-bold text-gray-800">{text}</p>
       ),
     },
     {
@@ -121,7 +121,9 @@ const Testimonial = () => {
       dataIndex: "clientCollege",
       key: "clientCollege",
       render: (text) => (
-        <p className="w-44 max-w-52 text-center text-xs font-semibold">{text}</p>
+        <p className="w-44 max-w-52 text-center text-xs font-medium">
+          {text}
+        </p>
       ),
     },
     {
@@ -133,7 +135,7 @@ const Testimonial = () => {
       dataIndex: "review",
       key: "review",
       render: (text) => (
-        <p className="line-clamp-3 text-center  text-xs font-semibold">{text}</p>
+        <p className="line-clamp-3 text-center text-xs font-medium">{text}</p>
       ),
     },
     {
@@ -225,7 +227,7 @@ const Testimonial = () => {
       <Container>
         <button
           onClick={() => setIsAdd(true)}
-          className="float-right my-2 rounded bg-yellow-600 p-1 font-semibold text-white transition-all hover:scale-105 hover:shadow hover:shadow-black"
+          className="float-right my-2 rounded bg-yellow-500 p-1 font-semibold text-white transition-all hover:scale-105 hover:shadow hover:shadow-black"
         >
           Add New +
         </button>
@@ -302,43 +304,67 @@ const EditCard = ({
 
   return (
     <Modal
-      title="Edit Testimonial"
+      title={
+        <span className="text-xl font-semibold text-gray-700">
+          Edit Testimonial
+        </span>
+      }
       open={true}
       onOk={handleSave}
       onCancel={onCancel}
+      okButtonProps={{
+        className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold",
+      }}
+      cancelButtonProps={{
+        className: "border-gray-300 hover:border-gray-400 text-gray-600",
+      }}
     >
-      <div className="flex flex-col gap-4 p-5">
-        <img
-          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${editImage?.url}`}
-          alt="Client"
-          className="mx-auto h-20 w-20 rounded-full"
-        />
-        <input
-          type="file"
-          name=""
-          onChange={(e) => {
-            setEditImage({
-              file: e.target.files[0],
-              url: URL.createObjectURL(e.target.files[0]),
-            });
-          }}
-          id=""
-        />
+      <div className="flex flex-col gap-4 p-4">
+        {/* Profile Image */}
+        <div className="flex flex-col items-center">
+          <img
+            src={
+              editImage?.file
+                ? editImage?.url
+                : `${import.meta.env.VITE_BACKEND_URL}uploads/${editImage?.url}`
+            }
+            alt="Client"
+            className="h-24 w-24 rounded-full border-2 border-gray-300 shadow-md"
+          />
+          <label className="mt-3 cursor-pointer rounded-lg bg-blue-500 px-4 py-2 text-sm text-white shadow hover:bg-blue-600">
+            Upload New Image
+            <input
+              type="file"
+              className="hidden"
+              onChange={(e) => {
+                setEditImage({
+                  file: e.target.files[0],
+                  url: URL.createObjectURL(e.target.files[0]),
+                });
+              }}
+            />
+          </label>
+        </div>
+
+        {/* Input Fields */}
         <Input
           value={editedName}
           onChange={(e) => setEditedName(e.target.value)}
           placeholder="Client Name"
+          className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
         <Input
           value={editedCollege}
           onChange={(e) => setEditedCollege(e.target.value)}
           placeholder="Client College"
+          className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
         <Input.TextArea
           value={editedReview}
           onChange={(e) => setEditedReview(e.target.value)}
           placeholder="Review"
           rows={4}
+          className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
       </div>
     </Modal>
