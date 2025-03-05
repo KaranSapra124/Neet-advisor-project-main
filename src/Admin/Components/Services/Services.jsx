@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Modal, Table } from "antd";
+import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 
 const AdminServices = () => {
@@ -112,6 +112,9 @@ const AdminServices = () => {
       ),
     },
   ];
+  const handleSave = (data) => {
+    console.log(data);
+  };
   return (
     <>
       {isView && (
@@ -129,6 +132,17 @@ const AdminServices = () => {
           />
         </Modal>
       )}
+      {isEdit && (
+        <EditCard
+          onSave={handleSave}
+          onCancel={() => setIsEdit(false)}
+          key={editItem?._id}
+          title={editItem?.title}
+          content={editItem?.content}
+          icon={editItem?.icon}
+          video={editItem?.video}
+        />
+      )}
       <Container>
         <div>
           {/* <h1 className="text-2xl">Services</h1> */}
@@ -142,31 +156,35 @@ const AdminServices = () => {
   );
 };
 
-const EditCard = ({ video, title, content, icon }) => {
-  const [editedName, setEditedName] = useState(clientName);
-  const [editedCollege, setEditedCollege] = useState(clientCollege);
-  const [editedReview, setEditedReview] = useState(review);
-  const [editImage, setEditImage] = useState({ file: "", url: imgUrl });
+const EditCard = ({ video, title, content, icon, onCancel, onSave }) => {
+  const [editedVideo, setEditedVideo] = useState({ file: "", url: video });
+  const [editedTitle, setEditedTitle] = useState(title);
+  const [editedContent, setEditedContent] = useState(content);
+  const [editedIcon, setEditedIcon] = useState(icon);
+  const [editImage, setEditImage] = useState(null);
 
   const handleSave = async () => {
-    const formData = {
-      clientName: editedName,
-      clientCollege: editedCollege,
-      review: editedReview,
-      file: editImage?.file ? editImage?.file : null,
-    };
-    // await axios.post(
-    //   `${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`,
-    //   formData,
-    //   {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   },
-    // );
+    const formData = new FormData();
+    formData.append("video", editedVideo);
+    formData.append("title", editedTitle);
+    formData.append("content", editedContent);
+    if (editImage?.file) {
+      formData.append("file", editImage.file);
+    }
+
+    // Example API call (uncomment to use)
+    // await axios.post(`${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`, formData, {
+    //   headers: { "Content-Type": "multipart/form-data" },
+    // });
+
+    onSave(formData); // Pass formData to parent if needed
     onCancel();
   };
 
+  // useEffect(
+  //   () => console.log(editedVideo, editedTitle, editedIcon, editedContent),
+  //   [editedVideo, editedTitle, editedIcon, editedContent],
+  // );
   return (
     <Modal
       title="Edit Testimonial"
@@ -175,36 +193,52 @@ const EditCard = ({ video, title, content, icon }) => {
       onCancel={onCancel}
     >
       <div className="flex flex-col gap-4 p-5">
+        {/* Display Image Preview */}
         <img
-          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${editImage?.url}`}
-          alt="Client"
+          src={editImage?.url || editedIcon}
+          alt="Icon"
           className="mx-auto h-20 w-20 rounded-full"
         />
+
+        {/* File Input for Icon */}
         <input
           type="file"
-          name=""
+          accept="image/*"
           onChange={(e) => {
+            const file = e.target.files[0];
             setEditImage({
-              file: e.target.files[0],
-              url: URL.createObjectURL(e.target.files[0]),
+              file,
+              url: URL.createObjectURL(file),
             });
           }}
-          id=""
         />
+
+        {/* Video Input */}
+        <video src={editedVideo?.url} autoPlay className="w-52 rounded"></video>
+        <input
+          type="file"
+          // accept="image/*"
+          onChange={(e) => {
+            const file = e.target.files[0];
+            setEditedVideo({
+              file,
+              url: URL.createObjectURL(file),
+            });
+          }}
+        />
+
+        {/* Title Input */}
         <Input
-          value={editedName}
-          onChange={(e) => setEditedName(e.target.value)}
-          placeholder="Client Name"
+          value={editedTitle}
+          onChange={(e) => setEditedTitle(e.target.value)}
+          placeholder="Title"
         />
-        <Input
-          value={editedCollege}
-          onChange={(e) => setEditedCollege(e.target.value)}
-          placeholder="Client College"
-        />
+
+        {/* Content Input */}
         <Input.TextArea
-          value={editedReview}
-          onChange={(e) => setEditedReview(e.target.value)}
-          placeholder="Review"
+          value={editedContent}
+          onChange={(e) => setEditedContent(e.target.value)}
+          placeholder="Content"
           rows={4}
         />
       </div>
