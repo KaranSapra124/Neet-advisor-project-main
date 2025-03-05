@@ -6,6 +6,7 @@ import {
   FaQuestionCircle,
   FaBell,
   FaBlog,
+  FaGraduationCap,
 } from "react-icons/fa";
 import { RiDashboardFill } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
@@ -28,6 +29,7 @@ const AdminLayout = () => {
     { name: "Services", link: "/admin/services", icon: <BsFileBarGraph /> },
     { name: "Alerts & News", link: "/", icon: <FaBell /> },
     { name: "Blogs", link: "/", icon: <FaBlog /> },
+    { name: "Students", link: "/admin/students", icon: <FaGraduationCap /> },
   ];
 
   // Find the active tab based on the current route
