@@ -9,10 +9,9 @@ import {
   FaTrash,
   FaUniversity,
 } from "react-icons/fa";
-import Divider from "../../../Components/Helper/Divider";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const fetchStudents = async () => {
   const res = await axios.get(
@@ -139,10 +138,6 @@ const StudentsData = () => {
     },
   ];
 
-  useEffect(() => {
-    const fn = async () => fetchStudents();
-    fn();
-  }, []);
   return (
     <>
       {isView && (
@@ -270,22 +265,23 @@ const EditCard = ({
   Rank,
   onCancel,
 }) => {
+  const queryClient = useQueryClient();
   const [editedName, setEditedName] = useState(clientName);
   const [editedCollege, setEditedCollege] = useState(clientCollege);
   const [editedRank, setEditedRank] = useState(Rank);
   const [editedCourse, setEditedCourse] = useState(Course);
   const [editImage, setEditImage] = useState({ file: "", url: imgUrl });
 
-  const handleSave = async () => {
-    const formData = new FormData();
-    formData.append("clientName", editedName);
-    formData.append("clientCollege", editedCollege);
-    formData.append("Rank", editedRank);
-    formData.append("Course", editedCourse);
-    if (editImage?.file) {
-      formData.append("file", editImage.file);
-    }
-
+  const formData = new FormData();
+  formData.append("clientName", editedName);
+  formData.append("clientCollege", editedCollege);
+  formData.append("Rank", editedRank);
+  formData.append("Course", editedCourse);
+  if (editImage?.file) {
+    formData.append("file", editImage.file);
+  }
+  const handleSave = async (formData) => {
+    console.log("SAVED");
     await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-student/${id}`,
       formData,
@@ -298,6 +294,11 @@ const EditCard = ({
     onCancel();
   };
 
+  const mutation = useMutation({
+    mutationFn: handleSave,
+    onSuccess: () => queryClient.invalidateQueries(["fetchedStudent"]),
+  });
+
   return (
     <Modal
       title={
@@ -306,7 +307,7 @@ const EditCard = ({
         </span>
       }
       open={true}
-      onOk={handleSave}
+      onOk={() => mutation.mutate(formData)}
       onCancel={onCancel}
       okButtonProps={{
         className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold",
