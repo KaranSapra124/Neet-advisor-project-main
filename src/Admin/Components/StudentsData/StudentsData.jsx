@@ -37,7 +37,7 @@ const StudentsData = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Designation
+          College
         </h1>
       ),
       dataIndex: "clientCollege",
@@ -49,11 +49,11 @@ const StudentsData = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Review
+          Rank
         </h1>
       ),
-      dataIndex: "review",
-      key: "review",
+      dataIndex: "Rank",
+      key: "Rank",
       render: (text) => (
         <p className="line-clamp-3 text-center text-xs font-medium">{text}</p>
       ),
@@ -66,6 +66,21 @@ const StudentsData = () => {
       ),
       dataIndex: "imgUrl",
       key: "imageUrl",
+      render: (image) => (
+        <img
+          className="h-10 w-10"
+          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${image}`}
+        />
+      ),
+    },
+    {
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Course
+        </h1>
+      ),
+      dataIndex: "Course",
+      key: "Course",
       render: (image) => (
         <img
           className="h-10 w-10"
@@ -153,9 +168,9 @@ const StudentsData = () => {
         </button>
 
         <Table
-          loading={testimonialsData?.length < 0}
+          loading={students?.length < 0}
           className="h-full"
-          dataSource={testimonialsData}
+          dataSource={students}
           columns={columns}
           pagination={{
             pageSize: 5,
@@ -295,121 +310,147 @@ const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
     imgUrl: "",
     file: "",
-    review: "",
     clientName: "",
     clientCollege: "",
+    Rank: "",
+    Course: "",
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData((prev) => ({
+        ...prev,
+        file: file,
+        imgUrl: URL.createObjectURL(file),
+      }));
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
-      !formData.imgUrl ||
-      !formData.review ||
       !formData.clientName ||
-      !formData.clientCollege
+      !formData.clientCollege ||
+      !formData.Rank ||
+      !formData.Course
     ) {
       alert("All fields are required!");
       return;
     }
-    setFormData({ imgUrl: "", review: "", clientName: "", clientCollege: "" });
-    onCancel(); // Close modal after submission
-    await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}admin/add-testimonial`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data", // Important for file upload
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("imgUrl", formData.imgUrl);
+    formDataToSend.append("file", formData.file);
+    formDataToSend.append("clientName", formData.clientName);
+    formDataToSend.append("clientCollege", formData.clientCollege);
+    formDataToSend.append("Rank", formData.Rank);
+    formDataToSend.append("Course", formData.Course);
+
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-student`,
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         },
-      },
-    );
+      );
+
+      setFormData({
+        imgUrl: "",
+        file: "",
+        clientName: "",
+        clientCollege: "",
+        Rank: "",
+        Course: "",
+      });
+      onCancel();
+    } catch (error) {
+      console.error("Error adding student:", error);
+    }
   };
 
   return (
-    <>
-      <Modal
-        title="Add Testimonial"
-        open={open}
-        onClose={onCancel}
-        onCancel={onCancel}
-        footer={false}
-      >
-        {/* <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"> */}
-        <div className="rounded-lg bg-white p-6 shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* <input
-              type="text"
-              name="imgUrl"
-              value={formData.imgUrl}
-              onChange={handleChange}
-              placeholder="Image URL"
-              className="w-full rounded-md border p-2"
-            /> */}
+    <Modal
+      title="Add Student"
+      open={open}
+      onClose={onCancel}
+      onCancel={onCancel}
+      footer={false}
+    >
+      <div className="rounded-lg bg-white p-6 shadow-lg">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {formData.imgUrl && (
             <img
               className="mx-auto h-32 w-32 rounded-full"
-              src={formData?.imgUrl}
-              alt=""
+              src={formData.imgUrl}
+              alt="Student"
             />
-            <input
-              type="file"
-              name="file"
-              onChange={(e) => {
-                setFormData((prev) => ({
-                  ...prev,
-                  file: e.target.files[0],
-                  imgUrl: URL.createObjectURL(e.target.files[0]),
-                }));
-              }}
-              id=""
-            />
-            <textarea
-              name="review"
-              value={formData.review}
-              onChange={handleChange}
-              placeholder="Review"
-              className="w-full rounded-md border p-2"
-              rows={3}
-            />
-            <input
-              type="text"
-              name="clientName"
-              value={formData.clientName}
-              onChange={handleChange}
-              placeholder="Client Name"
-              className="w-full rounded-md border p-2"
-            />
-            <input
-              type="text"
-              name="clientCollege"
-              value={formData.clientCollege}
-              onChange={handleChange}
-              placeholder="Client College"
-              className="w-full rounded-md border p-2"
-            />
+          )}
 
-            <div className="flex justify-between">
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                className="rounded-md border px-4 py-2 text-gray-700"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
-              >
-                Add
-              </button>
-            </div>
-          </form>
-        </div>
-        {/* </div> */}
-      </Modal>
-    </>
+          <input
+            type="file"
+            name="file"
+            onChange={handleFileChange}
+            className="w-full"
+          />
+          <input
+            type="text"
+            name="clientName"
+            value={formData.clientName}
+            onChange={handleChange}
+            placeholder="Client Name"
+            className="w-full rounded-md border p-2"
+          />
+          <input
+            type="text"
+            name="clientCollege"
+            value={formData.clientCollege}
+            onChange={handleChange}
+            placeholder="Client College"
+            className="w-full rounded-md border p-2"
+          />
+          <input
+            type="text"
+            name="Rank"
+            value={formData.Rank}
+            onChange={handleChange}
+            placeholder="Rank"
+            className="w-full rounded-md border p-2"
+          />
+          <input
+            type="text"
+            name="Course"
+            value={formData.Course}
+            onChange={handleChange}
+            placeholder="Course"
+            className="w-full rounded-md border p-2"
+          />
+
+          <div className="flex justify-between">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="rounded-md border px-4 py-2 text-gray-700"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
+            >
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </Modal>
   );
 };
 
