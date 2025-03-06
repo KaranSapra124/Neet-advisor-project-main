@@ -155,7 +155,8 @@ const StudentsData = () => {
           clientCollege={editItem?.clientCollege}
           clientName={editItem?.clientName}
           imgUrl={editItem?.imgUrl}
-          review={editItem?.review}
+          Course={editItem?.Course}
+          Rank={editItem?.Rank}
           onCancel={() => setIsEdit(false)}
         />
       )}
@@ -251,25 +252,30 @@ const TestimonialCard = ({
 const EditCard = ({
   id,
   imgUrl,
-  review,
+  Course,
   clientName,
   clientCollege,
-  onCancel,
+  Rank,
+  onCancel
 }) => {
   const [editedName, setEditedName] = useState(clientName);
   const [editedCollege, setEditedCollege] = useState(clientCollege);
-  const [editedReview, setEditedReview] = useState(review);
+  const [editedRank, setEditedRank] = useState(Rank);
+  const [editedCourse, setEditedCourse] = useState(Course);
   const [editImage, setEditImage] = useState({ file: "", url: imgUrl });
 
   const handleSave = async () => {
-    const formData = {
-      clientName: editedName,
-      clientCollege: editedCollege,
-      review: editedReview,
-      file: editImage?.file ? editImage?.file : null,
-    };
+    const formData = new FormData();
+    formData.append("clientName", editedName);
+    formData.append("clientCollege", editedCollege);
+    formData.append("Rank", editedRank);
+    formData.append("Course", editedCourse);
+    if (editImage?.file) {
+      formData.append("file", editImage.file);
+    }
+
     await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`,
+      `${import.meta.env.VITE_BACKEND_URL}admin/edit-student/${id}`,
       formData,
       {
         headers: {
@@ -284,7 +290,7 @@ const EditCard = ({
     <Modal
       title={
         <span className="text-xl font-semibold text-gray-700">
-          Edit Testimonial
+          Edit Student
         </span>
       }
       open={true}
@@ -337,17 +343,23 @@ const EditCard = ({
           placeholder="Client College"
           className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
-        <Input.TextArea
-          value={editedReview}
-          onChange={(e) => setEditedReview(e.target.value)}
-          placeholder="Review"
-          rows={4}
+        <Input
+          value={editedRank}
+          onChange={(e) => setEditedRank(e.target.value)}
+          placeholder="Rank"
+          className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+        />
+        <Input
+          value={editedCourse}
+          onChange={(e) => setEditedCourse(e.target.value)}
+          placeholder="Course"
           className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
       </div>
     </Modal>
   );
 };
+
 
 const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
