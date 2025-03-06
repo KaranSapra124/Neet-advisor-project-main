@@ -252,16 +252,25 @@ exports.deleteService = async (req, res) => {
 // Students Started
 exports.addStudents = async (req, res) => {
   try {
-    console.log(req.body);
+    //  console.log(req.file)
+    const { filename } = req.file;
+    const newStudent = await Students.create({
+      imgUrl: filename,
+      ...req.body,
+    });
+    return res
+      .status(201)
+      .send({ message: "Student Added Successfully!", newStudent });
   } catch (err) {
     console.log(err);
+    return res.status(401).send({ message: "Something Went Wrong!", err });
   }
 };
-exports.getStudents = async(req,res)=>{
+exports.getStudents = async (req, res) => {
   try {
     const students = await Students.find();
     return res.status(200).send({ message: "Students Fetched!", students });
   } catch (err) {
     return res.status(401).send({ message: "Something Went Wrong!" });
   }
-}
+};

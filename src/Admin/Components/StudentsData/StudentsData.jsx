@@ -4,6 +4,7 @@ import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import Divider from "../../../Components/Helper/Divider";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const StudentsData = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -65,10 +66,10 @@ const StudentsData = () => {
         </h1>
       ),
       dataIndex: "imgUrl",
-      key: "imageUrl",
+      key: "imgeUrl",
       render: (image) => (
         <img
-          className="h-10 w-10"
+          className="h-10 mx-auto w-10"
           src={`${import.meta.env.VITE_BACKEND_URL}uploads/${image}`}
         />
       ),
@@ -81,11 +82,9 @@ const StudentsData = () => {
       ),
       dataIndex: "Course",
       key: "Course",
-      render: (image) => (
-        <img
-          className="h-10 w-10"
-          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${image}`}
-        />
+      render: (course) => (
+        <p className="line-clamp-3 text-center text-xs font-medium">{course}</p>
+
       ),
     },
     {
@@ -344,7 +343,7 @@ const AddCard = ({ open, onCancel }) => {
     }
 
     const formDataToSend = new FormData();
-    formDataToSend.append("imgUrl", formData.imgUrl);
+    // formDataToSend.append("imgUrl", formData.imgUrl);
     formDataToSend.append("file", formData.file);
     formDataToSend.append("clientName", formData.clientName);
     formDataToSend.append("clientCollege", formData.clientCollege);
@@ -352,7 +351,7 @@ const AddCard = ({ open, onCancel }) => {
     formDataToSend.append("Course", formData.Course);
 
     try {
-      await axios.post(
+      const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-student`,
         formDataToSend,
         {
@@ -371,6 +370,7 @@ const AddCard = ({ open, onCancel }) => {
         Course: "",
       });
       onCancel();
+      toast.success(data?.message);
     } catch (error) {
       console.error("Error adding student:", error);
     }
