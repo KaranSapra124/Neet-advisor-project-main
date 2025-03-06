@@ -32,7 +32,7 @@ const StudentsData = () => {
       key: "clientName",
 
       render: (text) => (
-        <p className="w-32 text-xs font-bold text-gray-800">{text}</p>
+        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
       ),
     },
     {
@@ -44,7 +44,7 @@ const StudentsData = () => {
       dataIndex: "clientCollege",
       key: "clientCollege",
       render: (text) => (
-        <p className="w-44 max-w-52 text-center text-xs font-medium">{text}</p>
+        <p className="max-w-52 text-center text-xs font-medium">{text}</p>
       ),
     },
     {
@@ -95,7 +95,7 @@ const StudentsData = () => {
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
-        <div className="flex gap-5">
+        <div className="flex justify-center items-center gap-5">
           <FaEye
             onClick={() => {
               setIsView(true);
@@ -167,6 +167,7 @@ const StudentsData = () => {
         </button>
 
         <Table
+          tableLayout="fixed"
           loading={students?.length < 0}
           className="h-full"
           dataSource={students}
@@ -371,7 +372,6 @@ const AddCard = ({ open, onCancel }) => {
       });
       onCancel();
       toast.success(data?.message);
-      
     } catch (error) {
       console.error("Error adding student:", error);
     }
