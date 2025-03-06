@@ -46,11 +46,11 @@ Router.post(
   editService,
 );
 
-Router.post("/delete-service/:id",deleteService);
+Router.post("/delete-service/:id", deleteService);
 // Services Ended
 
 // Students Started
-Router.post("/add-student",addStudents);
-Router.get("/get-students",getStudents)
+Router.post("/add-student", upload.single("file"), addStudents);
+Router.get("/get-students", getStudents);
 
 module.exports = Router;
