@@ -1,25 +1,37 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
 import { Input, Modal, Table } from "antd";
-import { FaEdit, FaEye, FaGraduationCap, FaRocket, FaTrash, FaUniversity } from "react-icons/fa";
+import {
+  FaEdit,
+  FaEye,
+  FaGraduationCap,
+  FaRocket,
+  FaTrash,
+  FaUniversity,
+} from "react-icons/fa";
 import Divider from "../../../Components/Helper/Divider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useQuery } from "@tanstack/react-query";
 
+const fetchStudents = async () => {
+  const res = await axios.get(
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-students`,
+  );
+  const { data } = res;
+  return data?.students;
+};
 const StudentsData = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
-  const [students, setStudents] = useState([]);
-  const fetchStudents = async () => {
-    const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-students`,
-    );
-    const { data } = res;
-    setStudents(data?.students);
-  };
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["fetchedStudent"],
+    queryFn: fetchStudents,
+  });
 
   const columns = [
     {
@@ -171,9 +183,9 @@ const StudentsData = () => {
 
         <Table
           tableLayout="fixed"
-          loading={students?.length < 0}
+          loading={isLoading}
           className="h-full"
-          dataSource={students}
+          dataSource={data}
           columns={columns}
           pagination={{
             pageSize: 5,
@@ -193,14 +205,14 @@ const TestimonialCard = ({
   Rank,
 }) => {
   return (
-    <div  className="relative mx-auto p-1 lg:mx-0">
+    <div className="relative mx-auto p-1 lg:mx-0">
       <img
         src="./Webinar/validation-badge-bg-removed.gif"
         className="absolute -top-2 left-[33rem] z-20 w-10 max-[380px]:left-[31.7rem] lg:left-[23.5rem]"
         alt=""
         srcset=""
       />
-      <div className="cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white p-4 shadow-md transition-all duration-300  hover:shadow-lg">
+      <div className="cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg">
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0 flex-1">
             {/* Student Name and Divider */}
@@ -238,7 +250,7 @@ const TestimonialCard = ({
           {/* Profile Image */}
           <div className="flex-shrink-0">
             <img
-              className="w-10 rounded-lg object-cover shadow-md  "
+              className="w-10 rounded-lg object-cover shadow-md"
               src={`${import.meta.env.VITE_BACKEND_URL}uploads/${imgUrl}`}
               alt={clientName}
             />
@@ -256,7 +268,7 @@ const EditCard = ({
   clientName,
   clientCollege,
   Rank,
-  onCancel
+  onCancel,
 }) => {
   const [editedName, setEditedName] = useState(clientName);
   const [editedCollege, setEditedCollege] = useState(clientCollege);
@@ -359,7 +371,6 @@ const EditCard = ({
     </Modal>
   );
 };
-
 
 const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
