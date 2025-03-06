@@ -283,3 +283,25 @@ exports.deleteStudent = async (req, res) => {
     return res.status(401).send({ message: "Something Went Wrong" });
   }
 };
+exports.editStudent = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const existingStudent = await Students.findById(id);
+    if (req.file) {
+      const { filename } = req.file;
+      await Students.findByIdAndUpdate(id, {
+        imgUrl: filename,
+        ...req.body,
+      });
+      return res.status(200).send({ message: "Student Edited Successfully!" });
+    } else {
+      await Students.findByIdAndUpdate(id, {
+        imgUrl: existingStudent?.imgUrl,
+        ...req.body,
+      });
+      return res.status(200).send({ message: "Student Edited Successfully!" });
+    }
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong!" });
+  }
+};
