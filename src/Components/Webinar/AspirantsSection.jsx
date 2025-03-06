@@ -348,7 +348,7 @@ const AspirantsSection = () => {
           <div key={index} className="relative mx-auto p-1 lg:mx-0">
             <img
               src="./Webinar/validation-badge-bg-removed.gif"
-              className="absolute -top-2 left-[33rem] z-20 w-10 max-[380px]:left-[31.7rem] lg:left-[23.5rem]"
+              className="absolute -top-2 left-[33rem] z-20 w-10 max-[380px]:left-[33rem] lg:left-[23.5rem]"
               alt=""
               srcset=""
             />
