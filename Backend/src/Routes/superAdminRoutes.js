@@ -10,6 +10,7 @@ const {
   getServices,
   deleteService,
   addStudents,
+  getStudents,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -49,6 +50,7 @@ Router.post("/delete-service/:id",deleteService);
 // Services Ended
 
 // Students Started
-Router.post("/add-student",addStudents)
+Router.post("/add-student",addStudents);
+Router.get("/get-students",getStudents)
 
 module.exports = Router;

@@ -5,6 +5,7 @@ const Jwt = require("jsonwebtoken");
 const { generateToken } = require("../Utils/JwtFn");
 const Service = require("../Models/Service");
 const { default: axios } = require("axios");
+const Students = require("../Models/Students");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -256,3 +257,11 @@ exports.addStudents = async (req, res) => {
     console.log(err);
   }
 };
+exports.getStudents = async(req,res)=>{
+  try {
+    const students = await Students.find();
+    return res.status(200).send({ message: "Students Fetched!", students });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong!" });
+  }
+}
