@@ -275,7 +275,7 @@ const EditCard = ({
     }
 
     await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}admin/edit-student/${id}`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-student/${id}`,
       formData,
       {
         headers: {

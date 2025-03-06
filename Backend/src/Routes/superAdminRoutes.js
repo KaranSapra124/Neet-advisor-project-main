@@ -55,6 +55,6 @@ Router.post("/delete-service/:id", deleteService);
 Router.post("/add-student", upload.single("file"), addStudents);
 Router.get("/get-students", getStudents);
 Router.post("/delete-student/:id", deleteStudent);
-Router.post("/edit-student/:id", upload.single("imgUrl"), editStudent);
+Router.post("/edit-student/:id", upload.single("file"), editStudent);
 
 module.exports = Router;
