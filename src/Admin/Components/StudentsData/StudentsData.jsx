@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
 import { Input, Modal, Table } from "antd";
-import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
+import { FaEdit, FaEye, FaGraduationCap, FaRocket, FaTrash, FaUniversity } from "react-icons/fa";
 import Divider from "../../../Components/Helper/Divider";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -95,7 +95,7 @@ const StudentsData = () => {
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
-        <div className="flex justify-center items-center gap-5">
+        <div className="flex items-center justify-center gap-5">
           <FaEye
             onClick={() => {
               setIsView(true);
@@ -138,12 +138,14 @@ const StudentsData = () => {
           open={isView}
           onClose={() => setIsView(false)}
           onCancel={() => setIsView(false)}
+          footer={false}
         >
           <TestimonialCard
             clientCollege={viewItem?.clientCollege}
             clientName={viewItem?.clientName}
             imgUrl={viewItem?.imgUrl}
-            review={viewItem?.review}
+            Course={viewItem?.Course}
+            Rank={viewItem?.Rank}
           />
         </Modal>
       )}
@@ -182,24 +184,65 @@ const StudentsData = () => {
   );
 };
 
-const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
+const TestimonialCard = ({
+  imgUrl,
+  Course,
+  clientName,
+  clientCollege,
+  Rank,
+}) => {
   return (
-    <div className="relative mx-auto my-3.5 flex h-full max-h-full rounded-md bg-gray-200/5 p-4 lg:mx-0 lg:my-0 lg:max-h-72 lg:gap-4">
+    <div  className="relative mx-auto p-1 lg:mx-0">
       <img
-        className="absolute -left-3 -top-3 h-10 w-10 rounded-full shadow shadow-yellow-600 lg:h-14 lg:w-14"
-        src={`${import.meta.env.VITE_BACKEND_URL}uploads/${imgUrl}`}
+        src="./Webinar/validation-badge-bg-removed.gif"
+        className="absolute -top-2 left-[33rem] z-20 w-10 max-[380px]:left-[31.7rem] lg:left-[23.5rem]"
         alt=""
         srcset=""
       />
-      <div className="px-3 py-4 lg:px-6 lg:py-5">
-        <h1 className="text-[0.7rem] font-bold text-primary-color lg:text-sm">
-          {clientName}
-        </h1>
-        <h2 className="my-1 text-[0.5rem] font-medium text-gray-800 lg:text-xs">
-          {clientCollege}
-        </h2>
-        <Divider className="my-4 h-1 w-12 rounded-full bg-yellow-600 lg:w-20" />
-        <p className="text-[0.5rem] font-bold italic lg:text-xs">"{review}"</p>
+      <div className="cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white p-4 shadow-md transition-all duration-300  hover:shadow-lg">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            {/* Student Name and Divider */}
+            <h2 className="mb-2 text-[0.7rem] font-extrabold text-primary-color lg:text-sm">
+              {clientName}
+            </h2>
+            <div className="mb-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:mb-4 lg:w-16" />
+
+            {/* College Info */}
+            <div className="mb-1.5 flex items-center gap-1 lg:mb-3">
+              <FaUniversity className="mt-1 flex-shrink-0 text-primary-color" />
+              <p className="mx-1 line-clamp-1 text-[0.6rem] font-semibold text-gray-800 lg:text-xs">
+                {clientCollege}
+              </p>
+            </div>
+
+            {/* Rank */}
+            <div className="mb-1.5 flex items-center gap-1 lg:mb-3">
+              <FaRocket className="text-primary-color" />
+              <span className="mx-1 text-[0.6rem] font-semibold lg:text-xs">
+                AIR Rank:{" "}
+                <span className="font-bold text-primary-color">{Rank}</span>
+              </span>
+            </div>
+
+            {/* MBBS Badge */}
+            <div className="inline-flex items-center rounded-full border border-primary-color bg-white px-1 py-1 text-primary-color">
+              <FaGraduationCap className="mr-1" />
+              <span className="pr-2 text-[0.6rem] font-bold lg:text-xs">
+                {Course}
+              </span>
+            </div>
+          </div>
+
+          {/* Profile Image */}
+          <div className="flex-shrink-0">
+            <img
+              className="w-10 rounded-lg object-cover shadow-md  "
+              src={`${import.meta.env.VITE_BACKEND_URL}uploads/${imgUrl}`}
+              alt={clientName}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
