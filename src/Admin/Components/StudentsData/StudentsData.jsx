@@ -11,7 +11,12 @@ import {
 } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+} from "@tanstack/react-query";
 
 const fetchStudents = async () => {
   const res = await axios.get(
@@ -409,7 +414,6 @@ const AddCard = ({ open, onCancel }) => {
       alert("All fields are required!");
       return;
     }
-
     const formDataToSend = new FormData();
     // formDataToSend.append("imgUrl", formData.imgUrl);
     formDataToSend.append("file", formData.file);
@@ -443,6 +447,11 @@ const AddCard = ({ open, onCancel }) => {
       console.error("Error adding student:", error);
     }
   };
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: handleSubmit,
+    onSuccess: () => queryClient.invalidateQueries(["fetchedStudent"]),
+  });
 
   return (
     <Modal
@@ -453,7 +462,10 @@ const AddCard = ({ open, onCancel }) => {
       footer={false}
     >
       <div className="rounded-lg bg-white p-6 shadow-lg">
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form
+          onSubmit={mutation.mutate}
+          className="space-y-4"
+        >
           {formData.imgUrl && (
             <img
               className="mx-auto h-32 w-32 rounded-full"
