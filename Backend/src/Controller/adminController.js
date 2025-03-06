@@ -274,3 +274,12 @@ exports.getStudents = async (req, res) => {
     return res.status(401).send({ message: "Something Went Wrong!" });
   }
 };
+exports.deleteStudent = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedStudent = await Students.findByIdAndDelete(id);
+    return res.status(200).send({ message: "Student Deleted Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong" });
+  }
+};

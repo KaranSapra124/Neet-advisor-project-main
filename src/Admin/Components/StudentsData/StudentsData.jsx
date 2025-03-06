@@ -13,7 +13,7 @@ const StudentsData = () => {
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
   const [students, setStudents] = useState([]);
-  const fetchTestimonials = async () => {
+  const fetchStudents = async () => {
     const res = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/get-students`,
     );
@@ -69,7 +69,7 @@ const StudentsData = () => {
       key: "imgeUrl",
       render: (image) => (
         <img
-          className="h-10 mx-auto w-10"
+          className="mx-auto h-10 w-10"
           src={`${import.meta.env.VITE_BACKEND_URL}uploads/${image}`}
         />
       ),
@@ -84,7 +84,6 @@ const StudentsData = () => {
       key: "Course",
       render: (course) => (
         <p className="line-clamp-3 text-center text-xs font-medium">{course}</p>
-
       ),
     },
     {
@@ -114,11 +113,12 @@ const StudentsData = () => {
           />
           <FaTrash
             onClick={async () => {
-              const res = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}admin/delete-testimonial/${record?._id}`,
+              const { data } = await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-student/${record?._id}`,
               );
+              toast.success(data?.message);
 
-              fetchTestimonials();
+              fetchStudents();
             }}
             className="cursor-pointer text-red-500"
           />
@@ -128,7 +128,7 @@ const StudentsData = () => {
   ];
 
   useEffect(() => {
-    const fn = async () => fetchTestimonials();
+    const fn = async () => fetchStudents();
     fn();
   }, []);
   return (
@@ -371,6 +371,7 @@ const AddCard = ({ open, onCancel }) => {
       });
       onCancel();
       toast.success(data?.message);
+      
     } catch (error) {
       console.error("Error adding student:", error);
     }
