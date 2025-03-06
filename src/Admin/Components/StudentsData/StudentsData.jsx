@@ -36,6 +36,16 @@ const StudentsData = () => {
     queryKey: ["fetchedStudent"],
     queryFn: fetchStudents,
   });
+  const queryClient = useQueryClient();
+  const handleDelete = async (id) => {
+    await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-student/${id}`,
+    );
+  };
+  const mutation = useMutation({
+    mutationFn: handleDelete,
+    onSuccess: () => queryClient.invalidateQueries(["fetchedStudents"]),
+  });
 
   const columns = [
     {
@@ -128,14 +138,7 @@ const StudentsData = () => {
             className="cursor-pointer text-green-500"
           />
           <FaTrash
-            onClick={async () => {
-              const { data } = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-student/${record?._id}`,
-              );
-              toast.success(data?.message);
-
-              fetchStudents();
-            }}
+            onClick={() => mutation.mutate(record?._id)}
             className="cursor-pointer text-red-500"
           />
         </div>
@@ -462,10 +465,7 @@ const AddCard = ({ open, onCancel }) => {
       footer={false}
     >
       <div className="rounded-lg bg-white p-6 shadow-lg">
-        <form
-          onSubmit={mutation.mutate}
-          className="space-y-4"
-        >
+        <form onSubmit={mutation.mutate} className="space-y-4">
           {formData.imgUrl && (
             <img
               className="mx-auto h-32 w-32 rounded-full"
