@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Input, Modal, Table } from "antd";
+import { Input, Modal, Select, Switch, Table } from "antd";
 import {
   FaEdit,
   FaEye,
@@ -389,11 +389,13 @@ const AddCard = ({ open, onCancel }) => {
     adminPermissions: [],
   });
 
+  const permissions = ["Testimonials", "Blogs", "Services", "Students"];
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-
+  useEffect(() => console.log(formData), [formData]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
@@ -483,22 +485,35 @@ const AddCard = ({ open, onCancel }) => {
             placeholder="Admin Email"
             className="w-full rounded-md border p-2"
           />
-          <input
-            type="text"
-            name="adminPermissions"
+            <label className="mx-2 text-gray-800 font-semibold">Admin Permissions:</label>
+          <Select
+            mode="multiple"
+            placeholder="Select Permissions"
             value={formData.adminPermissions}
-            onChange={handleChange}
-            placeholder="Admin Permissions"
-            className="w-full rounded-md border p-2"
-          />
-          <input
-            type="text"
-            name="Admin Status"
-            value={formData.adminStatus}
-            onChange={handleChange}
-            placeholder="Admin Status"
-            className="w-full rounded-md border p-2"
-          />
+            onChange={(val) => {
+              console.log(val);
+              setFormData((prev) => ({
+                ...prev,
+                adminPermissions: val,
+              }));
+            }}
+            className="w-full"
+          >
+            {permissions?.map((permission) => (
+              <Select.Option key={permission} value={permission}>
+                {permission}
+              </Select.Option>
+            ))}
+          </Select>
+          <div >
+            <label className="mx-2 text-gray-800 font-semibold">Admin Status:</label>
+            <Switch
+              defaultValue={false}
+              onChange={(val) => {
+                setFormData((prev) => ({ ...prev, adminStatus: val }));
+              }}
+            />
+          </div>
 
           <div className="flex justify-between">
             <button
