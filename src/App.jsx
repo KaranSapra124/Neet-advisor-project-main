@@ -102,11 +102,15 @@ const App = () => {
     },
     {
       path: "/admin/login",
-      element: <SuperAdminLogin />,
+      element: <SuperAdminLogin title={"Super Admin Login"} />,
     },
     {
       path: "/admin/otp-form",
       element: <OTPForm />,
+    },
+    {
+      path: "/sub-admin/login",
+      element: <SuperAdminLogin title={"Admin Login"} />,
     },
   ]);
   return (

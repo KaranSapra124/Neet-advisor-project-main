@@ -5,7 +5,7 @@ import { FaPaperPlane } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-const SuperAdminLogin = () => {
+const SuperAdminLogin = ({ title }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const handleSubmit = async (e) => {
@@ -19,7 +19,6 @@ const SuperAdminLogin = () => {
     navigate("/admin/otp-form", {
       state: { email: email },
     });
-    
   };
   return (
     <>
@@ -33,7 +32,7 @@ const SuperAdminLogin = () => {
           />
           <div className="flex w-80 flex-col items-center justify-center border py-2 lg:w-1/2 lg:py-4">
             <h1 className="text-md text-center font-semibold text-primary-color lg:text-lg lg:font-extrabold">
-              Super Admin Login
+              {title}
             </h1>
             <Divider
               className={"my-2 h-1 w-12 rounded-full bg-primary-color"}
