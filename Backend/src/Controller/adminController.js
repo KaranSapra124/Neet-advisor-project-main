@@ -305,3 +305,7 @@ exports.editStudent = async (req, res) => {
     return res.status(401).send({ message: "Something Went Wrong!" });
   }
 };
+// Students Finished
+exports.addAdmin = async (req, res) => {
+  console.log(req.body);
+};

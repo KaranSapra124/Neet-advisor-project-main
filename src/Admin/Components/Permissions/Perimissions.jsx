@@ -469,6 +469,7 @@ const AddCard = ({ open, onCancel }) => {
             onChange={handleFileChange}
             className="w-full"
           /> */}
+            <label className="mx-2  text-gray-800 font-semibold">Admin Name:</label>
           <input
             type="text"
             name="adminName"
@@ -477,6 +478,7 @@ const AddCard = ({ open, onCancel }) => {
             placeholder="Admin Name"
             className="w-full rounded-md border p-2"
           />
+            <label className="mx-2 text-gray-800 font-semibold">Admin Email:</label>
           <input
             type="text"
             name="adminEmail"
