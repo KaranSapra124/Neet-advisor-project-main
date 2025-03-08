@@ -103,7 +103,7 @@ const Permissions = () => {
     // {
     //   title: (
     //     <h1 className="text-center text-lg font-bold text-primary-color">
-    //       Admin 
+    //       Admin
     //     </h1>
     //   ),
     //   dataIndex: "Course",
@@ -383,47 +383,34 @@ const EditCard = ({
 
 const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
-    imgUrl: "",
-    file: "",
-    clientName: "",
-    clientCollege: "",
-    Rank: "",
-    Course: "",
+    adminName: "",
+    adminEmail: "",
+    adminStatus: "",
+    adminPermissions: [],
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setFormData((prev) => ({
-        ...prev,
-        file: file,
-        imgUrl: URL.createObjectURL(file),
-      }));
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
-      !formData.clientName ||
-      !formData.clientCollege ||
-      !formData.Rank ||
-      !formData.Course
+      !formData.adminName ||
+      !formData.adminEmail ||
+      !formData.adminPermissions ||
+      !formData.adminStatus
     ) {
       alert("All fields are required!");
       return;
     }
     const formDataToSend = new FormData();
     // formDataToSend.append("imgUrl", formData.imgUrl);
-    formDataToSend.append("file", formData.file);
-    formDataToSend.append("clientName", formData.clientName);
-    formDataToSend.append("clientCollege", formData.clientCollege);
-    formDataToSend.append("Rank", formData.Rank);
-    formDataToSend.append("Course", formData.Course);
+    formDataToSend.append("adminName", formData.adminName);
+    formDataToSend.append("adminEmail", formData.adminEmail);
+    formDataToSend.append("adminPermissions", formData.adminPermissions);
+    formDataToSend.append("adminStatus", formData.adminStatus);
 
     try {
       const { data } = await axios.post(
@@ -466,7 +453,7 @@ const AddCard = ({ open, onCancel }) => {
     >
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
-          {formData.imgUrl && (
+          {/* {formData.imgUrl && (
             <img
               className="mx-auto h-32 w-32 rounded-full"
               src={formData.imgUrl}
@@ -479,37 +466,37 @@ const AddCard = ({ open, onCancel }) => {
             name="file"
             onChange={handleFileChange}
             className="w-full"
-          />
+          /> */}
           <input
             type="text"
-            name="clientName"
-            value={formData.clientName}
+            name="adminName"
+            value={formData.adminName}
             onChange={handleChange}
-            placeholder="Client Name"
+            placeholder="Admin Name"
             className="w-full rounded-md border p-2"
           />
           <input
             type="text"
-            name="clientCollege"
-            value={formData.clientCollege}
+            name="adminEmail"
+            value={formData.adminEmail}
             onChange={handleChange}
-            placeholder="Client College"
+            placeholder="Admin Email"
             className="w-full rounded-md border p-2"
           />
           <input
             type="text"
-            name="Rank"
-            value={formData.Rank}
+            name="adminPermissions"
+            value={formData.adminPermissions}
             onChange={handleChange}
-            placeholder="Rank"
+            placeholder="Admin Permissions"
             className="w-full rounded-md border p-2"
           />
           <input
             type="text"
-            name="Course"
-            value={formData.Course}
+            name="Admin Status"
+            value={formData.adminStatus}
             onChange={handleChange}
-            placeholder="Course"
+            placeholder="Admin Status"
             className="w-full rounded-md border p-2"
           />
 
