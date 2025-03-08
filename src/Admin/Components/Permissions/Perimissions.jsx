@@ -121,18 +121,6 @@ const Permissions = () => {
         );
       },
     },
-    // {
-    //   title: (
-    //     <h1 className="text-center text-lg font-bold text-primary-color">
-    //       Admin
-    //     </h1>
-    //   ),
-    //   dataIndex: "Course",
-    //   key: "Course",
-    //   render: (course) => (
-    //     <p className="line-clamp-3 text-center text-xs font-medium">{course}</p>
-    //   ),
-    // },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
@@ -143,13 +131,13 @@ const Permissions = () => {
       key: "action",
       render: (_, record) => (
         <div className="flex items-center justify-center gap-5">
-          <FaEye
+          {/* <FaEye
             onClick={() => {
               setIsView(true);
               setViewItem(record);
             }}
             className="cursor-pointer text-primary-color"
-          />
+          /> */}
 
           <FaEdit
             onClick={() => {
