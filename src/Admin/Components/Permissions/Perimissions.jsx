@@ -51,7 +51,7 @@ const Permissions = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Name
+          Admin Name
         </h1>
       ),
       dataIndex: "clientName",
@@ -64,7 +64,7 @@ const Permissions = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          College
+          Admin Email
         </h1>
       ),
       dataIndex: "clientCollege",
@@ -76,7 +76,7 @@ const Permissions = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Rank
+          Admin Permissions
         </h1>
       ),
       dataIndex: "Rank",
@@ -88,7 +88,7 @@ const Permissions = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Image
+          Admin Status
         </h1>
       ),
       dataIndex: "imgUrl",
@@ -100,18 +100,18 @@ const Permissions = () => {
         />
       ),
     },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Course
-        </h1>
-      ),
-      dataIndex: "Course",
-      key: "Course",
-      render: (course) => (
-        <p className="line-clamp-3 text-center text-xs font-medium">{course}</p>
-      ),
-    },
+    // {
+    //   title: (
+    //     <h1 className="text-center text-lg font-bold text-primary-color">
+    //       Admin 
+    //     </h1>
+    //   ),
+    //   dataIndex: "Course",
+    //   key: "Course",
+    //   render: (course) => (
+    //     <p className="line-clamp-3 text-center text-xs font-medium">{course}</p>
+    //   ),
+    // },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
