@@ -22,6 +22,7 @@ import OTPForm from "./Admin/Components/Auth/OTPForm";
 import { SuperAdminProvider } from "./Admin/Components/Context/SuperAdminContext";
 import AdminServices from "./Admin/Components/Services/Services";
 import StudentsData from "./Admin/Components/StudentsData/StudentsData";
+import Perimissions from "./Admin/Components/Permissions/Perimissions";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -92,6 +93,10 @@ const App = () => {
         {
           path: "/admin/students",
           element: <StudentsData />,
+        },
+        {
+          path: "/admin/permissions",
+          element: <Perimissions />,
         },
       ],
     },

@@ -31,7 +31,7 @@ const AdminLayout = () => {
     { name: "Alerts & News", link: "/", icon: <FaBell /> },
     { name: "Blogs", link: "/", icon: <FaBlog /> },
     { name: "Students", link: "/admin/students", icon: <FaGraduationCap /> },
-    {name:"Permissions",link:"/admin/perimissions",icon:<FaUser/>}
+    {name:"Permissions",link:"/admin/permissions",icon:<FaUser/>}
   ];
 
   // Find the active tab based on the current route
