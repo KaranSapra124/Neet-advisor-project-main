@@ -316,7 +316,6 @@ exports.addAdmin = async (req, res) => {
     return res.status(401).send({ message: "Problem While Creating Admin!" });
   }
 };
-
 exports.getAdmins = async (req, res) => {
   try {
     const allAdmins = await SubAdmin.find();
@@ -326,4 +325,7 @@ exports.getAdmins = async (req, res) => {
   } catch (err) {
     return res.status(401).send({ message: err?.response?.data?.message });
   }
+};
+exports.deleteAdmin = async (req, res) => {
+  const { id } = req.query;
 };

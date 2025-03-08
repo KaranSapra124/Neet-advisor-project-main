@@ -82,7 +82,17 @@ const Permissions = () => {
       dataIndex: "adminPermissions",
       key: "adminPermissions",
       render: (text) => (
-        <p className="line-clamp-3 text-center text-xs font-medium">{text}</p>
+        <>
+          <Select
+            defaultActiveFirstOption={true}
+            defaultValue={text[0]}
+            className="w-full"
+          >
+            {text?.map((elem, index) => {
+              return <Select.Option>{elem}</Select.Option>;
+            })}
+          </Select>
+        </>
       ),
     },
     {
@@ -93,7 +103,13 @@ const Permissions = () => {
       ),
       dataIndex: "adminStatus",
       key: "adminStatus",
-      render: (val) => <Switch checked={val} />,
+      render: (val) => {
+        return (
+          <div className="flex items-center justify-center">
+            <Switch className="mx-auto" checked={val} />
+          </div>
+        );
+      },
     },
     // {
     //   title: (
