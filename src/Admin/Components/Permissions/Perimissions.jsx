@@ -113,10 +113,10 @@ const Permissions = () => {
       ),
       dataIndex: "adminStatus",
       key: "adminStatus",
-      render: (val) => {
+      render: (val, record) => {
         return (
           <div className="flex items-center justify-center">
-            <Switch className="mx-auto" checked={val} />
+            <AdminStatusSwitch val={val} record={record} />
           </div>
         );
       },
@@ -266,117 +266,127 @@ const ViewCard = ({
             />
           </div>
         </div>
-
-
       </div>
     </div>
   );
 };
 
 const EditCard = ({
-    id,
-    adminNameData,
-    adminEmailData,
-    adminStatusData,
-    adminPermissionsData,
-    onCancel,
-  }) => {
-    const queryClient = useQueryClient();
-    const [adminName, setadminName] = useState(adminNameData);
-    const [adminEmail, setadminEmail] = useState(adminEmailData);
-    const [adminStatus, setadminStatus] = useState(adminStatusData);
-    const [adminPermissions, setadminPermissions] = useState(adminPermissionsData);
-  
-    const formData = {
-      adminName: adminName,
-      adminEmail: adminEmail,
-      adminStatus: adminStatus,
-      adminPermissions: adminPermissions,
-    };
-  
-    const handleSave = async (formData) => {
-      try {
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
-          formData,
-        );
-        toast.success(data?.message);
-      } catch (err) {
-        toast.error(err?.response?.data?.message);
-      }
-      onCancel();
-    };
-  
-    const mutation = useMutation({
-      mutationFn: handleSave,
-      onSuccess: () => queryClient.invalidateQueries(['allAdmins']),
-    });
-  
-    return (
-      <Modal
-        title={<span className="text-xl font-semibold text-gray-700">Edit Admin</span>}
-        open={true}
-        onOk={() => mutation.mutate(formData)}
-        onCancel={onCancel}
-        okButtonProps={{ className: 'bg-blue-600 hover:bg-blue-700 text-white font-semibold' }}
-        cancelButtonProps={{ className: 'border-gray-300 hover:border-gray-400 text-gray-600' }}
-      >
-        <div className="flex flex-col gap-4 p-4">
-          {/* Admin Name */}
-          <div>
-            <label className="text-sm font-semibold text-gray-700">Admin Name</label>
-            <Input
-              value={adminName}
-              onChange={(e) => setadminName(e.target.value)}
-              placeholder="Enter Admin Name"
-              className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 mt-1"
-            />
-          </div>
-  
-          {/* Admin Email */}
-          <div>
-            <label className="text-sm font-semibold text-gray-700">Admin Email</label>
-            <Input
-              value={adminEmail}
-              onChange={(e) => setadminEmail(e.target.value)}
-              placeholder="Enter Admin Email"
-              className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 mt-1"
-            />
-          </div>
-  
-          {/* Admin Permissions */}
-          <div>
-            <label className="text-sm font-semibold text-gray-700">Permissions</label>
-            <Select
-              mode="multiple"
-              placeholder="Select Permissions"
-              value={adminPermissions}
-              onChange={(val) => setadminPermissions(val)}
-              className="w-full mt-1"
-            >
-              {permissions?.map((permission) => (
-                <Select.Option key={permission} value={permission}>
-                  {permission}
-                </Select.Option>
-              ))}
-            </Select>
-          </div>
-  
-          {/* Admin Status */}
-          <div className="flex items-center gap-3 mt-4">
-            <span className="text-sm font-semibold text-gray-700">Status:</span>
-            <Switch
-              onChange={() => setadminStatus(!adminStatus)}
-              checked={adminStatus}
-              checkedChildren="Active"
-              unCheckedChildren="Inactive"
-            />
-          </div>
-        </div>
-      </Modal>
-    );
+  id,
+  adminNameData,
+  adminEmailData,
+  adminStatusData,
+  adminPermissionsData,
+  onCancel,
+}) => {
+  const queryClient = useQueryClient();
+  const [adminName, setadminName] = useState(adminNameData);
+  const [adminEmail, setadminEmail] = useState(adminEmailData);
+  const [adminStatus, setadminStatus] = useState(adminStatusData);
+  const [adminPermissions, setadminPermissions] =
+    useState(adminPermissionsData);
+
+  const formData = {
+    adminName: adminName,
+    adminEmail: adminEmail,
+    adminStatus: adminStatus,
+    adminPermissions: adminPermissions,
   };
-  
+
+  const handleSave = async (formData) => {
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
+        formData,
+      );
+      toast.success(data?.message);
+    } catch (err) {
+      toast.error(err?.response?.data?.message);
+    }
+    onCancel();
+  };
+
+  const mutation = useMutation({
+    mutationFn: handleSave,
+    onSuccess: () => queryClient.invalidateQueries(["allAdmins"]),
+  });
+
+  return (
+    <Modal
+      title={
+        <span className="text-xl font-semibold text-gray-700">Edit Admin</span>
+      }
+      open={true}
+      onOk={() => mutation.mutate(formData)}
+      onCancel={onCancel}
+      okButtonProps={{
+        className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold",
+      }}
+      cancelButtonProps={{
+        className: "border-gray-300 hover:border-gray-400 text-gray-600",
+      }}
+    >
+      <div className="flex flex-col gap-4 p-4">
+        {/* Admin Name */}
+        <div>
+          <label className="text-sm font-semibold text-gray-700">
+            Admin Name
+          </label>
+          <Input
+            value={adminName}
+            onChange={(e) => setadminName(e.target.value)}
+            placeholder="Enter Admin Name"
+            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          />
+        </div>
+
+        {/* Admin Email */}
+        <div>
+          <label className="text-sm font-semibold text-gray-700">
+            Admin Email
+          </label>
+          <Input
+            value={adminEmail}
+            onChange={(e) => setadminEmail(e.target.value)}
+            placeholder="Enter Admin Email"
+            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          />
+        </div>
+
+        {/* Admin Permissions */}
+        <div>
+          <label className="text-sm font-semibold text-gray-700">
+            Permissions
+          </label>
+          <Select
+            mode="multiple"
+            placeholder="Select Permissions"
+            value={adminPermissions}
+            onChange={(val) => setadminPermissions(val)}
+            className="mt-1 w-full"
+          >
+            {permissions?.map((permission) => (
+              <Select.Option key={permission} value={permission}>
+                {permission}
+              </Select.Option>
+            ))}
+          </Select>
+        </div>
+
+        {/* Admin Status */}
+        <div className="mt-4 flex items-center gap-3">
+          <span className="text-sm font-semibold text-gray-700">Status:</span>
+          <Switch
+            onChange={() => setadminStatus(!adminStatus)}
+            checked={adminStatus}
+            checkedChildren="Active"
+            unCheckedChildren="Inactive"
+          />
+        </div>
+      </div>
+    </Modal>
+  );
+};
 
 const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
@@ -534,6 +544,38 @@ const AddCard = ({ open, onCancel }) => {
         </form>
       </div>
     </Modal>
+  );
+};
+
+const AdminStatusSwitch = ({ val, record }) => {
+  const queryClient = useQueryClient();
+
+  const handleSave = async (status) => {
+    console.log(status);
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${record?._id}`,
+        { ...record, adminStatus: status },
+      );
+      toast.success(data?.message);
+    } catch (err) {
+      toast.error(err?.response?.data?.message);
+    }
+  };
+
+  const mutation = useMutation({
+    mutationFn: handleSave,
+    onSuccess: queryClient.invalidateQueries(["allAdmins"]),
+  });
+
+  return (
+    <div className="flex items-center justify-center">
+      <Switch
+        onChange={(status) => mutation.mutate(status)}
+        className="mx-auto"
+        checked={val}
+      />
+    </div>
   );
 };
 
