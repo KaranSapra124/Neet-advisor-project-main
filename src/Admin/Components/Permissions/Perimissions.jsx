@@ -25,6 +25,8 @@ const fetchAdmins = async () => {
   const { data } = res;
   return data?.allAdmins;
 };
+const permissions = ["Testimonials", "Blogs", "Services", "Students"];
+
 const Permissions = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [isView, setIsView] = useState(false);
@@ -183,11 +185,10 @@ const Permissions = () => {
       {isEdit && (
         <EditCard
           id={editItem?._id}
-          clientCollege={editItem?.clientCollege}
-          clientName={editItem?.clientName}
-          imgUrl={editItem?.imgUrl}
-          Course={editItem?.Course}
-          Rank={editItem?.Rank}
+          adminNameData={editItem?.adminName}
+          adminEmailData={editItem?.adminEmail}
+          adminPermissionsData={editItem?.adminPermissions}
+          adminStatusData={editItem?.adminStatus}
           onCancel={() => setIsEdit(false)}
         />
       )}
@@ -282,53 +283,43 @@ const TestimonialCard = ({
 
 const EditCard = ({
   id,
-  imgUrl,
-  Course,
-  clientName,
-  clientCollege,
-  Rank,
+  adminNameData,
+  adminEmailData,
+  adminStatusData,
+  adminPermissionsData,
   onCancel,
 }) => {
   const queryClient = useQueryClient();
-  const [editedName, setEditedName] = useState(clientName);
-  const [editedCollege, setEditedCollege] = useState(clientCollege);
-  const [editedRank, setEditedRank] = useState(Rank);
-  const [editedCourse, setEditedCourse] = useState(Course);
-  const [editImage, setEditImage] = useState({ file: "", url: imgUrl });
+  const [adminName, setadminName] = useState(adminNameData);
+  const [adminEmail, setadminEmail] = useState(adminEmailData);
+  const [adminStatus, setadminStatus] = useState(adminStatusData);
+  const [adminPermissions, setadminPermissions] =
+    useState(adminPermissionsData);
 
-  const formData = new FormData();
-  formData.append("clientName", editedName);
-  formData.append("clientCollege", editedCollege);
-  formData.append("Rank", editedRank);
-  formData.append("Course", editedCourse);
-  if (editImage?.file) {
-    formData.append("file", editImage.file);
-  }
+  const formData = {
+    adminName: adminName,
+    adminEmail: adminEmail,
+    adminStatus: adminStatus,
+    adminPermissions: adminPermissions,
+  };
+
   const handleSave = async (formData) => {
-    console.log("SAVED");
     await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-student/${id}`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
       formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      },
     );
     onCancel();
   };
 
   const mutation = useMutation({
     mutationFn: handleSave,
-    onSuccess: () => queryClient.invalidateQueries(["fetchedStudent"]),
+    onSuccess: () => queryClient.invalidateQueries(["allAdmins"]),
   });
 
   return (
     <Modal
       title={
-        <span className="text-xl font-semibold text-gray-700">
-          Edit Student
-        </span>
+        <span className="text-xl font-semibold text-gray-700">Edit Admin</span>
       }
       open={true}
       onOk={() => mutation.mutate(formData)}
@@ -341,55 +332,38 @@ const EditCard = ({
       }}
     >
       <div className="flex flex-col gap-4 p-4">
-        {/* Profile Image */}
-        <div className="flex flex-col items-center">
-          <img
-            src={
-              editImage?.file
-                ? editImage?.url
-                : `${import.meta.env.VITE_BACKEND_URL}uploads/${editImage?.url}`
-            }
-            alt="Client"
-            className="h-24 w-24 rounded-full border-2 border-gray-300 shadow-md"
-          />
-          <label className="mt-3 cursor-pointer rounded-lg bg-blue-500 px-4 py-2 text-sm text-white shadow hover:bg-blue-600">
-            Upload New Image
-            <input
-              type="file"
-              className="hidden"
-              onChange={(e) => {
-                setEditImage({
-                  file: e.target.files[0],
-                  url: URL.createObjectURL(e.target.files[0]),
-                });
-              }}
-            />
-          </label>
-        </div>
-
         {/* Input Fields */}
         <Input
-          value={editedName}
-          onChange={(e) => setEditedName(e.target.value)}
-          placeholder="Client Name"
+          value={adminName}
+          onChange={(e) => setadminName(e.target.value)}
+          placeholder="Admin Name"
           className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
         <Input
-          value={editedCollege}
-          onChange={(e) => setEditedCollege(e.target.value)}
-          placeholder="Client College"
+          value={adminEmail}
+          onChange={(e) => setadminEmail(e.target.value)}
+          placeholder="Admin Email"
           className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
+        <Select
+          mode="multiple"
+          placeholder="Select Permissions"
+          value={adminPermissions}
+          onChange={(val) => {
+            setadminPermissions(val);
+          }}
+          className="w-full"
+        >
+          {permissions?.map((permission) => (
+            <Select.Option key={permission} value={permission}>
+              {permission}
+            </Select.Option>
+          ))}
+        </Select>
         <Input
-          value={editedRank}
-          onChange={(e) => setEditedRank(e.target.value)}
+          value={adminStatus}
+          onChange={(e) => setadminStatus(e.target.value)}
           placeholder="Rank"
-          className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-        />
-        <Input
-          value={editedCourse}
-          onChange={(e) => setEditedCourse(e.target.value)}
-          placeholder="Course"
           className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         />
       </div>

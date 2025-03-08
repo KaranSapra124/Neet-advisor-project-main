@@ -335,3 +335,11 @@ exports.deleteAdmin = async (req, res) => {
     return res.status(401).send({ message: "Something Went Wrong!" });
   }
 };
+exports.editAdmin = async (req, res) => {
+  const { id } = req.params;
+  try{
+
+  }catch(err){
+    
+  }
+};
