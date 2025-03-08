@@ -17,7 +17,10 @@ const subAdmin = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  otp: {
+    type: String,
+    default: null,
+  },
 });
 
-
-module.exports = mongoose.model("SubAdmin",subAdmin)
+module.exports = mongoose.model("SubAdmin", subAdmin);
