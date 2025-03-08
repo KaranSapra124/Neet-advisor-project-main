@@ -38,13 +38,18 @@ const Permissions = () => {
   });
   const queryClient = useQueryClient();
   const handleDelete = async (id) => {
-    await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-student/${id}`,
-    );
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-admin/${id}`,
+      );
+      toast.success(data?.message);
+    } catch (err) {
+      toast.error(err?.response?.data?.message);
+    }
   };
   const mutation = useMutation({
     mutationFn: handleDelete,
-    onSuccess: () => queryClient.invalidateQueries(["fetchedStudents"]),
+    onSuccess: () => queryClient.invalidateQueries(["allAdmins"]),
   });
 
   const columns = [

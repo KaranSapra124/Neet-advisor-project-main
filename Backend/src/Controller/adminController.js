@@ -327,5 +327,11 @@ exports.getAdmins = async (req, res) => {
   }
 };
 exports.deleteAdmin = async (req, res) => {
-  const { id } = req.query;
+  const { id } = req.params;
+  try {
+    await SubAdmin.findByIdAndDelete(id);
+    return res.status(200).send({ message: "Admin Deleted Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong!" });
+  }
 };
