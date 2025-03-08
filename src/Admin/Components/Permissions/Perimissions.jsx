@@ -18,12 +18,12 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-const fetchStudents = async () => {
+const fetchAdmins = async () => {
   const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-students`,
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,
   );
   const { data } = res;
-  return data?.students;
+  return data?.allAdmins;
 };
 const Permissions = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -33,8 +33,8 @@ const Permissions = () => {
   const [isAdd, setIsAdd] = useState(false);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["fetchedStudent"],
-    queryFn: fetchStudents,
+    queryKey: ["allAdmins"],
+    queryFn: fetchAdmins,
   });
   const queryClient = useQueryClient();
   const handleDelete = async (id) => {
@@ -54,8 +54,8 @@ const Permissions = () => {
           Admin Name
         </h1>
       ),
-      dataIndex: "clientName",
-      key: "clientName",
+      dataIndex: "adminName",
+      key: "adminName",
 
       render: (text) => (
         <p className="text-center text-xs font-bold text-gray-800">{text}</p>
@@ -67,8 +67,8 @@ const Permissions = () => {
           Admin Email
         </h1>
       ),
-      dataIndex: "clientCollege",
-      key: "clientCollege",
+      dataIndex: "adminEmail",
+      key: "adminEmail",
       render: (text) => (
         <p className="max-w-52 text-center text-xs font-medium">{text}</p>
       ),
@@ -79,8 +79,8 @@ const Permissions = () => {
           Admin Permissions
         </h1>
       ),
-      dataIndex: "Rank",
-      key: "Rank",
+      dataIndex: "adminPermissions",
+      key: "adminPermissions",
       render: (text) => (
         <p className="line-clamp-3 text-center text-xs font-medium">{text}</p>
       ),
@@ -91,14 +91,9 @@ const Permissions = () => {
           Admin Status
         </h1>
       ),
-      dataIndex: "imgUrl",
-      key: "imgeUrl",
-      render: (image) => (
-        <img
-          className="mx-auto h-10 w-10"
-          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${image}`}
-        />
-      ),
+      dataIndex: "adminStatus",
+      key: "adminStatus",
+      render: (val) => <Switch checked={val} />,
     },
     // {
     //   title: (
@@ -429,7 +424,7 @@ const AddCard = ({ open, onCancel }) => {
       onCancel();
       toast.success(data?.message);
     } catch (error) {
-        console.log(error)
+      console.log(error);
       toast.error(error?.response?.data?.message);
     }
   };

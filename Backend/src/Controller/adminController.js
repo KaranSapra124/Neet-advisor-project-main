@@ -320,7 +320,9 @@ exports.addAdmin = async (req, res) => {
 exports.getAdmins = async (req, res) => {
   try {
     const allAdmins = await SubAdmin.find();
-    return res.status(200).send({ message: "Fetched Admins Successfully!" });
+    return res
+      .status(200)
+      .send({ message: "Fetched Admins Successfully!", allAdmins });
   } catch (err) {
     return res.status(401).send({ message: err?.response?.data?.message });
   }
