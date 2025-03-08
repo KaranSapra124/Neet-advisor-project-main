@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Divider from "../../../Components/Helper/Divider";
 
-const OTPForm = () => {
+const OTPForm = ({title}) => {
   const location = useLocation();
   const { email } = location?.state || {};
 
