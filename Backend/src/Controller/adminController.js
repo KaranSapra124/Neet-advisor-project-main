@@ -337,9 +337,10 @@ exports.deleteAdmin = async (req, res) => {
 };
 exports.editAdmin = async (req, res) => {
   const { id } = req.params;
-  try{
-
-  }catch(err){
-    
+  try {
+    await SubAdmin.findByIdAndUpdate(id, { ...req.body });
+    return res.status(200).send({ message: "Admin Updated!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong!" });
   }
 };
