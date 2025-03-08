@@ -416,27 +416,21 @@ const AddCard = ({ open, onCancel }) => {
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-student`,
-        formDataToSend,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-admin`,
+        formData,
       );
 
       setFormData({
-        imgUrl: "",
-        file: "",
-        clientName: "",
-        clientCollege: "",
-        Rank: "",
-        Course: "",
+        adminName: "",
+        adminEmail: "",
+        adminStatus: "",
+        adminPermissions: [],
       });
       onCancel();
       toast.success(data?.message);
     } catch (error) {
-      console.error("Error adding student:", error);
+        console.log(error)
+      toast.error(error?.response?.data?.message);
     }
   };
   const queryClient = useQueryClient();
@@ -469,7 +463,9 @@ const AddCard = ({ open, onCancel }) => {
             onChange={handleFileChange}
             className="w-full"
           /> */}
-            <label className="mx-2  text-gray-800 font-semibold">Admin Name:</label>
+          <label className="mx-2 font-semibold text-gray-800">
+            Admin Name:
+          </label>
           <input
             type="text"
             name="adminName"
@@ -478,7 +474,9 @@ const AddCard = ({ open, onCancel }) => {
             placeholder="Admin Name"
             className="w-full rounded-md border p-2"
           />
-            <label className="mx-2 text-gray-800 font-semibold">Admin Email:</label>
+          <label className="mx-2 font-semibold text-gray-800">
+            Admin Email:
+          </label>
           <input
             type="text"
             name="adminEmail"
@@ -487,7 +485,9 @@ const AddCard = ({ open, onCancel }) => {
             placeholder="Admin Email"
             className="w-full rounded-md border p-2"
           />
-            <label className="mx-2 text-gray-800 font-semibold">Admin Permissions:</label>
+          <label className="mx-2 font-semibold text-gray-800">
+            Admin Permissions:
+          </label>
           <Select
             mode="multiple"
             placeholder="Select Permissions"
@@ -507,8 +507,10 @@ const AddCard = ({ open, onCancel }) => {
               </Select.Option>
             ))}
           </Select>
-          <div >
-            <label className="mx-2 text-gray-800 font-semibold">Admin Status:</label>
+          <div>
+            <label className="mx-2 font-semibold text-gray-800">
+              Admin Status:
+            </label>
             <Switch
               defaultValue={false}
               onChange={(val) => {

@@ -5,7 +5,7 @@ const subAdmin = new mongoose.Schema({
     type: String,
     required: true,
   },
-  adminEmaail: {
+  adminEmail: {
     type: String,
     required: true,
   },

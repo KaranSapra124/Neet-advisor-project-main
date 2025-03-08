@@ -6,6 +6,7 @@ const { generateToken } = require("../Utils/JwtFn");
 const Service = require("../Models/Service");
 const { default: axios } = require("axios");
 const Students = require("../Models/Students");
+const SubAdmin = require("../Models/SubAdmin");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -307,5 +308,20 @@ exports.editStudent = async (req, res) => {
 };
 // Students Finished
 exports.addAdmin = async (req, res) => {
-  console.log(req.body);
+  try {
+    const newAdmin = await SubAdmin.create(req.body);
+    return res.status(201).send({ message: "Admin Created!", newAdmin });
+  } catch (err) {
+    console.log(err);
+    return res.status(401).send({ message: "Problem While Creating Admin!" });
+  }
+};
+
+exports.getAdmins = async (req, res) => {
+  try {
+    const allAdmins = await SubAdmin.find();
+    return res.status(200).send({ message: "Fetched Admins Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: err?.response?.data?.message });
+  }
 };

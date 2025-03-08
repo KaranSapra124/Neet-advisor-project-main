@@ -13,6 +13,7 @@ const {
   getStudents,
   deleteStudent,
   editStudent,
+  addAdmin,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -56,5 +57,8 @@ Router.post("/add-student", upload.single("file"), addStudents);
 Router.get("/get-students", getStudents);
 Router.post("/delete-student/:id", deleteStudent);
 Router.post("/edit-student/:id", upload.single("file"), editStudent);
+
+// Admin Started
+Router.post("/add-admin",addAdmin)
 
 module.exports = Router;
