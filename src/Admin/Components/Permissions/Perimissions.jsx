@@ -3,11 +3,14 @@ import Container from "../../../Components/Helper/Container";
 import { Input, Modal, Select, Switch, Table } from "antd";
 import {
   FaEdit,
+  FaEnvelope,
   FaEye,
   FaGraduationCap,
+  FaLock,
   FaRocket,
   FaTrash,
   FaUniversity,
+  FaUserShield,
 } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -173,12 +176,11 @@ const Permissions = () => {
           onCancel={() => setIsView(false)}
           footer={false}
         >
-          <TestimonialCard
-            clientCollege={viewItem?.clientCollege}
-            clientName={viewItem?.clientName}
-            imgUrl={viewItem?.imgUrl}
-            Course={viewItem?.Course}
-            Rank={viewItem?.Rank}
+          <ViewCard
+            adminNameData={viewItem?.adminName}
+            adminEmailData={viewItem?.adminEmail}
+            adminPermissionsData={viewItem?.adminPermissions}
+            adminStatusData={viewItem?.adminStatus}
           />
         </Modal>
       )}
@@ -217,163 +219,164 @@ const Permissions = () => {
   );
 };
 
-const TestimonialCard = ({
-  imgUrl,
-  Course,
-  clientName,
-  clientCollege,
-  Rank,
+const ViewCard = ({
+  adminNameData,
+  adminEmailData,
+  adminStatusData,
+  adminPermissionsData,
 }) => {
   return (
-    <div className="relative mx-auto p-1 lg:mx-0">
-      <img
-        src="./Webinar/validation-badge-bg-removed.gif"
-        className="absolute -top-2 left-[33rem] z-20 w-10 max-[380px]:left-[31.7rem] lg:left-[23.5rem]"
-        alt=""
-        srcset=""
-      />
-      <div className="cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg">
-        <div className="flex items-center justify-between gap-2">
-          <div className="min-w-0 flex-1">
-            {/* Student Name and Divider */}
-            <h2 className="mb-2 text-[0.7rem] font-extrabold text-primary-color lg:text-sm">
-              {clientName}
-            </h2>
-            <div className="mb-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:mb-4 lg:w-16" />
+    <div className="relative mx-auto rounded-xl border border-gray-200 bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg lg:mx-0">
+      <div className="flex items-center justify-between gap-4">
+        {/* Admin Details */}
+        <div className="flex-1">
+          {/* Admin Name */}
+          <h2 className="flex items-center gap-2 text-lg font-bold text-gray-800">
+            <FaUserShield className="text-yellow-600" /> {adminNameData}
+          </h2>
 
-            {/* College Info */}
-            <div className="mb-1.5 flex items-center gap-1 lg:mb-3">
-              <FaUniversity className="mt-1 flex-shrink-0 text-primary-color" />
-              <p className="mx-1 line-clamp-1 text-[0.6rem] font-semibold text-gray-800 lg:text-xs">
-                {clientCollege}
-              </p>
-            </div>
+          {/* Admin Email */}
+          <p className="flex items-center gap-2 text-sm text-gray-600">
+            <FaEnvelope className="text-yellow-600" /> {adminEmailData}
+          </p>
 
-            {/* Rank */}
-            <div className="mb-1.5 flex items-center gap-1 lg:mb-3">
-              <FaRocket className="text-primary-color" />
-              <span className="mx-1 text-[0.6rem] font-semibold lg:text-xs">
-                AIR Rank:{" "}
-                <span className="font-bold text-primary-color">{Rank}</span>
-              </span>
-            </div>
-
-            {/* MBBS Badge */}
-            <div className="inline-flex items-center rounded-full border border-primary-color bg-white px-1 py-1 text-primary-color">
-              <FaGraduationCap className="mr-1" />
-              <span className="pr-2 text-[0.6rem] font-bold lg:text-xs">
-                {Course}
-              </span>
+          {/* Admin Permissions */}
+          <div className="mt-2">
+            <p className="text-sm font-semibold text-gray-800">Permissions:</p>
+            <div className="mt-1 flex flex-wrap gap-1">
+              {adminPermissionsData.map((perm, index) => (
+                <span
+                  key={index}
+                  className="rounded-full border border-yellow-600 bg-yellow-100 px-2 py-1 text-xs text-yellow-800"
+                >
+                  {perm}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Profile Image */}
-          <div className="flex-shrink-0">
-            <img
-              className="w-10 rounded-lg object-cover shadow-md"
-              src={`${import.meta.env.VITE_BACKEND_URL}uploads/${imgUrl}`}
-              alt={clientName}
+          {/* Admin Status */}
+          <div className="mt-3 flex items-center gap-2">
+            <FaLock className="text-yellow-600" />
+            <span className="text-sm font-semibold text-gray-800">Status:</span>
+            <Switch
+              checked={adminStatusData}
+              checkedChildren="Active"
+              unCheckedChildren="Inactive"
             />
           </div>
         </div>
+
+
       </div>
     </div>
   );
 };
 
 const EditCard = ({
-  id,
-  adminNameData,
-  adminEmailData,
-  adminStatusData,
-  adminPermissionsData,
-  onCancel,
-}) => {
-  const queryClient = useQueryClient();
-  const [adminName, setadminName] = useState(adminNameData);
-  const [adminEmail, setadminEmail] = useState(adminEmailData);
-  const [adminStatus, setadminStatus] = useState(adminStatusData);
-  const [adminPermissions, setadminPermissions] =
-    useState(adminPermissionsData);
-
-  const formData = {
-    adminName: adminName,
-    adminEmail: adminEmail,
-    adminStatus: adminStatus,
-    adminPermissions: adminPermissions,
-  };
-
-  const handleSave = async (formData) => {
-    try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
-        formData,
-      );
-      toast.success(data?.message);
-    } catch (err) {
-      toast.error(err?.response?.data?.message);
-    }
-    onCancel();
-  };
-
-  const mutation = useMutation({
-    mutationFn: handleSave,
-    onSuccess: () => queryClient.invalidateQueries(["allAdmins"]),
-  });
-
-  return (
-    <Modal
-      title={
-        <span className="text-xl font-semibold text-gray-700">Edit Admin</span>
+    id,
+    adminNameData,
+    adminEmailData,
+    adminStatusData,
+    adminPermissionsData,
+    onCancel,
+  }) => {
+    const queryClient = useQueryClient();
+    const [adminName, setadminName] = useState(adminNameData);
+    const [adminEmail, setadminEmail] = useState(adminEmailData);
+    const [adminStatus, setadminStatus] = useState(adminStatusData);
+    const [adminPermissions, setadminPermissions] = useState(adminPermissionsData);
+  
+    const formData = {
+      adminName: adminName,
+      adminEmail: adminEmail,
+      adminStatus: adminStatus,
+      adminPermissions: adminPermissions,
+    };
+  
+    const handleSave = async (formData) => {
+      try {
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
+          formData,
+        );
+        toast.success(data?.message);
+      } catch (err) {
+        toast.error(err?.response?.data?.message);
       }
-      open={true}
-      onOk={() => mutation.mutate(formData)}
-      onCancel={onCancel}
-      okButtonProps={{
-        className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold",
-      }}
-      cancelButtonProps={{
-        className: "border-gray-300 hover:border-gray-400 text-gray-600",
-      }}
-    >
-      <div className="flex flex-col gap-4 p-4">
-        {/* Input Fields */}
-        <Input
-          value={adminName}
-          onChange={(e) => setadminName(e.target.value)}
-          placeholder="Admin Name"
-          className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-        />
-        <Input
-          value={adminEmail}
-          onChange={(e) => setadminEmail(e.target.value)}
-          placeholder="Admin Email"
-          className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-        />
-        <Select
-          mode="multiple"
-          placeholder="Select Permissions"
-          value={adminPermissions}
-          onChange={(val) => {
-            setadminPermissions(val);
-          }}
-          className="w-full"
-        >
-          {permissions?.map((permission) => (
-            <Select.Option key={permission} value={permission}>
-              {permission}
-            </Select.Option>
-          ))}
-        </Select>
-        <Switch
-          onChange={() => setadminStatus(!adminStatus)}
-          className="w-fit"
-          checked={adminStatus}
-        />
-      </div>
-    </Modal>
-  );
-};
+      onCancel();
+    };
+  
+    const mutation = useMutation({
+      mutationFn: handleSave,
+      onSuccess: () => queryClient.invalidateQueries(['allAdmins']),
+    });
+  
+    return (
+      <Modal
+        title={<span className="text-xl font-semibold text-gray-700">Edit Admin</span>}
+        open={true}
+        onOk={() => mutation.mutate(formData)}
+        onCancel={onCancel}
+        okButtonProps={{ className: 'bg-blue-600 hover:bg-blue-700 text-white font-semibold' }}
+        cancelButtonProps={{ className: 'border-gray-300 hover:border-gray-400 text-gray-600' }}
+      >
+        <div className="flex flex-col gap-4 p-4">
+          {/* Admin Name */}
+          <div>
+            <label className="text-sm font-semibold text-gray-700">Admin Name</label>
+            <Input
+              value={adminName}
+              onChange={(e) => setadminName(e.target.value)}
+              placeholder="Enter Admin Name"
+              className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 mt-1"
+            />
+          </div>
+  
+          {/* Admin Email */}
+          <div>
+            <label className="text-sm font-semibold text-gray-700">Admin Email</label>
+            <Input
+              value={adminEmail}
+              onChange={(e) => setadminEmail(e.target.value)}
+              placeholder="Enter Admin Email"
+              className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 mt-1"
+            />
+          </div>
+  
+          {/* Admin Permissions */}
+          <div>
+            <label className="text-sm font-semibold text-gray-700">Permissions</label>
+            <Select
+              mode="multiple"
+              placeholder="Select Permissions"
+              value={adminPermissions}
+              onChange={(val) => setadminPermissions(val)}
+              className="w-full mt-1"
+            >
+              {permissions?.map((permission) => (
+                <Select.Option key={permission} value={permission}>
+                  {permission}
+                </Select.Option>
+              ))}
+            </Select>
+          </div>
+  
+          {/* Admin Status */}
+          <div className="flex items-center gap-3 mt-4">
+            <span className="text-sm font-semibold text-gray-700">Status:</span>
+            <Switch
+              onChange={() => setadminStatus(!adminStatus)}
+              checked={adminStatus}
+              checkedChildren="Active"
+              unCheckedChildren="Inactive"
+            />
+          </div>
+        </div>
+      </Modal>
+    );
+  };
+  
 
 const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
