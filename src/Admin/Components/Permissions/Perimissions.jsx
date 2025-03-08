@@ -304,10 +304,15 @@ const EditCard = ({
   };
 
   const handleSave = async (formData) => {
-    await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
-      formData,
-    );
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
+        formData,
+      );
+      toast.success(data?.message);
+    } catch (err) {
+      toast.error(err?.response?.data?.message);
+    }
     onCancel();
   };
 
@@ -360,11 +365,10 @@ const EditCard = ({
             </Select.Option>
           ))}
         </Select>
-        <Input
-          value={adminStatus}
-          onChange={(e) => setadminStatus(e.target.value)}
-          placeholder="Rank"
-          className="rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+        <Switch
+          onChange={() => setadminStatus(!adminStatus)}
+          className="w-fit"
+          checked={adminStatus}
         />
       </div>
     </Modal>
