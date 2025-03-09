@@ -21,8 +21,8 @@ import { useAdminAuth } from "../Components/Context/AdminContext";
 const AdminLayout = ({ user }) => {
   const location = useLocation(); // Get current path
   const navigate = useNavigate();
-  const SuperAdminContext = user === "super-admin" ?  userSuperAdminAuth() : useAdminAuth();
-  console.log(SuperAdminContext);
+  const SuperAdminContext = user === "Super-Admin" ?  userSuperAdminAuth() : useAdminAuth();
+  // console.log(SuperAdminContext);
 
   const menuItems = [
     { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
