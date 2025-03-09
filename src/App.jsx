@@ -80,7 +80,7 @@ const App = () => {
     },
     {
       path: "/admin",
-      element: <AdminLayout />,
+      element: <AdminLayout user={"Super-Admin"} />,
       children: [
         {
           path: "/admin/testimonial",
@@ -96,6 +96,28 @@ const App = () => {
         },
         {
           path: "/admin/permissions",
+          element: <Perimissions />,
+        },
+      ],
+    },
+    {
+      path: "/sub-admin",
+      element: <AdminLayout user={"admin"} />,
+      children: [
+        {
+          path: "/sub-admin/testimonial",
+          element: <Testimonial />,
+        },
+        {
+          path: "/sub-admin/Services",
+          element: <AdminServices />,
+        },
+        {
+          path: "/sub-admin/students",
+          element: <StudentsData />,
+        },
+        {
+          path: "/sub-admin/permissions",
           element: <Perimissions />,
         },
       ],

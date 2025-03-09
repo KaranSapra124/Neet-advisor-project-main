@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 import { userSuperAdminAuth } from "../Components/Context/SuperAdminContext";
 import { BsFileBarGraph } from "react-icons/bs";
 
-const AdminLayout = () => {
+const AdminLayout = ({ user }) => {
   const location = useLocation(); // Get current path
   const navigate = useNavigate();
   const SuperAdminContext = userSuperAdminAuth();
@@ -31,7 +31,7 @@ const AdminLayout = () => {
     { name: "Alerts & News", link: "/", icon: <FaBell /> },
     { name: "Blogs", link: "/", icon: <FaBlog /> },
     { name: "Students", link: "/admin/students", icon: <FaGraduationCap /> },
-    {name:"Permissions",link:"/admin/permissions",icon:<FaUser/>}
+    { name: "Permissions", link: "/admin/permissions", icon: <FaUser /> },
   ];
 
   // Find the active tab based on the current route
@@ -42,11 +42,21 @@ const AdminLayout = () => {
   useEffect(() => {
     const authAdmin = async () => {
       try {
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
-          {},
-          { withCredentials: true },
-        );
+        user === "Super-Admin"
+          ? (async () => {
+              const { data } = await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
+                {},
+                { withCredentials: true },
+              );
+            })()
+          : (async () => {
+              const { data } = await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}admin/super-admin-auth`,
+                {},
+                { withCredentials: true },
+              );
+            })();
 
         toast.success(data?.message);
       } catch (err) {

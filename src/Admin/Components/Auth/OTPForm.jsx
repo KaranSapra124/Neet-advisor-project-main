@@ -61,7 +61,7 @@ const OTPForm = ({ title }) => {
               },
             );
             toast.success(data?.message);
-            navigate("/admin");
+            navigate("/sub-admin");
           })();
     } catch (err) {
       toast.error(err?.response?.data?.message);

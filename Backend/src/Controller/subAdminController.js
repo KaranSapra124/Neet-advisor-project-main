@@ -31,3 +31,18 @@ exports.verifyOTP = async (req, res) => {
     return res.status(403).send({ message: "Something Went Wrong!" });
   }
 };
+
+exports.getAdmin = async (req, res) => {
+  try {
+    const { id } = req?.user;
+    const superAdmin = await SuperAdmin.findById(id);
+    if (!superAdmin)
+      return res.status(401).send({ message: "No Super Admin Found!" });
+
+    return res
+      .status(201)
+      .send({ message: "Logged In Successfully!", superAdmin });
+  } catch (err) {
+    return res.status(401).send({ message: "Unable To Login!" });
+  }
+};
