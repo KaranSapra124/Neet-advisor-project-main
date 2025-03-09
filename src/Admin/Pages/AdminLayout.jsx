@@ -16,12 +16,13 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { userSuperAdminAuth } from "../Components/Context/SuperAdminContext";
 import { BsFileBarGraph } from "react-icons/bs";
+import { useAdminAuth } from "../Components/Context/AdminContext";
 
 const AdminLayout = ({ user }) => {
   const location = useLocation(); // Get current path
   const navigate = useNavigate();
-  const SuperAdminContext = userSuperAdminAuth();
-  // console.log(SuperAdminContext);
+  const SuperAdminContext = user === "super-admin" ?  userSuperAdminAuth() : useAdminAuth();
+  console.log(SuperAdminContext);
 
   const menuItems = [
     { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
@@ -50,17 +51,18 @@ const AdminLayout = ({ user }) => {
                 {},
                 { withCredentials: true },
               );
+              toast.success(data?.message);
+
             })()
           : (async () => {
-            console.log(user)
+              console.log(user);
               const { data } = await axios.post(
                 `${import.meta.env.VITE_BACKEND_URL}admin/get-admin`,
                 {},
                 { withCredentials: true },
               );
+              toast.success(data?.message);
             })();
-
-        toast.success(data?.message);
       } catch (err) {
         toast.error(err?.response?.data);
         navigate("/admin/login");

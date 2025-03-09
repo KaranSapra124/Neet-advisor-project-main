@@ -23,6 +23,7 @@ import { SuperAdminProvider } from "./Admin/Components/Context/SuperAdminContext
 import AdminServices from "./Admin/Components/Services/Services";
 import StudentsData from "./Admin/Components/StudentsData/StudentsData";
 import Perimissions from "./Admin/Components/Permissions/Perimissions";
+import { AdminProvider } from "./Admin/Components/Context/AdminContext";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -142,9 +143,11 @@ const App = () => {
   return (
     <>
       <ToastContainer></ToastContainer>
-      <SuperAdminProvider>
-        <RouterProvider router={appRoutes} />
-      </SuperAdminProvider>
+      <AdminProvider>
+        <SuperAdminProvider>
+          <RouterProvider router={appRoutes} />
+        </SuperAdminProvider>
+      </AdminProvider>
     </>
   );
 };
