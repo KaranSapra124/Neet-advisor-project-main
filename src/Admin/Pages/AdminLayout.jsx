@@ -138,7 +138,7 @@ const AdminLayout = ({ user }) => {
                           ? "bg-white text-gray-900"
                           : "hover:bg-white hover:text-gray-900"
                       }`}
-                      to={!isDisabled ? "#" : item.link} // ✅ Link pe click hone se rok diya
+                      to={isDisabled ? "#" : item.link} // ✅ Link pe click hone se rok diya
                       onClick={(e) => {
                         if (isDisabled) {
                           e.preventDefault();
