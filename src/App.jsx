@@ -24,6 +24,7 @@ import AdminServices from "./Admin/Components/Services/Services";
 import StudentsData from "./Admin/Components/StudentsData/StudentsData";
 import Perimissions from "./Admin/Components/Permissions/Perimissions";
 import { AdminProvider } from "./Admin/Components/Context/AdminContext";
+import MainNewsPage from "./Admin/Components/News/MainNewsPage";
 
 const App = () => {
   const appRoutes = createBrowserRouter([
@@ -99,6 +100,10 @@ const App = () => {
           path: "/admin/permissions",
           element: <Perimissions />,
         },
+        {
+          path: "/admin/news",
+          element: <MainNewsPage />,
+        },
       ],
     },
     {
@@ -120,6 +125,10 @@ const App = () => {
         {
           path: "/sub-admin/permissions",
           element: <Perimissions />,
+        },
+        {
+          path: "/sub-admin/news",
+          element: <MainNewsPage />,
         },
       ],
     },

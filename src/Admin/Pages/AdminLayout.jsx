@@ -40,7 +40,7 @@ const AdminLayout = ({ user }) => {
             link: "/admin/services",
             icon: <BsFileBarGraph />,
           },
-          { name: "Alerts & News", link: "/", icon: <FaBell /> },
+          { name: "Alerts & News", link: "/admin/news", icon: <FaBell /> },
           { name: "Blogs", link: "/", icon: <FaBlog /> },
           {
             name: "Students",
@@ -63,7 +63,7 @@ const AdminLayout = ({ user }) => {
             icon: <BsFileBarGraph />,
           },
           { name: "Alerts & News", link: "/", icon: <FaBell /> },
-          { name: "Blogs", link: "/", icon: <FaBlog /> },
+          { name: "Blogs", link: "/sub-admin/news", icon: <FaBlog /> },
           {
             name: "Students",
             link: "/sub-admin/students",
