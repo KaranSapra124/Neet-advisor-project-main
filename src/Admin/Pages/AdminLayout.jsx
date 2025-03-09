@@ -41,6 +41,7 @@ const AdminLayout = ({ user }) => {
 
   useEffect(() => {
     const authAdmin = async () => {
+      // console.log(user)
       try {
         user === "Super-Admin"
           ? (async () => {
@@ -51,8 +52,9 @@ const AdminLayout = ({ user }) => {
               );
             })()
           : (async () => {
+            console.log(user)
               const { data } = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}admin/super-admin-auth`,
+                `${import.meta.env.VITE_BACKEND_URL}admin/get-admin`,
                 {},
                 { withCredentials: true },
               );

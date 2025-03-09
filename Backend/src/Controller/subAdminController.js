@@ -1,5 +1,6 @@
 const { generateOTP, sendMail } = require("../Middlewares/sendEmail");
 const subAdmin = require("../Models/SubAdmin");
+const { generateToken } = require("../Utils/JwtFn");
 
 exports.sendOtpAdmin = async (req, res) => {
   try {
@@ -25,9 +26,24 @@ exports.verifyOTP = async (req, res) => {
   try {
     const adminData = await subAdmin.findOne({ adminEmail: email });
     adminData?.otp === otp
-      ? res.status(200).send({ message: "Admin Logged In", adminData })
+      ? (() => {
+          const adminTokenData = {
+            id: adminData?._id,
+            role: "admin",
+          };
+          const token = generateToken(adminTokenData);
+          res.cookie("adminToken", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            path: "/",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+          });
+          res.status(200).send({ message: "Admin Logged In", adminData });
+        })()
       : res.status(401).send({ message: "Invalid OTP" });
   } catch (err) {
+    console.log(err)
     return res.status(403).send({ message: "Something Went Wrong!" });
   }
 };
@@ -35,13 +51,13 @@ exports.verifyOTP = async (req, res) => {
 exports.getAdmin = async (req, res) => {
   try {
     const { id } = req?.user;
-    const superAdmin = await SuperAdmin.findById(id);
-    if (!superAdmin)
+    const admin = await subAdmin.findById(id);
+    if (!admin)
       return res.status(401).send({ message: "No Super Admin Found!" });
 
     return res
       .status(201)
-      .send({ message: "Logged In Successfully!", superAdmin });
+      .send({ message: "Logged In Successfully!", admin });
   } catch (err) {
     return res.status(401).send({ message: "Unable To Login!" });
   }

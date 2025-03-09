@@ -126,7 +126,6 @@ exports.verifySuperAdminOTP = async (req, res) => {
             id: existingSuperAdmin?._id,
             role: "Super Admin",
           };
-          console.log(existingSuperAdmin?._id.toString());
           const token = generateToken(adminData);
           res.cookie("token", token, {
             httpOnly: true,
