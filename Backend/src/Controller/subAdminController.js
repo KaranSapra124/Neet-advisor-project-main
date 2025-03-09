@@ -1,9 +1,6 @@
-const { generateOTP } = require("../Middlewares/sendEmail");
+const { generateOTP, sendMail } = require("../Middlewares/sendEmail");
 const subAdmin = require("../Models/SubAdmin");
 
-exports.authSubAdmin = async (req, res) => {
-  console.log(req.body);
-};
 exports.sendOtpAdmin = async (req, res) => {
   try {
     const { email } = req.body;
@@ -11,10 +8,23 @@ exports.sendOtpAdmin = async (req, res) => {
     if (!data) {
       return res.status(401).send({ message: "Admin Not Found!" });
     }
-    data?.otp = generateOTP();
+    const otp = generateOTP();
+    data.otp = otp;
+    console.log(otp);
+    await sendMail(email, `OTP for admin login!`, `<h1>OTP is ${otp}</h1>`);
+
     await data.save();
     return res.status(200).send({ message: "OTP Sent ✔️" });
   } catch (err) {
     return res.status(401).send({ message: "Something Went Wrong!" });
+  }
+};
+
+exports.verifyOTP = async (req, res) => {
+  const { email, otp } = req.body;
+  try {
+    console.log(email, otp);
+  } catch (err) {
+    console.log(err);
   }
 };

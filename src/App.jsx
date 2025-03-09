@@ -113,7 +113,7 @@ const App = () => {
       element: <SuperAdminLogin title={"Admin Login"} />,
     },
     {
-      path: "/admin/otp-form",
+      path: "/sub-admin/otp-form",
       element: <OTPForm title={"admin"} />,
     },
   ]);

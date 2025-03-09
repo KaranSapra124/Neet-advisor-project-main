@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Divider from "../../../Components/Helper/Divider";
 
-const OTPForm = ({title}) => {
+const OTPForm = ({ title }) => {
   const location = useLocation();
   const { email } = location?.state || {};
 
@@ -37,18 +37,32 @@ const OTPForm = ({title}) => {
   };
 
   const handleSubmit = async (e) => {
+    const finalOTP = otp.join("");
     e.preventDefault();
     try {
-      const finalOTP = otp.join("");
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/verify-otp`,
-        { email, otp: finalOTP },
-        {
-          withCredentials: true,
-        },
-      );
-      toast.success(data?.message);
-      navigate("/admin");
+      title === "Super-Admin"
+        ? (async () => {
+            const { data } = await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}super-admin/verify-otp`,
+              { email, otp: finalOTP },
+              {
+                withCredentials: true,
+              },
+            );
+            toast.success(data?.message);
+            navigate("/admin");
+          })()
+        : (async () => {
+            const { data } = await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}admin/verify-otp-admin`,
+              { email, otp: finalOTP },
+              {
+                withCredentials: true,
+              },
+            );
+            toast.success(data?.message);
+            navigate("/admin");
+          })();
     } catch (err) {
       toast.error(err?.response?.data?.message);
     }

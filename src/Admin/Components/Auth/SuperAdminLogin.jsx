@@ -32,7 +32,7 @@ const SuperAdminLogin = ({ title }) => {
             );
             setEmail("");
             toast.success(data?.message);
-            navigate("/admin/otp-form", {
+            navigate("/sub-admin/otp-form", {
               state: { email: email },
             });
           } catch (err) {
