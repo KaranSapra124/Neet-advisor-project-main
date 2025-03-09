@@ -23,8 +23,11 @@ exports.sendOtpAdmin = async (req, res) => {
 exports.verifyOTP = async (req, res) => {
   const { email, otp } = req.body;
   try {
-    console.log(email, otp);
+    const adminData = await subAdmin.findOne({ adminEmail: email });
+    adminData?.otp === otp
+      ? res.status(200).send({ message: "Admin Logged In", adminData })
+      : res.status(401).send({ message: "Invalid OTP" });
   } catch (err) {
-    console.log(err);
+    return res.status(403).send({ message: "Something Went Wrong!" });
   }
 };
