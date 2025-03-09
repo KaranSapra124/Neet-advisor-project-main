@@ -6,8 +6,11 @@ exports.authSubAdmin = async (req, res) => {
 exports.sendOtpAdmin = async (req, res) => {
   try {
     const { email } = req.body;
-    const { data } = await subAdmin.findOne({ adminEmail: email });
-    console.log(data);
+    const data = await subAdmin.findOne({ adminEmail: email });
+    if (!data) {
+      return res.status(401).send({ message: "Admin Not Found!" });
+    }
+    
   } catch (err) {
     console.log(err);
   }

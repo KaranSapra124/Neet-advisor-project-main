@@ -9,27 +9,32 @@ const SuperAdminLogin = ({ title }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const handleSubmit = async (e) => {
-   title.includes("Super Admin Login") ? (async()=>{ e.preventDefault();
-    const { data } = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/send-super-admin-otp`,
-      { email: email },
-    );
-    setEmail("");
-    toast.success(data?.message);
-    navigate("/admin/otp-form", {
-      state: { email: email },
-    });
-  })():(async()=>{
-    const { data } = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}admin/send-super-admin-otp`,
-      { email: email },
-    );
-    setEmail("");
-    toast.success(data?.message);
-    navigate("/admin/otp-form", {
-      state: { email: email },
-    });
-  })
+    console.log(email)
+    e.preventDefault();
+    title === "Super Admin Login"
+      ? (async () => {
+          e.preventDefault();
+          const { data } = await axios.post(
+            `${import.meta.env.VITE_BACKEND_URL}super-admin/send-super-admin-otp`,
+            { email: email },
+          );
+          setEmail("");
+          toast.success(data?.message);
+          navigate("/admin/otp-form", {
+            state: { email: email },
+          });
+        })()
+      : (async () => {
+          const { data } = await axios.post(
+            `${import.meta.env.VITE_BACKEND_URL}admin/send-admin-otp`,
+            { email: email },
+          );
+          setEmail("");
+          toast.success(data?.message);
+          navigate("/admin/otp-form", {
+            state: { email: email },
+          });
+        })();
   };
   return (
     <>
