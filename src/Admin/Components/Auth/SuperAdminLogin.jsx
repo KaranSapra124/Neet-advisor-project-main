@@ -9,7 +9,7 @@ const SuperAdminLogin = ({ title }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const handleSubmit = async (e) => {
-    console.log(email)
+    console.log(email);
     e.preventDefault();
     title === "Super Admin Login"
       ? (async () => {
@@ -25,15 +25,19 @@ const SuperAdminLogin = ({ title }) => {
           });
         })()
       : (async () => {
-          const { data } = await axios.post(
-            `${import.meta.env.VITE_BACKEND_URL}admin/send-admin-otp`,
-            { email: email },
-          );
-          setEmail("");
-          toast.success(data?.message);
-          navigate("/admin/otp-form", {
-            state: { email: email },
-          });
+          try {
+            const { data } = await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}admin/send-admin-otp`,
+              { email: email },
+            );
+            setEmail("");
+            toast.success(data?.message);
+            navigate("/admin/otp-form", {
+              state: { email: email },
+            });
+          } catch (err) {
+            toast.error(err?.response?.data?.message);
+          }
         })();
   };
   return (
