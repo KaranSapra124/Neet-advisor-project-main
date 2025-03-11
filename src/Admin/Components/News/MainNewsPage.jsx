@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
 import { Input, Modal, Select, Switch, Table } from "antd";
+import TipTapEditor from "../News/TipTapEditor";
 import {
   FaEdit,
   FaEnvelope,
@@ -361,8 +362,6 @@ const AddCard = ({ open, onCancel }) => {
     hashtags: [],
   });
 
-  const permissions = ["Testimonials", "Blogs", "Services", "Students"];
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -370,22 +369,10 @@ const AddCard = ({ open, onCancel }) => {
   useEffect(() => console.log(formData), [formData]);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      !formData.adminName ||
-      !formData.adminEmail ||
-      !formData.adminPermissions ||
-      !formData.adminStatus
-    ) {
-      alert("All fields are required!");
+    if (!formData?.generatedHTML || !formData?.hashtags) {
+      toast.error("All fields are required!");
       return;
     }
-    const formDataToSend = new FormData();
-    // formDataToSend.append("imgUrl", formData.imgUrl);
-    formDataToSend.append("adminName", formData.adminName);
-    formDataToSend.append("adminEmail", formData.adminEmail);
-    formDataToSend.append("adminPermissions", formData.adminPermissions);
-    formDataToSend.append("adminStatus", formData.adminStatus);
-
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-admin`,
@@ -393,10 +380,8 @@ const AddCard = ({ open, onCancel }) => {
       );
 
       setFormData({
-        adminName: "",
-        adminEmail: "",
-        adminStatus: "",
-        adminPermissions: [],
+        generatedHTML: "",
+        hashtags: [],
       });
       onCancel();
       toast.success(data?.message);
@@ -421,44 +406,10 @@ const AddCard = ({ open, onCancel }) => {
     >
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
-          {/* {formData.imgUrl && (
-            <img
-              className="mx-auto h-32 w-32 rounded-full"
-              src={formData.imgUrl}
-              alt="Student"
-            />
-          )}
-
-          <input
-            type="file"
-            name="file"
-            onChange={handleFileChange}
-            className="w-full"
-          /> */}
+          <label className="mx-2 font-semibold text-gray-800">Add News</label>
+          <TipTapEditor />
           <label className="mx-2 font-semibold text-gray-800">
-            Admin Name:
-          </label>
-          <input
-            type="text"
-            name="adminName"
-            value={formData.adminName}
-            onChange={handleChange}
-            placeholder="Admin Name"
-            className="w-full rounded-md border p-2"
-          />
-          <label className="mx-2 font-semibold text-gray-800">
-            Admin Email:
-          </label>
-          <input
-            type="text"
-            name="adminEmail"
-            value={formData.adminEmail}
-            onChange={handleChange}
-            placeholder="Admin Email"
-            className="w-full rounded-md border p-2"
-          />
-          <label className="mx-2 font-semibold text-gray-800">
-            Admin Permissions:
+            Add Hashtags:
           </label>
           <Select
             mode="multiple"
