@@ -46,7 +46,7 @@ const MainNewsPage = () => {
   const handleDelete = async (id) => {
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-admin/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-news/${id}`,
       );
       toast.success(data?.message);
     } catch (err) {
@@ -55,7 +55,7 @@ const MainNewsPage = () => {
   };
   const mutation = useMutation({
     mutationFn: handleDelete,
-    onSuccess: () => queryClient.invalidateQueries(["allAdmins"]),
+    onSuccess: () => queryClient.invalidateQueries(["allNews"]),
   });
 
   const columns = [
