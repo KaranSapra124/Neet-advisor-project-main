@@ -1,84 +1,132 @@
 .content {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.8;
-    color: #333;
-  }
-  
-  /* Headings */
-  .content h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  
-  .content h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 14px;
-  }
-  
-  .content h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 12px;
-  }
-  
-  /* Paragraph */
-  .content p {
-    font-size: 16px;
-    margin-bottom: 12px;
-  }
-  
-  /* Bullet List */
-  .content ul {
-    padding-left: 20px;
-  }
-  
-  .content ul li {
-    margin-bottom: 8px;
-  }
-  
-  /* Ordered List */
-  .content ol {
-    padding-left: 20px;
-  }
-  
-  .content ol li {
-    margin-bottom: 8px;
-  }
-  
-  /* Images */
-  .content img {
-    max-width: 100%;
-    border-radius: 6px;
-    margin-bottom: 16px;
-  }
-  
-  /* Blockquote */
-  .content blockquote {
-    border-left: 4px solid #ccc;
-    padding-left: 16px;
-    color: #666;
-    font-style: italic;
-    margin: 20px 0;
-  }
-  
-  /* Bold and Italic */
-  .content strong {
-    font-weight: bold;
-  }
-  
-  .content em {
-    font-style: italic;
-  }
-  
-  /* Links */
-  .content a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .content a:hover {
-    text-decoration: underline;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #201169;
+}
+
+/* Headings */
+.content h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #201169;
+  text-transform: uppercase;
+  border-bottom: 2px solid #201169;
+  padding-bottom: 8px;
+}
+
+.content h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 14px;
+  color: #3722a5;
+}
+
+.content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #4a2bcd;
+}
+
+/* Paragraph */
+.content p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: justify;
+  color: black;
+}
+
+/* Bullet List */
+.content ul {
+  padding-left: 18px;
+  list-style-type: square;
+}
+
+.content ul li {
+  margin-bottom: 6px;
+  transition: transform 0.3s;
+}
+
+.content ul li:hover {
+  transform: translateX(3px);
+  color: #3722a5;
+}
+
+/* Ordered List */
+.content ol {
+  padding-left: 18px;
+}
+
+.content ol li {
+  margin-bottom: 6px;
+}
+
+/* Images */
+.content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.content img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Blockquote */
+.content blockquote {
+  border-left: 3px solid #4a2bcd;
+  padding-left: 12px;
+  color: #3722a5;
+  font-style: italic;
+  margin: 16px 0;
+  background-color: #f4f4f9;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+/* Bold and Italic */
+.content strong {
+  font-weight: bold;
+}
+
+.content em {
+  font-style: italic;
+}
+
+/* Links */
+.content a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.content a:hover {
+  text-decoration: underline;
+  color: #4a2bcd;
+}
+
+/* Extra Flavor */
+.content hr {
+  border: none;
+  height: 1.5px;
+  background-color: #201169;
+  margin: 20px 0;
+}
+
+.content .highlight {
+  background-color: #f4f4f9;
+  padding: 8px 12px;
+  border-left: 3px solid #201169;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+/* Smooth transition effect */
+* {
+  transition: all 0.3s ease-in-out;
+}

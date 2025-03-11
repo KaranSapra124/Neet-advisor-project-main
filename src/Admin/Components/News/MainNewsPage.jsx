@@ -191,7 +191,7 @@ const ViewCard = ({ generatedHTML }) => {
     <>
       <div
         dangerouslySetInnerHTML={{ __html: generatedHTML }}
-        className="relative mx-auto rounded-xl border border-gray-200 bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg lg:mx-0"
+        className="content p-10"
       ></div>
     </>
   );
