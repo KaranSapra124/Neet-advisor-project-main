@@ -37,12 +37,11 @@ const MainNewsPage = () => {
 
     editorProps: {
       attributes: {
-        class: "p-4 text-sm border h-96 overflow-y-auto tiptap",
+        class: "p-4 text-sm border lg:h-48 h-24 overflow-y-auto tiptap",
       },
     },
     content: "",
     onUpdate: ({ editor }) => {
-      // console.log(editor.getHTML())
       setHTML(editor.getHTML());
     },
   });
