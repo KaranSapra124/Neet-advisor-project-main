@@ -374,3 +374,16 @@ exports.getNews = async (req, res) => {
     return res.status(401).send({ message: "Error while fetching news!" });
   }
 };
+exports.editNews = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const news = await News.findByIdAndUpdate(
+      id,
+      { ...req.body },
+      { new: true },
+    );
+    return res.status(200).send({ message: "News Updated!", news });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while updating news!" });
+  }
+};

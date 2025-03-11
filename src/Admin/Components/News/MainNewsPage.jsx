@@ -156,10 +156,8 @@ const MainNewsPage = () => {
       {isEdit && (
         <EditCard
           id={editItem?._id}
-          adminNameData={editItem?.adminName}
-          adminEmailData={editItem?.adminEmail}
-          adminPermissionsData={editItem?.adminPermissions}
-          adminStatusData={editItem?.adminStatus}
+          generatedHTML={editItem?.generatedHTML}
+          hashtags={editItem?.hashtags}
           onCancel={() => setIsEdit(false)}
         />
       )}
@@ -199,27 +197,13 @@ const ViewCard = ({ generatedHTML }) => {
   );
 };
 
-const EditCard = ({
-  id,
-  adminNameData,
-  adminEmailData,
-  adminStatusData,
-  adminPermissionsData,
-  onCancel,
-}) => {
+const EditCard = ({ id, generatedHTML, hashtags, onCancel }) => {
   const queryClient = useQueryClient();
-  const [adminName, setadminName] = useState(adminNameData);
-  const [adminEmail, setadminEmail] = useState(adminEmailData);
-  const [adminStatus, setadminStatus] = useState(adminStatusData);
-  const [adminPermissions, setadminPermissions] =
-    useState(adminPermissionsData);
-
-  const formData = {
-    adminName: adminName,
-    adminEmail: adminEmail,
-    adminStatus: adminStatus,
-    adminPermissions: adminPermissions,
-  };
+  const [html, setHTML] = useState(generatedHTML);
+  const [formData, setFormData] = useState({
+    generatedHTML: generatedHTML,
+    hashtags: hashtags,
+  });
 
   const handleSave = async (formData) => {
     try {
@@ -253,64 +237,70 @@ const EditCard = ({
       cancelButtonProps={{
         className: "border-gray-300 hover:border-gray-400 text-gray-600",
       }}
+      footer={false}
     >
-      <div className="flex flex-col gap-4 p-4">
-        {/* Admin Name */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">
-            Admin Name
-          </label>
-          <Input
-            value={adminName}
-            onChange={(e) => setadminName(e.target.value)}
-            placeholder="Enter Admin Name"
-            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-          />
-        </div>
-
-        {/* Admin Email */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">
-            Admin Email
-          </label>
-          <Input
-            value={adminEmail}
-            onChange={(e) => setadminEmail(e.target.value)}
-            placeholder="Enter Admin Email"
-            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-          />
-        </div>
-
-        {/* Admin Permissions */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">
-            Permissions
+      <div className="rounded-lg bg-white p-6 shadow-lg">
+        <form onSubmit={mutation.mutate} className="space-y-4">
+          <label className="mx-2 font-semibold text-gray-800">Add News</label>
+          <TipTapEditor setHTML={setHTML} html={html} />
+          <label className="mx-2 font-semibold text-gray-800">
+            Add Hashtags:
           </label>
           <Select
             mode="multiple"
-            placeholder="Select Permissions"
-            value={adminPermissions}
-            onChange={(val) => setadminPermissions(val)}
-            className="mt-1 w-full"
+            placeholder="Add Hashtags"
+            value={formData.hashtags}
+            onChange={(val) => {
+              setFormData((prev) => ({
+                ...prev,
+                hashtags: val,
+              }));
+            }}
+            onDeselect={(val) =>
+              setFormData((prev) => ({
+                ...prev,
+                hashtags: prev.hashtags.filter((tag) => tag !== val),
+              }))
+            }
+            onKeyUp={(e) => {
+              setFormData((prev) => ({
+                ...prev,
+                hashtags:
+                  e.key === "Enter"
+                    ? [
+                        ...prev?.hashtags,
+                        e.target.value[0] === "#"
+                          ? e.target.value
+                          : "#" + e.target.value,
+                      ]
+                    : prev.hashtags,
+              }));
+            }}
+            className="w-full"
           >
-            {permissions?.map((permission) => (
-              <Select.Option key={permission} value={permission}>
-                {permission}
+            {hashtags?.map((hashtag) => (
+              <Select.Option key={hashtag} value={hashtag}>
+                {hashtag}
               </Select.Option>
             ))}
           </Select>
-        </div>
 
-        {/* Admin Status */}
-        <div className="mt-4 flex items-center gap-3">
-          <span className="text-sm font-semibold text-gray-700">Status:</span>
-          <Switch
-            onChange={() => setadminStatus(!adminStatus)}
-            checked={adminStatus}
-            checkedChildren="Active"
-            unCheckedChildren="Inactive"
-          />
-        </div>
+          <div className="flex justify-between">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="rounded-md border px-4 py-2 text-gray-700"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
+            >
+              Add
+            </button>
+          </div>
+        </form>
       </div>
     </Modal>
   );
@@ -363,7 +353,7 @@ const AddCard = ({ open, onCancel }) => {
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
           <label className="mx-2 font-semibold text-gray-800">Add News</label>
-          <TipTapEditor setHTML={setHTML} />
+          <TipTapEditor setHTML={setHTML} html={html} />
           <label className="mx-2 font-semibold text-gray-800">
             Add Hashtags:
           </label>

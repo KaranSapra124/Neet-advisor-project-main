@@ -5,8 +5,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./TipTap.css";
 import { FaImage, FaListOl, FaListUl } from "react-icons/fa";
-const MainNewsPage = ({setHTML}) => {
-  
+const MainNewsPage = ({ html, setHTML }) => {
   const handleImageUpload = async () => {
     const input = document.createElement("input");
     input.type = "file";
@@ -40,7 +39,7 @@ const MainNewsPage = ({setHTML}) => {
         class: "p-4 text-sm border lg:h-48 h-24 overflow-y-auto content",
       },
     },
-    content: "",
+    content: html,
     onUpdate: ({ editor }) => {
       setHTML(editor.getHTML());
     },
