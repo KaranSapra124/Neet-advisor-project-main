@@ -1,14 +1,23 @@
 const mongoose = require("mongoose");
 
-const newsSchema = new mongoose.Schema({
-  generatedHTML: {
-    type: String,
-    required: true,
+const newsSchema = new mongoose.Schema(
+  {
+    generatedHTML: {
+      type: String,
+      required: true,
+    },
+    hashtags: {
+      type: [String],
+      required: true,
+    },
+    author: {
+      type: String,
+      default: "NEET Advisor",
+    },
   },
-  hashtags: {
-    type: [String],
-    required: true,
+  {
+    timestamps: true,
   },
-});
+);
 
 module.exports = mongoose.model("News", newsSchema);

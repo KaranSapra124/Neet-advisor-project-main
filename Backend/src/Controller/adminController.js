@@ -7,6 +7,7 @@ const Service = require("../Models/Service");
 const { default: axios } = require("axios");
 const Students = require("../Models/Students");
 const SubAdmin = require("../Models/SubAdmin");
+const News = require("../Models/News");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -351,5 +352,15 @@ exports.addNews = async (req, res) => {
     return res.status(201).send({ message: "News Added!", filename });
   } catch (err) {
     return res.status(401).send({ message: "Something Went Wrong!" });
+  }
+};
+exports.addNewsFn = async (req, res) => {
+  try {
+    const newNews = await News.create(req.body);
+    return res
+      .status(201)
+      .send({ message: "News Added Successfully!", newNews });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while adding!" });
   }
 };
