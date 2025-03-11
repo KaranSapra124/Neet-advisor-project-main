@@ -90,7 +90,7 @@ const MainNewsPage = () => {
       key: "hashtags",
       render: (text) => (
         <>
-        {console.log(text)}
+          {console.log(text)}
           <Select
             mode="multiple"
             placeholder="Select Permissions"
@@ -325,7 +325,7 @@ const AddCard = ({ open, onCancel }) => {
   const handleSubmit = async (e) => {
     setFormData((prev) => ({ ...prev, generatedHTML: html }));
     e.preventDefault();
-    if (formData?.generatedHTML === "" || !formData?.hashtags) {
+    if (formData?.generatedHTML === "" || formData?.hashtags?.length === 0) {
       toast.error("All fields are required!");
       return;
     }
