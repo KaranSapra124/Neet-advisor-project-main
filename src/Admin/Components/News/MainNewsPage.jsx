@@ -357,10 +357,8 @@ const EditCard = ({
 
 const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
-    adminName: "",
-    adminEmail: "",
-    adminStatus: "",
-    adminPermissions: [],
+    generatedHTML: "",
+    hashtags: [],
   });
 
   const permissions = ["Testimonials", "Blogs", "Services", "Students"];
