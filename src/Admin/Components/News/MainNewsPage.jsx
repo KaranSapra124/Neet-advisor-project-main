@@ -224,7 +224,7 @@ const ViewCard = ({
           </div>
 
           {/* Admin Status */}
-          <div className="mt-3 flex items-center gap-2">
+          {/* <div className="mt-3 flex items-center gap-2">
             <FaLock className="text-yellow-600" />
             <span className="text-sm font-semibold text-gray-800">Status:</span>
             <Switch
@@ -232,7 +232,7 @@ const ViewCard = ({
               checkedChildren="Active"
               unCheckedChildren="Inactive"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
