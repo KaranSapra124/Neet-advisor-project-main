@@ -421,18 +421,7 @@ const AddCard = ({ open, onCancel }) => {
               </Select.Option>
             ))}
           </Select>
-          <div>
-            <label className="mx-2 font-semibold text-gray-800">
-              Admin Status:
-            </label>
-            <Switch
-              defaultValue={false}
-              onChange={(val) => {
-                setFormData((prev) => ({ ...prev, adminStatus: val }));
-              }}
-            />
-          </div>
-
+      
           <div className="flex justify-between">
             <button
               type="button"
