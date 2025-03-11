@@ -1,0 +1,84 @@
+.content {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    color: #333;
+  }
+  
+  /* Headings */
+  .content h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .content h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 14px;
+  }
+  
+  .content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  
+  /* Paragraph */
+  .content p {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  /* Bullet List */
+  .content ul {
+    padding-left: 20px;
+  }
+  
+  .content ul li {
+    margin-bottom: 8px;
+  }
+  
+  /* Ordered List */
+  .content ol {
+    padding-left: 20px;
+  }
+  
+  .content ol li {
+    margin-bottom: 8px;
+  }
+  
+  /* Images */
+  .content img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+  
+  /* Blockquote */
+  .content blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 16px;
+    color: #666;
+    font-style: italic;
+    margin: 20px 0;
+  }
+  
+  /* Bold and Italic */
+  .content strong {
+    font-weight: bold;
+  }
+  
+  .content em {
+    font-style: italic;
+  }
+  
+  /* Links */
+  .content a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .content a:hover {
+    text-decoration: underline;
+  }
+  
