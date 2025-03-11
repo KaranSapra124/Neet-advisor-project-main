@@ -90,7 +90,7 @@ const MainNewsPage = () => {
       key: "hashtags",
       render: (text) => (
         <>
-          {console.log(text)}
+          {/* {console.log(text)} */}
           <Select
             mode="multiple"
             placeholder="Select Permissions"
@@ -207,9 +207,7 @@ const EditCard = ({ id, generatedHTML, hashtags, onCancel }) => {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    // setFormData((prev) => ({ ...prev, generatedHTML: html }));
     try {
-      // console.log(html, "HTML");
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-news/${id}`,
         { ...formData, generatedHTML: html },
@@ -424,7 +422,7 @@ const AdminStatusSwitch = ({ val, record }) => {
   const queryClient = useQueryClient();
 
   const handleSave = async (status) => {
-    console.log(status);
+    // console.log(status);
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${record?._id}`,

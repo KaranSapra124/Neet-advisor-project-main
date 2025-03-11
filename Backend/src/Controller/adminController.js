@@ -388,3 +388,12 @@ exports.editNews = async (req, res) => {
     return res.status(401).send({ message: "Error while updating news!" });
   }
 };
+exports.deleteNews = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await News.findByIdAndDelete(id);
+    return res.status(200).send({ message: "News Deleted Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while deleting news!" });
+  }
+};
