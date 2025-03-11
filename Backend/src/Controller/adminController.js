@@ -376,6 +376,7 @@ exports.getNews = async (req, res) => {
 };
 exports.editNews = async (req, res) => {
   const { id } = req.params;
+  // console.log(id, req.body);
   try {
     const news = await News.findByIdAndUpdate(
       id,

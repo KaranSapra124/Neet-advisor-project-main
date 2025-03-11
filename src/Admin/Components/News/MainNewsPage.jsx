@@ -205,11 +205,14 @@ const EditCard = ({ id, generatedHTML, hashtags, onCancel }) => {
     hashtags: hashtags,
   });
 
-  const handleSave = async (formData) => {
+  const handleSave = async (e) => {
+    e.preventDefault();
+    // setFormData((prev) => ({ ...prev, generatedHTML: html }));
     try {
+      // console.log(html, "HTML");
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
-        formData,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-news/${id}`,
+        { ...formData, generatedHTML: html },
       );
       toast.success(data?.message);
     } catch (err) {
@@ -240,7 +243,7 @@ const EditCard = ({ id, generatedHTML, hashtags, onCancel }) => {
       footer={false}
     >
       <div className="rounded-lg bg-white p-6 shadow-lg">
-        <form onSubmit={mutation.mutate} className="space-y-4">
+        <form onSubmit={(e) => mutation.mutate(e)} className="space-y-4">
           <label className="mx-2 font-semibold text-gray-800">Add News</label>
           <TipTapEditor setHTML={setHTML} html={html} />
           <label className="mx-2 font-semibold text-gray-800">
