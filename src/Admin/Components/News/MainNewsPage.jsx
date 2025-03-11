@@ -223,16 +223,7 @@ const ViewCard = ({
             </div>
           </div>
 
-          {/* Admin Status */}
-          {/* <div className="mt-3 flex items-center gap-2">
-            <FaLock className="text-yellow-600" />
-            <span className="text-sm font-semibold text-gray-800">Status:</span>
-            <Switch
-              checked={adminStatusData}
-              checkedChildren="Active"
-              unCheckedChildren="Inactive"
-            />
-          </div> */}
+          
         </div>
       </div>
     </div>
