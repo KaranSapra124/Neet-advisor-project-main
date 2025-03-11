@@ -1,70 +1,81 @@
+import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import Quill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-// import toolbar from "react-quill"
+import TiptapEditor from "./TipTapEditor";
 
 const MainNewsPage = () => {
   const quillRef = useRef(null);
-  const handleImageUpload = () => {
-    const ImageInput = document.createElement("input");
-    ImageInput.setAttribute("type", "file");
-    // ImageInput.setAttribute("accept", "image/");
-    ImageInput.click();
-    console.log(ImageInput);
-    ImageInput.onchange = async () => {
-      const file = ImageInput.files[0];
-      if (file) {
-        console.log("File Selected: ", file);
 
-        // Yaha tera API call ya Base64 conversion karega
-        const imageUrl = URL.createObjectURL(file);
+  // const handleImageUpload = () => {
+  //   const input = document.createElement("input");
+  //   input.setAttribute("type", "file");
+  //   input.click();
 
-        // Quill editor pe image insert karega
-        const range = quillRef.current.getEditor().getSelection();
-        quillRef.current
-          .getEditor()
-          .insertEmbed(range.index, "image", imageUrl);
-      }
-    };
-  };
-  const toolbarOptions = [
-    [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    ["bold", "italic", "underline", "strike"], // toggled buttons
-    ["blockquote"],
-    ["link", "image", "video"],
+  //   input.onchange = async () => {
+  //     const file = input.files[0];
+  //     if (file) {
+  //       const formData = new FormData();
+  //       formData.append("file", file);
 
-    [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
-    // [{ script: "sub" }, { script: "super" }], // superscript/subscript
-    // [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-    [{ direction: "rtl" }], // text direction
+  //       try {
+  //         const { data } = await axios.post(
+  //           `${import.meta.env.VITE_BACKEND_URL}super-admin/add-news`,
+  //           formData,
+  //           {
+  //             headers: {
+  //               "Content-Type": "multipart/form-data",
+  //             },
+  //           },
+  //         );
 
-    [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-    [{ align: [] }],
+  //         const imageUrl = `${import.meta.env.VITE_BACKEND_URL}uploads/${data.filename}`;
+  //         // const editor = quillRef.current.getEditor();
+  //         // const range = editor.getSelection();
 
-    ["clean"], // remove formatting button
-  ];
-  const [value, setValue] = useState("");
+  //         // const index = range ? range.index : editor.getLength();
+  //         // editor.insertEmbed(index, "image", imageUrl);
+  //       } catch (error) {
+  //         console.error("Image upload failed:", error);
+  //       }
+  //     }
+  //   };
+  // };
 
-  useEffect(() => {
-    console.log(value);
-  }, [value]);
+  // const toolbarOptions = [
+  //   [{ size: ["small", false, "large", "huge"] }],
+  //   [{ header: [1, 2, 3, 4, 5, 6, false] }],
+  //   ["bold", "italic", "underline", "strike"],
+  //   ["blockquote"],
+  //   ["link", "image", "video"],
+  //   [{ list: "ordered" }, { list: "bullet" }],
+  //   [{ direction: "rtl" }],
+  //   [{ color: [] }, { background: [] }],
+  //   [{ align: [] }],
+  //   ["clean"],
+  // ];
+
+  // const [value, setValue] = useState("");
+
+  // useEffect(() => {
+  //   console.log(quillRef.current.getEditor().hasFocus());
+  // }, [value]);
+
   return (
     <>
-      <Quill
-        ref={quillRef}
-        value={value}
-        modules={{
-          toolbar: {
-            container: toolbarOptions, // 👈 Yaha toolbarOptions pass kar diya
-            handlers: {
-              image: () => handleImageUpload(), // 👈 Yaha handlers pass kar diya
-            },
-          },
-        }}
-        onChange={setValue}
-      />
+      <TiptapEditor />
     </>
+    // <ReactQuill
+    //   ref={quillRef}
+    //   value={value}
+    //   modules={{
+    //     toolbar: {
+    //       container: toolbarOptions,
+    //       handlers: {
+    //         image: handleImageUpload,
+    //       },
+    //     },
+    //   }}
+    //   onChange={setValue}
+    // />
   );
 };
 

@@ -344,3 +344,12 @@ exports.editAdmin = async (req, res) => {
   }
 };
 // Admin Ended
+// News Panel Started
+exports.addNews = async (req, res) => {
+  try {
+    const { filename } = req.file;
+    return res.status(201).send({ message: "News Added!", filename });
+  } catch (err) {
+    return res.status(401).send({ message: "Something Went Wrong!" });
+  }
+};
