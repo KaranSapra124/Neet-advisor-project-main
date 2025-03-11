@@ -22,12 +22,12 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-const fetchAdmins = async () => {
+const fetchNews = async () => {
   const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news`,
   );
   const { data } = res;
-  return data?.allAdmins;
+  return data?.allNews;
 };
 const hashtags = ["NEET", "NEET UG 2025"];
 
@@ -39,8 +39,8 @@ const MainNewsPage = () => {
   const [isAdd, setIsAdd] = useState(false);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["allAdmins"],
-    queryFn: fetchAdmins,
+    queryKey: ["allNews"],
+    queryFn: fetchNews,
   });
   const queryClient = useQueryClient();
   const handleDelete = async (id) => {

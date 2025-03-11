@@ -19,6 +19,7 @@ const {
   editAdmin,
   addNews,
   addNewsFn,
+  getNews,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
