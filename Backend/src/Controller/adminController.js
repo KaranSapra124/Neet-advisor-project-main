@@ -364,3 +364,13 @@ exports.addNewsFn = async (req, res) => {
     return res.status(401).send({ message: "Error while adding!" });
   }
 };
+exports.getNews = async (req, res) => {
+  try {
+    const allNews = await News.find();
+    return res
+      .status(200)
+      .send({ message: "News fetched successfully!", allNews });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while fetching news!" });
+  }
+};

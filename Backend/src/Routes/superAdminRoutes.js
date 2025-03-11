@@ -72,5 +72,6 @@ Router.post("/edit-admin/:id", editAdmin);
 // News Started
 Router.post("/add-news", upload.single("file"), addNews);
 Router.post("/add-news-admin", addNewsFn);
+Router.get("/get-news", getNews);
 
 module.exports = Router;
