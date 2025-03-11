@@ -346,19 +346,16 @@ const EditCard = ({
 };
 
 const AddCard = ({ open, onCancel }) => {
+  const [html, setHTML] = useState("");
   const [formData, setFormData] = useState({
     generatedHTML: "",
     hashtags: [],
   });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   useEffect(() => console.log(formData), [formData]);
   const handleSubmit = async (e) => {
+    setFormData((prev) => ({ ...prev, generatedHTML: html }));
     e.preventDefault();
-    if (!formData?.generatedHTML || !formData?.hashtags) {
+    if (formData?.generatedHTML === ""   || !formData?.hashtags) {
       toast.error("All fields are required!");
       return;
     }
@@ -396,7 +393,7 @@ const AddCard = ({ open, onCancel }) => {
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
           <label className="mx-2 font-semibold text-gray-800">Add News</label>
-          <TipTapEditor />
+          <TipTapEditor setHTML={setHTML} />
           <label className="mx-2 font-semibold text-gray-800">
             Add Hashtags:
           </label>

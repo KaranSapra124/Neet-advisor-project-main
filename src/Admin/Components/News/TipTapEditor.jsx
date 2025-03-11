@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./TipTap.css";
 import { FaImage, FaListOl, FaListUl } from "react-icons/fa";
-const MainNewsPage = () => {
-  const [html, setHTML] = useState("");
+const MainNewsPage = ({setHTML}) => {
+  
   const handleImageUpload = async () => {
     const input = document.createElement("input");
     input.type = "file";
@@ -121,7 +121,7 @@ const MainNewsPage = () => {
 
         <EditorContent editor={editor} />
       </div>
-      <div className="content" dangerouslySetInnerHTML={{ __html: html }}></div>
+      {/* <div className="content" dangerouslySetInnerHTML={{ __html: html }}></div> */}
     </>
   );
 };
