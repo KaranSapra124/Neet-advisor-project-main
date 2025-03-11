@@ -69,7 +69,15 @@ const MainNewsPage = () => {
       key: "generatedHTML",
 
       render: (text) => (
-        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
+        <>
+          <FaEye
+            onClick={() => {
+              setIsView(true);
+              setViewItem({ generatedHTML: text });
+            }}
+            className="mx-auto cursor-pointer text-primary-color"
+          />
+        </>
       ),
     },
     {
@@ -78,29 +86,27 @@ const MainNewsPage = () => {
           Category
         </h1>
       ),
-      dataIndex: "newsCategory",
-      key: "newsCategory",
+      dataIndex: "hashtags",
+      key: "hashtags",
       render: (text) => (
-        <p className="max-w-52 text-center text-xs font-medium">{text}</p>
+        <>
+        {console.log(text)}
+          <Select
+            mode="multiple"
+            placeholder="Select Permissions"
+            value={text}
+            onChange={(val) => setadminPermissions(val)}
+            className="mt-1 w-full"
+          >
+            {text?.map((tag) => (
+              <Select.Option key={tag} value={tag}>
+                {tag}
+              </Select.Option>
+            ))}
+          </Select>
+        </>
       ),
     },
-
-    // {
-    //   title: (
-    //     <h1 className="text-center text-lg font-bold text-primary-color">
-    //       Admin Status
-    //     </h1>
-    //   ),
-    //   dataIndex: "adminStatus",
-    //   key: "adminStatus",
-    //   render: (val, record) => {
-    //     return (
-    //       <div className="flex items-center justify-center">
-    //         <AdminStatusSwitch val={val} record={record} />
-    //       </div>
-    //     );
-    //   },
-    // },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
@@ -111,13 +117,13 @@ const MainNewsPage = () => {
       key: "action",
       render: (_, record) => (
         <div className="flex items-center justify-center gap-5">
-          {/* <FaEye
+          <FaEye
             onClick={() => {
               setIsView(true);
               setViewItem(record);
             }}
             className="cursor-pointer text-primary-color"
-          /> */}
+          />
 
           <FaEdit
             onClick={() => {
@@ -144,12 +150,7 @@ const MainNewsPage = () => {
           onCancel={() => setIsView(false)}
           footer={false}
         >
-          <ViewCard
-            adminNameData={viewItem?.adminName}
-            adminEmailData={viewItem?.adminEmail}
-            adminPermissionsData={viewItem?.adminPermissions}
-            adminStatusData={viewItem?.adminStatus}
-          />
+          <ViewCard generatedHTML={viewItem?.generatedHTML} />
         </Modal>
       )}
       {isEdit && (
@@ -187,44 +188,14 @@ const MainNewsPage = () => {
   );
 };
 
-const ViewCard = ({
-  adminNameData,
-  adminEmailData,
-  adminStatusData,
-  adminPermissionsData,
-}) => {
+const ViewCard = ({ generatedHTML }) => {
   return (
-    <div className="relative mx-auto rounded-xl border border-gray-200 bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg lg:mx-0">
-      <div className="flex items-center justify-between gap-4">
-        {/* Admin Details */}
-        <div className="flex-1">
-          {/* Admin Name */}
-          <h2 className="flex items-center gap-2 text-lg font-bold text-gray-800">
-            <FaUserShield className="text-yellow-600" /> {adminNameData}
-          </h2>
-
-          {/* Admin Email */}
-          <p className="flex items-center gap-2 text-sm text-gray-600">
-            <FaEnvelope className="text-yellow-600" /> {adminEmailData}
-          </p>
-
-          {/* Admin Permissions */}
-          <div className="mt-2">
-            <p className="text-sm font-semibold text-gray-800">Permissions:</p>
-            <div className="mt-1 flex flex-wrap gap-1">
-              {adminPermissionsData.map((perm, index) => (
-                <span
-                  key={index}
-                  className="rounded-full border border-yellow-600 bg-yellow-100 px-2 py-1 text-xs text-yellow-800"
-                >
-                  {perm}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <div
+        dangerouslySetInnerHTML={{ __html: generatedHTML }}
+        className="relative mx-auto rounded-xl border border-gray-200 bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg lg:mx-0"
+      ></div>
+    </>
   );
 };
 
@@ -355,7 +326,7 @@ const AddCard = ({ open, onCancel }) => {
   const handleSubmit = async (e) => {
     setFormData((prev) => ({ ...prev, generatedHTML: html }));
     e.preventDefault();
-    if (formData?.generatedHTML === ""   || !formData?.hashtags) {
+    if (formData?.generatedHTML === "" || !formData?.hashtags) {
       toast.error("All fields are required!");
       return;
     }
