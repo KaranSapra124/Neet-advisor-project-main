@@ -236,7 +236,7 @@ const EditCard = ({
 
   const mutation = useMutation({
     mutationFn: handleSave,
-    onSuccess: () => queryClient.invalidateQueries(["allAdmins"]),
+    onSuccess: () => queryClient.invalidateQueries(["allNews"]),
   });
 
   return (
@@ -322,7 +322,6 @@ const AddCard = ({ open, onCancel }) => {
     generatedHTML: "",
     hashtags: [],
   });
-  useEffect(() => console.log(formData), [formData]);
   const handleSubmit = async (e) => {
     setFormData((prev) => ({ ...prev, generatedHTML: html }));
     e.preventDefault();
@@ -350,12 +349,12 @@ const AddCard = ({ open, onCancel }) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: handleSubmit,
-    onSuccess: () => queryClient.invalidateQueries(["fetchedStudent"]),
+    onSuccess: () => queryClient.invalidateQueries(["allNews"]),
   });
 
   return (
     <Modal
-      title="Add Student"
+      title="Add News"
       open={open}
       onClose={onCancel}
       onCancel={onCancel}
