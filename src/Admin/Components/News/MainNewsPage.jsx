@@ -29,7 +29,7 @@ const fetchAdmins = async () => {
   const { data } = res;
   return data?.allAdmins;
 };
-const hashtags = ["NEET","NEET UG 2025"];
+const hashtags = ["NEET", "NEET UG 2025"];
 
 const MainNewsPage = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -364,7 +364,7 @@ const AddCard = ({ open, onCancel }) => {
     }
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-admin`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-news-admin`,
         formData,
       );
 

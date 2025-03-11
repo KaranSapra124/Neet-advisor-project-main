@@ -18,6 +18,7 @@ const {
   deleteAdmin,
   editAdmin,
   addNews,
+  addNewsFn,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -70,5 +71,6 @@ Router.post("/edit-admin/:id", editAdmin);
 
 // News Started
 Router.post("/add-news", upload.single("file"), addNews);
+Router.post("/add-news-admin", addNewsFn);
 
 module.exports = Router;
