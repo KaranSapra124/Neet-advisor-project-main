@@ -29,7 +29,7 @@ const fetchAdmins = async () => {
   const { data } = res;
   return data?.allAdmins;
 };
-const permissions = ["Testimonials", "Blogs", "Services", "Students"];
+const hashtags = ["NEET","NEET UG 2025"];
 
 const MainNewsPage = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -222,8 +222,6 @@ const ViewCard = ({
               ))}
             </div>
           </div>
-
-          
         </div>
       </div>
     </div>
@@ -404,24 +402,43 @@ const AddCard = ({ open, onCancel }) => {
           </label>
           <Select
             mode="multiple"
-            placeholder="Select Permissions"
-            value={formData.adminPermissions}
+            placeholder="Add Hashtags"
+            value={formData.hashtags}
             onChange={(val) => {
-              console.log(val);
               setFormData((prev) => ({
                 ...prev,
-                adminPermissions: val,
+                hashtags: val,
+              }));
+            }}
+            onDeselect={(val) =>
+              setFormData((prev) => ({
+                ...prev,
+                hashtags: prev.hashtags.filter((tag) => tag !== val),
+              }))
+            }
+            onKeyUp={(e) => {
+              setFormData((prev) => ({
+                ...prev,
+                hashtags:
+                  e.key === "Enter"
+                    ? [
+                        ...prev?.hashtags,
+                        e.target.value[0] === "#"
+                          ? e.target.value
+                          : "#" + e.target.value,
+                      ]
+                    : prev.hashtags,
               }));
             }}
             className="w-full"
           >
-            {permissions?.map((permission) => (
-              <Select.Option key={permission} value={permission}>
-                {permission}
+            {hashtags?.map((hashtag) => (
+              <Select.Option key={hashtag} value={hashtag}>
+                {hashtag}
               </Select.Option>
             ))}
           </Select>
-      
+
           <div className="flex justify-between">
             <button
               type="button"
