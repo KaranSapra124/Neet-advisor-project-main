@@ -399,3 +399,13 @@ exports.deleteNews = async (req, res) => {
     return res.status(401).send({ message: "Error while deleting news!" });
   }
 };
+exports.getLatestNews = async (req, res) => {
+  try {
+    const latestNews = await News.find().sort({ createdAt: -1 });
+    console.log(latestNews);
+  } catch (err) {
+    return res
+      .status(401)
+      .send({ message: "Error while fetching latest news!" });
+  }
+};
