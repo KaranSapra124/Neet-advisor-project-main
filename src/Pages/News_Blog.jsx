@@ -31,7 +31,7 @@ const News_Blog = () => {
       {isOpen && <NewsLetter isOpen={isOpen} setIsOpen={setIsOpen} />}
       <Root>
         <div 
-          className="newsPageDiv max-w-screen-md"
+          className="newsPageDiv max-w-[900px]"
           dangerouslySetInnerHTML={{ __html: news }}
         ></div>
         {/* <Hero />
