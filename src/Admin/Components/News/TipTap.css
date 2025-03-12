@@ -5,6 +5,12 @@
   padding: 10px;
 }
 
+.dividerDiv{
+  height: 10px;
+  width: 20px;
+  background: #201169;
+}
+
 /* Headings */
 .newsDiv h1 {
   font-size: 28px;

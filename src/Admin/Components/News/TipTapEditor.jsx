@@ -23,8 +23,11 @@ import {
   FaVideo,
   FaPalette,
   FaColumns,
+  FaDivide,
 } from "react-icons/fa";
 import { FaTableCellsRowUnlock } from "react-icons/fa6";
+import { RxDividerHorizontal } from "react-icons/rx";
+import Divider from "../../../Components/Helper/Divider";
 
 const MainNewsPage = ({ html, setHTML }) => {
   const [heading, setHeading] = useState("paragraph");
@@ -96,6 +99,15 @@ const MainNewsPage = ({ html, setHTML }) => {
         <button onClick={() => editor.chain().focus().toggleUnderline().run()}>
           U
         </button>
+        <button
+          onClick={() => {
+            const dividerHTML =   `<h1 class="dividerDiv">Hello</h1>`;
+            editor.commands.insertContent(dividerHTML);
+          
+          }}
+        >
+          <RxDividerHorizontal />
+        </button>
         <FaListUl
           onClick={() => editor.chain().focus().toggleBulletList().run()}
         />
@@ -116,8 +128,12 @@ const MainNewsPage = ({ html, setHTML }) => {
         <FaPalette
           onClick={() => editor.chain().focus().setColor("black").run()}
         />
-        <FaColumns  onClick={() => editor?.chain()?.focus()?.addColumnAfter().run()} />
-          <FaTableCellsRowUnlock onClick={() => editor?.chain()?.focus()?.addRowAfter().run()}/>
+        <FaColumns
+          onClick={() => editor?.chain()?.focus()?.addColumnAfter().run()}
+        />
+        <FaTableCellsRowUnlock
+          onClick={() => editor?.chain()?.focus()?.addRowAfter().run()}
+        />
         <select
           className="rounded border border-gray-300 bg-white p-2 text-sm transition hover:bg-gray-200"
           value={heading}

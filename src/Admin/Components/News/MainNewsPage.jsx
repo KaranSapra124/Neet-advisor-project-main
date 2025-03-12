@@ -21,6 +21,7 @@ import {
   useQueryClient,
   QueryClient,
 } from "@tanstack/react-query";
+import Divider from "../../../Components/Helper/Divider";
 
 const fetchNews = async () => {
   const res = await axios.get(
@@ -345,15 +346,22 @@ const AddCard = ({ open, onCancel }) => {
 
   return (
     <Modal
-      title="Add News"
+      title={
+        <>
+          <h1 className="p-2 text-2xl font-extrabold text-primary-color">
+            Add News
+          </h1>
+          <Divider className={"h-1 w-32 ml-2 rounded-full bg-primary-color "}/>
+        </>
+      }
       open={open}
       onClose={onCancel}
       onCancel={onCancel}
       footer={false}
     >
-      <div className="rounded-lg bg-white p-6 shadow-lg">
+      <div className="w-full rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
-          <label className="mx-2 font-semibold text-gray-800">Add News</label>
+          {/* <label className="mx-2 font-semibold text-gray-800">Add News</label> */}
           <TipTapEditor setHTML={setHTML} html={html} />
           <label className="mx-2 font-semibold text-gray-800">
             Add Hashtags:

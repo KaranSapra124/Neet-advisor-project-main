@@ -177,6 +177,7 @@ exports.getZoomMeetings = async (req, res) => {
       .send({ message: "Meetings Fetched!", meetings: data?.meetings });
   } catch (err) {
     console.log(err);
+    res.status(500).json({ message: "Something Went Wrong!" });
   }
 };
 
@@ -201,6 +202,7 @@ exports.getServices = async (req, res) => {
     const services = await Service.find();
     return res.status(200).send({ message: "Services Fetched!", services });
   } catch (err) {
+    console.log(err);
     return res.status(401).send({ message: "Something Went Wrong!" });
   }
 };
