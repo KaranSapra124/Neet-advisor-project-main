@@ -23,5 +23,5 @@ Router.post("/delete-testimonial/:id", deleteTestimonial);
 
 Router.post("/send-admin-otp", sendOtpAdmin);
 Router.post("/verify-otp-admin",verifyOTP);
-Router.post("/get-admin",adminAuth,getAdmin)
+Router.post("/get-admin",adminAuth,getAdmin);
 module.exports = Router;
