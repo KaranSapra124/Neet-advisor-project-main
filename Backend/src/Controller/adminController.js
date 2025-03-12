@@ -402,7 +402,7 @@ exports.deleteNews = async (req, res) => {
 exports.getLatestNews = async (req, res) => {
   try {
     const latestNews = await News.find().sort({ createdAt: -1 });
-    console.log(latestNews);
+    return res.status(200).send({ message: "News Fetched!", latestNews });
   } catch (err) {
     return res
       .status(401)
