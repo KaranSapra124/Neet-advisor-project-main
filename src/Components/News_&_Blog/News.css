@@ -41,7 +41,7 @@
 .newsPageDiv h3 {
   font-size: 1.5rem;
   border-left: 3px solid #ca8a04;
-  border-radius: 10px;
+  border-radius: 8px;
   border-bottom: 3px solid #ca8a04;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -103,8 +103,10 @@
 
 .newsPageDiv th,
 .newsPageDiv td {
-  border: 1px solid #e0e0e0;
-  padding: 12px 15px;
+  border: 1px solid rgb(129, 126, 126);
+  padding: 10px;
+  font-weight: 600;
+  
   text-align: left;
 }
 
