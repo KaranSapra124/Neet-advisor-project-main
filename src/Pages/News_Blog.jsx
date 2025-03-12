@@ -15,10 +15,8 @@ const News_Blog = () => {
         const { data } = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news`,
         );
-        console.log(data)
         setNews(data?.allNews[3]?.generatedHTML);
 
-        // console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -33,7 +31,7 @@ const News_Blog = () => {
       {isOpen && <NewsLetter isOpen={isOpen} setIsOpen={setIsOpen} />}
       <Root>
         <div 
-          className="newsPageDiv w-full"
+          className="newsPageDiv max-w-screen-md"
           dangerouslySetInnerHTML={{ __html: news }}
         ></div>
         {/* <Hero />
