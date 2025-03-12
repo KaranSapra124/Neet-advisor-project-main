@@ -32,7 +32,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-[1000] p-4 px-8 shadow-lg backdrop-blur-sm lg:px-20 ${window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") ||  window.location.pathname.includes("careers") ||  window.location.pathname.includes("mbbs-abroad") || window.location.pathname.includes("medical-expo") ? "bg-black/85" : "bg-white"}`}
+      className={`sticky top-0 z-[1000] p-4 px-8 shadow-lg backdrop-blur-sm lg:px-20 ${window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("pg-seminar") || window.location.pathname.includes("careers") || window.location.pathname.includes("mbbs-abroad") || window.location.pathname.includes("medical-expo") ? "bg-black/85" : "bg-white"}`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
@@ -52,16 +52,21 @@ function Navbar() {
                 className={({ isActive }) =>
                   isActive
                     ? "font-bold text-indigo-900 transition-all hover:scale-105 hover:font-bold"
-                    : `${window.location.pathname.includes("ug-seminar") ||  window.location.pathname.includes("mbbs-abroad") ||  window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ||  window.location.pathname.includes("careers") ? "text-white" : "text-gray-600"} transition-all hover:scale-105 hover:font-bold`
+                    : `${window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("mbbs-abroad") || window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") || window.location.pathname.includes("careers") ? "text-white" : "text-gray-600"} transition-all hover:scale-105 hover:font-bold`
                 }
                 to={elem.link}
               >
                 {elem.title}
               </NavLink>
             ))}
-            <Dropdown overlay={menu} arrow placement="bottom">
+            <Dropdown
+            
+              overlay={menu}
+              arrow
+              placement="top"
+            >
               <a
-                className={`cursor-pointer ${window.location.pathname.includes("ug-seminar") ||  window.location.pathname.includes("mbbs-abroad") ||  window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ||  window.location.pathname.includes("careers") ? "text-white" : "text-gray-600"}`}
+                className={`cursor-pointer ${window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("mbbs-abroad") || window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") || window.location.pathname.includes("careers") ? "text-white" : "text-gray-600"}`}
               >
                 More
               </a>

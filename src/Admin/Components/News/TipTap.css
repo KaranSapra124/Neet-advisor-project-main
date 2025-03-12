@@ -1,11 +1,11 @@
-.content {
+/* .newsDiv {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #201169;
 }
 
 /* Headings */
-.content h1 {
+.newsDiv h1 {
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 16px;
@@ -15,14 +15,14 @@
   padding-bottom: 8px;
 }
 
-.content h2 {
+.newsDiv h2 {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 14px;
   color: #3722a5;
 }
 
-.content h3 {
+.newsDiv h3 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 12px;
@@ -30,7 +30,7 @@
 }
 
 /* Paragraph */
-.content p {
+.newsDiv p {
   font-size: 14px;
   margin-bottom: 10px;
   text-align: justify;
@@ -38,32 +38,32 @@
 }
 
 /* Bullet List */
-.content ul {
+.newsDiv ul {
   padding-left: 18px;
   list-style-type: square;
 }
 
-.content ul li {
+.newsDiv ul li {
   margin-bottom: 6px;
   transition: transform 0.3s;
 }
 
-.content ul li:hover {
+.newsDiv ul li:hover {
   transform: translateX(3px);
   color: #3722a5;
 }
 
 /* Ordered List */
-.content ol {
+.newsDiv ol {
   padding-left: 18px;
 }
 
-.content ol li {
+.newsDiv ol li {
   margin-bottom: 6px;
 }
 
 /* Images */
-.content img {
+.newsDiv img {
   max-width: 100%;
   border-radius: 8px;
   margin-bottom: 16px;
@@ -71,13 +71,13 @@
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.content img:hover {
+.newsDiv img:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Blockquote */
-.content blockquote {
+.newsDiv blockquote {
   border-left: 3px solid #4a2bcd;
   padding-left: 12px;
   color: #3722a5;
@@ -89,36 +89,36 @@
 }
 
 /* Bold and Italic */
-.content strong {
+.newsDiv strong {
   font-weight: bold;
 }
 
-.content em {
+.newsDiv em {
   font-style: italic;
 }
 
 /* Links */
-.content a {
+.newsDiv a {
   color: #007bff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
 
-.content a:hover {
+.newsDiv a:hover {
   text-decoration: underline;
   color: #4a2bcd;
 }
 
 /* Extra Flavor */
-.content hr {
+.newsDiv hr {
   border: none;
   height: 1.5px;
   background-color: #201169;
   margin: 20px 0;
 }
 
-.content .highlight {
+.newsDiv .highlight {
   background-color: #f4f4f9;
   padding: 8px 12px;
   border-left: 3px solid #201169;
@@ -127,6 +127,6 @@
 }
 
 /* Smooth transition effect */
-* {
+.newsDiv {
   transition: all 0.3s ease-in-out;
-}
+} 

@@ -191,7 +191,7 @@ const ViewCard = ({ generatedHTML }) => {
     <>
       <div
         dangerouslySetInnerHTML={{ __html: generatedHTML }}
-        className="content p-10"
+        className="newsDiv p-10"
       ></div>
     </>
   );

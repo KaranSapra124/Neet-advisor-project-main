@@ -36,7 +36,7 @@ const MainNewsPage = ({ html, setHTML }) => {
 
     editorProps: {
       attributes: {
-        class: "p-4 text-sm border lg:h-48 h-24 overflow-y-auto content",
+        class: "p-4 text-sm border lg:h-48 h-24 overflow-y-auto newsDiv",
       },
     },
     content: html,
