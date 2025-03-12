@@ -1,0 +1,138 @@
+/* ✅ Main News Page Container */
+.newsPageDiv {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    font-family: "Arial", sans-serif;
+    line-height: 1.5;
+    color: #e0e0e0; /* Light gray text */
+    border-radius: 10px;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); */
+  }
+  
+  /* ✅ Headings */
+  .newsPageDiv h1,
+  .newsPageDiv h2,
+  .newsPageDiv h3 {
+    font-weight: bold;
+    color: #201169;
+    margin-bottom: 5px;
+  }
+  
+  .newsPageDiv h1 {
+    font-size: 1.8rem;
+  }
+  .newsPageDiv em{
+    color: rgb(48, 48, 48);
+
+  }
+  
+  .newsPageDiv h2 {
+    font-size: 1.5rem;
+  }
+  
+  .newsPageDiv h3 {
+    font-size: 1.3rem;
+  }
+  
+  /* ✅ Paragraphs */
+  .newsPageDiv p {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    text-align: justify;
+    color: rgb(48, 48, 48);
+  }
+  
+  /* ✅ Lists */
+  .newsPageDiv ul,
+  .newsPageDiv ol {
+    margin-left: 12px;
+    padding-left: 12px;
+  }
+  
+  .newsPageDiv ul {
+    list-style-type: disc;
+  }
+  
+  .newsPageDiv ol {
+    list-style-type: decimal;
+  }
+  
+  .newsPageDiv ul li,
+  .newsPageDiv ol li {
+    margin-bottom: 3px;
+    color: #e0e0e0;
+  }
+  
+  /* ✅ Tables */
+  .newsPageDiv table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    width: fit-content;
+    
+    /* background: #3b3b3b; */
+  }
+  
+  .newsPageDiv th,
+  .newsPageDiv td {
+    border: 1px solid #555;
+    padding: 1rem;
+    
+    text-align: left;
+    color: #e0e0e0;
+  }
+  
+  .newsPageDiv th {
+    background-color: #201169;
+    font-weight: bold;
+  }
+  
+  /* ✅ Images */
+  .newsPageDiv img {
+    width: 50rem;
+    height: auto;
+
+    /* margin: 8px auto; */
+    border-radius: 6px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* ✅ Videos */
+  .newsPageDiv video {
+    max-width: 100%;
+    display: block;
+    margin: 8px auto;
+    border-radius: 6px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* ✅ Blockquotes */
+  .newsPageDiv blockquote {
+    margin: 10px 0;
+    padding: 6px 12px;
+    background: #3b3b3b;
+    border-left: 4px solid #ffffff;
+    font-style: italic;
+    color: #e0e0e0;
+  }
+  
+  /* ✅ Responsive Adjustments */
+  @media (max-width: 768px) {
+    .newsPageDiv {
+      padding: 10px;
+    }
+  
+    .newsPageDiv h1 {
+      font-size: 1.6rem;
+    }
+  
+    .newsPageDiv h2 {
+      font-size: 1.4rem;
+    }
+  
+    .newsPageDiv h3 {
+      font-size: 1.2rem;
+    }
+  }
+  
