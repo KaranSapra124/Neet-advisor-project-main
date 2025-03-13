@@ -401,11 +401,25 @@ exports.deleteNews = async (req, res) => {
 };
 exports.getLatestNews = async (req, res) => {
   try {
-    const latestNews = await News.find()
+    const latestNews = await News.find();
     return res.status(200).send({ message: "News Fetched!", latestNews });
   } catch (err) {
     return res
       .status(401)
       .send({ message: "Error while fetching latest news!" });
+  }
+};
+
+exports.getRelatedNews = async (req, res) => {
+  const { hashtags } = req.body;
+  try {
+    const relatedNews = await News.find({
+      hashtags: {
+        $in: hashtags,
+      },
+    });
+    console.log(relatedNews);
+  } catch (err) {
+    console.log(err)
   }
 };

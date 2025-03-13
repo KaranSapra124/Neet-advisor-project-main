@@ -27,6 +27,7 @@ const News_Blog = () => {
     const newsLetterTimeout = setTimeout(() => setIsOpen(true), 2000);
     return clearTimeout(() => newsLetterTimeout);
   }, []);
+  
   return (
     <>
       {isOpen && <NewsLetter isOpen={isOpen} setIsOpen={setIsOpen} />}
