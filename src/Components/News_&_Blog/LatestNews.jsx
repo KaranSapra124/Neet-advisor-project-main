@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useRef } from "react";
 import Divider from "../Helper/Divider";
 const fetchLatestNews = async () => {
   const res = await axios.get(
@@ -11,13 +11,19 @@ const fetchLatestNews = async () => {
 };
 
 const LatestNews = ({ currNews, setCurrNews }) => {
+  const latestNewsDivRef = document.getElementById("latestNewsDivRef");
+
   const { data, isLoading, error } = useQuery({
     queryKey: ["LatestNews"],
     queryFn: fetchLatestNews,
   });
+  
   return (
     <>
-      <div className="mx-2 my-4 max-h-80 max-w-sm overflow-x-auto shadow-lg">
+      <div
+        id="latestNewsDivRef"
+        className="mx-2 scroll-smooth my-4 max-h-80 max-w-sm overflow-x-auto shadow-lg"
+      >
         <div className="sticky top-0 z-[99] bg-white p-1">
           <h1 className="rounded bg-gray-200 p-1 text-xs font-extrabold text-primary-color lg:text-xl">
             Latest News
@@ -36,7 +42,7 @@ const LatestNews = ({ currNews, setCurrNews }) => {
                   <>
                     <div
                       onClick={() => setCurrNews(news?._id)}
-                      className="my-2 flex cursor-pointer rounded p-2 bg-white shadow shadow-black border-black hover:shadow-none transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white"
+                      className="my-2 flex cursor-pointer rounded border-black bg-white p-2 shadow shadow-black transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white hover:shadow-none"
                     >
                       <span className="mx-1">👉</span>
                       <div
