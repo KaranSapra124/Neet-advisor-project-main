@@ -8,6 +8,7 @@ import axios from "axios";
 import "../Components/News_&_Blog/News.css";
 import LatestNews from "../Components/News_&_Blog/LatestNews";
 const News_Blog = () => {
+  const [currNews, setCurrNews] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [news, setNews] = useState([]);
   useEffect(() => {
@@ -16,7 +17,7 @@ const News_Blog = () => {
         const { data } = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news`,
         );
-        setNews(data?.allNews[3]?.generatedHTML);
+        setNews(data?.allNews);
       } catch (error) {
         console.log(error);
       }
@@ -32,10 +33,10 @@ const News_Blog = () => {
       <Root>
         <div className="flex justify-evenly">
           <div
-            className="newsPageDiv max-w-[900px] "
-            dangerouslySetInnerHTML={{ __html: news }}
+            className="newsPageDiv max-w-[900px]"
+            dangerouslySetInnerHTML={{ __html: news[currNews]?.generatedHTML }}
           ></div>
-          <LatestNews />
+          <LatestNews currNews={currNews} setCurrNews={setCurrNews} />
         </div>
         {/* <Hero />
         <Schedule/> */}
