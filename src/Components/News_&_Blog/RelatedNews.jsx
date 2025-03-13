@@ -40,7 +40,7 @@ const RelatedNews = ({ currNews, setCurrNews }) => {
                   <>
                     <div
                       onClick={() => setCurrNews(news?._id)}
-                      className="my-2 flex cursor-pointer rounded p-2 transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white"
+                      className="my-2 flex cursor-pointer rounded p-2 bg-white shadow shadow-black border-black hover:shadow-none transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white"
                     >
                       <span className="mx-1 font-bold text-primary-color">
                         {index + 1}.)
