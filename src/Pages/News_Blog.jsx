@@ -8,17 +8,22 @@ import axios from "axios";
 import "../Components/News_&_Blog/News.css";
 import LatestNews from "../Components/News_&_Blog/LatestNews";
 import RelatedNews from "../Components/News_&_Blog/RelatedNews";
+import { useLocation } from "react-router-dom";
+import { TbCurrencyKroneSwedish } from "react-icons/tb";
 const News_Blog = () => {
-  const [currNews, setCurrNews] = useState(0);
+  const location = useLocation();
+  const { state } = location;
+  const [currNews, setCurrNews] = useState("67d0326b63a098e6ea79f1a6");
   const [isOpen, setIsOpen] = useState(false);
   const [news, setNews] = useState([]);
   useEffect(() => {
     const fetchNews = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news`,
+          `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news/${currNews}`,
         );
-        setNews(data?.allNews);
+        console.log(data)
+        setNews(data?.newsData);
       } catch (error) {
         console.log(error);
       }
@@ -36,11 +41,16 @@ const News_Blog = () => {
         <div className="flex justify-evenly">
           <div
             className="newsPageDiv max-w-[900px]"
-            dangerouslySetInnerHTML={{ __html: news[currNews]?.generatedHTML }}
+            dangerouslySetInnerHTML={{ __html: news?.generatedHTML }}
           ></div>
           <div>
             <LatestNews currNews={currNews} setCurrNews={setCurrNews} />
-            <RelatedNews currNews={news[currNews]} setCurrNews={setCurrNews} />
+            {news?.hashtags && (
+              <RelatedNews
+                currNews={currNews}
+                setCurrNews={setCurrNews}
+              />
+            )}
           </div>
         </div>
         {/* <Hero />

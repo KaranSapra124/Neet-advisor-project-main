@@ -412,7 +412,7 @@ exports.getLatestNews = async (req, res) => {
 
 exports.getRelatedNews = async (req, res) => {
   const { hashtags } = req.body;
-  console.log(req.body)
+  console.log(req.body, "BODY");
   try {
     const relatedNews = await News.find({
       hashtags: {
@@ -424,5 +424,15 @@ exports.getRelatedNews = async (req, res) => {
       .send({ message: "Related News Fetched!", relatedNews });
   } catch (err) {
     return res.status(200).send({ message: "Error while fetching news!", err });
+  }
+};
+
+exports.getSingleNews = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const newsData = await News.findById(id);
+    return res.status(200).send({ message: "News Fetched!", newsData });
+  } catch (err) {
+    return res.status(401).send({ message: "Error While Fetching!" });
   }
 };

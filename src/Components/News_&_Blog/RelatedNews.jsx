@@ -2,21 +2,20 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import Divider from "../Helper/Divider";
-const fetchRelatedNews = async (currNews) => {
-  const {data} = await axios.post(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-related-news`,
-    currNews,
-  );
-  return data?.relatedNews;
-};
 const RelatedNews = ({ currNews, setCurrNews }) => {
-  //   console.log(currNews);
-
+  const fetchRelatedNews = async () => {
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-related-news`,
+      currNews,
+    );
+    return data?.relatedNews;
+  };
+  // console.log(currNews);
   const { data, isLoading, error } = useQuery({
     queryKey: ["relatedNews"],
-    queryFn: () => fetchRelatedNews(currNews),
+    queryFn: fetchRelatedNews,
   });
-  console.log(data,'DATA')
+
   return (
     <>
       <div className="mx-2 my-4 max-h-80 max-w-sm overflow-x-auto shadow-lg">
@@ -30,8 +29,9 @@ const RelatedNews = ({ currNews, setCurrNews }) => {
         </div>
         <div className="m-2 rounded bg-gray-200/50 p-2">
           {!isLoading ? (
+            data.length !== 0 &&
             data
-              //   ?.filter((elem, index) => index !== currNews)
+                ?.filter((elem, index) => elem?.generatedHTML !== currNews?.generatedHTML)
               ?.map((news, index) => {
                 return (
                   <>

@@ -24,6 +24,7 @@ const {
   deleteNews,
   getLatestNews,
   getRelatedNews,
+  getSingleNews,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -82,6 +83,7 @@ Router.post("/edit-news/:id", editNews);
 Router.post("/delete-news/:id", deleteNews);
 Router.get("/get-latest-news", getLatestNews);
 Router.post("/get-related-news", getRelatedNews);
+Router.get("/get-news/:id", getSingleNews);
 // News Completed
 
 module.exports = Router;
