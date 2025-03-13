@@ -10,39 +10,47 @@ const fetchLatestNews = async () => {
   return data?.latestNews;
 };
 
-const LatestNews = () => {
+const LatestNews = ({ currNews, setCurrNews }) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["LatestNews"],
     queryFn: fetchLatestNews,
   });
   return (
     <>
-      <div className="max-h-80 my-4 mx-2 max-w-sm overflow-x-auto shadow-lg">
+      <div className="mx-2 my-4 max-h-80 max-w-sm overflow-x-auto shadow-lg">
         <div className="sticky top-0 z-[99] bg-white p-1">
           <h1 className="rounded bg-gray-200 p-1 text-xs font-extrabold text-primary-color lg:text-xl">
             Latest News
           </h1>
-          <Divider className={"lg:my-2 my-1.5 h-1 w-12 rounded-full bg-primary-color"} />
+          <Divider
+            className={"my-1.5 h-1 w-12 rounded-full bg-primary-color lg:my-2"}
+          />
         </div>
         <div className="m-2 rounded bg-gray-200/50 p-2">
           {!isLoading ? (
-            data?.map((news, index) => {
-              return (
-                <>
-                  <div className="my-2 hover:bg-white p-2 rounded  hover:border-l-2 hover:border-b-2 hover:border-yellow-600 transition-all   flex cursor-pointer">
-                    <span className="mx-1  font-bold text-primary-color">
-                      {index + 1}.)
-                    </span>
+            data
+              ?.filter((elem, index) => index !== currNews)
+              ?.sort((a, b) => (a?.createdAt > b?.createdAt ? -1 : 1))
+              ?.map((news, index) => {
+                return (
+                  <>
                     <div
-                      className="text-xs lg:text-sm line-clamp-2 "
-                      dangerouslySetInnerHTML={{
-                        __html: news?.generatedHTML?.substring(0, 120),
-                      }}
-                    ></div>
-                  </div>
-                </>
-              );
-            })
+                      onClick={() => setCurrNews(index)}
+                      className="my-2 flex cursor-pointer rounded p-2 transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white"
+                    >
+                      <span className="mx-1 font-bold text-primary-color">
+                        {index + 1}.)
+                      </span>
+                      <div
+                        className="line-clamp-2 text-xs lg:text-sm"
+                        dangerouslySetInnerHTML={{
+                          __html: news?.generatedHTML?.substring(0, 120),
+                        }}
+                      ></div>
+                    </div>
+                  </>
+                );
+              })
           ) : (
             <h1>Loading...</h1>
           )}

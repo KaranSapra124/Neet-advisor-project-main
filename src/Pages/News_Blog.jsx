@@ -36,7 +36,10 @@ const News_Blog = () => {
             className="newsPageDiv max-w-[900px]"
             dangerouslySetInnerHTML={{ __html: news[currNews]?.generatedHTML }}
           ></div>
-          <LatestNews currNews={currNews} setCurrNews={setCurrNews} />
+          <LatestNews
+            currNews={currNews}
+            setCurrNews={setCurrNews}
+          />
         </div>
         {/* <Hero />
         <Schedule/> */}

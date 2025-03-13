@@ -401,7 +401,7 @@ exports.deleteNews = async (req, res) => {
 };
 exports.getLatestNews = async (req, res) => {
   try {
-    const latestNews = await News.find().sort({ createdAt: -1 });
+    const latestNews = await News.find()
     return res.status(200).send({ message: "News Fetched!", latestNews });
   } catch (err) {
     return res
