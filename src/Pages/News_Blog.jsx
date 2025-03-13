@@ -49,7 +49,7 @@ const News_Blog = () => {
           <div>
             <LatestNews currNews={currNews} setCurrNews={setCurrNews} />
             {news?.hashtags && (
-              <RelatedNews currNews={currNews} setCurrNews={setCurrNews} />
+              <RelatedNews currNews={news} setCurrNews={setCurrNews} />
             )}
           </div>
         </div>

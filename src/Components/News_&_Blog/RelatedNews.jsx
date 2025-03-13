@@ -31,12 +31,15 @@ const RelatedNews = ({ currNews, setCurrNews }) => {
           {!isLoading ? (
             data.length !== 0 &&
             data
-                ?.filter((elem, index) => elem?.generatedHTML !== currNews?.generatedHTML)
+              ?.filter(
+                (elem, index) =>
+                  elem?.generatedHTML !== currNews?.generatedHTML,
+              )
               ?.map((news, index) => {
                 return (
                   <>
                     <div
-                      onClick={() => setCurrNews(index)}
+                      onClick={() => setCurrNews(news?._id)}
                       className="my-2 flex cursor-pointer rounded p-2 transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white"
                     >
                       <span className="mx-1 font-bold text-primary-color">
