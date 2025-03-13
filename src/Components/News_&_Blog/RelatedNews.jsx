@@ -1,26 +1,28 @@
-import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import Divider from "../Helper/Divider";
-const fetchLatestNews = async () => {
-  const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-latest-news`,
+const fetchRelatedNews = async (currNews) => {
+  const {data} = await axios.post(
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-related-news`,
+    currNews,
   );
-  const { data } = res;
-  return data?.latestNews;
+  return data?.relatedNews;
 };
+const RelatedNews = ({ currNews, setCurrNews }) => {
+  //   console.log(currNews);
 
-const LatestNews = ({ currNews, setCurrNews  }) => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["LatestNews"],
-    queryFn: fetchLatestNews,
+    queryKey: ["relatedNews"],
+    queryFn: () => fetchRelatedNews(currNews),
   });
+  console.log(data,'DATA')
   return (
     <>
       <div className="mx-2 my-4 max-h-80 max-w-sm overflow-x-auto shadow-lg">
         <div className="sticky top-0 z-[99] bg-white p-1">
           <h1 className="rounded bg-gray-200 p-1 text-xs font-extrabold text-primary-color lg:text-xl">
-            Latest News
+            Related News
           </h1>
           <Divider
             className={"my-1.5 h-1 w-12 rounded-full bg-primary-color lg:my-2"}
@@ -29,8 +31,7 @@ const LatestNews = ({ currNews, setCurrNews  }) => {
         <div className="m-2 rounded bg-gray-200/50 p-2">
           {!isLoading ? (
             data
-              ?.filter((elem, index) => index !== currNews)
-              ?.sort((a, b) => (a?.createdAt > b?.createdAt ? -1 : 1))
+              //   ?.filter((elem, index) => index !== currNews)
               ?.map((news, index) => {
                 return (
                   <>
@@ -60,4 +61,4 @@ const LatestNews = ({ currNews, setCurrNews  }) => {
   );
 };
 
-export default LatestNews;
+export default RelatedNews;

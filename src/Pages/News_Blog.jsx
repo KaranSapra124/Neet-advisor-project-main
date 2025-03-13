@@ -7,6 +7,7 @@ import scrollToTop from "../Utils/ScrollToTop";
 import axios from "axios";
 import "../Components/News_&_Blog/News.css";
 import LatestNews from "../Components/News_&_Blog/LatestNews";
+import RelatedNews from "../Components/News_&_Blog/RelatedNews";
 const News_Blog = () => {
   const [currNews, setCurrNews] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,7 @@ const News_Blog = () => {
     const newsLetterTimeout = setTimeout(() => setIsOpen(true), 2000);
     return clearTimeout(() => newsLetterTimeout);
   }, []);
-  
+
   return (
     <>
       {isOpen && <NewsLetter isOpen={isOpen} setIsOpen={setIsOpen} />}
@@ -37,10 +38,10 @@ const News_Blog = () => {
             className="newsPageDiv max-w-[900px]"
             dangerouslySetInnerHTML={{ __html: news[currNews]?.generatedHTML }}
           ></div>
-          <LatestNews
-            currNews={currNews}
-            setCurrNews={setCurrNews}
-          />
+          <div>
+            <LatestNews currNews={currNews} setCurrNews={setCurrNews} />
+            <RelatedNews currNews={news[currNews]} setCurrNews={setCurrNews} />
+          </div>
         </div>
         {/* <Hero />
         <Schedule/> */}

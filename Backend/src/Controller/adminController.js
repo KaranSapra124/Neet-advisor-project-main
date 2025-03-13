@@ -412,14 +412,17 @@ exports.getLatestNews = async (req, res) => {
 
 exports.getRelatedNews = async (req, res) => {
   const { hashtags } = req.body;
+  console.log(req.body)
   try {
     const relatedNews = await News.find({
       hashtags: {
         $in: hashtags,
       },
     });
-    console.log(relatedNews);
+    return res
+      .status(200)
+      .send({ message: "Related News Fetched!", relatedNews });
   } catch (err) {
-    console.log(err)
+    return res.status(200).send({ message: "Error while fetching news!", err });
   }
 };
