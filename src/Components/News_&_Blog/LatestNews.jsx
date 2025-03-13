@@ -10,7 +10,7 @@ const fetchLatestNews = async () => {
   return data?.latestNews;
 };
 
-const LatestNews = ({ currNews, setCurrNews  }) => {
+const LatestNews = ({ currNews, setCurrNews }) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["LatestNews"],
     queryFn: fetchLatestNews,
@@ -36,11 +36,9 @@ const LatestNews = ({ currNews, setCurrNews  }) => {
                   <>
                     <div
                       onClick={() => setCurrNews(news?._id)}
-                      className="my-2 flex cursor-pointer rounded p-2 transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white"
+                      className="my-2 flex cursor-pointer rounded p-2 bg-white shadow shadow-black border-black hover:shadow-none transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white"
                     >
-                      <span className="mx-1 font-bold text-primary-color">
-                        {index + 1}.)
-                      </span>
+                      <span className="mx-1">👉</span>
                       <div
                         className="line-clamp-2 text-xs lg:text-sm"
                         dangerouslySetInnerHTML={{
