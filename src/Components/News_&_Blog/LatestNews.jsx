@@ -18,11 +18,11 @@ const LatestNews = () => {
   return (
     <>
       <div className="max-h-80 my-4 mx-2 max-w-sm overflow-x-auto shadow-lg">
-        <div className="sticky top-0 z-[99] bg-white p-2">
+        <div className="sticky top-0 z-[99] bg-white p-1">
           <h1 className="rounded bg-gray-200 p-1 text-xs font-extrabold text-primary-color lg:text-xl">
             Latest News
           </h1>
-          <Divider className={"my-2 h-1 w-12 rounded-full bg-primary-color"} />
+          <Divider className={"lg:my-2 my-1.5 h-1 w-12 rounded-full bg-primary-color"} />
         </div>
         <div className="m-2 rounded bg-gray-200/50 p-2">
           {!isLoading ? (
