@@ -22,7 +22,7 @@ const LatestNews = ({ currNews, setCurrNews }) => {
     <>
       <div
         id="latestNewsDivRef"
-        className="mx-2 scroll-smooth my-4 max-h-80 max-w-sm overflow-x-auto shadow-lg"
+        className="mx-2 scroll-smooth my-4 h-[50lvh] max-w-sm overflow-x-auto shadow-lg"
       >
         <div className="sticky top-0 z-[99] bg-white p-1">
           <h1 className="rounded bg-gray-200 p-1 text-xs font-extrabold text-primary-color lg:text-xl">
