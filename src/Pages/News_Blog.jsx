@@ -22,13 +22,16 @@ const News_Blog = () => {
         const { data } = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news/${currNews}`,
         );
-        console.log(data)
+        console.log(data);
         setNews(data?.newsData);
       } catch (error) {
         console.log(error);
       }
     };
     fetchNews();
+  }, [currNews]);
+
+  useEffect(() => {
     scrollToTop();
     const newsLetterTimeout = setTimeout(() => setIsOpen(true), 2000);
     return clearTimeout(() => newsLetterTimeout);
@@ -46,10 +49,7 @@ const News_Blog = () => {
           <div>
             <LatestNews currNews={currNews} setCurrNews={setCurrNews} />
             {news?.hashtags && (
-              <RelatedNews
-                currNews={currNews}
-                setCurrNews={setCurrNews}
-              />
+              <RelatedNews currNews={currNews} setCurrNews={setCurrNews} />
             )}
           </div>
         </div>

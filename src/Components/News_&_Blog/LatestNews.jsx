@@ -29,13 +29,13 @@ const LatestNews = ({ currNews, setCurrNews  }) => {
         <div className="m-2 rounded bg-gray-200/50 p-2">
           {!isLoading ? (
             data
-              ?.filter((elem, index) => index !== currNews)
+              ?.filter((elem, index) => elem?._id !== currNews)
               ?.sort((a, b) => (a?.createdAt > b?.createdAt ? -1 : 1))
               ?.map((news, index) => {
                 return (
                   <>
                     <div
-                      onClick={() => setCurrNews(index)}
+                      onClick={() => setCurrNews(news?._id)}
                       className="my-2 flex cursor-pointer rounded p-2 transition-all hover:border-b-2 hover:border-l-2 hover:border-yellow-600 hover:bg-white"
                     >
                       <span className="mx-1 font-bold text-primary-color">
