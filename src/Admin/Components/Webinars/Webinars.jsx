@@ -207,6 +207,7 @@ const Webinars = () => {
           timeData={editItem?.time}
           titleData={editItem?.title}
           webinarTypeData={editItem?.webinarType}
+          url={editItem?.URL}
           onCancel={() => setIsEdit(false)}
           key={editItem?._id}
         />
@@ -532,7 +533,6 @@ const AddCard = ({ open, onCancel }) => {
     }));
   };
 
-  useEffect(() => console.log(formData), [formData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
