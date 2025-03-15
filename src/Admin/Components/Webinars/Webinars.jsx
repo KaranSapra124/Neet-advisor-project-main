@@ -53,8 +53,8 @@ const Webinars = () => {
   const queryClient = useQueryClient();
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-admin/${id}`,
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-webinar/${id}`,
       );
       toast.success(data?.message);
     } catch (err) {
