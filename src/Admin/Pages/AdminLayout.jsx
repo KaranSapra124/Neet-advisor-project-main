@@ -97,6 +97,7 @@ const AdminLayout = ({ user }) => {
             })()
           : (async () => {
               try {
+                console.log("SUB ADMIN")
                 const { data } = await axios.post(
                   `${import.meta.env.VITE_BACKEND_URL}admin/get-admin`,
                   {},
@@ -104,6 +105,7 @@ const AdminLayout = ({ user }) => {
                 );
                 toast.success(data?.message);
               } catch (err) {
+
                 toast.error(err?.response?.data?.message);
                 navigate("/sub-admin/login");
               }
