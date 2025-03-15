@@ -347,8 +347,13 @@ const EditCard = ({
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}webinar/edit/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-webinar/${id}`,
         formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
       );
 
       toast.success(data?.message);

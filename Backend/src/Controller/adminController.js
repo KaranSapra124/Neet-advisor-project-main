@@ -456,11 +456,43 @@ exports.addWebinar = async (req, res) => {
 exports.getWebinars = async (req, res) => {
   try {
     const allWebinars = await Webinars.find();
-    console.log(allWebinars)
+    console.log(allWebinars);
     return res
       .status(200)
       .send({ message: "Webinars Fetched ✔️", allWebinars });
   } catch (err) {
     return res.status(401).send({ message: "Error while getting webinars!" });
+  }
+};
+exports.editWebinar = async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (req.file) {
+      const { filename } = req.file;
+      const updateWebinar = await Webinars.findByIdAndUpdate(
+        id,
+        {
+          ...req.body,
+          thumbnail: filename,
+        },
+        { new: true },
+      );
+      return res
+        .status(200)
+        .send({ message: "Webinar Updated Successfully!", updateWebinar });
+    } else {
+      const updateWebinar = await Webinars.findByIdAndUpdate(
+        id,
+        {
+          ...req.body,
+        },
+        { new: true },
+      );
+      return res
+        .status(200)
+        .send({ message: "Webinar Updated Successfully!", updateWebinar });
+    }
+  } catch (err) {
+    return res.status(401).send({ message: "Error While Updating Webinar!" });
   }
 };
