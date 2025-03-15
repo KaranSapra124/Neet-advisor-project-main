@@ -68,12 +68,23 @@ const Webinars = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Admin Name
+          Thumbnail
         </h1>
       ),
-      dataIndex: "adminName",
-      key: "adminName",
-
+      dataIndex: "thumbnail",
+      key: "thumbnail",
+      render: (text) => (
+        <img src={text} alt="Thumbnail" className="mx-auto w-16 h-16 rounded" />
+      ),
+    },
+    {
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Title
+        </h1>
+      ),
+      dataIndex: "title",
+      key: "title",
       render: (text) => (
         <p className="text-center text-xs font-bold text-gray-800">{text}</p>
       ),
@@ -81,52 +92,52 @@ const Webinars = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Admin Email
+          Description
         </h1>
       ),
-      dataIndex: "adminEmail",
-      key: "adminEmail",
+      dataIndex: "description",
+      key: "description",
       render: (text) => (
         <p className="max-w-52 text-center text-xs font-medium">{text}</p>
       ),
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Admin Permissions
-        </h1>
+        <h1 className="text-center text-lg font-bold text-primary-color">Date</h1>
       ),
-      dataIndex: "adminPermissions",
-      key: "adminPermissions",
+      dataIndex: "date",
+      key: "date",
       render: (text) => (
-        <>
-          <Select
-            defaultActiveFirstOption={true}
-            defaultValue={text[0]}
-            className="w-full"
-          >
-            {text?.map((elem, index) => {
-              return <Select.Option>{elem}</Select.Option>;
-            })}
-          </Select>
-        </>
+        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
+      ),
+    },
+    {
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">Time</h1>
+      ),
+      dataIndex: "time",
+      key: "time",
+      render: (text) => (
+        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
       ),
     },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Admin Status
+          Webinar Type
         </h1>
       ),
-      dataIndex: "adminStatus",
-      key: "adminStatus",
-      render: (val, record) => {
-        return (
-          <div className="flex items-center justify-center">
-            <AdminStatusSwitch val={val} record={record} />
-          </div>
-        );
-      },
+      dataIndex: "webinarType",
+      key: "webinarType",
+      render: (text) => (
+        <span
+          className={`px-3 py-1 rounded-full text-xs font-semibold ${
+            text === "PG" ? "bg-blue-500 text-white" : "bg-green-500 text-white"
+          }`}
+        >
+          {text}
+        </span>
+      ),
     },
     {
       title: (
@@ -138,14 +149,6 @@ const Webinars = () => {
       key: "action",
       render: (_, record) => (
         <div className="flex items-center justify-center gap-5">
-          {/* <FaEye
-            onClick={() => {
-              setIsView(true);
-              setViewItem(record);
-            }}
-            className="cursor-pointer text-primary-color"
-          /> */}
-
           <FaEdit
             onClick={() => {
               setIsEdit(true);
