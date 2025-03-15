@@ -8,6 +8,7 @@ import {
   FaBlog,
   FaGraduationCap,
   FaUser,
+  FaChalkboardTeacher,
 } from "react-icons/fa";
 import { RiDashboardFill } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
@@ -48,6 +49,11 @@ const AdminLayout = ({ user }) => {
             icon: <FaGraduationCap />,
           },
           { name: "Permissions", link: "/admin/permissions", icon: <FaUser /> },
+          {
+            name: "Webinars",
+            link: "/admin/webinars",
+            icon: <FaChalkboardTeacher />,
+          },
         ]
       : [
           { name: "Dashboard", link: "/sub-admin", icon: <RiDashboardFill /> },
@@ -68,6 +74,11 @@ const AdminLayout = ({ user }) => {
             name: "Students",
             link: "/sub-admin/students",
             icon: <FaGraduationCap />,
+          },
+          {
+            name: "Webinars",
+            link: "/sub-admin/webinars",
+            icon: <FaChalkboardTeacher />,
           },
           // { name: "Permissions", link: "/admin/permissions", icon: <FaUser /> },
         ];
