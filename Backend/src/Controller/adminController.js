@@ -409,7 +409,6 @@ exports.getLatestNews = async (req, res) => {
       .send({ message: "Error while fetching latest news!" });
   }
 };
-
 exports.getRelatedNews = async (req, res) => {
   const { hashtags } = req.body;
   console.log(req.body, "BODY");
@@ -426,7 +425,6 @@ exports.getRelatedNews = async (req, res) => {
     return res.status(200).send({ message: "Error while fetching news!", err });
   }
 };
-
 exports.getSingleNews = async (req, res) => {
   const { id } = req.params;
   try {
@@ -435,4 +433,9 @@ exports.getSingleNews = async (req, res) => {
   } catch (err) {
     return res.status(401).send({ message: "Error While Fetching!" });
   }
+};
+// News Ended
+// Webinars Started
+exports.addWebinar = async (req, res) => {
+  console.log(req.body);
 };
