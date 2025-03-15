@@ -4,8 +4,11 @@ import { Carousel, Tabs, Statistic } from "antd";
 const { Countdown } = Statistic;
 import { FaCalendar, FaClock } from "react-icons/fa";
 import Divider from "../Helper/Divider";
+import { useQuery } from "@tanstack/react-query";
 
 const UpcomingWebinars = () => {
+  const { data, isLoading, error } = useQuery(["allWebinars"], fetchWebinars);
+
   const [ind, setInd] = useState(0);
   const [currWidth, setCurrWidth] = useState(0);
   const [hoverStates, setHoverStates] = useState(Array(5).fill(false)); // Initialize hover states for 5 webinars

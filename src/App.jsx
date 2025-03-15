@@ -25,9 +25,11 @@ import StudentsData from "./Admin/Components/StudentsData/StudentsData";
 import Perimissions from "./Admin/Components/Permissions/Perimissions";
 import { AdminProvider } from "./Admin/Components/Context/AdminContext";
 import MainNewsPage from "./Admin/Components/News/MainNewsPage";
-import AdminWebinars from "./Admin/Components/Webinars/Webinars"
+import AdminWebinars from "./Admin/Components/Webinars/Webinars";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const App = () => {
+  const queryClient = new QueryClient();
   const appRoutes = createBrowserRouter([
     {
       path: "/",
@@ -106,9 +108,9 @@ const App = () => {
           element: <MainNewsPage />,
         },
         {
-          path:"/admin/webinars",
-          element:<AdminWebinars/>
-        }
+          path: "/admin/webinars",
+          element: <AdminWebinars />,
+        },
       ],
     },
     {
@@ -157,11 +159,13 @@ const App = () => {
   return (
     <>
       <ToastContainer></ToastContainer>
-      <SuperAdminProvider>
-        <AdminProvider>
-          <RouterProvider router={appRoutes} />
-        </AdminProvider>
-      </SuperAdminProvider>
+      <QueryClientProvider client={queryClient}>
+        <SuperAdminProvider>
+          <AdminProvider>
+            <RouterProvider router={appRoutes} />
+          </AdminProvider>
+        </SuperAdminProvider>
+      </QueryClientProvider>
     </>
   );
 };
