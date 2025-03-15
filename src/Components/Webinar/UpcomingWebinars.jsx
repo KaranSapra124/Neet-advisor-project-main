@@ -13,7 +13,7 @@ const fetchWebinars = async () => {
       `${import.meta.env.VITE_BACKEND_URL}super-admin/get-webinars`,
     );
     const { data } = res;
-    console.log(data)
+    console.log(data);
     return data?.allWebinars;
   } catch (err) {
     toast.error(err?.response?.data?.message);
@@ -104,107 +104,119 @@ const UpcomingWebinars = () => {
             autoplaySpeed={2000}
             autoplay
           >
-            {webinars.map((elem, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`relative my-2 flex w-fit transform cursor-pointer flex-row overflow-hidden rounded-xl border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-500/10 shadow-lg hover:shadow-xl ${ind === index ? "scale-105" : "scale-100"} transition-all duration-300 ease-in-out`}
-                >
-                  {/* <div className="flex flex-row"> */}
-                  <div className="group relative">
-                    <img
-                      className="h-full w-full transform rounded-xl object-cover p-1 transition-transform duration-300 group-hover:scale-105"
-                      src={elem.thumbnail}
-                      alt={elem.title}
-                    />
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-transparent to-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  </div>
-
-                  <div className="w-fit px-2 py-1 pt-0">
-                    <h1 className="my-2 text-[0.8rem] font-extrabold text-primary-color lg:my-4 lg:text-sm lg:font-bold">
-                      {elem.title}
-                    </h1>
-                    <Divider
-                      className={
-                        "my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:w-20"
-                      }
-                    />
-                    <p className="my-3 min-h-10 text-[0.6rem] font-semibold text-gray-800 lg:w-64 lg:text-xs">
-                      {elem.description}
-                    </p>
-
-                    <div className="mt-2 flex items-center space-x-2">
-                      <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
+            {data?.length > 0 &&
+              data
+                ?.filter((elem) => elem?.webinarType === "UG")
+                ?.map((elem, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`relative my-2 flex w-fit transform cursor-pointer flex-row overflow-hidden rounded-xl border-b-2 border-l-2 border-yellow-600 bg-gradient-to-br from-white to-gray-500/10 shadow-lg hover:shadow-xl ${ind === index ? "scale-105" : "scale-100"} transition-all duration-300 ease-in-out`}
+                    >
+                      {/* <div className="flex flex-row"> */}
+                      <div className="group relative">
                         <img
-                          src="./Webinar/calendar-bg-removed.gif"
-                          className="w-5 lg:h-6 lg:w-6"
-                          alt=""
-                          srcset=""
+                          className="h-full w-full transform rounded-xl object-cover p-1 transition-transform duration-300 group-hover:scale-105"
+                          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${elem.thumbnail}`}
+                          alt={elem.title}
                         />
-                        <span className="text-[0.6rem] font-medium text-gray-800 lg:text-xs">
-                          {elem.book_date}
-                        </span>
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-transparent to-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                       </div>
 
-                      <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
-                        <img
-                          src="./Webinar/stopwatch-bgremoved.gif"
-                          className="w-5 lg:h-6 lg:w-6"
-                          alt=""
-                          srcset=""
+                      <div className="w-fit px-2 py-1 pt-0">
+                        <h1 className="my-2 text-[0.8rem] font-extrabold text-primary-color lg:my-4 lg:text-sm lg:font-bold">
+                          {elem.title}
+                        </h1>
+                        <Divider
+                          className={
+                            "my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:w-20"
+                          }
                         />
-                        <span className="text-[0.6rem] font-medium text-gray-800 lg:text-xs">
-                          {elem.book_time}
-                        </span>
-                      </div>
-                    </div>
+                        <p className="my-3 min-h-10 text-[0.6rem] font-semibold text-gray-800 lg:w-64 lg:text-xs">
+                          {elem.description}
+                        </p>
 
-                    <div className="flex items-center">
-                      <button
-                        onMouseEnter={() => {
-                          setHoverStates((prev) => {
-                            const newStates = [...prev];
-                            newStates[index] = true; // Set the current index to true
-                            return newStates;
-                          });
-                        }}
-                        onMouseLeave={() => {
-                          setHoverStates((prev) => {
-                            const newStates = [...prev];
-                            newStates[index] = false; // Set the current index to false
-                            return newStates;
-                          });
-                        }}
-                        className="mt-4 w-1/2 transform rounded-lg bg-yellow-600 py-1 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 lg:mt-3"
-                      >
-                        {hoverStates[index] ? (
-                          <>
-                            <span
-                              className={`text-[0.6rem] lg:text-xs ${elem.free_status ? "line-through" : ""}`}
-                            >
-                              {elem.free_status
-                                ? "Free"
-                                : `$${elem.price.toFixed(2)}`}
+                        <div className="mt-2 flex items-center space-x-2">
+                          <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
+                            <img
+                              src="./Webinar/calendar-bg-removed.gif"
+                              className="w-5 lg:h-6 lg:w-6"
+                              alt=""
+                              srcset=""
+                            />
+                            <span className="text-[0.6rem] font-medium text-gray-800 lg:text-xs">
+                              {elem.date}
                             </span>
-                          </>
-                        ) : (
-                          <span className="text-[0.6rem] lg:text-xs">
+                          </div>
+
+                          <div className="flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
+                            <img
+                              src="./Webinar/stopwatch-bgremoved.gif"
+                              className="w-5 lg:h-6 lg:w-6"
+                              alt=""
+                              srcset=""
+                            />
+                            <span className="text-[0.6rem] font-medium text-gray-800 lg:text-xs">
+                              {elem.time}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center">
+                          {/* <button
+                            onMouseEnter={() => {
+                              setHoverStates((prev) => {
+                                const newStates = [...prev];
+                                newStates[index] = true; // Set the current index to true
+                                return newStates;
+                              });
+                            }}
+                            onMouseLeave={() => {
+                              setHoverStates((prev) => {
+                                const newStates = [...prev];
+                                newStates[index] = false; // Set the current index to false
+                                return newStates;
+                              });
+                            }}
+                            className="mt-4 w-1/2 transform rounded-lg bg-yellow-600 py-1 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 lg:mt-3"
+                          >
+                            {hoverStates[index] ? (
+                              <>
+                                <span
+                                  className={`text-[0.6rem] lg:text-xs ${elem.free_status ? "line-through" : ""}`}
+                                >
+                                  {elem.free_status
+                                    ? "Free"
+                                    : `$${elem.price.toFixed(2)}`}
+                                </span>
+                              </>
+                            ) : (
+                              <span className="text-[0.6rem] lg:text-xs">
+                                Book Now
+                              </span>
+                            )}
+                          </button> */}
+                          <button
+                            onClick={() => {
+                              console.log(elem.URL);
+                              if (elem?.URL) window.open(elem?.URL, "__blank");
+                            }}
+                            className="mt-4 w-1/2 transform rounded-lg bg-yellow-600 py-1 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 lg:mt-3"
+                          >
                             Book Now
-                          </span>
-                        )}
-                      </button>
-                      <img
-                        className="h-10 w-10 pt-4"
-                        src="./Webinar/left-arrow-bg.gif"
-                        alt=""
-                        srcset=""
-                      />
+                          </button>
+                          <img
+                            className="h-10 w-10 pt-4"
+                            src="./Webinar/left-arrow-bg.gif"
+                            alt=""
+                            srcset=""
+                          />
+                        </div>
+                      </div>
+                      {/* </div> */}
                     </div>
-                  </div>
-                  {/* </div> */}
-                </div>
-              );
-            })}
+                  );
+                })}
           </Carousel>
         </div>
       ),
