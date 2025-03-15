@@ -296,6 +296,7 @@ const EditCard = ({
   dateData,
   timeData,
   webinarTypeData,
+  url,
   onCancel,
 }) => {
   const queryClient = useQueryClient();
@@ -306,6 +307,7 @@ const EditCard = ({
     date: dateData || "",
     time: timeData || "",
     webinarType: webinarTypeData || "PG",
+    URL: url || "",
   });
 
   const webinarTypes = ["PG", "UG"];
@@ -329,7 +331,8 @@ const EditCard = ({
       !formData.title ||
       !formData.description ||
       !formData.date ||
-      !formData.time
+      !formData.time ||
+      !formData.URL
     ) {
       toast.error("All fields are required!");
       return;
@@ -341,6 +344,8 @@ const EditCard = ({
     formDataToSend.append("date", formData.date);
     formDataToSend.append("time", formData.time);
     formDataToSend.append("webinarType", formData.webinarType);
+    formDataToSend.append("URL", formData?.URL);
+
     if (formData.thumbnail) {
       formDataToSend.append("thumbnail", formData.thumbnail);
     }
@@ -485,6 +490,19 @@ const EditCard = ({
             ))}
           </Select>
         </div>
+        {/* URL */}
+        <div>
+          <label className="text-sm font-semibold text-gray-700">
+            Webinar URL
+          </label>
+          <Input
+            type="text"
+            name="URL"
+            value={formData.URL}
+            onChange={handleChange}
+            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          />
+        </div>
       </div>
     </Modal>
   );
@@ -498,6 +516,7 @@ const AddCard = ({ open, onCancel }) => {
     date: "",
     time: "",
     webinarType: "",
+    URL: "",
   });
 
   const webinarTypes = ["PG", "UG"];
@@ -524,7 +543,8 @@ const AddCard = ({ open, onCancel }) => {
       !formData.description ||
       !formData.date ||
       !formData.time ||
-      !formData.webinarType
+      !formData.webinarType ||
+      !formData.URL
     ) {
       alert("All fields are required!");
       return;
@@ -537,6 +557,7 @@ const AddCard = ({ open, onCancel }) => {
     formDataToSend.append("date", formData.date);
     formDataToSend.append("time", formData.time);
     formDataToSend.append("webinarType", formData.webinarType);
+    formDataToSend.append("URL", formData.URL);
 
     try {
       const { data } = await axios.post(
@@ -556,6 +577,7 @@ const AddCard = ({ open, onCancel }) => {
         date: "",
         time: "",
         webinarType: "",
+        URL: "",
       });
 
       onCancel();
@@ -654,6 +676,19 @@ const AddCard = ({ open, onCancel }) => {
               </Select.Option>
             ))}
           </Select>
+          {/* URL */}
+          <div>
+            <label className="text-sm font-semibold text-gray-700">
+              Webinar URL
+            </label>
+            <Input
+              type="text"
+              name="URL"
+              value={formData.URL}
+              onChange={handleChange}
+              className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            />
+          </div>
 
           <div className="flex justify-between">
             <button

@@ -5,10 +5,26 @@ const { Countdown } = Statistic;
 import { FaCalendar, FaClock } from "react-icons/fa";
 import Divider from "../Helper/Divider";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
+const fetchWebinars = async () => {
+  try {
+    const res = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-webinars`,
+    );
+    const { data } = res;
+    console.log(data)
+    return data?.allWebinars;
+  } catch (err) {
+    toast.error(err?.response?.data?.message);
+  }
+};
 const UpcomingWebinars = () => {
-  const { data, isLoading, error } = useQuery(["allWebinars"], fetchWebinars);
-
+  const { data, isLoading, error } = useQuery({
+    queryFn: fetchWebinars,
+    queryKey: ["allWebinars"],
+  });
+  // console.log(data, "DATA");
   const [ind, setInd] = useState(0);
   const [currWidth, setCurrWidth] = useState(0);
   const [hoverStates, setHoverStates] = useState(Array(5).fill(false)); // Initialize hover states for 5 webinars

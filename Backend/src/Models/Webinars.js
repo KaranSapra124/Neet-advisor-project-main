@@ -26,6 +26,10 @@ const Webinar = new mongoose.Schema({
     required: true,
     enum: ["PG", "UG"],
   },
+  URL: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Webinar", Webinar);
