@@ -22,7 +22,6 @@ const News_Blog = () => {
         const { data } = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news/${currNews}`,
         );
-        console.log(data);
         setNews(data?.newsData);
       } catch (error) {
         console.log(error);
