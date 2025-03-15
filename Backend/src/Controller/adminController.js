@@ -8,6 +8,7 @@ const { default: axios } = require("axios");
 const Students = require("../Models/Students");
 const SubAdmin = require("../Models/SubAdmin");
 const News = require("../Models/News");
+const Webinars = require("../Models/Webinars");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -437,5 +438,26 @@ exports.getSingleNews = async (req, res) => {
 // News Ended
 // Webinars Started
 exports.addWebinar = async (req, res) => {
-  console.log(req.body);
+  try {
+    const { filename } = req.body;
+    const newWebinar = await Webinars.create({
+      ...req.body,
+      thumbnail: filename,
+    });
+    return res
+      .status(201)
+      .send({ message: "Webinar Added Successfully!", newWebinar });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while creating webinar!" });
+  }
+};
+exports.getWebinars = async (req, res) => {
+  try {
+    const allWebinars = await Webinars.find();
+    return res
+      .status(200)
+      .send({ message: "Webinars Fetched ✔️", allWebinars });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while getting webinars!" });
+  }
 };

@@ -25,6 +25,7 @@ const {
   getLatestNews,
   getRelatedNews,
   getSingleNews,
+  addWebinar,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -87,5 +88,7 @@ Router.get("/get-latest-news", getLatestNews);
 Router.post("/get-related-news", getRelatedNews);
 Router.get("/get-news/:id", getSingleNews);
 // News Completed
+// Webinars Started
+Router.post("/add-webinar", upload.single("thumbnail"), addWebinar);
 
 module.exports = Router;

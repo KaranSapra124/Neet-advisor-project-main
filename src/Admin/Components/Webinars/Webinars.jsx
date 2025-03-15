@@ -22,13 +22,13 @@ import {
 } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
-const fetchAdmins = async () => {
+const fetchWebinar = async () => {
   try {
     const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-webinars`,
     );
     const { data } = res;
-    return data?.allAdmins;
+    return data?.allWebinars;
   } catch (err) {
     toast.error(err?.response?.data?.message);
   }
@@ -44,8 +44,8 @@ const Webinars = () => {
   const [isAdd, setIsAdd] = useState(false);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["allAdmins"],
-    queryFn: fetchAdmins,
+    queryKey: ["allWebinars"],
+    queryFn: fetchWebinar,
     // throwOnError: () => navigate("/admin/login"),
   });
   const queryClient = useQueryClient();
@@ -440,7 +440,7 @@ const AddCard = ({ open, onCancel }) => {
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}webinars/add`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-webinar`,
         formDataToSend,
         {
           headers: {
