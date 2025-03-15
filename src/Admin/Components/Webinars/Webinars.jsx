@@ -28,6 +28,7 @@ const fetchWebinar = async () => {
       `${import.meta.env.VITE_BACKEND_URL}super-admin/get-webinars`,
     );
     const { data } = res;
+    console.log(data);
     return data?.allWebinars;
   } catch (err) {
     toast.error(err?.response?.data?.message);
@@ -74,7 +75,11 @@ const Webinars = () => {
       dataIndex: "thumbnail",
       key: "thumbnail",
       render: (text) => (
-        <img src={text} alt="Thumbnail" className="mx-auto h-16 w-16 rounded" />
+        <img
+          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${text}`}
+          alt="Thumbnail"
+          className="mx-auto h-16 w-16 rounded"
+        />
       ),
     },
     {
@@ -98,7 +103,9 @@ const Webinars = () => {
       dataIndex: "description",
       key: "description",
       render: (text) => (
-        <p className="max-w-52 text-center text-xs font-medium">{text}</p>
+        <p className="line-clamp-2 max-w-52 text-center text-xs font-medium">
+          {text}
+        </p>
       ),
     },
     {
@@ -134,13 +141,17 @@ const Webinars = () => {
       dataIndex: "webinarType",
       key: "webinarType",
       render: (text) => (
-        <span
-          className={`rounded-full px-3 py-1 text-xs font-semibold ${
-            text === "PG" ? "bg-blue-500 text-white" : "bg-green-500 text-white"
-          }`}
-        >
-          {text}
-        </span>
+        <div className="w-full text-center">
+          <span
+            className={` rounded-full px-3 py-1 mx-uto text-xs font-semibold ${
+              text === "PG"
+                ? "bg-blue-500 text-white"
+                : "bg-green-500 text-white"
+            }`}
+          >
+            {text}
+          </span>
+        </div>
       ),
     },
     {

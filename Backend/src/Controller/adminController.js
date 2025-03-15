@@ -439,7 +439,9 @@ exports.getSingleNews = async (req, res) => {
 // Webinars Started
 exports.addWebinar = async (req, res) => {
   try {
-    const { filename } = req.body;
+    // console.log(req.body,req.file)
+    // console.log()
+    const { filename } = req.file;
     const newWebinar = await Webinars.create({
       ...req.body,
       thumbnail: filename,
@@ -454,6 +456,7 @@ exports.addWebinar = async (req, res) => {
 exports.getWebinars = async (req, res) => {
   try {
     const allWebinars = await Webinars.find();
+    console.log(allWebinars)
     return res
       .status(200)
       .send({ message: "Webinars Fetched ✔️", allWebinars });
