@@ -21,6 +21,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import TextArea from "antd/es/input/TextArea";
 
 const fetchWebinar = async () => {
   try {
@@ -143,7 +144,7 @@ const Webinars = () => {
       render: (text) => (
         <div className="w-full text-center">
           <span
-            className={` rounded-full px-3 py-1 mx-uto text-xs font-semibold ${
+            className={`mx-uto rounded-full px-3 py-1 text-xs font-semibold ${
               text === "PG"
                 ? "bg-blue-500 text-white"
                 : "bg-green-500 text-white"
@@ -200,11 +201,14 @@ const Webinars = () => {
       {isEdit && (
         <EditCard
           id={editItem?._id}
-          adminNameData={editItem?.adminName}
-          adminEmailData={editItem?.adminEmail}
-          adminPermissionsData={editItem?.adminPermissions}
-          adminStatusData={editItem?.adminStatus}
+          thumbnailData={editItem?.thumbnail}
+          dateData={editItem?.date}
+          descriptionData={editItem?.description}
+          timeData={editItem?.time}
+          titleData={editItem?.title}
+          webinarTypeData={editItem?.webinarType}
           onCancel={() => setIsEdit(false)}
+          key={editItem?._id}
         />
       )}
       {isAdd && <AddCard open={isAdd} onCancel={() => setIsAdd(false)} />}
@@ -286,115 +290,195 @@ const ViewCard = ({
 
 const EditCard = ({
   id,
-  adminNameData,
-  adminEmailData,
-  adminStatusData,
-  adminPermissionsData,
+  thumbnailData,
+  titleData,
+  descriptionData,
+  dateData,
+  timeData,
+  webinarTypeData,
   onCancel,
 }) => {
   const queryClient = useQueryClient();
-  const [adminName, setadminName] = useState(adminNameData);
-  const [adminEmail, setadminEmail] = useState(adminEmailData);
-  const [adminStatus, setadminStatus] = useState(adminStatusData);
-  const [adminPermissions, setadminPermissions] =
-    useState(adminPermissionsData);
+  const [formData, setFormData] = useState({
+    thumbnail: null, // Image Upload Handling
+    title: titleData || "",
+    description: descriptionData || "",
+    date: dateData || "",
+    time: timeData || "",
+    webinarType: webinarTypeData || "PG",
+  });
 
-  const formData = {
-    adminName: adminName,
-    adminEmail: adminEmail,
-    adminStatus: adminStatus,
-    adminPermissions: adminPermissions,
+  const webinarTypes = ["PG", "UG"];
+
+  // Handle Input Change
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSave = async (formData) => {
+  // Handle Image Upload
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData((prev) => ({ ...prev, thumbnail: file }));
+    }
+  };
+
+  // Form Submit Handler
+  const handleSave = async () => {
+    if (
+      !formData.title ||
+      !formData.description ||
+      !formData.date ||
+      !formData.time
+    ) {
+      toast.error("All fields are required!");
+      return;
+    }
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("title", formData.title);
+    formDataToSend.append("description", formData.description);
+    formDataToSend.append("date", formData.date);
+    formDataToSend.append("time", formData.time);
+    formDataToSend.append("webinarType", formData.webinarType);
+    if (formData.thumbnail) {
+      formDataToSend.append("thumbnail", formData.thumbnail);
+    }
+
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
-        formData,
+        `${import.meta.env.VITE_BACKEND_URL}webinar/edit/${id}`,
+        formDataToSend,
       );
+
       toast.success(data?.message);
+      queryClient.invalidateQueries(["allWebinars"]);
+      onCancel();
     } catch (err) {
       toast.error(err?.response?.data?.message);
     }
-    onCancel();
   };
 
   const mutation = useMutation({
     mutationFn: handleSave,
-    onSuccess: () => queryClient.invalidateQueries(["allAdmins"]),
+    onSuccess: () => queryClient.invalidateQueries(["allWebinars"]),
   });
 
   return (
     <Modal
       title={
-        <span className="text-xl font-semibold text-gray-700">Edit Admin</span>
+        <span className="text-xl font-semibold text-gray-700">
+          Edit Webinar
+        </span>
       }
       open={true}
-      onOk={() => mutation.mutate(formData)}
+      onOk={mutation.mutate}
       onCancel={onCancel}
       okButtonProps={{
         className: "bg-blue-600 hover:bg-blue-700 text-white font-semibold",
+        loading: mutation.isLoading,
       }}
       cancelButtonProps={{
         className: "border-gray-300 hover:border-gray-400 text-gray-600",
       }}
     >
       <div className="flex flex-col gap-4 p-4">
-        {/* Admin Name */}
+        {/* Thumbnail Upload */}
         <div>
           <label className="text-sm font-semibold text-gray-700">
-            Admin Name
+            Thumbnail
           </label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="mt-1 w-full rounded-lg border p-2"
+          />
+          {thumbnailData && !formData.thumbnail && (
+            <img
+              src={`${import.meta.env.VITE_BACKEND_URL}uploads/${thumbnailData}`}
+              alt="Webinar"
+              className="mt-2 h-24 w-24 rounded object-cover"
+            />
+          )}
+          {formData.thumbnail && (
+            <img
+              src={URL.createObjectURL(formData.thumbnail)}
+              alt="Preview"
+              className="mt-2 h-24 w-24 rounded object-cover"
+            />
+          )}
+        </div>
+
+        {/* Title */}
+        <div>
+          <label className="text-sm font-semibold text-gray-700">Title</label>
           <Input
-            value={adminName}
-            onChange={(e) => setadminName(e.target.value)}
-            placeholder="Enter Admin Name"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            placeholder="Enter Webinar Title"
             className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
         </div>
 
-        {/* Admin Email */}
+        {/* Description */}
         <div>
           <label className="text-sm font-semibold text-gray-700">
-            Admin Email
+            Description
           </label>
-          <Input
-            value={adminEmail}
-            onChange={(e) => setadminEmail(e.target.value)}
-            placeholder="Enter Admin Email"
+          <TextArea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            placeholder="Enter Webinar Description"
+            rows={4}
             className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
         </div>
 
-        {/* Admin Permissions */}
+        {/* Date */}
+        <div>
+          <label className="text-sm font-semibold text-gray-700">Date</label>
+          <Input
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          />
+        </div>
+
+        {/* Time */}
+        <div>
+          <label className="text-sm font-semibold text-gray-700">Time</label>
+          <Input
+            type="time"
+            name="time"
+            value={formData.time}
+            onChange={handleChange}
+            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          />
+        </div>
+
+        {/* Webinar Type */}
         <div>
           <label className="text-sm font-semibold text-gray-700">
-            Permissions
+            Webinar Type
           </label>
           <Select
-            mode="multiple"
-            placeholder="Select Permissions"
-            value={adminPermissions}
-            onChange={(val) => setadminPermissions(val)}
+            value={formData.webinarType}
+            onChange={(val) =>
+              setFormData((prev) => ({ ...prev, webinarType: val }))
+            }
             className="mt-1 w-full"
           >
-            {permissions?.map((permission) => (
-              <Select.Option key={permission} value={permission}>
-                {permission}
+            {webinarTypes.map((type) => (
+              <Select.Option key={type} value={type}>
+                {type}
               </Select.Option>
             ))}
           </Select>
-        </div>
-
-        {/* Admin Status */}
-        <div className="mt-4 flex items-center gap-3">
-          <span className="text-sm font-semibold text-gray-700">Status:</span>
-          <Switch
-            onChange={() => setadminStatus(!adminStatus)}
-            checked={adminStatus}
-            checkedChildren="Active"
-            unCheckedChildren="Inactive"
-          />
         </div>
       </div>
     </Modal>
