@@ -20,17 +20,23 @@ import {
   useQueryClient,
   QueryClient,
 } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 const fetchAdmins = async () => {
-  const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,
-  );
-  const { data } = res;
-  return data?.allAdmins;
+  try {
+    const res = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,
+    );
+    const { data } = res;
+    return data?.allAdmins;
+  } catch (err) {
+    toast.error(err?.response?.data?.message);
+  }
 };
 const permissions = ["Testimonials", "Blogs", "Services", "Students"];
 
 const Permissions = () => {
+  const navigate = useNavigate();
   const [isEdit, setIsEdit] = useState(false);
   const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
@@ -40,6 +46,7 @@ const Permissions = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["allAdmins"],
     queryFn: fetchAdmins,
+    throwOnError: () => navigate("/admin/login"),
   });
   const queryClient = useQueryClient();
   const handleDelete = async (id) => {

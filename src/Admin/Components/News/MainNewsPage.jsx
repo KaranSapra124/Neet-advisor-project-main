@@ -24,11 +24,15 @@ import {
 import Divider from "../../../Components/Helper/Divider";
 
 const fetchNews = async () => {
-  const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news`,
-  );
-  const { data } = res;
-  return data?.allNews;
+  try {
+    const res = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news`,
+    );
+    const { data } = res;
+    return data?.allNews;
+  } catch (err) {
+    toast.error(err?.response?.data?.message);
+  }
 };
 const hashtags = ["NEET", "NEET UG 2025"];
 
@@ -351,7 +355,7 @@ const AddCard = ({ open, onCancel }) => {
           <h1 className="p-2 text-2xl font-extrabold text-primary-color">
             Add News
           </h1>
-          <Divider className={"h-1 w-32 ml-2 rounded-full bg-primary-color "}/>
+          <Divider className={"ml-2 h-1 w-32 rounded-full bg-primary-color"} />
         </>
       }
       open={open}

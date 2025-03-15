@@ -100,7 +100,8 @@ const AdminLayout = ({ user }) => {
               toast.success(data?.message);
             })();
       } catch (err) {
-        toast.error(err?.response?.data);
+        toast.error(err?.response?.data?.message);
+     
         navigate("/admin/login");
       }
     };

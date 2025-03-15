@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { useState, createContext } from "react";
+// import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // const { createContext } = require("react");
 
 const adminContext = createContext(null);
 
 export const AdminProvider = ({ children }) => {
+  
   const [admin, setAdmin] = useState(null);
 
   useEffect(() => {
@@ -24,7 +27,8 @@ export const AdminProvider = ({ children }) => {
           role: "Super Admin",
         }));
       } catch (err) {
-        throw new Error(err.response);
+        toast.error(err?.response?.data?.message);
+       
       }
     };
     fetchAdmin();
