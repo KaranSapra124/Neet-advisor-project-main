@@ -49,6 +49,7 @@ exports.verifyOTP = async (req, res) => {
 };
 
 exports.getAdmin = async (req, res) => {
+  
   try {
     const { id } = req?.user;
     const admin = await subAdmin.findById(id);
@@ -59,6 +60,7 @@ exports.getAdmin = async (req, res) => {
       .status(201)
       .send({ message: "Logged In Successfully!", admin });
   } catch (err) {
+    console.log(err,'BIG ERROR!!!!!!!!')
     return res.status(401).send({ message: "Unable To Login!" });
   }
 };

@@ -13,7 +13,7 @@ export const SuperAdminProvider = ({ children }) => {
   useEffect(() => {
     const fetchSuperAdmin = async () => {
       try {
-        const { data } = await axios.post(
+        const { data } = await axios?.post(
           `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
           {},
           { withCredentials: true },
@@ -26,7 +26,7 @@ export const SuperAdminProvider = ({ children }) => {
         }));
       } catch (err) {
         toast.error(err?.response?.data?.message);
-        
+        return;
       }
     };
     fetchSuperAdmin();

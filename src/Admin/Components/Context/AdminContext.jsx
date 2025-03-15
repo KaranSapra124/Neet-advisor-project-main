@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 const adminContext = createContext(null);
 
 export const AdminProvider = ({ children }) => {
-  
   const [admin, setAdmin] = useState(null);
 
   useEffect(() => {
@@ -24,12 +23,10 @@ export const AdminProvider = ({ children }) => {
         setAdmin((prev) => ({
           ...prev,
           ...userData,
-          role: "Super Admin",
+          role: "sub-admin",
         }));
       } catch (err) {
-        console.log(err,'I AM HERE')
-        toast.error(err?.response?.data?.message);
-       
+        return;
       }
     };
     fetchAdmin();

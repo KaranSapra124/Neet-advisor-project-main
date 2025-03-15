@@ -152,11 +152,11 @@ const App = () => {
   return (
     <>
       <ToastContainer></ToastContainer>
-      <AdminProvider>
-        <SuperAdminProvider>
+      <SuperAdminProvider>
+        <AdminProvider>
           <RouterProvider router={appRoutes} />
-        </SuperAdminProvider>
-      </AdminProvider>
+        </AdminProvider>
+      </SuperAdminProvider>
     </>
   );
 };
