@@ -43,24 +43,24 @@ exports.verifyOTP = async (req, res) => {
         })()
       : res.status(401).send({ message: "Invalid OTP" });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     return res.status(403).send({ message: "Something Went Wrong!" });
   }
 };
 
 exports.getAdmin = async (req, res) => {
-  
   try {
-    const { id } = req?.user;
-    const admin = await subAdmin.findById(id);
-    if (!admin)
-      return res.status(401).send({ message: "No Super Admin Found!" });
+    if (req?.user) {
+      const { id } = req?.user;
+      const admin = await subAdmin.findById(id);
+      if (!admin)
+        return res.status(401).send({ message: "No Super Admin Found!" });
 
-    return res
-      .status(201)
-      .send({ message: "Logged In Successfully!", admin });
+      return res
+        .status(201)
+        .send({ message: "Logged In Successfully!", admin });
+    }
   } catch (err) {
-    console.log(err,'BIG ERROR!!!!!!!!')
     return res.status(401).send({ message: "Unable To Login!" });
   }
 };

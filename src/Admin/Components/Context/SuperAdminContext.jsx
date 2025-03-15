@@ -25,7 +25,6 @@ export const SuperAdminProvider = ({ children }) => {
           role: "Super Admin",
         }));
       } catch (err) {
-        toast.error(err?.response?.data?.message);
         return;
       }
     };
