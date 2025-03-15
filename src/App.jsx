@@ -104,6 +104,10 @@ const App = () => {
           path: "/admin/news",
           element: <MainNewsPage />,
         },
+        {
+          path:"/admin/webinar",
+          element:<Webinars/>
+        }
       ],
     },
     {
