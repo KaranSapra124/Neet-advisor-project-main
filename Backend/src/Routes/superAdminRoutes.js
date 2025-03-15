@@ -29,6 +29,7 @@ const {
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
 const { getAuthTokenZoom } = require("../Middlewares/ZoomTokenGenerator");
+const { verifyPassword } = require("../Middlewares/VerifyPermission");
 
 const Router = express.Router();
 
@@ -43,6 +44,7 @@ Router.get("/get-zoom-meetings", getAuthTokenZoom, getZoomMeetings);
 // Services
 Router.post(
   "/add-service",
+  verifyPassword,
   upload.fields([
     { name: "video", maxCount: 1 },
     { name: "icon", maxCount: 1 },

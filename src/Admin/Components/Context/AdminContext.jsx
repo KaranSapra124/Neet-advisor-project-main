@@ -27,6 +27,7 @@ export const AdminProvider = ({ children }) => {
           role: "Super Admin",
         }));
       } catch (err) {
+        console.log(err,'I AM HERE')
         toast.error(err?.response?.data?.message);
        
       }

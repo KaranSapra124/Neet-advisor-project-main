@@ -83,26 +83,33 @@ const AdminLayout = ({ user }) => {
       try {
         user === "Super-Admin"
           ? (async () => {
-              const { data } = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
-                {},
-                { withCredentials: true },
-              );
-              toast.success(data?.message);
+              try {
+                const { data } = await axios.post(
+                  `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
+                  {},
+                  { withCredentials: true },
+                );
+                toast.success(data?.message);
+              } catch (err) {
+                toast.error(err?.response?.data?.message);
+                navigate("/admin/login");
+              }
             })()
           : (async () => {
-              console.log(user);
-              const { data } = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}admin/get-admin`,
-                {},
-                { withCredentials: true },
-              );
-              toast.success(data?.message);
+              try {
+                const { data } = await axios.post(
+                  `${import.meta.env.VITE_BACKEND_URL}admin/get-admin`,
+                  {},
+                  { withCredentials: true },
+                );
+                toast.success(data?.message);
+              } catch (err) {
+                toast.error(err?.response?.data?.message);
+                navigate("/sub-admin/login");
+              }
             })();
       } catch (err) {
-        toast.error(err?.response?.data?.message);
-     
-        navigate("/admin/login");
+        console.log("I AM SUPER ADMIN ERROR");
       }
     };
     authAdmin();
@@ -156,12 +163,8 @@ const AdminLayout = ({ user }) => {
                 );
               })
             : menuItems.map((item) => {
-               
                 return (
-                  <li
-                    key={item.name}
-                    
-                  >
+                  <li key={item.name}>
                     <Link
                       className={`flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition ${
                         location.pathname === item.link

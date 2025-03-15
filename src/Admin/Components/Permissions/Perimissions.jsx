@@ -46,7 +46,7 @@ const Permissions = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["allAdmins"],
     queryFn: fetchAdmins,
-    throwOnError: () => navigate("/admin/login"),
+    // throwOnError: () => navigate("/admin/login"),
   });
   const queryClient = useQueryClient();
   const handleDelete = async (id) => {

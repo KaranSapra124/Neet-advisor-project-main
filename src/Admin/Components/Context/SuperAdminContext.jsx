@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { useState, createContext } from "react";
+import { toast } from "react-toastify";
 
 // const { createContext } = require("react");
 
@@ -24,7 +25,8 @@ export const SuperAdminProvider = ({ children }) => {
           role: "Super Admin",
         }));
       } catch (err) {
-        throw new Error(err.response);
+        toast.error(err?.response?.data?.message);
+        
       }
     };
     fetchSuperAdmin();
