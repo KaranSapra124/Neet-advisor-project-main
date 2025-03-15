@@ -496,3 +496,12 @@ exports.editWebinar = async (req, res) => {
     return res.status(401).send({ message: "Error While Updating Webinar!" });
   }
 };
+exports.deleteWebinar = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Webinars.findByIdAndDelete(id);
+    return res.status(200).send({ message: "Webinar Deleted Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while deleting!" });
+  }
+};
