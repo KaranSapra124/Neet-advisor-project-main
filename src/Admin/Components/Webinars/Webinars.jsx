@@ -14,12 +14,7 @@ import {
 } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-} from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import TextArea from "antd/es/input/TextArea";
 
@@ -35,10 +30,8 @@ const fetchWebinar = async () => {
     toast.error(err?.response?.data?.message);
   }
 };
-const permissions = ["Testimonials", "Blogs", "Services", "Students"];
 
 const Webinars = () => {
-  const navigate = useNavigate();
   const [isEdit, setIsEdit] = useState(false);
   const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
@@ -533,7 +526,6 @@ const AddCard = ({ open, onCancel }) => {
     }));
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -591,7 +583,7 @@ const AddCard = ({ open, onCancel }) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: handleSubmit,
-    onSuccess: () => queryClient.invalidateQueries(["fetchedWebinars"]),
+    onSuccess: () => queryClient.invalidateQueries(["allWebinars"]),
   });
 
   return (
