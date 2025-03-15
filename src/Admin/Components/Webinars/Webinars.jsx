@@ -74,7 +74,7 @@ const Webinars = () => {
       dataIndex: "thumbnail",
       key: "thumbnail",
       render: (text) => (
-        <img src={text} alt="Thumbnail" className="mx-auto w-16 h-16 rounded" />
+        <img src={text} alt="Thumbnail" className="mx-auto h-16 w-16 rounded" />
       ),
     },
     {
@@ -103,7 +103,9 @@ const Webinars = () => {
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">Date</h1>
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Date
+        </h1>
       ),
       dataIndex: "date",
       key: "date",
@@ -113,7 +115,9 @@ const Webinars = () => {
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">Time</h1>
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Time
+        </h1>
       ),
       dataIndex: "time",
       key: "time",
@@ -131,7 +135,7 @@ const Webinars = () => {
       key: "webinarType",
       render: (text) => (
         <span
-          className={`px-3 py-1 rounded-full text-xs font-semibold ${
+          className={`rounded-full px-3 py-1 text-xs font-semibold ${
             text === "PG" ? "bg-blue-500 text-white" : "bg-green-500 text-white"
           }`}
         >
@@ -388,49 +392,72 @@ const EditCard = ({
 
 const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
-    adminName: "",
-    adminEmail: "",
-    adminStatus: "",
-    adminPermissions: [],
+    thumbnail: null,
+    title: "",
+    description: "",
+    date: "",
+    time: "",
+    webinarType: "",
   });
 
-  const permissions = ["Testimonials", "Blogs", "Services", "Students"];
+  const webinarTypes = ["PG", "UG"];
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      thumbnail: e.target.files[0],
+    }));
+  };
+
   useEffect(() => console.log(formData), [formData]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (
-      !formData.adminName ||
-      !formData.adminEmail ||
-      !formData.adminPermissions ||
-      !formData.adminStatus
+      !formData.thumbnail ||
+      !formData.title ||
+      !formData.description ||
+      !formData.date ||
+      !formData.time ||
+      !formData.webinarType
     ) {
       alert("All fields are required!");
       return;
     }
+
     const formDataToSend = new FormData();
-    // formDataToSend.append("imgUrl", formData.imgUrl);
-    formDataToSend.append("adminName", formData.adminName);
-    formDataToSend.append("adminEmail", formData.adminEmail);
-    formDataToSend.append("adminPermissions", formData.adminPermissions);
-    formDataToSend.append("adminStatus", formData.adminStatus);
+    formDataToSend.append("thumbnail", formData.thumbnail);
+    formDataToSend.append("title", formData.title);
+    formDataToSend.append("description", formData.description);
+    formDataToSend.append("date", formData.date);
+    formDataToSend.append("time", formData.time);
+    formDataToSend.append("webinarType", formData.webinarType);
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-admin`,
-        formData,
+        `${import.meta.env.VITE_BACKEND_URL}webinars/add`,
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
       );
 
       setFormData({
-        adminName: "",
-        adminEmail: "",
-        adminStatus: "",
-        adminPermissions: [],
+        thumbnail: null,
+        title: "",
+        description: "",
+        date: "",
+        time: "",
+        webinarType: "",
       });
+
       onCancel();
       toast.success(data?.message);
     } catch (error) {
@@ -438,15 +465,16 @@ const AddCard = ({ open, onCancel }) => {
       toast.error(error?.response?.data?.message);
     }
   };
+
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: handleSubmit,
-    onSuccess: () => queryClient.invalidateQueries(["fetchedStudent"]),
+    onSuccess: () => queryClient.invalidateQueries(["fetchedWebinars"]),
   });
 
   return (
     <Modal
-      title="Add Student"
+      title="Add Webinar"
       open={open}
       onClose={onCancel}
       onCancel={onCancel}
@@ -454,75 +482,78 @@ const AddCard = ({ open, onCancel }) => {
     >
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
-          {/* {formData.imgUrl && (
+          <label className="mx-2 font-semibold text-gray-800">Thumbnail:</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="w-full rounded-md border p-2"
+          />
+
+          {formData.thumbnail && (
             <img
-              className="mx-auto h-32 w-32 rounded-full"
-              src={formData.imgUrl}
-              alt="Student"
+              src={URL.createObjectURL(formData.thumbnail)}
+              alt="Thumbnail Preview"
+              className="mx-auto mt-2 h-32 w-32 rounded-md"
             />
           )}
 
-          <input
-            type="file"
-            name="file"
-            onChange={handleFileChange}
-            className="w-full"
-          /> */}
-          <label className="mx-2 font-semibold text-gray-800">
-            Admin Name:
-          </label>
+          <label className="mx-2 font-semibold text-gray-800">Title:</label>
           <input
             type="text"
-            name="adminName"
-            value={formData.adminName}
+            name="title"
+            value={formData.title}
             onChange={handleChange}
-            placeholder="Admin Name"
+            placeholder="Enter Webinar Title"
             className="w-full rounded-md border p-2"
           />
+
           <label className="mx-2 font-semibold text-gray-800">
-            Admin Email:
+            Description:
           </label>
-          <input
-            type="text"
-            name="adminEmail"
-            value={formData.adminEmail}
+          <textarea
+            name="description"
+            value={formData.description}
             onChange={handleChange}
-            placeholder="Admin Email"
+            placeholder="Enter Webinar Description"
+            className="w-full rounded-md border p-2"
+          ></textarea>
+
+          <label className="mx-2 font-semibold text-gray-800">Date:</label>
+          <input
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
             className="w-full rounded-md border p-2"
           />
+
+          <label className="mx-2 font-semibold text-gray-800">Time:</label>
+          <input
+            type="time"
+            name="time"
+            value={formData.time}
+            onChange={handleChange}
+            className="w-full rounded-md border p-2"
+          />
+
           <label className="mx-2 font-semibold text-gray-800">
-            Admin Permissions:
+            Webinar Type:
           </label>
           <Select
-            mode="multiple"
-            placeholder="Select Permissions"
-            value={formData.adminPermissions}
-            onChange={(val) => {
-              console.log(val);
-              setFormData((prev) => ({
-                ...prev,
-                adminPermissions: val,
-              }));
-            }}
+            placeholder="Select Webinar Type"
+            value={formData.webinarType}
+            onChange={(val) =>
+              setFormData((prev) => ({ ...prev, webinarType: val }))
+            }
             className="w-full"
           >
-            {permissions?.map((permission) => (
-              <Select.Option key={permission} value={permission}>
-                {permission}
+            {webinarTypes.map((type) => (
+              <Select.Option key={type} value={type}>
+                {type}
               </Select.Option>
             ))}
           </Select>
-          <div>
-            <label className="mx-2 font-semibold text-gray-800">
-              Admin Status:
-            </label>
-            <Switch
-              defaultValue={false}
-              onChange={(val) => {
-                setFormData((prev) => ({ ...prev, adminStatus: val }));
-              }}
-            />
-          </div>
 
           <div className="flex justify-between">
             <button
