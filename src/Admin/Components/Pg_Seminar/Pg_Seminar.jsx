@@ -214,7 +214,7 @@ const Pg_seminar = () => {
           id={editItem?._id}
           video={editItem?.video}
           catchPhrase={editItem?.catchPhrase}
-          URL={editItem?.URL}
+          url={editItem?.URL}
           date={editItem?.date}
           description={editItem?.description}
           location={editItem?.location}
@@ -337,7 +337,7 @@ const EditCard = ({
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setFormData((prev) => ({ ...prev, thumbnail: file }));
+      setFormData((prev) => ({ ...prev, video: file }));
     }
   };
 
@@ -351,7 +351,8 @@ const EditCard = ({
       !formData?.date ||
       !formData?.catchPhrase ||
       !formData?.location ||
-      !formData?.state
+      !formData?.state ||
+      !formData?.URL
     ) {
       toast.error("All fields are required!");
       return;
@@ -380,7 +381,7 @@ const EditCard = ({
     mutationFn: handleSave,
     onSuccess: () => queryClient.invalidateQueries(["allWebinars"]),
   });
-
+  useEffect(() => console.log(typeof formData?.video), [formData?.video]);
   return (
     <Modal
       title={
@@ -418,7 +419,7 @@ const EditCard = ({
             type="file"
             name="video"
             value={formData.video.filename}
-            onChange={handleChange}
+            onChange={handleFileChange}
             placeholder="Enter video link"
             className="w-full rounded-md border p-2"
           />
@@ -505,7 +506,7 @@ const EditCard = ({
             className="w-full rounded-md border p-2"
           />
 
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <button
               type="button"
               onClick={onCancel}
@@ -519,7 +520,7 @@ const EditCard = ({
             >
               Add
             </button>
-          </div>
+          </div> */}
         </form>
       </div>
     </Modal>
