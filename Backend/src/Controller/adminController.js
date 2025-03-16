@@ -552,3 +552,6 @@ exports.editSeminar = async (req, res) => {
     return res.status(401).send({ message: "Error while updating!" });
   }
 };
+exports.deleteSeminar = async(req,res)=>{
+  
+}
