@@ -527,3 +527,28 @@ exports.getSeminar = async (req, res) => {
     return res.status(401).send({ message: "Error while getting seminars" });
   }
 };
+exports.editSeminar = async (req, res) => {
+  try {
+    const { id } = req.params;
+    req.file
+      ? (async () => {
+          await PGseminar.findByIdAndUpdate(id, {
+            ...req.body,
+            video: req.file.filename,
+          });
+          return res
+            .status(200)
+            .send({ message: "Seminar Edited Successfully!" });
+        })()
+      : (async () => {
+          await PGseminar.findByIdAndUpdate(id, {
+            ...req.body,
+          });
+          return res
+            .status(200)
+            .send({ message: "Seminar Edited Successfully!" });
+        })();
+  } catch (err) {
+    return res.status(401).send({ message: "Error while updating!" });
+  }
+};

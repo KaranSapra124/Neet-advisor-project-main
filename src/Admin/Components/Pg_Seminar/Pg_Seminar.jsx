@@ -359,7 +359,7 @@ const EditCard = ({
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-webinar/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-seminar/${id}`,
         formData,
         {
           headers: {
