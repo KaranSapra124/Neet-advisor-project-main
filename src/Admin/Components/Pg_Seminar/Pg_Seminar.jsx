@@ -64,15 +64,15 @@ const Pg_seminar = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Thumbnail
+          Video Thumbnail
         </h1>
       ),
-      dataIndex: "thumbnail",
-      key: "thumbnail",
+      dataIndex: "video",
+      key: "video",
       render: (text) => (
         <img
           src={`${import.meta.env.VITE_BACKEND_URL}uploads/${text}`}
-          alt="Thumbnail"
+          alt="Video Thumbnail"
           className="mx-auto h-16 w-16 rounded"
         />
       ),
@@ -89,18 +89,42 @@ const Pg_seminar = () => {
         <p className="text-center text-xs font-bold text-gray-800">{text}</p>
       ),
     },
+    // {
+    //   title: (
+    //     <h1 className="text-center text-lg font-bold text-primary-color">
+    //       Description
+    //     </h1>
+    //   ),
+    //   dataIndex: "description",
+    //   key: "description",
+    //   render: (text) => (
+    //     <p className="line-clamp-2 max-w-52 text-center text-xs font-medium">
+    //       {text}
+    //     </p>
+    //   ),
+    // },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Description
+          State
         </h1>
       ),
-      dataIndex: "description",
-      key: "description",
+      dataIndex: "state",
+      key: "state",
       render: (text) => (
-        <p className="line-clamp-2 max-w-52 text-center text-xs font-medium">
-          {text}
-        </p>
+        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
+      ),
+    },
+    {
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Location
+        </h1>
+      ),
+      dataIndex: "location",
+      key: "location",
+      render: (text) => (
+        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
       ),
     },
     {
@@ -127,28 +151,20 @@ const Pg_seminar = () => {
         <p className="text-center text-xs font-bold text-gray-800">{text}</p>
       ),
     },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Webinar Type
-        </h1>
-      ),
-      dataIndex: "webinarType",
-      key: "webinarType",
-      render: (text) => (
-        <div className="w-full text-center">
-          <span
-            className={`mx-uto rounded-full px-3 py-1 text-xs font-semibold ${
-              text === "PG"
-                ? "bg-blue-500 text-white"
-                : "bg-green-500 text-white"
-            }`}
-          >
-            {text}
-          </span>
-        </div>
-      ),
-    },
+    // {
+    //   title: (
+    //     <h1 className="text-center text-lg font-bold text-primary-color">
+    //       Catch Phrase
+    //     </h1>
+    //   ),
+    //   dataIndex: "catchPhrase",
+    //   key: "catchPhrase",
+    //   render: (text) => (
+    //     <p className="text-center text-xs italic font-semibold text-gray-600">
+    //       "{text}"
+    //     </p>
+    //   ),
+    // },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
@@ -505,72 +521,59 @@ const EditCard = ({
 
 const AddCard = ({ open, onCancel }) => {
   const [formData, setFormData] = useState({
-    thumbnail: null,
+    video: "",
     title: "",
     description: "",
     date: "",
     time: "",
-    webinarType: "",
     URL: "",
+    state: "",
+    location: "",
+    catchPhrase: "",
   });
 
-  const webinarTypes = ["PG", "UG"];
-
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleFileChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      thumbnail: e.target.files[0],
-    }));
+    setFormData({
+      ...formData,
+      [e.target.name]:
+        e.target.name === "video" ? e.target.files[0] : e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
-      !formData.thumbnail ||
+      !formData.video ||
       !formData.title ||
       !formData.description ||
       !formData.date ||
       !formData.time ||
-      !formData.webinarType ||
-      !formData.URL
+      !formData.URL ||
+      !formData.state ||
+      !formData.location ||
+      !formData.catchPhrase
     ) {
       alert("All fields are required!");
       return;
     }
 
-    const formDataToSend = new FormData();
-    formDataToSend.append("thumbnail", formData.thumbnail);
-    formDataToSend.append("title", formData.title);
-    formDataToSend.append("description", formData.description);
-    formDataToSend.append("date", formData.date);
-    formDataToSend.append("time", formData.time);
-    formDataToSend.append("webinarType", formData.webinarType);
-    formDataToSend.append("URL", formData.URL);
-
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-webinar`,
-        formDataToSend,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar`,
+        formData,
       );
 
       setFormData({
-        thumbnail: null,
+        video: "",
         title: "",
         description: "",
         date: "",
         time: "",
-        webinarType: "",
         URL: "",
+        state: "",
+        location: "",
+        catchPhrase: "",
       });
 
       onCancel();
@@ -584,12 +587,12 @@ const AddCard = ({ open, onCancel }) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: handleSubmit,
-    onSuccess: () => queryClient.invalidateQueries(["allWebinars"]),
+    onSuccess: () => queryClient.invalidateQueries(["allSeminars"]),
   });
 
   return (
     <Modal
-      title="Add Webinar"
+      title="Add Seminar"
       open={open}
       onClose={onCancel}
       onCancel={onCancel}
@@ -597,21 +600,20 @@ const AddCard = ({ open, onCancel }) => {
     >
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
-          <label className="mx-2 font-semibold text-gray-800">Thumbnail:</label>
+          <label className="mx-2 font-semibold text-gray-800">Video:</label>
+          <video
+            src={formData?.video && URL.createObjectURL(formData?.video)}
+            autoPlay
+            loop
+          />
           <input
             type="file"
-            accept="image/*"
-            onChange={handleFileChange}
+            name="video"
+            value={formData.video.filename}
+            onChange={handleChange}
+            placeholder="Enter video link"
             className="w-full rounded-md border p-2"
           />
-
-          {formData.thumbnail && (
-            <img
-              src={URL.createObjectURL(formData.thumbnail)}
-              alt="Thumbnail Preview"
-              className="mx-auto mt-2 h-32 w-32 rounded-md"
-            />
-          )}
 
           <label className="mx-2 font-semibold text-gray-800">Title:</label>
           <input
@@ -619,7 +621,7 @@ const AddCard = ({ open, onCancel }) => {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            placeholder="Enter Webinar Title"
+            placeholder="Enter Seminar Title"
             className="w-full rounded-md border p-2"
           />
 
@@ -630,7 +632,7 @@ const AddCard = ({ open, onCancel }) => {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            placeholder="Enter Webinar Description"
+            placeholder="Enter Seminar Description"
             className="w-full rounded-md border p-2"
           ></textarea>
 
@@ -652,36 +654,48 @@ const AddCard = ({ open, onCancel }) => {
             className="w-full rounded-md border p-2"
           />
 
+          <label className="mx-2 font-semibold text-gray-800">State:</label>
+          <input
+            type="text"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+            placeholder="Enter State"
+            className="w-full rounded-md border p-2"
+          />
+
+          <label className="mx-2 font-semibold text-gray-800">Location:</label>
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            placeholder="Enter Location"
+            className="w-full rounded-md border p-2"
+          />
+
           <label className="mx-2 font-semibold text-gray-800">
-            Webinar Type:
+            Catch Phrase:
           </label>
-          <Select
-            placeholder="Select Webinar Type"
-            value={formData.webinarType}
-            onChange={(val) =>
-              setFormData((prev) => ({ ...prev, webinarType: val }))
-            }
-            className="w-full"
-          >
-            {webinarTypes.map((type) => (
-              <Select.Option key={type} value={type}>
-                {type}
-              </Select.Option>
-            ))}
-          </Select>
-          {/* URL */}
-          <div>
-            <label className="text-sm font-semibold text-gray-700">
-              Webinar URL
-            </label>
-            <Input
-              type="text"
-              name="URL"
-              value={formData.URL}
-              onChange={handleChange}
-              className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-            />
-          </div>
+          <input
+            type="text"
+            name="catchPhrase"
+            value={formData.catchPhrase}
+            onChange={handleChange}
+            placeholder="Enter Catch Phrase"
+            className="w-full rounded-md border p-2"
+          />
+
+          <label className="mx-2 font-semibold text-gray-800">
+            Seminar URL:
+          </label>
+          <input
+            type="text"
+            name="URL"
+            value={formData.URL}
+            onChange={handleChange}
+            className="w-full rounded-md border p-2"
+          />
 
           <div className="flex justify-between">
             <button
