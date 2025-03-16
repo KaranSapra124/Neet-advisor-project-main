@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 import { userSuperAdminAuth } from "../Components/Context/SuperAdminContext";
 import { BsFileBarGraph } from "react-icons/bs";
 import { useAdminAuth } from "../Components/Context/AdminContext";
+import { FaPeopleGroup } from "react-icons/fa6";
 
 const AdminLayout = ({ user }) => {
   const location = useLocation(); // Get current path
@@ -54,6 +55,11 @@ const AdminLayout = ({ user }) => {
             link: "/admin/webinars",
             icon: <FaChalkboardTeacher />,
           },
+          {
+            name: "PG Seminar",
+            link: "/admin/pg-seminar",
+            icon: <FaPeopleGroup />,
+          },
         ]
       : [
           { name: "Dashboard", link: "/sub-admin", icon: <RiDashboardFill /> },
@@ -79,6 +85,11 @@ const AdminLayout = ({ user }) => {
             name: "Webinars",
             link: "/sub-admin/webinars",
             icon: <FaChalkboardTeacher />,
+          },
+          {
+            name: "PG Seminar",
+            link: "/admin/pg-seminar",
+            icon: <FaPeopleGroup />,
           },
           // { name: "Permissions", link: "/admin/permissions", icon: <FaUser /> },
         ];
