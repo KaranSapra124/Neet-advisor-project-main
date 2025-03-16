@@ -552,6 +552,12 @@ exports.editSeminar = async (req, res) => {
     return res.status(401).send({ message: "Error while updating!" });
   }
 };
-exports.deleteSeminar = async(req,res)=>{
-  
-}
+exports.deleteSeminar = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await PGseminar.findByIdAndDelete(id);
+    return res.status(200).send({ message: "Seminar Deleted Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while deleting seminar!" });
+  }
+};
