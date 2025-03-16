@@ -32,6 +32,7 @@ const {
   addSeminar,
   getSeminar,
   editSeminar,
+  deleteSeminar,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -103,5 +104,6 @@ Router.get("/delete-webinar/:id", deleteWebinar);
 // Seminars Started
 Router.post("/add-seminar", upload.single("video"), addSeminar);
 Router.get("/get-seminars", getSeminar);
-Router.post("/edit-seminar/:id",upload.single("video"),editSeminar)
+Router.post("/edit-seminar/:id", upload.single("video"), editSeminar);
+Router.get("/delete-seminar/:id", deleteSeminar);
 module.exports = Router;

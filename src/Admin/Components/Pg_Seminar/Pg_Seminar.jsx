@@ -47,7 +47,7 @@ const Pg_seminar = () => {
   const handleDelete = async (id) => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-webinar/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-seminar/${id}`,
       );
       toast.success(data?.message);
     } catch (err) {
@@ -152,20 +152,6 @@ const Pg_seminar = () => {
         <p className="text-center text-xs font-bold text-gray-800">{text}</p>
       ),
     },
-    // {
-    //   title: (
-    //     <h1 className="text-center text-lg font-bold text-primary-color">
-    //       Catch Phrase
-    //     </h1>
-    //   ),
-    //   dataIndex: "catchPhrase",
-    //   key: "catchPhrase",
-    //   render: (text) => (
-    //     <p className="text-center text-xs italic font-semibold text-gray-600">
-    //       "{text}"
-    //     </p>
-    //   ),
-    // },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
