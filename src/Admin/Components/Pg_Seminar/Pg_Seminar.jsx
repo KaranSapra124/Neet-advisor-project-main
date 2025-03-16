@@ -533,13 +533,16 @@ const AddCard = ({ open, onCancel }) => {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]:
-        e.target.name === "video" ? e.target.files[0] : e.target.value,
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [e.target.name]:
+          e.target.name === "video" ? e.target.files[0] : e.target.value,
+      };
     });
   };
 
+  let videoFile = formData?.video && URL.createObjectURL(formData?.video);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -562,6 +565,11 @@ const AddCard = ({ open, onCancel }) => {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar`,
         formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
       );
 
       setFormData({
@@ -601,11 +609,9 @@ const AddCard = ({ open, onCancel }) => {
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
           <label className="mx-2 font-semibold text-gray-800">Video:</label>
-          <video
-            src={formData?.video && URL.createObjectURL(formData?.video)}
-            autoPlay
-            loop
-          />
+          {videoFile && (
+            <video className="w-52" src={videoFile} autoPlay loop />
+          )}
           <input
             type="file"
             name="video"
