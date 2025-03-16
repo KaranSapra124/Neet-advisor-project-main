@@ -313,7 +313,7 @@ const EditCard = ({
 }) => {
   const queryClient = useQueryClient();
   const [formData, setFormData] = useState({
-    thumbnail: null, // Image Upload Handling
+    video: null, // Image Upload Handling
     title: titleData || "",
     description: descriptionData || "",
     date: dateData || "",
