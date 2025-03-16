@@ -212,13 +212,15 @@ const Pg_seminar = () => {
       {isEdit && (
         <EditCard
           id={editItem?._id}
-          thumbnailData={editItem?.thumbnail}
-          dateData={editItem?.date}
-          descriptionData={editItem?.description}
-          timeData={editItem?.time}
-          titleData={editItem?.title}
-          webinarTypeData={editItem?.webinarType}
-          url={editItem?.URL}
+          video={editItem?.video}
+          catchPhrase={editItem?.catchPhrase}
+          URL={editItem?.URL}
+          date={editItem?.date}
+          description={editItem?.description}
+          location={editItem?.location}
+          state={editItem?.state}
+          time={editItem?.time}
+          title={editItem?.title}
           onCancel={() => setIsEdit(false)}
           key={editItem?._id}
         />
@@ -307,7 +309,7 @@ const EditCard = ({
   description,
   date,
   time,
-  URL,
+  url,
   state,
   location,
   catchPhrase,
@@ -315,18 +317,16 @@ const EditCard = ({
 }) => {
   const queryClient = useQueryClient();
   const [formData, setFormData] = useState({
-    video: "",
-    title: "",
-    description: "",
-    date: "",
-    time: "",
-    URL: "",
-    state: "",
-    location: "",
-    catchPhrase: "",
+    video: video,
+    title: title,
+    description: description,
+    date: date,
+    time: time,
+    URL: url,
+    state: state,
+    location: location,
+    catchPhrase: catchPhrase,
   });
-
-  const webinarTypes = ["PG", "UG"];
 
   // Handle Input Change
   const handleChange = (e) => {
@@ -399,117 +399,128 @@ const EditCard = ({
         className: "border-gray-300 hover:border-gray-400 text-gray-600",
       }}
     >
-      <div className="flex flex-col gap-4 p-4">
-        {/* Thumbnail Upload */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">
-            Thumbnail
-          </label>
+      <div className="rounded-lg bg-white p-6 shadow-lg">
+        <form onSubmit={mutation.mutate} className="space-y-4">
+          <label className="mx-2 font-semibold text-gray-800">Video:</label>
+          {formData?.video && (
+            <video
+              className="w-52"
+              src={
+                typeof formData?.video === "object"
+                  ? URL.createObjectURL(formData?.video)
+                  : `${import.meta.env.VITE_BACKEND_URL}uploads/${formData?.video}`
+              }
+              autoPlay
+              loop
+            />
+          )}
           <input
             type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            className="mt-1 w-full rounded-lg border p-2"
+            name="video"
+            value={formData.video.filename}
+            onChange={handleChange}
+            placeholder="Enter video link"
+            className="w-full rounded-md border p-2"
           />
-          {thumbnailData && !formData.thumbnail && (
-            <img
-              src={`${import.meta.env.VITE_BACKEND_URL}uploads/${thumbnailData}`}
-              alt="Webinar"
-              className="mt-2 h-24 w-24 rounded object-cover"
-            />
-          )}
-          {formData.thumbnail && (
-            <img
-              src={URL.createObjectURL(formData.thumbnail)}
-              alt="Preview"
-              className="mt-2 h-24 w-24 rounded object-cover"
-            />
-          )}
-        </div>
 
-        {/* Title */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">Title</label>
-          <Input
+          <label className="mx-2 font-semibold text-gray-800">Title:</label>
+          <input
+            type="text"
             name="title"
             value={formData.title}
             onChange={handleChange}
-            placeholder="Enter Webinar Title"
-            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            placeholder="Enter Seminar Title"
+            className="w-full rounded-md border p-2"
           />
-        </div>
 
-        {/* Description */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">
-            Description
+          <label className="mx-2 font-semibold text-gray-800">
+            Description:
           </label>
-          <TextArea
+          <textarea
             name="description"
             value={formData.description}
             onChange={handleChange}
-            placeholder="Enter Webinar Description"
-            rows={4}
-            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-          />
-        </div>
+            placeholder="Enter Seminar Description"
+            className="w-full rounded-md border p-2"
+          ></textarea>
 
-        {/* Date */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">Date</label>
-          <Input
+          <label className="mx-2 font-semibold text-gray-800">Date:</label>
+          <input
             type="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
-            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="w-full rounded-md border p-2"
           />
-        </div>
 
-        {/* Time */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">Time</label>
-          <Input
+          <label className="mx-2 font-semibold text-gray-800">Time:</label>
+          <input
             type="time"
             name="time"
             value={formData.time}
             onChange={handleChange}
-            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="w-full rounded-md border p-2"
           />
-        </div>
 
-        {/* Webinar Type */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">
-            Webinar Type
+          <label className="mx-2 font-semibold text-gray-800">State:</label>
+          <input
+            type="text"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+            placeholder="Enter State"
+            className="w-full rounded-md border p-2"
+          />
+
+          <label className="mx-2 font-semibold text-gray-800">Location:</label>
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            placeholder="Enter Location"
+            className="w-full rounded-md border p-2"
+          />
+
+          <label className="mx-2 font-semibold text-gray-800">
+            Catch Phrase:
           </label>
-          <Select
-            value={formData.webinarType}
-            onChange={(val) =>
-              setFormData((prev) => ({ ...prev, webinarType: val }))
-            }
-            className="mt-1 w-full"
-          >
-            {webinarTypes.map((type) => (
-              <Select.Option key={type} value={type}>
-                {type}
-              </Select.Option>
-            ))}
-          </Select>
-        </div>
-        {/* URL */}
-        <div>
-          <label className="text-sm font-semibold text-gray-700">
-            Webinar URL
+          <input
+            type="text"
+            name="catchPhrase"
+            value={formData.catchPhrase}
+            onChange={handleChange}
+            placeholder="Enter Catch Phrase"
+            className="w-full rounded-md border p-2"
+          />
+
+          <label className="mx-2 font-semibold text-gray-800">
+            Seminar URL:
           </label>
-          <Input
+          <input
             type="text"
             name="URL"
             value={formData.URL}
             onChange={handleChange}
-            className="mt-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="w-full rounded-md border p-2"
           />
-        </div>
+
+          <div className="flex justify-between">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="rounded-md border px-4 py-2 text-gray-700"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
+            >
+              Add
+            </button>
+          </div>
+        </form>
       </div>
     </Modal>
   );
