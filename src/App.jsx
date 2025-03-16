@@ -27,6 +27,7 @@ import { AdminProvider } from "./Admin/Components/Context/AdminContext";
 import MainNewsPage from "./Admin/Components/News/MainNewsPage";
 import AdminWebinars from "./Admin/Components/Webinars/Webinars";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Pg_Seminar from "./Admin/Components/Pg_Seminar/Pg_Seminar";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -111,6 +112,10 @@ const App = () => {
           path: "/admin/webinars",
           element: <AdminWebinars />,
         },
+        {
+          path:"/admin/pg-seminar",
+          element:<Pg_Seminar/>
+        }
       ],
     },
     {
