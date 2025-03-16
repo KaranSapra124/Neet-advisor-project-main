@@ -33,6 +33,10 @@ const pgSeminar = new mongoose.Schema({
     type: String,
     required: true,
   },
+  URL: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("pgSeminar", pgSeminar);
