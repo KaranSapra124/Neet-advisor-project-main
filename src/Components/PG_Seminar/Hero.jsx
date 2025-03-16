@@ -9,7 +9,10 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 const fetchSeminars = async () => {
   const { data } = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars`,
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars-for-users`,
+    {
+      withCredentials: true,
+    },
   );
   console.log(data);
   return data?.allSeminars;
@@ -82,7 +85,10 @@ const Hero = () => {
             <div className="flex h-fit flex-col lg:flex-row">
               {data?.map((seminar, index) => {
                 return (
-                  <div className="relative mx-4 my-4 cursor-pointer rounded-lg border border-white bg-white/10 p-1.5 shadow transition-all duration-100 hover:scale-105 lg:my-0 lg:p-3.5">
+                  <div
+                    onClick={() => window.open(seminar?.URL, "__blank")}
+                    className="relative mx-4 my-4 cursor-pointer rounded-lg border border-white bg-white/10 p-1.5 shadow transition-all duration-100 hover:scale-105 lg:my-0 lg:p-3.5"
+                  >
                     <img
                       src="./Webinar/calendar-bg-removed.gif"
                       className="absolute -left-3 -top-5 h-7 w-7 rounded-full bg-white shadow-md shadow-yellow-600"

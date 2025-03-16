@@ -519,12 +519,56 @@ exports.addSeminar = async (req, res) => {
     return res.status(401).send({ message: "Error while adding!" });
   }
 };
+exports.getSeminarForUsers = async (req, res) => {
+  console.log(req);
+  try {
+    if (!req.cookies.userState && !req.cookies.userCity) {
+      const ip = "122.160.147.90";
+      const { data } = await axios.get(`http://ip-api.com/json/${ip}`);
+      const { regionName, city } = data;
+      res.cookie("userState", regionName, {
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        httpOnly: true,
+        secure: false, // True for HTTPS
+      });
+      res.cookie("userCity", city, {
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        httpOnly: true,
+        secure: false, // True for HTTPS
+      });
+      const regexState = new RegExp(regionName, "i");
+      const regexCity = new RegExp(city, "i");
+      const allSeminars = await PGseminar.find({
+        state: {
+          $regex: regexCity || regexState,
+        },
+      });
+      return res
+        .status(200)
+        .send({ message: "Seminars Fetched!", allSeminars });
+    } else {
+      const regexState = new RegExp(req.cookies.userState, "i");
+      const regexCity = new RegExp(req.cookies.userCity, "i");
+      const allSeminars = await PGseminar.find({
+        state: {
+          $regex: regexCity || regexState,
+        },
+      });
+      return res
+        .status(200)
+        .send({ message: "Seminars Fetched!", allSeminars });
+    }
+  } catch (err) {
+    console.log(err);
+    return res.status(401).send({ message: "Error while getting seminars" });
+  }
+};
 exports.getSeminar = async (req, res) => {
   try {
     const allSeminars = await PGseminar.find();
     return res.status(200).send({ message: "Seminars Fetched!", allSeminars });
   } catch (err) {
-    return res.status(401).send({ message: "Error while getting seminars" });
+    return res.status(401).send({ message: "Error while fetching!" });
   }
 };
 exports.editSeminar = async (req, res) => {
