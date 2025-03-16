@@ -9,6 +9,7 @@ const Students = require("../Models/Students");
 const SubAdmin = require("../Models/SubAdmin");
 const News = require("../Models/News");
 const Webinars = require("../Models/Webinars");
+const PGseminar = require("../Models/PGseminar");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -503,5 +504,18 @@ exports.deleteWebinar = async (req, res) => {
     return res.status(200).send({ message: "Webinar Deleted Successfully!" });
   } catch (err) {
     return res.status(401).send({ message: "Error while deleting!" });
+  }
+};
+// Webinar Ended
+// Seminar Started
+exports.addSeminar = async (req, res) => {
+  try {
+    const { filename } = req.file;
+    const newSeminar = await PGseminar.create({ video: filename, ...req.body });
+    return res
+      .status(201)
+      .send({ message: "Seminar Added Successfully!", newSeminar });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while adding!" });
   }
 };
