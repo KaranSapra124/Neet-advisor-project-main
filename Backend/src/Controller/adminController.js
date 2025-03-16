@@ -519,3 +519,11 @@ exports.addSeminar = async (req, res) => {
     return res.status(401).send({ message: "Error while adding!" });
   }
 };
+exports.getSeminar = async (req, res) => {
+  try {
+    const allSeminars = await PGseminar.find();
+    return res.status(200).send({ message: "Seminars Fetched!", allSeminars });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while getting seminars" });
+  }
+};
