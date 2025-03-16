@@ -302,24 +302,28 @@ const ViewCard = ({
 
 const EditCard = ({
   id,
-  thumbnailData,
-  titleData,
-  descriptionData,
-  dateData,
-  timeData,
-  webinarTypeData,
-  url,
+  video,
+  title,
+  description,
+  date,
+  time,
+  URL,
+  state,
+  location,
+  catchPhrase,
   onCancel,
 }) => {
   const queryClient = useQueryClient();
   const [formData, setFormData] = useState({
-    video: null, // Image Upload Handling
-    title: titleData || "",
-    description: descriptionData || "",
-    date: dateData || "",
-    time: timeData || "",
-    webinarType: webinarTypeData || "PG",
-    URL: url || "",
+    video: "",
+    title: "",
+    description: "",
+    date: "",
+    time: "",
+    URL: "",
+    state: "",
+    location: "",
+    catchPhrase: "",
   });
 
   const webinarTypes = ["PG", "UG"];
@@ -340,32 +344,23 @@ const EditCard = ({
   // Form Submit Handler
   const handleSave = async () => {
     if (
-      !formData.title ||
-      !formData.description ||
-      !formData.date ||
-      !formData.time ||
-      !formData.URL
+      !formData?.video ||
+      !formData?.title ||
+      !formData?.description ||
+      !formData?.time ||
+      !formData?.date ||
+      !formData?.catchPhrase ||
+      !formData?.location ||
+      !formData?.state
     ) {
       toast.error("All fields are required!");
       return;
     }
 
-    const formDataToSend = new FormData();
-    formDataToSend.append("title", formData.title);
-    formDataToSend.append("description", formData.description);
-    formDataToSend.append("date", formData.date);
-    formDataToSend.append("time", formData.time);
-    formDataToSend.append("webinarType", formData.webinarType);
-    formDataToSend.append("URL", formData?.URL);
-
-    if (formData.thumbnail) {
-      formDataToSend.append("thumbnail", formData.thumbnail);
-    }
-
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-webinar/${id}`,
-        formDataToSend,
+        formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
