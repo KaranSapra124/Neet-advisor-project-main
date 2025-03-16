@@ -101,5 +101,5 @@ Router.get("/delete-webinar/:id", deleteWebinar);
 // Webinars Ended
 // Seminars Started
 Router.post("/add-seminar", upload.single("video"), addSeminar);
-Router.get("/get-seminar", getSeminar);
+Router.get("/get-seminars", getSeminar);
 module.exports = Router;

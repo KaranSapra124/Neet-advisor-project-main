@@ -19,14 +19,13 @@ import { useNavigate } from "react-router-dom";
 import TextArea from "antd/es/input/TextArea";
 import PG_seminar from "../../../Pages/PG_seminar";
 
-const fetchWebinar = async () => {
+const fetchSeminar = async () => {
   try {
     const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-webinars`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars`,
     );
     const { data } = res;
-    console.log(data);
-    return data?.allWebinars;
+    return data?.allSeminars;
   } catch (err) {
     toast.error(err?.response?.data?.message);
   }
@@ -40,8 +39,8 @@ const Pg_seminar = () => {
   const [isAdd, setIsAdd] = useState(false);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["allWebinars"],
-    queryFn: fetchWebinar,
+    queryKey: ["allSeminar"],
+    queryFn: fetchSeminar,
     // throwOnError: () => navigate("/admin/login"),
   });
   const queryClient = useQueryClient();
@@ -70,10 +69,12 @@ const Pg_seminar = () => {
       dataIndex: "video",
       key: "video",
       render: (text) => (
-        <img
+        <video
+          autoPlay
+          loop
           src={`${import.meta.env.VITE_BACKEND_URL}uploads/${text}`}
           alt="Video Thumbnail"
-          className="mx-auto h-16 w-16 rounded"
+          className="mx-auto h-28 w-28 rounded"
         />
       ),
     },
