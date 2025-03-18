@@ -4,48 +4,20 @@ import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import { useQuery } from "@tanstack/react-query";
+const fetchServices = async () => {
+  const { data } = await axios.get(
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress`,
+  );
+  return data?.allSeminarsTimeline;
+};
 const SeminarProgress = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
-  const [servicesArr, setServicesArr] = useState([]);
-  // const servicesArr = [
-  //   {
-  //     video:
-  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-  //     title: "Shortlist Your Success",
-  //     content:
-  //       "Based on your expected NEET Score, we shortlist for you the state & college you should apply for.",
-  //     icon: "../../../About/motivationGif.gif",
-  //   },
-  //   {
-  //     video:
-  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-  //     title: "Guidance from our Advisor",
-  //     content:
-  //       "An Intensive one to one NEET counselling session from our Advisor who will answer your queries about AIQ & State Quota NEET Counselling.",
-  //     icon: "../../../About/person-speaker.gif",
-  //   },
-  //   {
-  //     video:
-  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-  //     title: "Application Filling",
-  //     content:
-  //       "Support with filling of application form of All India Quota/ESI/AFMC/Deemed Universities & different state quota counselling.",
-  //     icon: "../../../About/BookImg.gif",
-  //   },
-  //   {
-  //     video:
-  //       "https://videos.pexels.com/video-files/3252123/3252123-sd_640_360_25fps.mp4",
-  //     title: "Look beyond MBBS",
-  //     content:
-  //       "There are many more medical courses like BDS, BAMS, Physiotherapy, DNB, etc.",
-  //     icon: "../../../About/mission.gif",
-  //   },
-  // ];
+
   const columns = [
     {
       title: (
@@ -141,15 +113,10 @@ const SeminarProgress = () => {
     },
   ];
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress`,
-      );
-      setServicesArr(data?.allSeminarsTimeline);
-    };
-    fetchServices();
-  }, []);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["allProgress"],
+    queryFn: fetchServices,
+  });
 
   return (
     <>
@@ -202,11 +169,11 @@ const SeminarProgress = () => {
               return <h1 className="text-4xl">{column}</h1>;
             }}
             tableLayout="fixed"
-            loading={servicesArr?.length < 0}
+            loading={isLoading}
             bordered
             className="rounded shadow"
             columns={columns}
-            dataSource={servicesArr}
+            dataSource={data}
           ></Table>
         </div>
       </Container>
