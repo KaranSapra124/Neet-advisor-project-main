@@ -520,39 +520,72 @@ exports.addSeminar = async (req, res) => {
   }
 };
 exports.getSeminarForUsers = async (req, res) => {
-  console.log(req);
   try {
     if (!req.cookies.userState && !req.cookies.userCity) {
-      const ip = "122.160.147.90";
+      const ip = "103.75.34.166";
       const { data } = await axios.get(`http://ip-api.com/json/${ip}`);
       const { regionName, city } = data;
       res.cookie("userState", regionName, {
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
         httpOnly: true,
-        secure: false, // True for HTTPS
+        secure: false,
       });
       res.cookie("userCity", city, {
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
         httpOnly: true,
-        secure: false, // True for HTTPS
+        secure: false,
       });
-      const regexState = new RegExp(regionName, "i");
-      const regexCity = new RegExp(city, "i");
+      // const regexState = new RegExp(regionName, "i");
+      // const regexCity = new RegExp(city, "i");
+      // const cityArray = [
+      //   {
+      //     Delhi: ["delhi", "noida", "gurugram", "haryana"],
+      //   },
+      // ];
+      const checkState = (state) => {
+        console.log(state);
+        if (
+          state === "National Capital Territory of Delhi" ||
+          state === "Haryana" ||
+          state === "Punjab" ||
+          state === "Uttar Pradesh"
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      };
       const allSeminars = await PGseminar.find({
-        state: {
-          $regex: regexCity || regexState,
-        },
+        $or: [
+          { city: checkState(regionName) ? "Delhi" : "Mumbai" },
+          { state: checkState(regionName) ? "Delhi" : "Mumbai" },
+        ],
       });
       return res
         .status(200)
         .send({ message: "Seminars Fetched!", allSeminars });
     } else {
-      const regexState = new RegExp(req.cookies.userState, "i");
-      const regexCity = new RegExp(req.cookies.userCity, "i");
+      // const regexState = new RegExp(req.cookies.userState, "i");
+      // const regexCity = new RegExp(req.cookies.userCity, "i");
+      const checkState = (state) => {
+        console.log(state);
+
+        if (
+          state === "National Capital Territory of Delhi" ||
+          state === "Haryana" ||
+          state === "Punjab" ||
+          state === "Uttar Pradesh"
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      };
       const allSeminars = await PGseminar.find({
-        state: {
-          $regex: regexCity || regexState,
-        },
+        $or: [
+          { city: checkState(req.cookies.userState) ? "Delhi" : "Mumbai" },
+          { state: checkState(req.cookies.userState) ? "Delhi" : "Mumbai" },
+        ],
       });
       return res
         .status(200)
