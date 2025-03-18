@@ -668,3 +668,14 @@ exports.editSeminarTimeline = async (req, res) => {
     return res.status(401).send({ message: "Error while updating!" });
   }
 };
+exports.deleteTimeline = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await SeminarProgress.findByIdAndDelete(id);
+    return res
+      .status(200)
+      .send({ message: "Seminar Timeline Deleted Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while deleting seminar!" });
+  }
+};
