@@ -4,7 +4,7 @@ import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 const fetchServices = async () => {
   const { data } = await axios.get(
     `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress`,
@@ -142,10 +142,9 @@ const SeminarProgress = () => {
           key={editItem?._id}
           id={editItem?._id}
           title={editItem?.title}
-          content={editItem?.content}
-          icon={editItem?.icon}
-          video={editItem?.video}
-          setServicesArr={setServicesArr}
+          motive={editItem?.motive}
+          endTime={editItem?.endTime}
+          fromTime={editItem?.fromTime}
         />
       )}
       {isAdd && (
@@ -181,109 +180,45 @@ const SeminarProgress = () => {
   );
 };
 
-const EditCard = ({
-  video,
-  title,
-  content,
-  icon,
-  onCancel,
-  id,
-  setServicesArr,
-}) => {
-  const [editedVideo, setEditedVideo] = useState({ file: "", url: video });
+const EditCard = ({ title, motive, fromTime, endTime, onCancel, id }) => {
   const [editedTitle, setEditedTitle] = useState(title);
-  const [editedContent, setEditedContent] = useState(content);
-  const [editedIcon, setEditedIcon] = useState({ file: "", url: icon });
-  const [editImage, setEditImage] = useState(null);
+  const [editedMotive, setEditedMotive] = useState(motive);
+  const [editedFromTime, setEditedFromTime] = useState(fromTime);
+  const [editedEndTime, setEditedEndTime] = useState(endTime);
+  const queryClient = useQueryClient();
 
   const handleSave = async () => {
-    const formData = new FormData();
-    formData.append("video", editedVideo?.file);
-    formData.append("title", editedTitle);
-    formData.append("content", editedContent);
-    formData.append("icon", editedIcon?.file);
-    // Example API call (uncomment to use)
-    // await axios.post(`${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`, formData, {
-    //   headers: { "Content-Type": "multipart/form-data" },
-    // });
-    const { data } = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-service/${id}`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-seminar-progress/${id}`,
+        {
+          title: editedTitle,
+          motive: editedMotive,
+          fromTime: editedFromTime,
+          endTime: editedEndTime,
         },
-      },
-    );
-
-    toast.success(data?.message);
-
-    // onSave(formData); // Pass formData to parent if needed
-    onCancel();
-    const fetchServices = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
       );
-      setServicesArr(data?.services);
-    };
-    fetchServices();
-  };
 
-  // useEffect(() => console.log(editedIcon), [editedIcon]);
+      toast.success(data?.message);
+      onCancel();
+    } catch (error) {
+      console.error("Error updating seminar:", error);
+      toast.error("Something went wrong!");
+    }
+  };
+  const mutation = useMutation({
+    mutationFn: handleSave,
+    onSuccess: () => queryClient.invalidateQueries(["allProgress"]),
+  });
+
   return (
     <Modal
-      title="Edit Testimonial"
+      title="Edit Seminar"
       open={true}
-      onOk={handleSave}
+      onOk={mutation.mutate}
       onCancel={onCancel}
     >
       <div className="flex flex-col gap-4 p-5">
-        {/* Display Image Preview */}
-        <img
-          src={
-            editedIcon?.file !== ""
-              ? editedIcon.url
-              : `${import.meta.env.VITE_BACKEND_URL}uploads/${editedIcon?.url}`
-          }
-          alt="Icon"
-          className="mx-auto h-20 w-20 rounded-full"
-        />
-
-        {/* File Input for Icon */}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => {
-            const file = e.target.files[0];
-            setEditedIcon({
-              file: file,
-              url: URL.createObjectURL(file),
-            });
-          }}
-        />
-
-        {/* Video Input */}
-        <video
-          src={
-            editedVideo?.file !== ""
-              ? editedVideo?.url
-              : `${import.meta.env.VITE_BACKEND_URL}uploads/${editedVideo?.url}`
-          }
-          autoPlay
-          className="w-52 rounded"
-        ></video>
-        <input
-          type="file"
-          // accept="image/*"
-          onChange={(e) => {
-            const file = e.target.files[0];
-            setEditedVideo({
-              file,
-              url: URL.createObjectURL(file),
-            });
-          }}
-        />
-
         {/* Title Input */}
         <Input
           value={editedTitle}
@@ -291,17 +226,34 @@ const EditCard = ({
           placeholder="Title"
         />
 
-        {/* Content Input */}
+        {/* Motive Input */}
         <Input.TextArea
-          value={editedContent}
-          onChange={(e) => setEditedContent(e.target.value)}
-          placeholder="Content"
+          value={editedMotive}
+          onChange={(e) => setEditedMotive(e.target.value)}
+          placeholder="Motive"
           rows={4}
+        />
+
+        {/* From Time Input */}
+        <Input
+          type="time"
+          value={editedFromTime}
+          onChange={(e) => setEditedFromTime(e.target.value)}
+          placeholder="From Time"
+        />
+
+        {/* End Time Input */}
+        <Input
+          type="time"
+          value={editedEndTime}
+          onChange={(e) => setEditedEndTime(e.target.value)}
+          placeholder="End Time"
         />
       </div>
     </Modal>
   );
 };
+
 const AddCard = ({ open, onCancel, title }) => {
   const [formData, setFormData] = useState({
     title: "",

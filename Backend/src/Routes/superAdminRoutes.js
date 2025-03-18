@@ -36,6 +36,7 @@ const {
   getSeminarForUsers,
   addSeminarTimeline,
   getSeminarTimeline,
+  editSeminarTimeline,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -114,5 +115,6 @@ Router.get("/delete-seminar/:id", deleteSeminar);
 // Seminar Progress Started
 Router.post("/add-seminar-progress", addSeminarTimeline);
 Router.get("/get-seminar-progress", getSeminarTimeline);
+Router.post('/edit-seminar-progress/:id',editSeminarTimeline);
 
 module.exports = Router;

@@ -637,13 +637,13 @@ exports.deleteSeminar = async (req, res) => {
 // Seminar Progress Started
 exports.addSeminarTimeline = async (req, res) => {
   try {
-    const newSeminarProgress = await SeminarProgress.create({...req.body});
+    const newSeminarProgress = await SeminarProgress.create({ ...req.body });
     return res.status(201).send({
       message: "Seminar Timeline Added Successfully!",
       newSeminarProgress,
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     return res.status(401).send({ message: "Error while adding!" });
   }
 };
@@ -657,5 +657,14 @@ exports.getSeminarTimeline = async (req, res) => {
     });
   } catch (err) {
     return res.status(401).send({ message: "Error while fetching!" });
+  }
+};
+exports.editSeminarTimeline = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await SeminarProgress.findByIdAndUpdate(id, { ...req.body });
+    return res.status(200).send({ message: "Timeline Updated Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while updating!" });
   }
 };
