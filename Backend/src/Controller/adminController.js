@@ -10,9 +10,7 @@ const SubAdmin = require("../Models/SubAdmin");
 const News = require("../Models/News");
 const Webinars = require("../Models/Webinars");
 const PGseminar = require("../Models/PGseminar");
-const {
-  default: SeminarProgress,
-} = require("../../../src/Admin/Components/SeminarProgress/SeminarProgress");
+const SeminarProgress = require("../Models/SeminarProgress");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -639,14 +637,25 @@ exports.deleteSeminar = async (req, res) => {
 // Seminar Progress Started
 exports.addSeminarTimeline = async (req, res) => {
   try {
-    const newSeminarProgress = await SeminarProgress.create(...req.body);
-    return res
-      .status(201)
-      .send({
-        message: "Seminar Timeline Added Successfully!",
-        newSeminarProgress,
-      });
+    const newSeminarProgress = await SeminarProgress.create({...req.body});
+    return res.status(201).send({
+      message: "Seminar Timeline Added Successfully!",
+      newSeminarProgress,
+    });
   } catch (err) {
+    console.log(err)
     return res.status(401).send({ message: "Error while adding!" });
+  }
+};
+exports.getSeminarTimeline = async (req, res) => {
+  try {
+    const allSeminarsTimeline = await SeminarProgress.find();
+    // console.log(allSeminars)
+    return res.status(200).send({
+      message: "Seminar Timeline Fetched!",
+      allSeminarsTimeline,
+    });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while fetching!" });
   }
 };
