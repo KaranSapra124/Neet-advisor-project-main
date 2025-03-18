@@ -5,7 +5,7 @@ import "./Pg_Seminar.css";
 import { FaGraduationCap } from "react-icons/fa6";
 import { FaArrowRight, FaShieldAlt } from "react-icons/fa";
 import ScrollAnimation from "react-animate-on-scroll";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 const fetchSeminars = async () => {
   const { data } = await axios.get(
@@ -14,14 +14,15 @@ const fetchSeminars = async () => {
       withCredentials: true,
     },
   );
-  console.log(data);
   return data?.allSeminars;
 };
 const Hero = () => {
   const { data } = useQuery({
     queryKey: ["allSeminars"],
     queryFn: fetchSeminars,
+    staleTime: Infinity,
   });
+  console.log(data);
 
   const formatDate = (dateString) => {
     const [yy, mm, dd] = dateString.split("-").map(Number);

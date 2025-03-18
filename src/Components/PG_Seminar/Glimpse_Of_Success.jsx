@@ -4,7 +4,7 @@ import { Carousel, Tabs } from "antd";
 import Divider from "../Helper/Divider";
 import ScrollAnimation from "react-animate-on-scroll";
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 const fetchSeminars = async () => {
   const { data } = await axios.get(
     `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars`,
@@ -15,7 +15,6 @@ const fetchSeminars = async () => {
   return data;
 };
 const checkState = (state) => {
-  console.log(state, "STATE");
   if (
     state === "National Capital Territory of Delhi" ||
     state === "Haryana" ||
@@ -28,6 +27,8 @@ const checkState = (state) => {
   }
 };
 const Glimpse_Of_Success = () => {
+  const queryClient = useQueryClient();
+
   const [groupedSeminars, setGroupedSeminars] = useState([]);
   const { data, isLoading } = useQuery({
     queryKey: ["everySeminar"],
@@ -53,11 +54,17 @@ const Glimpse_Of_Success = () => {
       acc[elem.state]?.seminars?.push(elem);
       return acc;
     }, {});
-    console.log(seminarData, "SEMINAR DATA");
-
+    // console.log(seminarData && Object.entries(seminarData)?.sort((a, b) => (a?.seminars?.isChecked ? 1 : -1))[0][1], "SEMINAR DATA");
+    // queryClient.invalidateQueries(["allSeminars"]);
+    // queryClient.setQueryData(
+    //   ["allSeminars"],
+    //   seminarData &&
+    //     Object.entries(seminarData)?.sort((a, b) =>
+    //       a?.seminars?.isChecked ? 1 : -1,
+    //     )[0][1]?.seminars,
+    // );
     setGroupedSeminars(seminarData);
   }, [data, isLoading]);
-  // useEffect(()=>console.log(groupedSeminars),[groupedSeminars])
 
   return (
     <>
@@ -91,6 +98,19 @@ const Glimpse_Of_Success = () => {
                 <Tabs
                   tabPosition={window.outerWidth > 800 ? "left" : "top"}
                   className="ug-seminar-tab"
+                  onChange={(val) => {
+                    console.log(
+                      Object.entries(groupedSeminars)?.sort((a, b) =>
+                        a?.seminars?.isChecked ? 1 : -1,
+                      )[val - 1][1]?.seminars,
+                    );
+                    queryClient.setQueryData(
+                      ["allSeminars"],
+                      Object.entries(groupedSeminars)?.sort((a, b) =>
+                        a?.seminars?.isChecked ? 1 : -1,
+                      )[val - 1][1]?.seminars,
+                    );
+                  }}
                   items={
                     groupedSeminars &&
                     Object?.entries(groupedSeminars)
@@ -99,6 +119,7 @@ const Glimpse_Of_Success = () => {
                         return {
                           key: index + 1,
                           label: state,
+
                           children: (
                             <Carousel
                               arrows
