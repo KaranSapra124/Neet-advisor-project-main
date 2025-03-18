@@ -28,6 +28,7 @@ import MainNewsPage from "./Admin/Components/News/MainNewsPage";
 import AdminWebinars from "./Admin/Components/Webinars/Webinars";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Pg_Seminar from "./Admin/Components/Pg_Seminar/Pg_Seminar";
+import SeminarProgress from "./Admin/Components/SeminarProgress/SeminarProgress";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -115,6 +116,10 @@ const App = () => {
         {
           path:"/admin/pg-seminar",
           element:<Pg_Seminar/>
+        },
+        {
+          path:"/admin/seminar-progress",
+          element:<SeminarProgress/>
         }
       ],
     },
