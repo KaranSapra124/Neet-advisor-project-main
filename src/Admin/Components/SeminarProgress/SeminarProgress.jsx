@@ -12,11 +12,27 @@ const fetchServices = async () => {
   return data?.allSeminarsTimeline;
 };
 const SeminarProgress = () => {
+  const query = useQueryClient();
   const [isEdit, setIsEdit] = useState(false);
   const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
+  const handleDeleteTimeline = async (id) => {
+    try {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-progress/${id}`,
+      );
+      toast.success(data?.message);
+    } catch (error) {
+      console.error("Error deleting:", error);
+      toast.error("Something went wrong!");
+    }
+  };
+  const mutation = useMutation({
+    mutationFn: handleDeleteTimeline,
+    onSuccess: () => query.invalidateQueries(["allProgress"]),
+  });
 
   const columns = [
     {
@@ -88,24 +104,7 @@ const SeminarProgress = () => {
             className="cursor-pointer text-green-700"
           />
           <FaTrash
-            onClick={async () => {
-              try {
-                const { data } = await axios.post(
-                  `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-seminar/${record?._id}`,
-                );
-                toast.success(data?.message);
-                const fetchSeminars = async () => {
-                  const { data } = await axios.get(
-                    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars`,
-                  );
-                  setSeminarArr(data?.seminars);
-                };
-                fetchSeminars();
-              } catch (error) {
-                console.error("Error deleting:", error);
-                toast.error("Something went wrong!");
-              }
-            }}
+            onClick={() => mutation.mutate(record?._id)}
             className="cursor-pointer text-red-500"
           />
         </div>
