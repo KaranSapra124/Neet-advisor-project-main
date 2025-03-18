@@ -14,9 +14,7 @@ const fetchServices = async () => {
 const SeminarProgress = () => {
   const query = useQueryClient();
   const [isEdit, setIsEdit] = useState(false);
-  const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
-  const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
   const handleDeleteTimeline = async (id) => {
     try {
@@ -89,13 +87,6 @@ const SeminarProgress = () => {
       key: "action",
       render: (_, record) => (
         <div className="flex justify-center gap-4 text-lg">
-          <FaEye
-            onClick={() => {
-              setIsView(true);
-              setViewItem(record);
-            }}
-            className="cursor-pointer text-primary-color"
-          />
           <FaEdit
             onClick={() => {
               setIsEdit(true);
@@ -119,21 +110,6 @@ const SeminarProgress = () => {
 
   return (
     <>
-      {isView && (
-        <Modal
-          onOk={() => setIsView(false)}
-          open={isView}
-          onClose={() => setIsView(false)}
-          onCancel={() => setIsView(false)}
-        >
-          <ViewItem
-            title={viewItem?.title}
-            content={viewItem?.content}
-            icon={viewItem?.icon}
-            video={viewItem?.video}
-          />
-        </Modal>
-      )}
       {isEdit && (
         <EditCard
           // onSave={handleSave}
@@ -372,25 +348,4 @@ const AddCard = ({ open, onCancel, title }) => {
   );
 };
 
-const ViewItem = ({ video, title, content, icon }) => {
-  return (
-    <div className="flex flex-col gap-3 p-4 shadow-lg">
-      <div className="flex items-center gap-2">
-        <img
-          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${icon}`}
-          className="w-7"
-        />
-        <h2 className="text-lg font-semibold">{title}</h2>
-      </div>
-      <video autoPlay controls className="w-full rounded-lg">
-        <source
-          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${video}`}
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
-      </video>
-      <p className="text-gray-700">{content}</p>
-    </div>
-  );
-};
 export default SeminarProgress;
