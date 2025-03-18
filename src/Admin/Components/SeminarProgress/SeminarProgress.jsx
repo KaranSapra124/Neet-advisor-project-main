@@ -254,6 +254,40 @@ const EditCard = ({ title, motive, fromTime, endTime, onCancel, id }) => {
 };
 
 const AddCard = ({ open, onCancel, title }) => {
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      if (
+        !formData.title ||
+        !formData.fromTime ||
+        !formData.endTime ||
+        !formData.motive
+      ) {
+        alert("All fields are required!");
+        return;
+      }
+  
+      try {
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar-progress`,
+          formData,
+        );
+  
+        toast.success(data?.message);
+  
+        setFormData({
+          title: "",
+          fromTime: "",
+          endTime: "",
+          motive: "",
+        });
+  
+        onCancel(); // Close modal after success
+      } catch (error) {
+        console.error("Error submitting:", error);
+        alert("Something went wrong. Please try again!");
+      }
+    };
   const query = useQueryClient();
   const mutation = useMutation({
     mutationFn: handleSubmit,
@@ -270,40 +304,6 @@ const AddCard = ({ open, onCancel, title }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (
-      !formData.title ||
-      !formData.fromTime ||
-      !formData.endTime ||
-      !formData.motive
-    ) {
-      alert("All fields are required!");
-      return;
-    }
-
-    try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar-progress`,
-        formData,
-      );
-
-      toast.success(data?.message);
-
-      setFormData({
-        title: "",
-        fromTime: "",
-        endTime: "",
-        motive: "",
-      });
-
-      onCancel(); // Close modal after success
-    } catch (error) {
-      console.error("Error submitting:", error);
-      alert("Something went wrong. Please try again!");
-    }
-  };
 
   return (
     <Modal title={title} open={open} onCancel={onCancel} footer={null}>
