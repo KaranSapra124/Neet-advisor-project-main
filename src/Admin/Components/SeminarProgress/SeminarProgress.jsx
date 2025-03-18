@@ -352,119 +352,118 @@ const EditCard = ({
   );
 };
 const AddCard = ({ open, onCancel, title }) => {
-    const [formData, setFormData] = useState({
-      title: "",
-      fromTime: "",
-      endTime: "",
-      motive: "",
-    });
-  
-    const handleChange = (e) => {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      if (!formData.title || !formData.fromTime || !formData.endTime || !formData.motive) {
-        alert("All fields are required!");
-        return;
-      }
-  
-      try {
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar`,
-          formData,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-  
-        toast.success(data?.message);
-  
-        setFormData({
-          title: "",
-          fromTime: "",
-          endTime: "",
-          motive: "",
-        });
-  
-        onCancel(); // Close modal after success
-      } catch (error) {
-        console.error("Error submitting:", error);
-        alert("Something went wrong. Please try again!");
-      }
-    };
-  
-    return (
-      <Modal title={title} open={open} onCancel={onCancel} footer={null}>
-        <div className="flex flex-col space-y-4 p-5">
-          {/* Title */}
-          <label className="font-medium">Seminar Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="Enter Seminar Title"
-            className="w-full rounded-md border p-2"
-          />
-  
-          {/* From Time */}
-          <label className="font-medium">Start Time:</label>
-          <input
-            type="time"
-            name="fromTime"
-            value={formData.fromTime}
-            onChange={handleChange}
-            className="w-full rounded-md border p-2"
-          />
-  
-          {/* End Time */}
-          <label className="font-medium">End Time:</label>
-          <input
-            type="time"
-            name="endTime"
-            value={formData.endTime}
-            onChange={handleChange}
-            className="w-full rounded-md border p-2"
-          />
-  
-          {/* Seminar Motive */}
-          <label className="font-medium">Seminar Motive:</label>
-          <textarea
-            name="motive"
-            value={formData.motive}
-            onChange={handleChange}
-            placeholder="Enter Seminar Motive"
-            className="w-full rounded-md border p-2"
-            rows={3}
-          />
-  
-          {/* Buttons */}
-          <div className="flex justify-between">
-            <button
-              type="button"
-              onClick={onCancel}
-              className="rounded-md border px-4 py-2 text-gray-700"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
-            >
-              Add Seminar
-            </button>
-          </div>
-        </div>
-      </Modal>
-    );
+  const [formData, setFormData] = useState({
+    title: "",
+    fromTime: "",
+    endTime: "",
+    motive: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (
+      !formData.title ||
+      !formData.fromTime ||
+      !formData.endTime ||
+      !formData.motive
+    ) {
+      alert("All fields are required!");
+      return;
+    }
+
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar-progress`,
+        formData,
+      );
+
+      toast.success(data?.message);
+
+      setFormData({
+        title: "",
+        fromTime: "",
+        endTime: "",
+        motive: "",
+      });
+
+      onCancel(); // Close modal after success
+    } catch (error) {
+      console.error("Error submitting:", error);
+      alert("Something went wrong. Please try again!");
+    }
+  };
+
+  return (
+    <Modal title={title} open={open} onCancel={onCancel} footer={null}>
+      <div className="flex flex-col space-y-4 p-5">
+        {/* Title */}
+        <label className="font-medium">Seminar Title:</label>
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Enter Seminar Title"
+          className="w-full rounded-md border p-2"
+        />
+
+        {/* From Time */}
+        <label className="font-medium">Start Time:</label>
+        <input
+          type="time"
+          name="fromTime"
+          value={formData.fromTime}
+          onChange={handleChange}
+          className="w-full rounded-md border p-2"
+        />
+
+        {/* End Time */}
+        <label className="font-medium">End Time:</label>
+        <input
+          type="time"
+          name="endTime"
+          value={formData.endTime}
+          onChange={handleChange}
+          className="w-full rounded-md border p-2"
+        />
+
+        {/* Seminar Motive */}
+        <label className="font-medium">Seminar Motive:</label>
+        <textarea
+          name="motive"
+          value={formData.motive}
+          onChange={handleChange}
+          placeholder="Enter Seminar Motive"
+          className="w-full rounded-md border p-2"
+          rows={3}
+        />
+
+        {/* Buttons */}
+        <div className="flex justify-between">
+          <button
+            type="button"
+            onClick={onCancel}
+            className="rounded-md border px-4 py-2 text-gray-700"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
+          >
+            Add Seminar
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
 
 const ViewItem = ({ video, title, content, icon }) => {
   return (

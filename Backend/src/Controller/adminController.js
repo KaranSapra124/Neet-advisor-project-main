@@ -10,7 +10,9 @@ const SubAdmin = require("../Models/SubAdmin");
 const News = require("../Models/News");
 const Webinars = require("../Models/Webinars");
 const PGseminar = require("../Models/PGseminar");
-const { default: SeminarProgress } = require("../../../src/Admin/Components/SeminarProgress/SeminarProgress");
+const {
+  default: SeminarProgress,
+} = require("../../../src/Admin/Components/SeminarProgress/SeminarProgress");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -640,7 +642,10 @@ exports.addSeminarTimeline = async (req, res) => {
     const newSeminarProgress = await SeminarProgress.create(...req.body);
     return res
       .status(201)
-      .send({ message: "Seminar Added Successfully!", newSeminarProgress });
+      .send({
+        message: "Seminar Timeline Added Successfully!",
+        newSeminarProgress,
+      });
   } catch (err) {
     return res.status(401).send({ message: "Error while adding!" });
   }
