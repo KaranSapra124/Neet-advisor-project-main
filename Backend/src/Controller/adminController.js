@@ -535,13 +535,6 @@ exports.getSeminarForUsers = async (req, res) => {
         httpOnly: true,
         secure: false,
       });
-      // const regexState = new RegExp(regionName, "i");
-      // const regexCity = new RegExp(city, "i");
-      // const cityArray = [
-      //   {
-      //     Delhi: ["delhi", "noida", "gurugram", "haryana"],
-      //   },
-      // ];
       const checkState = (state) => {
         console.log(state);
         if (
@@ -565,8 +558,6 @@ exports.getSeminarForUsers = async (req, res) => {
         .status(200)
         .send({ message: "Seminars Fetched!", allSeminars });
     } else {
-      // const regexState = new RegExp(req.cookies.userState, "i");
-      // const regexCity = new RegExp(req.cookies.userCity, "i");
       const checkState = (state) => {
         console.log(state);
 
