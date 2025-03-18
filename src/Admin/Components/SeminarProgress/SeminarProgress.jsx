@@ -50,64 +50,46 @@ const SeminarProgress = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Services
+          Title
         </h1>
       ),
-      columnTitle: (text) => console.log(text),
       dataIndex: "title",
       key: "title",
-
       render: (text) => <p className="text-center text-xs font-bold">{text}</p>,
     },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Video
+          From Time
         </h1>
       ),
-      dataIndex: "video",
-      key: "video",
-
-      render: (video) => (
-        <video
-          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${video}`}
-          autoPlay
-          loop
-          muted
-          className="mx-auto w-24 rounded"
-        ></video>
-      ),
+      dataIndex: "fromTime",
+      key: "fromTime",
+      render: (time) => <p className="text-center text-xs">{time}</p>,
     },
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Content
+          End Time
         </h1>
       ),
-      dataIndex: "content",
-      key: "content",
+      dataIndex: "endTime",
+      key: "endTime",
+      render: (time) => <p className="text-center text-xs">{time}</p>,
+    },
+    {
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Motive
+        </h1>
+      ),
+      dataIndex: "motive",
+      key: "motive",
       render: (text) => (
         <p className="line-clamp-1 w-52 text-xs font-semibold text-gray-800">
           {text}
         </p>
       ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Icon
-        </h1>
-      ),
-      dataIndex: "icon",
-      key: "icon",
-      render: (img) => {
-        return (
-          <img
-            className="mx-auto h-10 w-10"
-            src={`${import.meta.env.VITE_BACKEND_URL}uploads/${img}`}
-          />
-        );
-      },
     },
     {
       title: (
@@ -118,7 +100,7 @@ const SeminarProgress = () => {
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
-        <div className="flex gap-5">
+        <div className="flex justify-center gap-4 text-lg">
           <FaEye
             onClick={() => {
               setIsView(true);
@@ -126,10 +108,8 @@ const SeminarProgress = () => {
             }}
             className="cursor-pointer text-primary-color"
           />
-
           <FaEdit
             onClick={() => {
-              // console.log(record)
               setIsEdit(true);
               setEditItem(record);
             }}
@@ -137,19 +117,22 @@ const SeminarProgress = () => {
           />
           <FaTrash
             onClick={async () => {
-              const { data } = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-service/${record?._id}`,
-              );
-
-              toast.success(data?.message);
-
-              const fetchServices = async () => {
-                const { data } = await axios.get(
-                  `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+              try {
+                const { data } = await axios.post(
+                  `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-seminar/${record?._id}`,
                 );
-                setServicesArr(data?.services);
-              };
-              fetchServices();
+                toast.success(data?.message);
+                const fetchSeminars = async () => {
+                  const { data } = await axios.get(
+                    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars`,
+                  );
+                  setSeminarArr(data?.seminars);
+                };
+                fetchSeminars();
+              } catch (error) {
+                console.error("Error deleting:", error);
+                toast.error("Something went wrong!");
+              }
             }}
             className="cursor-pointer text-red-500"
           />
@@ -157,12 +140,13 @@ const SeminarProgress = () => {
       ),
     },
   ];
+
   useEffect(() => {
     const fetchServices = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress`,
       );
-      setServicesArr(data?.services);
+      setServicesArr(data?.allSeminarsTimeline);
     };
     fetchServices();
   }, []);
