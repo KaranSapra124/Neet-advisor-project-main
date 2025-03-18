@@ -254,6 +254,11 @@ const EditCard = ({ title, motive, fromTime, endTime, onCancel, id }) => {
 };
 
 const AddCard = ({ open, onCancel, title }) => {
+  const query = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: handleSubmit,
+    onSuccess: () => query.invalidateQueries(["allProgress"]),
+  });
   const [formData, setFormData] = useState({
     title: "",
     fromTime: "",
@@ -356,7 +361,7 @@ const AddCard = ({ open, onCancel, title }) => {
           </button>
           <button
             type="submit"
-            onClick={handleSubmit}
+            onClick={mutation.mutate}
             className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
           >
             Add Seminar
