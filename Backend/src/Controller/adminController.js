@@ -559,8 +559,6 @@ exports.getSeminarForUsers = async (req, res) => {
         .send({ message: "Seminars Fetched!", allSeminars });
     } else {
       const checkState = (state) => {
-        console.log(state);
-
         if (
           state === "National Capital Territory of Delhi" ||
           state === "Haryana" ||
@@ -590,7 +588,14 @@ exports.getSeminarForUsers = async (req, res) => {
 exports.getSeminar = async (req, res) => {
   try {
     const allSeminars = await PGseminar.find();
-    return res.status(200).send({ message: "Seminars Fetched!", allSeminars });
+    // console.log(allSeminars)
+    return res
+      .status(200)
+      .send({
+        message: "Seminars Fetched!",
+        allSeminars,
+        cookie: req?.cookies?.userState,
+      });
   } catch (err) {
     return res.status(401).send({ message: "Error while fetching!" });
   }
