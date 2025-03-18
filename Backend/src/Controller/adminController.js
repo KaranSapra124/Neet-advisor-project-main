@@ -522,7 +522,7 @@ exports.addSeminar = async (req, res) => {
 exports.getSeminarForUsers = async (req, res) => {
   try {
     if (!req.cookies.userState && !req.cookies.userCity) {
-      const ip = "103.75.34.166";
+      const ip = "182.48.206.38";
       const { data } = await axios.get(`http://ip-api.com/json/${ip}`);
       const { regionName, city } = data;
       res.cookie("userState", regionName, {

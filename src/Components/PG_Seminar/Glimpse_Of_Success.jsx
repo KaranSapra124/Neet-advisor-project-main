@@ -45,15 +45,12 @@ const Glimpse_Of_Success = () => {
   useEffect(() => {
     const seminarData = data?.allSeminars?.reduce((acc, elem) => {
       acc[elem?.state] = {
-        isChecked: elem?.state === "Delhi" && checkState(data?.cookie),
+        isChecked:
+          (elem?.state === "Delhi" && checkState(data?.cookie)) ||
+          (elem?.state !== "Delhi" && !checkState(data?.cookie)),
         seminars: [],
       };
-
-      console.log(elem, "ELEMELEMLEML");
       acc[elem.state]?.seminars?.push(elem);
-
-      // acc[elem.state] = acc[elem.state] || [];
-      console.log(acc);
       return acc;
     }, {});
     console.log(seminarData, "SEMINAR DATA");
@@ -96,12 +93,11 @@ const Glimpse_Of_Success = () => {
                   className="ug-seminar-tab"
                   items={
                     groupedSeminars &&
-                    Object?.entries(groupedSeminars)?.map(
-                      ([state, seminars], index) => {
-                        // console.log(state,seminars, "ELEME");
+                    Object?.entries(groupedSeminars)
+                      ?.sort((a, b) => (a?.seminars?.isChecked ? 1 : -1))
+                      .map(([state, seminars], index) => {
                         return {
                           key: index + 1,
-                          active: seminars?.isChecked,
                           label: state,
                           children: (
                             <Carousel
@@ -206,8 +202,7 @@ const Glimpse_Of_Success = () => {
                             </Carousel>
                           ),
                         };
-                      },
-                    )
+                      })
                   }
                 />
               )}
