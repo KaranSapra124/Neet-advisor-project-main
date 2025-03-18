@@ -352,152 +352,119 @@ const EditCard = ({
   );
 };
 const AddCard = ({ open, onCancel, title }) => {
-  const [formData, setFormData] = useState({
-    videoUrl: "",
-    videoFile: null,
-    iconUrl: "",
-    iconFile: null,
-    content: "",
-    title: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleFileChange = (e, type) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const url = URL.createObjectURL(file);
-
-    setFormData((prev) => ({
-      ...prev,
-      [`${type}File`]: file,
-      [`${type}Url`]: url,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (
-      !formData.videoFile ||
-      !formData.iconFile ||
-      !formData.title ||
-      !formData.content
-    ) {
-      alert("All fields are required!");
-      return;
-    }
-
-    const submissionData = new FormData();
-    submissionData.append("title", formData.title);
-    submissionData.append("content", formData.content);
-    submissionData.append("video", formData.videoFile);
-    submissionData.append("icon", formData.iconFile);
-
-    try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-service`,
-        submissionData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
-      );
-
-      toast.success(data?.message);
-
-      setFormData({
-        videoUrl: "",
-        videoFile: null,
-        iconUrl: "",
-        iconFile: null,
-        content: "",
-        title: "",
-      });
-
-      onCancel(); // Close modal after success
-    } catch (error) {
-      console.error("Error submitting:", error);
-      alert("Something went wrong. Please try again!");
-    }
-  };
-
-  return (
-    <Modal title={title} open={open} onCancel={onCancel} footer={null}>
-      <div className="flex flex-col space-y-4 p-5">
-        {/* Icon Upload & Preview */}
-        <label>Upload Image:</label>
-        {formData.iconUrl && (
-          <img
-            src={formData.iconUrl}
-            alt="Icon Preview"
-            className="mx-auto h-16 w-16"
+    const [formData, setFormData] = useState({
+      title: "",
+      fromTime: "",
+      endTime: "",
+      motive: "",
+    });
+  
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      if (!formData.title || !formData.fromTime || !formData.endTime || !formData.motive) {
+        alert("All fields are required!");
+        return;
+      }
+  
+      try {
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+  
+        toast.success(data?.message);
+  
+        setFormData({
+          title: "",
+          fromTime: "",
+          endTime: "",
+          motive: "",
+        });
+  
+        onCancel(); // Close modal after success
+      } catch (error) {
+        console.error("Error submitting:", error);
+        alert("Something went wrong. Please try again!");
+      }
+    };
+  
+    return (
+      <Modal title={title} open={open} onCancel={onCancel} footer={null}>
+        <div className="flex flex-col space-y-4 p-5">
+          {/* Title */}
+          <label className="font-medium">Seminar Title:</label>
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            placeholder="Enter Seminar Title"
+            className="w-full rounded-md border p-2"
           />
-        )}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => handleFileChange(e, "icon")}
-        />
-
-        {/* Video Upload & Preview */}
-        <label>Upload Video:</label>
-
-        {formData.videoUrl && (
-          <video className="mx-auto w-full rounded-lg" controls>
-            <source src={formData.videoUrl} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        )}
-        <input
-          type="file"
-          accept="video/*"
-          onChange={(e) => handleFileChange(e, "video")}
-        />
-
-        {/* Title & Content Inputs */}
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          placeholder="Enter Title"
-          className="w-full rounded-md border p-2"
-        />
-        <textarea
-          name="content"
-          value={formData.content}
-          onChange={handleChange}
-          placeholder="Enter Content"
-          className="w-full rounded-md border p-2"
-          rows={3}
-        />
-
-        {/* Buttons */}
-        <div className="flex justify-between">
-          <button
-            type="button"
-            onClick={onCancel}
-            className="rounded-md border px-4 py-2 text-gray-700"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
-          >
-            Add
-          </button>
+  
+          {/* From Time */}
+          <label className="font-medium">Start Time:</label>
+          <input
+            type="time"
+            name="fromTime"
+            value={formData.fromTime}
+            onChange={handleChange}
+            className="w-full rounded-md border p-2"
+          />
+  
+          {/* End Time */}
+          <label className="font-medium">End Time:</label>
+          <input
+            type="time"
+            name="endTime"
+            value={formData.endTime}
+            onChange={handleChange}
+            className="w-full rounded-md border p-2"
+          />
+  
+          {/* Seminar Motive */}
+          <label className="font-medium">Seminar Motive:</label>
+          <textarea
+            name="motive"
+            value={formData.motive}
+            onChange={handleChange}
+            placeholder="Enter Seminar Motive"
+            className="w-full rounded-md border p-2"
+            rows={3}
+          />
+  
+          {/* Buttons */}
+          <div className="flex justify-between">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="rounded-md border px-4 py-2 text-gray-700"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
+            >
+              Add Seminar
+            </button>
+          </div>
         </div>
-      </div>
-    </Modal>
-  );
-};
+      </Modal>
+    );
+  };
+  
 
 const ViewItem = ({ video, title, content, icon }) => {
   return (
