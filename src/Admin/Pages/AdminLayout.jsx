@@ -16,7 +16,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { userSuperAdminAuth } from "../Components/Context/SuperAdminContext";
-import { BsFileBarGraph } from "react-icons/bs";
+import { BsFileBarGraph, BsGraphUp } from "react-icons/bs";
 import { useAdminAuth } from "../Components/Context/AdminContext";
 import { FaPeopleGroup } from "react-icons/fa6";
 
@@ -59,6 +59,11 @@ const AdminLayout = ({ user }) => {
             name: "PG Seminar",
             link: "/admin/pg-seminar",
             icon: <FaPeopleGroup />,
+          },
+          {
+            name: "Seminar Progress",
+            link: "/admin/seminar-progress",
+            icon: <BsGraphUp />,
           },
         ]
       : [
