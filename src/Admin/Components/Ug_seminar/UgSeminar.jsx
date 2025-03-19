@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import TextArea from "antd/es/input/TextArea";
-import Ug_seminar from "../../../Pages/Ug_seminar";
+// import Ug_seminar from "../../../Pages/Ug_seminar";
 
 const fetchSeminar = async () => {
   try {
