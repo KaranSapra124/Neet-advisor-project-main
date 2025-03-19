@@ -11,6 +11,7 @@ const News = require("../Models/News");
 const Webinars = require("../Models/Webinars");
 const PGseminar = require("../Models/PGseminar");
 const SeminarProgress = require("../Models/SeminarProgress");
+const UGseminar = require("../Models/UGseminar");
 
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
@@ -684,7 +685,7 @@ exports.deleteTimeline = async (req, res) => {
 exports.addUgSeminar = async (req, res) => {
   try {
     const { filename } = req.file;
-    const newSeminar = await PGseminar.create({ video: filename, ...req.body });
+    const newSeminar = await UGseminar.create({ video: filename, ...req.body });
     return res
       .status(201)
       .send({ message: "Seminar Added Successfully!", newSeminar });
@@ -721,7 +722,7 @@ exports.getUgSeminarForUsers = async (req, res) => {
           return false;
         }
       };
-      const allSeminars = await PGseminar.find({
+      const allSeminars = await UGseminar.find({
         $or: [
           { city: checkState(regionName) ? "Delhi" : "Mumbai" },
           { state: checkState(regionName) ? "Delhi" : "Mumbai" },
@@ -743,7 +744,7 @@ exports.getUgSeminarForUsers = async (req, res) => {
           return false;
         }
       };
-      const allSeminars = await PGseminar.find({
+      const allSeminars = await UGseminar.find({
         $or: [
           { city: checkState(req.cookies.userState) ? "Delhi" : "Mumbai" },
           { state: checkState(req.cookies.userState) ? "Delhi" : "Mumbai" },
@@ -760,7 +761,7 @@ exports.getUgSeminarForUsers = async (req, res) => {
 };
 exports.getUgSeminar = async (req, res) => {
   try {
-    const allSeminars = await PGseminar.find();
+    const allSeminars = await UGseminar.find();
     // console.log(allSeminars)
     return res.status(200).send({
       message: "Seminars Fetched!",
@@ -776,7 +777,7 @@ exports.editUgSeminar = async (req, res) => {
     const { id } = req.params;
     req.file
       ? (async () => {
-          await PGseminar.findByIdAndUpdate(id, {
+          await UGseminar.findByIdAndUpdate(id, {
             ...req.body,
             video: req.file.filename,
           });
@@ -785,7 +786,7 @@ exports.editUgSeminar = async (req, res) => {
             .send({ message: "Seminar Edited Successfully!" });
         })()
       : (async () => {
-          await PGseminar.findByIdAndUpdate(id, {
+          await UGseminar.findByIdAndUpdate(id, {
             ...req.body,
           });
           return res
@@ -799,7 +800,7 @@ exports.editUgSeminar = async (req, res) => {
 exports.deleteUgSeminar = async (req, res) => {
   const { id } = req.params;
   try {
-    await PGseminar.findByIdAndDelete(id);
+    await UGseminar.findByIdAndDelete(id);
     return res.status(200).send({ message: "Seminar Deleted Successfully!" });
   } catch (err) {
     return res.status(401).send({ message: "Error while deleting seminar!" });
