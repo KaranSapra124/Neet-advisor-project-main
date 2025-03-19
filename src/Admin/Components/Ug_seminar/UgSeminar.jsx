@@ -208,7 +208,7 @@ const Ug_seminar = () => {
           time={editItem?.time}
           title={editItem?.title}
           onCancel={() => setIsEdit(false)}
-          key={editItem?._id}
+          // key={editItem?._id}
         />
       )}
       {isAdd && <AddCard open={isAdd} onCancel={() => setIsAdd(false)} />}
@@ -514,6 +514,8 @@ const EditCard = ({
 };
 
 const AddCard = ({ open, onCancel }) => {
+  const [videoPreview, setVideoPreview] = useState("");
+
   const [formData, setFormData] = useState({
     video: "",
     title: "",
@@ -527,16 +529,26 @@ const AddCard = ({ open, onCancel }) => {
   });
 
   const handleChange = (e) => {
-    setFormData((prev) => {
-      return {
+    if (e.target.name === "video") {
+      const file = e.target.files[0];
+      setFormData((prev) => ({
         ...prev,
-        [e.target.name]:
-          e.target.name === "video" ? e.target.files[0] : e.target.value,
-      };
-    });
-  };
+        video: file,
+      }));
 
-  let videoFile = formData?.video && URL.createObjectURL(formData?.video);
+      // Create a preview URL for the selected video
+      if (file) {
+        const previewURL = URL.createObjectURL(file);
+        setVideoPreview((prev) => previewURL);
+      }
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.value,
+      }));
+    }
+  };
+  // let videoFile = formData?.video && URL.createObjectURL(formData?.video);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -603,13 +615,18 @@ const AddCard = ({ open, onCancel }) => {
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <form onSubmit={mutation.mutate} className="space-y-4">
           <label className="mx-2 font-semibold text-gray-800">Video:</label>
-          {videoFile && (
-            <video className="w-52" src={videoFile} autoPlay loop />
+          {formData?.video && (
+            <video
+              className="w-52"
+              src={videoPreview && videoPreview}
+              autoPlay
+              loop
+            />
           )}
           <input
             type="file"
             name="video"
-            value={formData.video.filename}
+            // value={formData.video.filename}
             onChange={handleChange}
             placeholder="Enter video link"
             className="w-full rounded-md border p-2"
