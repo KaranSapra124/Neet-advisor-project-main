@@ -679,3 +679,129 @@ exports.deleteTimeline = async (req, res) => {
     return res.status(401).send({ message: "Error while deleting seminar!" });
   }
 };
+// Seminar Progress Ended
+// Ug Seminar Started
+exports.addSeminar = async (req, res) => {
+  try {
+    const { filename } = req.file;
+    const newSeminar = await PGseminar.create({ video: filename, ...req.body });
+    return res
+      .status(201)
+      .send({ message: "Seminar Added Successfully!", newSeminar });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while adding!" });
+  }
+};
+exports.getSeminarForUsers = async (req, res) => {
+  try {
+    if (!req.cookies.userState && !req.cookies.userCity) {
+      const ip = "182.48.206.38";
+      const { data } = await axios.get(`http://ip-api.com/json/${ip}`);
+      const { regionName, city } = data;
+      res.cookie("userState", regionName, {
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        httpOnly: true,
+        secure: false,
+      });
+      res.cookie("userCity", city, {
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        httpOnly: true,
+        secure: false,
+      });
+      const checkState = (state) => {
+        console.log(state);
+        if (
+          state === "National Capital Territory of Delhi" ||
+          state === "Haryana" ||
+          state === "Punjab" ||
+          state === "Uttar Pradesh"
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      const allSeminars = await PGseminar.find({
+        $or: [
+          { city: checkState(regionName) ? "Delhi" : "Mumbai" },
+          { state: checkState(regionName) ? "Delhi" : "Mumbai" },
+        ],
+      });
+      return res
+        .status(200)
+        .send({ message: "Seminars Fetched!", allSeminars });
+    } else {
+      const checkState = (state) => {
+        if (
+          state === "National Capital Territory of Delhi" ||
+          state === "Haryana" ||
+          state === "Punjab" ||
+          state === "Uttar Pradesh"
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      const allSeminars = await PGseminar.find({
+        $or: [
+          { city: checkState(req.cookies.userState) ? "Delhi" : "Mumbai" },
+          { state: checkState(req.cookies.userState) ? "Delhi" : "Mumbai" },
+        ],
+      });
+      return res
+        .status(200)
+        .send({ message: "Seminars Fetched!", allSeminars });
+    }
+  } catch (err) {
+    console.log(err);
+    return res.status(401).send({ message: "Error while getting seminars" });
+  }
+};
+exports.getSeminar = async (req, res) => {
+  try {
+    const allSeminars = await PGseminar.find();
+    // console.log(allSeminars)
+    return res.status(200).send({
+      message: "Seminars Fetched!",
+      allSeminars,
+      cookie: req?.cookies?.userState,
+    });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while fetching!" });
+  }
+};
+exports.editSeminar = async (req, res) => {
+  try {
+    const { id } = req.params;
+    req.file
+      ? (async () => {
+          await PGseminar.findByIdAndUpdate(id, {
+            ...req.body,
+            video: req.file.filename,
+          });
+          return res
+            .status(200)
+            .send({ message: "Seminar Edited Successfully!" });
+        })()
+      : (async () => {
+          await PGseminar.findByIdAndUpdate(id, {
+            ...req.body,
+          });
+          return res
+            .status(200)
+            .send({ message: "Seminar Edited Successfully!" });
+        })();
+  } catch (err) {
+    return res.status(401).send({ message: "Error while updating!" });
+  }
+};
+exports.deleteSeminar = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await PGseminar.findByIdAndDelete(id);
+    return res.status(200).send({ message: "Seminar Deleted Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while deleting seminar!" });
+  }
+};
