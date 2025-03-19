@@ -61,6 +61,11 @@ const AdminLayout = ({ user }) => {
             icon: <FaPeopleGroup />,
           },
           {
+            name: "UG Seminar",
+            link: "/admin/ug-seminar",
+            icon: <FaPeopleGroup />,
+          },
+          {
             name: "Seminar Progress",
             link: "/admin/seminar-progress",
             icon: <BsGraphUp />,
@@ -95,6 +100,16 @@ const AdminLayout = ({ user }) => {
             name: "PG Seminar",
             link: "/admin/pg-seminar",
             icon: <FaPeopleGroup />,
+          },
+          {
+            name: "UG Seminar",
+            link: "/admin/ug-seminar",
+            icon: <FaPeopleGroup />,
+          },
+          {
+            name: "Seminar Progress",
+            link: "/admin/seminar-progress",
+            icon: <BsGraphUp />,
           },
           // { name: "Permissions", link: "/admin/permissions", icon: <FaUser /> },
         ];
