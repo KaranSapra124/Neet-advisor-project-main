@@ -38,6 +38,11 @@ const {
   getSeminarTimeline,
   editSeminarTimeline,
   deleteTimeline,
+  addUgSeminar,
+  getUgSeminar,
+  getUgSeminarForUsers,
+  editUgSeminar,
+  deleteUgSeminar,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const { superAdminAuth } = require("../Middlewares/superAdminAuth");
@@ -118,5 +123,12 @@ Router.post("/add-seminar-progress", addSeminarTimeline);
 Router.get("/get-seminar-progress", getSeminarTimeline);
 Router.post('/edit-seminar-progress/:id',editSeminarTimeline);
 Router.get("/delete-progress/:id", deleteTimeline);
+// Seminar Progress Ended
+// Ug Seminar Started
+Router.post("/add-ug-seminar", upload.single("video"), addUgSeminar);
+Router.get("/get-ug-seminars", getUgSeminar);
+Router.get("/get-ug-seminars-for-users", getUgSeminarForUsers);
+Router.post("/edit-ug-seminar/:id", upload.single("video"), editUgSeminar);
+Router.get("/delete-ug-seminar/:id", deleteUgSeminar);
 
 module.exports = Router;
