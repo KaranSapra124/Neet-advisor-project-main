@@ -22,7 +22,7 @@ import TextArea from "antd/es/input/TextArea";
 const fetchSeminar = async () => {
   try {
     const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-ug-seminars`,
     );
     const { data } = res;
     return data?.allSeminars;
@@ -47,7 +47,7 @@ const Ug_seminar = () => {
   const handleDelete = async (id) => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-seminar/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-ug-seminar/${id}`,
       );
       toast.success(data?.message);
     } catch (err) {
@@ -346,7 +346,7 @@ const EditCard = ({
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-seminar/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-ug-seminar/${id}`,
         formData,
         {
           headers: {
@@ -557,7 +557,7 @@ const AddCard = ({ open, onCancel }) => {
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-ug-seminar`,
         formData,
         {
           headers: {
