@@ -2,28 +2,53 @@ import React from "react";
 import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
 import "./Ug_seminar.css";
-import { FaGraduationCap } from "react-icons/fa6";
 import { FaArrowRight, FaShieldAlt } from "react-icons/fa";
 import ScrollAnimation from "react-animate-on-scroll";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+const fetchSeminars = async () => {
+  const { data } = await axios.get(
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-ug-seminars-for-users`,
+    {
+      withCredentials: true,
+    },
+  );
+  return data?.allSeminars;
+};
 const Hero = () => {
-  const seminarData = [
-    {
-      location: "Mumbai",
-      date: "28 January 2025",
-      venue: "Grand Convention Center, Mumbai",
-      video:
-        "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
-      isAvailable: true,
-    },
-    {
-      location: "Delhi",
-      date: "10 February 2025",
-      venue: "Delhi International Auditorium",
-      video:
-        "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
-      isAvailable: false,
-    },
-  ];
+  const { data } = useQuery({
+    queryKey: ["allSeminars"],
+    queryFn: fetchSeminars,
+    staleTime: Infinity,
+  });
+
+  const formatDate = (dateString) => {
+    const [yy, mm, dd] = dateString.split("-").map(Number);
+    return new Date(yy, mm - 1, dd).toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
+  // const seminarData = [
+  //   {
+  //     location: "Mumbai",
+  //     date: "28 January 2025",
+  //     venue: "Grand Convention Center, Mumbai",
+  //     video:
+  //       "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
+  //     isAvailable: true,
+  //   },
+  //   {
+  //     location: "Delhi",
+  //     date: "10 February 2025",
+  //     venue: "Delhi International Auditorium",
+  //     video:
+  //       "https://videos.pexels.com/video-files/7424129/7424129-sd_640_360_30fps.mp4",
+  //     isAvailable: false,
+  //   },
+  // ];
   return (
     <>
       <Container className={"relative lg:h-screen h-full"}>
@@ -70,27 +95,27 @@ const Hero = () => {
             delay={1}
           >
             <div className="h-fit rounded-md bg-gray-200/10 lg:p-8 p-4 lg:my-0 my-4 shadow-md shadow-white/50 backdrop-blur-sm">
-              {seminarData?.map((seminar, index) => {
+              {data?.map((seminar, index) => {
                 return (
                   <div className="cursor-pointer transition-all duration-100 hover:scale-105">
                     <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 lg:px-2 px-1.5 py-1 lg:text-sm text-[0.6rem] font-bold uppercase text-yellow-200">
-                      # {seminar?.location}
+                      # {seminar?.state}
                     </div>
                     <div className="flex items-center justify-between lg:py-2 py-1.5">
                       <h1 className="lg:text-3xl text-sm lg:font-bold font-extrabold text-gray-200">
-                        {seminar?.date}
+                        {formatDate(seminar?.date)}
                       </h1>
                       <div
-                        className={`w-fit lg:mx-4 mx-2 rounded-md ${seminar?.isAvailable ? "border-2 border-primary-color bg-white/50 text-primary-color" : "border-2 border-gray-800 bg-white/50 text-gray-800"} lg:px-2 px-1.5 lg:py-1 py-0.5 lg:text-sm text-[0.7rem] lg:font-bold font-extrabold uppercase`}
+                        className={`w-fit lg:mx-4 mx-2 rounded-md  lg:px-2 px-1.5 lg:py-1 py-0.5 lg:text-sm text-[0.7rem] lg:font-bold font-extrabold uppercase`}
                       >
-                        {seminar?.isAvailable ? "Available" : "Not Available"}
+                        Book Now
                       </div>
                       <FaArrowRight className="animate-scaleUp lg:text-sm text-xs text-yellow-600" />
                     </div>
                     <div className="lg:text-xs text-[0.6rem] font-semibold text-gray-200 ">
-                      {seminar.venue}
+                      {seminar.location}
                     </div>
-                    {index !== seminarData?.length - 1 && (
+                    {index !== data?.length - 1 && (
                       <Divider className="lg:my-5 my-2.5 h-0.5 w-full rounded-full bg-yellow-600" />
                     )}
                   </div>
