@@ -681,7 +681,7 @@ exports.deleteTimeline = async (req, res) => {
 };
 // Seminar Progress Ended
 // Ug Seminar Started
-exports.addSeminar = async (req, res) => {
+exports.addUgSeminar = async (req, res) => {
   try {
     const { filename } = req.file;
     const newSeminar = await PGseminar.create({ video: filename, ...req.body });
@@ -692,7 +692,7 @@ exports.addSeminar = async (req, res) => {
     return res.status(401).send({ message: "Error while adding!" });
   }
 };
-exports.getSeminarForUsers = async (req, res) => {
+exports.getUgSeminarForUsers = async (req, res) => {
   try {
     if (!req.cookies.userState && !req.cookies.userCity) {
       const ip = "182.48.206.38";
@@ -758,7 +758,7 @@ exports.getSeminarForUsers = async (req, res) => {
     return res.status(401).send({ message: "Error while getting seminars" });
   }
 };
-exports.getSeminar = async (req, res) => {
+exports.getUgSeminar = async (req, res) => {
   try {
     const allSeminars = await PGseminar.find();
     // console.log(allSeminars)
@@ -771,7 +771,7 @@ exports.getSeminar = async (req, res) => {
     return res.status(401).send({ message: "Error while fetching!" });
   }
 };
-exports.editSeminar = async (req, res) => {
+exports.editUgSeminar = async (req, res) => {
   try {
     const { id } = req.params;
     req.file
@@ -796,7 +796,7 @@ exports.editSeminar = async (req, res) => {
     return res.status(401).send({ message: "Error while updating!" });
   }
 };
-exports.deleteSeminar = async (req, res) => {
+exports.deleteUgSeminar = async (req, res) => {
   const { id } = req.params;
   try {
     await PGseminar.findByIdAndDelete(id);
