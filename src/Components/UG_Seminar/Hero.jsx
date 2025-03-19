@@ -17,9 +17,9 @@ const fetchSeminars = async () => {
 };
 const Hero = () => {
   const { data } = useQuery({
-    queryKey: ["allSeminars"],
+    queryKey: ["allUGSeminars"],
     queryFn: fetchSeminars,
-    staleTime: Infinity,
+    // staleTime: Infinity,
   });
 
   const formatDate = (dateString) => {
@@ -51,7 +51,7 @@ const Hero = () => {
   // ];
   return (
     <>
-      <Container className={"relative lg:h-screen h-full"}>
+      <Container className={"relative h-full lg:h-screen"}>
         <video
           src="./Seminar/Seminar-video.mp4"
           autoPlay
@@ -60,29 +60,29 @@ const Hero = () => {
           className="absolute inset-0 h-full w-full object-cover"
         ></video>
         <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/90 to-black/50"></div>
-        <div className="relative flex lg:flex-row flex-col h-full w-full items-center justify-between">
+        <div className="relative flex h-full w-full flex-col items-center justify-between lg:flex-row">
           <ScrollAnimation
             animateIn="backInLeft"
             duration={1.5}
             animateOnce={true}
             delay={1}
           >
-            <div className="flex flex-col lg:gap-5 gap-2.5">
-              <div className="w-fit rounded-l-full rounded-r-full border border-gray-700 bg-yellow-600 px-2 py-1 lg:text-sm text-xs font-bold uppercase text-yellow-300">
+            <div className="flex flex-col gap-2.5 lg:gap-5">
+              <div className="w-fit rounded-l-full rounded-r-full border border-gray-700 bg-yellow-600 px-2 py-1 text-xs font-bold uppercase text-yellow-300 lg:text-sm">
                 #1 Neet counsellor
               </div>
-              <h1 className="lg:text-4xl text-lg  font-extrabold leading-tight text-yellow-600">
+              <h1 className="text-lg font-extrabold leading-tight text-yellow-600 lg:text-4xl">
                 Fuel Your Dream <br /> of Becoming a Doctor <br />
-                <span className="lg:text-6xl text-3xl font-extrabold text-primary-color brightness-200">
+                <span className="text-3xl font-extrabold text-primary-color brightness-200 lg:text-6xl">
                   NEET UG 2025
                 </span>
               </h1>
-              <p className="lg:max-w-md lg:text-xs text-[0.6rem] font-extrabold text-gray-200">
+              <p className="text-[0.6rem] font-extrabold text-gray-200 lg:max-w-md lg:text-xs">
                 Prepare yourself for the NEET UG exam with expert guidance and
                 tips. Join us for insightful sessions, mock tests, and career
                 counseling.
               </p>
-              <button className="bg-yellow-600 lg:text-sm text-xs w-fit rounded-l-full rounded-r-full transition-all lg:px-3 lg:py-2 px-2 py-1 font-bold text-white hover:bg-yellow-700">
+              <button className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-xs font-bold text-white transition-all hover:bg-yellow-700 lg:px-3 lg:py-2 lg:text-sm">
                 Book Now!
               </button>
             </div>
@@ -94,29 +94,32 @@ const Hero = () => {
             animateOnce={true}
             delay={1}
           >
-            <div className="h-fit rounded-md bg-gray-200/10 lg:p-8 p-4 lg:my-0 my-4 shadow-md shadow-white/50 backdrop-blur-sm">
+            <div className="my-4 h-fit rounded-md bg-gray-200/10 p-4 shadow-md shadow-white/50 backdrop-blur-sm lg:my-0 lg:p-8">
               {data?.map((seminar, index) => {
                 return (
                   <div className="cursor-pointer transition-all duration-100 hover:scale-105">
-                    <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 lg:px-2 px-1.5 py-1 lg:text-sm text-[0.6rem] font-bold uppercase text-yellow-200">
+                    <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-1.5 py-1 text-[0.6rem] font-bold uppercase text-yellow-200 lg:px-2 lg:text-sm">
                       # {seminar?.state}
                     </div>
-                    <div className="flex items-center justify-between lg:py-2 py-1.5">
-                      <h1 className="lg:text-3xl text-sm lg:font-bold font-extrabold text-gray-200">
+                    <div className="flex items-center justify-between py-1.5 lg:py-2">
+                      <h1 className="text-sm font-extrabold text-gray-200 lg:text-3xl lg:font-bold">
                         {formatDate(seminar?.date)}
                       </h1>
                       <div
-                        className={`w-fit lg:mx-4 mx-2 rounded-md  lg:px-2 px-1.5 lg:py-1 py-0.5 lg:text-sm text-[0.7rem] lg:font-bold font-extrabold uppercase`}
+                        onClick={() => {
+                          window.open(seminar?.URL, "__blank");
+                        }}
+                        className={`mx-2 w-fit rounded-md bg-yellow-600 px-1.5 py-0.5 text-[0.7rem] font-extrabold uppercase text-white shadow shadow-white lg:mx-4 lg:px-2 lg:py-1 lg:text-sm lg:font-bold`}
                       >
                         Book Now
                       </div>
-                      <FaArrowRight className="animate-scaleUp lg:text-sm text-xs text-yellow-600" />
+                      <FaArrowRight className="animate-scaleUp text-xs text-yellow-600 lg:text-sm" />
                     </div>
-                    <div className="lg:text-xs text-[0.6rem] font-semibold text-gray-200 ">
+                    <div className="text-[0.6rem] font-semibold text-gray-200 lg:text-xs">
                       {seminar.location}
                     </div>
                     {index !== data?.length - 1 && (
-                      <Divider className="lg:my-5 my-2.5 h-0.5 w-full rounded-full bg-yellow-600" />
+                      <Divider className="my-2.5 h-0.5 w-full rounded-full bg-yellow-600 lg:my-5" />
                     )}
                   </div>
                 );

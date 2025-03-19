@@ -39,7 +39,7 @@ const Ug_seminar = () => {
   const [isAdd, setIsAdd] = useState(false);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["allSeminar"],
+    queryKey: ["allUGSeminars"],
     queryFn: fetchSeminar,
     // throwOnError: () => navigate("/admin/login"),
   });
