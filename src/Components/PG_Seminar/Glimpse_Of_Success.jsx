@@ -99,11 +99,7 @@ const Glimpse_Of_Success = () => {
                   tabPosition={window.outerWidth > 800 ? "left" : "top"}
                   className="ug-seminar-tab"
                   onChange={(val) => {
-                    console.log(
-                      Object.entries(groupedSeminars)?.sort((a, b) =>
-                        a?.seminars?.isChecked ? 1 : -1,
-                      )[val - 1][1]?.seminars,
-                    );
+                    
                     queryClient.setQueryData(
                       ["allSeminars"],
                       Object.entries(groupedSeminars)?.sort((a, b) =>
