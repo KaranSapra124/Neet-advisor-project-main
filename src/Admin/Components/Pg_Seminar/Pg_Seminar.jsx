@@ -155,6 +155,22 @@ const Pg_seminar = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
+          Type
+        </h1>
+      ),
+      dataIndex: "seminarType",
+      key: "seminarType",
+      render: (text) => (
+        <p
+          className={`${text === "UG" ? "mx-auto line-clamp-1 w-fit rounded bg-green-500 p-0.5 text-center text-xs font-semibold text-white" : "mx-auto line-clamp-1 w-fit rounded bg-blue-500 p-0.5 text-center text-xs font-semibold text-white"}`}
+        >
+          {text ? text : "N/A"}
+        </p>
+      ),
+    },
+    {
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
           Actions
         </h1>
       ),
