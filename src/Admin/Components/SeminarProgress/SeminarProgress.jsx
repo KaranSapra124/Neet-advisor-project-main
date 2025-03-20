@@ -72,8 +72,24 @@ const SeminarProgress = () => {
       dataIndex: "motive",
       key: "motive",
       render: (text) => (
-        <p className="line-clamp-1 w-52 text-xs font-semibold text-gray-800">
+        <p className="line-clamp-2 text-xs font-semibold text-gray-800">
           {text}
+        </p>
+      ),
+    },
+    {
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Type
+        </h1>
+      ),
+      dataIndex: "seminarType",
+      key: "seminarType",
+      render: (text) => (
+        <p
+          className={`${text === "UG" ? "line-clamp-1 mx-auto w-fit rounded bg-green-500 p-0.5 text-center text-xs font-semibold text-white" : "line-clamp-1 mx-auto w-fit rounded bg-blue-500 p-0.5 text-center text-xs font-semibold text-white"}`}
+        >
+          {text ? text : "N/A"}
         </p>
       ),
     },
@@ -181,6 +197,7 @@ const EditCard = ({
           motive: editedMotive,
           fromTime: editedFromTime,
           endTime: editedEndTime,
+          seminarType: editedType,
         },
       );
 
@@ -240,6 +257,7 @@ const EditCard = ({
         <Space wrap>
           <Select
             onChange={(val) => setEditedType(val)}
+            value={editedType}
             defaultValue={"PG"}
             options={[
               { value: "PG", label: <span>PG</span> },
