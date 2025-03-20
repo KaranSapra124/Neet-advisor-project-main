@@ -120,7 +120,7 @@ Router.get("/delete-seminar/:id", deleteSeminar);
 // Seminar Ended
 // Seminar Progress Started
 Router.post("/add-seminar-progress", addSeminarTimeline);
-Router.get("/get-seminar-progress", getSeminarTimeline);
+Router.get("/get-seminar-progress/:type", getSeminarTimeline);
 Router.post('/edit-seminar-progress/:id',editSeminarTimeline);
 Router.get("/delete-progress/:id", deleteTimeline);
 // Seminar Progress Ended

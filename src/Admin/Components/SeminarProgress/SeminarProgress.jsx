@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 const fetchServices = async () => {
   const { data } = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress`,
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress/all`,
   );
   return data?.allSeminarsTimeline;
 };

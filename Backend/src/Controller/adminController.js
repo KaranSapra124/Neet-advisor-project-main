@@ -649,9 +649,13 @@ exports.addSeminarTimeline = async (req, res) => {
   }
 };
 exports.getSeminarTimeline = async (req, res) => {
+  const { type } = req.params;
+  // console.log(type);
   try {
-    const allSeminarsTimeline = await SeminarProgress.find();
-    // console.log(allSeminars)
+    const allSeminarsTimeline =
+      type === "all"
+        ? await SeminarProgress.find()
+        : await SeminarProgress.find({ seminarType: type });
     return res.status(200).send({
       message: "Seminar Timeline Fetched!",
       allSeminarsTimeline,
