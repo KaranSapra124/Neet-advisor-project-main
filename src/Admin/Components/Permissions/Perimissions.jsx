@@ -33,7 +33,16 @@ const fetchAdmins = async () => {
     toast.error(err?.response?.data?.message);
   }
 };
-const permissions = ["Testimonials", "Blogs", "Services", "Students"];
+const permissions = [
+  "Testimonials",
+  "Alerts & News",
+  "Services",
+  "Students",
+  "Queries",
+  "Webinars",
+  "Seminars",
+  "Seminar-Progress",
+];
 
 const Permissions = () => {
   const navigate = useNavigate();
