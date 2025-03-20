@@ -12,7 +12,6 @@ const fetchSeminars = async () => {
       withCredentials: true,
     },
   );
-  console.log(data,'DATATA')
   return data;
 };
 const checkState = (state) => {
