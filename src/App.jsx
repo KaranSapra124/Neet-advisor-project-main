@@ -157,6 +157,10 @@ const App = () => {
           path: "/sub-admin/seminar",
           element: <Pg_Seminar />,
         },
+        {
+          path: "/sub-admin/webinar",
+          element: <Pg_Seminar />,
+        },
         // {
         //   path: "/sub-admin/permissions",
         //   element: <Perimissions />,

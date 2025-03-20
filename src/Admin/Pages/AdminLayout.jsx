@@ -108,8 +108,6 @@ const AdminLayout = ({ user }) => {
     if (!SuperAdminContext?.admin) {
       authAdmin();
     }
-    console.log(SuperAdminContext)
-   
   }, [authAdmin, SuperAdminContext]);
 
   return (
