@@ -93,7 +93,7 @@ const AdminLayout = ({ user }) => {
       const endpoint =
         user === "Super-Admin" ? "super-admin-auth" : "get-admin";
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}${endpoint === "get-admin" ? 'admin' : user.toLowerCase()}/${endpoint}`,
+        `${import.meta.env.VITE_BACKEND_URL}${endpoint === "get-admin" ? "admin" : user.toLowerCase()}/${endpoint}`,
         {},
         { withCredentials: true },
       );
@@ -108,7 +108,9 @@ const AdminLayout = ({ user }) => {
     if (!SuperAdminContext?.admin) {
       authAdmin();
     }
-  }, []);
+    console.log(SuperAdminContext)
+   
+  }, [authAdmin, SuperAdminContext]);
 
   return (
     <div className="flex min-h-screen bg-gray-100">

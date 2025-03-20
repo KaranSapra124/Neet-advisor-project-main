@@ -12,6 +12,7 @@ export const AdminProvider = ({ children }) => {
   const [admin, setAdmin] = useState(null);
 
   useEffect(() => {
+    console.log("Fetch Admin");
     const fetchAdmin = async () => {
       try {
         const { data } = await axios.post(
@@ -30,7 +31,7 @@ export const AdminProvider = ({ children }) => {
       }
     };
     fetchAdmin();
-  }, []);
+  }, [adminContext, children]);
   return (
     <adminContext.Provider value={{ admin, setAdmin }}>
       {children}

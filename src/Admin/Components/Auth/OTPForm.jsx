@@ -4,9 +4,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Divider from "../../../Components/Helper/Divider";
+import { useAdminAuth } from "../Context/AdminContext";
 
 const OTPForm = ({ title }) => {
   const location = useLocation();
+  const { setAdmin } = useAdminAuth();
   const { email } = location?.state || {};
 
   const [otp, setOTP] = useState([]);
@@ -60,7 +62,10 @@ const OTPForm = ({ title }) => {
                 withCredentials: true,
               },
             );
-            toast.success(data?.message);
+            setAdmin((prev) => {
+              return { ...prev, ...data?.adminData };
+            });
+            // toast.success(data?.message);
             navigate("/sub-admin");
           })();
     } catch (err) {
