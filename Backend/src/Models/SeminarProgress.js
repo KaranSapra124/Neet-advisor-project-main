@@ -17,6 +17,11 @@ const seminarProgress = new mongoose.Schema({
     type: String,
     required: true,
   },
+  seminarType: {
+    type: String,
+    required: true,
+    enum: ["UG", "PG"],
+  },
 });
 
 module.exports = mongoose.model("SeminarProgress", seminarProgress);
