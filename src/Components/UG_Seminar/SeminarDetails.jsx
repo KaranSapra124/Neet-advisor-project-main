@@ -7,7 +7,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 const fetchSeminars = async () => {
   const { data } = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-ug-seminars`,
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars/UG`,
     {
       withCredentials: true,
     },

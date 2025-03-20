@@ -589,6 +589,7 @@ exports.getSeminarForUsers = async (req, res) => {
 };
 exports.getSeminar = async (req, res) => {
   const { type } = req.params;
+  console.log(type)
   try {
     const allSeminars = type
       ? await PGseminar.find({ seminarType: type })
@@ -689,17 +690,17 @@ exports.deleteTimeline = async (req, res) => {
 };
 // Seminar Progress Ended
 // Ug Seminar Started
-exports.addUgSeminar = async (req, res) => {
-  try {
-    const { filename } = req.file;
-    const newSeminar = await UGseminar.create({ video: filename, ...req.body });
-    return res
-      .status(201)
-      .send({ message: "Seminar Added Successfully!", newSeminar });
-  } catch (err) {
-    return res.status(401).send({ message: "Error while adding!" });
-  }
-};
+// exports.addUgSeminar = async (req, res) => {
+//   try {
+//     const { filename } = req.file;
+//     const newSeminar = await UGseminar.create({ video: filename, ...req.body });
+//     return res
+//       .status(201)
+//       .send({ message: "Seminar Added Successfully!", newSeminar });
+//   } catch (err) {
+//     return res.status(401).send({ message: "Error while adding!" });
+//   }
+// };
 exports.getUgSeminarForUsers = async (req, res) => {
   try {
     if (!req.cookies.userState && !req.cookies.userCity) {
@@ -751,11 +752,12 @@ exports.getUgSeminarForUsers = async (req, res) => {
           return false;
         }
       };
-      const allSeminars = await UGseminar.find({
+      const allSeminars = await PGseminar.find({
         $or: [
           { city: checkState(req.cookies.userState) ? "Delhi" : "Mumbai" },
           { state: checkState(req.cookies.userState) ? "Delhi" : "Mumbai" },
         ],
+        seminarType: "UG",
       });
       return res
         .status(200)
@@ -766,50 +768,50 @@ exports.getUgSeminarForUsers = async (req, res) => {
     return res.status(401).send({ message: "Error while getting seminars" });
   }
 };
-exports.getUgSeminar = async (req, res) => {
-  try {
-    const allSeminars = await UGseminar.find();
-    // console.log(allSeminars)
-    return res.status(200).send({
-      message: "Seminars Fetched!",
-      allSeminars,
-      cookie: req?.cookies?.userState,
-    });
-  } catch (err) {
-    return res.status(401).send({ message: "Error while fetching!" });
-  }
-};
-exports.editUgSeminar = async (req, res) => {
-  try {
-    const { id } = req.params;
-    req.file
-      ? (async () => {
-          await UGseminar.findByIdAndUpdate(id, {
-            ...req.body,
-            video: req.file.filename,
-          });
-          return res
-            .status(200)
-            .send({ message: "Seminar Edited Successfully!" });
-        })()
-      : (async () => {
-          await UGseminar.findByIdAndUpdate(id, {
-            ...req.body,
-          });
-          return res
-            .status(200)
-            .send({ message: "Seminar Edited Successfully!" });
-        })();
-  } catch (err) {
-    return res.status(401).send({ message: "Error while updating!" });
-  }
-};
-exports.deleteUgSeminar = async (req, res) => {
-  const { id } = req.params;
-  try {
-    await UGseminar.findByIdAndDelete(id);
-    return res.status(200).send({ message: "Seminar Deleted Successfully!" });
-  } catch (err) {
-    return res.status(401).send({ message: "Error while deleting seminar!" });
-  }
-};
+// exports.getUgSeminar = async (req, res) => {
+//   try {
+//     const allSeminars = await UGseminar.find();
+//     // console.log(allSeminars)
+//     return res.status(200).send({
+//       message: "Seminars Fetched!",
+//       allSeminars,
+//       cookie: req?.cookies?.userState,
+//     });
+//   } catch (err) {
+//     return res.status(401).send({ message: "Error while fetching!" });
+//   }
+// };
+// exports.editUgSeminar = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     req.file
+//       ? (async () => {
+//           await UGseminar.findByIdAndUpdate(id, {
+//             ...req.body,
+//             video: req.file.filename,
+//           });
+//           return res
+//             .status(200)
+//             .send({ message: "Seminar Edited Successfully!" });
+//         })()
+//       : (async () => {
+//           await UGseminar.findByIdAndUpdate(id, {
+//             ...req.body,
+//           });
+//           return res
+//             .status(200)
+//             .send({ message: "Seminar Edited Successfully!" });
+//         })();
+//   } catch (err) {
+//     return res.status(401).send({ message: "Error while updating!" });
+//   }
+// };
+// exports.deleteUgSeminar = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     await UGseminar.findByIdAndDelete(id);
+//     return res.status(200).send({ message: "Seminar Deleted Successfully!" });
+//   } catch (err) {
+//     return res.status(401).send({ message: "Error while deleting seminar!" });
+//   }
+// };

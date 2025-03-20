@@ -10,7 +10,7 @@ const fetchTimeline = async () => {
     const { data } = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress/UG`,
     );
-    // console.log(data);
+    console.log(data);
     return data?.allSeminarsTimeline;
   } catch (err) {}
 };
