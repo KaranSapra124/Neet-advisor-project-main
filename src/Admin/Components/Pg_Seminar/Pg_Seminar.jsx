@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Input, Modal, Select, Switch, Table } from "antd";
+import { Input, Modal, Select, Space, Switch, Table } from "antd";
 import {
   FaEdit,
   FaEnvelope,
@@ -315,6 +315,7 @@ const EditCard = ({
   state,
   location,
   catchPhrase,
+  seminarType,
   onCancel,
 }) => {
   const queryClient = useQueryClient();
@@ -328,6 +329,7 @@ const EditCard = ({
     state: state,
     location: location,
     catchPhrase: catchPhrase,
+    seminarType: seminarType,
   });
 
   // Handle Input Change
@@ -354,7 +356,8 @@ const EditCard = ({
       !formData?.catchPhrase ||
       !formData?.location ||
       !formData?.state ||
-      !formData?.URL
+      !formData?.URL ||
+      !formData.seminarType
     ) {
       toast.error("All fields are required!");
       return;
@@ -383,7 +386,6 @@ const EditCard = ({
     mutationFn: handleSave,
     onSuccess: () => queryClient.invalidateQueries(["allWebinars"]),
   });
-  useEffect(() => console.log(typeof formData?.video), [formData?.video]);
   return (
     <Modal
       title={
@@ -507,6 +509,23 @@ const EditCard = ({
             onChange={handleChange}
             className="w-full rounded-md border p-2"
           />
+          <Space wrap>
+            <Select 
+              onChange={(val)=>setFormData((prev)=>{
+                return {
+                  ...prev,
+                  seminarType:val
+                }
+              })}
+              
+              value={formData?.seminarType}
+              defaultValue={"Type"}
+              options={[
+                { value: "PG", label: <span>PG</span> ,  },
+                { value: "UG", label: <span>UG</span> },
+              ]}
+            ></Select>
+          </Space>
 
           {/* <div className="flex justify-between">
             <button
@@ -540,6 +559,7 @@ const AddCard = ({ open, onCancel }) => {
     state: "",
     location: "",
     catchPhrase: "",
+    seminarType: "",
   });
 
   const handleChange = (e) => {
@@ -565,7 +585,8 @@ const AddCard = ({ open, onCancel }) => {
       !formData.URL ||
       !formData.state ||
       !formData.location ||
-      !formData.catchPhrase
+      !formData.catchPhrase ||
+      !formData.seminarType
     ) {
       alert("All fields are required!");
       return;
@@ -712,6 +733,17 @@ const AddCard = ({ open, onCancel }) => {
             onChange={handleChange}
             className="w-full rounded-md border p-2"
           />
+          <Space wrap>
+            <Select
+              onChange={handleChange}
+              value={formData?.seminarType}
+              defaultValue={"PG"}
+              options={[
+                { value: "PG", label: <span>PG</span> },
+                { value: "UG", label: <span>UG</span> },
+              ]}
+            ></Select>
+          </Space>
 
           <div className="flex justify-between">
             <button

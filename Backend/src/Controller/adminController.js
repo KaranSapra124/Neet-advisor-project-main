@@ -9,7 +9,7 @@ const Students = require("../Models/Students");
 const SubAdmin = require("../Models/SubAdmin");
 const News = require("../Models/News");
 const Webinars = require("../Models/Webinars");
-const PGseminar = require("../Models/PGseminar");
+const PGseminar = require("../Models/Seminar");
 const SeminarProgress = require("../Models/SeminarProgress");
 const UGseminar = require("../Models/UGseminar");
 
