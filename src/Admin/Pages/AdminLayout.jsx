@@ -61,7 +61,11 @@ const AdminLayout = ({ user }) => {
         link: `/${user.toLowerCase()}/webinars`,
         icon: <FaChalkboardTeacher />,
       },
-      { name: "Seminars", link: "/admin/pg-seminar", icon: <FaPeopleGroup /> },
+      {
+        name: "Seminars",
+        link: `/${user?.toLowerCase()}/seminar`,
+        icon: <FaPeopleGroup />,
+      },
       {
         name: "Seminar Progress",
         link: "/admin/seminar-progress",
@@ -113,7 +117,7 @@ const AdminLayout = ({ user }) => {
           </h1>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-xl mx-auto focus:outline-none"
+            className="mx-auto text-xl focus:outline-none"
           >
             {sidebarOpen ? <IoMdClose /> : <IoMdMenu />}
           </button>
@@ -131,11 +135,11 @@ const AdminLayout = ({ user }) => {
               return (
                 <li
                   key={name}
-                  className={`group transition ${isDisabled ? "cursor-not-allowed opacity-50" : "hover:bg-white rounded hover:text-gray-900"} ${isActive ? "bg-white rounded text-gray-900" : ""}`}
+                  className={`group transition ${isDisabled ? "cursor-not-allowed opacity-50" : "rounded hover:bg-white hover:text-gray-900"} ${isActive ? "rounded bg-white text-gray-900" : ""}`}
                 >
                   <Link
                     to={isDisabled ? "#" : link}
-                    className={`flex items-center gap-3 rounded-md  transition ${sidebarOpen ? "px-4 py-3" : "px-1.5 py-2"}`}
+                    className={`flex items-center gap-3 rounded-md transition ${sidebarOpen ? "px-4 py-3" : "px-1.5 py-2"}`}
                     onClick={(e) =>
                       isDisabled &&
                       (e.preventDefault(), toast.error("Access Denied"))

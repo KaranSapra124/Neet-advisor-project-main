@@ -115,7 +115,7 @@ const App = () => {
           element: <AdminWebinars />,
         },
         {
-          path: "/super-admin/pg-seminar",
+          path: "/super-admin/seminar",
           element: <Pg_Seminar />,
         },
         {
