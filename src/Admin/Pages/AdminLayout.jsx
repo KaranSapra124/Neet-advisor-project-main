@@ -24,30 +24,69 @@ const AdminLayout = ({ user }) => {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  const SuperAdminContext = user === "Super-Admin" ? userSuperAdminAuth() : useAdminAuth();
-  
+  const SuperAdminContext =
+    user === "Super-Admin" ? userSuperAdminAuth() : useAdminAuth();
+
   const menuItems = useMemo(
     () => [
-      { name: "Dashboard", link: user === "Super-Admin" ? "/admin" : "/sub-admin", icon: <RiDashboardFill /> },
-      { name: "Testimonials", link: `/${user.toLowerCase()}/testimonial`, icon: <FaComments /> },
+      {
+        name: "Dashboard",
+        link: user === "Super-Admin" ? "/admin" : "/sub-admin",
+        icon: <RiDashboardFill />,
+      },
+      {
+        name: "Testimonials",
+        link: `/${user.toLowerCase()}/testimonial`,
+        icon: <FaComments />,
+      },
       { name: "Queries", link: "/", icon: <FaQuestionCircle /> },
-      { name: "Services", link: `/${user.toLowerCase()}/services`, icon: <BsFileBarGraph /> },
-      { name: "Alerts & News", link: `/${user.toLowerCase()}/news`, icon: <FaBell /> },
+      {
+        name: "Services",
+        link: `/${user.toLowerCase()}/services`,
+        icon: <BsFileBarGraph />,
+      },
+      {
+        name: "Alerts & News",
+        link: `/${user.toLowerCase()}/news`,
+        icon: <FaBell />,
+      },
       { name: "Blogs", link: `/${user.toLowerCase()}/news`, icon: <FaBlog /> },
-      { name: "Students", link: `/${user.toLowerCase()}/students`, icon: <FaGraduationCap /> },
-      { name: "Webinars", link: `/${user.toLowerCase()}/webinars`, icon: <FaChalkboardTeacher /> },
+      {
+        name: "Students",
+        link: `/${user.toLowerCase()}/students`,
+        icon: <FaGraduationCap />,
+      },
+      {
+        name: "Webinars",
+        link: `/${user.toLowerCase()}/webinars`,
+        icon: <FaChalkboardTeacher />,
+      },
       { name: "Seminars", link: "/admin/pg-seminar", icon: <FaPeopleGroup /> },
-      { name: "Seminar Progress", link: "/admin/seminar-progress", icon: <BsGraphUp /> },
+      {
+        name: "Seminar Progress",
+        link: "/admin/seminar-progress",
+        icon: <BsGraphUp />,
+      },
     ],
-    [user]
+    [user],
   );
 
-  const activeTab = useMemo(() => menuItems.find((item) => item.link === location.pathname)?.name || "Admin Panel", [location.pathname, menuItems]);
+  const activeTab = useMemo(
+    () =>
+      menuItems.find((item) => item.link === location.pathname)?.name ||
+      "Admin Panel",
+    [location.pathname, menuItems],
+  );
 
   const authAdmin = useCallback(async () => {
     try {
-      const endpoint = user === "Super-Admin" ? "super-admin-auth" : "get-admin";
-      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}${user.toLowerCase()}/${endpoint}`, {}, { withCredentials: true });
+      const endpoint =
+        user === "Super-Admin" ? "super-admin-auth" : "get-admin";
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}${user.toLowerCase()}/${endpoint}`,
+        {},
+        { withCredentials: true },
+      );
       toast.success(data?.message);
     } catch (err) {
       toast.error(err?.response?.data?.message);
@@ -62,30 +101,52 @@ const AdminLayout = ({ user }) => {
   }, [authAdmin, SuperAdminContext]);
 
   return (
-    <div className="flex bg-gray-100 min-h-screen">
-      <aside className={`h-screen ${sidebarOpen ? "w-64" : "w-16"} bg-[#272E6A] p-6 text-white shadow-lg flex flex-col transition-all duration-300`}>
-        <div className="flex justify-between items-center">
-          <h1 className={`text-xl font-bold transition-opacity duration-300 ${sidebarOpen ? "opacity-100" : "opacity-0 hidden"}`}>Admin Panel</h1>
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-xl focus:outline-none">
+    <div className="flex min-h-screen bg-gray-100">
+      <aside
+        className={`h-screen ${sidebarOpen ? "w-64" : "w-20"} flex flex-col bg-[#272E6A] p-6 text-white shadow-lg transition-all duration-300`}
+      >
+        <div className="flex items-center justify-between">
+          <h1
+            className={`text-xl font-bold transition-opacity duration-300 ${sidebarOpen ? "opacity-100" : "hidden opacity-0"}`}
+          >
+            Admin Panel
+          </h1>
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="text-xl mx-auto focus:outline-none"
+          >
             {sidebarOpen ? <IoMdClose /> : <IoMdMenu />}
           </button>
         </div>
         <nav className="mt-6 flex-1">
           <ul className="space-y-3">
             {menuItems.map(({ name, link, icon }) => {
-              const isDisabled = user !== "Super-Admin" && !SuperAdminContext?.admin?.adminPermissions?.some(
-                (perm) => perm.toLowerCase().trim() === name.toLowerCase().trim()
-              );
+              const isDisabled =
+                user !== "Super-Admin" &&
+                !SuperAdminContext?.admin?.adminPermissions?.some(
+                  (perm) =>
+                    perm.toLowerCase().trim() === name.toLowerCase().trim(),
+                );
               const isActive = location.pathname === link;
               return (
-                <li key={name} className={`group transition ${isDisabled ? "opacity-50 cursor-not-allowed" : "hover:bg-white hover:text-gray-900"} ${isActive ? "bg-white text-gray-900" : ""}`}> 
+                <li
+                  key={name}
+                  className={`group transition ${isDisabled ? "cursor-not-allowed opacity-50" : "hover:bg-white rounded hover:text-gray-900"} ${isActive ? "bg-white rounded text-gray-900" : ""}`}
+                >
                   <Link
                     to={isDisabled ? "#" : link}
-                    className="flex items-center gap-3 rounded-md px-4 py-3 transition"
-                    onClick={(e) => isDisabled && (e.preventDefault(), toast.error("Access Denied"))}
+                    className={`flex items-center gap-3 rounded-md  transition ${sidebarOpen ? "px-4 py-3" : "px-1.5 py-2"}`}
+                    onClick={(e) =>
+                      isDisabled &&
+                      (e.preventDefault(), toast.error("Access Denied"))
+                    }
                   >
                     <span className="text-lg">{icon}</span>
-                    <span className={`text-sm font-medium transition-all ${sidebarOpen ? "opacity-100" : "opacity-0 hidden"}`}>{name}</span>
+                    <span
+                      className={`text-sm font-medium transition-all ${sidebarOpen ? "opacity-100" : "hidden opacity-0"}`}
+                    >
+                      {name}
+                    </span>
                   </Link>
                 </li>
               );
@@ -95,7 +156,7 @@ const AdminLayout = ({ user }) => {
       </aside>
 
       <main className="flex-1 p-6">
-        <h2 className="text-2xl font-bold text-[#272E6A] mb-4">{activeTab}</h2>
+        <h2 className="mb-4 text-2xl font-bold text-[#272E6A]">{activeTab}</h2>
         <Outlet />
       </main>
     </div>

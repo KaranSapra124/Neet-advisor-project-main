@@ -87,43 +87,43 @@ const App = () => {
       element: <Contact />,
     },
     {
-      path: "/admin",
+      path: "/super-admin",
       element: <AdminLayout user={"Super-Admin"} />,
       children: [
         {
-          path: "/admin/testimonial",
+          path: "/super-admin/testimonial",
           element: <Testimonial />,
         },
         {
-          path: "/admin/Services",
+          path: "/super-admin/Services",
           element: <AdminServices />,
         },
         {
-          path: "/admin/students",
+          path: "/super-admin/students",
           element: <StudentsData />,
         },
         {
-          path: "/admin/permissions",
+          path: "/super-admin/permissions",
           element: <Perimissions />,
         },
         {
-          path: "/admin/news",
+          path: "/super-admin/news",
           element: <MainNewsPage />,
         },
         {
-          path: "/admin/webinars",
+          path: "/super-admin/webinars",
           element: <AdminWebinars />,
         },
         {
-          path: "/admin/pg-seminar",
+          path: "/super-admin/pg-seminar",
           element: <Pg_Seminar />,
         },
         {
-          path: "/admin/ug-seminar",
+          path: "/super-admin/ug-seminar",
           element: <Ug_seminar />,
         },
         {
-          path: "/admin/seminar-progress",
+          path: "/super-admin/seminar-progress",
           element: <SeminarProgress />,
         },
       ],
