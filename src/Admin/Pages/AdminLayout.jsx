@@ -1,8 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import {
-  FaTachometerAlt,
   FaComments,
-  FaVideo,
   FaQuestionCircle,
   FaBell,
   FaBlog,
@@ -12,231 +10,94 @@ import {
 } from "react-icons/fa";
 import { RiDashboardFill } from "react-icons/ri";
 import { Link, Outlet } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { userSuperAdminAuth } from "../Components/Context/SuperAdminContext";
 import { BsFileBarGraph, BsGraphUp } from "react-icons/bs";
 import { useAdminAuth } from "../Components/Context/AdminContext";
 import { FaPeopleGroup } from "react-icons/fa6";
+import { IoMdMenu, IoMdClose } from "react-icons/io";
 
 const AdminLayout = ({ user }) => {
-  const location = useLocation(); // Get current path
+  const location = useLocation();
   const navigate = useNavigate();
-  const SuperAdminContext =
-    user === "Super-Admin" ? userSuperAdminAuth() : useAdminAuth();
-  console.log(SuperAdminContext);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  const menuItems =
-    user === "Super-Admin"
-      ? [
-          { name: "Dashboard", link: "/admin", icon: <RiDashboardFill /> },
-          {
-            name: "Testimonials",
-            link: "/admin/testimonial",
-            icon: <FaComments />,
-          },
-          { name: "Queries", link: "/", icon: <FaQuestionCircle /> },
-          {
-            name: "Services",
-            link: "/admin/services",
-            icon: <BsFileBarGraph />,
-          },
-          { name: "Alerts & News", link: "/admin/news", icon: <FaBell /> },
-          { name: "Blogs", link: "/", icon: <FaBlog /> },
-          {
-            name: "Students",
-            link: "/admin/students",
-            icon: <FaGraduationCap />,
-          },
-          { name: "Permissions", link: "/admin/permissions", icon: <FaUser /> },
-          {
-            name: "Webinars",
-            link: "/admin/webinars",
-            icon: <FaChalkboardTeacher />,
-          },
-          {
-            name: "Seminars",
-            link: "/admin/pg-seminar",
-            icon: <FaPeopleGroup />,
-          },
-          // {
-          //   name: "UG Seminar",
-          //   link: "/admin/ug-seminar",
-          //   icon: <FaPeopleGroup />,
-          // },
-          {
-            name: "Seminar Progress",
-            link: "/admin/seminar-progress",
-            icon: <BsGraphUp />,
-          },
-        ]
-      : [
-          { name: "Dashboard", link: "/sub-admin", icon: <RiDashboardFill /> },
-          {
-            name: "Testimonials",
-            link: "/sub-admin/testimonial",
-            icon: <FaComments />,
-          },
-          { name: "Queries", link: "/", icon: <FaQuestionCircle /> },
-          {
-            name: "Services",
-            link: "/sub-admin/services",
-            icon: <BsFileBarGraph />,
-          },
-          { name: "Alerts & News", link: "/", icon: <FaBell /> },
-          { name: "Blogs", link: "/sub-admin/news", icon: <FaBlog /> },
-          {
-            name: "Students",
-            link: "/sub-admin/students",
-            icon: <FaGraduationCap />,
-          },
-          {
-            name: "Webinars",
-            link: "/sub-admin/webinars",
-            icon: <FaChalkboardTeacher />,
-          },
-          {
-            name: "Seminars",
-            link: "/admin/pg-seminar",
-            icon: <FaPeopleGroup />,
-          },
-          // {
-          //   name: "UG Seminar",
-          //   link: "/admin/ug-seminar",
-          //   icon: <FaPeopleGroup />,
-          // },
-          {
-            name: "Seminar Progress",
-            link: "/admin/seminar-progress",
-            icon: <BsGraphUp />,
-          },
-          // { name: "Permissions", link: "/admin/permissions", icon: <FaUser /> },
-        ];
+  const SuperAdminContext = user === "Super-Admin" ? userSuperAdminAuth() : useAdminAuth();
+  
+  const menuItems = useMemo(
+    () => [
+      { name: "Dashboard", link: user === "Super-Admin" ? "/admin" : "/sub-admin", icon: <RiDashboardFill /> },
+      { name: "Testimonials", link: `/${user.toLowerCase()}/testimonial`, icon: <FaComments /> },
+      { name: "Queries", link: "/", icon: <FaQuestionCircle /> },
+      { name: "Services", link: `/${user.toLowerCase()}/services`, icon: <BsFileBarGraph /> },
+      { name: "Alerts & News", link: `/${user.toLowerCase()}/news`, icon: <FaBell /> },
+      { name: "Blogs", link: `/${user.toLowerCase()}/news`, icon: <FaBlog /> },
+      { name: "Students", link: `/${user.toLowerCase()}/students`, icon: <FaGraduationCap /> },
+      { name: "Webinars", link: `/${user.toLowerCase()}/webinars`, icon: <FaChalkboardTeacher /> },
+      { name: "Seminars", link: "/admin/pg-seminar", icon: <FaPeopleGroup /> },
+      { name: "Seminar Progress", link: "/admin/seminar-progress", icon: <BsGraphUp /> },
+    ],
+    [user]
+  );
 
-  // Find the active tab based on the current route
-  const activeTab =
-    menuItems.find((item) => item.link === location.pathname)?.name ||
-    "Admin Panel";
+  const activeTab = useMemo(() => menuItems.find((item) => item.link === location.pathname)?.name || "Admin Panel", [location.pathname, menuItems]);
+
+  const authAdmin = useCallback(async () => {
+    try {
+      const endpoint = user === "Super-Admin" ? "super-admin-auth" : "get-admin";
+      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}${user.toLowerCase()}/${endpoint}`, {}, { withCredentials: true });
+      toast.success(data?.message);
+    } catch (err) {
+      toast.error(err?.response?.data?.message);
+      navigate(`/${user.toLowerCase()}/login`);
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
-    const authAdmin = async () => {
-      // console.log(user)
-      try {
-        user === "Super-Admin"
-          ? (async () => {
-              try {
-                const { data } = await axios.post(
-                  `${import.meta.env.VITE_BACKEND_URL}super-admin/super-admin-auth`,
-                  {},
-                  { withCredentials: true },
-                );
-                toast.success(data?.message);
-              } catch (err) {
-                toast.error(err?.response?.data?.message);
-                navigate("/admin/login");
-              }
-            })()
-          : (async () => {
-              try {
-                const { data } = await axios.post(
-                  `${import.meta.env.VITE_BACKEND_URL}admin/get-admin`,
-                  {},
-                  { withCredentials: true },
-                );
-                toast.success(data?.message);
-              } catch (err) {
-                toast.error(err?.response?.data?.message);
-                navigate("/sub-admin/login");
-              }
-            })();
-      } catch (err) {
-        console.log("I AM SUPER ADMIN ERROR");
-      }
-    };
-    authAdmin();
-  }, []);
+    if (!SuperAdminContext?.admin) {
+      authAdmin();
+    }
+  }, [authAdmin, SuperAdminContext]);
 
   return (
-    <div className="flex bg-gray-50">
-      {/* Sidebar */}
-      <div className="h-screen bg-[#272E6A] p-4 text-white shadow-md">
-        <h1 className="text-center text-lg font-semibold text-white">
-          Admin Panel
-        </h1>
-        <ul className="mt-4 space-y-2">
-          {user !== "Super-Admin"
-            ? menuItems.map((item) => {
-                const isDisabled =
-                  !SuperAdminContext?.admin?.adminPermissions?.some(
-                    (element) =>
-                      element?.toLowerCase().trim() ===
-                      item?.name?.toLowerCase()?.trim(),
-                  );
-
-                return (
-                  <li
-                    key={item.name}
-                    style={{
-                      cursor: isDisabled ? "not-allowed" : "pointer",
-                      opacity: isDisabled ? 0.5 : 1,
-                    }}
+    <div className="flex bg-gray-100 min-h-screen">
+      <aside className={`h-screen ${sidebarOpen ? "w-64" : "w-16"} bg-[#272E6A] p-6 text-white shadow-lg flex flex-col transition-all duration-300`}>
+        <div className="flex justify-between items-center">
+          <h1 className={`text-xl font-bold transition-opacity duration-300 ${sidebarOpen ? "opacity-100" : "opacity-0 hidden"}`}>Admin Panel</h1>
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-xl focus:outline-none">
+            {sidebarOpen ? <IoMdClose /> : <IoMdMenu />}
+          </button>
+        </div>
+        <nav className="mt-6 flex-1">
+          <ul className="space-y-3">
+            {menuItems.map(({ name, link, icon }) => {
+              const isDisabled = user !== "Super-Admin" && !SuperAdminContext?.admin?.adminPermissions?.some(
+                (perm) => perm.toLowerCase().trim() === name.toLowerCase().trim()
+              );
+              const isActive = location.pathname === link;
+              return (
+                <li key={name} className={`group transition ${isDisabled ? "opacity-50 cursor-not-allowed" : "hover:bg-white hover:text-gray-900"} ${isActive ? "bg-white text-gray-900" : ""}`}> 
+                  <Link
+                    to={isDisabled ? "#" : link}
+                    className="flex items-center gap-3 rounded-md px-4 py-3 transition"
+                    onClick={(e) => isDisabled && (e.preventDefault(), toast.error("Access Denied"))}
                   >
-                    <Link
-                      className={`flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition ${
-                        location.pathname === item.link
-                          ? "bg-white text-gray-900"
-                          : "hover:bg-white hover:text-gray-900"
-                      }`}
-                      to={isDisabled ? "#" : item.link} // ✅ Link pe click hone se rok diya
-                      onClick={(e) => {
-                        if (isDisabled) {
-                          e.preventDefault();
-                          toast.error(
-                            "You don't have permission to access this section.",
-                          );
-                        }
-                      }}
-                    >
-                      <span className="mr-2 text-base">{item.icon}</span>{" "}
-                      {item.name}
-                    </Link>
-                  </li>
-                );
-              })
-            : menuItems.map((item) => {
-                return (
-                  <li key={item.name}>
-                    <Link
-                      className={`flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition ${
-                        location.pathname === item.link
-                          ? "bg-white text-gray-900"
-                          : "hover:bg-white hover:text-gray-900"
-                      }`}
-                      to={item.link} // ✅ Link pe click hone se rok diya
-                      // onClick={(e) => {
-                      //   if (isDisabled) {
-                      //     e.preventDefault();
-                      //     toast.error(
-                      //       "You don't have permission to access this section.",
-                      //     );
-                      //   }
-                      // }}
-                    >
-                      <span className="mr-2 text-base">{item.icon}</span>{" "}
-                      {item.name}
-                    </Link>
-                  </li>
-                );
-              })}
-        </ul>
-      </div>
+                    <span className="text-lg">{icon}</span>
+                    <span className={`text-sm font-medium transition-all ${sidebarOpen ? "opacity-100" : "opacity-0 hidden"}`}>{name}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </aside>
 
-      {/* Main Content */}
-      <div className="flex-1 p-5">
-        <h2 className="text-2xl font-semibold text-[#272E6A]">{activeTab}</h2>
+      <main className="flex-1 p-6">
+        <h2 className="text-2xl font-bold text-[#272E6A] mb-4">{activeTab}</h2>
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 };
