@@ -3,6 +3,16 @@ import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
 import { Steps } from "antd";
 import ScrollAnimation from "react-animate-on-scroll";
+import axios from "axios";
+const fetchTimeline = async () => {
+  try {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress/UG`,
+    );
+    // console.log(data);
+    return data?.allSeminarsTimeline;
+  } catch (err) {}
+};
 
 const Agenda = () => {
   const [progress, setProgress] = useState(0);
