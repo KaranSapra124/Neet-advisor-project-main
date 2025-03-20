@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Input, Modal, Select, Switch, Table } from "antd";
+import { Input, Modal, Select, Space, Switch, Table } from "antd";
 import {
   FaEdit,
   FaEnvelope,
@@ -491,6 +491,18 @@ const EditCard = ({
             onChange={handleChange}
             className="w-full rounded-md border p-2"
           />
+          {/* <label className="mx-2 font-semibold text-gray-800">
+            Seminar Type:
+          </label>
+          <Space wrap>
+            <Select
+              defaultValue={"PG"}
+              options={[
+                { value: "PG", label: <span>PG</span> },
+                { value: "UG", label: <span>UG</span> },
+              ]}
+            ></Select>
+          </Space> */}
 
           {/* <div className="flex justify-between">
             <button
