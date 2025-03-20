@@ -590,7 +590,9 @@ exports.getSeminarForUsers = async (req, res) => {
 exports.getSeminar = async (req, res) => {
   const { type } = req.params;
   try {
-    const allSeminars = await PGseminar.find({ seminarType: type });
+    const allSeminars = type
+      ? await PGseminar.find({ seminarType: type })
+      : await PGseminar.find();
     // console.log(allSeminars)
     return res.status(200).send({
       message: "Seminars Fetched!",

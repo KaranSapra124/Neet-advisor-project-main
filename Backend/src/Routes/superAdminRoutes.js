@@ -113,7 +113,9 @@ Router.get("/delete-webinar/:id", deleteWebinar);
 // Webinars Ended
 // Seminars Started
 Router.post("/add-seminar", upload.single("video"), addSeminar);
+Router.get("/get-seminars", getSeminar);
 Router.get("/get-seminars/:type", getSeminar);
+
 Router.get("/get-seminars-for-users", getSeminarForUsers);
 Router.post("/edit-seminar/:id", upload.single("video"), editSeminar);
 Router.get("/delete-seminar/:id", deleteSeminar);
@@ -121,7 +123,7 @@ Router.get("/delete-seminar/:id", deleteSeminar);
 // Seminar Progress Started
 Router.post("/add-seminar-progress", addSeminarTimeline);
 Router.get("/get-seminar-progress/:type", getSeminarTimeline);
-Router.post('/edit-seminar-progress/:id',editSeminarTimeline);
+Router.post("/edit-seminar-progress/:id", editSeminarTimeline);
 Router.get("/delete-progress/:id", deleteTimeline);
 // Seminar Progress Ended
 // Ug Seminar Started
