@@ -62,9 +62,7 @@ const Pg_seminar = () => {
   const columns = [
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Video Thumbnail
-        </h1>
+        <h1 className="text-center text-lg font-bold text-gray-700">Video</h1>
       ),
       dataIndex: "video",
       key: "video",
@@ -74,95 +72,75 @@ const Pg_seminar = () => {
           loop
           src={`${import.meta.env.VITE_BACKEND_URL}uploads/${text}`}
           alt="Video Thumbnail"
-          className="mx-auto h-28 w-28 rounded"
+          className="mx-auto h-28 w-28 rounded shadow-lg transition-transform hover:scale-110"
         />
       ),
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Title
-        </h1>
+        <h1 className="text-center text-lg font-bold text-gray-700">Title</h1>
       ),
       dataIndex: "title",
       key: "title",
       render: (text) => (
-        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
+        <p className="text-center text-sm font-semibold text-gray-800">
+          {text}
+        </p>
       ),
     },
-    // {
-    //   title: (
-    //     <h1 className="text-center text-lg font-bold text-primary-color">
-    //       Description
-    //     </h1>
-    //   ),
-    //   dataIndex: "description",
-    //   key: "description",
-    //   render: (text) => (
-    //     <p className="line-clamp-2 max-w-52 text-center text-xs font-medium">
-    //       {text}
-    //     </p>
-    //   ),
-    // },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          State
-        </h1>
+        <h1 className="text-center text-lg font-bold text-gray-700">State</h1>
       ),
       dataIndex: "state",
       key: "state",
       render: (text) => (
-        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
+        <p className="text-center text-sm font-medium text-gray-700">{text}</p>
       ),
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
+        <h1 className="text-center text-lg font-bold text-gray-700">
           Location
         </h1>
       ),
       dataIndex: "location",
       key: "location",
       render: (text) => (
-        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
+        <p className="text-center text-sm font-medium text-gray-700">{text}</p>
       ),
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Date
-        </h1>
+        <h1 className="text-center text-lg font-bold text-gray-700">Date</h1>
       ),
       dataIndex: "date",
       key: "date",
       render: (text) => (
-        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
+        <p className="text-center text-sm font-medium text-gray-700">{text}</p>
       ),
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Time
-        </h1>
+        <h1 className="text-center text-lg font-bold text-gray-700">Time</h1>
       ),
       dataIndex: "time",
       key: "time",
       render: (text) => (
-        <p className="text-center text-xs font-bold text-gray-800">{text}</p>
+        <p className="text-center text-sm font-medium text-gray-700">{text}</p>
       ),
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Type
-        </h1>
+        <h1 className="text-center text-lg font-bold text-gray-700">Type</h1>
       ),
       dataIndex: "seminarType",
       key: "seminarType",
       render: (text) => (
         <p
-          className={`${text === "UG" ? "mx-auto line-clamp-1 w-fit rounded bg-green-500 p-0.5 text-center text-xs font-semibold text-white" : "mx-auto line-clamp-1 w-fit rounded bg-blue-500 p-0.5 text-center text-xs font-semibold text-white"}`}
+          className={`mx-auto w-fit rounded px-2 py-1 text-center text-xs font-semibold text-white ${
+            text === "UG" ? "bg-green-500" : "bg-blue-500"
+          }`}
         >
           {text ? text : "N/A"}
         </p>
@@ -170,24 +148,22 @@ const Pg_seminar = () => {
     },
     {
       title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Actions
-        </h1>
+        <h1 className="text-center text-lg font-bold text-gray-700">Actions</h1>
       ),
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
-        <div className="flex items-center justify-center gap-5">
+        <div className="flex items-center justify-center gap-4">
           <FaEdit
             onClick={() => {
               setIsEdit(true);
               setEditItem(record);
             }}
-            className="cursor-pointer text-green-500"
+            className="cursor-pointer text-green-500 transition-transform hover:scale-110"
           />
           <FaTrash
             onClick={() => mutation.mutate(record?._id)}
-            className="cursor-pointer text-red-500"
+            className="cursor-pointer text-red-500 transition-transform hover:scale-110"
           />
         </div>
       ),
@@ -229,24 +205,24 @@ const Pg_seminar = () => {
         />
       )}
       {isAdd && <AddCard open={isAdd} onCancel={() => setIsAdd(false)} />}
-      <Container>
-        <button
-          onClick={() => setIsAdd(true)}
-          className="float-right my-2 rounded bg-yellow-500 p-1 font-semibold text-white transition-all hover:scale-105 hover:shadow hover:shadow-black"
-        >
-          Add New +
-        </button>
+      <Container className="p-4">
+        <div className="mb-2 flex justify-end">
+          <button
+            onClick={() => setIsAdd(true)}
+            className="flex items-center gap-2 rounded bg-yellow-500 px-3 py-2 font-semibold text-white transition-all hover:scale-105 hover:shadow-md"
+          >
+            <span className="text-lg">➕</span> Add New
+          </button>
+        </div>
 
         <Table
           tableLayout="fixed"
           loading={isLoading}
-          className="h-full"
+          className="h-full rounded-md border shadow-sm"
           dataSource={data}
           columns={columns}
-          pagination={{
-            pageSize: 5,
-          }}
-          bordered={true}
+          pagination={{ pageSize: 5 }}
+          bordered
         />
       </Container>
     </>
