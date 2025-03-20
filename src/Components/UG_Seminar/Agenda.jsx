@@ -91,7 +91,7 @@ const Agenda = () => {
                   return {
                     children: (
                       <>
-                        <ScrollAnimation duration={1.5} animateIn="backInUp">
+                        <ScrollAnimation duration={1} animateIn="backInUp">
                           <div
                             className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md border border-white bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
                           >
