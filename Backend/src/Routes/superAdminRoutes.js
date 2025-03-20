@@ -113,7 +113,7 @@ Router.get("/delete-webinar/:id", deleteWebinar);
 // Webinars Ended
 // Seminars Started
 Router.post("/add-seminar", upload.single("video"), addSeminar);
-Router.get("/get-seminars", getSeminar);
+Router.get("/get-seminars/:type", getSeminar);
 Router.get("/get-seminars-for-users", getSeminarForUsers);
 Router.post("/edit-seminar/:id", upload.single("video"), editSeminar);
 Router.get("/delete-seminar/:id", deleteSeminar);
