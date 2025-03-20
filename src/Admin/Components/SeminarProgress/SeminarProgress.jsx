@@ -210,7 +210,7 @@ const EditCard = ({
   };
   const mutation = useMutation({
     mutationFn: handleSave,
-    onSuccess: () => queryClient.invalidateQueries(["allProgress"]),
+    onSuccess: () => queryClient.invalidateQueries(["allPGProgress"]),
   });
 
   return (

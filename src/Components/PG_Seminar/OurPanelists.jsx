@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 const fetchTimeline = async () => {
   try {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress/PG`,
     );
     // console.log(data);
     return data?.allSeminarsTimeline;
@@ -18,7 +18,7 @@ const fetchTimeline = async () => {
 
 const OurPanelists = () => {
   const { data, error, isLoading } = useQuery({
-    queryKey: ["allProgress"],
+    queryKey: ["allPGProgress"],
     queryFn: fetchTimeline,
   });
   // const agenda = [
