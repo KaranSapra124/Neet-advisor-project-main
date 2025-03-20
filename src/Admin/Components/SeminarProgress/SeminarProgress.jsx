@@ -120,6 +120,7 @@ const SeminarProgress = () => {
           motive={editItem?.motive}
           endTime={editItem?.endTime}
           fromTime={editItem?.fromTime}
+          seminarType={editItem?.seminarType}
         />
       )}
       {isAdd && (
@@ -155,11 +156,20 @@ const SeminarProgress = () => {
   );
 };
 
-const EditCard = ({ title, motive, fromTime, endTime, onCancel, id }) => {
+const EditCard = ({
+  title,
+  motive,
+  fromTime,
+  endTime,
+  seminarType,
+  onCancel,
+  id,
+}) => {
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedMotive, setEditedMotive] = useState(motive);
   const [editedFromTime, setEditedFromTime] = useState(fromTime);
   const [editedEndTime, setEditedEndTime] = useState(endTime);
+  const [editedType, setEditedType] = useState(seminarType);
   const queryClient = useQueryClient();
 
   const handleSave = async () => {
@@ -224,6 +234,19 @@ const EditCard = ({ title, motive, fromTime, endTime, onCancel, id }) => {
           onChange={(e) => setEditedEndTime(e.target.value)}
           placeholder="End Time"
         />
+        <label className="mx-2 font-semibold text-gray-800">
+          Seminar Type:
+        </label>
+        <Space wrap>
+          <Select
+            onChange={(val) => setEditedType(val)}
+            defaultValue={"PG"}
+            options={[
+              { value: "PG", label: <span>PG</span> },
+              { value: "UG", label: <span>UG</span> },
+            ]}
+          ></Select>
+        </Space>
       </div>
     </Modal>
   );
