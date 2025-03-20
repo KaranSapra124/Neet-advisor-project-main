@@ -510,18 +510,19 @@ const EditCard = ({
             className="w-full rounded-md border p-2"
           />
           <Space wrap>
-            <Select 
-              onChange={(val)=>setFormData((prev)=>{
-                return {
-                  ...prev,
-                  seminarType:val
-                }
-              })}
-              
+            <Select
+              onChange={(val) =>
+                setFormData((prev) => {
+                  return {
+                    ...prev,
+                    seminarType: val,
+                  };
+                })
+              }
               value={formData?.seminarType}
               defaultValue={"Type"}
               options={[
-                { value: "PG", label: <span>PG</span> ,  },
+                { value: "PG", label: <span>PG</span> },
                 { value: "UG", label: <span>UG</span> },
               ]}
             ></Select>
@@ -735,9 +736,16 @@ const AddCard = ({ open, onCancel }) => {
           />
           <Space wrap>
             <Select
-              onChange={handleChange}
+              onChange={(val) =>
+                setFormData((prev) => {
+                  return {
+                    ...prev,
+                    seminarType: val,
+                  };
+                })
+              }
               value={formData?.seminarType}
-              defaultValue={"PG"}
+              defaultValue={"Type"}
               options={[
                 { value: "PG", label: <span>PG</span> },
                 { value: "UG", label: <span>UG</span> },
