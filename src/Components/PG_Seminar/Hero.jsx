@@ -9,7 +9,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 const fetchSeminars = async () => {
   const { data } = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars-for-users`,
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars/PG`,
     {
       withCredentials: true,
     },
