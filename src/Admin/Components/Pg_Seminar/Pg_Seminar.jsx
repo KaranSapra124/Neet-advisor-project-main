@@ -22,7 +22,7 @@ import PG_seminar from "../../../Pages/PG_seminar";
 const fetchSeminar = async () => {
   try {
     const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminars/PG`,
     );
     const { data } = res;
     return data?.allSeminars;
