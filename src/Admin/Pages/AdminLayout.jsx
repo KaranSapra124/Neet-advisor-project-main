@@ -30,11 +30,11 @@ const AdminLayout = ({ user }) => {
 
   const menuItems = useMemo(
     () => [
-      // {
-      //   name: "Dashboard",
-      //   link: user === "Super-Admin" ? "/admin" : "/sub-admin",
-      //   icon: <RiDashboardFill />,
-      // },
+      {
+        name: "Dashboard",
+        link: user === "Super-Admin" ? "/super-admin" : "/sub-admin",
+        icon: <RiDashboardFill />,
+      },
       {
         name: "Testimonials",
         link: `/${user.toLowerCase()}/testimonial`,
@@ -93,7 +93,7 @@ const AdminLayout = ({ user }) => {
       const endpoint =
         user === "Super-Admin" ? "super-admin-auth" : "get-admin";
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}${user.toLowerCase()}/${endpoint}`,
+        `${import.meta.env.VITE_BACKEND_URL}${endpoint === "get-admin" ? 'admin' : user.toLowerCase()}/${endpoint}`,
         {},
         { withCredentials: true },
       );
@@ -108,7 +108,7 @@ const AdminLayout = ({ user }) => {
     if (!SuperAdminContext?.admin) {
       authAdmin();
     }
-  }, [authAdmin]);
+  }, []);
 
   return (
     <div className="flex min-h-screen bg-gray-100">

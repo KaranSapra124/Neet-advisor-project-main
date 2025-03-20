@@ -50,7 +50,7 @@ const OTPForm = ({ title }) => {
               },
             );
             toast.success(data?.message);
-            navigate("/admin");
+            navigate("/super-admin");
           })()
         : (async () => {
             const { data } = await axios.post(
@@ -76,7 +76,6 @@ const OTPForm = ({ title }) => {
         withCredentials: true,
       },
     );
-    toast.success(data?.message);
   };
 
   useEffect(() => {

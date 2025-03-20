@@ -30,6 +30,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Pg_Seminar from "./Admin/Components/Pg_Seminar/Pg_Seminar";
 import SeminarProgress from "./Admin/Components/SeminarProgress/SeminarProgress";
 import Ug_seminar from "./Admin/Components/Ug_seminar/UgSeminar";
+import Dashboard from "./Admin/Components/Dashboard/Dashboard";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -91,6 +92,10 @@ const App = () => {
       element: <AdminLayout user={"Super-Admin"} />,
       children: [
         {
+          path: "/super-admin",
+          element: <Dashboard />,
+        },
+        {
           path: "/super-admin/testimonial",
           element: <Testimonial />,
         },
@@ -133,6 +138,10 @@ const App = () => {
       element: <AdminLayout user={"sub-admin"} />,
       children: [
         {
+          path: "/sub-admin",
+          element: <Dashboard />,
+        },
+        {
           path: "/sub-admin/testimonial",
           element: <Testimonial />,
         },
@@ -155,7 +164,7 @@ const App = () => {
       ],
     },
     {
-      path: "/admin/login",
+      path: "/super-admin/login",
       element: <SuperAdminLogin title={"Super Admin Login"} />,
     },
     {

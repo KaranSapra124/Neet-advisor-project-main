@@ -14,6 +14,7 @@ exports.superAdminAuth = (req, res, next) => {
 exports.adminAuth = (req, res, next) => {
   try {
     const { adminToken } = req.cookies;
+    console.log(adminToken,'AUTH ADMIN')
     if (!adminToken) res.status(401).send({ message: "No Token Provided!" });
     const id = Jwt.decode(adminToken);
     // console.log(id)
@@ -21,6 +22,6 @@ exports.adminAuth = (req, res, next) => {
     next();
   } catch (err) {
     // console.log(err)
-    return res.status(401).send({ message: "Unauthorized: Invalid Token" });
+    return res.status(403).json({ message: "Unauthorized: Invalid Token" });
   }
 };

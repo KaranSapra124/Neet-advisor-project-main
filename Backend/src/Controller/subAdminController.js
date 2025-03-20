@@ -51,6 +51,7 @@ exports.verifyOTP = async (req, res) => {
 exports.getAdmin = async (req, res) => {
   try {
     if (req?.user) {
+      console.log(req?.user, "USER");
       const { id } = req?.user;
       const admin = await subAdmin.findById(id);
       if (!admin)
