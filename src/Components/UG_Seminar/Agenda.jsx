@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
-import { Steps } from "antd";
+import { Steps, Timeline } from "antd";
 import ScrollAnimation from "react-animate-on-scroll";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 const fetchTimeline = async () => {
   try {
     const { data } = await axios.get(
@@ -15,37 +16,41 @@ const fetchTimeline = async () => {
 };
 
 const Agenda = () => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["allUGProgress"],
+    queryFn: fetchTimeline,
+  });
   const [progress, setProgress] = useState(0);
-  const agenda = [
-    {
-      time: "9:00 AM - 9:30 AM",
-      topic: "Welcome & Introduction",
-      speaker: "Mr. Vipin Bansal",
-      description:
-        "An overview of the seminar objectives and introduction to the expert panel.",
-    },
-    {
-      time: "9:30 AM - 10:15 AM",
-      topic: "Top NEET UG 2025 Preparation Strategies",
-      speaker: "Mr. Vivek Singh",
-      description:
-        "Insights on tackling the NEET UG syllabus, time management, and effective study techniques.",
-    },
-    {
-      time: "10:15 AM - 11:00 AM",
-      topic: "Navigating NEET UG Counseling & Admissions",
-      speaker: "Mr. Vipin Bansal",
-      description:
-        "A walkthrough of the counseling process, college preferences, and securing admissions.",
-    },
-    {
-      time: "11:00 AM - 11:30 AM",
-      topic: "Q&A Session with Experts",
-      speaker: "Mr. Vivek Singh and Mr. Vipin Bansal",
-      description:
-        "An open discussion to address attendee questions and provide personalized guidance.",
-    },
-  ];
+  // const agenda = [
+  //   {
+  //     time: "9:00 AM - 9:30 AM",
+  //     topic: "Welcome & Introduction",
+  //     speaker: "Mr. Vipin Bansal",
+  //     description:
+  //       "An overview of the seminar objectives and introduction to the expert panel.",
+  //   },
+  //   {
+  //     time: "9:30 AM - 10:15 AM",
+  //     topic: "Top NEET UG 2025 Preparation Strategies",
+  //     speaker: "Mr. Vivek Singh",
+  //     description:
+  //       "Insights on tackling the NEET UG syllabus, time management, and effective study techniques.",
+  //   },
+  //   {
+  //     time: "10:15 AM - 11:00 AM",
+  //     topic: "Navigating NEET UG Counseling & Admissions",
+  //     speaker: "Mr. Vipin Bansal",
+  //     description:
+  //       "A walkthrough of the counseling process, college preferences, and securing admissions.",
+  //   },
+  //   {
+  //     time: "11:00 AM - 11:30 AM",
+  //     topic: "Q&A Session with Experts",
+  //     speaker: "Mr. Vivek Singh and Mr. Vipin Bansal",
+  //     description:
+  //       "An open discussion to address attendee questions and provide personalized guidance.",
+  //   },
+  // ];
 
   useEffect(() => {
     const timelineProgress = setInterval(() => {
@@ -60,11 +65,7 @@ const Agenda = () => {
         className={"no-repeat relative bg-seminar-hero bg-cover bg-fixed"}
       >
         <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
-        <ScrollAnimation
-          animateIn="backInRight"
-          animateOnce={true}
-          duration={1.5}
-        >
+        <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={1.5}>
           <div className="relative">
             <div className="text-center">
               <h1 className="text-sm font-semibold text-yellow-600 lg:text-3xl">
@@ -83,42 +84,47 @@ const Agenda = () => {
               />
             </div>
             <div>
-              <Steps
-                className="agenda-stepper"
-                progressDot={true}
-                current={progress}
-                direction="horizontal"
-                type={window.outerWidth > 800 ? "inline" : "default"}
-                items={agenda?.map((elem, index) => {
+              <Timeline
+                mode={window.outerWidth > 800 ? "alternate" : "left"}
+                className="pg-seminar"
+                items={data?.map((elem, index) => {
                   return {
-                    title: (
+                    children: (
                       <>
-                        <div className="m-2 my-4 h-40 lg:w-80 rounded-md bg-gradient-to-tr from-black/10 to-black/70 shadow shadow-white">
-                          <img
-                            src="./Seminar/validation-badge-bg-removed.gif"
-                            className="absolute lg:-top-0.5 top-0 lg:left-[19.5rem] lg:h-9 lg:w-9 w-7 left-[13.5rem] "
-                            alt=""
-                            srcset=""
-                          />
-                          <div className="lg:p-4 p-2">
-                            <h2 className="my-1 lg:text-sm  text-xs  font-semibold text-white">
-                              {elem?.topic}
-                            </h2>
-                            <Divider
-                              className={
-                                "lg:mx-auto text-left lg:my-4 my-2   h-0.5 w-8 rounded-full bg-gray-400"
-                              }
+                        <ScrollAnimation duration={1.5} animateIn="backInUp">
+                          <div
+                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md border border-white bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
+                          >
+                            <img
+                              src="./Seminar/validation-badge-bg-removed.gif"
+                              className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "left-[14rem] lg:left-[39.5rem]" : "left-[14rem] lg:left-[19.2rem]"}`}
+                              alt=""
+                              srcset=""
                             />
-                            <h1 className="lg:text-xs text-[0.8rem] font-bold text-white">
-                              {elem?.time}
-                            </h1>
-                            <p className="lg:my-2 my-1.5 text-wrap text-xs font-semibold text-gray-200">
-                              {elem?.description}
-                            </p>
+                            <div className="p-2 lg:p-4">
+                              <h2 className="text-md my-1 font-extrabold text-white max-[800px]:text-[0.6rem] lg:font-semibold">
+                                {elem?.title}
+                              </h2>
+                              <Divider
+                                className={
+                                  "mx-auto my-4 h-0.5 w-8 rounded-full bg-gray-400 lg:my-2"
+                                }
+                              />
+                              <h1 className="text-xs font-thin text-white lg:text-sm lg:font-bold">
+                                {elem?.fromTime} AM - {elem?.endTime} AM
+                              </h1>
+                              <p className="my-3 text-wrap text-[0.7rem] font-bold text-gray-200 lg:my-2 lg:text-xs">
+                                {elem?.motive}
+                              </p>
+                            </div>
                           </div>
-                        </div>
+                        </ScrollAnimation>
                       </>
                     ),
+
+                    color: "#201169",
+
+                    // className:"brightness-200"
                   };
                 })}
               />
