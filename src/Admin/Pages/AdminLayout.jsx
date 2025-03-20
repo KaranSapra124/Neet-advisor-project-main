@@ -56,15 +56,15 @@ const AdminLayout = ({ user }) => {
             icon: <FaChalkboardTeacher />,
           },
           {
-            name: "PG Seminar",
+            name: "Seminars",
             link: "/admin/pg-seminar",
             icon: <FaPeopleGroup />,
           },
-          {
-            name: "UG Seminar",
-            link: "/admin/ug-seminar",
-            icon: <FaPeopleGroup />,
-          },
+          // {
+          //   name: "UG Seminar",
+          //   link: "/admin/ug-seminar",
+          //   icon: <FaPeopleGroup />,
+          // },
           {
             name: "Seminar Progress",
             link: "/admin/seminar-progress",
@@ -97,15 +97,15 @@ const AdminLayout = ({ user }) => {
             icon: <FaChalkboardTeacher />,
           },
           {
-            name: "PG Seminar",
+            name: "Seminars",
             link: "/admin/pg-seminar",
             icon: <FaPeopleGroup />,
           },
-          {
-            name: "UG Seminar",
-            link: "/admin/ug-seminar",
-            icon: <FaPeopleGroup />,
-          },
+          // {
+          //   name: "UG Seminar",
+          //   link: "/admin/ug-seminar",
+          //   icon: <FaPeopleGroup />,
+          // },
           {
             name: "Seminar Progress",
             link: "/admin/seminar-progress",
