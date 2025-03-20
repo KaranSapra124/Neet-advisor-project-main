@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Input, Modal, Table } from "antd";
+import { Input, Modal, Select, Space, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -230,40 +230,40 @@ const EditCard = ({ title, motive, fromTime, endTime, onCancel, id }) => {
 };
 
 const AddCard = ({ open, onCancel, title }) => {
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      if (
-        !formData.title ||
-        !formData.fromTime ||
-        !formData.endTime ||
-        !formData.motive
-      ) {
-        alert("All fields are required!");
-        return;
-      }
-  
-      try {
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar-progress`,
-          formData,
-        );
-  
-        toast.success(data?.message);
-  
-        setFormData({
-          title: "",
-          fromTime: "",
-          endTime: "",
-          motive: "",
-        });
-  
-        onCancel(); // Close modal after success
-      } catch (error) {
-        console.error("Error submitting:", error);
-        alert("Something went wrong. Please try again!");
-      }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (
+      !formData.title ||
+      !formData.fromTime ||
+      !formData.endTime ||
+      !formData.motive
+    ) {
+      alert("All fields are required!");
+      return;
+    }
+
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar-progress`,
+        formData,
+      );
+
+      toast.success(data?.message);
+
+      setFormData({
+        title: "",
+        fromTime: "",
+        endTime: "",
+        motive: "",
+      });
+
+      onCancel(); // Close modal after success
+    } catch (error) {
+      console.error("Error submitting:", error);
+      alert("Something went wrong. Please try again!");
+    }
+  };
   const query = useQueryClient();
   const mutation = useMutation({
     mutationFn: handleSubmit,
@@ -279,7 +279,6 @@ const AddCard = ({ open, onCancel, title }) => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
 
   return (
     <Modal title={title} open={open} onCancel={onCancel} footer={null}>
@@ -325,6 +324,18 @@ const AddCard = ({ open, onCancel, title }) => {
           className="w-full rounded-md border p-2"
           rows={3}
         />
+        <label className="mx-2 font-semibold text-gray-800">
+          Seminar Type:
+        </label>
+        <Space wrap>
+          <Select
+            defaultValue={"PG"}
+            options={[
+              { value: "PG", label: <span>PG</span> },
+              { value: "UG", label: <span>UG</span> },
+            ]}
+          ></Select>
+        </Space>
 
         {/* Buttons */}
         <div className="flex justify-between">
