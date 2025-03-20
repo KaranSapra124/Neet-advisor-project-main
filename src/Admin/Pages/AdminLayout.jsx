@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 import { userSuperAdminAuth } from "../Components/Context/SuperAdminContext";
 import { BsFileBarGraph, BsGraphUp } from "react-icons/bs";
 import { useAdminAuth } from "../Components/Context/AdminContext";
-import { FaPeopleGroup } from "react-icons/fa6";
+import { FaPeopleGroup, FaShield } from "react-icons/fa6";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 
 const AdminLayout = ({ user }) => {
@@ -50,7 +50,7 @@ const AdminLayout = ({ user }) => {
         link: `/${user.toLowerCase()}/news`,
         icon: <FaBell />,
       },
-      { name: "Blogs", link: `/${user.toLowerCase()}/news`, icon: <FaBlog /> },
+      // { name: "Blogs", link: `/${user.toLowerCase()}/news`, icon: <FaBlog /> },
       {
         name: "Students",
         link: `/${user.toLowerCase()}/students`,
@@ -68,8 +68,13 @@ const AdminLayout = ({ user }) => {
       },
       {
         name: "Seminar Progress",
-        link: "/admin/seminar-progress",
+        link: `/super-admin/seminar-progress`,
         icon: <BsGraphUp />,
+      },
+      {
+        name: "Permissions",
+        link: `/${user?.toLowerCase()}/permissions`,
+        icon: <FaShield />,
       },
     ],
     [user],
