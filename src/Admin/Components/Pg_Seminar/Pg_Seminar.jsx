@@ -59,116 +59,92 @@ const Pg_seminar = () => {
     onSuccess: () => queryClient.invalidateQueries(["allAdmins"]),
   });
 
-  const columns = [
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-gray-700">Video</h1>
-      ),
-      dataIndex: "video",
-      key: "video",
-      render: (text) => (
-        <video
-          autoPlay
-          loop
-          src={`${import.meta.env.VITE_BACKEND_URL}uploads/${text}`}
-          alt="Video Thumbnail"
-          className="mx-auto h-28 w-28 rounded shadow-lg transition-transform hover:scale-110"
+const columns = [
+  {
+    title: <h1 className="text-center text-lg font-semibold text-gray-700">Video</h1>,
+    dataIndex: "video",
+    key: "video",
+    render: (text) => (
+      <video
+        autoPlay
+        loop
+        src={`${import.meta.env.VITE_BACKEND_URL}uploads/${text}`}
+        className="mx-auto h-28 w-28 rounded shadow-lg"
+      />
+    ),
+  },
+  {
+    title: <h1 className="text-center text-lg font-semibold text-gray-700">Title</h1>,
+    dataIndex: "title",
+    key: "title",
+    render: (text) => (
+      <p className="text-center text-sm font-semibold text-gray-800">{text}</p>
+    ),
+  },
+  {
+    title: <h1 className="text-center text-lg font-semibold text-gray-700">State</h1>,
+    dataIndex: "state",
+    key: "state",
+    render: (text) => (
+      <p className="text-center text-sm font-medium text-gray-700">{text}</p>
+    ),
+  },
+  {
+    title: <h1 className="text-center text-lg font-semibold text-gray-700">Location</h1>,
+    dataIndex: "location",
+    key: "location",
+    render: (text) => (
+      <p className="text-center text-sm font-medium text-gray-700">{text}</p>
+    ),
+  },
+  {
+    title: <h1 className="text-center text-lg font-semibold text-gray-700">Date</h1>,
+    dataIndex: "date",
+    key: "date",
+    render: (text) => (
+      <p className="text-center text-sm font-medium text-gray-700">{text}</p>
+    ),
+  },
+  {
+    title: <h1 className="text-center text-lg font-semibold text-gray-700">Time</h1>,
+    dataIndex: "time",
+    key: "time",
+    render: (text) => (
+      <p className="text-center text-sm font-medium text-gray-700">{text}</p>
+    ),
+  },
+  {
+    title: <h1 className="text-center text-lg font-semibold text-gray-700">Type</h1>,
+    dataIndex: "seminarType",
+    key: "seminarType",
+    render: (text) => (
+      <p className={`mx-auto w-fit rounded-full px-3 py-1 text-xs font-semibold text-white ${text === "UG" ? "bg-green-500" : "bg-blue-500"}`}>
+        {text || "N/A"}
+      </p>
+    ),
+  },
+  {
+    title: <h1 className="text-center text-lg font-semibold text-gray-700">Actions</h1>,
+    dataIndex: "action",
+    key: "action",
+    render: (_, record) => (
+      <div className="flex items-center justify-center gap-4">
+        <FaEdit
+          onClick={() => {
+            setIsEdit(true);
+            setEditItem(record);
+          }}
+          className="cursor-pointer text-xl text-green-500 transition hover:scale-110"
         />
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-gray-700">Title</h1>
-      ),
-      dataIndex: "title",
-      key: "title",
-      render: (text) => (
-        <p className="text-center text-sm font-semibold text-gray-800">
-          {text}
-        </p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-gray-700">State</h1>
-      ),
-      dataIndex: "state",
-      key: "state",
-      render: (text) => (
-        <p className="text-center text-sm font-medium text-gray-700">{text}</p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-gray-700">
-          Location
-        </h1>
-      ),
-      dataIndex: "location",
-      key: "location",
-      render: (text) => (
-        <p className="text-center text-sm font-medium text-gray-700">{text}</p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-gray-700">Date</h1>
-      ),
-      dataIndex: "date",
-      key: "date",
-      render: (text) => (
-        <p className="text-center text-sm font-medium text-gray-700">{text}</p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-gray-700">Time</h1>
-      ),
-      dataIndex: "time",
-      key: "time",
-      render: (text) => (
-        <p className="text-center text-sm font-medium text-gray-700">{text}</p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-gray-700">Type</h1>
-      ),
-      dataIndex: "seminarType",
-      key: "seminarType",
-      render: (text) => (
-        <p
-          className={`mx-auto w-fit rounded px-2 py-1 text-center text-xs font-semibold text-white ${
-            text === "UG" ? "bg-green-500" : "bg-blue-500"
-          }`}
-        >
-          {text ? text : "N/A"}
-        </p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-gray-700">Actions</h1>
-      ),
-      dataIndex: "action",
-      key: "action",
-      render: (_, record) => (
-        <div className="flex items-center justify-center gap-4">
-          <FaEdit
-            onClick={() => {
-              setIsEdit(true);
-              setEditItem(record);
-            }}
-            className="cursor-pointer text-green-500 transition-transform hover:scale-110"
-          />
-          <FaTrash
-            onClick={() => mutation.mutate(record?._id)}
-            className="cursor-pointer text-red-500 transition-transform hover:scale-110"
-          />
-        </div>
-      ),
-    },
-  ];
+        <FaTrash
+          onClick={() => mutation.mutate(record?._id)}
+          className="cursor-pointer text-xl text-red-500 transition hover:scale-110"
+        />
+      </div>
+    ),
+  },
+];
+
 
   return (
     <>
