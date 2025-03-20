@@ -23,17 +23,18 @@ const AdminLayout = ({ user }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  // console.log(user,'USER')
 
   const SuperAdminContext =
     user === "Super-Admin" ? userSuperAdminAuth() : useAdminAuth();
 
   const menuItems = useMemo(
     () => [
-      {
-        name: "Dashboard",
-        link: user === "Super-Admin" ? "/admin" : "/sub-admin",
-        icon: <RiDashboardFill />,
-      },
+      // {
+      //   name: "Dashboard",
+      //   link: user === "Super-Admin" ? "/admin" : "/sub-admin",
+      //   icon: <RiDashboardFill />,
+      // },
       {
         name: "Testimonials",
         link: `/${user.toLowerCase()}/testimonial`,
@@ -101,13 +102,13 @@ const AdminLayout = ({ user }) => {
       toast.error(err?.response?.data?.message);
       navigate(`/${user.toLowerCase()}/login`);
     }
-  }, [user, navigate]);
+  }, [user]);
 
   useEffect(() => {
     if (!SuperAdminContext?.admin) {
       authAdmin();
     }
-  }, [authAdmin, SuperAdminContext]);
+  }, [authAdmin]);
 
   return (
     <div className="flex min-h-screen bg-gray-100">

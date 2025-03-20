@@ -55,12 +55,13 @@ exports.getAdmin = async (req, res) => {
       const admin = await subAdmin.findById(id);
       if (!admin)
         return res.status(401).send({ message: "No Super Admin Found!" });
+      if (!admin?.adminStatus)
+        return res.status(401).send({ message: "Admin Not Enabled!" });
 
       return res
         .status(201)
         .send({ message: "Logged In Successfully!", admin });
-    }else{
-
+    } else {
     }
   } catch (err) {
     console.log(err);

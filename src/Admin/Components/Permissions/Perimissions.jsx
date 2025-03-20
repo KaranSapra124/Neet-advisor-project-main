@@ -42,6 +42,7 @@ const permissions = [
   "Webinars",
   "Seminars",
   "Seminar-Progress",
+  "Dashboard",
 ];
 
 const Permissions = () => {

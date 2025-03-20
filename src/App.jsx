@@ -130,7 +130,7 @@ const App = () => {
     },
     {
       path: "/sub-admin",
-      element: <AdminLayout user={"admin"} />,
+      element: <AdminLayout user={"sub-admin"} />,
       children: [
         {
           path: "/sub-admin/testimonial",
@@ -144,10 +144,10 @@ const App = () => {
           path: "/sub-admin/students",
           element: <StudentsData />,
         },
-        {
-          path: "/sub-admin/permissions",
-          element: <Perimissions />,
-        },
+        // {
+        //   path: "/sub-admin/permissions",
+        //   element: <Perimissions />,
+        // },
         {
           path: "/sub-admin/news",
           element: <MainNewsPage />,
