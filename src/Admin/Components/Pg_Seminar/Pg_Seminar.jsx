@@ -223,6 +223,7 @@ const Pg_seminar = () => {
           state={editItem?.state}
           time={editItem?.time}
           title={editItem?.title}
+          seminarType={editItem?.seminarType}
           onCancel={() => setIsEdit(false)}
           key={editItem?._id}
         />
@@ -509,8 +510,12 @@ const EditCard = ({
             onChange={handleChange}
             className="w-full rounded-md border p-2"
           />
+          <label className="mx-2 font-semibold text-gray-800">
+            Seminar Type:
+          </label>
           <Space wrap>
             <Select
+              className="w-32"
               onChange={(val) =>
                 setFormData((prev) => {
                   return {
@@ -522,6 +527,7 @@ const EditCard = ({
               value={formData?.seminarType}
               defaultValue={"Type"}
               options={[
+                { value: "", label: <span>Select Type</span>, disabled: true },
                 { value: "PG", label: <span>PG</span> },
                 { value: "UG", label: <span>UG</span> },
               ]}
@@ -734,8 +740,12 @@ const AddCard = ({ open, onCancel }) => {
             onChange={handleChange}
             className="w-full rounded-md border p-2"
           />
+          <label className="mx-2 font-semibold text-gray-800">
+            Seminar Type:
+          </label>
           <Space wrap>
             <Select
+              className="w-32"
               onChange={(val) =>
                 setFormData((prev) => {
                   return {
@@ -747,6 +757,7 @@ const AddCard = ({ open, onCancel }) => {
               value={formData?.seminarType}
               defaultValue={"Type"}
               options={[
+                { value: "", label: <span>Select Type</span>, disabled: true },
                 { value: "PG", label: <span>PG</span> },
                 { value: "UG", label: <span>UG</span> },
               ]}
