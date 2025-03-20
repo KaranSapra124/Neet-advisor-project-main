@@ -49,7 +49,7 @@ const OTPForm = ({ title }) => {
                 withCredentials: true,
               },
             );
-            toast.success(data?.message);
+            // toast.success(data?.message);
             navigate("/super-admin");
           })()
         : (async () => {
