@@ -1,11 +1,10 @@
 import React from "react";
 import Container from "../Helper/Container";
-import Divider from "../Helper/Divider";
+// import Divider from "../Helper/Divider";
 import "./Pg_Seminar.css";
-import { FaGraduationCap } from "react-icons/fa6";
-import { FaArrowRight, FaShieldAlt } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import ScrollAnimation from "react-animate-on-scroll";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 const fetchSeminars = async () => {
   const { data } = await axios.get(
