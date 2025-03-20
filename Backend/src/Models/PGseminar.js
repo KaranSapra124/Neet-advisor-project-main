@@ -37,6 +37,11 @@ const pgSeminar = new mongoose.Schema({
     type: String,
     required: true,
   },
+  seminarType: {
+    type: String,
+    required: true,
+    enum: ["UG", "PG"],
+  },
 });
 
 module.exports = mongoose.model("pgSeminar", pgSeminar);
