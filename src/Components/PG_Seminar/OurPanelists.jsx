@@ -95,32 +95,34 @@ const OurPanelists = () => {
                   return {
                     children: (
                       <>
-                        <div
-                          className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md border border-white bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
-                        >
-                          <img
-                            src="./Seminar/validation-badge-bg-removed.gif"
-                            className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "left-[14rem] lg:left-[39.5rem]" : "left-[14rem] lg:left-[19.2rem]"}`}
-                            alt=""
-                            srcset=""
-                          />
-                          <div className="p-2 lg:p-4">
-                            <h2 className="text-md my-1 font-extrabold text-white max-[800px]:text-[0.6rem] lg:font-semibold">
-                              {elem?.title}
-                            </h2>
-                            <Divider
-                              className={
-                                "mx-auto my-4 h-0.5 w-8 rounded-full bg-gray-400 lg:my-2"
-                              }
+                        <ScrollAnimation duration={1} animateIn="backInUp">
+                          <div
+                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md border border-white bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
+                          >
+                            <img
+                              src="./Seminar/validation-badge-bg-removed.gif"
+                              className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "left-[14rem] lg:left-[39.5rem]" : "left-[14rem] lg:left-[19.2rem]"}`}
+                              alt=""
+                              srcset=""
                             />
-                            <h1 className="text-xs font-thin text-white lg:text-sm lg:font-bold">
-                              {elem?.fromTime} AM - {elem?.endTime} AM
-                            </h1>
-                            <p className="my-3 text-wrap text-[0.7rem] font-bold text-gray-200 lg:my-2 lg:text-xs">
-                              {elem?.motive}
-                            </p>
+                            <div className="p-2 lg:p-4">
+                              <h2 className="text-md my-1 font-extrabold text-white max-[800px]:text-[0.6rem] lg:font-semibold">
+                                {elem?.title}
+                              </h2>
+                              <Divider
+                                className={
+                                  "mx-auto my-4 h-0.5 w-8 rounded-full bg-gray-400 lg:my-2"
+                                }
+                              />
+                              <h1 className="text-xs font-thin text-white lg:text-sm lg:font-bold">
+                                {elem?.fromTime} AM - {elem?.endTime} AM
+                              </h1>
+                              <p className="my-3 text-wrap text-[0.7rem] font-bold text-gray-200 lg:my-2 lg:text-xs">
+                                {elem?.motive}
+                              </p>
+                            </div>
                           </div>
-                        </div>
+                        </ScrollAnimation>
                       </>
                     ),
 
