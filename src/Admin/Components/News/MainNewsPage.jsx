@@ -338,7 +338,9 @@ const AddCard = ({ open, onCancel }) => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-news-admin`,
-        formData,
+        formData,{
+          withCredentials:true
+        }
       );
 
       setFormData({
