@@ -110,13 +110,13 @@ Router.post("/add-news", authAdmins, upload.single("file"), addNews);
 Router.post("/add-news-admin",authAdmins, addNewsFn);
 Router.get("/get-news", getNews);
 Router.post("/edit-news/:id",authAdmins, editNews);
-Router.post("/delete-news/:id", deleteNews);
+Router.post("/delete-news/:id",authAdmins, deleteNews);
 Router.get("/get-latest-news", getLatestNews);
 Router.post("/get-related-news", getRelatedNews);
 Router.get("/get-news/:id", getSingleNews);
 // News Completed
 // Webinars Started
-Router.post("/add-webinar", upload.single("thumbnail"), addWebinar);
+Router.post("/add-webinar",authAdmins, upload.single("thumbnail"), addWebinar);
 Router.get("/get-webinars", getWebinars);
 Router.post("/edit-webinar/:id", upload.single("thumbnail"), editWebinar);
 Router.get("/delete-webinar/:id", deleteWebinar);
