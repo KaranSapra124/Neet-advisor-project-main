@@ -107,34 +107,44 @@ Router.post("/edit-admin/:id", superAdminAuth, editAdmin);
 
 // News Started
 Router.post("/add-news", authAdmins, upload.single("file"), addNews);
-Router.post("/add-news-admin",authAdmins, addNewsFn);
+Router.post("/add-news-admin", authAdmins, addNewsFn);
 Router.get("/get-news", getNews);
-Router.post("/edit-news/:id",authAdmins, editNews);
-Router.post("/delete-news/:id",authAdmins, deleteNews);
+Router.post("/edit-news/:id", authAdmins, editNews);
+Router.post("/delete-news/:id", authAdmins, deleteNews);
 Router.get("/get-latest-news", getLatestNews);
 Router.post("/get-related-news", getRelatedNews);
 Router.get("/get-news/:id", getSingleNews);
 // News Completed
 // Webinars Started
-Router.post("/add-webinar",authAdmins, upload.single("thumbnail"), addWebinar);
+Router.post("/add-webinar", authAdmins, upload.single("thumbnail"), addWebinar);
 Router.get("/get-webinars", getWebinars);
-Router.post("/edit-webinar/:id",authAdmins, upload.single("thumbnail"), editWebinar);
-Router.get("/delete-webinar/:id",authAdmins, deleteWebinar);
+Router.post(
+  "/edit-webinar/:id",
+  authAdmins,
+  upload.single("thumbnail"),
+  editWebinar,
+);
+Router.get("/delete-webinar/:id", authAdmins, deleteWebinar);
 // Webinars Ended
 // Seminars Started
-Router.post("/add-seminar",authAdmins, upload.single("video"), addSeminar);
+Router.post("/add-seminar", authAdmins, upload.single("video"), addSeminar);
 Router.get("/get-seminars", getSeminar);
 Router.get("/get-seminars/:type", getSeminar);
 
 Router.get("/get-seminars-for-users", getSeminarForUsers);
-Router.post("/edit-seminar/:id",authAdmins, upload.single("video"), editSeminar);
-Router.get("/delete-seminar/:id",authAdmins, deleteSeminar);
+Router.post(
+  "/edit-seminar/:id",
+  authAdmins,
+  upload.single("video"),
+  editSeminar,
+);
+Router.get("/delete-seminar/:id", authAdmins, deleteSeminar);
 // Seminar Ended
 // Seminar Progress Started
-Router.post("/add-seminar-progress",authAdmins, addSeminarTimeline);
+Router.post("/add-seminar-progress", authAdmins, addSeminarTimeline);
 Router.get("/get-seminar-progress/:type", getSeminarTimeline);
-Router.post("/edit-seminar-progress/:id",authAdmins, editSeminarTimeline);
-Router.get("/delete-progress/:id",authAdmins, deleteTimeline);
+Router.post("/edit-seminar-progress/:id", authAdmins, editSeminarTimeline);
+Router.get("/delete-progress/:id", authAdmins, deleteTimeline);
 // Seminar Progress Ended
 // Ug Seminar Started
 // Router.post("/add-ug-seminar", upload.single("video"), addUgSeminar);
