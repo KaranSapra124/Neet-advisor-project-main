@@ -20,9 +20,11 @@ import {
 
 const fetchStudents = async () => {
   const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-students`,null,{
-      withCredentials:true
-    }
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-students`,
+    null,
+    {
+      withCredentials: true,
+    },
   );
   const { data } = res;
   return data?.students;
@@ -42,6 +44,10 @@ const StudentsData = () => {
   const handleDelete = async (id) => {
     await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-student/${id}`,
+      null,
+      {
+        withCredentials: true,
+      },
     );
   };
   const mutation = useMutation({
