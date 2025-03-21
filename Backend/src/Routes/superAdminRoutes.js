@@ -45,7 +45,7 @@ const {
   deleteUgSeminar,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
-const { superAdminAuth } = require("../Middlewares/superAdminAuth");
+const { superAdminAuth, adminAuth } = require("../Middlewares/superAdminAuth");
 const { getAuthTokenZoom } = require("../Middlewares/ZoomTokenGenerator");
 const { verifyPassword } = require("../Middlewares/VerifyPermission");
 
@@ -62,7 +62,7 @@ Router.get("/get-zoom-meetings", getAuthTokenZoom, getZoomMeetings);
 // Services
 Router.post(
   "/add-service",
-  verifyPassword,
+  adminAuth,
   upload.fields([
     { name: "video", maxCount: 1 },
     { name: "icon", maxCount: 1 },
