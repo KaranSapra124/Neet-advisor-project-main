@@ -27,6 +27,9 @@ const fetchNews = async () => {
   try {
     const res = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/get-news`,
+      {
+        withCredentials: true,
+      },
     );
     const { data } = res;
     return data?.allNews;
@@ -52,6 +55,10 @@ const MainNewsPage = () => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-news/${id}`,
+        null,
+        {
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (err) {
