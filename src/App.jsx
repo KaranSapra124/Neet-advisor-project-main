@@ -116,7 +116,7 @@ const App = () => {
           element: <MainNewsPage />,
         },
         {
-          path: "/super-admin/webinars",
+          path: "/super-admin/webinar",
           element: <AdminWebinars />,
         },
         {
