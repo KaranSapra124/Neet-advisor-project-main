@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import TextArea from "antd/es/input/TextArea";
+import DeleteModal from "../../Utils/DeleteModal";
 
 const fetchWebinar = async () => {
   try {
@@ -40,6 +41,7 @@ const Webinars = () => {
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
+  const [isDelete, setIsDelete] = useState({ open: false, item: null });
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["allWebinars"],
@@ -172,7 +174,7 @@ const Webinars = () => {
             className="cursor-pointer text-green-500"
           />
           <FaTrash
-            onClick={() => mutation.mutate(record?._id)}
+            onClick={() => setIsDelete({ open: true, item: record?._id })}
             className="cursor-pointer text-red-500"
           />
         </div>
@@ -182,6 +184,13 @@ const Webinars = () => {
 
   return (
     <>
+      {isDelete && (
+        <DeleteModal
+          isOpen={isDelete?.open}
+          setIsOpen={() => setIsDelete({ open: false, item: null })}
+          handleDelete={() => mutation.mutate(isDelete?.item)}
+        />
+      )}
       {isView && (
         <Modal
           open={isView}
