@@ -22,6 +22,9 @@ const fetchWebinar = async () => {
   try {
     const res = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/get-webinars`,
+      {
+        withCredentials: true,
+      },
     );
     const { data } = res;
     console.log(data);
