@@ -302,6 +302,9 @@ const EditCard = ({
       `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-student/${id}`,
       formData,
       {
+        withCredentials: true,
+      },
+      {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -437,6 +440,9 @@ const AddCard = ({ open, onCancel }) => {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-student`,
         formDataToSend,
+        {
+          withCredentials: true,
+        },
         {
           headers: {
             "Content-Type": "multipart/form-data",
