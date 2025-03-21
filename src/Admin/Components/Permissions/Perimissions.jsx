@@ -21,13 +21,15 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import DeleteModal from "../../Utils/DeleteModal";
 
 const fetchAdmins = async () => {
   try {
     const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,{
-        withCredentials:true
-      }
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,
+      {
+        withCredentials: true,
+      },
     );
     const { data } = res;
     return data?.allAdmins;
@@ -54,6 +56,7 @@ const Permissions = () => {
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
+  const [isDelete, setIsDelete] = useState({ open: false, item: null });
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["allAdmins"],
@@ -170,7 +173,7 @@ const Permissions = () => {
             className="cursor-pointer text-green-500"
           />
           <FaTrash
-            onClick={() => mutation.mutate(record?._id)}
+            onClick={() => setIsDelete({ open: true, item: record?._id })}
             className="cursor-pointer text-red-500"
           />
         </div>
@@ -180,6 +183,13 @@ const Permissions = () => {
 
   return (
     <>
+      {isDelete && (
+        <DeleteModal
+          isOpen={isDelete?.open}
+          setIsOpen={() => setIsDelete({ open: false, item: null })}
+          handleDelete={() => mutation.mutate(isDelete?.item)}
+        />
+      )}
       {isView && (
         <Modal
           open={isView}
@@ -308,9 +318,10 @@ const EditCard = ({
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
-        formData,{
-          withCredentials:true
-        }
+        formData,
+        {
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (err) {
@@ -437,9 +448,10 @@ const AddCard = ({ open, onCancel }) => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-admin`,
-        formData,{
-          withCredentials:true
-        }
+        formData,
+        {
+          withCredentials: true,
+        },
       );
 
       setFormData({
@@ -570,9 +582,10 @@ const AdminStatusSwitch = ({ val, record }) => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${record?._id}`,
-        { ...record, adminStatus: status },{
-          withCredentials:true
-        }
+        { ...record, adminStatus: status },
+        {
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (err) {
