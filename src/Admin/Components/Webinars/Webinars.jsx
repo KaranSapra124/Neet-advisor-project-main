@@ -565,6 +565,9 @@ const AddCard = ({ open, onCancel }) => {
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-webinar`,
         formDataToSend,
         {
+          withCredentials: true,
+        },
+        {
           headers: {
             "Content-Type": "multipart/form-data",
           },
