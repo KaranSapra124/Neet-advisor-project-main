@@ -54,7 +54,6 @@ const Pg_seminar = () => {
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-seminar/${id}`,
-        null,
         {
           withCredentials: true,
         },
