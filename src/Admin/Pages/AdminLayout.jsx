@@ -59,7 +59,7 @@ const AdminLayout = ({ user }) => {
       },
       {
         name: "Webinars",
-        link: `/${user.toLowerCase()}/webinars`,
+        link: `/${user.toLowerCase()}/webinar`,
         icon: <FaChalkboardTeacher />,
       },
       {
