@@ -50,9 +50,10 @@ const Webinars = () => {
   const handleDelete = async (id) => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-webinar/${id}`,{
-          withCredentials:true
-        }
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-webinar/${id}`,
+        {
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (err) {
@@ -353,6 +354,9 @@ const EditCard = ({
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-webinar/${id}`,
         formDataToSend,
+        {
+          withCredentials: true,
+        },
         {
           headers: {
             "Content-Type": "multipart/form-data",
