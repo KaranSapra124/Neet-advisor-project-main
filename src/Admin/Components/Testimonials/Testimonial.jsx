@@ -410,6 +410,9 @@ const AddCard = ({ open, onCancel }) => {
       `${import.meta.env.VITE_BACKEND_URL}admin/add-testimonial`,
       formData,
       {
+        withCredentials: true,
+      },
+      {
         headers: {
           "Content-Type": "multipart/form-data", // Important for file upload
         },
