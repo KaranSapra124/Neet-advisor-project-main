@@ -437,7 +437,9 @@ const AddCard = ({ open, onCancel }) => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-admin`,
-        formData,
+        formData,{
+          withCredentials:true
+        }
       );
 
       setFormData({
@@ -568,7 +570,9 @@ const AdminStatusSwitch = ({ val, record }) => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${record?._id}`,
-        { ...record, adminStatus: status },
+        { ...record, adminStatus: status },{
+          withCredentials:true
+        }
       );
       toast.success(data?.message);
     } catch (err) {
