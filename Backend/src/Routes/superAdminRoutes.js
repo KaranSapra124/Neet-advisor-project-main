@@ -106,7 +106,7 @@ Router.post("/delete-admin/:id", superAdminAuth, deleteAdmin);
 Router.post("/edit-admin/:id", superAdminAuth, editAdmin);
 
 // News Started
-Router.post("/add-news", upload.single("file"), addNews);
+Router.post("/add-news", authAdmins, upload.single("file"), addNews);
 Router.post("/add-news-admin", addNewsFn);
 Router.get("/get-news", getNews);
 Router.post("/edit-news/:id", editNews);
