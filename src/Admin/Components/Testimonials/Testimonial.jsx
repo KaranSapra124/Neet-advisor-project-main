@@ -4,6 +4,7 @@ import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import Divider from "../../../Components/Helper/Divider";
 import axios from "axios";
+import DeleteModal from "../../Utils/DeleteModal";
 
 const Testimonial = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -12,6 +13,8 @@ const Testimonial = () => {
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
   const [testimonialsData, setTestimonialsData] = useState([]);
+  const [isDelete, setIsDelete] = useState({ open: false, item: null });
+
   const fetchTestimonials = async () => {
     const res = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}admin/get-testimonials`,
@@ -181,17 +184,7 @@ const Testimonial = () => {
             className="cursor-pointer text-green-500"
           />
           <FaTrash
-            onClick={async () => {
-              const res = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}admin/delete-testimonial/${record?._id}`,
-                null,
-                {
-                  withCredentials: true,
-                },
-              );
-
-              fetchTestimonials();
-            }}
+            onClick={() => setIsDelete({ open: true, item: record?._id })}
             className="cursor-pointer text-red-500"
           />
         </div>
@@ -205,6 +198,23 @@ const Testimonial = () => {
   }, []);
   return (
     <>
+      {
+        <DeleteModal
+          isOpen={isDelete?.open}
+          setIsOpen={() => setIsDelete({ opem: false, item: null })}
+          handleDelete={async () => {
+            const res = await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}admin/delete-testimonial/${isDelete?.item}`,
+              null,
+              {
+                withCredentials: true,
+              },
+            );
+
+            fetchTestimonials();
+          }}
+        />
+      }
       {isView && (
         <Modal
           open={isView}
