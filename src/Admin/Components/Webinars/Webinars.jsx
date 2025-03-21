@@ -50,7 +50,9 @@ const Webinars = () => {
   const handleDelete = async (id) => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-webinar/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-webinar/${id}`,{
+          withCredentials:true
+        }
       );
       toast.success(data?.message);
     } catch (err) {
