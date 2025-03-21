@@ -17,6 +17,7 @@ import {
   useQueryClient,
   QueryClient,
 } from "@tanstack/react-query";
+import DeleteModal from "../../Utils/DeleteModal";
 
 const fetchStudents = async () => {
   const res = await axios.get(
@@ -35,6 +36,7 @@ const StudentsData = () => {
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
+  const [isDelete, setIsDelete] = useState({ open: false, item: null });
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["fetchedStudent"],
@@ -146,7 +148,7 @@ const StudentsData = () => {
             className="cursor-pointer text-green-500"
           />
           <FaTrash
-            onClick={() => mutation.mutate(record?._id)}
+            onClick={() => setIsDelete({ open: true, item: record?._id })}
             className="cursor-pointer text-red-500"
           />
         </div>
@@ -156,6 +158,13 @@ const StudentsData = () => {
 
   return (
     <>
+      {isDelete && (
+        <DeleteModal
+          isOpen={isDelete?.open}
+          setIsOpen={() => setIsDelete({ open: false, item: null })}
+          handleDelete={() => mutation.mutate(isDelete?.item)}
+        />
+      )}
       {isView && (
         <Modal
           open={isView}
