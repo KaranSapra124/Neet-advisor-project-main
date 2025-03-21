@@ -23,6 +23,9 @@ const fetchSeminar = async () => {
   try {
     const res = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}super-admin/get-ug-seminars`,
+      {
+        withCredentials: true,
+      },
     );
     const { data } = res;
     return data?.allSeminars;
@@ -348,6 +351,9 @@ const EditCard = ({
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-ug-seminar/${id}`,
         formData,
+        {
+          withCredentials: true,
+        },
         {
           headers: {
             "Content-Type": "multipart/form-data",
