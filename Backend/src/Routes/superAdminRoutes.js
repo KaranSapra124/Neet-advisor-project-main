@@ -77,6 +77,7 @@ Router.get("/get-services", getServices);
 
 Router.post(
   "/edit-service/:id",
+  authAdmins,
   upload.fields([
     { name: "video", maxCount: 1 },
     { name: "icon", maxCount: 1 },
@@ -88,16 +89,21 @@ Router.post("/delete-service/:id", authAdmins, deleteService);
 // Services Ended
 
 // Students Started
-Router.post("/add-student", upload.single("file"), addStudents);
+Router.post("/add-student", authAdmins, upload.single("file"), addStudents);
 Router.get("/get-students", getStudents);
-Router.post("/delete-student/:id", deleteStudent);
-Router.post("/edit-student/:id", upload.single("file"), editStudent);
+Router.post("/delete-student/:id", authAdmins, deleteStudent);
+Router.post(
+  "/edit-student/:id",
+  authAdmins,
+  upload.single("file"),
+  editStudent,
+);
 
 // Admin Started
-Router.post("/add-admin", addAdmin);
-Router.get("/get-admins", getAdmins);
-Router.post("/delete-admin/:id", deleteAdmin);
-Router.post("/edit-admin/:id", editAdmin);
+Router.post("/add-admin", superAdminAuth, addAdmin);
+Router.get("/get-admins", superAdminAuth, getAdmins);
+Router.post("/delete-admin/:id", superAdminAuth, deleteAdmin);
+Router.post("/edit-admin/:id", superAdminAuth, editAdmin);
 
 // News Started
 Router.post("/add-news", upload.single("file"), addNews);
