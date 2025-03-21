@@ -207,6 +207,9 @@ const EditCard = ({
           endTime: editedEndTime,
           seminarType: editedType,
         },
+        {
+          withCredentials: true,
+        },
       );
 
       toast.success(data?.message);
@@ -296,6 +299,9 @@ const AddCard = ({ open, onCancel, title }) => {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar-progress`,
         formData,
+        {
+          withCredentials: true,
+        },
       );
 
       toast.success(data?.message);
