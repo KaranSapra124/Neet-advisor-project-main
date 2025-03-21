@@ -14,8 +14,8 @@ exports.superAdminAuth = (req, res, next) => {
 exports.adminAuth = (req, res, next) => {
   try {
     const { adminToken } = req.cookies;
-    if (adminToken) {
-      if (!adminToken) res.status(401).send({ message: "No Token Provided!" });
+    if (!adminToken) res.status(401).send({ message: "No Token Provided!" });
+    else {
       const id = Jwt.decode(adminToken);
       req.user = id;
       next();
