@@ -18,6 +18,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import TextArea from "antd/es/input/TextArea";
 import PG_seminar from "../../../Pages/PG_seminar";
+import DeleteModal from "../../Utils/DeleteModal";
 
 const fetchSeminar = async () => {
   try {
@@ -41,6 +42,7 @@ const Pg_seminar = () => {
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
+  const [isDelete, setIsDelete] = useState({ open: false, item: null });
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["allSeminar"],
@@ -181,7 +183,7 @@ const Pg_seminar = () => {
             className="cursor-pointer text-xl text-green-500 transition hover:scale-110"
           />
           <FaTrash
-            onClick={() => mutation.mutate(record?._id)}
+            onClick={() => setIsDelete({ open: true, item: record?._id })}
             className="cursor-pointer text-xl text-red-500 transition hover:scale-110"
           />
         </div>
@@ -191,6 +193,13 @@ const Pg_seminar = () => {
 
   return (
     <>
+      {isDelete && (
+        <DeleteModal
+          isOpen={isDelete?.open}
+          setIsOpen={() => setIsDelete({ open: false, item: null })}
+          handleDelete={() => mutation.mutate(isDelete?.item)}
+        />
+      )}
       {isView && (
         <Modal
           open={isView}
@@ -600,8 +609,9 @@ const AddCard = ({ open, onCancel }) => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar`,
-        formData,{
-          withCredentials:true
+        formData,
+        {
+          withCredentials: true,
         },
         {
           headers: {
@@ -793,9 +803,10 @@ const AdminStatusSwitch = ({ val, record }) => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${record?._id}`,
-        { ...record, adminStatus: status },{
-          withCredentials:true
-        }
+        { ...record, adminStatus: status },
+        {
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (err) {
