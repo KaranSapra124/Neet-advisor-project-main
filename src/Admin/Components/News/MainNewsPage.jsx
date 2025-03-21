@@ -223,6 +223,9 @@ const EditCard = ({ id, generatedHTML, hashtags, onCancel }) => {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-news/${id}`,
         { ...formData, generatedHTML: html },
+        {
+          withCredentials:true
+        }
       );
       toast.success(data?.message);
     } catch (err) {
