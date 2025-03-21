@@ -109,7 +109,7 @@ Router.post("/edit-admin/:id", superAdminAuth, editAdmin);
 Router.post("/add-news", authAdmins, upload.single("file"), addNews);
 Router.post("/add-news-admin",authAdmins, addNewsFn);
 Router.get("/get-news", getNews);
-Router.post("/edit-news/:id", editNews);
+Router.post("/edit-news/:id",authAdmins, editNews);
 Router.post("/delete-news/:id", deleteNews);
 Router.get("/get-latest-news", getLatestNews);
 Router.post("/get-related-news", getRelatedNews);
