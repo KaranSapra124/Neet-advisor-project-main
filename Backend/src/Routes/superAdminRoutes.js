@@ -133,7 +133,7 @@ Router.get("/delete-seminar/:id",authAdmins, deleteSeminar);
 // Seminar Progress Started
 Router.post("/add-seminar-progress",authAdmins, addSeminarTimeline);
 Router.get("/get-seminar-progress/:type", getSeminarTimeline);
-Router.post("/edit-seminar-progress/:id", editSeminarTimeline);
+Router.post("/edit-seminar-progress/:id",authAdmins, editSeminarTimeline);
 Router.get("/delete-progress/:id", deleteTimeline);
 // Seminar Progress Ended
 // Ug Seminar Started
