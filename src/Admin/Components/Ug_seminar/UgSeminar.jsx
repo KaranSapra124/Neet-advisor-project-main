@@ -590,6 +590,9 @@ const AddCard = ({ open, onCancel }) => {
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-ug-seminar`,
         formData,
         {
+          withCredentials: true,
+        },
+        {
           headers: {
             "Content-Type": "multipart/form-data",
           },
