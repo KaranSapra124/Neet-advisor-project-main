@@ -127,7 +127,7 @@ Router.get("/get-seminars", getSeminar);
 Router.get("/get-seminars/:type", getSeminar);
 
 Router.get("/get-seminars-for-users", getSeminarForUsers);
-Router.post("/edit-seminar/:id", upload.single("video"), editSeminar);
+Router.post("/edit-seminar/:id",authAdmins, upload.single("video"), editSeminar);
 Router.get("/delete-seminar/:id", deleteSeminar);
 // Seminar Ended
 // Seminar Progress Started
