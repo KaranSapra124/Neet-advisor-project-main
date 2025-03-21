@@ -409,7 +409,7 @@ const AddCard = ({ open, onCancel }) => {
     adminPermissions: [],
   });
 
-  const permissions = ["Testimonials", "Blogs", "Services", "Students"];
+  // const permissions = ["Testimonials", "Blogs", "Services", "Students"];
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
