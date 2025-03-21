@@ -20,7 +20,9 @@ import {
 
 const fetchStudents = async () => {
   const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-students`,
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-students`,null,{
+      withCredentials:true
+    }
   );
   const { data } = res;
   return data?.students;
