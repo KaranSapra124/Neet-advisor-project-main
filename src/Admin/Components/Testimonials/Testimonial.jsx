@@ -15,6 +15,10 @@ const Testimonial = () => {
   const fetchTestimonials = async () => {
     const res = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}admin/get-testimonials`,
+
+      {
+        withCredentials: true,
+      },
     );
     const { data } = res;
     setTestimonialsData(data?.testimonials);
@@ -121,9 +125,7 @@ const Testimonial = () => {
       dataIndex: "clientCollege",
       key: "clientCollege",
       render: (text) => (
-        <p className="w-44 max-w-52 text-center text-xs font-medium">
-          {text}
-        </p>
+        <p className="w-44 max-w-52 text-center text-xs font-medium">{text}</p>
       ),
     },
     {
@@ -182,6 +184,10 @@ const Testimonial = () => {
             onClick={async () => {
               const res = await axios.post(
                 `${import.meta.env.VITE_BACKEND_URL}admin/delete-testimonial/${record?._id}`,
+                null,
+                {
+                  withCredentials: true,
+                },
               );
 
               fetchTestimonials();
@@ -293,6 +299,9 @@ const EditCard = ({
     await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}admin/edit-testimonial/${id}`,
       formData,
+      {
+        withCredentials: true,
+      },
       {
         headers: {
           "Content-Type": "multipart/form-data",
