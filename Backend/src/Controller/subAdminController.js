@@ -29,6 +29,7 @@ exports.verifyOTP = async (req, res) => {
       ? (() => {
           const adminTokenData = {
             id: adminData?._id,
+            permissions: adminData?.adminPermissions,
             role: "admin",
           };
           const token = generateToken(adminTokenData);
