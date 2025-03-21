@@ -25,7 +25,9 @@ import { useNavigate } from "react-router-dom";
 const fetchAdmins = async () => {
   try {
     const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,
+      `${import.meta.env.VITE_BACKEND_URL}super-admin/get-admins`,{
+        withCredentials:true
+      }
     );
     const { data } = res;
     return data?.allAdmins;
@@ -63,6 +65,10 @@ const Permissions = () => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-admin/${id}`,
+        null,
+        {
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (err) {
@@ -302,7 +308,9 @@ const EditCard = ({
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${id}`,
-        formData,
+        formData,{
+          withCredentials:true
+        }
       );
       toast.success(data?.message);
     } catch (err) {
