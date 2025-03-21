@@ -64,6 +64,7 @@ exports.getAdmin = async (req, res) => {
         .status(201)
         .send({ message: "Logged In Successfully!", admin });
     } else {
+      return res.status(401).send({ message: "No Token Provided!" });
     }
   } catch (err) {
     console.log(err);

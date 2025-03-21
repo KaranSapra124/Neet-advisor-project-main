@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { useState, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -9,8 +10,11 @@ import { toast } from "react-toastify";
 const adminContext = createContext(null);
 
 export const AdminProvider = ({ children }) => {
+  // const navigate = useNavigate();
   const [admin, setAdmin] = useState(null);
-
+  useEffect(() => {
+    console.log(admin);
+  }, [admin]);
   useEffect(() => {
     console.log("Fetch Admin");
     const fetchAdmin = async () => {
@@ -27,7 +31,7 @@ export const AdminProvider = ({ children }) => {
           role: "sub-admin",
         }));
       } catch (err) {
-        return;
+        return err;
       }
     };
     fetchAdmin();

@@ -17,13 +17,12 @@ exports.adminAuth = (req, res, next) => {
     if (adminToken) {
       if (!adminToken) res.status(401).send({ message: "No Token Provided!" });
       const id = Jwt.decode(adminToken);
-      // console.log(id)
       req.user = id;
       next();
     }
   } catch (err) {
     // console.log(err)
-    return res.status(403).json({ message: "Unauthorized: Invalid Token" });
+    return res.status(403).send({ message: "Unauthorized: Invalid Token" });
   }
 };
 

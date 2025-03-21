@@ -88,7 +88,7 @@ const AdminLayout = ({ user }) => {
     [location.pathname, menuItems],
   );
 
-  const authAdmin = useCallback(async () => {
+  const authAdmin = async () => {
     try {
       const endpoint =
         user === "Super-Admin" ? "super-admin-auth" : "get-admin";
@@ -97,18 +97,24 @@ const AdminLayout = ({ user }) => {
         {},
         { withCredentials: true },
       );
+
+      console.log(data, "DATATATAT");
       toast.success(data?.message);
     } catch (err) {
+      console.log(err, "ERROR");
       toast.error(err?.response?.data?.message);
       navigate(`/${user.toLowerCase()}/login`);
     }
-  }, [user]);
+  };
 
   useEffect(() => {
     if (!SuperAdminContext?.admin) {
       authAdmin();
     }
-  }, [authAdmin, SuperAdminContext]);
+    // SuperAdminContext?.admin === null
+    //   ? navigate(`/${user.toLowerCase()}/login`)
+    //   : navigate(`/${user?.toLowerCase()}`);
+  }, [SuperAdminContext]);
 
   return (
     <div className="flex min-h-screen bg-gray-100">
