@@ -118,7 +118,7 @@ Router.get("/get-news/:id", getSingleNews);
 // Webinars Started
 Router.post("/add-webinar",authAdmins, upload.single("thumbnail"), addWebinar);
 Router.get("/get-webinars", getWebinars);
-Router.post("/edit-webinar/:id", upload.single("thumbnail"), editWebinar);
+Router.post("/edit-webinar/:id",authAdmins, upload.single("thumbnail"), editWebinar);
 Router.get("/delete-webinar/:id", deleteWebinar);
 // Webinars Ended
 // Seminars Started
