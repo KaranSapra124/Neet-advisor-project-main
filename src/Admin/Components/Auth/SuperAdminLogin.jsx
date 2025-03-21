@@ -9,7 +9,7 @@ const SuperAdminLogin = ({ title }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const handleSubmit = async (e) => {
-    console.log(email);
+    // console.log(email);
     e.preventDefault();
     title === "Super Admin Login"
       ? (async () => {
