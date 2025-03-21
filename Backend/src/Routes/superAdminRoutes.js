@@ -84,7 +84,7 @@ Router.post(
   editService,
 );
 
-Router.post("/delete-service/:id", deleteService);
+Router.post("/delete-service/:id", authAdmins, deleteService);
 // Services Ended
 
 // Students Started

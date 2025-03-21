@@ -48,15 +48,23 @@ const AdminServices = () => {
   // ];
   const columns = [
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Services</h1>,
-      columnTitle:(text)=>console.log(text),
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Services
+        </h1>
+      ),
+      columnTitle: (text) => console.log(text),
       dataIndex: "title",
       key: "title",
 
       render: (text) => <p className="text-center text-xs font-bold">{text}</p>,
     },
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Video</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Video
+        </h1>
+      ),
       dataIndex: "video",
       key: "video",
 
@@ -71,7 +79,11 @@ const AdminServices = () => {
       ),
     },
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Content</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Content
+        </h1>
+      ),
       dataIndex: "content",
       key: "content",
       render: (text) => (
@@ -81,7 +93,11 @@ const AdminServices = () => {
       ),
     },
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Icon</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Icon
+        </h1>
+      ),
       dataIndex: "icon",
       key: "icon",
       render: (img) => {
@@ -94,7 +110,11 @@ const AdminServices = () => {
       },
     },
     {
-      title: <h1 className="text-lg font-bold text-primary-color text-center">Actions</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Actions
+        </h1>
+      ),
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
@@ -119,6 +139,10 @@ const AdminServices = () => {
             onClick={async () => {
               const { data } = await axios.post(
                 `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-service/${record?._id}`,
+                null,
+                {
+                  withCredentials: true,
+                },
               );
 
               toast.success(data?.message);
@@ -126,6 +150,9 @@ const AdminServices = () => {
               const fetchServices = async () => {
                 const { data } = await axios.get(
                   `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+                  {
+                    withCredentials: true,
+                  },
                 );
                 setServicesArr(data?.services);
               };
@@ -141,6 +168,9 @@ const AdminServices = () => {
     const fetchServices = async () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+        {
+          withCredentials: true,
+        },
       );
       setServicesArr(data?.services);
     };
@@ -189,7 +219,7 @@ const AdminServices = () => {
         <div>
           <button
             onClick={() => setIsAdd(true)}
-            className="float-right my-2 rounded bg-yellow-500 hover:bg-yellow-600 transition-all p-1 font-semibold text-white"
+            className="float-right my-2 rounded bg-yellow-500 p-1 font-semibold text-white transition-all hover:bg-yellow-600"
           >
             Add New +
           </button>
@@ -239,6 +269,9 @@ const EditCard = ({
       `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-service/${id}`,
       formData,
       {
+        withCredentials: true,
+      },
+      {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -252,6 +285,9 @@ const EditCard = ({
     const fetchServices = async () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+        {
+          withCredentials: true,
+        },
       );
       setServicesArr(data?.services);
     };
@@ -382,7 +418,7 @@ const AddCard = ({ open, onCancel, title }) => {
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-service`,
         submissionData,
         {
-          withCredentials:true
+          withCredentials: true,
         },
         {
           headers: {

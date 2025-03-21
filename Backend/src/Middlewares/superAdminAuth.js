@@ -12,7 +12,6 @@ exports.superAdminAuth = (req, res, next) => {
   }
 };
 exports.adminAuth = (req, res, next) => {
-  console.log(req.url);
   try {
     const { adminToken } = req.cookies;
     if (adminToken) {
