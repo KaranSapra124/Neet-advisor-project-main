@@ -8,6 +8,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 const fetchServices = async () => {
   const { data } = await axios.get(
     `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress/all`,
+    null,
+    {
+      withCredentials: true,
+    },
   );
   return data?.allSeminarsTimeline;
 };
@@ -20,6 +24,10 @@ const SeminarProgress = () => {
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-progress/${id}`,
+        null,
+        {
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (error) {
@@ -87,7 +95,7 @@ const SeminarProgress = () => {
       key: "seminarType",
       render: (text) => (
         <p
-          className={`${text === "UG" ? "line-clamp-1 mx-auto w-fit rounded bg-green-500 p-0.5 text-center text-xs font-semibold text-white" : "line-clamp-1 mx-auto w-fit rounded bg-blue-500 p-0.5 text-center text-xs font-semibold text-white"}`}
+          className={`${text === "UG" ? "mx-auto line-clamp-1 w-fit rounded bg-green-500 p-0.5 text-center text-xs font-semibold text-white" : "mx-auto line-clamp-1 w-fit rounded bg-blue-500 p-0.5 text-center text-xs font-semibold text-white"}`}
         >
           {text ? text : "N/A"}
         </p>
