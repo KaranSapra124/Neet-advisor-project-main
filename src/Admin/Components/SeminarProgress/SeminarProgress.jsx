@@ -5,6 +5,7 @@ import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import DeleteModal from "../../Utils/DeleteModal";
 const fetchServices = async () => {
   const { data } = await axios.get(
     `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress/all`,
@@ -20,11 +21,13 @@ const SeminarProgress = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [editItem, setEditItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
+  const [isDelete, setIsDelete] = useState({ open: false, item: null });
+
   const handleDeleteTimeline = async (id) => {
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-progress/${id}`,
-        null,
+
         {
           withCredentials: true,
         },
@@ -119,7 +122,7 @@ const SeminarProgress = () => {
             className="cursor-pointer text-green-700"
           />
           <FaTrash
-            onClick={() => mutation.mutate(record?._id)}
+            onClick={() => setIsDelete({ open: true, item: record?._id })}
             className="cursor-pointer text-red-500"
           />
         </div>
@@ -134,6 +137,13 @@ const SeminarProgress = () => {
 
   return (
     <>
+      {isDelete && (
+        <DeleteModal
+          isOpen={isDelete?.open}
+          setIsOpen={() => setIsDelete({ open: false, item: null })}
+          handleDelete={() => mutation.mutate(isDelete?.item)}
+        />
+      )}
       {isEdit && (
         <EditCard
           // onSave={handleSave}
