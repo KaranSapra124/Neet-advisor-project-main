@@ -22,6 +22,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import Divider from "../../../Components/Helper/Divider";
+import DeleteModal from "../../Utils/DeleteModal";
 
 const fetchNews = async () => {
   try {
@@ -44,6 +45,7 @@ const MainNewsPage = () => {
   const [isView, setIsView] = useState(false);
   const [editItem, setEditItem] = useState({});
   const [viewItem, setViewItem] = useState({});
+  const [isDelete, setIsDelete] = useState({ open: false, item: null });
   const [isAdd, setIsAdd] = useState(false);
 
   const { data, isLoading, error } = useQuery({
@@ -145,7 +147,7 @@ const MainNewsPage = () => {
             className="cursor-pointer text-green-500"
           />
           <FaTrash
-            onClick={() => mutation.mutate(record?._id)}
+            onClick={() => setIsDelete({ open: true, item: record?._id })}
             className="cursor-pointer text-red-500"
           />
         </div>
@@ -155,6 +157,13 @@ const MainNewsPage = () => {
 
   return (
     <>
+      {isDelete && (
+        <DeleteModal
+          isOpen={isDelete?.open}
+          setIsOpen={() => setIsDelete({ open: false, item: null })}
+          handleDelete={() => mutation.mutate(isDelete?.item)}
+        />
+      )}
       {isView && (
         <Modal
           open={isView}
@@ -224,8 +233,8 @@ const EditCard = ({ id, generatedHTML, hashtags, onCancel }) => {
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-news/${id}`,
         { ...formData, generatedHTML: html },
         {
-          withCredentials:true
-        }
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (err) {
@@ -338,9 +347,10 @@ const AddCard = ({ open, onCancel }) => {
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-news-admin`,
-        formData,{
-          withCredentials:true
-        }
+        formData,
+        {
+          withCredentials: true,
+        },
       );
 
       setFormData({
@@ -452,8 +462,8 @@ const AdminStatusSwitch = ({ val, record }) => {
         `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-admin/${record?._id}`,
         { ...record, adminStatus: status },
         {
-          withCredentials:true
-        }
+          withCredentials: true,
+        },
       );
       toast.success(data?.message);
     } catch (err) {
