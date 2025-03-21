@@ -27,3 +27,23 @@ exports.adminAuth = (req, res, next) => {
     return res.status(403).json({ message: "Unauthorized: Invalid Token" });
   }
 };
+
+exports.authAdmins = (req, res, next) => {
+  const { token, adminToken } = req.cookies;
+  try {
+    token
+      ? (() => {
+          const id = Jwt.verify(token, process.env.SECRET_KEY);
+          req.user = id;
+          next();
+        })()
+      : (() => {
+          const id = Jwt.verify(adminToken, process.env.SECRET_KEY);
+          req.user = id;
+          next();
+        })();
+  } catch (err) {
+    console.log(err);
+    return res.status(403).send({ message: "Unauthorized Access!" });
+  }
+};

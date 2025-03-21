@@ -382,6 +382,9 @@ const AddCard = ({ open, onCancel, title }) => {
         `${import.meta.env.VITE_BACKEND_URL}super-admin/add-service`,
         submissionData,
         {
+          withCredentials:true
+        },
+        {
           headers: {
             "Content-Type": "multipart/form-data",
           },
