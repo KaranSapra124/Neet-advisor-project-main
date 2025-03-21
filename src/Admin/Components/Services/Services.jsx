@@ -4,6 +4,7 @@ import { Input, Modal, Table } from "antd";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
+import DeleteModal from "../../Utils/DeleteModal";
 
 const AdminServices = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -12,6 +13,8 @@ const AdminServices = () => {
   const [viewItem, setViewItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
   const [servicesArr, setServicesArr] = useState([]);
+  const [isDelete, setIsDelete] = useState({ open: false, item: null });
+
   // const servicesArr = [
   //   {
   //     video:
@@ -136,28 +139,7 @@ const AdminServices = () => {
             className="cursor-pointer text-green-700"
           />
           <FaTrash
-            onClick={async () => {
-              const { data } = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-service/${record?._id}`,
-                null,
-                {
-                  withCredentials: true,
-                },
-              );
-
-              toast.success(data?.message);
-
-              const fetchServices = async () => {
-                const { data } = await axios.get(
-                  `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
-                  {
-                    withCredentials: true,
-                  },
-                );
-                setServicesArr(data?.services);
-              };
-              fetchServices();
-            }}
+            onClick={() => setIsDelete({ open: true, item: record?._id })}
             className="cursor-pointer text-red-500"
           />
         </div>
@@ -179,6 +161,35 @@ const AdminServices = () => {
 
   return (
     <>
+      {isDelete?.open && (
+        <DeleteModal
+          isOpen={isDelete?.open}
+          setIsOpen={() => setIsDelete({ open: false, item: null })}
+          handleDelete={async () => {
+            console.log(isDelete);
+            const { data } = await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-service/${isDelete?.item}`,
+              null,
+              {
+                withCredentials: true,
+              },
+            );
+
+            toast.success(data?.message);
+
+            const fetchServices = async () => {
+              const { data } = await axios.get(
+                `${import.meta.env.VITE_BACKEND_URL}super-admin/get-services`,
+                {
+                  withCredentials: true,
+                },
+              );
+              setServicesArr(data?.services);
+            };
+            fetchServices();
+          }}
+        />
+      )}
       {isView && (
         <Modal
           onOk={() => setIsView(false)}
