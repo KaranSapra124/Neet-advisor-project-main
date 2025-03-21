@@ -63,6 +63,7 @@ const MainNewsPage = () => {
         },
       );
       toast.success(data?.message);
+      setIsOpen({ open: false, item: null });
     } catch (err) {
       toast.error(err?.response?.data?.message);
     }

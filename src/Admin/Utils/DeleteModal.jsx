@@ -16,7 +16,7 @@ const DeleteModal = ({ isOpen, setIsOpen, handleDelete }) => {
         <div className="mt-5 flex justify-center gap-4">
           <Button
             className="rounded-lg bg-gray-200 px-4 py-2 text-gray-700 hover:bg-gray-300"
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsOpen()}
           >
             Cancel
           </Button>
