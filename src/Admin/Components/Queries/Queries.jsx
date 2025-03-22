@@ -47,7 +47,7 @@ const Queries = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Title
+          Name
         </h1>
       ),
       dataIndex: "title",
@@ -57,7 +57,7 @@ const Queries = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          From Time
+          Phone Number
         </h1>
       ),
       dataIndex: "fromTime",
@@ -67,7 +67,7 @@ const Queries = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          End Time
+          Email
         </h1>
       ),
       dataIndex: "endTime",
@@ -77,7 +77,7 @@ const Queries = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Motive
+          Exam Type
         </h1>
       ),
       dataIndex: "motive",
@@ -91,7 +91,23 @@ const Queries = () => {
     {
       title: (
         <h1 className="text-center text-lg font-bold text-primary-color">
-          Type
+          Option
+        </h1>
+      ),
+      dataIndex: "seminarType",
+      key: "seminarType",
+      render: (text) => (
+        <p
+          className={`${text === "UG" ? "mx-auto line-clamp-1 w-fit rounded bg-green-500 p-0.5 text-center text-xs font-semibold text-white" : "mx-auto line-clamp-1 w-fit rounded bg-blue-500 p-0.5 text-center text-xs font-semibold text-white"}`}
+        >
+          {text ? text : "N/A"}
+        </p>
+      ),
+    },
+    {
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Description
         </h1>
       ),
       dataIndex: "seminarType",
