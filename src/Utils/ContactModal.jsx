@@ -1,4 +1,5 @@
-import { Modal, Select, Input, Button } from "antd";
+import { Modal, Input, Button, Select } from "antd";
+// import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
 
 const states = [
@@ -39,76 +40,80 @@ const states = [
   "Uttar Pradesh",
   "Uttarakhand",
   "West Bengal",
-  "Other",
 ];
 
 const ContactModal = ({ open, setIsOpen }) => {
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     name: "",
-    phone: "",
     email: "",
+    phone: "",
     state: "",
-    captcha: "",
+    captcha: null,
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleStateChange = (value) => {
-    setFormData({ ...formData, state: value });
-  };
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleStateChange = (value) => setForm({ ...form, state: value });
 
   const handleSubmit = () => {
-    if (
-      !formData.name ||
-      !formData.phone ||
-      !formData.email ||
-      !formData.state ||
-      !formData.captcha
-    ) {
-      alert("All fields are required!");
-      return;
-    }
-    console.log("Form Submitted", formData);
+    if (!form.captcha) return alert("Please verify the Captcha!");
+    console.log("Form Submitted:", form);
     setIsOpen(false);
   };
 
   return (
-    <Modal open={open} onCancel={setIsOpen} footer={null} title="Contact Us">
-      <div className="flex flex-col space-y-3">
+    <Modal
+      open={open}
+      onCancel={() => setIsOpen(false)}
+      footer={null}
+      centered
+      className="rounded-lg p-4"
+    >
+      <div className="px-9 py-2">
+        <h2 className="text-center text-sm font-bold text-gray-800 lg:text-lg">
+          Want to get a medical seat by Smart Counselling?
+        </h2>
+        <h2 className="lg:text-md text-center text-sm font-bold text-primary-color">
+          "Book free one-to-one session"
+        </h2>
+      </div>
+
+      <div className="space-y-3">
         <Input
           name="name"
-          placeholder="Full Name"
-          value={formData.name}
+          placeholder="Your Name"
           onChange={handleChange}
-        />
-        <Input
-          name="phone"
-          placeholder="Phone Number"
-          value={formData.phone}
-          onChange={handleChange}
+          className="rounded-md p-2"
         />
         <Input
           name="email"
           placeholder="Email"
-          value={formData.email}
           onChange={handleChange}
+          className="rounded-md p-2"
         />
+        <Input
+          name="phone"
+          placeholder="Phone Number"
+          onChange={handleChange}
+          className="rounded-md p-2"
+        />
+
         <Select
           placeholder="Select State"
-          value={formData.state}
+          className="w-full rounded-md"
           onChange={handleStateChange}
+          options={states.map((state) => ({ label: state, value: state }))}
+        />
+
+        {/* <div className="flex justify-center">
+          <ReCAPTCHA sitekey="YOUR_SITE_KEY" onChange={(value) => setForm({ ...form, captcha: value })} />
+        </div> */}
+
+        <Button
+          type="primary"
+          className="w-full bg-blue-600 hover:bg-blue-500"
+          onClick={handleSubmit}
         >
-          {states.map((state) => (
-            <Select.Option key={state} value={state}>
-              {state}
-            </Select.Option>
-          ))}
-        </Select>
-        {/* Captcha Placeholder */}
-        <div className="captcha-box">[Captcha Component Here]</div>
-        <Button type="primary" onClick={handleSubmit}>
           Submit
         </Button>
       </div>
