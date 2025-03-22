@@ -308,136 +308,79 @@ const EditCard = ({
 };
 
 const AddCard = ({ open, onCancel, title }) => {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (
-      !formData.title ||
-      !formData.fromTime ||
-      !formData.endTime ||
-      !formData.motive
-    ) {
-      alert("All fields are required!");
-      return;
-    }
-
-    try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-seminar-progress`,
-        formData,
-        {
-          withCredentials: true,
-        },
-      );
-
-      toast.success(data?.message);
-
-      setFormData({
-        title: "",
-        fromTime: "",
-        endTime: "",
-        motive: "",
-      });
-
-      onCancel(); // Close modal after success
-    } catch (error) {
-      console.error("Error submitting:", error);
-      alert("Something went wrong. Please try again!");
-    }
-  };
-  const query = useQueryClient();
-  const mutation = useMutation({
-    mutationFn: handleSubmit,
-    onSuccess: () => query.invalidateQueries(["allProgress"]),
-  });
-  const [formData, setFormData] = useState({
-    title: "",
-    fromTime: "",
-    endTime: "",
-    motive: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  return (
-    <Modal title={title} open={open} onCancel={onCancel} footer={null}>
-      <div className="flex flex-col space-y-4 p-5">
-        {/* Title */}
-        <label className="font-medium">Seminar Title:</label>
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          placeholder="Enter Seminar Title"
-          className="w-full rounded-md border p-2"
-        />
-
-        {/* From Time */}
-        <label className="font-medium">Start Time:</label>
-        <input
-          type="time"
-          name="fromTime"
-          value={formData.fromTime}
-          onChange={handleChange}
-          className="w-full rounded-md border p-2"
-        />
-
-        {/* End Time */}
-        <label className="font-medium">End Time:</label>
-        <input
-          type="time"
-          name="endTime"
-          value={formData.endTime}
-          onChange={handleChange}
-          className="w-full rounded-md border p-2"
-        />
-
-        {/* Seminar Motive */}
-        <label className="font-medium">Seminar Motive:</label>
-        <textarea
-          name="motive"
-          value={formData.motive}
-          onChange={handleChange}
-          placeholder="Enter Seminar Motive"
-          className="w-full rounded-md border p-2"
-          rows={3}
-        />
-        <label className="mx-2 font-semibold text-gray-800">
-          Seminar Type:
-        </label>
-        <Space wrap>
-          <Select
-            defaultValue={"PG"}
-            options={[
-              { value: "PG", label: <span>PG</span> },
-              { value: "UG", label: <span>UG</span> },
-            ]}
-          ></Select>
-        </Space>
-
-        {/* Buttons */}
-        <div className="flex justify-between">
-          <button
-            type="button"
-            onClick={onCancel}
-            className="rounded-md border px-4 py-2 text-gray-700"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            onClick={mutation.mutate}
-            className="rounded-md bg-[#272E6A] px-4 py-2 text-white"
-          >
-            Add Seminar
-          </button>
+    const [formData, setFormData] = useState({
+      Name: "",
+      PhoneNumber: "",
+      Email: "",
+      ExamType: "UG",
+      Option: "",
+      Description: "",
+    });
+  
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      if (!formData.Name || !formData.PhoneNumber || !formData.Email || !formData.Option) {
+        alert("All required fields must be filled!");
+        return;
+      }
+  
+      try {
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}add-query`,
+          formData,
+          { withCredentials: true }
+        );
+  
+        toast.success(data?.message);
+        setFormData({
+          Name: "",
+          PhoneNumber: "",
+          Email: "",
+          ExamType: "UG",
+          Option: "",
+          Description: "",
+        });
+        onCancel();
+      } catch (error) {
+        console.error("Error submitting query:", error);
+        alert("Something went wrong. Please try again!");
+      }
+    };
+  
+    return (
+      <Modal title={title} open={open} onCancel={onCancel} footer={null}>
+        <div className="flex flex-col space-y-4 p-5">
+          <label className="font-medium">Name:</label>
+          <input type="text" name="Name" value={formData.Name} onChange={handleChange} placeholder="Enter your name" className="w-full rounded-md border p-2" />
+  
+          <label className="font-medium">Phone Number:</label>
+          <input type="tel" name="PhoneNumber" value={formData.PhoneNumber} onChange={handleChange} placeholder="Enter your phone number" className="w-full rounded-md border p-2" />
+  
+          <label className="font-medium">Email:</label>
+          <input type="email" name="Email" value={formData.Email} onChange={handleChange} placeholder="Enter your email" className="w-full rounded-md border p-2" />
+  
+          <label className="font-medium">Exam Type:</label>
+          <Select name="ExamType" value={formData.ExamType} onChange={(value) => setFormData({ ...formData, ExamType: value })} options={[{ value: "UG", label: "UG" }, { value: "PG", label: "PG" }]} className="w-full" />
+  
+          <label className="font-medium">Option:</label>
+          <input type="text" name="Option" value={formData.Option} onChange={handleChange} placeholder="Enter option" className="w-full rounded-md border p-2" />
+  
+          <label className="font-medium">Description:</label>
+          <textarea name="Description" value={formData.Description} onChange={handleChange} placeholder="Enter description" className="w-full rounded-md border p-2" rows={3} />
+  
+          <div className="flex justify-between">
+            <button type="button" onClick={onCancel} className="rounded-md border px-4 py-2 text-gray-700">Cancel</button>
+            <button type="submit" onClick={handleSubmit} className="rounded-md bg-[#272E6A] px-4 py-2 text-white">Submit Query</button>
+          </div>
         </div>
-      </div>
-    </Modal>
-  );
-};
+      </Modal>
+    );
+  };
+  
 
 export default Queries;
