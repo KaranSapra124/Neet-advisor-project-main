@@ -51,8 +51,14 @@ const ContactModal = ({ open, setIsOpen }) => {
     captcha: null,
   });
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    console.log(e);
+    setForm({
+      ...form,
+      [e.target.name]:
+        e.target.name === "captcha" ? e.target.checked : e.target.value,
+    });
+  };
   const handleStateChange = (value) => setForm({ ...form, state: value });
 
   const handleSubmit = () => {
@@ -85,7 +91,7 @@ const ContactModal = ({ open, setIsOpen }) => {
             name="name"
             placeholder="Your Name"
             onChange={handleChange}
-            className="rounded-md p-2 focus:outline-none hover:ring-0"
+            className="rounded-md p-2 hover:ring-0 focus:outline-none"
           />
           <Input
             name="email"
@@ -108,11 +114,17 @@ const ContactModal = ({ open, setIsOpen }) => {
           options={states.map((state) => ({ label: state, value: state }))}
         />
 
-        {/* <div className="flex justify-center">
-          <ReCAPTCHA sitekey="YOUR_SITE_KEY" onChange={(value) => setForm({ ...form, captcha: value })} />
-        </div> */}
+        <div className="float-left flex">
+          <Input type="checkbox" name="captcha" onChange={handleChange} />
+          <p className="mx-2 text-xs font-semibold text-gray-800">ReCAPTCHA</p>
+          {/* <ReCAPTCHA sitekey="YOUR_SITE_KEY" onChange={(value) => setForm({ ...form, captcha: value })} /> */}
+        </div>
 
-        <button className="w-full rounded bg-yellow-600 py-1 font-semibold text-white hover:bg-yellow-700">
+        <button
+          disabled={form?.captcha === true ? false : true}
+          onClick={handleSubmit}
+          className="w-full rounded bg-yellow-600 py-1 font-semibold text-white hover:bg-yellow-700"
+        >
           Submit
         </button>
       </div>
