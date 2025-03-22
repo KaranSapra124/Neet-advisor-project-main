@@ -31,6 +31,7 @@ import Pg_Seminar from "./Admin/Components/Pg_Seminar/Pg_Seminar";
 import SeminarProgress from "./Admin/Components/SeminarProgress/SeminarProgress";
 import Ug_seminar from "./Admin/Components/Ug_seminar/UgSeminar";
 import Dashboard from "./Admin/Components/Dashboard/Dashboard";
+import Queries from "./Admin/Components/Queries/Queries";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -131,6 +132,10 @@ const App = () => {
           path: "/super-admin/seminar-progress",
           element: <SeminarProgress />,
         },
+        {
+          path: "/super-admin/queries",
+          element: <Queries />,
+        },
       ],
     },
     {
@@ -168,6 +173,10 @@ const App = () => {
         {
           path: "/sub-admin/news",
           element: <MainNewsPage />,
+        },
+        {
+          path: "/sub-admin/queries",
+          element: <Queries />,
         },
       ],
     },
