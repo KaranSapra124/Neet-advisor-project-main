@@ -69,8 +69,8 @@ const ContactModal = ({ open, setIsOpen }) => {
       centered
       className="rounded-lg p-4"
     >
-      <div className="px-9 py-2">
-        <h2 className="text-center text-sm font-bold text-gray-800 lg:text-lg">
+      <div className="px-9 pt-2">
+        <h2 className="text-center text-sm font-extrabold text-gray-800 lg:text-sm">
           Want to get a medical seat by Smart Counselling?
         </h2>
         <h2 className="lg:text-md text-center text-sm font-bold text-primary-color">
@@ -78,19 +78,22 @@ const ContactModal = ({ open, setIsOpen }) => {
         </h2>
       </div>
 
-      <div className="space-y-3">
-        <Input
-          name="name"
-          placeholder="Your Name"
-          onChange={handleChange}
-          className="rounded-md p-2"
-        />
-        <Input
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          className="rounded-md p-2"
-        />
+      <div className="space-y-3 p-4">
+        <div className="grid grid-cols-2 gap-1.5">
+          {" "}
+          <Input
+            name="name"
+            placeholder="Your Name"
+            onChange={handleChange}
+            className="rounded-md p-2 focus:outline-none hover:ring-0"
+          />
+          <Input
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            className="rounded-md p-2"
+          />
+        </div>
         <Input
           name="phone"
           placeholder="Phone Number"
@@ -109,13 +112,9 @@ const ContactModal = ({ open, setIsOpen }) => {
           <ReCAPTCHA sitekey="YOUR_SITE_KEY" onChange={(value) => setForm({ ...form, captcha: value })} />
         </div> */}
 
-        <Button
-          type="primary"
-          className="w-full bg-blue-600 hover:bg-blue-500"
-          onClick={handleSubmit}
-        >
+        <button className="w-full rounded bg-yellow-600 py-1 font-semibold text-white hover:bg-yellow-700">
           Submit
-        </Button>
+        </button>
       </div>
     </Modal>
   );
