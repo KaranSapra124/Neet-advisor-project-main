@@ -12,7 +12,7 @@ const Webinars = require("../Models/Webinars");
 const PGseminar = require("../Models/Seminar");
 const SeminarProgress = require("../Models/SeminarProgress");
 const UGseminar = require("../Models/UGseminar");
-
+const Query = require("../Models/Queries");
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
   try {
@@ -589,7 +589,7 @@ exports.getSeminarForUsers = async (req, res) => {
 };
 exports.getSeminar = async (req, res) => {
   const { type } = req.params;
-  console.log(type)
+  console.log(type);
   try {
     const allSeminars = type
       ? await PGseminar.find({ seminarType: type })
@@ -815,3 +815,11 @@ exports.getUgSeminarForUsers = async (req, res) => {
 //     return res.status(401).send({ message: "Error while deleting seminar!" });
 //   }
 // };
+exports.addContactInfoFromUser = async (req, res) => {
+  try {
+    const newQuery = await Query.create(req.body);
+    return res.status(201).send({ message: "Query Sent!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while sending Query!" });
+  }
+};
