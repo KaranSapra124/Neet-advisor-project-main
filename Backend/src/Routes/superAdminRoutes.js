@@ -43,6 +43,7 @@ const {
   getUgSeminarForUsers,
   editUgSeminar,
   deleteUgSeminar,
+  addContactInfoFromUser,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const {
@@ -152,5 +153,8 @@ Router.get("/delete-progress/:id", authAdmins, deleteTimeline);
 Router.get("/get-ug-seminars-for-users", getUgSeminarForUsers);
 // Router.post("/edit-ug-seminar/:id", upload.single("video"), editUgSeminar);
 // Router.get("/delete-ug-seminar/:id", deleteUgSeminar);
+
+// Queries Started
+Router.post('/add-query',addContactInfoFromUser)
 
 module.exports = Router;

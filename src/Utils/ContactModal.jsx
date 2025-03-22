@@ -1,6 +1,8 @@
 import { Modal, Input, Button, Select } from "antd";
+import axios from "axios";
 // import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const states = [
   "Andaman and Nicobar Islands",
@@ -44,15 +46,14 @@ const states = [
 
 const ContactModal = ({ open, setIsOpen }) => {
   const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
+    Name: "",
+    Email: "",
+    PhoneNumber: "",
     state: "",
     captcha: null,
   });
 
   const handleChange = (e) => {
-    console.log(e);
     setForm({
       ...form,
       [e.target.name]:
@@ -61,9 +62,20 @@ const ContactModal = ({ open, setIsOpen }) => {
   };
   const handleStateChange = (value) => setForm({ ...form, state: value });
 
-  const handleSubmit = () => {
-    if (!form.captcha) return alert("Please verify the Captcha!");
-    console.log("Form Submitted:", form);
+  const handleSubmit = async () => {
+    if (form.captcha === false) {
+      alert("Please verify the Captcha!");
+    }
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-query`,
+        form,
+        { withCredentials: true },
+      );
+      toast.success(data?.message);
+    } catch (err) {
+      toast.error(err.response.data.message);
+    }
     setIsOpen(false);
   };
 
@@ -88,20 +100,20 @@ const ContactModal = ({ open, setIsOpen }) => {
         <div className="grid grid-cols-2 gap-1.5">
           {" "}
           <Input
-            name="name"
+            name="Name"
             placeholder="Your Name"
             onChange={handleChange}
             className="rounded-md p-2 hover:ring-0 focus:outline-none"
           />
           <Input
-            name="email"
+            name="Email"
             placeholder="Email"
             onChange={handleChange}
             className="rounded-md p-2"
           />
         </div>
         <Input
-          name="phone"
+          name="PhoneNumber"
           placeholder="Phone Number"
           onChange={handleChange}
           className="rounded-md p-2"
@@ -110,6 +122,7 @@ const ContactModal = ({ open, setIsOpen }) => {
         <Select
           placeholder="Select State"
           className="w-full rounded-md"
+          
           onChange={handleStateChange}
           options={states.map((state) => ({ label: state, value: state }))}
         />

@@ -14,17 +14,23 @@ const query = new Schema({
     type: String,
     required: true,
   },
-  ExamType: {
+  State: {
     type: String,
-    required: true,
-    enum: ["UG", "PG"],
   },
-  Option: {
-    type: String,
-    requuired: true,
-  },
+  // ExamType: {
+  //   type: String,
+  //   required: true,
+  //   enum: ["UG", "PG"],
+  // },
+  // Option: {
+  //   type: String,
+  //   requuired: true,
+  // },
   Description: {
     type: String,
+  },
+  captcha: {
+    type: Boolean,
   },
 });
 
