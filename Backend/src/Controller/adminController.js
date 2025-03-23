@@ -848,3 +848,15 @@ exports.getContacts = async (req, res) => {
       .send({ message: "Error while getting Queries!", error: err });
   }
 };
+exports.deleteContact = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const queries = await Query.findByIdAndDelete(id);
+    return res.status(201).send({ message: "Query Deleted!" });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(401)
+      .send({ message: "Error while getting Queries!", error: err });
+  }
+};
