@@ -826,3 +826,14 @@ exports.addContactInfoFromUser = async (req, res) => {
       .send({ message: "Error while sending Query!", error: err });
   }
 };
+exports.addContactFromAdmin = async (req, res) => {
+  try {
+    const newQuery = await Query.create(req.body);
+    return res.status(201).send({ message: "Query Sent!", newQuery });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(401)
+      .send({ message: "Error while sending Query!", error: err });
+  }
+};
