@@ -1,101 +1,133 @@
 import React from "react";
-
+import Divider from "../../Components/Helper/Divider";
 const Footer = () => {
   return (
-    <footer
-      className={`${window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") ? "bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80" : window.location.pathname.includes("mbbs-abroad") ? "bg-gradient-to-br from-black/80 to-black/70" : window.location.pathname.includes("gallery") ? "bg-gradient-to-tr from-black/15 to-gray-900/50" : window.location.pathname.includes("ug-seminar") ? "bg-black/95" : window.location.pathname.includes("careers") ? "bg-gray-900/70" : "bg-primary-color"} p-10 text-white lg:p-20`}
-    >
-      <div className="mx-auto flex flex-col items-center md:flex-row lg:justify-between lg:p-0 ">
-        <div className="mb-2 md:mb-0 lg:mb-4 ">
-          <h3 className={`mb-2 text-sm font-bold text-white lg:text-lg`}>
-            Stay Updated!
-          </h3>
-          <p className="text-xs lg:text-sm">
-            Get the latest NEET UG and NEET PG Counselling updates, Policies,
-            News, Articles, and Analysis in your inbox.
+    <footer className="bg-primary-color p-10 text-white lg:p-16">
+      {/* Footer Layout */}
+      <div className="container mx-auto flex flex-col justify-between gap-8 lg:flex-row">
+        {/* Newsletter Subscription */}
+        <div className="max-w-sm">
+          <h3 className=" text-lg font-bold text-white">Stay Updated!</h3>
+          <Divider className={'w-12 h-1 bg-yellow-600 rounded-full my-1'}/>
+          <p className="text-sm">
+            Get the latest NEET UG and NEET PG Counselling updates, policies,
+            news, articles, and analysis in your inbox.
           </p>
-          <div className="mt-4  flex">
+          <div className="mt-4 flex">
             <input
               type="email"
-              className="mr-2 lg:w-full w-44 rounded-md border border-gray-300 px-4 py-2 text-gray-700"
+              className="w-44 rounded-md border border-gray-300 px-4 py-2 text-gray-700 lg:w-full"
               placeholder="Enter your Email"
             />
-            <button className="rounded-md text-sm  bg-yellow-600 px-4 py-2 font-bold text-white transition-all hover:bg-yellow-700">
+            <button className="ml-2 rounded-md bg-yellow-600 px-4 py-2 text-sm font-bold text-white transition-all hover:bg-yellow-700">
               Subscribe
             </button>
           </div>
         </div>
-        <div className="flex w-full flex-row justify-between gap-2  lg:items-center lg:justify-around">
-          <div className="my-5 md:mb-0 lg:my-4">
-            <h3 className={`mb-2 text-sm font-bold text-white lg:text-lg`}>
-              Company
-            </h3>
-            <ul>
-              <li className="lg:text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+
+        {/* Navigation Links */}
+        <div className="grid grid-cols-2 gap-12 md:grid-cols-3">
+          <div>
+            <h3 className=" text-lg font-bold text-white">Company</h3>
+            <Divider className={'w-12 h-1 bg-yellow-600 rounded-full my-1'}/>
+
+            <ul className="space-y-1 text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   About us
                 </a>
               </li>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   Contact us
                 </a>
               </li>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   Careers
                 </a>
               </li>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   Partnership
                 </a>
               </li>
             </ul>
           </div>
-          <div className="my-5 md:mb-0 lg:my-4">
-            <h3 className={`mb-2 text-sm font-bold text-white lg:text-lg`}>Services</h3>
-            <ul>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+          <div>
+            <h3 className=" text-lg font-bold text-white">Services</h3>
+            <Divider className={'w-12 h-1 bg-yellow-600 rounded-full my-1'}/>
+
+            <ul className="space-y-1 text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   Attend Webinar
                 </a>
               </li>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   Book a Session
                 </a>
               </li>
             </ul>
           </div>
-          <div className="my-5 md:mb-0 lg:my-4">
-            <h3 className={`mb-2 text-sm font-bold text-white lg:text-lg`}>
-              Social Media
-            </h3>
-            <ul>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+          <div>
+            <h3 className=" text-lg font-bold text-white">Social Media</h3>
+            <Divider className={'w-12 h-1 bg-yellow-600 rounded-full my-1'}/>
+
+            <ul className="space-y-1 text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   Facebook
                 </a>
               </li>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   Instagram
                 </a>
               </li>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   Twitter
                 </a>
               </li>
-              <li className="text-sm">
-                <a href="#" className="text-xs hover:underline lg:text-sm">
+              <li>
+                <a href="#" className="hover:underline">
                   LinkedIn
                 </a>
               </li>
             </ul>
           </div>
         </div>
+
+        {/* Contact Information */}
+        <div className="max-w-sm text-center lg:text-left">
+          <h3 className=" text-lg font-bold text-white">Contact Us</h3>
+          <Divider className={'w-12 h-1 bg-yellow-600 rounded-full my-1'}/>
+
+          <p className="text-sm">
+            📞 <strong>+91-991-120-3280</strong>
+          </p>
+          <p className="text-sm">
+            📍{" "}
+            <strong>
+              US 1 & 2, Ground Floor, U.S. Complex, Jasola, Delhi-110076
+            </strong>
+          </p>
+          <p className="text-sm">
+            📍{" "}
+            <strong>
+              No. 810, B Wing, Kanakia Wall Street, Andheri East, Mumbai-400093
+            </strong>
+          </p>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="mt-8 flex flex-col items-center justify-between border-t border-gray-700 pt-4 text-sm lg:flex-row">
+        <p className="text-gray-400">
+          © 2025 Your Company. All rights reserved.
+        </p>
       </div>
     </footer>
   );
