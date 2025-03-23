@@ -60,7 +60,7 @@ const Queries = () => {
 
   const handleDeleteQuery = async (id) => {
     try {
-      const { data } = await axios.delete(
+      const { data } = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-query/${id}`,
         { withCredentials: true },
       );

@@ -46,6 +46,7 @@ const {
   addContactInfoFromUser,
   addContactFromAdmin,
   getContacts,
+  deleteContact,
 } = require("../Controller/adminController");
 const upload = require("../Middlewares/multerConfig");
 const {
@@ -160,5 +161,6 @@ Router.get("/get-ug-seminars-for-users", getUgSeminarForUsers);
 Router.post("/add-query", addContactInfoFromUser);
 Router.post("/add-query-admin", authAdmins, addContactFromAdmin);
 Router.get("/get-queries", authAdmins, getContacts);
+Router.get("/delete-query/:id", authAdmins, deleteContact);
 
 module.exports = Router;
