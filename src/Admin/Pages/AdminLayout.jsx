@@ -40,7 +40,11 @@ const AdminLayout = ({ user }) => {
         link: `/${user.toLowerCase()}/testimonial`,
         icon: <FaComments />,
       },
-      { name: "Queries", link: "/", icon: <FaQuestionCircle /> },
+      {
+        name: "Queries",
+        link: `/${user.toLowerCase()}/Queries`,
+        icon: <FaQuestionCircle />,
+      },
       {
         name: "Services",
         link: `/${user.toLowerCase()}/services`,
