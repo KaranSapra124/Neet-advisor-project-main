@@ -837,3 +837,14 @@ exports.addContactFromAdmin = async (req, res) => {
       .send({ message: "Error while sending Query!", error: err });
   }
 };
+exports.getContacts = async (req, res) => {
+  try {
+    const queries = await Query.find();
+    return res.status(201).send({ message: "Queries Fetched!", queries });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(401)
+      .send({ message: "Error while getting Queries!", error: err });
+  }
+};

@@ -1,36 +1,68 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Input, Modal, Select, Space, Table } from "antd";
-import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
+import { Input, Modal, Select, Space, Table, Checkbox } from "antd";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import DeleteModal from "../../Utils/DeleteModal";
-const fetchServices = async () => {
+const statesArray = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  "Andaman and Nicobar Islands",
+  "Chandigarh",
+  "Dadra and Nagar Haveli and Daman and Diu",
+  "Delhi",
+  "Lakshadweep",
+  "Puducherry",
+];
+// Fetch Queries
+const fetchQueries = async () => {
   const { data } = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-seminar-progress/all`,
-    null,
-    {
-      withCredentials: true,
-    },
+    `${import.meta.env.VITE_BACKEND_URL}super-admin/get-queries`,
+    { withCredentials: true },
   );
-  return data?.allSeminarsTimeline;
+  return data?.queries;
 };
+
 const Queries = () => {
-  const query = useQueryClient();
+  const queryClient = useQueryClient();
   const [isEdit, setIsEdit] = useState(false);
   const [editItem, setEditItem] = useState({});
   const [isAdd, setIsAdd] = useState(false);
   const [isDelete, setIsDelete] = useState({ open: false, item: null });
 
-  const handleDeleteTimeline = async (id) => {
+  const handleDeleteQuery = async (id) => {
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-progress/${id}`,
-
-        {
-          withCredentials: true,
-        },
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/delete-query/${id}`,
+        { withCredentials: true },
       );
       toast.success(data?.message);
     } catch (error) {
@@ -38,94 +70,53 @@ const Queries = () => {
       toast.error("Something went wrong!");
     }
   };
+
   const mutation = useMutation({
-    mutationFn: handleDeleteTimeline,
-    onSuccess: () => query.invalidateQueries(["allProgress"]),
+    mutationFn: handleDeleteQuery,
+    onSuccess: () => queryClient.invalidateQueries(["allQueries"]),
   });
 
   const columns = [
     {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Name
-        </h1>
-      ),
-      dataIndex: "title",
-      key: "title",
-      render: (text) => <p className="text-center text-xs font-bold">{text}</p>,
+      title: "Name",
+      dataIndex: "Name",
+      key: "Name",
+      render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Phone Number
-        </h1>
-      ),
-      dataIndex: "fromTime",
-      key: "fromTime",
-      render: (time) => <p className="text-center text-xs">{time}</p>,
+      title: "Phone Number",
+      dataIndex: "PhoneNumber",
+      key: "PhoneNumber",
+      render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Email
-        </h1>
-      ),
-      dataIndex: "endTime",
-      key: "endTime",
-      render: (time) => <p className="text-center text-xs">{time}</p>,
+      title: "Email",
+      dataIndex: "Email",
+      key: "Email",
+      render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Exam Type
-        </h1>
-      ),
-      dataIndex: "motive",
-      key: "motive",
-      render: (text) => (
-        <p className="line-clamp-2 text-xs font-semibold text-gray-800">
-          {text}
-        </p>
+      title: "State",
+      dataIndex: "State",
+      key: "State",
+      render: (text) => <p className="text-center">{text || "N/A"}</p>,
+    },
+    {
+      title: "Description",
+      dataIndex: "Description",
+      key: "Description",
+      render: (text) => <p className="text-center">{text || "N/A"}</p>,
+    },
+    {
+      title: "Captcha",
+      dataIndex: "captcha",
+      key: "captcha",
+      render: (value) => (
+        <p className="text-center">{value ? "Verified" : "Not Verified"}</p>
       ),
     },
     {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Option
-        </h1>
-      ),
-      dataIndex: "seminarType",
-      key: "seminarType",
-      render: (text) => (
-        <p
-          className={`${text === "UG" ? "mx-auto line-clamp-1 w-fit rounded bg-green-500 p-0.5 text-center text-xs font-semibold text-white" : "mx-auto line-clamp-1 w-fit rounded bg-blue-500 p-0.5 text-center text-xs font-semibold text-white"}`}
-        >
-          {text ? text : "N/A"}
-        </p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Description
-        </h1>
-      ),
-      dataIndex: "seminarType",
-      key: "seminarType",
-      render: (text) => (
-        <p
-          className={`${text === "UG" ? "mx-auto line-clamp-1 w-fit rounded bg-green-500 p-0.5 text-center text-xs font-semibold text-white" : "mx-auto line-clamp-1 w-fit rounded bg-blue-500 p-0.5 text-center text-xs font-semibold text-white"}`}
-        >
-          {text ? text : "N/A"}
-        </p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center text-lg font-bold text-primary-color">
-          Actions
-        </h1>
-      ),
+      title: "Actions",
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
@@ -146,241 +137,179 @@ const Queries = () => {
     },
   ];
 
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["allProgress"],
-    queryFn: fetchServices,
+  const { data, isLoading } = useQuery({
+    queryKey: ["allQueries"],
+    queryFn: fetchQueries,
   });
 
   return (
     <>
-      {isDelete && (
+      {isDelete.open && (
         <DeleteModal
-          isOpen={isDelete?.open}
+          isOpen={isDelete.open}
           setIsOpen={() => setIsDelete({ open: false, item: null })}
-          handleDelete={() => mutation.mutate(isDelete?.item)}
+          handleDelete={() => mutation.mutate(isDelete.item)}
         />
       )}
       {isEdit && (
-        <EditCard
-          // onSave={handleSave}
-          onCancel={() => setIsEdit(false)}
-          key={editItem?._id}
-          id={editItem?._id}
-          title={editItem?.title}
-          motive={editItem?.motive}
-          endTime={editItem?.endTime}
-          fromTime={editItem?.fromTime}
-          seminarType={editItem?.seminarType}
-        />
+        <EditQueryModal item={editItem} onCancel={() => setIsEdit(false)} />
       )}
-      {isAdd && (
-        <AddCard
-          open={isAdd}
-          onCancel={() => setIsAdd(false)}
-          title={"Add Service"}
-        />
-      )}
+      {isAdd && <AddQueryModal open={isAdd} onCancel={() => setIsAdd(false)} />}
 
       <Container>
-        <div>
-          <button
-            onClick={() => setIsAdd(true)}
-            className="float-right my-2 rounded bg-yellow-500 p-1 font-semibold text-white transition-all hover:bg-yellow-600"
-          >
-            Add New +
-          </button>
-          <Table
-            onHeaderRow={(column, index) => {
-              return <h1 className="text-4xl">{column}</h1>;
-            }}
-            tableLayout="fixed"
-            loading={isLoading}
-            bordered
-            className="rounded shadow"
-            columns={columns}
-            dataSource={data}
-          ></Table>
-        </div>
+        <button
+          onClick={() => setIsAdd(true)}
+          className="float-right my-2 rounded bg-yellow-500 p-1 font-semibold text-white hover:bg-yellow-600"
+        >
+          Add New +
+        </button>
+        <Table
+          loading={isLoading}
+          bordered
+          className="rounded shadow"
+          columns={columns}
+          dataSource={data}
+        />
       </Container>
     </>
   );
 };
 
-const EditCard = ({
-  title,
-  motive,
-  fromTime,
-  endTime,
-  seminarType,
-  onCancel,
-  id,
-}) => {
-  const [editedTitle, setEditedTitle] = useState(title);
-  const [editedMotive, setEditedMotive] = useState(motive);
-  const [editedFromTime, setEditedFromTime] = useState(fromTime);
-  const [editedEndTime, setEditedEndTime] = useState(endTime);
-  const [editedType, setEditedType] = useState(seminarType);
+// Edit Query Modal
+const EditQueryModal = ({ item, onCancel }) => {
+  const [formData, setFormData] = useState({ ...item });
   const queryClient = useQueryClient();
 
   const handleSave = async () => {
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-seminar-progress/${id}`,
-        {
-          title: editedTitle,
-          motive: editedMotive,
-          fromTime: editedFromTime,
-          endTime: editedEndTime,
-          seminarType: editedType,
-        },
-        {
-          withCredentials: true,
-        },
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/edit-query/${item._id}`,
+        formData,
+        { withCredentials: true },
       );
 
       toast.success(data?.message);
       onCancel();
     } catch (error) {
-      console.error("Error updating seminar:", error);
+      console.error("Error updating query:", error);
       toast.error("Something went wrong!");
     }
   };
+
   const mutation = useMutation({
     mutationFn: handleSave,
-    onSuccess: () => queryClient.invalidateQueries(["allPGProgress"]),
+    onSuccess: () => queryClient.invalidateQueries(["allQueries"]),
   });
 
   return (
     <Modal
-      title="Edit Seminar"
+      title="Edit Query"
       open={true}
       onOk={mutation.mutate}
       onCancel={onCancel}
     >
-      <div className="flex flex-col gap-4 p-5">
-        {/* Title Input */}
-        <Input
-          value={editedTitle}
-          onChange={(e) => setEditedTitle(e.target.value)}
-          placeholder="Title"
-        />
-
-        {/* Motive Input */}
-        <Input.TextArea
-          value={editedMotive}
-          onChange={(e) => setEditedMotive(e.target.value)}
-          placeholder="Motive"
-          rows={4}
-        />
-
-        {/* From Time Input */}
-        <Input
-          type="time"
-          value={editedFromTime}
-          onChange={(e) => setEditedFromTime(e.target.value)}
-          placeholder="From Time"
-        />
-
-        {/* End Time Input */}
-        <Input
-          type="time"
-          value={editedEndTime}
-          onChange={(e) => setEditedEndTime(e.target.value)}
-          placeholder="End Time"
-        />
-        <label className="mx-2 font-semibold text-gray-800">
-          Seminar Type:
-        </label>
-        <Space wrap>
-          <Select
-            onChange={(val) => setEditedType(val)}
-            value={editedType}
-            defaultValue={"PG"}
-            options={[
-              { value: "PG", label: <span>PG</span> },
-              { value: "UG", label: <span>UG</span> },
-            ]}
-          ></Select>
-        </Space>
-      </div>
+      <QueryForm formData={formData} setFormData={setFormData} />
     </Modal>
   );
 };
 
-const AddCard = ({ open, onCancel, title }) => {
-    const [formData, setFormData] = useState({
-      Name: "",
-      PhoneNumber: "",
-      Email: "",
-      ExamType: "UG",
-      Option: "",
-      Description: "",
-    });
-  
-    const handleChange = (e) => {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      if (!formData.Name || !formData.PhoneNumber || !formData.Email || !formData.Option) {
-        alert("All required fields must be filled!");
-        return;
-      }
-  
-      try {
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}add-query`,
-          formData,
-          { withCredentials: true }
-        );
-  
-        toast.success(data?.message);
-        setFormData({
-          Name: "",
-          PhoneNumber: "",
-          Email: "",
-          ExamType: "UG",
-          Option: "",
-          Description: "",
-        });
-        onCancel();
-      } catch (error) {
-        console.error("Error submitting query:", error);
-        alert("Something went wrong. Please try again!");
-      }
-    };
-  
-    return (
-      <Modal title={title} open={open} onCancel={onCancel} footer={null}>
-        <div className="flex flex-col space-y-4 p-5">
-          <label className="font-medium">Name:</label>
-          <input type="text" name="Name" value={formData.Name} onChange={handleChange} placeholder="Enter your name" className="w-full rounded-md border p-2" />
-  
-          <label className="font-medium">Phone Number:</label>
-          <input type="tel" name="PhoneNumber" value={formData.PhoneNumber} onChange={handleChange} placeholder="Enter your phone number" className="w-full rounded-md border p-2" />
-  
-          <label className="font-medium">Email:</label>
-          <input type="email" name="Email" value={formData.Email} onChange={handleChange} placeholder="Enter your email" className="w-full rounded-md border p-2" />
-  
-          <label className="font-medium">Exam Type:</label>
-          <Select name="ExamType" value={formData.ExamType} onChange={(value) => setFormData({ ...formData, ExamType: value })} options={[{ value: "UG", label: "UG" }, { value: "PG", label: "PG" }]} className="w-full" />
-  
-          <label className="font-medium">Option:</label>
-          <input type="text" name="Option" value={formData.Option} onChange={handleChange} placeholder="Enter option" className="w-full rounded-md border p-2" />
-  
-          <label className="font-medium">Description:</label>
-          <textarea name="Description" value={formData.Description} onChange={handleChange} placeholder="Enter description" className="w-full rounded-md border p-2" rows={3} />
-  
-          <div className="flex justify-between">
-            <button type="button" onClick={onCancel} className="rounded-md border px-4 py-2 text-gray-700">Cancel</button>
-            <button type="submit" onClick={handleSubmit} className="rounded-md bg-[#272E6A] px-4 py-2 text-white">Submit Query</button>
-          </div>
-        </div>
-      </Modal>
-    );
+// Add Query Modal
+const AddQueryModal = ({ open, onCancel }) => {
+  const [formData, setFormData] = useState({
+    Name: "",
+    PhoneNumber: "",
+    Email: "",
+    State: "",
+    Description: "",
+    captcha: false,
+  });
+
+  const handleSubmit = async () => {
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}super-admin/add-query-admin`,
+        formData,
+        { withCredentials: true },
+      );
+
+      toast.success(data?.message);
+      onCancel();
+    } catch (error) {
+      console.error("Error submitting query:", error);
+      toast.error("Something went wrong!");
+    }
   };
-  
+
+  return (
+    <Modal
+      title="Add Query"
+      open={open}
+      onOk={handleSubmit}
+      onCancel={onCancel}
+    >
+      <QueryForm formData={formData} setFormData={setFormData} />
+    </Modal>
+  );
+};
+
+// Reusable Form Component
+const QueryForm = ({ formData, setFormData }) => {
+  return (
+    <div className="flex flex-col gap-4 p-5">
+      <Input
+        name="Name"
+        value={formData.Name}
+        onChange={(e) => setFormData({ ...formData, Name: e.target.value })}
+        placeholder="Name"
+      />
+      <Input
+        name="PhoneNumber"
+        value={formData.PhoneNumber}
+        onChange={(e) =>
+          setFormData({ ...formData, PhoneNumber: e.target.value })
+        }
+        placeholder="Phone Number"
+      />
+      <Input
+        name="Email"
+        value={formData.Email}
+        onChange={(e) => setFormData({ ...formData, Email: e.target.value })}
+        placeholder="Email"
+      />
+      {/* ✅ State Dropdown */}
+      <Select
+        showSearch
+        placeholder="Select State"
+        value={formData.State}
+        onChange={(value) => setFormData({ ...formData, State: value })}
+        filterOption={(input, option) =>
+          option.children.toLowerCase().includes(input.toLowerCase())
+        }
+      >
+        {statesArray.map((state) => (
+          <Select.Option key={state} value={state}>
+            {state}
+          </Select.Option>
+        ))}
+      </Select>
+      <Input.TextArea
+        name="Description"
+        value={formData.Description}
+        onChange={(e) =>
+          setFormData({ ...formData, Description: e.target.value })
+        }
+        placeholder="Description"
+      />
+      <Checkbox
+        checked={formData.captcha}
+        onChange={(e) =>
+          setFormData({ ...formData, captcha: e.target.checked })
+        }
+      >
+        Captcha Verified
+      </Checkbox>
+    </div>
+  );
+};
 
 export default Queries;
