@@ -4,21 +4,66 @@ import Container from "../Helper/Container";
 import Divider from "../Helper/Divider";
 
 const imageUrls = [
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/6.webp", "imageAlt": "Image 1" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/7.webp", "imageAlt": "Image 2" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/8.webp", "imageAlt": "Image 3" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/9.webp", "imageAlt": "Image 4" },
-  { "url": "https://neetadvisor.com/assets/images/gallery/country/10.webp", "imageAlt": "Image 5" },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/6.webp",
+    imageAlt: "Image 1",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/7.webp",
+    imageAlt: "Image 2",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/8.webp",
+    imageAlt: "Image 3",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/9.webp",
+    imageAlt: "Image 4",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/10.webp",
+    imageAlt: "Image 5",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/6.webp",
+    imageAlt: "Image 1",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/7.webp",
+    imageAlt: "Image 2",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/8.webp",
+    imageAlt: "Image 3",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/9.webp",
+    imageAlt: "Image 4",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/10.webp",
+    imageAlt: "Image 5",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/6.webp",
+    imageAlt: "Image 1",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/7.webp",
+    imageAlt: "Image 2",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/8.webp",
+    imageAlt: "Image 3",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/9.webp",
+    imageAlt: "Image 4",
+  },
+  {
+    url: "https://neetadvisor.com/assets/images/gallery/country/10.webp",
+    imageAlt: "Image 5",
+  },
 ];
 
 const Gallery = () => {
@@ -47,7 +92,7 @@ const Gallery = () => {
   return (
     <Container>
       <div className="mx-auto w-full">
-        <h1 className="py-2 text-center lg:text-3xl text-lg font-bold text-yellow-600">
+        <h1 className="py-2 text-center text-lg font-bold text-yellow-600 lg:text-3xl">
           Conceptualizing{" "}
           <span className="font-extrabold text-primary-color">
             NEET Counselling
@@ -55,7 +100,7 @@ const Gallery = () => {
           Easy Way
         </h1>
 
-        <p className="mx-auto lg:mb-8 lg:w-[42rem]  text-center lg:text-xs text-[0.4rem] font-bold text-gray-700">
+        <p className="mx-auto text-center text-[0.4rem] font-bold text-gray-700 lg:mb-8 lg:w-[42rem] lg:text-xs">
           Our team has developed a set of webinars/seminars and workshops
           exclusively for students aspiring for a successful career in medicine.
           These thoughtfully crafted sessions will cover a wide range of topics
@@ -63,10 +108,12 @@ const Gallery = () => {
           students and parents.
         </p>
         <Divider
-            className={"mx-auto my-2 lg:my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
-          />
+          className={
+            "mx-auto my-2 h-1 w-12 rounded-full bg-yellow-600 lg:my-4 lg:w-20"
+          }
+        />
 
-        <div className="mx-auto grid w-fit grid-cols-3 gap-3 md:grid-cols-4 lg:grid-cols-4">
+        <div className="mx-auto grid w-fit grid-cols-3 gap-3 overflow-hidden mb-4 md:grid-cols-4 lg:grid-cols-4">
           <AnimatePresence>
             {images.slice(0, 12).map(
               (
@@ -84,7 +131,7 @@ const Gallery = () => {
                   <img
                     loading="lazy"
                     src={image.url}
-                    className="lg:h-32 h-20 lg:w-60 lg:object-cover"
+                    className="h-20 lg:h-32 lg:w-60 lg:object-cover"
                     alt=""
                   />
                 </motion.div>
