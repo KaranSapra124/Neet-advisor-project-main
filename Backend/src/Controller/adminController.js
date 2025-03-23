@@ -860,3 +860,12 @@ exports.deleteContact = async (req, res) => {
       .send({ message: "Error while getting Queries!", error: err });
   }
 };
+exports.editContact = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Query.findByIdAndUpdate(id, { ...req.body });
+    return res.status(200).send({ message: "Query Updated Successfully!" });
+  } catch (err) {
+    return res.status(401).send({ message: "Error while updating!" });
+  }
+};
