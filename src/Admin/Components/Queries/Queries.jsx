@@ -78,37 +78,61 @@ const Queries = () => {
 
   const columns = [
     {
-      title: <h1 className="text-center text-primary-color font-bold text-lg">Name</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Name
+        </h1>
+      ),
       dataIndex: "Name",
       key: "Name",
       render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title:  <h1 className="text-center text-primary-color font-bold text-lg">Phone Number</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Phone Number
+        </h1>
+      ),
       dataIndex: "PhoneNumber",
       key: "PhoneNumber",
       render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title:  <h1 className="text-center text-primary-color font-bold text-lg">Email</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Email
+        </h1>
+      ),
       dataIndex: "Email",
       key: "Email",
       render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title:  <h1 className="text-center text-primary-color font-bold text-lg">State</h1>,
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          State
+        </h1>
+      ),
       dataIndex: "State",
       key: "State",
       render: (text) => <p className="text-center">{text || "N/A"}</p>,
     },
     {
-      title: "Description",
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Description
+        </h1>
+      ),
       dataIndex: "Description",
       key: "Description",
       render: (text) => <p className="text-center">{text || "N/A"}</p>,
     },
     {
-      title: "Captcha",
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Captcha
+        </h1>
+      ),
       dataIndex: "captcha",
       key: "captcha",
       render: (value) => (
@@ -116,7 +140,11 @@ const Queries = () => {
       ),
     },
     {
-      title: "Actions",
+      title: (
+        <h1 className="text-center text-lg font-bold text-primary-color">
+          Actions
+        </h1>
+      ),
       dataIndex: "action",
       key: "action",
       render: (_, record) => (
