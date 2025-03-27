@@ -78,25 +78,25 @@ const Queries = () => {
 
   const columns = [
     {
-      title: "Name",
+      title: <h1 className="text-center text-primary-color font-bold text-lg">Name</h1>,
       dataIndex: "Name",
       key: "Name",
       render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title: "Phone Number",
+      title:  <h1 className="text-center text-primary-color font-bold text-lg">Phone Number</h1>,
       dataIndex: "PhoneNumber",
       key: "PhoneNumber",
       render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title: "Email",
+      title:  <h1 className="text-center text-primary-color font-bold text-lg">Email</h1>,
       dataIndex: "Email",
       key: "Email",
       render: (text) => <p className="text-center">{text}</p>,
     },
     {
-      title: "State",
+      title:  <h1 className="text-center text-primary-color font-bold text-lg">State</h1>,
       dataIndex: "State",
       key: "State",
       render: (text) => <p className="text-center">{text || "N/A"}</p>,
