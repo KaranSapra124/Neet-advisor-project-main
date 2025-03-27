@@ -166,7 +166,7 @@ const Queries = () => {
         <Table
           loading={isLoading}
           bordered
-          className="rounded shadow"
+          className="rounded text-center shadow"
           columns={columns}
           dataSource={data}
         />
