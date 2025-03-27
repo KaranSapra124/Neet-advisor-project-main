@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../../Components/Helper/Container";
-import { Input, Modal, Select, Space, Table, Checkbox } from "antd";
+import { Input, Modal, Select, Space, Table, Checkbox, Button } from "antd";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -231,12 +231,36 @@ const EditQueryModal = ({ item, onCancel }) => {
 
   return (
     <Modal
-      title="Edit Query"
+      title={
+        <span className="text-lg p-1 m-2  font-bold  text-[#201169]">Edit Query</span>
+      }
+      
       open={true}
       onOk={mutation.mutate}
       onCancel={onCancel}
+      footer={[
+        <Button
+          key="cancel"
+          onClick={onCancel}
+          className="border-gray-400 text-gray-600"
+        >
+          Cancel
+        </Button>,
+        <Button
+          key="save"
+          type="primary"
+          className="bg-[#201169] text-white hover:bg-[#170f5c]"
+          onClick={mutation.mutate}
+          loading={mutation.isLoading}
+        >
+          Save
+        </Button>,
+      ]}
+      className="rounded-lg p-4 shadow-lg"
     >
-      <QueryForm formData={formData} setFormData={setFormData} />
+      <div className="rounded-md  p-4">
+        <QueryForm formData={formData} setFormData={setFormData} />
+      </div>
     </Modal>
   );
 };
