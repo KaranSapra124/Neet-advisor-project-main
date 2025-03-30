@@ -37,7 +37,7 @@ const SeminarOutcomes = () => {
     <Container
       className={"no-repeat relative h-full bg-webinar-hero bg-cover bg-fixed"}
     >
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-sm"></div>
 
       <div className="relative text-center">
         <h1 className="py-1 lg:text-4xl text-sm font-bold text-yellow-600">
@@ -59,7 +59,7 @@ const SeminarOutcomes = () => {
           return (
             <div
               key={index}
-              className="my-2 lg:h-[21rem]  lg:w-72 w-fit animate-rubberBand cursor-pointer rounded bg-gray-100/40 p-4 text-center shadow-sm shadow-white transition-all hover:scale-105"
+              className="my-2 lg:h-[21rem]  lg:w-72 w-fit animate-rubberBand cursor-pointer rounded bg-gray-100/40 border border-black/20 p-4 text-center shadow-sm shadow-white transition-all hover:scale-105"
             >
               {index < 2 ? (
                 <img
@@ -81,7 +81,7 @@ const SeminarOutcomes = () => {
                 # {elem?.title}
               </h2>
               <Divider
-                className={"lg:my-3 my-2 h-0.5 w-10 rounded-full bg-yellow-600"}
+                className={"lg:my-3 my-2 h-0.5 w-10 rounded-full bg-primary-color"}
               />
               <p className="lg:text-xs text-[0.7rem] font-semibold text-justify text-gray-800">
                 {elem?.description}
