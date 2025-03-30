@@ -129,13 +129,13 @@ const Glimpse_Of_Success = () => {
                                   <>
                                     <div className="mx-auto flex flex-col justify-between rounded-md shadow shadow-gray-200 lg:max-w-screen-xl lg:flex-row">
                                       <video
-                                        className="h-full rounded-md lg:w-1/2 lg:rounded-l-lg"
+                                        className="h-96  object-cover lg:w-1/2 lg:rounded-l-lg"
                                         src={`${import.meta.env.VITE_BACKEND_URL}uploads/${elem?.video}`}
                                         autoPlay
                                         loop
                                         muted
                                       ></video>
-                                      <div className="flex flex-col gap-1 bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 px-1 py-0.5 lg:w-1/2 lg:px-2 lg:py-2">
+                                      <div className="flex flex-col gap-1 bg-gray-100/10 px-1 py-0.5 lg:w-1/2 lg:px-2 lg:py-2">
                                         <img
                                           className="ml-auto h-6 w-6 rounded-sm bg-white p-1 lg:h-10 lg:w-10"
                                           src="neet-advisor-logo-Photoroom.png"
@@ -155,15 +155,15 @@ const Glimpse_Of_Success = () => {
                                               "my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:w-20"
                                             }
                                           />
-                                          <h2 className="my-2 text-[0.7rem] font-light text-gray-200 lg:text-xl lg:font-thin">
+                                          <h2 className="my-2 text-[0.7rem] font-light text-gray-800  lg:text-xl lg:font-semibold">
                                             {elem?.catchPhrase}
                                           </h2>
-                                          <p className="my-2 text-center text-[0.5rem] font-extrabold text-gray-200 lg:text-xs lg:font-semibold">
+                                          <p className="my-2 text-center text-[0.5rem] font-extrabold text-gray-900 lg:text-xs ">
                                             {elem?.description}
                                           </p>
                                           <div className="my-2">
                                             <p className="flex w-fit items-center justify-evenly rounded-lg border border-white p-1 font-extrabold text-gray-400 lg:p-2 lg:font-bold">
-                                              <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-gray-200 lg:gap-2 lg:text-sm">
+                                              <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-primary-color lg:gap-2 lg:text-sm">
                                                 <img
                                                   src="./Webinar/person-speaker.gif"
                                                   className="w-4 lg:h-8 lg:w-8"
@@ -174,10 +174,10 @@ const Glimpse_Of_Success = () => {
                                               </div>
                                               <Divider
                                                 className={
-                                                  "h-0.5 w-3.5 rotate-90 bg-yellow-600 lg:w-5"
+                                                  "h-0.5 w-3.5 rotate-90 bg-primary-color lg:w-5"
                                                 }
                                               />
-                                              <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-gray-200 lg:gap-2 lg:text-sm">
+                                              <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-primary-color lg:gap-2 lg:text-sm">
                                                 <img
                                                   src="./Webinar/calendar-bg-removed.gif"
                                                   className="w-4 lg:h-8 lg:w-8"
@@ -188,10 +188,10 @@ const Glimpse_Of_Success = () => {
                                               </div>
                                               <Divider
                                                 className={
-                                                  "h-0.5 w-3.5 rotate-90 bg-yellow-600 lg:w-5"
+                                                  "h-0.5 w-3.5 rotate-90 bg-primary-color lg:w-5"
                                                 }
                                               />
-                                              <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-gray-200 lg:gap-2 lg:text-sm">
+                                              <div className="flex items-center justify-between gap-0.5 text-[0.4rem] text-primary-color lg:gap-2 lg:text-sm">
                                                 <img
                                                   src="./Seminar/location-pin-bg-removed.gif"
                                                   className="w-4 lg:h-8 lg:w-8"
