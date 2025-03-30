@@ -64,7 +64,7 @@ const OurPanelists = () => {
       <Container
         className={"no-repeat relative bg-webinar-hero bg-cover bg-fixed"}
       >
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
         <ScrollAnimation
           animateIn="backInRight"
           animateOnce={true}
@@ -74,16 +74,16 @@ const OurPanelists = () => {
             <div className="text-center">
               <h1 className="text-sm font-semibold text-yellow-600 lg:text-3xl">
                 How It Will{" "}
-                <span className="font-extrabold text-primary-color brightness-[300%]">
+                <span className="font-extrabold text-primary-color ">
                   Progess?
                 </span>
               </h1>
-              <p className="my-2 text-[0.5rem] font-semibold text-gray-200 lg:text-xs">
+              <p className="my-2 text-[0.5rem] font-bold text-gray-800  lg:text-xs">
                 Checkout timeline of our seminar!
               </p>
               <Divider
                 className={
-                  "mx-auto my-2 mb-5 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:mb-10 lg:h-1 lg:w-20"
+                  "mx-auto my-2 mb-5 h-0.5 w-12 rounded-full bg-primary-color lg:my-4 lg:mb-10 lg:h-1 lg:w-20"
                 }
               />
             </div>
@@ -97,27 +97,27 @@ const OurPanelists = () => {
                       <>
                         <ScrollAnimation duration={1} animateIn="backInUp">
                           <div
-                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md border border-white bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
+                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[17rem]"} m-2 rounded-md border border-white bg-gray-100/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
                           >
                             <img
                               src="./Seminar/validation-badge-bg-removed.gif"
-                              className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "left-[14rem] lg:left-[39.5rem]" : "left-[14rem] lg:left-[19.2rem]"}`}
+                              className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "left-[14rem] lg:left-[35.6rem]" : "left-[14rem] lg:left-[19.2rem]"}`}
                               alt=""
                               srcset=""
                             />
                             <div className="p-2 lg:p-4">
-                              <h2 className="text-md my-1 font-extrabold text-white max-[800px]:text-[0.6rem] lg:font-semibold">
+                              <h2 className="text-md my-1 font-extrabold text-gray-800 max-[800px]:text-[0.6rem] lg:font-semibold">
                                 {elem?.title}
                               </h2>
                               <Divider
                                 className={
-                                  "mx-auto my-4 h-0.5 w-8 rounded-full bg-gray-400 lg:my-2"
+                                  "mx-auto my-4 h-0.5 w-8 rounded-full bg-primary-color lg:my-2"
                                 }
                               />
-                              <h1 className="text-xs font-thin text-white lg:text-sm lg:font-bold">
+                              <h1 className="text-xs font-thin text-gray-800 lg:text-sm lg:font-bold">
                                 {elem?.fromTime} AM - {elem?.endTime} AM
                               </h1>
-                              <p className="my-3 text-wrap text-[0.7rem] font-bold text-gray-200 lg:my-2 lg:text-xs">
+                              <p className="my-3 text-wrap text-[0.7rem] font-bold text-gray-800 lg:my-2 lg:text-xs">
                                 {elem?.motive}
                               </p>
                             </div>
