@@ -51,7 +51,7 @@ const Why_Attend = () => {
           "no-repeat relative h-full bg-webinar-hero bg-cover bg-fixed lg:h-screen"
         }
       >
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-sm"></div>
         <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
           <div className="relative">
             <h1 className="text-center text-sm font-semibold text-yellow-600 lg:text-3xl">
@@ -73,7 +73,7 @@ const Why_Attend = () => {
               <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-0 lg:w-1/2 lg:grid-cols-2 lg:gap-2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex bg-gray-100/40 hover:scale-105 transition-all cursor-pointer flex-col gap-1  border rounded-lg border-white p-2 lg:flex-row lg:space-y-4 ">
+                    <div className="flex bg-gray-100/40  hover:scale-105 transition-all cursor-pointer flex-col gap-1  border rounded-lg border-black/20 p-2 lg:flex-row lg:space-y-4 ">
                       <img
                         src={seminar?.icon}
                         className="h-4 w-4 lg:h-9 lg:w-9"
