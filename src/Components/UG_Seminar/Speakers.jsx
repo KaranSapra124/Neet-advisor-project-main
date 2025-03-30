@@ -41,7 +41,7 @@ const Speakers = () => {
           "no-repeat relative h-full bg-seminar-hero bg-cover bg-fixed"
         }
       >
-        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-md"></div>
         <ScrollAnimation
           animateIn="backInRight"
           animateOnce={true}
@@ -55,12 +55,12 @@ const Speakers = () => {
                   Voices!
                 </span>
               </h1>
-              <p className="my-2 text-[0.5rem] font-semibold text-gray-200 lg:text-xs">
+              <p className="my-2 text-[0.5rem] font-semibold text-gray-800 lg:text-xs">
                 You Will Get , Industry Expert's Knowledge
               </p>
               <Divider
                 className={
-                  "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+                  "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-2 lg:h-1 lg:w-20"
                 }
               />
             </div>
@@ -78,7 +78,7 @@ const Speakers = () => {
 
 const TeamMember = ({ member }) => {
   return (
-    <div className="group flex w-full cursor-pointer flex-row overflow-hidden rounded-md border border-gray-300 bg-black/95 shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row lg:w-[35rem] lg:shadow-md">
+    <div className="group flex w-full cursor-pointer flex-row overflow-hidden rounded-md border border-gray-300 bg-100/40 shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row lg:w-[35rem] lg:shadow-md">
       <div>
         <div className="flex max-w-screen-sm flex-row justify-between p-2">
           <img
@@ -89,7 +89,7 @@ const TeamMember = ({ member }) => {
           <div>
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-[0.6rem] font-bold text-primary-color brightness-[250%] transition-all duration-300 group-hover:font-extrabold lg:text-lg">
+                <h3 className="text-[0.6rem] font-bold text-primary-color  transition-all duration-300 group-hover:font-extrabold lg:text-lg">
                   {member.name}
                 </h3>
                 <Divider className="my-1 h-0.5 w-8 rounded-full bg-yellow-600 lg:w-16" />
@@ -100,7 +100,7 @@ const TeamMember = ({ member }) => {
                     alt=""
                     srcset=""
                   />
-                  <p className="mx-1 mt-1 text-[0.6rem] font-semibold text-gray-400 lg:text-sm">
+                  <p className="mx-1 mt-1 text-[0.6rem] font-semibold text-gray-800 lg:text-sm">
                     {member.title}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ const TeamMember = ({ member }) => {
                 alt=""
                 srcset=""
               />
-              <p className="mx-0.5 my-0.5 line-clamp-2 text-[0.6rem] font-semibold italic leading-relaxed text-gray-400 lg:mx-2 lg:my-2 lg:text-xs">
+              <p className="mx-0.5 my-0.5 line-clamp-2 text-[0.6rem] font-semibold italic leading-relaxed text-gray-800 lg:mx-2 lg:my-2 lg:text-xs">
                 "{member.bio}"
               </p>
             </div>
@@ -139,7 +139,7 @@ const TeamMember = ({ member }) => {
           {member.expertise.map((skill, index) => (
             <span
               key={index}
-              className="w-fit rounded-full bg-gray-200 px-0.5 py-1 text-[0.5rem] font-semibold text-primary-color lg:px-3 lg:text-sm lg:font-semibold"
+              className="w-fit rounded-full border border-black/20 bg-gray-200 px-0.5 py-1 text-[0.5rem] font-semibold text-primary-color lg:px-3 lg:text-sm lg:font-semibold"
             >
               # {skill}
             </span>
