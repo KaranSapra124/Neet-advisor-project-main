@@ -59,7 +59,7 @@ const Hero = () => {
           muted
           className="absolute inset-0 h-full w-full object-cover"
         ></video>
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-black/90 to-black/50"></div>
+        <div className="absolute inset-0 h-full w-full bg-white/65"></div>
         <div className="relative flex h-full w-full flex-col items-center justify-between lg:flex-row">
           <ScrollAnimation
             animateIn="backInLeft"
@@ -77,7 +77,7 @@ const Hero = () => {
                   NEET UG 2025
                 </span>
               </h1>
-              <p className="text-[0.6rem] font-extrabold text-gray-200 lg:max-w-md lg:text-xs">
+              <p className="text-[0.6rem] font-extrabold text-gray-800 lg:max-w-md lg:text-xs">
                 Prepare yourself for the NEET UG exam with expert guidance and
                 tips. Join us for insightful sessions, mock tests, and career
                 counseling.
@@ -95,35 +95,41 @@ const Hero = () => {
             delay={1}
           >
             <div className="my-4 h-fit rounded-md bg-gray-200/10 p-4 shadow-md shadow-white/50 backdrop-blur-sm lg:my-0 lg:p-8">
-              {data?.map((seminar, index) => {
-                return (
-                  <div className="cursor-pointer transition-all duration-100 hover:scale-105">
-                    <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-1.5 py-1 text-[0.6rem] font-bold uppercase text-yellow-200 lg:px-2 lg:text-sm">
-                      # {seminar?.state}
-                    </div>
-                    <div className="flex items-center justify-between py-1.5 lg:py-2">
-                      <h1 className="text-sm font-extrabold text-gray-200 lg:text-3xl lg:font-bold">
-                        {formatDate(seminar?.date)}
-                      </h1>
-                      <div
-                        onClick={() => {
-                          window.open(seminar?.URL, "__blank");
-                        }}
-                        className={`mx-2 w-fit rounded-md bg-yellow-600 px-1.5 py-0.5 text-[0.7rem] font-extrabold uppercase text-white shadow shadow-white lg:mx-4 lg:px-2 lg:py-1 lg:text-sm lg:font-bold`}
-                      >
-                        Book Now
+              {data?.length ? (
+                data?.map((seminar, index) => {
+                  return (
+                    <div className="cursor-pointer transition-all duration-100 hover:scale-105">
+                      <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-1.5 py-1 text-[0.6rem] font-bold uppercase text-yellow-200 lg:px-2 lg:text-sm">
+                        # {seminar?.state}
                       </div>
-                      <FaArrowRight className="animate-scaleUp text-xs text-yellow-600 lg:text-sm" />
+                      <div className="flex items-center justify-between py-1.5 lg:py-2">
+                        <h1 className="text-sm font-extrabold text-gray-200 lg:text-3xl lg:font-bold">
+                          {formatDate(seminar?.date)}
+                        </h1>
+                        <div
+                          onClick={() => {
+                            window.open(seminar?.URL, "__blank");
+                          }}
+                          className={`mx-2 w-fit rounded-md bg-yellow-600 px-1.5 py-0.5 text-[0.7rem] font-extrabold uppercase text-white shadow shadow-white lg:mx-4 lg:px-2 lg:py-1 lg:text-sm lg:font-bold`}
+                        >
+                          Book Now
+                        </div>
+                        <FaArrowRight className="animate-scaleUp text-xs text-yellow-600 lg:text-sm" />
+                      </div>
+                      <div className="text-[0.6rem] font-semibold text-gray-200 lg:text-xs">
+                        {seminar.location}
+                      </div>
+                      {index !== data?.length - 1 && (
+                        <Divider className="my-2.5 h-0.5 w-full rounded-full bg-yellow-600 lg:my-5" />
+                      )}
                     </div>
-                    <div className="text-[0.6rem] font-semibold text-gray-200 lg:text-xs">
-                      {seminar.location}
-                    </div>
-                    {index !== data?.length - 1 && (
-                      <Divider className="my-2.5 h-0.5 w-full rounded-full bg-yellow-600 lg:my-5" />
-                    )}
-                  </div>
-                );
-              })}
+                  );
+                })
+              ) : (
+                <>
+                  <h2 className="text-primary-color font-bold lg:text-lg text-sm">No Seminars Scheduled!</h2>
+                </>
+              )}
             </div>
           </ScrollAnimation>
         </div>
