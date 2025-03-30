@@ -35,12 +35,12 @@ const WhoShouldAttend = () => {
     "https://neetadvisor.com/assets/images/gallery/seminars/4.webp",
     "https://neetadvisor.com/assets/images/gallery/seminars/5.webp",
   ];
-  useEffect(() => {
-    const cardIndex = setInterval(() => {
-      setIsIndex((prev) => (prev < whoShouldAttend?.length ? prev + 1 : 0));
-    }, 3000);
-    return clearInterval(()=>cardIndex);
-  }, []);
+  // useEffect(() => {
+  //   const cardIndex = setInterval(() => {
+  //     setIsIndex((prev) => (prev < whoShouldAttend?.length ? prev + 1 : 0));
+  //   }, 3000);
+  //   return clearInterval(()=>cardIndex);
+  // }, []);
 
   return (
     <>
@@ -49,7 +49,7 @@ const WhoShouldAttend = () => {
           "no-repeat relative lg:h-screen  bg-webinar-hero bg-cover bg-fixed"
         }
       >
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-sm"></div>
         <ScrollAnimation
           animateIn="backInLeft"
           duration={1.5}
@@ -84,11 +84,11 @@ const WhoShouldAttend = () => {
                 {whoShouldAttend?.map((elem, index) => {
                   return (
                     <div
-                      className={`${isIndex === index && "border-b-2 border-l-2"} relative lg:m-4 m-2 mx-3 cursor-pointer rounded-lg border-yellow-600 bg-gray-100/40 p-2 shadow-sm shadow-white transition-all duration-200`}
+                      className={`border relative lg:m-4 m-2 mx-3 cursor-pointer rounded-lg border-black/20 bg-gray-100/40 p-2 shadow-sm shadow-white transition-all duration-200`}
                     >
                       <img
                         src="./Webinar/creative-removedBg.gif"
-                        className="absolute -top-3 lg:left-[16rem] left-[16rem] lg:h-9 lg:w-9 w-7 h-7"
+                        className="absolute -top-3 lg:left-[15.5rem] left-[16rem] lg:h-9 lg:w-9 w-7 h-7"
                         alt=""
                         srcset=""
                       />
@@ -96,7 +96,7 @@ const WhoShouldAttend = () => {
                         # {elem?.category}
                       </h1>
                       <Divider
-                        className={"lg:my-3 my-2 h-0.5 w-12 rounded-full bg-yellow-600"}
+                        className={"lg:my-3 my-2 h-0.5 w-12 rounded-full bg-primary-color"}
                       />
                       <p className="lg:my-4 my-0 lg:text-xs text-[0.5rem] font-semibold text-gray-800">
                         {elem?.description}
