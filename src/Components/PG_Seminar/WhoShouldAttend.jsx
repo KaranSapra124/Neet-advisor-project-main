@@ -88,7 +88,7 @@ const WhoShouldAttend = () => {
                     >
                       <img
                         src="./Webinar/creative-removedBg.gif"
-                        className="absolute -top-3 lg:left-[15.5rem] left-[16rem] lg:h-9 lg:w-9 w-7 h-7"
+                        className="absolute -top-3 lg:left-[17.5rem] left-[16rem] lg:h-9 lg:w-9 w-7 h-7"
                         alt=""
                         srcset=""
                       />
