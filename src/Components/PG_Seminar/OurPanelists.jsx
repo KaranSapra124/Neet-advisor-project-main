@@ -97,11 +97,11 @@ const OurPanelists = () => {
                       <>
                         <ScrollAnimation duration={1} animateIn="backInUp">
                           <div
-                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[17rem]"} m-2 rounded-md border border-black/20 bg-gray-100/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
+                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[21rem]"} m-2 rounded-md border border-black/20 bg-gray-100/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
                           >
                             <img
                               src="./Seminar/validation-badge-bg-removed.gif"
-                              className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "left-[14rem] lg:left-[35.6rem]" : "left-[14rem] lg:left-[19.2rem]"}`}
+                              className={`absolute -top-2 h-9 w-9 ${(index + 1) % 2 === 0 ? "left-[14rem] lg:left-[39.5rem]" : "left-[14rem] lg:left-[19.2rem]"}`}
                               alt=""
                               srcset=""
                             />
