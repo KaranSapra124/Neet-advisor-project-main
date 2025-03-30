@@ -78,11 +78,11 @@ const Glimpse_Of_Success = () => {
             <div className="my-2 text-center">
               <h1 className="text-sm font-bold text-yellow-600 lg:text-3xl">
                 Where & When To{" "}
-                <span className="font-extrabold text-primary-color ">
+                <span className="font-extrabold text-primary-color">
                   Reach?
                 </span>
               </h1>
-              <p className="my-2 text-[0.5rem] font-bold text-gray-800   lg:text-xs">
+              <p className="my-2 text-[0.5rem] font-bold text-gray-800 lg:text-xs">
                 Want To Reach To Us , Checkout The Details!
               </p>
               <Divider
@@ -94,12 +94,11 @@ const Glimpse_Of_Success = () => {
             <div>
               {isLoading ? (
                 <h1>Loading...</h1>
-              ) : (
+              ) : data ? (
                 <Tabs
                   tabPosition={window.outerWidth > 800 ? "left" : "top"}
                   className="ug-seminar-tab"
                   onChange={(val) => {
-                    
                     queryClient.setQueryData(
                       ["allSeminars"],
                       Object.entries(groupedSeminars)?.sort((a, b) =>
@@ -129,7 +128,7 @@ const Glimpse_Of_Success = () => {
                                   <>
                                     <div className="mx-auto flex flex-col justify-between rounded-md border border-black/20 lg:max-w-screen-xl lg:flex-row">
                                       <video
-                                        className="llg:h-96  object-cover lg:w-1/2 lg:rounded-l-lg"
+                                        className="llg:h-96 object-cover lg:w-1/2 lg:rounded-l-lg"
                                         src={`${import.meta.env.VITE_BACKEND_URL}uploads/${elem?.video}`}
                                         autoPlay
                                         loop
@@ -155,10 +154,10 @@ const Glimpse_Of_Success = () => {
                                               "my-2 h-0.5 w-12 rounded-full bg-primary-color lg:w-20"
                                             }
                                           />
-                                          <h2 className="my-2 text-[0.7rem] font-light text-gray-800  lg:text-lg lg:font-semibold">
+                                          <h2 className="my-2 text-[0.7rem] font-light text-gray-800 lg:text-lg lg:font-semibold">
                                             {elem?.catchPhrase}
                                           </h2>
-                                          <p className="my-2 text-center text-[0.5rem] font-extrabold text-gray-900 lg:text-sm ">
+                                          <p className="my-2 text-center text-[0.5rem] font-extrabold text-gray-900 lg:text-sm">
                                             {elem?.description}
                                           </p>
                                           <div className="my-2">
@@ -222,6 +221,8 @@ const Glimpse_Of_Success = () => {
                       })
                   }
                 />
+              ) : (
+                <>Hello</>
               )}
             </div>
           </div>
