@@ -73,7 +73,7 @@ const Why_Attend = () => {
               <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-0 lg:w-1/2 lg:grid-cols-2 lg:gap-2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex bg-black/70 flex-col gap-1  border rounded-lg border-white p-2 lg:flex-row lg:space-y-4 ">
+                    <div className="flex bg-gray-100/40 hover:scale-105 transition-all cursor-pointer flex-col gap-1  border rounded-lg border-white p-2 lg:flex-row lg:space-y-4 ">
                       <img
                         src={seminar?.icon}
                         className="h-4 w-4 lg:h-9 lg:w-9"
@@ -84,7 +84,7 @@ const Why_Attend = () => {
                         <h1 className="text-sm font-extrabold text-yellow-600">
                           {seminar?.title}
                         </h1>
-                        <p className="text-[0.6rem] font-semibold text-gray-200 lg:text-xs">
+                        <p className="text-[0.6rem] font-semibold text-gray-800 lg:text-xs">
                           {seminar?.paragraph}
                         </p>
                       </div>

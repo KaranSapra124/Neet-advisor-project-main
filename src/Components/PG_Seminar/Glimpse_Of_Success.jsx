@@ -71,23 +71,23 @@ const Glimpse_Of_Success = () => {
       <Container
         className={"no-repeat relative bg-webinar-hero bg-cover bg-fixed"}
       >
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
 
         <ScrollAnimation animateIn="fadeIn" duration={1.5} animateOnce={true}>
           <div className="relative">
             <div className="my-2 text-center">
               <h1 className="text-sm font-bold text-yellow-600 lg:text-3xl">
                 Where & When To{" "}
-                <span className="font-extrabold text-primary-color brightness-200">
+                <span className="font-extrabold text-primary-color ">
                   Reach?
                 </span>
               </h1>
-              <p className="my-2 text-[0.5rem] font-semibold text-gray-200 lg:my-3 lg:text-xs">
+              <p className="my-2 text-[0.5rem] font-bold text-gray-800  lg:my-3 lg:text-xs">
                 Want To Reach To Us , Checkout The Details!
               </p>
               <Divider
                 className={
-                  "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-5 lg:h-1 lg:w-20"
+                  "mx-auto my-2 h-0.5 w-12 rounded-full bg-primary-color lg:my-5 lg:h-1 lg:w-20"
                 }
               />
             </div>
