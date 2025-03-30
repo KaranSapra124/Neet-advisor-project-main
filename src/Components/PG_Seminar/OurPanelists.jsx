@@ -64,7 +64,7 @@ const OurPanelists = () => {
       <Container
         className={"no-repeat relative bg-webinar-hero bg-cover bg-fixed"}
       >
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-sm"></div>
         <ScrollAnimation
           animateIn="backInRight"
           animateOnce={true}
@@ -97,7 +97,7 @@ const OurPanelists = () => {
                       <>
                         <ScrollAnimation duration={1} animateIn="backInUp">
                           <div
-                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[17rem]"} m-2 rounded-md border border-white bg-gray-100/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
+                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[17rem]"} m-2 rounded-md border border-black/20 bg-gray-100/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
                           >
                             <img
                               src="./Seminar/validation-badge-bg-removed.gif"
