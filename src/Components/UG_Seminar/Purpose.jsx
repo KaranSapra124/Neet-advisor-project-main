@@ -56,27 +56,27 @@ const Purpose = () => {
       <Container
         className={"no-repeat relative  lg:h-screen h-full bg-seminar-hero bg-cover bg-fixed"}
       >
-        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-md"></div>
         <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
           <div className="relative">
             <h1 className="text-center lg:text-3xl text-sm font-semibold text-yellow-600">
               Why To{" "}
-              <span className="font-extrabold text-primary-color brightness-200">
+              <span className="font-extrabold text-primary-color ">
                 Attend Our Seminar ?
               </span>
             </h1>
-            <p className="lg:my-4 my-2 text-center lg:text-xs text-[0.5rem] font-semibold text-gray-200">
+            <p className="my-2 text-center lg:text-xs text-[0.5rem] font-semibold text-gray-800">
               Preparing for NEET is tough, but the competition for seats is even
               tougher!!
             </p>
             <Divider
-              className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
+              className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-primary-color"}
             />
-            <div className="flex lg:flex-row flex-col-reverse justify-center lg:gap-0 gap-5">
+            <div className="flex items-center lg:flex-row flex-col-reverse justify-center lg:gap-0 gap-5">
               <div className="lg:w-1/2 flex flex-col lg:gap-0 gap-2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex items-center gap-1 p-4 border-b-2  border-l-2 border-white rounded-md">
+                    <div className="flex items-center gap-1 p-4 border-b-2  border-l-2 border-black/20 my-2 rounded-md">
                       <img
                         src={seminar?.icon}
                         className="lg:h-9 lg:w-9 w-6"
@@ -88,7 +88,7 @@ const Purpose = () => {
                         <h1 className="lg:text-sm text-xs font-extrabold text-yellow-600">
                           {seminar?.title}
                         </h1>
-                        <p className="lg:text-xs text-[0.6rem] font-semibold text-gray-200 my-0.5">
+                        <p className="lg:text-xs text-[0.6rem] font-semibold text-gray-800 my-0.5">
                           {seminar?.paragraph}
                         </p>
                       </div>
