@@ -93,7 +93,7 @@ const Agenda = () => {
                       <>
                         <ScrollAnimation duration={1} animateIn="backInUp">
                           <div
-                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md border border-white bg-white text-center shadow-sm shadow-white border border-black/20 lg:h-40 lg:w-80`}
+                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md  border-white bg-white text-center shadow-sm shadow-white border border-black/20 lg:h-40 lg:w-80`}
                           >
                             <img
                               src="./Seminar/validation-badge-bg-removed.gif"
