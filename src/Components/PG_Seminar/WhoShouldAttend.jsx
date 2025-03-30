@@ -38,7 +38,7 @@ const WhoShouldAttend = () => {
   useEffect(() => {
     const cardIndex = setInterval(() => {
       setIsIndex((prev) => (prev < whoShouldAttend?.length ? prev + 1 : 0));
-    }, 1500);
+    }, 3000);
     return clearInterval(()=>cardIndex);
   }, []);
 
@@ -49,7 +49,7 @@ const WhoShouldAttend = () => {
           "no-repeat relative lg:h-screen  bg-webinar-hero bg-cover bg-fixed"
         }
       >
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
         <ScrollAnimation
           animateIn="backInLeft"
           duration={1.5}
@@ -59,15 +59,15 @@ const WhoShouldAttend = () => {
             <div className="text-center">
               <h1 className="lg:text-3xl text-sm font-bold text-yellow-600">
                 Who Should{" "}
-                <span className="font-extrabold text-primary-color brightness-200">
+                <span className="font-extrabold text-primary-color ">
                   Attend Our Seminar?
                 </span>
               </h1>
-              <p className="my-2 lg:text-xs text-[0.5rem] font-semibold text-gray-400">
+              <p className="my-2 lg:text-xs text-[0.5rem] font-bold text-gray-800">
                 Attend our seminar & reach newer heights!
               </p>
               <Divider
-                className={"mx-auto lg:my-4 lg:h-1 lg:w-20 w-12 h-0.5 my-2 rounded-full bg-yellow-600"}
+                className={"mx-auto lg:my-4 lg:h-1 lg:w-20 w-12 h-0.5 my-2 rounded-full bg-primary-color"}
               />
             </div>
 
@@ -84,11 +84,11 @@ const WhoShouldAttend = () => {
                 {whoShouldAttend?.map((elem, index) => {
                   return (
                     <div
-                      className={`${isIndex === index && "border-b-2 border-l-2"} relative lg:m-4 m-2 mx-3 cursor-pointer rounded-lg border-yellow-600 bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 p-2 shadow-sm shadow-white transition-all duration-200`}
+                      className={`${isIndex === index && "border-b-2 border-l-2"} relative lg:m-4 m-2 mx-3 cursor-pointer rounded-lg border-yellow-600 bg-gray-100/40 p-2 shadow-sm shadow-white transition-all duration-200`}
                     >
                       <img
                         src="./Webinar/creative-removedBg.gif"
-                        className="absolute -top-3 lg:left-[18.5rem] left-[15rem] lg:h-9 lg:w-9 w-7 h-7"
+                        className="absolute -top-3 lg:left-[16rem] left-[16rem] lg:h-9 lg:w-9 w-7 h-7"
                         alt=""
                         srcset=""
                       />
@@ -98,7 +98,7 @@ const WhoShouldAttend = () => {
                       <Divider
                         className={"lg:my-3 my-2 h-0.5 w-12 rounded-full bg-yellow-600"}
                       />
-                      <p className="lg:my-4 my-0 lg:text-sm text-[0.5rem] font-semibold text-gray-300/90">
+                      <p className="lg:my-4 my-0 lg:text-xs text-[0.5rem] font-semibold text-gray-800">
                         {elem?.description}
                       </p>
                     </div>
