@@ -320,7 +320,7 @@ const AspirantsSection = () => {
     fetchStudents();
   }, []);
   return (
-    <Container className={"bg-gray-200/40 lg:py-0"}>
+    <Container className={"bg-gray-200/40 lg:py-12"}>
       <div className="mb-4 lg:max-w-screen-xl lg:text-center">
         <h1 className="mb-1.5 text-lg font-bold text-yellow-600 max-[380px]:text-center max-[380px]:text-lg lg:mb-2 lg:text-3xl">
           Students Coached to{" "}
@@ -338,70 +338,76 @@ const AspirantsSection = () => {
           }
         />
       </div>
-      <Carousel
-        autoplay
-        slidesToShow={window.innerWidth > 786 ? 3 : 1}
-        arrows={false}
-        dots={false}
-      >
-        {neetAspirants.map((elem, index) => (
-          <div key={index} className="relative mx-auto p-1 lg:mx-0">
-            <img
-              src="./Webinar/validation-badge-bg-removed.gif"
-              className="absolute -top-2 left-[33rem] z-20 w-10 max-[380px]:left-[33rem] lg:left-[23.5rem]"
-              alt=""
-              srcset=""
-            />
-            <div className="cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white p-4 shadow-md transition-all duration-300 hover:scale-x-105 hover:shadow-lg">
-              <div className="flex items-center justify-between gap-2">
-                <div className="min-w-0 flex-1">
-                  {/* Student Name and Divider */}
-                  <h2 className="mb-2 text-[0.7rem] font-extrabold text-primary-color lg:text-sm">
-                    {elem?.clientName}
-                  </h2>
-                  <div className="mb-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:mb-4 lg:w-16" />
+      {neetAspirants?.length > 0 ? (
+        <Carousel
+          autoplay
+          slidesToShow={window.innerWidth > 786 ? 3 : 1}
+          arrows={false}
+          dots={false}
+        >
+          {neetAspirants.map((elem, index) => (
+            <div key={index} className="relative mx-auto p-1 lg:mx-0">
+              <img
+                src="./Webinar/validation-badge-bg-removed.gif"
+                className="absolute -top-2 left-[33rem] z-20 w-10 max-[380px]:left-[33rem] lg:left-[23.5rem]"
+                alt=""
+                srcset=""
+              />
+              <div className="cursor-pointer rounded-xl border-b-2 border-l-2 border-yellow-600 bg-white p-4 shadow-md transition-all duration-300 hover:scale-x-105 hover:shadow-lg">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="min-w-0 flex-1">
+                    {/* Student Name and Divider */}
+                    <h2 className="mb-2 text-[0.7rem] font-extrabold text-primary-color lg:text-sm">
+                      {elem?.clientName}
+                    </h2>
+                    <div className="mb-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:mb-4 lg:w-16" />
 
-                  {/* College Info */}
-                  <div className="mb-1.5 flex items-center gap-1 lg:mb-3">
-                    <FaUniversity className="mt-1 flex-shrink-0 text-primary-color" />
-                    <p className="mx-1 line-clamp-1 text-[0.6rem] font-semibold text-gray-800 lg:text-xs">
-                      {elem?.clientCollege}
-                    </p>
-                  </div>
+                    {/* College Info */}
+                    <div className="mb-1.5 flex items-center gap-1 lg:mb-3">
+                      <FaUniversity className="mt-1 flex-shrink-0 text-primary-color" />
+                      <p className="mx-1 line-clamp-1 text-[0.6rem] font-semibold text-gray-800 lg:text-xs">
+                        {elem?.clientCollege}
+                      </p>
+                    </div>
 
-                  {/* Rank */}
-                  <div className="mb-1.5 flex items-center gap-1 lg:mb-3">
-                    <FaRocket className="text-primary-color" />
-                    <span className="mx-1 text-[0.6rem] font-semibold lg:text-xs">
-                      AIR Rank:{" "}
-                      <span className="font-bold text-primary-color">
-                        {elem?.Rank}
+                    {/* Rank */}
+                    <div className="mb-1.5 flex items-center gap-1 lg:mb-3">
+                      <FaRocket className="text-primary-color" />
+                      <span className="mx-1 text-[0.6rem] font-semibold lg:text-xs">
+                        AIR Rank:{" "}
+                        <span className="font-bold text-primary-color">
+                          {elem?.Rank}
+                        </span>
                       </span>
-                    </span>
+                    </div>
+
+                    {/* MBBS Badge */}
+                    <div className="inline-flex items-center rounded-full border border-primary-color bg-white px-1 py-1 text-primary-color">
+                      <FaGraduationCap className="mr-1" />
+                      <span className="pr-2 text-[0.6rem] font-bold lg:text-xs">
+                        {elem?.Course}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* MBBS Badge */}
-                  <div className="inline-flex items-center rounded-full border border-primary-color bg-white px-1 py-1 text-primary-color">
-                    <FaGraduationCap className="mr-1" />
-                    <span className="pr-2 text-[0.6rem] font-bold lg:text-xs">
-                      {elem?.Course}
-                    </span>
+                  {/* Profile Image */}
+                  <div className="flex-shrink-0">
+                    <img
+                      className="w-20 rounded-lg object-cover shadow-md lg:h-full lg:w-24"
+                      src={`${import.meta.env.VITE_BACKEND_URL}uploads/${elem?.imgUrl}`}
+                      alt={elem?.clientName}
+                    />
                   </div>
-                </div>
-
-                {/* Profile Image */}
-                <div className="flex-shrink-0">
-                  <img
-                    className="w-20 rounded-lg object-cover shadow-md lg:h-full lg:w-24"
-                    src={`${import.meta.env.VITE_BACKEND_URL}uploads/${elem?.imgUrl}`}
-                    alt={elem?.clientName}
-                  />
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Carousel>
+          ))}
+        </Carousel>
+      ) : (
+        <h1 className="mx-auto w-fit rounded border border-black/20 bg-white p-2 text-center text-sm font-bold text-primary-color lg:text-3xl">
+          No Students Found!
+        </h1>
+      )}
     </Container>
   );
 };
