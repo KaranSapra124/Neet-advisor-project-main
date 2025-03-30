@@ -42,7 +42,7 @@ const Hero = () => {
           muted
           className="absolute inset-0 h-full w-full object-cover"
         ></video>
-        <div className="absolute inset-0 h-full w-full bg-white/30"></div>
+        <div className="absolute inset-0 h-full w-full bg-white/65"></div>
         <div className="relative flex h-full w-full flex-col items-center justify-between">
           <ScrollAnimation
             animateIn="backInDown"
@@ -54,13 +54,13 @@ const Hero = () => {
               <div className="w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-[0.6rem] font-bold uppercase text-white lg:text-sm">
                 # 1 Neet counsellor
               </div>
-              <h1 className="text-center text-sm font-extrabold leading-5 text-yellow-600 lg:text-4xl lg:leading-tight">
+              <h1 className="text-center text-sm font-extrabold leading-5 text-yellow-600  lg:text-4xl lg:leading-tight">
                 Fuel Your Dream <br /> of Becoming a Doctor <br />
                 <span className="text-center text-3xl font-extrabold brightness-125 text-primary-color lg:text-6xl">
                   NEET PG 2025
                 </span>
               </h1>
-              <p className="max-w-52 text-center text-[0.5rem] font-extrabold text-gray-200 lg:max-w-md lg:text-xs">
+              <p className="max-w-52 text-center text-[0.5rem] font-extrabold text-gray-800 lg:max-w-md lg:text-xs">
                 Prepare yourself for the NEET UG exam with expert guidance and
                 tips. Join us for insightful sessions, mock tests, and career
                 counseling.
@@ -87,7 +87,7 @@ const Hero = () => {
                 return (
                   <div
                     onClick={() => window.open(seminar?.URL, "__blank")}
-                    className="relative mx-4 my-4 cursor-pointer rounded-lg border border-white bg-white/10 p-1.5 shadow transition-all duration-100 hover:scale-105 lg:my-0 lg:p-3.5"
+                    className="relative mx-4 my-4 cursor-pointer rounded-lg border border-white bg-gray-100/40 p-1.5 shadow transition-all duration-100 hover:scale-105 lg:my-0 lg:p-3.5"
                   >
                     <img
                       src="./Webinar/calendar-bg-removed.gif"
@@ -99,7 +99,7 @@ const Hero = () => {
                       # {seminar?.state}
                     </div>
                     <div className="flex items-center justify-between gap-2 p-2 lg:gap-4">
-                      <h1 className="text-xs font-bold text-white lg:text-3xl">
+                      <h1 className="text-xs font-bold text-gray-800 lg:text-3xl">
                         {formatDate(seminar?.date)}
                       </h1>
                       <div
@@ -109,7 +109,7 @@ const Hero = () => {
                       </div>
                       <FaArrowRight className="animate-scaleUp text-xs text-yellow-600 lg:text-sm" />
                     </div>
-                    <div className="mx-2 text-xs font-semibold text-gray-200">
+                    <div className="mx-2 text-xs font-semibold text-gray-800">
                       {seminar.location}
                     </div>
                     {/* {index !== seminarData?.length - 1 && (
