@@ -64,7 +64,7 @@ const Agenda = () => {
       <Container
         className={"no-repeat relative bg-seminar-hero bg-cover bg-fixed"}
       >
-        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-md"></div>
         <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={1.5}>
           <div className="relative">
             <div className="text-center">
@@ -74,12 +74,12 @@ const Agenda = () => {
                   Progess?
                 </span>
               </h1>
-              <p className="my-2 text-[0.5rem] font-semibold text-gray-200 lg:my-4 lg:text-xs">
+              <p className="my-2 text-[0.5rem] font-semibold text-gray-800 lg:my-2 lg:text-xs">
                 Checkout timeline of our seminar!
               </p>
               <Divider
                 className={
-                  "mx-auto h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+                  "mx-auto h-0.5 w-12 rounded-full bg-primary-color lg:my-4 lg:h-1 lg:w-20"
                 }
               />
             </div>
@@ -93,7 +93,7 @@ const Agenda = () => {
                       <>
                         <ScrollAnimation duration={1} animateIn="backInUp">
                           <div
-                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md border border-white bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 text-center shadow-sm shadow-white lg:h-40 lg:w-80`}
+                            className={` ${(index + 1) % 2 === 0 && "m-0 lg:ml-[20.8rem]"} m-2 rounded-md border border-white bg-white text-center shadow-sm shadow-white border border-black/20 lg:h-40 lg:w-80`}
                           >
                             <img
                               src="./Seminar/validation-badge-bg-removed.gif"
@@ -102,18 +102,18 @@ const Agenda = () => {
                               srcset=""
                             />
                             <div className="p-2 lg:p-4">
-                              <h2 className="text-md my-1 font-extrabold text-white max-[800px]:text-[0.6rem] lg:font-semibold">
+                              <h2 className="text-md my-1 font-extrabold text-gray-800 max-[800px]:text-[0.6rem] lg:font-semibold">
                                 {elem?.title}
                               </h2>
                               <Divider
                                 className={
-                                  "mx-auto my-4 h-0.5 w-8 rounded-full bg-gray-400 lg:my-2"
+                                  "mx-auto my-4 h-0.5 w-8 rounded-full bg-primary-color lg:my-2"
                                 }
                               />
-                              <h1 className="text-xs font-thin text-white lg:text-sm lg:font-bold">
+                              <h1 className="text-xs font-thin text-gray-800 lg:text-sm lg:font-bold">
                                 {elem?.fromTime} AM - {elem?.endTime} AM
                               </h1>
-                              <p className="my-3 text-wrap text-[0.7rem] font-bold text-gray-200 lg:my-2 lg:text-xs">
+                              <p className="my-3 text-wrap text-[0.7rem] font-bold text-gray-800 lg:my-2 lg:text-xs">
                                 {elem?.motive}
                               </p>
                             </div>
