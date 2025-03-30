@@ -42,7 +42,7 @@ const Hero = () => {
           muted
           className="absolute inset-0 h-full w-full object-cover"
         ></video>
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200/10 to-gray-200/10 lg:from-gray-600/20 lg:via-gray-100/40 lg:to-gray-600/20"></div>
+        <div className="absolute inset-0 h-full w-full bg-white/30"></div>
         <div className="relative flex h-full w-full flex-col items-center justify-between">
           <ScrollAnimation
             animateIn="backInDown"
@@ -56,11 +56,11 @@ const Hero = () => {
               </div>
               <h1 className="text-center text-sm font-extrabold leading-5 text-yellow-600 lg:text-4xl lg:leading-tight">
                 Fuel Your Dream <br /> of Becoming a Doctor <br />
-                <span className="text-center text-3xl font-extrabold text-primary-color lg:text-6xl">
+                <span className="text-center text-3xl font-extrabold brightness-125 text-primary-color lg:text-6xl">
                   NEET PG 2025
                 </span>
               </h1>
-              <p className="max-w-52 text-center text-[0.5rem] font-extrabold text-gray-300 lg:max-w-md lg:text-xs">
+              <p className="max-w-52 text-center text-[0.5rem] font-extrabold text-gray-200 lg:max-w-md lg:text-xs">
                 Prepare yourself for the NEET UG exam with expert guidance and
                 tips. Join us for insightful sessions, mock tests, and career
                 counseling.
