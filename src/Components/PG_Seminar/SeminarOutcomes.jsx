@@ -37,21 +37,21 @@ const SeminarOutcomes = () => {
     <Container
       className={"no-repeat relative h-full bg-webinar-hero bg-cover bg-fixed"}
     >
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
 
       <div className="relative text-center">
         <h1 className="py-1 lg:text-4xl text-sm font-bold text-yellow-600">
           What You Will{" "}
-          <span className="font-extrabold text-primary-color brightness-200">
+          <span className="font-extrabold text-primary-color ">
             Gain ?
           </span>
         </h1>
-        <p className="mx-auto lg:my-4 lg:w-96 my-2 lg:text-xs text-[0.5rem] font-semibold text-gray-300">
+        <p className="mx-auto lg:my-4 lg:w-96 my-2 lg:text-xs text-[0.5rem] font-semibold text-gray-800">
           Leave prepared for the NEET PG counselling journey. Here's how our
           attendees benefit from Medical Mentor's seminar!
         </p>
         <Divider
-          className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-32 w-12 rounded-full bg-yellow-600"}
+          className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-32 w-12 rounded-full bg-primary-color"}
         />
       </div>
       <div className="relative my-5 flex lg:flex-row flex-col justify-center gap-2">
@@ -59,7 +59,7 @@ const SeminarOutcomes = () => {
           return (
             <div
               key={index}
-              className="my-2 lg:h-[21rem]  lg:w-72 w-fit animate-rubberBand cursor-pointer rounded bg-gradient-to-tr from-black/50 via-gray-500/10 to-gray-900/40 p-4 text-center shadow-sm shadow-white transition-all duration-500 hover:scale-105"
+              className="my-2 lg:h-[21rem]  lg:w-72 w-fit animate-rubberBand cursor-pointer rounded bg-gray-100/40 p-4 text-center shadow-sm shadow-white transition-all hover:scale-105"
             >
               {index < 2 ? (
                 <img
@@ -83,7 +83,7 @@ const SeminarOutcomes = () => {
               <Divider
                 className={"lg:my-3 my-2 h-0.5 w-10 rounded-full bg-yellow-600"}
               />
-              <p className="lg:text-xs text-[0.7rem] font-semibold text-justify text-gray-300">
+              <p className="lg:text-xs text-[0.7rem] font-semibold text-justify text-gray-800">
                 {elem?.description}
               </p>
             </div>
