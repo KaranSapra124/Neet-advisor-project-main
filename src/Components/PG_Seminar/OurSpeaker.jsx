@@ -39,7 +39,7 @@ const OurSpeaker = () => {
     <Container
       className={"no-repeat relative bg-webinar-hero bg-cover bg-fixed"}
     >
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-sm"></div>
       <ScrollAnimation
         animateIn="backInRight"
         animateOnce={true}
@@ -145,7 +145,7 @@ const OurSpeaker = () => {
 // };
 const TeamMember = ({ member }) => {
   return (
-    <div className="group flex w-full cursor-pointer flex-row overflow-hidden rounded-md border   border-gray-300  bg-gray-100/40 lg:shadow-md shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row lg:w-[35rem]">
+    <div className="group flex w-full cursor-pointer flex-row overflow-hidden rounded-md border   border-black/20  bg-gray-100/40 lg:shadow-md shadow-yellow-200 transition-all duration-300 hover:scale-105 sm:flex-row lg:w-[35rem]">
       <img
         src={member.imageUrl}
         alt={member.name}
@@ -204,7 +204,7 @@ const TeamMember = ({ member }) => {
           {member.expertise.map((skill, index) => (
             <span
               key={index}
-              className="rounded-full bg-gray-200 px-3 py-1 text-[0.4rem] text-xs font-semibold text-primary-color lg:text-sm"
+              className="rounded-full bg-gray-200/40 border border-black/20 px-3 py-1 text-[0.4rem] text-xs font-semibold text-primary-color lg:text-sm"
             >
               # {skill}
             </span>
