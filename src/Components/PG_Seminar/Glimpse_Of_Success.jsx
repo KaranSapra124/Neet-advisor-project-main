@@ -129,7 +129,7 @@ const Glimpse_Of_Success = () => {
                                   <>
                                     <div className="mx-auto flex flex-col justify-between rounded-md border border-black/20 lg:max-w-screen-xl lg:flex-row">
                                       <video
-                                        className="h-96  object-cover lg:w-1/2 lg:rounded-l-lg"
+                                        className="llg:h-96  object-cover lg:w-1/2 lg:rounded-l-lg"
                                         src={`${import.meta.env.VITE_BACKEND_URL}uploads/${elem?.video}`}
                                         autoPlay
                                         loop
