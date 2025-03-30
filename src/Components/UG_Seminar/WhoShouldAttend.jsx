@@ -37,9 +37,11 @@ const WhoShouldAttend = () => {
   return (
     <>
       <Container
-        className={"no-repeat  relative h-full bg-seminar-hero bg-cover bg-fixed"}
+        className={
+          "no-repeat relative h-full bg-seminar-hero bg-cover bg-fixed"
+        }
       >
-        <div className="absolute inset-0 h-full w-full bg-black/95 backdrop-blur-md"></div>
+        <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-md"></div>
         <ScrollAnimation
           animateIn="backInLeft"
           duration={1.5}
@@ -47,38 +49,40 @@ const WhoShouldAttend = () => {
         >
           <div className="relative">
             <div className="text-center">
-              <h1 className="lg:text-3xl text-sm font-bold text-yellow-600">
+              <h1 className="text-sm font-bold text-yellow-600 lg:text-3xl">
                 Who Should{" "}
-                <span className="font-extrabold text-primary-color brightness-200">
+                <span className="font-extrabold text-primary-color">
                   Attend Our Seminar?
                 </span>
               </h1>
-              <p className="lg:my-4 my-2 text-xs font-semibold text-gray-200">
+              <p className="my-2 text-xs font-semibold text-gray-800">
                 Attend our seminar & reach newer heights!
               </p>
               <Divider
-                className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
+                className={
+                  "mx-auto my-2 h-0.5 w-12 rounded-full bg-primary-color lg:my-4 lg:h-1 lg:w-20"
+                }
               />
             </div>
             <div className="mx-auto grid lg:max-w-screen-md lg:grid-cols-2">
               {whoShouldAttend?.map((elem, index) => {
                 return (
                   <div
-                    className={`${isIndex === index && "lg:border-b-4 border-b-2 border-l-2 lg:border-l-4"} 4 relative m-4 mx-3 h-40 cursor-pointer rounded-lg border-yellow-600 p-5 shadow-sm shadow-white transition-all duration-200`}
+                    className={`relative m-4 mx-3 h-40 cursor-pointer rounded-lg border-black/20 p-5 shadow-sm shadow-white border  transition-all duration-200`}
                   >
                     <img
                       src="./Webinar/creative-removedBg.gif"
-                      className="absolute -top-4 lg:left-[21.5rem] left-[15rem] h-9 w-9"
+                      className="absolute -top-4 left-[15rem] h-9 w-9 lg:left-[21.5rem]"
                       alt=""
                       srcset=""
                     />
-                    <h1 className="my-1 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 lg:text-xs text-[0.6rem] font-semibold text-white">
+                    <h1 className="my-1 w-fit rounded-l-full rounded-r-full bg-yellow-600 px-2 py-1 text-[0.6rem] font-semibold text-white lg:text-xs">
                       # {elem?.category}
                     </h1>
                     <Divider
-                      className={"my-3 h-0.5 w-12 rounded-full bg-yellow-600"}
+                      className={"my-3 h-0.5 w-12 rounded-full bg-primary-color"}
                     />
-                    <p className="my-4 lg:text-xs text-[0.7rem] font-semibold text-gray-200">
+                    <p className="my-4 text-[0.7rem] font-semibold text-gray-800 lg:text-xs">
                       {elem?.description}
                     </p>
                   </div>
