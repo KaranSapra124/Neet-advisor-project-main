@@ -48,19 +48,19 @@ const Why_Attend = () => {
     <>
       <Container
         className={
-          "no-repeat relative lg:h-screen h-full bg-webinar-hero bg-cover bg-fixed"
+          "no-repeat relative h-full bg-webinar-hero bg-cover bg-fixed lg:h-screen"
         }
       >
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-tr from-black/80 via-gray-900 to-gray-900/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-200 via-gray-400 to-gray-200 backdrop-blur-sm"></div>
         <ScrollAnimation animateIn="backInUp" animateOnce={true} duration={1.5}>
-          <div className="relative ">
+          <div className="relative">
             <h1 className="text-center text-sm font-semibold text-yellow-600 lg:text-3xl">
               Why To{" "}
               <span className="font-extrabold text-primary-color brightness-200">
                 Attend Our Seminar ?
               </span>
             </h1>
-            <p className="my-2 text-center text-[0.5rem] font-semibold text-gray-200 lg:text-xs">
+            <p className="my-2 text-center text-[0.5rem] font-semibold text-gray-800 lg:text-xs">
               Preparing for NEET is tough, but the competition for seats is even
               tougher!!
             </p>
@@ -69,11 +69,11 @@ const Why_Attend = () => {
                 "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
               }
             />
-            <div className="flex flex-col-reverse  w-full justify-center lg:flex-row-reverse">
+            <div className="flex w-full flex-col-reverse justify-center lg:flex-row-reverse">
               <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-0 lg:w-1/2 lg:grid-cols-2 lg:gap-2">
                 {seminarPurposeData?.map((seminar, index) => {
                   return (
-                    <div className="flex lg:flex-row flex-col gap-1 rounded-l-lg lg:border-b-2 lg:border-l-2 border-b border-l border-white p-2 lg:space-y-4">
+                    <div className="flex bg-black/80 flex-col gap-1  border rounded-lg border-white p-2 lg:flex-row lg:space-y-4 ">
                       <img
                         src={seminar?.icon}
                         className="h-4 w-4 lg:h-9 lg:w-9"
@@ -92,7 +92,7 @@ const Why_Attend = () => {
                   );
                 })}
               </div>
-              <div className="lg:w-1/2  ">
+              <div className="lg:w-1/2">
                 <Carousel
                   effect="fade"
                   infinite
@@ -105,7 +105,7 @@ const Why_Attend = () => {
                     return (
                       <img
                         src={imgData}
-                        className="rounded-lg  lg:border-2 border border-white"
+                        className="rounded-lg border border-white lg:border-2"
                         alt="No Image"
                       />
                     );
