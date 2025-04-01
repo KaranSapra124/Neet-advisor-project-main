@@ -160,8 +160,23 @@ function Navbar() {
             </Dropdown>
           </ul>
           <div className="flex space-x-2">
-            <FaPhoneAlt className="rounded-full bg-white p-1 cursor-pointer hover:scale-105 transition-all text-primary-color lg:text-3xl" />
-            <FaWhatsapp className="rounded-full bg-white p-1 cursor-pointer hover:scale-105 transition-all text-green-500  lg:text-3xl" />
+            {/* Phone Icon */}
+            <a
+              href="tel:+917678126262"
+              className="cursor-pointer rounded-full bg-white p-1.5 text-primary-color transition-all  hover:scale-105 lg:text-xl"
+            >
+              <FaPhoneAlt />
+            </a>
+
+            {/* WhatsApp Icon */}
+            <a
+              href="https://wa.me/+917678126262"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer rounded-full bg-white p-1.5 text-green-500 transition-all  hover:scale-105 lg:text-xl"
+            >
+              <FaWhatsapp />
+            </a>
           </div>
         </div>
       </div>
