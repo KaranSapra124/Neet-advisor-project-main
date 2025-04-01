@@ -15,7 +15,7 @@ const About = () => {
   }, []);
   return (
     <>
-      <Root>
+      {/* <Root> */}
         {/* <Container> */}
         <Hero />
         <GuidingSection />
@@ -24,7 +24,7 @@ const About = () => {
         <TeamInAction />
         <Gems />
         {/* </Container> */}
-      </Root>
+      {/* </Root> */}
     </>
   );
 };

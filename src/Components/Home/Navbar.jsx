@@ -181,8 +181,8 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="flex ">
-        <div className="max-w-[1350px]">
+      <div className="flex   max-w-screen">
+        <div className="max-w-screen-xl">
           <Outlet />
         </div>
         <QuickLinks />

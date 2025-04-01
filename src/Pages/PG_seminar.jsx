@@ -10,11 +10,11 @@ import OurSpeaker from "../Components/PG_Seminar/OurSpeaker";
 import scrollToTop from "../Utils/ScrollToTop";
 
 const PG_seminar = () => {
-  useEffect(()=>{
-    scrollToTop()
-},[])
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
-    <Root>
+    <>
       <Hero />
       <Why_Attend />
       <Glimpse_Of_Success />
@@ -22,7 +22,9 @@ const PG_seminar = () => {
       <WhoShouldAttend />
       <SeminarOutcomes />
       <OurSpeaker />
-    </Root>
+    </>
+    // <Root>
+    // </Root>
   );
 };
 

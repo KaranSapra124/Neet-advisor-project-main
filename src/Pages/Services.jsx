@@ -13,13 +13,13 @@ const Services = () => {
     },[])
     return (
         <>
-            <Root>
+            {/* <Root> */}
 
                 <PricingComponent />
                 <EnrollServices />
                 <SocialLinks />
                 <Testimonials/>
-            </Root>
+            {/* </Root> */}
         </>
     )
 }

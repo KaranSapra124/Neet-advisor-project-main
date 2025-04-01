@@ -15,14 +15,14 @@ const UG_seminar = () => {
 },[])
   return (
     <>
-      <Root>
+      {/* <Root> */}
         <Hero />
         <Purpose />
         <SeminarDetails/>
         <Agenda/>
         <WhoShouldAttend/>
         <Speakers/>
-      </Root>
+      {/* </Root> */}
     </>
   );
 };

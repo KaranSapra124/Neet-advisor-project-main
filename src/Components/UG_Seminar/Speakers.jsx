@@ -41,7 +41,7 @@ const Speakers = () => {
           "no-repeat relative h-full bg-seminar-hero bg-cover bg-fixed"
         }
       >
-        <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-md"></div>
+        {/* <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-md"></div> */}
         <ScrollAnimation
           animateIn="backInRight"
           animateOnce={true}

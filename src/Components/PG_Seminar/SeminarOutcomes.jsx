@@ -35,7 +35,7 @@ const SeminarOutcomes = () => {
 
   return (
     <Container
-      className={"no-repeat relative h-full bg-webinar-hero bg-cover bg-fixed"}
+      className={"no-repeat relative  bg-webinar-hero bg-cover bg-fixed"}
     >
       <div className="absolute inset-0 h-full w-full bg-gray-100/90 backdrop-blur-sm"></div>
 

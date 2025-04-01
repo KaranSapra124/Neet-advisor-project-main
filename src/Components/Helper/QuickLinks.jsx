@@ -1,16 +1,26 @@
 import { Menu } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaBook, FaNewspaper, FaImage, FaRegClipboard, FaBriefcase, FaUserGraduate, FaGlobe, FaCalendar, FaPhoneAlt, FaDownload } from "react-icons/fa";
-
+import {
+  FaBook,
+  FaNewspaper,
+  FaImage,
+  FaRegClipboard,
+  FaBriefcase,
+  FaUserGraduate,
+  FaGlobe,
+  FaCalendar,
+  FaPhoneAlt,
+  FaDownload,
+} from "react-icons/fa";
 
 const QuickLinks = () => {
   const quickLinks = (
     <Menu
       mode="vertical"
-      className="w-full rounded-lg border bg-white text-primary-color shadow-lg"
+      className=" bg-white lg:w-60 overflow-y-auto text-primary-color "
     >
-      <h2 className="bg-primary-color p-0.5 font-bold text-white lg:text-2xl">
+      <h2 className="bg-primary-color text-center p-1.5 font-bold text-white lg:text-2xl">
         Quick Links
       </h2>
 
@@ -111,7 +121,7 @@ const QuickLinks = () => {
       </Menu.Item>
     </Menu>
   );
-  return <div className=" flex justify-center">{quickLinks}</div>;
+  return <div className="flex h-52 justify-center">{quickLinks}</div>;
 };
 
 export default QuickLinks;

@@ -18,7 +18,7 @@ const Webinars = () => {
   }, []);
   return (
     <>
-      <Root>
+      {/* <Root> */}
         <Hero />
         <ShowWebinar />
         <AspirantsSection />
@@ -29,7 +29,7 @@ const Webinars = () => {
         <Values />
         <Outcome />
         <Testimonials />
-      </Root>
+      {/* </Root> */}
     </>
   );
 };
