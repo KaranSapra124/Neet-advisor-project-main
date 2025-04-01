@@ -121,7 +121,7 @@ const QuickLinks = () => {
       </Menu.Item>
     </Menu>
   );
-  return <div className="flex h-52 justify-center">{quickLinks}</div>;
+  return <div className="flex  border  h-96 justify-center">{quickLinks}</div>;
 };
 
 export default QuickLinks;

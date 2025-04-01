@@ -181,12 +181,8 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="flex   max-w-screen">
-        <div className="max-w-screen-xl">
-          <Outlet />
-        </div>
-        <QuickLinks />
-      </div>
+      <Outlet />
+      {/* <QuickLinks /> */}
     </>
   );
 }
