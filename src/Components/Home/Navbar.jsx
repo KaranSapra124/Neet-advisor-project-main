@@ -100,7 +100,7 @@ function Navbar() {
   return (
     <>
       <div className="sticky top-0 z-[1000]">
-        <nav className="sticky top-0 z-[1000] flex flex-col bg-white p-4 px-8 shadow-lg backdrop-blur-sm lg:px-20">
+        <nav className="sticky top-0 z-[1000] flex flex-col bg-white p-4 px-8 shadow-lg backdrop-blur-sm lg:px-16">
           <div className="container mx-auto flex items-center justify-between">
             <div className="flex items-center">
               <img
@@ -111,7 +111,7 @@ function Navbar() {
             </div>
 
             <div className="hidden md:block">
-              <ul className="flex items-center space-x-6">
+              <ul className="flex items-center space-x-5">
                 {priorityLinks?.map((elem, index) => (
                   <NavLink
                     key={index}
@@ -131,7 +131,7 @@ function Navbar() {
             </div>
           </div>
         </nav>
-        <div className="mx-auto w-full items-center bg-primary-color p-1 px-8 shadow-md sm:hidden md:flex lg:px-24">
+        <div className="mx-auto w-full items-center bg-primary-color p-1 px-8 shadow-md sm:hidden md:flex lg:px-20">
           <ul className="mx-auto flex w-full items-center justify-start space-x-3">
             {links.map((elem, index) => (
               <NavLink
