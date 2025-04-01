@@ -11,19 +11,21 @@ import QuickLinks from "../Helper/QuickLinks";
 const Hero = () => {
   return (
     <>
-      <div className="flex ">
-        <QuickLinks />
-        <div className="relative max-w-screen-xl z-10 flex flex-col items-center justify-center px-7 py-8 lg:px-5 lg:py-10">
+      <div className="flex justify-center">
+        {/* <QuickLinks /> */}
+        <div className="relative z-10 flex max-w-screen-xl flex-col items-center justify-center px-7 py-8 lg:px-5 lg:py-10">
           <div className="flex w-full flex-col items-center">
             <div className="flex w-full items-center justify-around lg:justify-center">
-              <h1 className="primary text-lg font-bold lg:text-3xl">
-                <span className="font-extrabold text-yellow-600">
+              <div>
+                <h1 className="text-center text-3xl font-extrabold text-yellow-600">
                   NEET ADVISOR{" "}
-                </span>{" "}
-                - Pioneer Of Smart Counseling services for NEET Aspirants <br />{" "}
-                {/* <span className="font-bold text-yellow-600"> */}
-                {/* </span> */}
-              </h1>
+                </h1>{" "}
+                <h1 className="primary text-lg font-bold lg:text-3xl">
+                  Pioneer Of Smart Counseling services for NEET Aspirants <br />{" "}
+                  {/* <span className="font-bold text-yellow-600"> */}
+                  {/* </span> */}
+                </h1>
+              </div>
               <Lottie
                 className="z-0 w-[4rem] lg:w-[6rem]"
                 animationData={medicalReception}
