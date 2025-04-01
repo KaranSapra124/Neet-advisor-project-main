@@ -50,6 +50,7 @@ const ContactModal = ({ open, setIsOpen }) => {
     Email: "",
     PhoneNumber: "",
     state: "",
+    courseEnquiry: "",
     captcha: null,
   });
 
@@ -83,63 +84,81 @@ const ContactModal = ({ open, setIsOpen }) => {
     <Modal
       open={open}
       onCancel={() => setIsOpen(false)}
-      footer={null}
       centered
-      className="rounded-lg p-4"
+      footer={
+        <>
+          <div className="h-5"></div>
+        </>
+      }
+      className="rounded-lg pb-10"
     >
       <div className="px-9 pt-2">
-        <h2 className="text-center text-sm font-extrabold text-gray-800 lg:text-sm">
-          Want to get a medical seat by Smart Counselling?
-        </h2>
-        <h2 className="lg:text-md text-center text-sm font-bold text-primary-color">
-          "Book free one-to-one session"
+        <h2 className="text-center text-sm font-extrabold text-primary-color lg:text-xl">
+          Enquiry Form
         </h2>
       </div>
 
-      <div className="space-y-3 p-4">
+      <div className="bg-modal-bg m-2 space-y-3 rounded bg-cover p-4">
         <div className="grid grid-cols-2 gap-1.5">
           {" "}
           <Input
             name="Name"
-            placeholder="Your Name"
+            placeholder="Your Name*"
             onChange={handleChange}
-            className="rounded-md p-2 hover:ring-0 focus:outline-none"
+            className="rounded-md p-2 text-black hover:ring-0 focus:outline-none"
           />
           <Input
             name="Email"
-            placeholder="Email"
+            placeholder="Email*"
             onChange={handleChange}
             className="rounded-md p-2"
           />
         </div>
         <Input
           name="PhoneNumber"
-          placeholder="Phone Number"
+          placeholder="Phone Number*"
           onChange={handleChange}
           className="rounded-md p-2"
         />
 
         <Select
-          placeholder="Select State"
+          placeholder="Select State*"
           className="w-full rounded-md"
-          
           onChange={handleStateChange}
           options={states.map((state) => ({ label: state, value: state }))}
         />
 
-        <div className="float-left flex">
-          <Input type="checkbox" name="captcha" onChange={handleChange} />
-          <p className="mx-2 text-xs font-semibold text-gray-800">ReCAPTCHA</p>
+        <Select
+          placeholder="Course Enquiry*"
+          className="w-full rounded-md"
+          onChange={handleStateChange}
+          options={["Neet UG", "Neet PG"].map((elem, index) => ({
+            label: elem,
+            value: elem,
+          }))}
+        />
+
+        <div className="flex">
+          <Input
+            className="h-5 w-5"
+            type="checkbox"
+            name="captcha"
+            onChange={handleChange}
+          />
+          <p className="mx-2 text-xs font-semibold text-white">
+            I agree to receive information from Neet Advsior
+          </p>
           {/* <ReCAPTCHA sitekey="YOUR_SITE_KEY" onChange={(value) => setForm({ ...form, captcha: value })} /> */}
         </div>
-
-        <button
-          disabled={form?.captcha === true ? false : true}
-          onClick={handleSubmit}
-          className="w-full rounded bg-yellow-600 py-1 font-semibold text-white hover:bg-yellow-700"
-        >
-          Submit
-        </button>
+        <center>
+          <button
+            disabled={form?.captcha === true ? false : true}
+            onClick={handleSubmit}
+            className="mx-auto rounded bg-yellow-600 p-2 py-1 font-semibold text-white hover:bg-yellow-700"
+          >
+            Submit
+          </button>
+        </center>
       </div>
     </Modal>
   );

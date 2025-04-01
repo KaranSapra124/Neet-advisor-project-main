@@ -6,11 +6,10 @@
   color: #201169;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 4px;
-  
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: gray;
   border-radius: 10px;
   scroll-behavior: smooth;
@@ -1086,4 +1085,13 @@ a {
   .slick-dots {
     top: 8rem !important;
   }
+}
+
+.ant-input::placeholder {
+  color: black;
+}
+
+.ant-select-selection-placeholder {
+  color: black !important;
+  /* font-weight: bold; */
 }
