@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Rate } from "antd";
 import Container from "../Helper/Container";
@@ -7,13 +7,22 @@ import Lottie from "lottie-react";
 import medicalReception from "./Medical Clipboard.json";
 import ImageContainer from "../Home/ImageSection";
 import QuickLinks from "../Helper/QuickLinks";
+import BookSessionModal from "../../Utils/BookSessionModal";
 
 const Hero = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
+      {open && (
+        <BookSessionModal
+          open={open}
+          setIsOpen={() => setOpen(false)}
+          key={open}
+        />
+      )}
       <div className="flex justify-center">
         {/* <QuickLinks /> */}
-        <div className="relative z-10 flex max-w-screen-xl flex-col items-center justify-center  px-7 py-8 lg:px-5 lg:py-10">
+        <div className="relative z-10 flex max-w-screen-xl flex-col items-center justify-center px-7 py-8 lg:px-5 lg:py-10">
           <div className="flex w-full flex-col items-center">
             <div className="flex w-full items-center justify-around lg:justify-center">
               <div>
@@ -44,7 +53,10 @@ const Hero = () => {
                 Counselling Experts Since 2016.
               </p>
             </div>
-            <button className="mt-4 rounded-lg bg-yellow-600 px-4 py-2 text-xs font-bold text-white transition-all duration-300 hover:bg-yellow-500 lg:mt-5 lg:text-sm">
+            <button
+              onClick={() => setOpen(true)}
+              className="mt-4 rounded-lg bg-yellow-600 px-4 py-2 text-xs font-bold text-white transition-all duration-300 hover:bg-yellow-500 lg:mt-5 lg:text-sm"
+            >
               Free One To One Session
             </button>
             <div className="flex py-8 lg:py-5">
