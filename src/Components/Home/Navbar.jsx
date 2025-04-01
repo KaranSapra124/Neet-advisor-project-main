@@ -132,7 +132,7 @@ function Navbar() {
           </div>
         </nav>
         <div className="mx-auto w-full items-center bg-primary-color p-1 px-8 shadow-md sm:hidden md:flex lg:px-20">
-          <ul className="mx-auto flex w-full items-center justify-start space-x-3">
+          <ul className="mx-auto flex w-full items-center justify-start space-x-4">
             {links.map((elem, index) => (
               <NavLink
                 key={index}
@@ -163,7 +163,7 @@ function Navbar() {
             {/* Phone Icon */}
             <a
               href="tel:+917678126262"
-              className="cursor-pointer rounded-full bg-white p-1.5 text-primary-color transition-all  hover:scale-105 lg:text-xl"
+              className="cursor-pointer rounded-full bg-white p-1.5 text-primary-color transition-all hover:scale-105 lg:text-xl"
             >
               <FaPhoneAlt />
             </a>
@@ -173,7 +173,7 @@ function Navbar() {
               href="https://wa.me/+917678126262"
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-pointer rounded-full bg-white p-1.5 text-green-500 transition-all  hover:scale-105 lg:text-xl"
+              className="cursor-pointer rounded-full bg-white p-1.5 text-green-500 transition-all hover:scale-105 lg:text-xl"
             >
               <FaWhatsapp />
             </a>
