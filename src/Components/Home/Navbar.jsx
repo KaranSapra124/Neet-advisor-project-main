@@ -12,8 +12,8 @@ function Navbar() {
   ];
 
   const items = [
-    { key: 1, label: <Link to={"/pg-seminar"}>PG Seminar</Link> },
-    { key: 2, label: <Link to={"/ug-seminar"}>UG Seminar</Link> },
+    { key: 2, label: <Link to={"/ug-seminar"}>Neet UG</Link> },
+    { key: 1, label: <Link to={"/pg-seminar"}>Neet PG</Link> },
     { key: 3, label: <Link to={"/news"}>News & Blog</Link> },
     { key: 4, label: <Link to={"/gallery"}>Gallery</Link> },
     { key: 5, label: <Link to={"/careers"}>Career</Link> },
@@ -59,12 +59,7 @@ function Navbar() {
                 {elem.title}
               </NavLink>
             ))}
-            <Dropdown
-            
-              overlay={menu}
-              arrow
-              placement="top"
-            >
+            <Dropdown overlay={menu} arrow placement="top">
               <a
                 className={`cursor-pointer ${window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("mbbs-abroad") || window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") || window.location.pathname.includes("careers") ? "text-gray-800" : "text-gray-600"}`}
               >
