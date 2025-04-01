@@ -32,61 +32,68 @@ import SeminarProgress from "./Admin/Components/SeminarProgress/SeminarProgress"
 import Ug_seminar from "./Admin/Components/Ug_seminar/UgSeminar";
 import Dashboard from "./Admin/Components/Dashboard/Dashboard";
 import Queries from "./Admin/Components/Queries/Queries";
+import Navbar from "./Components/Home/Navbar";
 
 const App = () => {
   const queryClient = new QueryClient();
   const appRoutes = createBrowserRouter([
     {
+      element: <Navbar />,
       path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/services",
-      element: <Services />,
-    },
-    {
-      path: "/webinar",
-      element: <Webinars />,
-    },
-    {
-      path: "/gallery",
-      element: <Gallery />,
-    },
-    {
-      path: "/about",
-      element: <About />,
-    },
-    {
-      path: "/pg-seminar",
-      element: <PG_seminar />,
-    },
-    {
-      path: "/ug-seminar",
-      element: <UG_seminar />,
-    },
-    {
-      path: "/news",
-      element: <News_Blog />,
-    },
-    {
-      path: "/news/:id",
-      element: <IndividualPage />,
-    },
-    {
-      path: "/careers",
-      element: <CareerPage />,
-    },
-    {
-      path: "/mbbs-abroad",
-      element: <MBBS_Abroad />,
-    },
-    {
-      path: "/medical-expo",
-      element: <MedicalExpo />,
-    },
-    {
-      path: "/contact",
-      element: <Contact />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/services",
+          element: <Services />,
+        },
+        {
+          path: "/webinar",
+          element: <Webinars />,
+        },
+        {
+          path: "/gallery",
+          element: <Gallery />,
+        },
+        {
+          path: "/about",
+          element: <About />,
+        },
+        {
+          path: "/pg-seminar",
+          element: <PG_seminar />,
+        },
+        {
+          path: "/ug-seminar",
+          element: <UG_seminar />,
+        },
+        {
+          path: "/news",
+          element: <News_Blog />,
+        },
+        {
+          path: "/news/:id",
+          element: <IndividualPage />,
+        },
+        {
+          path: "/careers",
+          element: <CareerPage />,
+        },
+        {
+          path: "/mbbs-abroad",
+          element: <MBBS_Abroad />,
+        },
+        {
+          path: "/medical-expo",
+          element: <MedicalExpo />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+      ],
     },
     {
       path: "/super-admin",

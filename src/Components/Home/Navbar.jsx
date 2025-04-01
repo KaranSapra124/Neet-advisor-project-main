@@ -1,5 +1,5 @@
 import { Dropdown, Menu } from "antd";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
 import {
   FaCalendarAlt,
@@ -10,6 +10,7 @@ import {
   FaPhoneAlt,
   FaWhatsapp,
 } from "react-icons/fa"; // Import icons
+import QuickLinks from "../Helper/QuickLinks";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -179,6 +180,12 @@ function Navbar() {
             </a>
           </div>
         </div>
+      </div>
+      <div className="flex ">
+        <div className="max-w-[1350px]">
+          <Outlet />
+        </div>
+        <QuickLinks />
       </div>
     </>
   );

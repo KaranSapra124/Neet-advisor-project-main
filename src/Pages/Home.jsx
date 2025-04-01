@@ -34,17 +34,17 @@ const Home = () => {
       {isOpen && (
         <ContactModal open={isOpen} setIsOpen={() => setIsOpen(false)} />
       )}
-      <Root>
-        <Hero />
-        {/* <ImageSection /> */}
-        <CounsellingSection />
-        <WhyUsSection />
-        <NewsSection />
-        <Stats />
-        <Testimonials />
-        <Gallery />
-        <ContactBanner />
-      </Root>
+      {/* <Root> */}
+      <Hero />
+      {/* <ImageSection /> */}
+      <CounsellingSection />
+      <WhyUsSection />
+      <NewsSection />
+      <Stats />
+      <Testimonials />
+      <Gallery />
+      <ContactBanner />
+      {/* </Root> */}
       {/* <Footer /> */}
     </>
   );

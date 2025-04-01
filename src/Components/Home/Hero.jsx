@@ -9,7 +9,7 @@ import ImageContainer from "../Home/ImageSection";
 
 const Hero = () => {
   return (
-    <div className="relative z-10 flex flex-col items-center justify-center px-7 py-8  lg:px-5 lg:py-10">
+    <div className="relative z-10 flex flex-col items-center justify-center px-7 py-8   lg:px-5 lg:py-10">
       <div className="flex w-full flex-col items-center">
         <div className="flex w-full items-center justify-around lg:justify-center">
           <h1 className="primary text-lg font-bold lg:text-3xl">
