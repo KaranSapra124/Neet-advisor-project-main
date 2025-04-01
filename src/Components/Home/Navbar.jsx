@@ -18,6 +18,9 @@ function Navbar() {
     { key: 4, label: <Link to={"/gallery"}>Gallery</Link> },
     { key: 5, label: <Link to={"/careers"}>Career</Link> },
     { key: 6, label: <Link to={"/mbbs-abroad"}>MBBS Abroad</Link> },
+    { key: 9, label: <Link to={"/mbbs-abroad"}>Enroll Now</Link> },
+    { key: 10, label: <Link to={"/mbbs-abroad"}>About Neet</Link> },
+
     { key: 7, label: <Link to={"/medical-expo"}>Medical Expo 2025</Link> },
     { key: 8, label: <Link to={"/contact"}>Contact Us</Link> },
   ];
