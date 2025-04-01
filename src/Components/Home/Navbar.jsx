@@ -15,6 +15,7 @@ import QuickLinks from "../Helper/QuickLinks";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const links = [
+    { title: "Quick Links", link: "/quick-links" },
     { title: "Home", link: "/" },
     { title: "Services", link: "/services" },
     { title: "Webinars", link: "/webinar" },

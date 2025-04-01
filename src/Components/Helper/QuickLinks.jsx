@@ -18,11 +18,11 @@ const QuickLinks = () => {
   const quickLinks = (
     <Menu
       mode="vertical"
-      className=" bg-white lg:w-60 overflow-y-auto text-primary-color "
+      className=" bg-white  overflow-y-auto text-primary-color "
     >
-      <h2 className="bg-primary-color text-center p-1.5 font-bold text-white lg:text-2xl">
+      {/* <h2 className="bg-primary-color text-center p-1.5 font-bold text-white lg:text-2xl">
         Quick Links
-      </h2>
+      </h2> */}
 
       <Menu.Item
         key="1"
