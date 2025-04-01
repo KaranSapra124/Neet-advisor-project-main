@@ -1,8 +1,13 @@
 import { Dropdown, Menu } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import { FaCalendarAlt, FaFileAlt, FaDownload, FaRegEdit, FaQuestionCircle } from "react-icons/fa";  // Import icons
-
+import {
+  FaCalendarAlt,
+  FaFileAlt,
+  FaDownload,
+  FaRegEdit,
+  FaQuestionCircle,
+} from "react-icons/fa"; // Import icons
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -104,32 +109,22 @@ function Navbar() {
             </div>
 
             <div className="hidden md:block">
-              <ul className="flex space-x-6">
+              <ul className="flex items-center space-x-6">
                 {priorityLinks?.map((elem, index) => (
                   <NavLink
                     key={index}
                     className={({ isActive }) =>
                       isActive
-                        ? "font-bold text-indigo-900"
-                        : "text-gray-600 hover:scale-105"
+                        ? "flex items-center border-b-2 border-indigo-900 px-4 py-2 font-bold text-indigo-900"
+                        : "flex items-center px-4 py-2 text-gray-600 transition-all hover:scale-105 hover:text-indigo-900"
                     }
                     to={elem.link}
                   >
-                    {elem.title}
+                    {/* Icon with margin */}
+                    <span className="mr-2 text-xl">{elem?.icon}</span>
+                    <span>{elem.title}</span>
                   </NavLink>
                 ))}
-
-                {/* <Dropdown overlay={coursesMenu} arrow>
-                  <a className="cursor-pointer text-gray-600">Our Courses</a>
-                </Dropdown>
-
-                <Dropdown overlay={quickLinks} arrow>
-                  <a className="cursor-pointer text-gray-600">Quick Links</a>
-                </Dropdown>
-
-                <Dropdown overlay={aboutNeetMenu} arrow>
-                  <a className="cursor-pointer text-gray-600">About Neet</a>
-                </Dropdown> */}
               </ul>
             </div>
           </div>
