@@ -1,4 +1,4 @@
-import { Menu } from "antd";
+import { Dropdown, Menu } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -12,18 +12,15 @@ import {
   FaCalendar,
   FaPhoneAlt,
   FaDownload,
+  FaLink,
 } from "react-icons/fa";
 
 const QuickLinks = () => {
   const quickLinks = (
     <Menu
       mode="vertical"
-      className=" bg-white  overflow-y-auto text-primary-color "
+      className="overflow-y-auto bg-white text-primary-color"
     >
-      {/* <h2 className="bg-primary-color text-center p-1.5 font-bold text-white lg:text-2xl">
-        Quick Links
-      </h2> */}
-
       <Menu.Item
         key="1"
         className="transition-all hover:bg-primary-color hover:text-white"
@@ -121,7 +118,14 @@ const QuickLinks = () => {
       </Menu.Item>
     </Menu>
   );
-  return <div className="flex  border  h-96 justify-center">{quickLinks}</div>;
+  return (
+    <Dropdown overlay={quickLinks} arrow>
+      <p className="cursor-pointer text-white transition-all hover:font-semibold">
+        {" "}
+        Quick Links{" "}
+      </p>
+    </Dropdown>
+  );
 };
 
 export default QuickLinks;
