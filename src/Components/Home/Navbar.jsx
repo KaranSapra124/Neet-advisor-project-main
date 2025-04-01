@@ -164,7 +164,7 @@ function Navbar() {
             {/* Phone Icon */}
             <a
               href="tel:+917678126262"
-              className="cursor-pointer rounded-full bg-white p-1.5 text-primary-color transition-all hover:scale-105 lg:text-xl"
+              className="cursor-pointer rounded-full bg-white p-1.5 text-primary-color transition-all hover:scale-125 lg:text-2xl"
             >
               <FaPhoneAlt />
             </a>
@@ -174,7 +174,7 @@ function Navbar() {
               href="https://wa.me/+917678126262"
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-pointer rounded-full bg-white p-1.5 text-green-500 transition-all hover:scale-105 lg:text-xl"
+              className="cursor-pointer rounded-full bg-white p-1.5 text-green-500 transition-all hover:scale-125 lg:text-2xl"
             >
               <FaWhatsapp />
             </a>
