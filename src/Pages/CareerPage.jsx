@@ -13,12 +13,12 @@ const CareerPage = () => {
     },[])
     return (
         <>
-            <Root>
+            {/* <Root> */}
                 <Hero />
                 <Benefits/>
                 <JobOpenings/>
                 <RecruitmentProcess/>
-            </Root>
+            {/* </Root> */}
         </>
     )
 }

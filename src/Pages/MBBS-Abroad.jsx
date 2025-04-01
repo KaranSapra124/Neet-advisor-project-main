@@ -11,12 +11,12 @@ const MBBS_Abroad = () => {
         scrollToTop()
     },[])
     return <>
-        <Root>
+        {/* <Root> */}
             <Hero />
             <ExploreEvents />
             <ApplyForDreamUniversity />
             <Scope/>
-        </Root>
+        {/* </Root> */}
     </>
 
 }

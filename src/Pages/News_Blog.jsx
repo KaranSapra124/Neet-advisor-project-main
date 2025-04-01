@@ -39,22 +39,22 @@ const News_Blog = () => {
   return (
     <>
       {isOpen && <NewsLetter isOpen={isOpen} setIsOpen={setIsOpen} />}
-      <Root>
-        <div className="flex justify-evenly">
-          <div
-            className="newsPageDiv max-w-[900px]"
-            dangerouslySetInnerHTML={{ __html: news?.generatedHTML }}
-          ></div>
-          <div>
-            <LatestNews currNews={currNews} setCurrNews={setCurrNews} />
-            {news?.hashtags && (
-              <RelatedNews currNews={news} setCurrNews={setCurrNews} />
-            )}
-          </div>
+      {/* <Root> */}
+      <div className="flex justify-evenly">
+        <div
+          className="newsPageDiv max-w-[900px]"
+          dangerouslySetInnerHTML={{ __html: news?.generatedHTML }}
+        ></div>
+        <div>
+          <LatestNews currNews={currNews} setCurrNews={setCurrNews} />
+          {news?.hashtags && (
+            <RelatedNews currNews={news} setCurrNews={setCurrNews} />
+          )}
         </div>
-        {/* <Hero />
+      </div>
+      {/* <Hero />
         <Schedule/> */}
-      </Root>
+      {/* </Root> */}
     </>
   );
 };
