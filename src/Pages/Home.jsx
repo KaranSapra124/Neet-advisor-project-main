@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsOpen(true);
-    }, 3500);
+    }, 10000);
     return () => clearTimeout(timeout);
   }, []);
   useEffect(() => {
