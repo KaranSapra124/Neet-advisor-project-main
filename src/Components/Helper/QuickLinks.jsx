@@ -118,9 +118,9 @@ const QuickLinks = () => {
       </Menu.Item>
     </Menu>
   );
-  return (
-    <Dropdown overlay={quickLinks} arrow>
-      <p className="cursor-pointer text-white transition-all hover:font-semibold">
+  return ( 
+    <Dropdown placement="bottomLeft" overlay={quickLinks} arrow>
+      <p className="cursor-pointer text-white transition-all font-semibold">
         {" "}
         Quick Links{" "}
       </p>

@@ -16,6 +16,8 @@ module.exports = {
         backIn: "backInLeft 2.5s ease-in normal",
         fadeIn: "fadeIn 2s linear normal",
         zoomIn: "zoomIn 1s linear normal",
+        fadeInTopRight: "fadeInTopRight 1s ease-in-out",
+        fadeInDown: "fadeInDown 1s ease-in-out",
         // slideIn:'fadeIn 4s linear infinite'
       },
       boxShadow: {
@@ -23,6 +25,7 @@ module.exports = {
         "box-shadow":
           "inset 0 4px 6px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft inner and outer shadows",
       },
+
       colors: {
         "primary-color": "#201169",
         "hero-gradient": "linear-gradient(180deg, transparent, #fff 86%)",
@@ -42,6 +45,19 @@ module.exports = {
       },
       screens: {
         xs: "500px",
+      },
+    },
+    animationDelay: {
+      "3s": "3s",
+    },
+    keyframes: {
+      fadeInTopRight: {
+        "0%": { opacity: "0", transform: "translate(50px, 50px)" },
+        "100%": { opacity: "1", transform: "translate(0, 0)" },
+      },
+      fadeInDown: {
+        "0%": { opacity: "0", transform: "translateY(-50px)" },
+        "100%": { opacity: "1", transform: "translateY(0)" },
       },
     },
   },
