@@ -13,7 +13,7 @@ const Hero = () => {
     <>
       <div className="flex justify-center">
         {/* <QuickLinks /> */}
-        <div className="relative z-10 flex max-w-screen-xl flex-col items-center justify-center px-7 py-8 lg:px-5 lg:py-10">
+        <div className="relative z-10 flex max-w-screen-xl flex-col items-center justify-center  px-7 py-8 lg:px-5 lg:py-10">
           <div className="flex w-full flex-col items-center">
             <div className="flex w-full items-center justify-around lg:justify-center">
               <div>
