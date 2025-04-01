@@ -68,7 +68,7 @@ function Navbar() {
               <a
                 className={`cursor-pointer ${window.location.pathname.includes("ug-seminar") || window.location.pathname.includes("mbbs-abroad") || window.location.pathname.includes("medical-expo") || window.location.pathname.includes("pg-seminar") || window.location.pathname.includes("careers") ? "text-gray-800" : "text-gray-600"}`}
               >
-                More
+                Quick Links
               </a>
             </Dropdown>
           </ul>
