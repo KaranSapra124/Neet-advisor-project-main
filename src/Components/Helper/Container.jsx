@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ContactModal from "../../Utils/ContactModal";
+import { FaWhatsapp } from "react-icons/fa6";
 
 const Container = ({ children, className }) => {
   const [open, setOpen] = useState(false);
@@ -17,6 +18,7 @@ const Container = ({ children, className }) => {
       >
         Enquire Now
       </button>
+      <FaWhatsapp className="fixed bottom-5 right-5 z-50 rounded-full bg-green-500 p-1 text-5xl cursor-pointer text-white  shadow-lg transition-all duration-300 hover:bg-green-600" />
     </>
   );
 };
