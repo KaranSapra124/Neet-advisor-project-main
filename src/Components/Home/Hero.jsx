@@ -13,15 +13,15 @@ const Hero = () => {
       <div className="flex w-full flex-col items-center">
         <div className="flex w-full items-center justify-around lg:justify-center">
           <h1 className="primary text-lg font-bold lg:text-3xl">
-            Complete Handholding for <br />{" "}
-            {/* <span className="font-bold text-yellow-600"> */}
             <span className="font-extrabold text-yellow-600">
-              NEET Counselling Guidance
-            </span>
+              NEET ADVISOR{" "}
+            </span>{" "}
+            - Pioneer Of Smart Counseling services for NEET Aspirants <br />{" "}
+            {/* <span className="font-bold text-yellow-600"> */}
             {/* </span> */}
           </h1>
           <Lottie
-            className="z-0 w-[4rem] lg:w-[8rem]"
+            className="z-0 w-[4rem] lg:w-[6rem]"
             animationData={medicalReception}
             loop={true}
           />
