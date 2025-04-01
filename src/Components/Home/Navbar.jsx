@@ -7,6 +7,8 @@ import {
   FaDownload,
   FaRegEdit,
   FaQuestionCircle,
+  FaPhoneAlt,
+  FaWhatsapp,
 } from "react-icons/fa"; // Import icons
 
 function Navbar() {
@@ -129,15 +131,15 @@ function Navbar() {
             </div>
           </div>
         </nav>
-        <div className="mx-auto w-full bg-primary-color shadow-md sm:hidden md:block">
-          <ul className="mx-auto flex w-full items-center justify-start space-x-6">
+        <div className="mx-auto w-full items-center bg-primary-color p-1 px-8 shadow-md sm:hidden md:flex lg:px-24">
+          <ul className="mx-auto flex w-full items-center justify-start space-x-3">
             {links.map((elem, index) => (
               <NavLink
                 key={index}
                 className={({ isActive }) =>
                   isActive
-                    ? "rounded border-b-2 border-yellow-600 bg-white p-1 font-semibold text-primary-color"
-                    : "rounded p-1 text-white transition-all hover:scale-105 hover:text-yellow-600"
+                    ? "mx-2 border-b-2 border-white p-0.5 font-semibold text-white"
+                    : "mx-2 p-1 text-white transition-all hover:scale-105 hover:font-semibold"
                 }
                 to={elem.link}
               >
@@ -146,17 +148,21 @@ function Navbar() {
             ))}
 
             <Dropdown overlay={coursesMenu} arrow>
-              <a className="cursor-pointer p-2 text-white transition-all hover:text-yellow-600">
+              <a className="cursor-pointer p-2 text-white transition-all hover:font-semibold">
                 Our Courses
               </a>
             </Dropdown>
 
             <Dropdown overlay={aboutNeetMenu} arrow>
-              <a className="cursor-pointer p-2 text-white transition-all hover:text-yellow-600">
+              <a className="cursor-pointer p-2 text-white transition-all hover:font-semibold">
                 About Neet
               </a>
             </Dropdown>
           </ul>
+          <div className="flex space-x-2">
+            <FaPhoneAlt className="rounded-full bg-white p-1 cursor-pointer hover:scale-105 transition-all text-primary-color lg:text-3xl" />
+            <FaWhatsapp className="rounded-full bg-white p-1 cursor-pointer hover:scale-105 transition-all text-green-500  lg:text-3xl" />
+          </div>
         </div>
       </div>
     </>
