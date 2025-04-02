@@ -37,7 +37,7 @@ const Hero = () => {
             autoPlay
             loop
             muted
-            src="..\src\assets\18+Golden.mp4"
+            src="./18+Golden.mp4"
           ></video>
           {/* Content placed over the video */}
           <div className="absolute right-5 top-1/4 flex max-w-screen-lg flex-col items-center gap-2 p-2 lg:right-10">
