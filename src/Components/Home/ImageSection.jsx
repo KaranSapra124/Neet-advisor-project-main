@@ -98,8 +98,8 @@ const ImageSection = () => {
                   <div
                     className={`relative m-1 p-2 pb-5 shadow-lg transition-transform duration-500 ${
                       index !== 4
-                        ? "scale-90 rounded-sm border border-gray-400 bg-gray-200 opacity-40 shadow-xl shadow-gray-500"
-                        : "z-[9999] scale-125 rounded-sm border border-gray-500 bg-gray-200 opacity-100 shadow-2xl shadow-black"
+                        ? "scale-90 rounded-sm  bg-white opacity-40 shadow-xl shadow-yellow-600"
+                        : "z-[9999] scale-125 rounded-sm  bg-white opacity-100 shadow-lg shadow-yellow-600"
                     } ${
                       index === 0
                         ? "animate-slideDown h-52"
