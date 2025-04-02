@@ -57,7 +57,7 @@ const ImageSection = () => {
     }, 3000);
     const triggerAnimation = setInterval(() => {
       setIsAnimate((prev) => !prev);
-    }, 2000);
+    }, 3000);
 
     return () => {
       clearInterval(animateInInterval);
