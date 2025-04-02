@@ -12,7 +12,8 @@ import UpperNavbar from "../Components/Helper/UpperNavbar";
 import Gallery from "../Components/Home/Gallery";
 import Root from "../Components/Helper/Root";
 import scrollToTop from "../Utils/ScrollToTop";
-import ContactModal from "../Utils/ContactModal";
+// import ContactModal from "../Utils/ContactModal";
+import BookSessionModal from "../Utils/BookSessionModal";
 // import ImageSection from '../Components/Home/ImageSection'
 
 const Home = () => {
@@ -32,7 +33,7 @@ const Home = () => {
       {/* <UpperNavbar /> */}
       {/* <Navbar /> */}
       {isOpen && (
-        <ContactModal open={isOpen} setIsOpen={() => setIsOpen(false)} />
+        <BookSessionModal open={isOpen} setIsOpen={() => setIsOpen(false)} />
       )}
       {/* <Root> */}
       <Hero />

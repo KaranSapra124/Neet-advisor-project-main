@@ -98,7 +98,7 @@ const BookSessionModal = ({ open, setIsOpen }) => {
         </h2>
       </div>
 
-      <div className="bg-modal-bg m-2 space-y-3 rounded bg-cover p-4">
+      <div className="modal-bg m-2 space-y-3 rounded bg-cover p-4">
         <div className="grid grid-cols-2 gap-1.5">
           {" "}
           <Input
@@ -112,6 +112,7 @@ const BookSessionModal = ({ open, setIsOpen }) => {
             placeholder="Email*"
             onChange={handleChange}
             className="rounded-md p-2"
+            required
           />
         </div>
         <Input
@@ -119,13 +120,26 @@ const BookSessionModal = ({ open, setIsOpen }) => {
           placeholder="Phone Number*"
           onChange={handleChange}
           className="rounded-md p-2"
+          required
+        />
+        <Input
+          name="AlternatePhoneNumber"
+          placeholder="Alternate Phone Number"
+          onChange={handleChange}
+          className="rounded-md p-2"
         />
 
         <Select
-          placeholder="Select State*"
+          placeholder="State*"
           className="w-full rounded-md"
           onChange={handleStateChange}
           options={states.map((state) => ({ label: state, value: state }))}
+        />
+        <Input
+          name="City"
+          placeholder="City"
+          onChange={handleChange}
+          className="rounded-md p-2"
         />
 
         <Select
