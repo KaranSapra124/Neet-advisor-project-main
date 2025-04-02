@@ -20,7 +20,7 @@ const Container = ({ children, className }) => {
       >
         Enquire Now
       </button>
-      <div className="fixed bottom-5 right-5 z-50">
+      <div className="fixed bottom-5 right-2 animate-pulse z-50">
         {/* Container for both the icon and the circular text */}
         <div className="relative flex h-24 w-24 items-center justify-center">
           {/* SVG for circular text */}
@@ -34,7 +34,11 @@ const Container = ({ children, className }) => {
 
             {/* Text that follows the path */}
             <text className="fill-black text-sm font-bold uppercase">
-              <textPath className="text-sm" href="#textCirclePath" startOffset="0%">
+              <textPath
+                className="text-sm"
+                href="#textCirclePath"
+                startOffset="0%"
+              >
                 👋 Ask Me
               </textPath>
             </text>
