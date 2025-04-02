@@ -1,6 +1,6 @@
 import { Dropdown, Menu } from "antd";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   FaBook,
   FaNewspaper,
@@ -118,9 +118,10 @@ const QuickLinks = () => {
       </Menu.Item>
     </Menu>
   );
-  return ( 
+  const location = useLocation();
+  return (
     <Dropdown placement="bottomLeft" overlay={quickLinks} arrow>
-      <p className="cursor-pointer text-white transition-all font-semibold">
+      <p className="cursor-pointer font-semibold text-white transition-all">
         {" "}
         Quick Links{" "}
       </p>
