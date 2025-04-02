@@ -23,13 +23,13 @@ const Hero = () => {
       <div className="flex justify-center">
         {/* <QuickLinks /> */}
         <div className="relative z-10 flex max-w-screen-xl flex-col items-center justify-center px-7 py-8 lg:px-5 lg:py-10">
-          <div className="flex w-full flex-col items-center">
-            <div className="flex w-full items-center justify-around lg:justify-center">
-              <div>
-                <h1 className="text-center text-3xl font-extrabold text-yellow-600">
+          <div className="flex lg:gap-3 gap-2 w-full flex-col items-center">
+            <div className="flex  w-full items-center justify-around lg:justify-center">
+              <div className="flex justify-center flex-col items-center lg:gap-2 gap-1">
+                <h1 className="text-center font-extrabold text-yellow-600 lg:text-5xl">
                   NEET ADVISOR{" "}
                 </h1>{" "}
-                <h1 className="primary text-lg font-bold lg:text-3xl">
+                <h1 className="primary text-lg font-bold lg:text-[2.2rem]">
                   Pioneer Of Smart Counseling services for NEET Aspirants <br />{" "}
                   {/* <span className="font-bold text-yellow-600"> */}
                   {/* </span> */}
@@ -41,20 +41,20 @@ const Hero = () => {
                 loop={true}
               />
             </div>
-            <div className="text-gray-700 text-center max-w-screen-lg">
-              <p className="text-wrap text-[0.5rem] lg:text-sm">
+            <div className="max-w-screen-lg text-center text-gray-700 flex flex-col lg:gap-2 gap-1">
+              <p className="text-wrap text-[0.5rem]  lg:text-[0.9rem]">
                 <span className="font-bold lg:font-extrabold">
                   {" "}
                   NEET Advisor
                 </span>{" "}
-                is a tema of highly skilled professionals dedicated to providing
-                comprehensive gudance on{" "}
+                is a team of highly skilled professionals dedicated to providing
+                comprehensive guidance on{" "}
                 <span className="font-bold lg:font-extrabold"> NEET</span>{" "}
                 counselling.
               </p>
-              <p className="py-2 text-[0.5rem] lg:text-sm">
+              <p className="text-[0.5rem] lg:text-[0.9rem]">
                 Our <span className="font-extrabold">Expertise</span> ensures
-                seamless support throguhout the counselling process,application
+                seamless support throughout the counselling process,application
                 process,documentation and admission procedures for medical
                 colleges across India and internationally.
               </p>
