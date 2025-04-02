@@ -41,19 +41,25 @@ const Hero = () => {
                 loop={true}
               />
             </div>
-            <div className="text-gray-700">
+            <div className="text-gray-700 text-center max-w-screen-lg">
               <p className="text-wrap text-[0.5rem] lg:text-sm">
-                <span className="font-bold lg:font-extrabold"> 23,33,863</span>{" "}
-                students in India aspire to study MBBS and BDS & AYUSH.Only 8.3%
-                could achieve it in 2024.
+                <span className="font-bold lg:font-extrabold">
+                  {" "}
+                  NEET Advisor
+                </span>{" "}
+                is a tema of highly skilled professionals dedicated to providing
+                comprehensive gudance on{" "}
+                <span className="font-bold lg:font-extrabold"> NEET</span>{" "}
+                counselling.
               </p>
               <p className="py-2 text-[0.5rem] lg:text-sm">
-                Complete <span className="font-extrabold">NEET</span>{" "}
-                Counselling Guidance till Admission. NEET UG & NEET PG
-                Counselling Experts Since 2016.
+                Our <span className="font-extrabold">Expertise</span> ensures
+                seamless support throguhout the counselling process,application
+                process,documentation and admission procedures for medical
+                colleges across India and internationally.
               </p>
             </div>
-            <button
+            {/* <button
               onClick={() => setOpen(true)}
               className="mt-4 rounded-lg bg-yellow-600 px-4 py-2 text-xs font-bold text-white transition-all duration-300 hover:bg-yellow-500 lg:mt-5 lg:text-sm"
             >
@@ -79,7 +85,7 @@ const Hero = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <ImageContainer />
         </div>
