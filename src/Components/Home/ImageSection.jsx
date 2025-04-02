@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "../Helper/Container";
 import { Carousel } from "antd";
 import { TiPin } from "react-icons/ti";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const ImageSection = () => {
   const [slidesToShow, setSlidesToShow] = useState(4);
@@ -87,55 +88,59 @@ const ImageSection = () => {
   };
 
   return (
-    <div key={isAnimate} className="mx-auto w-full">
-      <div className="space-y-8">
-        <div className="relative">
-          <div className="grid grid-cols-3 gap-4">
-            {copyImages?.map((elem, index) => (
-              <div
-                className={`relative m-1  p-2 pb-5 shadow-lg transition-transform duration-500 ${
-                  index !== 4
-                    ? "scale-90 opacity-40 border  rounded-sm bg-gray-200 border-gray-400"
-                    : "z-[9999] scale-125 border border-gray-900 bg-gray-200 rounded-sm opacity-100 shadow-2xl"
-                } ${
-                  index === 0
-                    ? "animate-slideDown h-52"
-                    : index === 1
-                      ? "h-64 animate-slideOutLeft"
-                      : index === 2
-                        ? "h-52 animate-slideOutLeft"
-                        : index === 3
-                          ? "animate-slideDown h-64"
-                          : index === 5
-                            ? "animate-slideOutUp h-52"
-                            : index === 6
-                              ? "animate-slideOutRight h-64"
-                              : index === 7
-                                ? "animate-slideOutRight h-52"
-                                : index === 8
-                                  ? "animate-slideOutUp h-64"
-                                  : ""
-                }`}
-              >
-                {/* Red Pin Image */}
-                <img
-                  src="https://png.pngtree.com/png-clipart/20230217/ourmid/pngtree-paper-red-pin-transparent-vector-png-image_6605001.png"
-                  className="absolute -top-3 left-1/2 h-8 w-8 -translate-x-1/2 transform"
-                />
+    <>
+      <ScrollAnimation animateIn="fadeIn" duration={1.2} animateOnce={true}>
+        <div key={isAnimate} className="mx-auto w-full">
+          <div className="space-y-8">
+            <div className="relative">
+              <div className="grid grid-cols-3 gap-4">
+                {copyImages?.map((elem, index) => (
+                  <div
+                    className={`relative m-1 p-2 pb-5 shadow-lg transition-transform duration-500 ${
+                      index !== 4
+                        ? "scale-90 rounded-sm border border-gray-400 bg-gray-200 opacity-40 shadow-xl shadow-gray-500"
+                        : "z-[9999] scale-125 rounded-sm border border-gray-500 bg-gray-200 opacity-100 shadow-2xl shadow-black"
+                    } ${
+                      index === 0
+                        ? "animate-slideDown h-52"
+                        : index === 1
+                          ? "h-40 animate-slideOutLeft"
+                          : index === 2
+                            ? "h-52 animate-slideOutLeft"
+                            : index === 3
+                              ? "animate-slideDown h-64"
+                              : index === 5
+                                ? "animate-slideOutUp h-52"
+                                : index === 6
+                                  ? "animate-slideOutRight h-64"
+                                  : index === 7
+                                    ? "animate-slideOutRight h-52"
+                                    : index === 8
+                                      ? "animate-slideOutUp h-64"
+                                      : ""
+                    }`}
+                  >
+                    {/* Red Pin Image */}
+                    <img
+                      src="https://png.pngtree.com/png-clipart/20230217/ourmid/pngtree-paper-red-pin-transparent-vector-png-image_6605001.png"
+                      className="absolute -top-3 left-1/2 h-8 w-8 -translate-x-1/2 transform"
+                    />
 
-                {/* Main Image */}
-                <img
-                  key={currImage}
-                  src={elem?.imageUrl}
-                  alt={elem.imageAlt}
-                  className="m-2 mx-auto h-80 w-80 rounded-lg bg-white transition-transform duration-500 ease-in-out lg:h-full lg:object-cover"
-                />
+                    {/* Main Image */}
+                    <img
+                      key={currImage}
+                      src={elem?.imageUrl}
+                      alt={elem.imageAlt}
+                      className="m-2 mx-auto h-80 w-80 rounded-lg bg-white transition-transform duration-500 ease-in-out lg:h-full lg:object-cover"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </ScrollAnimation>
+    </>
   );
 };
 
