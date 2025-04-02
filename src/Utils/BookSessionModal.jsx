@@ -94,7 +94,7 @@ const BookSessionModal = ({ open, setIsOpen }) => {
     >
       <div className="px-9 pt-2">
         <h2 className="text-center text-sm font-extrabold text-primary-color lg:text-xl">
-          Book A Free Session!
+          Book A Free One To One Session!
         </h2>
       </div>
 
