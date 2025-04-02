@@ -24,7 +24,12 @@ const Hero = () => {
           key={open}
         />
       )}
-      <ScrollAnimation animateIn="fadeIn" duration={1.5} animateOnce={true} initiallyVisible>
+      <ScrollAnimation
+        animateIn="fadeIn"
+        duration={1.5}
+        animateOnce={true}
+        initiallyVisible
+      >
         <div className="relative flex justify-center">
           <video
             id="heroVideo"
@@ -32,7 +37,7 @@ const Hero = () => {
             autoPlay
             loop
             muted
-            src="18+Golden.mp4"
+            src="../src/assets/18+Golden.mp4"
           ></video>
           {/* Content placed over the video */}
           <div className="absolute right-5 top-1/4 flex max-w-screen-lg flex-col items-center gap-2 p-2 lg:right-10">
