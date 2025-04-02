@@ -82,9 +82,9 @@ const CounsellingSection = () => {
           <div>
             <div className="mb-4 text-center">
               <h2 className="my-1 text-lg font-bold text-yellow-600 lg:text-3xl">
-                Your Gateway to Excellence
-                <span className="font-extrabold text-primary-color">
-                  Offer ?
+                Your Gateway to{" "}
+                <span className="font-extrabold mx-2 text-primary-color">
+                  Excellence
                 </span>
               </h2>
               <p className="mx-auto my-2 max-w-72 text-[0.5rem] font-semibold text-gray-700 lg:max-w-sm lg:text-xs">
