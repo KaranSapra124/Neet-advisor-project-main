@@ -39,8 +39,8 @@ module.exports = {
         "mbbs-hero": "url('./Mbbs/bg-mbbs.jpg')",
         "news-bg":
           "url('https://img.freepik.com/free-photo/copy-space-medical-desk-with-coffee-cup_23-2148519791.jpg?ga=GA1.1.715862983.1733989251&semt=ais_hybrid')",
-        "modal-bg": "url('./src/assets/Banner.png')",
-        "hero-bg":"url('HeroImg.jpg')"
+
+        "hero-bg": "url('HeroImg.jpg')",
       },
       utilities: {
         ".break-inside-avoid": {

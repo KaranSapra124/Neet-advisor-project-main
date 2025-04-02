@@ -98,7 +98,7 @@ const ContactModal = ({ open, setIsOpen }) => {
         </h2>
       </div>
 
-      <div className="bg-modal-bg m-2 space-y-3 rounded bg-cover p-4">
+      <div className="modal-bg m-2 space-y-3 rounded bg-cover p-4">
         <div className="grid grid-cols-2 gap-1.5">
           {" "}
           <Input

@@ -6,6 +6,10 @@
   color: #201169;
 }
 
+.modal-bg {
+  background: url("../src/assets/Banner.png");
+  background-size: cover;
+}
 ::-webkit-scrollbar {
   width: 4px;
 }
