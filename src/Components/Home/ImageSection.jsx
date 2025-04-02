@@ -49,20 +49,29 @@ const ImageSection = () => {
     },
   ]);
   const [copyImages, setCopyImages] = useState(images);
+  const [isAnimate, setIsAnimate] = useState(false);
 
   useEffect(() => {
     const animateInInterval = setInterval(() => {
       setCurrImage((prev) => (prev !== images?.length - 1 ? prev + 1 : 0));
     }, 4000);
+    const triggerAnimation = setInterval(() => {
+      setIsAnimate((prev) => !prev);
+    }, 2000);
 
-    return () => clearInterval(animateInInterval);
+    return () => {
+      clearInterval(animateInInterval);
+      clearInterval(triggerAnimation);
+    };
   }, []);
 
   useEffect(() => {
     setCopyImages((prev) => {
       if (!prev[currImage]) return prev; // Ensure currImage exists
-      console.log(prev[currImage]);
-      return prev.map((img, idx) => (idx === 4 ? prev[currImage] : img));
+
+      return prev.map(
+        (_, idx) => (idx < prev.length - 1 ? prev[idx + 1] : prev[0]), // Shift left & move first image to last
+      );
     });
   }, [currImage]);
 
@@ -78,24 +87,20 @@ const ImageSection = () => {
   };
 
   return (
-    <div className="mx-auto w-full lg:w-1/2">
+    <div key={isAnimate} className="mx-auto w-full ">
       <div className="space-y-8">
         <div className="relative">
           <div className="grid grid-cols-3">
             {copyImages?.map((elem, index) => (
               <div
-                key={copyImages}
-                className={`relative m-0.5 rounded-lg px-2 shadow shadow-black transition-all duration-700 ease-in-out ${
-                  index === currImage
-                    ? `animate-fadeInTopRight z-[999] bg-white`
-                    : "opacity-50"
-                }`}
+                className={`relative m-0.5 rounded-lg bg-white p-2 ${index !== 4 ? "opacity-30 h-full w-full" : "z-[9999] scale-150 opacity-100 transition-all duration-500"} shadow shadow-black transition-all duration-700 ease-in-out ${index === 0 ? "animate-slideDown" : index === 1 ? "animate-slideOutLeft" : index === 2 ? "animate-slideOutLeft" : index === 3 ? "animate-slideDown" : index === 5 ? "animate-slideOutUp" : index === 6 ? "animate-slideOutRight" : index === 7 ? "animate-slideOutRight" : index === 8 ? "animate-slideOutUp" : ""}`}
               >
                 <TiPin className="absolute -top-2 left-16 text-red-500" />
                 <img
+                  key={currImage}
                   src={elem?.imageUrl}
                   alt={elem.imageAlt}
-                  className="m-2 mx-auto h-full w-full bg-white transition-transform duration-500 ease-in-out lg:h-32 lg:object-cover"
+                  className={`${index === 4 ? "m-2 mx-auto h-full w-full bg-white transition-transform duration-500 ease-in-out lg:h-full lg:object-cover" : "m-2 mx-auto h-full w-full bg-white transition-transform duration-500 ease-in-out lg:h-full lg:object-cover"}`}
                 />
               </div>
             ))}

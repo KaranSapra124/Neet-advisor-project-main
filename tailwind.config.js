@@ -12,11 +12,14 @@ module.exports = {
         slideRight: "slideInRight 0.5s ease-in-out normal",
         slideLeft: "slideInLeft 0.5s ease-in-out normal",
         slideUp: "slideInUp 0.5s linear normal",
-        slideOutLeft: "slideOutLeft 0.5s forwards normal",
+        slideOutLeft: "slideOutLeft 2s forwards normal",
+        slideDown: "slideOutDown 2s forwards normal",
+        slideOutRight: "slideOutRight 2s forwards normal",
+        slideOutUp: "slideOutUp 2s forwards normal",
         backIn: "backInLeft 2.5s ease-in normal",
         fadeIn: "fadeIn 2s linear normal",
         zoomIn: "zoomIn 1s linear normal",
-        fadeInTopRight: "fadeInTopRight 1s ease-in-out",
+        fadeInTopRight: "fadeInTopRight 3s ease-in-out",
         fadeInDown: "fadeInDown 1s ease-in-out",
         // slideIn:'fadeIn 4s linear infinite'
       },
@@ -52,8 +55,9 @@ module.exports = {
     },
     keyframes: {
       fadeInTopRight: {
-        "0%": { opacity: "0", transform: "translate(50px, 50px)" },
-        "100%": { opacity: "1", transform: "translate(0, 0)" },
+        "0%": { opacity: "0", transform: "translate(0px, 0px)" },
+        "33%": { opacity: "1", transform: "translate(100px, 100px)" },
+        "100%": { opacity: "0", transform: "translate(0px, 0px)" },
       },
       fadeInDown: {
         "0%": { opacity: "0", transform: "translateY(-50px)" },
