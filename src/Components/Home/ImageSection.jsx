@@ -54,7 +54,7 @@ const ImageSection = () => {
   useEffect(() => {
     const animateInInterval = setInterval(() => {
       setCurrImage((prev) => (prev !== images?.length - 1 ? prev + 1 : 0));
-    }, 4000);
+    }, 3000);
     const triggerAnimation = setInterval(() => {
       setIsAnimate((prev) => !prev);
     }, 2000);
@@ -87,20 +87,48 @@ const ImageSection = () => {
   };
 
   return (
-    <div key={isAnimate} className="mx-auto w-full ">
+    <div key={isAnimate} className="mx-auto w-full">
       <div className="space-y-8">
         <div className="relative">
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 gap-4">
             {copyImages?.map((elem, index) => (
               <div
-                className={`relative m-0.5 rounded-lg bg-white p-2 ${index !== 4 ? "opacity-30 h-full w-full" : "z-[9999] scale-150 opacity-100 transition-all duration-500"} shadow shadow-black transition-all duration-700 ease-in-out ${index === 0 ? "animate-slideDown" : index === 1 ? "animate-slideOutLeft" : index === 2 ? "animate-slideOutLeft" : index === 3 ? "animate-slideDown" : index === 5 ? "animate-slideOutUp" : index === 6 ? "animate-slideOutRight" : index === 7 ? "animate-slideOutRight" : index === 8 ? "animate-slideOutUp" : ""}`}
+                className={`relative m-1  p-2 pb-5 shadow-lg transition-transform duration-500 ${
+                  index !== 4
+                    ? "scale-90 opacity-40 border  rounded-sm bg-gray-200 border-gray-400"
+                    : "z-[9999] scale-125 border border-gray-900 bg-gray-200 rounded-sm opacity-100 shadow-2xl"
+                } ${
+                  index === 0
+                    ? "animate-slideDown h-52"
+                    : index === 1
+                      ? "h-64 animate-slideOutLeft"
+                      : index === 2
+                        ? "h-52 animate-slideOutLeft"
+                        : index === 3
+                          ? "animate-slideDown h-64"
+                          : index === 5
+                            ? "animate-slideOutUp h-52"
+                            : index === 6
+                              ? "animate-slideOutRight h-64"
+                              : index === 7
+                                ? "animate-slideOutRight h-52"
+                                : index === 8
+                                  ? "animate-slideOutUp h-64"
+                                  : ""
+                }`}
               >
-                <TiPin className="absolute -top-2 left-16 text-red-500" />
+                {/* Red Pin Image */}
+                <img
+                  src="https://png.pngtree.com/png-clipart/20230217/ourmid/pngtree-paper-red-pin-transparent-vector-png-image_6605001.png"
+                  className="absolute -top-3 left-1/2 h-8 w-8 -translate-x-1/2 transform"
+                />
+
+                {/* Main Image */}
                 <img
                   key={currImage}
                   src={elem?.imageUrl}
                   alt={elem.imageAlt}
-                  className={`${index === 4 ? "m-2 mx-auto h-full w-full bg-white transition-transform duration-500 ease-in-out lg:h-full lg:object-cover" : "m-2 mx-auto h-full w-full bg-white transition-transform duration-500 ease-in-out lg:h-full lg:object-cover"}`}
+                  className="m-2 mx-auto h-80 w-80 rounded-lg bg-white transition-transform duration-500 ease-in-out lg:h-full lg:object-cover"
                 />
               </div>
             ))}
