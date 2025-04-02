@@ -20,7 +20,7 @@ const Hero = () => {
           key={open}
         />
       )}
-      <div className="flex justify-center">
+      <div className="flex  justify-center">
         {/* <QuickLinks /> */}
         <div className="relative z-10 flex max-w-screen-xl flex-col lg:gap-5 gap-2 items-center justify-center px-7 py-8 lg:px-5 lg:py-10">
           <div className="flex lg:gap-3 gap-2 w-full flex-col items-center">
