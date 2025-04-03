@@ -1,6 +1,5 @@
 import { Modal, Input, Button, Select } from "antd";
 import axios from "axios";
-// import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -49,7 +48,9 @@ const ContactModal = ({ open, setIsOpen }) => {
     Name: "",
     Email: "",
     PhoneNumber: "",
+    AlternatePhoneNumber: "",
     state: "",
+    City: "",
     courseEnquiry: "",
     captcha: null,
   });
@@ -61,11 +62,15 @@ const ContactModal = ({ open, setIsOpen }) => {
         e.target.name === "captcha" ? e.target.checked : e.target.value,
     });
   };
+
   const handleStateChange = (value) => setForm({ ...form, state: value });
+  const handleCourseChange = (value) =>
+    setForm({ ...form, courseEnquiry: value });
 
   const handleSubmit = async () => {
     if (form.captcha === false) {
       alert("Please verify the Captcha!");
+      return;
     }
     try {
       const { data } = await axios.post(
@@ -75,7 +80,7 @@ const ContactModal = ({ open, setIsOpen }) => {
       );
       toast.success(data?.message);
     } catch (err) {
-      toast.error(err.response.data.message);
+      toast.error(err.response?.data?.message || "Something went wrong");
     }
     setIsOpen(false);
   };
@@ -83,14 +88,11 @@ const ContactModal = ({ open, setIsOpen }) => {
   return (
     <Modal
       open={open}
+
       onCancel={() => setIsOpen(false)}
       centered
-      footer={
-        <>
-          <div className="h-5"></div>
-        </>
-      }
-      className="rounded-lg pb-10"
+      footer={<div className="h-2"></div>}
+      className="rounded-lg "
     >
       <div className="px-9 pt-2">
         <h2 className="text-center text-sm font-extrabold text-primary-color lg:text-xl">
@@ -98,14 +100,13 @@ const ContactModal = ({ open, setIsOpen }) => {
         </h2>
       </div>
 
-      <div className="modal-bg m-2 space-y-3 rounded bg-cover p-4">
+      <div className="modal-bg m-2 space-y-3 rounded bg-cover  p-4">
         <div className="grid grid-cols-2 gap-1.5">
-          {" "}
           <Input
             name="Name"
             placeholder="Your Name*"
             onChange={handleChange}
-            className="rounded-md p-2 text-black hover:ring-0 focus:outline-none"
+            className="rounded-md p-2"
           />
           <Input
             name="Email"
@@ -120,24 +121,33 @@ const ContactModal = ({ open, setIsOpen }) => {
           onChange={handleChange}
           className="rounded-md p-2"
         />
-
+        <Input
+          name="AlternatePhoneNumber"
+          placeholder="Alternate Phone Number"
+          onChange={handleChange}
+          className="rounded-md p-2"
+        />
         <Select
           placeholder="Select State*"
           className="w-full rounded-md"
           onChange={handleStateChange}
           options={states.map((state) => ({ label: state, value: state }))}
         />
-
+        <Input
+          name="City"
+          placeholder="City"
+          onChange={handleChange}
+          className="rounded-md p-2"
+        />
         <Select
           placeholder="Course Enquiry*"
           className="w-full rounded-md"
-          onChange={handleStateChange}
-          options={["Neet UG", "Neet PG"].map((elem, index) => ({
+          onChange={handleCourseChange}
+          options={["Neet UG", "Neet PG"].map((elem) => ({
             label: elem,
             value: elem,
           }))}
         />
-
         <div className="flex">
           <Input
             className="h-5 w-5"
@@ -146,13 +156,12 @@ const ContactModal = ({ open, setIsOpen }) => {
             onChange={handleChange}
           />
           <p className="mx-2 text-xs font-semibold text-white">
-            I agree to receive information from Neet Advsior
+            I agree to receive information from Neet Advisor
           </p>
-          {/* <ReCAPTCHA sitekey="YOUR_SITE_KEY" onChange={(value) => setForm({ ...form, captcha: value })} /> */}
         </div>
         <center>
           <button
-            disabled={form?.captcha === true ? false : true}
+            disabled={!form.captcha}
             onClick={handleSubmit}
             className="mx-auto rounded bg-yellow-600 p-2 py-1 font-semibold text-white hover:bg-yellow-700"
           >
