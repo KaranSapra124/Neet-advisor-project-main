@@ -1,5 +1,6 @@
 import { Table } from "antd";
 import React from "react";
+import ScrollAnimation from "react-animate-on-scroll";
 import {
   FaBook,
   FaTrophy,
@@ -113,13 +114,13 @@ const NEET_UG = () => {
   const columns = [
     {
       title: (
-        <h1 className="text-center font-bold text-[#201169] lg:text-2xl">
+        <h1 className="text-center   font-bold text-white lg:text-2xl">
           Exam Attribute
         </h1>
       ),
       dataIndex: "attribute",
       key: "attribute",
-      width: 250,
+      // width: 250,
       render: (text) => (
         <p className="text-center font-extrabold text-[#201169] lg:text-lg">
           {text}
@@ -128,7 +129,7 @@ const NEET_UG = () => {
     },
     {
       title: (
-        <h1 className="text-center font-bold text-[#201169] lg:text-2xl">
+        <h1 className="text-center font-bold text-white lg:text-2xl">
           Details
         </h1>
       ),
@@ -144,13 +145,13 @@ const NEET_UG = () => {
   const eligibilityColumns = [
     {
       title: (
-        <h1 className="text-center font-bold text-[#201169] lg:text-2xl">
+        <h1 className="text-center font-bold text-white lg:text-2xl">
           Criteria
         </h1>
       ),
       dataIndex: "attribute",
       key: "attribute",
-      width: 300,
+      // width: 300,
       render: (text) => (
         <p className="text-center font-extrabold text-[#201169] lg:text-lg">
           {text}
@@ -159,7 +160,7 @@ const NEET_UG = () => {
     },
     {
       title: (
-        <h1 className="text-center font-bold text-[#201169] lg:text-2xl">
+        <h1 className="text-center font-bold text-white lg:text-2xl">
           Details
         </h1>
       ),
@@ -330,52 +331,57 @@ const NEET_UG = () => {
         </div>
 
         {/* NEET Exam Pattern Table */}
-        <div className="mb-12">
-          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-            NEET UG Exam Pattern
-          </h2>
-          {/* Table Wrapper */}
-          <div className="relative">
-            {/* Image positioned absolutely */}
-            <img
-              src="./Seminar/validation-badge-bg-removed.gif"
-              className="absolute -left-3 -top-3 z-10 w-12"
-              alt=""
-            />
-            {/* AntD Table */}
-            <Table
-              columns={columns}
-              dataSource={examData}
-              pagination={false}
-              bordered
-              className="exam-pattern-table"
-            />
+        <ScrollAnimation animateIn="fadeIn" duration={1.5}>
+          <div className="mb-12">
+            <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+              NEET UG Exam Pattern
+            </h2>
+            {/* Table Wrapper */}
+            <div className="relative">
+              {/* Image positioned absolutely */}
+              <img
+                src="./Seminar/validation-badge-bg-removed.gif"
+                className="absolute -left-3 -top-3 z-10 w-12"
+                alt=""
+              />
+              {/* AntD Table */}
+              <Table
+              size="small"
+                columns={columns}
+                dataSource={examData}
+                pagination={false}
+                bordered
+                className="exam-pattern-table"
+              />
+            </div>
           </div>
-        </div>
-
+        </ScrollAnimation>
         {/* NEET Eligibility Table */}
-        <div className="mb-12">
-          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-            NEET UG Eligibility Criteria 2025
-          </h2>
-          {/* Table Wrapper */}
-          <div className="relative">
-            {/* Image positioned absolutely */}
-            <img
-              src="./Seminar/validation-badge-bg-removed.gif"
-              className="absolute -left-3 -top-3 z-10 w-12"
-              alt=""
-            />
-            {/* AntD Table */}
-            <Table
-              columns={eligibilityColumns}
-              dataSource={eligibilityData}
-              pagination={false}
-              bordered
-              className="eligibility-table"
-            />
+        <ScrollAnimation animateIn="fadeIn" duration={1.5}>
+          <div className="mb-12">
+            <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+              NEET UG Eligibility Criteria 
+            </h2>
+            {/* Table Wrapper */}
+            <div className="relative">
+              {/* Image positioned absolutely */}
+              <img
+                src="./Seminar/validation-badge-bg-removed.gif"
+                className="absolute -left-3 -top-3 z-10 w-12"
+                alt=""
+              />
+              {/* AntD Table */}
+              <Table
+                size="small"
+                columns={eligibilityColumns}
+                dataSource={eligibilityData}
+                pagination={false}
+                bordered
+                className="eligibility-table"
+              />
+            </div>
           </div>
-        </div>
+        </ScrollAnimation>
 
         {/* CTA Section */}
         {/* <div className="mb-12 rounded-xl bg-[#201169] p-8 text-center text-white shadow-xl">

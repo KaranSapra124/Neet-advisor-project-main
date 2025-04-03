@@ -1101,15 +1101,25 @@ a {
 }
 
 /* Ant Table Styles */
-.ant-table {
+/* .ant-table {
   border: 2px solid #201169 !important;
-}
+} */
 
 .ant-table-thead > tr > th {
+  /* border-right: 1px solid white !important; */
+  /* border : 1px solid #201169 !important; */
+  background-color: #201169 !important;
+  /* color: white ! important; */
+  border-bottom: none !important;
+  border-top:1px solid #201169 !important;
+  border-left: 1px solid #201169 !important;
   border-right: 1px solid #201169 !important;
+  margin: 0px !important;
+  padding: 1px !important;
 }
 
 .ant-table-tbody > tr > td {
-  border-top: 1px solid #201169 !important;
-  border-right: 1px solid #201169 !important;
+  /* border-top: 1px solid #201169 !important;
+  border-right: 1px solid #201169 !important; */
+  border: 0.5px solid #201169 !important;
 }
