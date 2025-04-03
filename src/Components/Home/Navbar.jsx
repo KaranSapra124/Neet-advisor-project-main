@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa"; // Import icons
 
 import QuickLinks from "../Helper/QuickLinks";
+import Footer from "./Footer";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -255,6 +256,7 @@ function Navbar() {
         </div>
       </div>
       <Outlet />
+      <Footer/>
       {/* <QuickLinks /> */}
     </>
   );

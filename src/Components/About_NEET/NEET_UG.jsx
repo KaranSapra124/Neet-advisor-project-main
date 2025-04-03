@@ -114,7 +114,7 @@ const NEET_UG = () => {
   const columns = [
     {
       title: (
-        <h1 className="text-center p-1 uppercase font-bold text-white lg:text-xl">
+        <h1 className="p-1 text-center font-bold uppercase text-white lg:text-xl">
           Exam Attribute
         </h1>
       ),
@@ -129,7 +129,7 @@ const NEET_UG = () => {
     },
     {
       title: (
-        <h1 className="text-center uppercase font-bold text-white lg:text-xl">
+        <h1 className="text-center font-bold uppercase text-white lg:text-xl">
           Details
         </h1>
       ),
@@ -145,7 +145,7 @@ const NEET_UG = () => {
   const eligibilityColumns = [
     {
       title: (
-        <h1 className="text-center font-bold uppercase  text-white lg:text-xl">
+        <h1 className="text-center font-bold uppercase text-white lg:text-xl">
           Criteria
         </h1>
       ),
@@ -153,7 +153,7 @@ const NEET_UG = () => {
       key: "attribute",
       // width: 300,
       render: (text) => (
-        <p className="text-center font-extrabold  text-[#201169] lg:text-lg">
+        <p className="text-center font-extrabold text-[#201169] lg:text-lg">
           {text}
         </p>
       ),
@@ -242,7 +242,7 @@ const NEET_UG = () => {
 
         <div className="flex gap-10">
           {/* NEET Exam Pattern Table */}
-          <ScrollAnimation  animateIn="fadeIn" duration={1.5}>
+          <ScrollAnimation animateIn="fadeIn" duration={1.5}>
             <div className="mb-12">
               <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
                 NEET UG Exam Pattern
@@ -270,7 +270,7 @@ const NEET_UG = () => {
           </ScrollAnimation>
           {/* Key Features Section */}
           <div>
-          <h2 className="mb-6 text-left text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+            <h2 className="mb-6 text-left text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
               Key Features
             </h2>
             <div className="mb-16 grid grid-cols-1 gap-6">
@@ -327,7 +327,7 @@ const NEET_UG = () => {
 
         <div className="flex flex-row gap-10">
           {/* Course Types Section */}
-          <div className="-mt-5  rounded-xl bg-white p-6 ">
+          <div className="-mt-5 rounded-xl bg-white p-6">
             <h2 className="mb-6 text-left text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
               NEET UG Courses
             </h2>
@@ -368,7 +368,7 @@ const NEET_UG = () => {
           </div>
 
           {/* NEET Eligibility Table */}
-          <ScrollAnimation  animateIn="fadeIn" duration={1.5}>
+          <ScrollAnimation animateIn="fadeIn" duration={1.5}>
             <div className="mb-12">
               <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
                 NEET UG Eligibility Criteria
@@ -409,6 +409,7 @@ const NEET_UG = () => {
             Start Your Preparation
           </button>
         </div> */}
+        <LinksSection />
       </div>
 
       {/* Footer
@@ -421,5 +422,66 @@ const NEET_UG = () => {
     </div>
   );
 };
+
+const LinksSection = () => {
+  const importantLinks = [
+    {
+      name: "National Medical Commission (NMC)",
+      link: "http://www.nmc.org.in/",
+    },
+    {
+      name: "National Testing Agency (NTA)",
+      link: "http://www.nta.ac.in/",
+    },
+    {
+      name: "BDS Course Regulations",
+      link: "http://www.dciindia.gov.in/",
+    },
+    {
+      name: "Medical Counselling Committee (MCC)",
+      link: "https://mcc.nic.in/UGCounselling/",
+    },
+    {
+      name: "AYUSH Admissions Central Counselling Committee (AACCC)",
+      link: "https://aaccc.gov.in/aacccug/home/homepage",
+    },
+  ];
+
+  return (
+    <div className="text-white">
+      <div className="text-center">
+        <h2 className="text-start text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+          🚀 <span className="text-start">Important</span> Links 🌟
+        </h2>
+        <p className="my-3 text-start text-sm font-semibold text-gray-800">
+          Stay updated with the latest official resources.
+        </p>
+      </div>
+
+      <ul className="mt-6 space-y-2">
+        {importantLinks.map((item, index) => (
+          <li
+            key={index}
+            className="group flex items-center  justify-between rounded-lg bg-white px-2 py-1.5 shadow-md transition-transform duration-300 hover:scale-105"
+          >
+            <span className="font-bold text-gray-800 group-hover:text-primary-color">
+              {item.name}
+            </span>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-primary-color px-4 py-2 text-sm font-bold text-white transition-all duration-300 hover:bg-yellow-500"
+            >
+              Visit 🔗
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+// export default LinksSection;
 
 export default NEET_UG;

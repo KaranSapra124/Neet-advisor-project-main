@@ -39,12 +39,12 @@ const Home = () => {
       <Hero />
       {/* <ImageSection /> */}
       <CounsellingSection />
-      <WhyUsSection />
-      <NewsSection />
-      <Stats />
+      {/* <WhyUsSection /> */}
+      {/* <NewsSection /> */}
+      {/* <Stats /> */}
       <Testimonials />
       <Gallery />
-      <ContactBanner />
+      {/* <ContactBanner /> */}
       {/* </Root> */}
       {/* <Footer /> */}
     </>
