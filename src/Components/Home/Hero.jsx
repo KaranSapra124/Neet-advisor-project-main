@@ -74,13 +74,13 @@ const Hero = () => {
             src="./18+Golden.mp4"
           ></video>
           {/* Content placed over the video */}
-          <div className="absolute right-5 top-24 flex max-w-screen-lg flex-col items-center gap-2 p-2 lg:right-10">
+          <div className="absolute right-5 top-24 flex max-w-screen-lg flex-col items-center gap-2 p-2 lg:right-10 font-sans">
             <div className="flex w-full items-center justify-center">
               <div className="flex flex-col items-center gap-1 lg:gap-2">
                 <h1 className="text-center font-extrabold text-yellow-600 lg:text-6xl">
                   NEET ADVISOR
                 </h1>
-                <h1 className="primary text-center text-lg font-bold leading-tight lg:text-[2rem]">
+                <h1 className="primary text-center text-lg font-bold leading-tight lg:text-[1.5rem]">
                   Pioneer Of Smart Counseling services for NEET Aspirants
                 </h1>
               </div>
@@ -90,8 +90,8 @@ const Hero = () => {
                 loop={true}
               />
             </div>
-            <div className="flex max-w-screen-lg flex-col gap-1 text-center text-gray-800 lg:gap-2">
-              <p className="text-wrap text-[0.5rem] lg:text-[1.05rem]">
+            <div className="flex max-w-screen-lg flex-col gap-1 text-centerlg:gap-2 text-gray-600">
+              <p className="text-wrap text-[0.5rem] lg:text-[1rem]">
                 <span className="font-bold lg:font-extrabold">
                   {" "}
                   NEET Advisor
