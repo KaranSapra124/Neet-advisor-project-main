@@ -45,7 +45,7 @@ const CounsellingSection = () => {
         {counselingContent?.map((elem, index) => {
           return (
             <div className="w-full  p-0 relative">
-              <img src="bg.png" className="w-full  absolute p-0" alt="" srcset="" />
+              <img src="bg.png" className="w-full   p-0" alt="" srcset="" />
               <div className="mx-auto w-52  ">
                 <h4 className="text-sm">{elem?.title}</h4>
                 <div>
@@ -94,7 +94,7 @@ const CounsellingSection = () => {
                   alt=""
                   srcset=""
                 />
-                <h2 className="lg:text-sm font-extrabold text-indigo-800">
+                <h2 className="font-extrabold text-indigo-800 lg:text-sm">
                   {elem?.keyPoints[0]}
                 </h2>
                 {/* <ul className="mt-2 list-inside list-disc text-gray-700">
