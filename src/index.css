@@ -1099,3 +1099,17 @@ a {
   color: black !important;
   /* font-weight: bold; */
 }
+
+/* Ant Table Styles */
+.ant-table {
+  border: 2px solid #201169 !important;
+}
+
+.ant-table-thead > tr > th {
+  border-right: 1px solid #201169 !important;
+}
+
+.ant-table-tbody > tr > td {
+  border-top: 1px solid #201169 !important;
+  border-right: 1px solid #201169 !important;
+}

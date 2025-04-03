@@ -16,16 +16,16 @@ import {
   FaHospital,
   FaUniversity,
   FaTooth,
-  FaLeaf
+  FaLeaf,
 } from "react-icons/fa";
 
 const NEET_UG = () => {
   // Custom table styles
   const tableStyle = {
     marginBottom: "2rem",
-    borderRadius: "8px",
+    borderRadius: "4px",
     overflow: "hidden",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)"
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
   };
 
   const examData = [
@@ -113,46 +113,68 @@ const NEET_UG = () => {
   const columns = [
     {
       title: (
-        <h1 className="text-center font-bold lg:text-xl text-[#201169]">Exam Attribute</h1>
+        <h1 className="text-center font-bold text-[#201169] lg:text-2xl">
+          Exam Attribute
+        </h1>
       ),
       dataIndex: "attribute",
       key: "attribute",
       width: 250,
       render: (text) => (
-        <p className="lg:text-md text-center font-bold text-[#201169]">{text}</p>
+        <p className="text-center font-extrabold text-[#201169] lg:text-lg">
+          {text}
+        </p>
       ),
     },
     {
-      title: <h1 className="text-center font-bold lg:text-xl text-[#201169]">Details</h1>,
+      title: (
+        <h1 className="text-center font-bold text-[#201169] lg:text-2xl">
+          Details
+        </h1>
+      ),
       dataIndex: "details",
       key: "details",
       render: (text) => (
-        <p className="text-center font-semibold text-gray-700">{text}</p>
+        <p className="text-center font-extrabold text-gray-700 lg:text-[1.1rem]">
+          {text}
+        </p>
       ),
     },
   ];
   const eligibilityColumns = [
     {
-      title: <h1 className="text-center font-bold lg:text-xl text-[#201169]">Criteria</h1>,
+      title: (
+        <h1 className="text-center font-bold text-[#201169] lg:text-2xl">
+          Criteria
+        </h1>
+      ),
       dataIndex: "attribute",
       key: "attribute",
       width: 300,
       render: (text) => (
-        <p className="lg:text-md text-center font-bold text-[#201169]">{text}</p>
+        <p className="text-center font-extrabold text-[#201169] lg:text-lg">
+          {text}
+        </p>
       ),
     },
     {
-      title: <h1 className="text-center font-bold lg:text-xl text-[#201169]">Details</h1>,
+      title: (
+        <h1 className="text-center font-bold text-[#201169] lg:text-2xl">
+          Details
+        </h1>
+      ),
       dataIndex: "details",
       key: "details",
       render: (text) => (
-        <p className="text-center font-semibold text-gray-700">{text}</p>
+        <p className="text-center font-extrabold text-gray-700 lg:text-[1.1rem]">
+          {text}
+        </p>
       ),
     },
   ];
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       {/* Header Section with Hero Banner */}
       {/* <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden">
         <div className="absolute inset-0 bg-[#201169] opacity-90"></div>
@@ -177,9 +199,9 @@ const NEET_UG = () => {
       </div> */}
 
       {/* Main Content Container */}
-      <div className="mx-auto py-12 max-w-screen-xl px-4 ">
+      <div className="mx-auto max-w-screen-xl px-4 py-12">
         {/* Introduction Card */}
-        <div className="mb-12 rounded-xl bg-white p-6 md:p-8 shadow-xl border-l-4 border-[#201169]">
+        <div className="mb-12 rounded-xl border-l-4 border-[#201169] bg-white p-6 shadow-xl md:p-8">
           <div className="flex flex-col gap-8 md:flex-row">
             <div className="flex-1">
               <h2 className="mb-4 text-2xl font-bold text-[#201169]">
@@ -192,23 +214,25 @@ const NEET_UG = () => {
                 National Medical Commission.
               </p>
               <p className="mb-4 leading-relaxed text-gray-600">
-                The <strong className="text-[#201169]">NEET</strong> (UG) has to be conducted as a common
-                and uniform{" "}
-                <strong className="text-[#201169]">National Eligibility-cum-Entrance Test</strong> for
-                admission to undergraduate medical education in all medical
+                The <strong className="text-[#201169]">NEET</strong> (UG) has to
+                be conducted as a common and uniform{" "}
+                <strong className="text-[#201169]">
+                  National Eligibility-cum-Entrance Test
+                </strong>{" "}
+                for admission to undergraduate medical education in all medical
                 institutions. Similarly, as per Section 14 of the National
                 Commission for Indian System of Medicine Act, 2020, there shall
                 be a uniform
-                <strong className="text-[#201169]"> NEET</strong> (UG) for admission to undergraduate
-                courses in each of the disciplines i.e. BAMS, BUMS, and BSMS
-                courses of the Indian System of Medicine in all Medical
-                Institutions governed under this Act. NEET (UG) shall also be
-                applicable to admission to the BHMS course under the National
-                Commission for Homeopathy.{" "}
+                <strong className="text-[#201169]"> NEET</strong> (UG) for
+                admission to undergraduate courses in each of the disciplines
+                i.e. BAMS, BUMS, and BSMS courses of the Indian System of
+                Medicine in all Medical Institutions governed under this Act.
+                NEET (UG) shall also be applicable to admission to the BHMS
+                course under the National Commission for Homeopathy.{" "}
               </p>
             </div>
             <div className="flex items-center justify-center">
-              <div className="bg-[#f3f4ff] p-6 rounded-full">
+              <div className="rounded-full bg-[#f3f4ff] p-6">
                 <FaShieldAlt size={100} className="text-[#201169]" />
               </div>
             </div>
@@ -216,14 +240,14 @@ const NEET_UG = () => {
         </div>
 
         {/* Key Features Section */}
-        <h2 className="mb-8 text-center text-3xl font-bold text-[#201169] after:content-[''] after:block after:w-24 after:h-1 after:bg-[#201169] after:mx-auto after:mt-2">
+        <h2 className="mb-8 text-center text-3xl font-bold text-[#201169] after:mx-auto after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
           Key Features
         </h2>
         <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
           {/* Feature Card 1 */}
-          <div className="rounded-lg bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-4px] border-t-4 border-[#201169]">
+          <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
             <div className="mb-4 flex items-center">
-              <div className="p-3 rounded-full bg-[#f3f4ff] mr-4">
+              <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
                 <FaBook size={24} className="text-[#201169]" />
               </div>
               <h3 className="text-xl font-semibold text-[#201169]">
@@ -237,9 +261,9 @@ const NEET_UG = () => {
           </div>
 
           {/* Feature Card 2 */}
-          <div className="rounded-lg bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-4px] border-t-4 border-[#201169]">
+          <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
             <div className="mb-4 flex items-center">
-              <div className="p-3 rounded-full bg-[#f3f4ff] mr-4">
+              <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
                 <FaTrophy size={24} className="text-[#201169]" />
               </div>
               <h3 className="text-xl font-semibold text-[#201169]">
@@ -253,9 +277,9 @@ const NEET_UG = () => {
           </div>
 
           {/* Feature Card 3 */}
-          <div className="rounded-lg bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-4px] border-t-4 border-[#201169]">
+          <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
             <div className="mb-4 flex items-center">
-              <div className="p-3 rounded-full bg-[#f3f4ff] mr-4">
+              <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
                 <FaUsers size={24} className="text-[#201169]" />
               </div>
               <h3 className="text-xl font-semibold text-[#201169]">
@@ -269,37 +293,45 @@ const NEET_UG = () => {
         </div>
 
         {/* Course Types Section */}
-        <div className="mb-16 p-6 bg-white rounded-xl shadow-lg">
-          <h2 className="mb-6 text-2xl font-bold text-[#201169] text-center">
+        <div className="mb-16 rounded-xl bg-white p-6 shadow-lg">
+          <h2 className="mb-6 text-center text-2xl font-bold text-[#201169]">
             Available Medical Courses
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-[#f3f4ff] p-4 rounded-lg text-center border-b-2 border-[#201169]">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
               <FaHospital size={32} className="mx-auto mb-2 text-[#201169]" />
               <h3 className="font-bold text-[#201169]">MBBS</h3>
-              <p className="text-sm text-gray-600">Bachelor of Medicine and Bachelor of Surgery</p>
+              <p className="text-sm text-gray-600">
+                Bachelor of Medicine and Bachelor of Surgery
+              </p>
             </div>
-            <div className="bg-[#f3f4ff] p-4 rounded-lg text-center border-b-2 border-[#201169]">
+            <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
               <FaTooth size={32} className="mx-auto mb-2 text-[#201169]" />
               <h3 className="font-bold text-[#201169]">BDS</h3>
-              <p className="text-sm text-gray-600">Bachelor of Dental Surgery</p>
+              <p className="text-sm text-gray-600">
+                Bachelor of Dental Surgery
+              </p>
             </div>
-            <div className="bg-[#f3f4ff] p-4 rounded-lg text-center border-b-2 border-[#201169]">
+            <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
               <FaLeaf size={32} className="mx-auto mb-2 text-[#201169]" />
               <h3 className="font-bold text-[#201169]">BAMS</h3>
-              <p className="text-sm text-gray-600">Bachelor of Ayurvedic Medicine and Surgery</p>
+              <p className="text-sm text-gray-600">
+                Bachelor of Ayurvedic Medicine and Surgery
+              </p>
             </div>
-            <div className="bg-[#f3f4ff] p-4 rounded-lg text-center border-b-2 border-[#201169]">
+            <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
               <FaUniversity size={32} className="mx-auto mb-2 text-[#201169]" />
               <h3 className="font-bold text-[#201169]">BHMS</h3>
-              <p className="text-sm text-gray-600">Bachelor of Homeopathic Medicine and Surgery</p>
+              <p className="text-sm text-gray-600">
+                Bachelor of Homeopathic Medicine and Surgery
+              </p>
             </div>
           </div>
         </div>
 
         {/* NEET Exam Pattern Table */}
         <div className="mb-12">
-          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:content-[''] after:block after:w-24 after:h-1 after:bg-[#201169] after:mt-2">
+          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
             NEET UG Exam Pattern
           </h2>
           <div style={tableStyle}>
@@ -308,14 +340,14 @@ const NEET_UG = () => {
               dataSource={examData}
               pagination={false}
               bordered
-              className="exam-pattern-table"
+              className="exam-pattern-table "
             />
           </div>
         </div>
 
         {/* NEET Eligibility Table */}
         <div className="mb-12">
-          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:content-[''] after:block after:w-24 after:h-1 after:bg-[#201169] after:mt-2">
+          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
             NEET UG Eligibility Criteria 2025
           </h2>
           <div style={tableStyle}>
@@ -330,16 +362,19 @@ const NEET_UG = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-[#201169] text-white p-8 rounded-xl shadow-xl text-center mb-12">
+        {/* <div className="mb-12 rounded-xl bg-[#201169] p-8 text-center text-white shadow-xl">
           <FaLightbulb size={48} className="mx-auto mb-4" />
-          <h2 className="text-2xl font-bold mb-4">Ready to Start Your Medical Journey?</h2>
-          <p className="mb-6 max-w-2xl mx-auto">
-            Join thousands of aspiring medical professionals in preparing for one of India's most competitive entrance examinations.
+          <h2 className="mb-4 text-2xl font-bold">
+            Ready to Start Your Medical Journey?
+          </h2>
+          <p className="mx-auto mb-6 max-w-2xl">
+            Join thousands of aspiring medical professionals in preparing for
+            one of India's most competitive entrance examinations.
           </p>
-          <button className="bg-white text-[#201169] font-medium px-6 py-3 rounded-lg hover:bg-blue-50 transition duration-300">
+          <button className="rounded-lg bg-white px-6 py-3 font-medium text-[#201169] transition duration-300 hover:bg-blue-50">
             Start Your Preparation
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Footer
