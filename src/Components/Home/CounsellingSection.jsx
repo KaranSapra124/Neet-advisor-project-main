@@ -41,7 +41,7 @@ const CounsellingSection = () => {
   ];
 
   return (
-    <div className="bg-white px-4 py-12">
+    <div className="bg-white px-4 py-10">
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="mb-2 text-3xl font-bold">
           <span className="text-yellow-500">Importance of</span>{" "}
@@ -71,15 +71,24 @@ const CounsellingSection = () => {
           );
         })}
       </div> */}
-      <div className="relative  mx-auto max-w-screen-xl">
+      <div className="relative mx-auto max-w-screen-xl">
         {/* Background Image */}
-        <img src="bg-img.png" className="mx-auto h-[30rem] object-cover" alt="" />
+        <img
+          src="bg-img.png"
+          className="mx-auto h-[30rem] object-cover"
+          alt=""
+        />
 
         {/* Content Overlay (Positioned on top of image) */}
         <div className="z-10 flex w-full flex-wrap justify-center">
           {counselingContent?.map((elem, index) => (
             <>
-            {/* <img src="icon.png" alt="" srcset="" /> */}
+              <img
+                src="icon.png"
+                className={`absolute  ${index === 0 ? "-ml-[58rem] -mt-[22.5rem] h-10 w-16" : index === 1 ? "-ml-[20.8rem] -mt-[10rem] h-10 w-16" : index === 2 ? "-mt-[22.5rem] ml-[20rem] h-10 w-16" : "-mt-[10rem] ml-[57.5rem] h-10 w-16"}`}
+                alt=""
+                srcset=""
+              />
               <div
                 key={index}
                 className={`absolute left-1/2 top-0 m-4 h-fit w-80 -translate-x-1/2 transform rounded-lg bg-white p-4 shadow-lg ${
