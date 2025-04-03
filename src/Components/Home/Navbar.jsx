@@ -17,17 +17,17 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const links = [
     { title: "Home", link: "/" },
-    { title: "Services", link: "/services" },
-    { title: "Webinars", link: "/webinar" },
     { title: "About Us", link: "/about" },
-    // { title: "About Neet", link: "/about-neet" },
+    { title: "Our Services", link: "/services" },
+    { title: "Contact Us", link: "/about-neet" },
+    // { title: "Webinars", link: "/webinar" },
   ];
   const priorityLinks = [
-    { title: "Webinars", link: "/", icon: <FaCalendarAlt /> },
+    { title: "Upcoming Events", link: "/", icon: <FaCalendarAlt /> },
     { title: "Fee Structure", link: "/services", icon: <FaFileAlt /> },
-    { title: "Downloads", link: "/webinar", icon: <FaDownload /> },
+    { title: "Download E-book", link: "/webinar", icon: <FaDownload /> },
     { title: "Enroll Now", link: "/about", icon: <FaRegEdit /> },
-    { title: "Enquiry", link: "/about", icon: <FaQuestionCircle /> },
+    // { title: "Enquiry", link: "/about", icon: <FaQuestionCircle /> },
   ];
 
   const coursesMenu = (
@@ -150,7 +150,7 @@ function Navbar() {
   //   </Menu>
   // );
   const aboutNeetMenu = (
-    <Menu>
+    <Menu className="w-full">
       <Menu.Item key="1">
         <Link to="/neet-ug">Neet UG</Link>
       </Menu.Item>
@@ -195,8 +195,24 @@ function Navbar() {
           </div>
         </nav>
         <div className="mx-auto w-full items-center bg-primary-color p-1 px-8 shadow-md sm:hidden md:flex lg:px-20">
+          <NavLink
+            // key={}
+            className={({ isActive }) =>
+              isActive
+                ? "mx-2 border-b-2 border-white p-0.5 font-semibold text-white"
+                : "mx-2 p-1 text-white transition-all hover:scale-105 hover:font-semibold"
+            }
+            to={links[0].link}
+          >
+            {links[0].title}
+          </NavLink>
+          <Dropdown className="w-[13.2rem]" overlay={aboutNeetMenu} arrow>
+            <a className="cursor-pointer p-2 text-white transition-all hover:font-semibold">
+              About Neet
+            </a>
+          </Dropdown>
           <ul className="mx-auto flex w-full items-center justify-start space-x-4">
-            {links.map((elem, index) => (
+            {links?.slice(1, links.length).map((elem, index) => (
               <NavLink
                 key={index}
                 className={({ isActive }) =>
@@ -210,20 +226,13 @@ function Navbar() {
               </NavLink>
             ))}
 
-            <Dropdown overlay={coursesMenu} arrow>
+            {/* <Dropdown overlay={coursesMenu} arrow>
               <a className="cursor-pointer p-2 text-white transition-all hover:font-semibold">
                 Our Courses
               </a>
-            </Dropdown>
-
-            <Dropdown overlay={aboutNeetMenu} arrow>
-              <a className="cursor-pointer p-2 text-white transition-all hover:font-semibold">
-                About Neet
-              </a>
-            </Dropdown>
+            </Dropdown> */}
           </ul>
-          <div className="flex w-full justify-end items-center space-x-4">
-          
+          <div className="flex w-full items-center justify-end space-x-4">
             {/* Phone Icon */}
             <a
               href="tel:+917678126262"
@@ -241,8 +250,7 @@ function Navbar() {
             >
               <FaWhatsapp />
             </a>
-            <QuickLinks/>
-
+            <QuickLinks />
           </div>
         </div>
       </div>

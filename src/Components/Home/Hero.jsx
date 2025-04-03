@@ -28,10 +28,26 @@ const Hero = () => {
     },
   ];
   useEffect(() => {
-    const videoId = document.getElementById("heroVideo");
-    window.addEventListener("load", () => {
-      videoId.play();
-    });
+    const videoElement = document.getElementById("heroVideo");
+
+    if (videoElement) {
+      const playVideo = () => {
+        videoElement
+          .play()
+          .catch((error) => console.error("Autoplay failed:", error));
+      };
+
+      // Wait for DOM content to load
+      if (document.readyState === "complete") {
+        playVideo();
+      } else {
+        window.addEventListener("load", playVideo);
+      }
+
+      return () => {
+        window.removeEventListener("load", playVideo);
+      };
+    }
   }, []);
   return (
     <>
@@ -92,7 +108,7 @@ const Hero = () => {
                 colleges across India and internationally.
               </p>
             </div>
-            <div className="mx-auto ml-40 mt-2 flex w-fit max-w-screen-lg items-center justify-center rounded-lg text-yellow-400 lg:space-x-10">
+            <div className="mx-auto ml-40 mt-12 flex w-fit max-w-screen-lg items-center justify-center rounded-lg text-yellow-400 lg:space-x-10">
               {statsData?.map((elem, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <img
