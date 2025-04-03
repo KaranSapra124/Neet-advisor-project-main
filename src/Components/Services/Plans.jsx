@@ -9,7 +9,7 @@ import {
 // import "../../src/css/costum.css";
 // import { useNavigate } from "react-router-dom";
 import Container from "../Helper/Container";
-import Divider from "../Helper/Divider"
+import Divider from "../Helper/Divider";
 
 const PricingComponent = () => {
   const [planType, setPlanType] = useState("UG");
@@ -162,108 +162,112 @@ const PricingComponent = () => {
   const renderPricingPlans = () => {
     const plans = pricingData[planType];
 
-    return plans.filter((elem)=>elem.title !== "Free").map((plan, index) => (
-      <div
-        key={plan.id}
-        className="relative w-full flex-shrink-0 cursor-pointer p-6  md:max-w-sm  "
-      >
+    return plans
+      .filter((elem) => elem.title !== "Free")
+      .map((plan, index) => (
         <div
-          ref={(el) => (cardRefs.current[index] = el)}
-          className="flex transform flex-col justify-between rounded-xl bg-white p-6 shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+          key={plan.id}
+          className="relative w-full flex-shrink-0 cursor-pointer p-6 md:max-w-sm"
         >
-          <img
-            src={plan.icon}
-            className="absolute -left-5 -top-4 lg:w-12 w-10 rounded-full p-0.5 shadow-lg "
-            alt="No Image"
-            srcset=""
-          />
-          <h2 className="mb-2 flex items-center gap-10 lg:text-2xl text-lg font-bold sm:gap-[10px] md:gap-[20px] lg:gap-[80px] xl:gap-[100px]">
-            {plan.title}{" "}
-            <span
-              className={`ml-auto rounded-md lg:px-5 px-2 lg:py-1.5 py-0.5  lg:text-xs text-[0.6rem] lg:font-semibold font-bold transition duration-300 ${
-                plan.offer === "PREMIUM"
-                  ? "ml-auto border-amber-700 text-amber-600 hover:border-inherit hover:bg-amber-600 hover:text-white"
-                  : "ml-auto border-indigo-800 text-indigo-900 hover:border-inherit hover:bg-indigo-900 hover:text-white"
-              } border-2`}
-            >
-              {plan.offer}
-            </span>
-          </h2>
-
-          <div className="mb-4 lg:text-xl text-sm lg:font-bold font-extrabold text-gray-800">
-            {plan.price}
-          </div>
-          {plan.discountedPrice && (
-            <div className="mb-4 lg:text-sm text-xs text-gray-500 line-through">
-              {plan.discountedPrice}
-            </div>
-          )}
-          <ul className="lg:mb-4 mb-2 h-[29rem] list-inside list-disc text-sm">
-            {plan.features.map((feature, index) => (
-              <li
-                key={index}
-                className="mb-5 mt-5 flex items-center lg:text-[13px] text-xs text-primary-color"
-              >
-                {feature.icon}{" "}
-                <span className="ml-2 lg:text-sm text-xs lg:font-extralight font-light  text-gray-900">
-                  {feature.text}
-                </span>
-              </li>
-            ))}
-          </ul>
-          {plan.specialOffer && (
-            <div className="mt-2 text-sm italic text-gray-600">
-              {plan.specialOffer}
-            </div>
-          )}
-          <button
-            className="duration-400 lg:text-lg text-xs lg:mt-4 mt-1 rounded bg-yellow-600 px-4 py-2 font-bold text-white shadow-lg transition ease-in-out hover:bg-yellow-700 hover:shadow-xl"
-            onClick={handleClick}
+          <div
+            ref={(el) => (cardRefs.current[index] = el)}
+            className="flex transform flex-col justify-between rounded-xl bg-white p-6 shadow-xl transition-transform duration-300 hover:scale-[1.02]"
           >
-            {plan.title === "Free" ? "Sign Up" : "Buy Now"}
-          </button>
+            <img
+              src={plan.icon}
+              className="absolute -left-5 -top-4 w-10 rounded-full p-0.5 shadow-lg lg:w-12"
+              alt="No Image"
+              srcset=""
+            />
+            <h2 className="mb-2 flex items-center gap-10 text-lg font-bold sm:gap-[10px] md:gap-[20px] lg:gap-[80px] lg:text-2xl xl:gap-[100px]">
+              {plan.title}{" "}
+              <span
+                className={`ml-auto rounded-md px-2 py-0.5 text-[0.6rem] font-bold transition duration-300 lg:px-5 lg:py-1.5 lg:text-xs lg:font-semibold ${
+                  plan.offer === "PREMIUM"
+                    ? "ml-auto border-amber-700 text-amber-600 hover:border-inherit hover:bg-amber-600 hover:text-white"
+                    : "ml-auto border-indigo-800 text-indigo-900 hover:border-inherit hover:bg-indigo-900 hover:text-white"
+                } border-2`}
+              >
+                {plan.offer}
+              </span>
+            </h2>
+
+            <div className="mb-4 text-sm font-extrabold text-gray-800 lg:text-xl lg:font-bold">
+              {plan.price}
+            </div>
+            {plan.discountedPrice && (
+              <div className="mb-4 text-xs text-gray-500 line-through lg:text-sm">
+                {plan.discountedPrice}
+              </div>
+            )}
+            <ul className="mb-2 h-[29rem] list-inside list-disc text-sm lg:mb-4">
+              {plan.features.map((feature, index) => (
+                <li
+                  key={index}
+                  className="mb-5 mt-5 flex items-center text-xs text-primary-color lg:text-[13px]"
+                >
+                  {feature.icon}{" "}
+                  <span className="ml-2 text-xs font-light text-gray-900 lg:text-sm lg:font-extralight">
+                    {feature.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {plan.specialOffer && (
+              <div className="mt-2 text-sm italic text-gray-600">
+                {plan.specialOffer}
+              </div>
+            )}
+            <button
+              className="duration-400 mt-1 rounded bg-yellow-600 px-4 py-2 text-xs font-bold text-white shadow-lg transition ease-in-out hover:bg-yellow-700 hover:shadow-xl lg:mt-4 lg:text-lg"
+              onClick={handleClick}
+            >
+              {plan.title === "Free" ? "Sign Up" : "Buy Now"}
+            </button>
+          </div>
         </div>
-      </div>
-    ));
+      ));
   };
 
   return (
     <Container className={"bg-gray-200/40"}>
       <div className="container mx-auto">
-        <h1 className="my-2 text-center lg:text-5xl text-lg font-bold md:text-4xl">
+        <h1 className="my-2 text-center text-lg font-bold md:text-4xl lg:text-4xl">
           <span className="font-bold text-yellow-600">
-            Transparent Pricing.
-          </span>
-          {" "}
+            It’s not the price that creates quality,
+          </span>{" "}
           <span className="font-extrabold text-primary-color">
-            Defined Goals.
+            it’s the quality that sets the price.
           </span>
         </h1>
-        <p className="mx-auto lg:my-4 lg:w-[40rem] text-center text-[0.5rem] lg:text-xs font-semibold text-gray-700">
-          Our well-defined, pocket-friendly plans reflect our commitment to
-          making your <strong>NEET</strong> Counselling Process a smooth,
-          hassle-free experience. Choose the one that best suits your goal and
-          budget!
+        <p className="mx-auto text-center text-[0.5rem] font-semibold text-gray-700 lg:my-4 lg:w-[80rem]  lg:text-xs">
+          At <strong>NEET ADVISOR</strong>, we believe that true value comes from delivering
+          exceptional quality. While many may think price determines the worth
+          of a service or product, we understand that high quality work speaks
+          for itself. When you choose us, you're not just paying for a service;
+          you're investing in the highest level of quality and expertise.
         </p>
         <Divider
-            className={"mx-auto lg:my-4 my-2 lg:h-1 h-0.5 lg:w-20 w-12 rounded-full bg-yellow-600"}
-          />
+          className={
+            "mx-auto my-2 h-0.5 w-12 rounded-full bg-yellow-600 lg:my-4 lg:h-1 lg:w-20"
+          }
+        />
         <div className="mb-8 flex justify-center">
           <button
-            className={`rounded-bl-full  rounded-tl-full lg:px-10 px-4 py-2 font-bold ${
+            className={`rounded-bl-full rounded-tl-full px-4 py-2 font-bold lg:px-10 ${
               planType === "UG"
-                ? "bg-indigo-900 text-xs lg:text-sm text-white"
-                : "bg-gray-200 text-xs lg:text-sm text-gray-800"
+                ? "bg-indigo-900 text-xs text-white lg:text-sm"
+                : "bg-gray-200 text-xs text-gray-800 lg:text-sm"
             }`}
             onClick={() => setPlanType("UG")}
           >
             UG
           </button>
           <button
-            className={`rounded-br-full rounded-tr-full lg:px-10 px-4 py-2 font-bold ${
+            className={`rounded-br-full rounded-tr-full px-4 py-2 font-bold lg:px-10 ${
               planType === "PG"
-                ? "bg-indigo-900 text-xs lg:text-sm text-white"
-                : "bg-gray-300 text-xs lg:text-sm text-gray-800"
+                ? "bg-indigo-900 text-xs text-white lg:text-sm"
+                : "bg-gray-300 text-xs text-gray-800 lg:text-sm"
             }`}
             onClick={() => setPlanType("PG")}
           >
@@ -274,12 +278,12 @@ const PricingComponent = () => {
           className="custom-scrollbar-style overflow-x-auto md:overflow-x-hidden"
           ref={pricingRef}
         >
-          <div className="flex space-x-4  md:justify-center md:space-x-0">
+          <div className="flex space-x-4 md:justify-center md:space-x-0">
             {renderPricingPlans()}
           </div>
         </div>
 
-        <div className="my-2 lg:mt-20 mt-10 text-center lg:text-3xl text-lg font-bold text-yellow-600">
+        <div className="my-2 mt-10 text-center text-lg font-bold text-yellow-600 lg:mt-20 lg:text-3xl">
           Get the
           <span className="font-extrabold text-primary-color">
             {" "}
@@ -287,11 +291,11 @@ const PricingComponent = () => {
           </span>
           For Free !
         </div>
-        <div className="lg:mb-4 mb-2 text-center lg:text-xs text-[0.5rem] font-semibold text-gray-700">
+        <div className="mb-2 text-center text-[0.5rem] font-semibold text-gray-700 lg:mb-4 lg:text-xs">
           Have you scored an All-India Ranking within the top 5000? Let’s reward
           you with a complimentary plan!
         </div>
-        <div className="lg:mb-8 mb-4 text-center lg:text-sm text-[0.5rem] font-bold text-gray-600">
+        <div className="mb-4 text-center text-[0.5rem] font-bold text-gray-600 lg:mb-8 lg:text-sm">
           *Terms and Conditions Apply
         </div>
       </div>
