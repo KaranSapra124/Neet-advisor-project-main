@@ -114,7 +114,7 @@ const NEET_UG = () => {
   const columns = [
     {
       title: (
-        <h1 className="text-center   font-bold text-white lg:text-2xl">
+        <h1 className="text-center font-bold text-white lg:text-2xl">
           Exam Attribute
         </h1>
       ),
@@ -240,56 +240,87 @@ const NEET_UG = () => {
           </div>
         </div>
 
-        {/* Key Features Section */}
-        <h2 className="mb-8 text-center text-3xl font-bold text-[#201169] after:mx-auto after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-          Key Features
-        </h2>
-        <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {/* Feature Card 1 */}
-          <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
-            <div className="mb-4 flex items-center">
-              <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
-                <FaBook size={24} className="text-[#201169]" />
+        <div className="flex gap-10">
+          {/* NEET Exam Pattern Table */}
+          <ScrollAnimation animateIn="fadeIn" duration={1.5}>
+            <div className="mb-12">
+              <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+                NEET UG Exam Pattern
+              </h2>
+              {/* Table Wrapper */}
+              <div className="relative">
+                {/* Image positioned absolutely */}
+                <img
+                  src="./Seminar/validation-badge-bg-removed.gif"
+                  className="absolute -left-3 -top-3 z-10 w-12"
+                  alt=""
+                />
+                {/* AntD Table */}
+                <Table
+                  size="small"
+                  columns={columns}
+                  dataSource={examData}
+                  pagination={false}
+                  bordered
+                  className="exam-pattern-table"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-[#201169]">
-                Single Entrance Exam
-              </h3>
             </div>
-            <p className="text-gray-600">
-              One unified exam for all medical, dental, AYUSH, and health
-              science courses.
-            </p>
-          </div>
+          </ScrollAnimation>
+          {/* Key Features Section */}
+          <div>
+            <h2 className="mb-8 text-center text-3xl font-bold text-[#201169] after:mx-auto after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+              Key Features
+            </h2>
+            <div className="mb-16 grid grid-cols-1 gap-6 ">
+              {/* Feature Card 1 */}
+              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
+                <div className="mb-4 flex items-center">
+                  <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
+                    <FaBook size={24} className="text-[#201169]" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#201169]">
+                    Single Entrance Exam
+                  </h3>
+                </div>
+                <p className="text-gray-600">
+                  One unified exam for all medical, dental, AYUSH, and health
+                  science courses.
+                </p>
+              </div>
 
-          {/* Feature Card 2 */}
-          <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
-            <div className="mb-4 flex items-center">
-              <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
-                <FaTrophy size={24} className="text-[#201169]" />
+              {/* Feature Card 2 */}
+              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
+                <div className="mb-4 flex items-center">
+                  <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
+                    <FaTrophy size={24} className="text-[#201169]" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#201169]">
+                    Merit-Based Selection
+                  </h3>
+                </div>
+                <p className="text-gray-600">
+                  Transparent and merit-based selection for premier medical
+                  institutions.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-[#201169]">
-                Merit-Based Selection
-              </h3>
-            </div>
-            <p className="text-gray-600">
-              Transparent and merit-based selection for premier medical
-              institutions.
-            </p>
-          </div>
 
-          {/* Feature Card 3 */}
-          <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
-            <div className="mb-4 flex items-center">
-              <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
-                <FaUsers size={24} className="text-[#201169]" />
+              {/* Feature Card 3 */}
+              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
+                <div className="mb-4 flex items-center">
+                  <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
+                    <FaUsers size={24} className="text-[#201169]" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#201169]">
+                    Nationwide Recognition
+                  </h3>
+                </div>
+                <p className="text-gray-600">
+                  Scores accepted by all medical colleges and universities in
+                  India.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-[#201169]">
-                Nationwide Recognition
-              </h3>
             </div>
-            <p className="text-gray-600">
-              Scores accepted by all medical colleges and universities in India.
-            </p>
           </div>
         </div>
 
@@ -330,37 +361,11 @@ const NEET_UG = () => {
           </div>
         </div>
 
-        {/* NEET Exam Pattern Table */}
-        <ScrollAnimation animateIn="fadeIn" duration={1.5}>
-          <div className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-              NEET UG Exam Pattern
-            </h2>
-            {/* Table Wrapper */}
-            <div className="relative">
-              {/* Image positioned absolutely */}
-              <img
-                src="./Seminar/validation-badge-bg-removed.gif"
-                className="absolute -left-3 -top-3 z-10 w-12"
-                alt=""
-              />
-              {/* AntD Table */}
-              <Table
-              size="small"
-                columns={columns}
-                dataSource={examData}
-                pagination={false}
-                bordered
-                className="exam-pattern-table"
-              />
-            </div>
-          </div>
-        </ScrollAnimation>
         {/* NEET Eligibility Table */}
         <ScrollAnimation animateIn="fadeIn" duration={1.5}>
           <div className="mb-12">
             <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-              NEET UG Eligibility Criteria 
+              NEET UG Eligibility Criteria
             </h2>
             {/* Table Wrapper */}
             <div className="relative">
