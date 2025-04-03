@@ -14,6 +14,7 @@ import {
   FaDownload,
   FaLink,
 } from "react-icons/fa";
+import { TfiSplitV } from "react-icons/tfi";
 
 const QuickLinks = () => {
   const quickLinks = (
@@ -21,6 +22,13 @@ const QuickLinks = () => {
       mode="vertical"
       className="overflow-y-auto bg-white text-primary-color"
     >
+      <Menu.Item
+        key="10"
+        className="transition-all hover:bg-primary-color hover:text-white"
+      >
+        <FaDownload className="mr-2 inline-block" />
+        <Link to="/mbbs-abroad">Enroll Now</Link>
+      </Menu.Item>
       <Menu.Item
         key="1"
         className="transition-all hover:bg-primary-color hover:text-white"
@@ -41,8 +49,15 @@ const QuickLinks = () => {
         key="3"
         className="transition-all hover:bg-primary-color hover:text-white"
       >
-        <FaRegClipboard className="mr-2 inline-block" />
-        <Link to="/">Fee</Link>
+        <TfiSplitV className="mr-2 inline-block" />
+        <Link to="/webinar">Webinar</Link>
+      </Menu.Item>
+      <Menu.Item
+        key="5"
+        className="transition-all hover:bg-primary-color hover:text-white"
+      >
+        <FaImage className="mr-2 inline-block" />
+        <Link to="/seminar">Seminar</Link>
       </Menu.Item>
 
       <Menu.Item
@@ -50,7 +65,15 @@ const QuickLinks = () => {
         className="transition-all hover:bg-primary-color hover:text-white"
       >
         <FaNewspaper className="mr-2 inline-block" />
-        <Link to="/news">News & Blog</Link>
+        <Link to="/news">News & Events</Link>
+      </Menu.Item>
+
+      <Menu.Item
+        key="5"
+        className="transition-all hover:bg-primary-color hover:text-white"
+      >
+        <FaDownload className="mr-2 inline-block" />
+        <Link to="/gallery">Downloads</Link>
       </Menu.Item>
 
       <Menu.Item
@@ -61,7 +84,7 @@ const QuickLinks = () => {
         <Link to="/gallery">Gallery</Link>
       </Menu.Item>
 
-      <Menu.Item
+      {/* <Menu.Item
         key="6"
         className="transition-all hover:bg-primary-color hover:text-white"
       >
@@ -83,25 +106,17 @@ const QuickLinks = () => {
       >
         <FaCalendar className="mr-2 inline-block" />
         <Link to="/medical-expo">Medical Expo 2025</Link>
-      </Menu.Item>
+      </Menu.Item> */}
 
       <Menu.Item
         key="9"
         className="transition-all hover:bg-primary-color hover:text-white"
       >
         <FaPhoneAlt className="mr-2 inline-block" />
-        <Link to="/contact">Contact Us</Link>
+        <Link to="/contact">Reach Us</Link>
       </Menu.Item>
 
-      <Menu.Item
-        key="10"
-        className="transition-all hover:bg-primary-color hover:text-white"
-      >
-        <FaDownload className="mr-2 inline-block" />
-        <Link to="/mbbs-abroad">Enroll Now</Link>
-      </Menu.Item>
-
-      <Menu.Item
+      {/* <Menu.Item
         key="11"
         className="transition-all hover:bg-primary-color hover:text-white"
       >
@@ -115,7 +130,7 @@ const QuickLinks = () => {
       >
         <FaDownload className="mr-2 inline-block" />
         <Link to="/mbbs-abroad">Downloads</Link>
-      </Menu.Item>
+      </Menu.Item> */}
     </Menu>
   );
   const location = useLocation();
