@@ -13,7 +13,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^44.3.0",
     "@ckeditor/ckeditor5-react": "^9.5.0",
-    "@tanstack/react-query": "^5.67.1",
+    "@tanstack/react-query": "^5.71.5",
     "@tiptap/extension-color": "^2.11.5",
     "@tiptap/extension-highlight": "^2.11.5",
     "@tiptap/extension-image": "^2.11.5",
@@ -40,6 +40,7 @@
     "react-flip-toolkit": "^7.2.4",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^5.4.0",
+    "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.0.2",
     "react-toastify": "^11.0.5",
     "sleekstepper": "^43.0.1",
