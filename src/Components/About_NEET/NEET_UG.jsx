@@ -114,7 +114,7 @@ const NEET_UG = () => {
   const columns = [
     {
       title: (
-        <h1 className="text-center font-bold text-white lg:text-2xl">
+        <h1 className="text-center p-1 uppercase font-bold text-white lg:text-xl">
           Exam Attribute
         </h1>
       ),
@@ -129,14 +129,14 @@ const NEET_UG = () => {
     },
     {
       title: (
-        <h1 className="text-center font-bold text-white lg:text-2xl">
+        <h1 className="text-center uppercase font-bold text-white lg:text-xl">
           Details
         </h1>
       ),
       dataIndex: "details",
       key: "details",
       render: (text) => (
-        <p className="text-center font-extrabold text-gray-700 lg:text-[1rem]">
+        <p className="text-center font-semibold text-gray-700 lg:text-[1rem]">
           {text}
         </p>
       ),
@@ -145,7 +145,7 @@ const NEET_UG = () => {
   const eligibilityColumns = [
     {
       title: (
-        <h1 className="text-center font-bold text-white lg:text-2xl">
+        <h1 className="text-center font-bold uppercase  text-white lg:text-xl">
           Criteria
         </h1>
       ),
@@ -153,21 +153,21 @@ const NEET_UG = () => {
       key: "attribute",
       // width: 300,
       render: (text) => (
-        <p className="text-center font-extrabold text-[#201169] lg:text-lg">
+        <p className="text-center font-extrabold  text-[#201169] lg:text-lg">
           {text}
         </p>
       ),
     },
     {
       title: (
-        <h1 className="text-center font-bold text-white lg:text-2xl">
+        <h1 className="text-center font-bold uppercase text-white lg:text-xl">
           Details
         </h1>
       ),
       dataIndex: "details",
       key: "details",
       render: (text) => (
-        <p className="text-center font-extrabold text-gray-700 lg:text-[1rem]">
+        <p className="text-center font-semibold text-gray-700 lg:text-[1rem]">
           {text}
         </p>
       ),
@@ -242,17 +242,18 @@ const NEET_UG = () => {
 
         <div className="flex gap-10">
           {/* NEET Exam Pattern Table */}
-          <ScrollAnimation animateIn="fadeIn" duration={1.5}>
+          <ScrollAnimation  animateIn="fadeIn" duration={1.5}>
             <div className="mb-12">
-              <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+              <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
                 NEET UG Exam Pattern
               </h2>
+
               {/* Table Wrapper */}
               <div className="relative">
                 {/* Image positioned absolutely */}
                 <img
                   src="./Seminar/validation-badge-bg-removed.gif"
-                  className="absolute -left-3 -top-3 z-10 w-12"
+                  className="absolute -left-4 -top-3 z-10 w-10"
                   alt=""
                 />
                 {/* AntD Table */}
@@ -269,12 +270,12 @@ const NEET_UG = () => {
           </ScrollAnimation>
           {/* Key Features Section */}
           <div>
-            <h2 className="mb-8 text-center text-3xl font-bold text-[#201169] after:mx-auto after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+          <h2 className="mb-6 text-left text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
               Key Features
             </h2>
-            <div className="mb-16 grid grid-cols-1 gap-6 ">
+            <div className="mb-16 grid grid-cols-1 gap-6">
               {/* Feature Card 1 */}
-              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
+              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-3 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
                 <div className="mb-4 flex items-center">
                   <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
                     <FaBook size={24} className="text-[#201169]" />
@@ -290,7 +291,7 @@ const NEET_UG = () => {
               </div>
 
               {/* Feature Card 2 */}
-              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
+              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-3 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
                 <div className="mb-4 flex items-center">
                   <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
                     <FaTrophy size={24} className="text-[#201169]" />
@@ -306,7 +307,7 @@ const NEET_UG = () => {
               </div>
 
               {/* Feature Card 3 */}
-              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
+              <div className="rounded-lg border-t-4 border-[#201169] bg-white p-3 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
                 <div className="mb-4 flex items-center">
                   <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
                     <FaUsers size={24} className="text-[#201169]" />
@@ -324,69 +325,75 @@ const NEET_UG = () => {
           </div>
         </div>
 
-        {/* Course Types Section */}
-        <div className="mb-16 rounded-xl bg-white p-6 shadow-lg">
-          <h2 className="mb-6 text-center text-2xl font-bold text-[#201169]">
-            Available Medical Courses
-          </h2>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-              <FaHospital size={32} className="mx-auto mb-2 text-[#201169]" />
-              <h3 className="font-bold text-[#201169]">MBBS</h3>
-              <p className="text-sm text-gray-600">
-                Bachelor of Medicine and Bachelor of Surgery
-              </p>
-            </div>
-            <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-              <FaTooth size={32} className="mx-auto mb-2 text-[#201169]" />
-              <h3 className="font-bold text-[#201169]">BDS</h3>
-              <p className="text-sm text-gray-600">
-                Bachelor of Dental Surgery
-              </p>
-            </div>
-            <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-              <FaLeaf size={32} className="mx-auto mb-2 text-[#201169]" />
-              <h3 className="font-bold text-[#201169]">BAMS</h3>
-              <p className="text-sm text-gray-600">
-                Bachelor of Ayurvedic Medicine and Surgery
-              </p>
-            </div>
-            <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-              <FaUniversity size={32} className="mx-auto mb-2 text-[#201169]" />
-              <h3 className="font-bold text-[#201169]">BHMS</h3>
-              <p className="text-sm text-gray-600">
-                Bachelor of Homeopathic Medicine and Surgery
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* NEET Eligibility Table */}
-        <ScrollAnimation animateIn="fadeIn" duration={1.5}>
-          <div className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-              NEET UG Eligibility Criteria
+        <div className="flex flex-row gap-10">
+          {/* Course Types Section */}
+          <div className="-mt-5  rounded-xl bg-white p-6 ">
+            <h2 className="mb-6 text-left text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+              NEET UG Courses
             </h2>
-            {/* Table Wrapper */}
-            <div className="relative">
-              {/* Image positioned absolutely */}
-              <img
-                src="./Seminar/validation-badge-bg-removed.gif"
-                className="absolute -left-3 -top-3 z-10 w-12"
-                alt=""
-              />
-              {/* AntD Table */}
-              <Table
-                size="small"
-                columns={eligibilityColumns}
-                dataSource={eligibilityData}
-                pagination={false}
-                bordered
-                className="eligibility-table"
-              />
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
+                <FaHospital size={32} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="font-bold text-[#201169]">MBBS</h3>
+                <p className="text-sm text-gray-600">
+                  Bachelor of Medicine and Bachelor of Surgery
+                </p>
+              </div>
+              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
+                <FaTooth size={32} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="font-bold text-[#201169]">BDS</h3>
+                <p className="text-sm text-gray-600">
+                  Bachelor of Dental Surgery
+                </p>
+              </div>
+              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
+                <FaLeaf size={32} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="font-bold text-[#201169]">BAMS</h3>
+                <p className="text-sm text-gray-600">
+                  Bachelor of Ayurvedic Medicine and Surgery
+                </p>
+              </div>
+              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
+                <FaUniversity
+                  size={32}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="font-bold text-[#201169]">BHMS</h3>
+                <p className="text-sm text-gray-600">
+                  Bachelor of Homeopathic Medicine and Surgery
+                </p>
+              </div>
             </div>
           </div>
-        </ScrollAnimation>
+
+          {/* NEET Eligibility Table */}
+          <ScrollAnimation  animateIn="fadeIn" duration={1.5}>
+            <div className="mb-12">
+              <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+                NEET UG Eligibility Criteria
+              </h2>
+              {/* Table Wrapper */}
+              <div className="relative">
+                {/* Image positioned absolutely */}
+                <img
+                  src="./Seminar/validation-badge-bg-removed.gif"
+                  className="absolute -left-3 -top-3 z-10 w-10"
+                  alt=""
+                />
+                {/* AntD Table */}
+                <Table
+                  size="small"
+                  columns={eligibilityColumns}
+                  dataSource={eligibilityData}
+                  pagination={false}
+                  bordered
+                  className="eligibility-table"
+                />
+              </div>
+            </div>
+          </ScrollAnimation>
+        </div>
 
         {/* CTA Section */}
         {/* <div className="mb-12 rounded-xl bg-[#201169] p-8 text-center text-white shadow-xl">
