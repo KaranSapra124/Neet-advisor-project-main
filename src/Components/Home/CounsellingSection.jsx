@@ -1,41 +1,28 @@
 import React from "react";
+import { TiTick } from "react-icons/ti";
 
 const CounsellingSection = () => {
   const counselingContent = [
     {
       title: "Understanding NEET Preparation Basics",
-      keyPoints: [
-        "Overview of NEET syllabus and exam pattern.",
-        "Importance of choosing the right study material",
-        "Setting achievable goals for preparation",
-      ],
+      keyPoints: ["Reduces lack of awareness about application deadline."],
       position: "bottom", // This will be below the timeline
     },
     {
       title: "Time Management for NEET Aspirants",
       keyPoints: [
-        "Creating an effective study timetable.",
-        "Allocating time for revision and mock tests.",
-        "Balancing study hours with relaxation and self-care.",
+        "To choose best possible college on your respective Neet Rank.",
       ],
       position: "top", // This will be above the timeline
     },
     {
       title: "Dealing with Exam Stress and Anxiety",
-      keyPoints: [
-        "Tips for staying positive and focused.",
-        "Techniques for reducing exam-related anxiety.",
-        "Importance of maintain mental and physical well-being.",
-      ],
+      keyPoints: ["Better clarity about counselling & admission process"],
       position: "bottom", // Below the timeline
     },
     {
       title: "Career Guidance for Medical Aspirant",
-      keyPoints: [
-        "Understanding Medical Courses and Specialization",
-        "How to choose the right medical college.",
-        "Insights into career opportunities after NEET.",
-      ],
+      keyPoints: ["To know your college & surrounding before you choose."],
       position: "top", // Above the timeline
     },
   ];
@@ -75,7 +62,7 @@ const CounsellingSection = () => {
         {/* Background Image */}
         <img
           src="bg-img.png"
-          className="mx-auto h-[30rem] object-cover"
+          className="mx-auto h-[20rem] object-cover"
           alt=""
         />
 
@@ -85,33 +72,42 @@ const CounsellingSection = () => {
             <>
               <img
                 src="icon.png"
-                className={`absolute  ${index === 0 ? "-ml-[58rem] -mt-[22.5rem] h-10 w-16" : index === 1 ? "-ml-[20.8rem] -mt-[10rem] h-10 w-16" : index === 2 ? "-mt-[22.5rem] ml-[20rem] h-10 w-16" : "-mt-[10rem] ml-[57.5rem] h-10 w-16"}`}
+                className={`absolute ${index === 0 ? "-ml-[58rem] -mt-[17.6rem] h-10 w-16" : index === 1 ? "-ml-[20.8rem] -mt-[5.5rem] h-10 w-16" : index === 2 ? "-mt-[17.6rem] ml-[20rem] h-10 w-16" : "-mt-[5.5rem] ml-[57.5rem] h-10 w-16"}`}
                 alt=""
                 srcset=""
               />
               <div
                 key={index}
-                className={`absolute left-1/2 top-0 m-4 h-fit w-80 -translate-x-1/2 transform rounded-lg bg-white p-4 shadow-lg ${
+                className={`absolute left-1/2 top-0 m-4 h-fit w-80 -translate-x-1/2 transform rounded-lg bg-white p-4 shadow ${
                   index === 0
-                    ? "-ml-[30rem] mt-[17rem]"
+                    ? "-ml-[29rem] mt-[12rem]"
                     : index === 2
-                      ? "ml-[10rem] mt-[17rem]"
+                      ? "ml-[10rem] mt-[12rem]"
                       : index === 1
                         ? "-ml-40 mt-[4rem]"
-                        : "ml-[30rem] mt-[5rem]"
+                        : "ml-[30rem] mt-[4rem]"
                 }`}
               >
-                {/* <img src="" alt="" srcset="" /> */}
-                <h2 className="lg:-lg font-bold text-indigo-800">
-                  {elem?.title}
+                <img
+                  src="./Seminar/validation-badge-bg-removed.gif"
+                  className="absolute -left-4 -top-3 w-10"
+                  alt=""
+                  srcset=""
+                />
+                <h2 className="lg:text-sm font-extrabold text-indigo-800">
+                  {elem?.keyPoints[0]}
                 </h2>
-                <ul className="mt-2 list-inside list-disc text-gray-700">
+                {/* <ul className="mt-2 list-inside list-disc text-gray-700">
                   {elem?.keyPoints?.map((point, ind) => (
-                    <li key={ind} className="text-xs">
-                      {point}
+                    <li
+                      key={ind}
+                      className="flex list-none space-x-1 text-[0.7rem]"
+                    >
+                      <TiTick className="text-sm" />
+                      <span>{point}</span>
                     </li>
                   ))}
-                </ul>
+                </ul> */}
               </div>
             </>
           ))}
