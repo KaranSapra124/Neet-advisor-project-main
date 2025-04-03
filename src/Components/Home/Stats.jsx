@@ -35,35 +35,42 @@ const Stats = () => {
       <ScrollAnimation animateIn="backInUp" duration={1.2}>
         <div className="mx-auto text-center">
           {/* Header */}
-          <h1 className="lg:text-3xl text-lg font-bold text-yellow-600">
+          <h1 className="text-lg font-bold text-yellow-600 lg:text-3xl">
             Stats That{" "}
             <span className="font-extrabold text-primary-color">Define Us</span>
           </h1>
-          <p className="lg:my-4 my-2 text-[0.5rem] lg:w-80 mx-auto font-bold text-gray-700">
+          <p className="mx-auto my-2 text-[0.5rem] font-bold text-gray-700 lg:my-4 lg:w-80">
             Discover the milestones that showcase our commitment and impact.
           </p>
           <Divider
-            className={"mx-auto lg:my-4 h-1 lg:w-20 w-12 rounded-full bg-yellow-600"}
+            className={
+              "mx-auto h-1 w-12 rounded-full bg-yellow-600 lg:my-4 lg:w-20"
+            }
           />
           {/* Stats Grid */}
-          <div className="lg:my-5 my-7 lg:flex-row flex-col flex justify-center lg:justify-evenly lg:gap-6 gap-3">
+          <div className="my-7 flex flex-col justify-center gap-3 lg:my-5 lg:flex-row lg:justify-evenly lg:gap-6">
             {statistics.map((stat, index) => (
               <div
                 key={index}
-                className="flex lg:w-60 w-44 lg:mx-0 mx-auto flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gray-100 lg:p-8 p-4 shadow-md transition-all duration-300"
+                className="mx-auto flex w-44 flex-col items-center justify-center rounded-lg border-b-2 border-l-2 border-yellow-600 bg-gray-100 p-4 shadow-md transition-all duration-300 lg:mx-0 lg:w-60 lg:p-8"
               >
                 {/* Icon */}
                 <div className="flex items-center justify-between">
-                  <img src={stat?.icon} className="lg:w-10 w-8 mx-2" alt="" srcset="" />
+                  <img
+                    src={stat?.icon}
+                    className="mx-2 w-8 lg:w-10"
+                    alt=""
+                    srcset=""
+                  />
                   {/* Count */}
                   <CountUp
                     num={stat.count}
                     speed={1}
-                    className="lg:ml-5 ml-2.5 lg:text-4xl text-xl font-bold text-primary-color"
+                    className="ml-2.5 text-xl font-bold text-primary-color lg:ml-5 lg:text-4xl"
                   />
                 </div>
                 {/* Title */}
-                <h3 className="my-2 lg:text-sm text-[0.7rem] font-bold text-gray-600">
+                <h3 className="my-2 text-[0.7rem] font-bold text-gray-600 lg:text-sm">
                   {stat.title}
                 </h3>
               </div>
@@ -75,7 +82,7 @@ const Stats = () => {
   );
 };
 
-const CountUp = ({ num, className, speed }) => {
+export const CountUp = ({ num, className, speed }) => {
   const [count, setCount] = useState(0);
   const intervalRef = useRef(null);
   const countRef = useRef(null);

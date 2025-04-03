@@ -6,9 +6,27 @@ import medicalReception from "./Medical Clipboard.json";
 import ImageContainer from "../Home/ImageSection";
 import BookSessionModal from "../../Utils/BookSessionModal";
 import ScrollAnimation from "react-animate-on-scroll";
+import { CountUp } from "./Stats";
 
 const Hero = () => {
   const [open, setOpen] = useState(false);
+  const statsData = [
+    {
+      icon: "graduationCap.gif",
+      title: "Students Positively Impacted",
+      progress: 700000,
+    },
+    {
+      icon: "motivationGif.gif",
+      title: "Counselling One To One",
+      progress: 450000,
+    },
+    {
+      icon: "teachingGif.gif",
+      title: "Seminars/Webinars",
+      progress: 3000,
+    },
+  ];
   useEffect(() => {
     const videoId = document.getElementById("heroVideo");
     window.addEventListener("load", () => {
@@ -40,7 +58,7 @@ const Hero = () => {
             src="./18+Golden.mp4"
           ></video>
           {/* Content placed over the video */}
-          <div className="absolute right-5 top-1/4 flex max-w-screen-lg flex-col items-center gap-2 p-2 lg:right-10">
+          <div className="absolute right-5 top-24 flex max-w-screen-lg flex-col items-center gap-2 p-2 lg:right-10">
             <div className="flex w-full items-center justify-center">
               <div className="flex flex-col items-center gap-1 lg:gap-2">
                 <h1 className="text-center font-extrabold text-yellow-600 lg:text-6xl">
@@ -73,6 +91,25 @@ const Hero = () => {
                 process, documentation, and admission procedures for medical
                 colleges across India and internationally.
               </p>
+            </div>
+            <div className="mx-auto ml-40 mt-2 flex w-fit max-w-screen-lg items-center justify-center rounded-lg text-yellow-400 lg:space-x-10">
+              {statsData?.map((elem, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <img
+                    className="mb-2 w-16 rounded-full bg-yellow-600 p-1 shadow-md shadow-primary-color"
+                    src={elem?.icon}
+                    alt="icon"
+                  />
+                  <CountUp
+                    num={elem?.progress}
+                    speed={10}
+                    className="font-extrabold text-primary-color lg:text-xl"
+                  />
+                  <h2 className="font-bold text-primary-color lg:text-sm">
+                    {elem?.title}
+                  </h2>
+                </div>
+              ))}
             </div>
           </div>
         </div>
