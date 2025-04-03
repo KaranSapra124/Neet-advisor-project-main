@@ -135,7 +135,7 @@ const NEET_UG = () => {
       dataIndex: "details",
       key: "details",
       render: (text) => (
-        <p className="text-center font-extrabold text-gray-700 lg:text-[1.1rem]">
+        <p className="text-center font-extrabold text-gray-700 lg:text-[1rem]">
           {text}
         </p>
       ),
@@ -166,7 +166,7 @@ const NEET_UG = () => {
       dataIndex: "details",
       key: "details",
       render: (text) => (
-        <p className="text-center font-extrabold text-gray-700 lg:text-[1.1rem]">
+        <p className="text-center font-extrabold text-gray-700 lg:text-[1rem]">
           {text}
         </p>
       ),
@@ -331,27 +331,27 @@ const NEET_UG = () => {
 
         {/* NEET Exam Pattern Table */}
         <div className="mb-12">
-  <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-    NEET UG Exam Pattern
-  </h2>
-  {/* Table Wrapper */}
-  <div className="relative">
-    {/* Image positioned absolutely */}
-    <img
-      src="./Seminar/validation-badge-bg-removed.gif"
-      className="w-12 absolute -top-3 -left-3 z-10"
-      alt=""
-    />
-    {/* AntD Table */}
-    <Table
-      columns={columns}
-      dataSource={examData}
-      pagination={false}
-      bordered
-      className="exam-pattern-table"
-    />
-  </div>
-</div>
+          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+            NEET UG Exam Pattern
+          </h2>
+          {/* Table Wrapper */}
+          <div className="relative">
+            {/* Image positioned absolutely */}
+            <img
+              src="./Seminar/validation-badge-bg-removed.gif"
+              className="absolute -left-3 -top-3 z-10 w-12"
+              alt=""
+            />
+            {/* AntD Table */}
+            <Table
+              columns={columns}
+              dataSource={examData}
+              pagination={false}
+              bordered
+              className="exam-pattern-table"
+            />
+          </div>
+        </div>
 
         {/* NEET Eligibility Table */}
         <div className="mb-12">
