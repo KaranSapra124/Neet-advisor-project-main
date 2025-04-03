@@ -130,7 +130,7 @@ const Hero = () => {
           </div>
         </div>
       </ScrollAnimation>
-      <ImageContainer />
+      {/* <ImageContainer /> */}
     </>
   );
 };

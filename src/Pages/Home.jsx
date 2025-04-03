@@ -14,7 +14,7 @@ import Root from "../Components/Helper/Root";
 import scrollToTop from "../Utils/ScrollToTop";
 // import ContactModal from "../Utils/ContactModal";
 import BookSessionModal from "../Utils/BookSessionModal";
-// import ImageSection from '../Components/Home/ImageSection'
+import ImageSection from '../Components/Home/ImageSection'
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +37,8 @@ const Home = () => {
       )}
       {/* <Root> */}
       <Hero />
-      {/* <ImageSection /> */}
       <CounsellingSection />
+      <ImageSection />
       {/* <WhyUsSection /> */}
       {/* <NewsSection /> */}
       {/* <Stats /> */}
