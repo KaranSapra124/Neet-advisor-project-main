@@ -166,7 +166,7 @@ function Navbar() {
           <Link to="/neet-pg">PG Diploma</Link>
         </Menu.Item>
         <Menu.Item key="2-2">
-          <Link to="/neet-pg">MDS</Link>
+          <Link to="/neet-mds">MDS</Link>
         </Menu.Item>
       </Menu.SubMenu>
     </Menu>
