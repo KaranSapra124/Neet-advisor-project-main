@@ -1,225 +1,99 @@
-import React, { useEffect, useState } from "react";
-import { Carousel } from "antd";
-import ScrollAnimation from "react-animate-on-scroll";
-import Container from "../Helper/Container";
-import Divider from "../Helper/Divider";
-import axios from "axios";
-
-// const testimonialsData = [
-//   {
-//     id: 1,
-//     name: "Smt. Deepali Chandra",
-//     title: "CEO, ABC Corporation",
-//     testimonial: `I want to share that “ there are different types of people/ professionals in the city“ but a truly professional, not only professional in the professional sense but as a good human beings, we have come to know some very nice, fine person like Mr. Bansal and Vivek Ji who have been very helpful throughout the NEET Counselling and have given us time which is most important. We got best possible advise from neet advisor which has GIVEN US A GREAT assurance, apart from the fact that the child has done well but “fine tuning and making good choices at the right time” , is very important, in which they all have helped. We are grateful to the entire team of NEET ADVISOR. All the very best.`,
-//     image: "./Testimonials/Testimonial-1.jpg",
-//   },
-//   {
-//     id: 2,
-//     name: "Rajesh Kumar",
-//     title: "Entrepreneur, StartUp India",
-//     testimonial: `The personalized attention and expertise provided by the NEET Advisor team were outstanding. They guided us at every step, ensuring that we made informed decisions. Their insights were invaluable, and I would recommend them to anyone looking for professional, heartfelt advice.`,
-//     image: "https://picsum.photos/200/300?random=1",
-//   },
-//   {
-//     id: 3,
-//     name: "Anita Verma",
-//     title: "Parent of a Medical Student",
-//     testimonial: `Before we came to NEET Advisor, we were overwhelmed by the sheer volume of decisions we needed to make. They simplified the process, gave us a clear roadmap, and constantly supported us throughout the journey. I can’t thank them enough for their commitment and dedication.`,
-//     image: "https://picsum.photos/200/300?random=2",
-//   },
-//   {
-//     id: 4,
-//     name: "John Smith",
-//     title: "Software Engineer, TechCorp",
-//     testimonial: `Professionalism, attention to detail, and understanding our specific needs made working with NEET Advisor an amazing experience. They were proactive, transparent, and approachable at every stage of the process. Highly recommended!`,
-//     image: "https://picsum.photos/200/300?random=3",
-//   },
-//   {
-//     id: 5,
-//     name: "Dr. Kavita Sharma",
-//     title: "Parent of NEET Aspirant",
-//     testimonial: `Thank you so much to the NEET Advisor team for being a true guiding light for my child. From college selection to documentation, everything was seamless, which gave us immense peace of mind. We felt secure in making decisions with their honest and expert advice.`,
-//     image: "https://picsum.photos/200/300?random=4",
-//   },
-//   // {
-//   //   id: 5,
-//   //   name: "Dr. Kavita Sharma",
-//   //   title: "Parent of NEET Aspirant",
-//   //   testimonial: `Thank you so much to the NEET Advisor team for being a true guiding light for my child. From college selection to documentation, everything was seamless, which gave us immense peace of mind. We felt secure in making decisions with their honest and expert advice.`,
-//   //   image: "https://picsum.photos/200/300?random=4",
-//   // },
-//   {
-//     id: 6,
-//     name: "Sneha Gupta",
-//     title: "High School Teacher",
-//     testimonial: `The team at NEET Advisor is phenomenal. They don’t just provide advice; they ensure that you feel confident in your decisions. Their ability to understand both student and parent concerns is exceptional. This is what sets them apart!`,
-//     image: "https://picsum.photos/200/300?random=5",
-//   },
-//   {
-//     id: 7,
-//     name: "Ramesh Malhotra",
-//     title: "Businessman",
-//     testimonial: `We were completely lost until we came across NEET Advisor. They took the time to analyze our situation and provided tailored advice. Their knowledge and dedication are truly praiseworthy.`,
-//     image: "https://picsum.photos/200/300?random=6",
-//   },
-//   {
-//     id: 8,
-//     name: "Priya Kapoor",
-//     title: "Parent of a NEET Ranker",
-//     testimonial: `A heartfelt thank you to NEET Advisor! It’s rare to find professionals who are so compassionate and understanding. Their guidance was instrumental in my child securing admission to a top medical college.`,
-//     image: "https://picsum.photos/200/300?random=7",
-//   },
-//   {
-//     id: 9,
-//     name: "Vikas Sharma",
-//     title: "Father of a NEET Aspirant",
-//     testimonial: `NEET Advisor not only helped us with the admission process but also provided emotional support throughout. They’re truly dedicated to ensuring success for every student.`,
-//     image: "https://picsum.photos/200/300?random=8",
-//   },
-//   {
-//     id: 10,
-//     name: "Preeti Mishra",
-//     title: "Parent of a NEET Candidate",
-//     testimonial: `The NEET Advisor team was incredibly helpful in navigating the complexities of counseling. Their professionalism and personal touch gave us the confidence to move forward.`,
-//     image: "https://picsum.photos/200/300?random=9",
-//   },
-// ];
+import React, { useState, useRef, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 const Testimonials = () => {
-  const [testimonialsData, setTestimonialsData] = useState([]);
-  const [slidesToShow, setSlidesToShow] = useState(1);
+  const [testimonialsData] = useState([
+    "📢 Your NEET score_ your dream college_ 🩺🏆 Let NEET Advisor guide you to the best medical college. Don_t miss your chance_enroll now _ make your med(.mp4",
+    "Your trust in NEET Advisor fuels our passion to guide future doctors_ 🩺✨ Hear from our successful students and start your journey with expert counseli_1.mp4",
+    "Your trust in NEET Advisor fuels our passion to guide future doctors_ 🩺✨ Hear from our successful students and start your journey with expert counselin(.mp4",
+    "Your trust in NEET Advisor fuels our passion to guide future doctors_ 🩺✨ Hear from our successful students and start your journey with expert counselin(.mp4",
+    "Your trust in NEET Advisor fuels our passion to guide future doctors_ 🩺✨ Hear from our successful students and start your journey with expert counselin(.mp4",
+    "Your trust in NEET Advisor fuels our passion to guide future doctors_ 🩺✨ Hear from our successful students and start your journey with expert counselin(.mp4",
 
-  // Calculate slides to show based on testimonial length
-  const getSlideCount = (testimonial) => {
-    console.log(testimonial)
-    const length = testimonial?.review?.length;
-    if (length > 0 && length < 100) return 3;
-    else if (length > 200 && length < 500) return 2;
-    else return 1;
-  };
+  ]);
 
-  // Group testimonials by how many should show at once
-  const groupedTestimonials = testimonialsData.reduce((acc, testimonial) => {
-    console.log(testimonial)
-    const slideCount = getSlideCount(testimonial);
-    if (!acc[slideCount]) {
-      acc[slideCount] = [];
-    }
-    acc[slideCount].push(testimonial);
-    return acc;
-  }, {});
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const videoRefs = useRef([]);
 
   useEffect(() => {
-    const fetchTestimonials = async () => {
-      const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}admin/get-testimonials`,
-      );
-      const { data } = res;
-      console.log(data);
-      setTestimonialsData(data?.testimonials);
-    };
-    fetchTestimonials();
-    const updateSlides = () => {
-      const currWidth = window.innerWidth;
-      setSlidesToShow(currWidth);
-    };
-    updateSlides();
-    window.addEventListener("resize", updateSlides);
-    return () => window.removeEventListener("resize", updateSlides);
-  }, []);
-
-  // useEffect(() => console.log(slidesToShow), [slidesToShow]);
-
-  // Create slides array with proper grouping
-  const slides = Object.entries(groupedTestimonials).flatMap(
-    ([count, items]) => {
-      const groups = [];
-      for (let i = 0; i < items.length; i += Number(count)) {
-        groups.push(items.slice(i, i + Number(count)));
+    // Play the current slide's video when active
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === currentSlide) {
+          video.play().catch((error) => console.log("Autoplay failed:", error));
+        } else {
+          video.pause();
+          video.currentTime = 0; // Reset video to start
+        }
       }
-      return groups;
-    },
-  );
-
-  console.log(slides)
+    });
+  }, [currentSlide]);
 
   return (
-    <Container className="bg-gray-200/40">
-      <h1 className="text-center text-lg font-bold leading-none text-yellow-600 lg:text-3xl">
+    <div className="bg-white py-10">
+      <h1 className="text-center text-lg font-bold text-yellow-600 lg:text-3xl">
         What our customers are{" "}
-        <span className="font-extrabold text-primary-color">
-          saying about us?
-        </span>
+        <span className="text-primary-color">saying about us?</span>
       </h1>
-      <Divider className="mx-auto my-2 h-1 w-12 rounded-full bg-yellow-600 lg:my-4 lg:w-20" />
 
-      <ScrollAnimation animateIn="fadeInUp" duration={1.5}>
-        <Carousel
-          dotPosition="bottom"
-          autoplay
-          autoplaySpeed={3000}
-          dots={true}
-          arrows
-          infinite
-          className="mx-auto max-w-screen-xl lg:my-8"
+      <div className="mt-6 flex justify-center">
+        <Swiper
+          modules={[Autoplay, EffectCoverflow, Pagination]}
+          spaceBetween={20}
+          slidesPerView={3} // Ensure 3 slides are shown
+          centeredSlides={true} // Center active slide
+          loop={true}
+          autoplay={{ delay: 20000, disableOnInteraction: false }}
+          onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
+          effect={"coverflow"}
+          grabCursor={true}
+          coverflowEffect={{
+            rotate: 30,
+            stretch: 0,
+            depth: 200,
+            modifier: 1.5,
+            slideShadows: true,
+          }}
+          pagination={{ clickable: true }}
+          className="max-w-screen-md"
         >
-          {slidesToShow > 768
-            ? slides.map((group, groupIndex) => (
-                <div key={groupIndex} className="px-4">
-                  <div className="flex  gap-4">
-                    {group.map((testimonial) => (
-                      <div
-                        key={testimonial.id}
-                        className="relative w-full flex flex-col max-[600px]:flex-wrap"
-                      >
-                        <TestimonialCard
-                          clientCollege={testimonial.clientCollege}
-                          clientName={testimonial.clientName}
-                          review={testimonial.review}
-                          imgUrl={testimonial.imgUrl}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))
-            : testimonialsData?.map((testimonial, index) => {
-                return (
-                  <>
-                    <TestimonialCard
-                      clientCollege={testimonial.clientCollege}
-                      clientName={testimonial.clientName}
-                      review={testimonial.review}
-                      imgUrl={testimonial.imgUrl}
-                    />
-                  </>
-                );
-              })}
-        </Carousel>
-      </ScrollAnimation>
-    </Container>
+          {testimonialsData.map((video, index) => (
+            <SwiperSlide key={index}>
+              <TestimonialCard
+                videoUrl={video}
+                isActive={index === currentSlide}
+                videoRef={(el) => (videoRefs.current[index] = el)}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
   );
 };
 
-const TestimonialCard = ({ imgUrl, review, clientName, clientCollege }) => {
+const TestimonialCard = ({ videoUrl, isActive, videoRef }) => {
   return (
-    <div className="relative mx-auto my-3.5 flex h-full max-h-full rounded-md border-l-2 border-yellow-600 bg-gray-200/5 p-4 shadow-md shadow-gray-400 lg:mx-0 lg:my-0 lg:max-h-72 lg:gap-4">
-      <img
-        className="absolute -left-3 -top-3 h-10 w-10 rounded-full shadow shadow-yellow-600 lg:h-14 lg:w-14"
-        src={`${import.meta.env.VITE_BACKEND_URL}uploads/${imgUrl}`}
-        alt=""
-        srcset=""
-      />
-      <div className="px-3 py-4 lg:px-6 lg:py-5">
-        <h1 className="text-[0.7rem] font-bold text-primary-color lg:text-sm">
-          {clientName}
-        </h1>
-        <h2 className="my-1 text-[0.5rem] font-medium text-gray-800 lg:text-xs">
-          {clientCollege}
-        </h2>
-        <Divider className="my-4 h-1 w-12 rounded-full bg-yellow-600 lg:w-20" />
-        <p className="text-[0.5rem] font-bold italic lg:text-xs">"{review}"</p>
-      </div>
+    <div
+      className={`relative flex flex-col items-center rounded-lg text-white shadow-lg transition-all duration-500 ease-in-out ${
+        isActive ? "scale-110 opacity-100" : "scale-90 opacity-60"
+      }`}
+    >
+      <video
+        ref={videoRef}
+        className="w-full rounded-lg"
+        muted={!isActive}
+        autoPlay={false} // Autoplay is handled in useEffect
+        loop
+        controls
+      >
+        <source src={videoUrl} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 };
