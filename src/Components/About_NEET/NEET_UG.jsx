@@ -1,6 +1,8 @@
 import { Table } from "antd";
 import React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
+import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+
 import {
   FaBook,
   FaTrophy,
@@ -19,6 +21,7 @@ import {
   FaTooth,
   FaLeaf,
 } from "react-icons/fa";
+import Divider from "../Helper/Divider";
 
 const NEET_UG = () => {
   // Custom table styles
@@ -334,36 +337,37 @@ const NEET_UG = () => {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-                <FaHospital size={32} className="mx-auto mb-2 text-[#201169]" />
-                <h3 className="font-bold text-[#201169]">MBBS</h3>
-                <p className="text-sm text-gray-600">
+                <FaHospital size={20} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="text-sm font-bold text-[#201169]">MBBS</h3>
+                <p className="text-xs font-bold text-gray-600">
                   Bachelor of Medicine and Bachelor of Surgery
                 </p>
               </div>
               <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-                <FaTooth size={32} className="mx-auto mb-2 text-[#201169]" />
+                <FaTooth size={20} className="mx-auto mb-2 text-[#201169]" />
                 <h3 className="font-bold text-[#201169]">BDS</h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-xs font-bold text-gray-600">
                   Bachelor of Dental Surgery
                 </p>
               </div>
               <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-                <FaLeaf size={32} className="mx-auto mb-2 text-[#201169]" />
-                <h3 className="font-bold text-[#201169]">BAMS</h3>
-                <p className="text-sm text-gray-600">
+                <FaLeaf size={20} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="font-bold text-[#201169]">AYUSH</h3>
+                <p className="text-xs font-bold text-gray-600">
                   Bachelor of Ayurvedic Medicine and Surgery
                 </p>
               </div>
               <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
                 <FaUniversity
-                  size={32}
+                  size={20}
                   className="mx-auto mb-2 text-[#201169]"
                 />
-                <h3 className="font-bold text-[#201169]">BHMS</h3>
-                <p className="text-sm text-gray-600">
-                  Bachelor of Homeopathic Medicine and Surgery
+                <h3 className="font-bold text-[#201169]">B.Sc.Nursing</h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Bachelor of Science in Nursing
                 </p>
               </div>
+              <PieChartComponent />
             </div>
           </div>
 
@@ -448,7 +452,7 @@ const LinksSection = () => {
   ];
 
   return (
-    <div className="text-white">
+    <div className="text-white py-10">
       <div className="text-center">
         <h2 className="text-start text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
           🚀 <span className="text-start">Important</span> Links 🌟
@@ -462,7 +466,7 @@ const LinksSection = () => {
         {importantLinks.map((item, index) => (
           <li
             key={index}
-            className="group flex items-center  justify-between rounded-lg bg-white px-2 py-1.5 shadow-md transition-transform duration-300 hover:scale-105"
+            className="group flex items-center justify-between rounded-lg bg-white px-2 py-1.5 shadow-md transition-transform duration-300 hover:scale-105"
           >
             <span className="font-bold text-gray-800 group-hover:text-primary-color">
               {item.name}
@@ -478,6 +482,134 @@ const LinksSection = () => {
           </li>
         ))}
       </ul>
+    </div>
+  );
+};
+
+const PieChartComponent = () => {
+  const data = [
+    {
+      name: "BAMS",
+      fullForm: "Bachelor of Ayurvedic Medicine & Surgery",
+      value: 20,
+    },
+    {
+      name: "BHMS",
+      fullForm: "Bachelor of Homeopathic Medicine & Surgery",
+      value: 20,
+    },
+    {
+      name: "BUMS",
+      fullForm: "Bachelor of Unani Medicine & Surgery",
+      value: 20,
+    },
+    {
+      name: "BNYS",
+      fullForm: "Bachelor of Naturopathy & Yoga Science",
+      value: 20,
+    },
+    {
+      name: "BSMS",
+      fullForm: "Bachelor of Siddha Medicine & Surgery",
+      value: 20,
+    },
+  ];
+  const COLORS = [
+    "#8BC34A",
+    "#00BCD4",
+    "#FFC107",
+    "#FF5722",
+    "#9C27B0",
+    "#3F51B5",
+  ];
+  const renderInnerLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    index,
+  }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) / 2;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="#fff"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fontSize="10"
+        className="font-extrabold"
+      >
+        {data[index].name}
+      </text>
+    );
+  };
+
+  const CustomTooltip = ({ active, payload, coordinate }) => {
+    if (active && payload && payload.length) {
+      const { name, fullForm } = payload[0].payload;
+
+      return (
+        <div
+          className="absolute z-[9999] w-80 rounded border bg-white p-2 text-sm shadow-sm shadow-gray-900"
+          style={{
+            top: coordinate.y + 10, // Adjust for better placement
+            left: coordinate.x + 10,
+            pointerEvents: "none", // Prevent hover issues
+          }}
+        >
+          <img
+            src="./Seminar/validation-badge-bg-removed.gif"
+            className="absolute -left-3 -top-3 h-6 w-6 rounded-full bg-white shadow-sm shadow-gray-900"
+            alt=""
+            srcset=""
+          />
+          <p className="text-sm font-extrabold text-gray-800">{name}</p>
+          <Divider className={"my-1 h-0.5 w-6 rounded-full bg-primary-color"} />
+          <p className="my-0.5 text-sm font-thin text-gray-800">{fullForm}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <div style={{ position: "relative", width: 400, height: 200, top: 10 }}>
+      <PieChart width={400} height={200}>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={50}
+          outerRadius={100}
+          fill="#8884d8"
+          paddingAngle={3}
+          dataKey="value"
+          labelLine={false}
+          label={renderInnerLabel} // 👈 short form inside
+        >
+          {data.map((entry, index) => (
+            <Cell
+              key={`slice-${index}`}
+              fill={COLORS[index % COLORS.length]}
+              // textRendering={(text) => <p>{text.name}</p>}
+            />
+          ))}
+        </Pie>
+
+        <Tooltip content={CustomTooltip} />
+        {/* <Legend /> */}
+      </PieChart>
+
+      {/* Center Text */}
+      <div className="z-1 absolute left-[50.2%] top-[58.5%] flex h-24  w-24 -translate-x-[50%] -translate-y-[68%] items-center justify-center rounded-full bg-[#201169] text-lg font-bold text-white shadow-md">
+        AYUSH
+      </div>
     </div>
   );
 };

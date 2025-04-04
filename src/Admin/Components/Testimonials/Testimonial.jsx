@@ -414,20 +414,20 @@ const AddCard = ({ open, onCancel }) => {
       alert("All fields are required!");
       return;
     }
-    setFormData({ imgUrl: "", review: "", clientName: "", clientCollege: "" });
-    onCancel(); // Close modal after submission
+    console.log(formData);
+
     await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}admin/add-testimonial`,
       formData,
       {
         withCredentials: true,
-      },
-      {
         headers: {
           "Content-Type": "multipart/form-data", // Important for file upload
         },
       },
     );
+    setFormData({ imgUrl: "", review: "", clientName: "", clientCollege: "" });
+    // onCancel(); // Close modal after submission
   };
 
   return (
@@ -459,6 +459,8 @@ const AddCard = ({ open, onCancel }) => {
               type="file"
               name="file"
               onChange={(e) => {
+                // console.log(e.target.files);
+
                 setFormData((prev) => ({
                   ...prev,
                   file: e.target.files[0],

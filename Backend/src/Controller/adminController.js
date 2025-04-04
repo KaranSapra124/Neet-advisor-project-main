@@ -15,6 +15,8 @@ const UGseminar = require("../Models/UGseminar");
 const Query = require("../Models/Queries");
 // Testimonials Started
 exports.addTestimonial = async (req, res) => {
+  console.log(req.body);
+
   try {
     const { filename } = req.file;
     const { clientName, clientCollege, review } = req.body;
@@ -26,6 +28,8 @@ exports.addTestimonial = async (req, res) => {
     });
     return res.json({ status: 201, newTestimonial });
   } catch (err) {
+    console.log(err);
+
     return res.json({ status: 401, err });
   }
 };
