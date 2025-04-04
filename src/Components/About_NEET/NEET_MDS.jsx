@@ -287,7 +287,7 @@ const NEET_MDS = () => {
           </div>
           {/* Key Features Section */}
           {/* MDS Admission Coverage Pie Chart */}
-          <div className="flex flex-col items-center w-1/2">
+          <div className="flex w-1/2 flex-col items-center">
             <h2 className="mb-6 text-center text-3xl font-bold text-[#201169] after:block after:h-1 after:w-24 after:bg-[#201169]">
               NEET MDS Admission Coverage
             </h2>
@@ -327,24 +327,24 @@ const NEET_MDS = () => {
 const LinksSection = () => {
   const importantLinks = [
     {
+      name: "National Board of Examinations in Medical Sciences (NBEMS)",
+      link: "https://www.natboard.edu.in/",
+    },
+    {
       name: "National Medical Commission (NMC)",
       link: "http://www.nmc.org.in/",
     },
     {
-      name: "National Testing Agency (NTA)",
-      link: "http://www.nta.ac.in/",
+      name: "The Dental Council of India (DCI)",
+      link: "https://dciindia.gov.in/",
     },
     {
-      name: "BDS Course Regulations",
-      link: "http://www.dciindia.gov.in/",
+      name: "Medical Counselling Committee (MCC) - PG Medical",
+      link: "https://mcc.nic.in/pg-medical-counselling/",
     },
     {
-      name: "Medical Counselling Committee (MCC)",
-      link: "https://mcc.nic.in/UGCounselling/",
-    },
-    {
-      name: "AYUSH Admissions Central Counselling Committee (AACCC)",
-      link: "https://aaccc.gov.in/aacccug/home/homepage",
+      name: "Medical Counselling Committee (MCC) - MDS",
+      link: "https://mcc.nic.in/mds-counselling/",
     },
   ];
 
@@ -437,7 +437,6 @@ const BarChartComponent = () => {
         layout="vertical" // Switched to vertical
         data={admissionCoverageData}
         barSize={20}
-
         margin={{ top: 0, right: 0, left: 0, bottom: 0 }} // Adjusted margins for better spacing
       >
         <YAxis
@@ -447,7 +446,6 @@ const BarChartComponent = () => {
             fill: "#201169",
             fontWeight: "900",
             fontSize: 9,
-
           }}
           tickLine={false}
         />
