@@ -20,6 +20,14 @@ import {
   FaUniversity,
   FaTooth,
   FaLeaf,
+  FaBookOpen,
+  FaCertificate,
+  FaHeartbeat,
+  FaBrain,
+  FaClinicMedical,
+  FaUserMd,
+  FaGlobe,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 import Divider from "../Helper/Divider";
 
@@ -36,33 +44,28 @@ const NEET_PG = () => {
     {
       key: "1",
       attribute: "Mode of Exam",
-      details: "Pen-and-paper-based (offline)",
+      details: "Computer Network based (Online)",
     },
-    { key: "2", attribute: "Duration", details: "3 Hours" },
-    { key: "3", attribute: "Total Questions", details: "180 Questions" },
+    { key: "2", attribute: "Duration", details: "3 hrs 30 minutes" },
+    { key: "3", attribute: "Total Questions", details: "200 Questions" },
     {
       key: "4",
-      attribute: "Sectional Distribution",
-      details: "Physics: 45, Chemistry: 45, Biology: 90",
+      attribute: "Question Type",
+      details: "Multiple-choice questions (MCQs)",
     },
     {
       key: "5",
       attribute: "Marking Scheme",
       details: "+4 for correct, -1 for incorrect, 0 for unattempted",
     },
-    { key: "6", attribute: "Maximum Marks", details: "720 Marks" },
+    { key: "6", attribute: "Maximum Marks", details: "800 Marks" },
     {
       key: "7",
-      attribute: "Question Type",
-      details: "Multiple-choice questions (MCQs)",
-    },
-    {
-      key: "8",
-      attribute: "Language Options",
-      details:
-        "English, Hindi, Assamese, Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu, Urdu",
+      attribute: "Language Option",
+      details: "English only",
     },
   ];
+
   const eligibilityData = [
     {
       key: "1",
@@ -145,37 +148,37 @@ const NEET_PG = () => {
       ),
     },
   ];
-  const eligibilityColumns = [
-    {
-      title: (
-        <h1 className="text-center font-bold uppercase text-white lg:text-xl">
-          Criteria
-        </h1>
-      ),
-      dataIndex: "attribute",
-      key: "attribute",
-      // width: 300,
-      render: (text) => (
-        <p className="text-center font-extrabold text-[#201169] lg:text-lg">
-          {text}
-        </p>
-      ),
-    },
-    {
-      title: (
-        <h1 className="text-center font-bold uppercase text-white lg:text-xl">
-          Details
-        </h1>
-      ),
-      dataIndex: "details",
-      key: "details",
-      render: (text) => (
-        <p className="text-center font-semibold text-gray-700 lg:text-[1rem]">
-          {text}
-        </p>
-      ),
-    },
-  ];
+  //   const eligibilityColumns = [
+  //     {
+  //       title: (
+  //         <h1 className="text-center font-bold uppercase text-white lg:text-xl">
+  //           Criteria
+  //         </h1>
+  //       ),
+  //       dataIndex: "attribute",
+  //       key: "attribute",
+  //       // width: 300,
+  //       render: (text) => (
+  //         <p className="text-center font-extrabold text-[#201169] lg:text-lg">
+  //           {text}
+  //         </p>
+  //       ),
+  //     },
+  //     {
+  //       title: (
+  //         <h1 className="text-center font-bold uppercase text-white lg:text-xl">
+  //           Details
+  //         </h1>
+  //       ),
+  //       dataIndex: "details",
+  //       key: "details",
+  //       render: (text) => (
+  //         <p className="text-center font-semibold text-gray-700 lg:text-[1rem]">
+  //           {text}
+  //         </p>
+  //       ),
+  //     },
+  //   ];
 
   return (
     <div className="min-h-screen">
@@ -209,30 +212,24 @@ const NEET_PG = () => {
           <div className="flex flex-col gap-8 md:flex-row">
             <div className="flex-1">
               <h2 className="mb-4 text-2xl font-bold text-[#201169]">
-                About NEET UG
+                About <strong>NEET PG</strong>
               </h2>
               <p className="mb-4 leading-relaxed text-gray-700">
-                The National Eligibility cum Entrance Test (Undergraduate) is
-                India's unified medical entrance examination conducted by the
-                National Testing Agency (NTA) since 2019 on behalf of the
-                National Medical Commission.
+                <strong>NEET PG</strong> is an eligibility-cum-ranking
+                examination prescribed as the single entrance examination for
+                admission to various MD/MS and PG, Diploma Courses as per
+                Section 61(2) of the National Medical Commission Act, 2019.
               </p>
               <p className="mb-4 leading-relaxed text-gray-600">
-                The <strong className="text-[#201169]">NEET</strong> (UG) has to
-                be conducted as a common and uniform{" "}
-                <strong className="text-[#201169]">
-                  National Eligibility-cum-Entrance Test
-                </strong>{" "}
-                for admission to undergraduate medical education in all medical
-                institutions. Similarly, as per Section 14 of the National
-                Commission for Indian System of Medicine Act, 2020, there shall
-                be a uniform
-                <strong className="text-[#201169]"> NEET</strong> (UG) for
-                admission to undergraduate courses in each of the disciplines
-                i.e. BAMS, BUMS, and BSMS courses of the Indian System of
-                Medicine in all Medical Institutions governed under this Act.
-                NEET (UG) shall also be applicable to admission to the BHMS
-                course under the National Commission for Homeopathy.{" "}
+                No other entrance examination, either at the state or the
+                Institution level, shall be valid for entry to MD/MS/PG Diploma
+                courses. Qualifying <strong>NEET PG</strong> is mandatory for
+                entry to MD/MS/PG Diploma courses under various Universities/
+                Institutions in the country.
+              </p>
+              <p className="mb-4 leading-relaxed text-gray-600">
+                <strong>NEET PG</strong> is mandatory even for foreign nationals
+                seeking admission in medical courses in India.
               </p>
             </div>
             <div className="flex items-center justify-center">
@@ -243,161 +240,266 @@ const NEET_PG = () => {
           </div>
         </div>
 
-        <div className="flex gap-10">
-          {/* NEET Exam Pattern Table */}
-          <ScrollAnimation animateIn="fadeIn" duration={1.5}>
-            <div className="mb-12">
-              <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-                NEET UG Exam Pattern
-              </h2>
+        {/* <div className="flex "> */}
+        {/* NEET Exam Pattern Table */}
+        <ScrollAnimation
+          animateIn="fadeIn"
+          className="flex justify-between"
+          duration={1.5}
+        >
+          <div className="">
+            <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+              NEET PG Exam Pattern
+            </h2>
 
-              {/* Table Wrapper */}
-              <div className="relative">
-                {/* Image positioned absolutely */}
-                <img
-                  src="./Seminar/validation-badge-bg-removed.gif"
-                  className="absolute -left-4 -top-3 z-10 w-10"
-                  alt=""
-                />
-                {/* AntD Table */}
-                <Table
-                  size="small"
-                  columns={columns}
-                  dataSource={examData}
-                  pagination={false}
-                  bordered
-                  className="exam-pattern-table"
-                />
-              </div>
+            {/* Table Wrapper */}
+            <div className="relative">
+              {/* Image positioned absolutely */}
+              <img
+                src="./Seminar/validation-badge-bg-removed.gif"
+                className="absolute -left-4 -top-3 z-10 w-10"
+                alt=""
+              />
+              {/* AntD Table */}
+              <Table
+                size="small"
+                columns={columns}
+                dataSource={examData}
+                pagination={false}
+                bordered
+                className="exam-pattern-table"
+              />
             </div>
-          </ScrollAnimation>
+          </div>
           {/* Key Features Section */}
-          <div>
+          <div className="w-1/2">
             <h2 className="mb-6 text-left text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-              Key Features
+              Eligibility Criteria for Foreign Nationals
             </h2>
             <div className="mb-16 grid grid-cols-1 gap-6">
-              {/* Feature Card 1 */}
+              {/* Eligibility Card 1 */}
               <div className="rounded-lg border-t-4 border-[#201169] bg-white p-3 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
-                <div className="mb-4 flex items-center">
+                <div className="mb-1 flex items-center">
                   <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
-                    <FaBook size={24} className="text-[#201169]" />
+                    <FaBookOpen size={15} className="text-[#201169]" />
                   </div>
-                  <h3 className="text-xl font-semibold text-[#201169]">
-                    Single Entrance Exam
+                  <h3 className="text-lg font-semibold text-[#201169]">
+                    Recognized Medical Qualification
                   </h3>
                 </div>
-                <p className="text-gray-600">
-                  One unified exam for all medical, dental, AYUSH, and health
-                  science courses.
+                <p className="text-sm text-gray-600">
+                  Candidate's basic medical qualification equivalent to MBBS
+                  must be recognized by the National Medical Commission.
                 </p>
               </div>
 
-              {/* Feature Card 2 */}
+              {/* Eligibility Card 2 */}
               <div className="rounded-lg border-t-4 border-[#201169] bg-white p-3 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
-                <div className="mb-4 flex items-center">
+                <div className="mb-1 flex items-center">
                   <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
-                    <FaTrophy size={24} className="text-[#201169]" />
+                    <FaShieldAlt size={15} className="text-[#201169]" />
                   </div>
-                  <h3 className="text-xl font-semibold text-[#201169]">
-                    Merit-Based Selection
+                  <h3 className="text-lg font-semibold text-[#201169]">
+                    Security Clearance
                   </h3>
                 </div>
-                <p className="text-gray-600">
-                  Transparent and merit-based selection for premier medical
-                  institutions.
+                <p className="text-sm text-gray-600">
+                  FMG candidates must obtain security clearance from the
+                  Ministry of Home Affairs, Govt. of India before applying for
+                  the NEET-PG examination.
                 </p>
               </div>
 
-              {/* Feature Card 3 */}
+              {/* Eligibility Card 3 */}
               <div className="rounded-lg border-t-4 border-[#201169] bg-white p-3 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
-                <div className="mb-4 flex items-center">
+                <div className="mb-1 flex items-center">
                   <div className="mr-4 rounded-full bg-[#f3f4ff] p-3">
-                    <FaUsers size={24} className="text-[#201169]" />
+                    <FaCertificate size={15} className="text-[#201169]" />
                   </div>
-                  <h3 className="text-xl font-semibold text-[#201169]">
-                    Nationwide Recognition
+                  <h3 className="text-lg font-semibold text-[#201169]">
+                    Temporary Registration Certificate
                   </h3>
                 </div>
-                <p className="text-gray-600">
-                  Scores accepted by all medical colleges and universities in
-                  India.
+                <p className="text-sm text-gray-600">
+                  FMG candidates must obtain a temporary registration
+                  certificate from the National Medical Commission (NMC) for the
+                  duration of the postgraduate course, limited to the
+                  institution where they are admitted.
                 </p>
               </div>
             </div>
           </div>
-        </div>
+        </ScrollAnimation>
+        {/* </div> */}
 
-        <div className="flex flex-row gap-10">
+        <ScrollAnimation
+          animateIn="backInUp"
+          className="flex justify-between"
+          duration={1.5}
+        >
           {/* Course Types Section */}
-          <div className="-mt-5 rounded-xl bg-white p-6">
-            <h2 className="mb-6 text-left text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-              NEET UG Courses
+          <div className="-mt-5 w-1/2 rounded-xl bg-white p-6">
+            <h2 className="mb-6 text-left text-[1.7rem] font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+              Institutions Not Covered Under NEET PG
             </h2>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-                <FaHospital size={20} className="mx-auto mb-2 text-[#201169]" />
-                <h3 className="text-sm font-bold text-[#201169]">MBBS</h3>
-                <p className="text-xs font-bold text-gray-600">
-                  Bachelor of Medicine and Bachelor of Surgery
-                </p>
-              </div>
-              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-                <FaTooth size={20} className="mx-auto mb-2 text-[#201169]" />
-                <h3 className="font-bold text-[#201169]">BDS</h3>
-                <p className="text-xs font-bold text-gray-600">
-                  Bachelor of Dental Surgery
-                </p>
-              </div>
-              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
-                <FaLeaf size={20} className="mx-auto mb-2 text-[#201169]" />
-                <h3 className="font-bold text-[#201169]">AYUSH</h3>
-                <p className="text-xs font-bold text-gray-600">
-                  Bachelor of Ayurvedic Medicine and Surgery
-                </p>
-              </div>
+              {/* Institution 1 */}
               <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
                 <FaUniversity
                   size={20}
                   className="mx-auto mb-2 text-[#201169]"
                 />
-                <h3 className="font-bold text-[#201169]">B.Sc.Nursing</h3>
+                <h3 className="text-sm font-bold text-[#201169]">AIIMS</h3>
                 <p className="text-xs font-bold text-gray-600">
-                  Bachelor of Science in Nursing
+                  All AIIMS institutions including AIIMS New Delhi
                 </p>
               </div>
-              <PieChartComponent />
+
+              {/* Institution 2 */}
+              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
+                <FaHospital size={20} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="font-bold text-[#201169]">PGIMER</h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Postgraduate Institute of Medical Education & Research,
+                  Chandigarh
+                </p>
+              </div>
+
+              {/* Institution 3 */}
+              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
+                <FaClinicMedical
+                  size={20}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="font-bold text-[#201169]">JIPMER</h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Jawaharlal Institute of Postgraduate Medical Education &
+                  Research, Puducherry
+                </p>
+              </div>
+
+              {/* Institution 4 */}
+              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
+                <FaBrain size={20} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="font-bold text-[#201169]">NIMHANS</h3>
+                <p className="text-xs font-bold text-gray-600">
+                  National Institute of Mental Health & Neurosciences, Bengaluru
+                </p>
+              </div>
+
+              {/* Institution 5 */}
+              <div className="rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center">
+                <FaHeartbeat
+                  size={20}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="font-bold text-[#201169]">SCTIMST</h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Sree Chitra Tirunal Institute for Medical Sciences and
+                  Technology, Trivandrum
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* NEET Eligibility Table */}
-          <ScrollAnimation animateIn="fadeIn" duration={1.5}>
-            <div className="mb-12">
-              <h2 className="mb-6 text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-                NEET UG Eligibility Criteria
-              </h2>
-              {/* Table Wrapper */}
-              <div className="relative">
-                {/* Image positioned absolutely */}
+          <div className="-mt-5 w-1/2 rounded-xl bg-white p-6">
+            <h2 className="mb-6 text-left text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+              NEET-PG Admission Coverage
+            </h2>
+
+            <div className="grid grid-cols-2 gap-4">
+              {/* Coverage 1 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
                 <img
-                  src="./Seminar/validation-badge-bg-removed.gif"
-                  className="absolute -left-3 -top-3 z-10 w-10"
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
                   alt=""
                 />
-                {/* AntD Table */}
-                <Table
-                  size="small"
-                  columns={eligibilityColumns}
-                  dataSource={eligibilityData}
-                  pagination={false}
-                  bordered
-                  className="eligibility-table"
+                <FaGlobe size={20} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  50% All India Quota
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Covers all States & Union Territories.
+                </p>
+              </div>
+
+              {/* Coverage 2 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
                 />
+                <FaMapMarkerAlt
+                  size={20}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  State Quota Seats
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Includes all State/UT Government Medical Colleges.
+                </p>
+              </div>
+
+              {/* Coverage 3 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
+                />
+                <FaUniversity
+                  size={20}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  Private & Deemed Universities
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Covers all Private Medical Colleges & Institutions.
+                </p>
+              </div>
+
+              {/* Coverage 4 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
+                />
+                <FaShieldAlt
+                  size={20}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  Armed Forces Institutions
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Includes Medical Services Institutions of the Armed Forces.
+                </p>
+              </div>
+
+              {/* Coverage 5 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
+                />
+                <FaUserMd size={20} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  DNB & NBEMS Diploma Courses
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Admission to Post MBBS DNB, 6-year DrNB & NBEMS Diplomas.
+                </p>
               </div>
             </div>
-          </ScrollAnimation>
-        </div>
+          </div>
+        </ScrollAnimation>
 
         {/* CTA Section */}
         {/* <div className="mb-12 rounded-xl bg-[#201169] p-8 text-center text-white shadow-xl">
@@ -452,7 +554,7 @@ const LinksSection = () => {
   ];
 
   return (
-    <div className="text-white py-10">
+    <div className="py-10 text-white">
       <div className="text-center">
         <h2 className="text-start text-3xl font-bold text-[#201169] after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
           🚀 <span className="text-start">Important</span> Links 🌟
@@ -607,7 +709,7 @@ const PieChartComponent = () => {
       </PieChart>
 
       {/* Center Text */}
-      <div className="z-1 absolute left-[50.2%] top-[58.5%] flex h-24  w-24 -translate-x-[50%] -translate-y-[68%] items-center justify-center rounded-full bg-[#201169] text-lg font-bold text-white shadow-md">
+      <div className="z-1 absolute left-[50.2%] top-[58.5%] flex h-24 w-24 -translate-x-[50%] -translate-y-[68%] items-center justify-center rounded-full bg-[#201169] text-lg font-bold text-white shadow-md">
         AYUSH
       </div>
     </div>
