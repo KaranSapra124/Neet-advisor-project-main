@@ -1,15 +1,7 @@
 import { Table } from "antd";
 import React from "react";
 import ScrollAnimation from "react-animate-on-scroll";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
 import {
   FaBook,
@@ -38,6 +30,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import Divider from "../Helper/Divider";
+import { FiAlertCircle } from "react-icons/fi";
 
 const NEET_MDS = () => {
   // Custom table styles
@@ -258,10 +251,10 @@ const NEET_MDS = () => {
         {/* NEET Exam Pattern Table */}
         <ScrollAnimation
           animateIn="fadeIn"
-          className="flex justify-between"
+          className="flex justify-between py-12"
           duration={1.5}
         >
-          <div className="">
+          <div>
             <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
               NEET PG Exam Pattern
             </h2>
@@ -286,12 +279,122 @@ const NEET_MDS = () => {
             </div>
           </div>
           {/* Key Features Section */}
-          {/* MDS Admission Coverage Pie Chart */}
-          <div className="flex w-1/2 flex-col items-center">
-            <h2 className="mb-6 text-center text-3xl font-bold text-[#201169] after:block after:h-1 after:w-24 after:bg-[#201169]">
+          <div className="mx-auto w-1/2">
+            <h2 className="mb-8 text-center text-3xl font-bold text-[#201169] after:mx-auto after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
               NEET MDS Admission Coverage
             </h2>
-            <BarChartComponent />
+
+            <div className="grid grid-cols-2 gap-4">
+              {/* Coverage 1 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
+                />
+                <FaGlobe size={20} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  50% All India Quota MDS Seats
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Covers all States & Union Territories of India.
+                </p>
+              </div>
+
+              {/* Coverage 2 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
+                />
+                <FaMapMarkerAlt
+                  size={20}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  State Quota MDS Seats
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Includes all State/UT Government Dental Colleges.
+                </p>
+              </div>
+
+              {/* Coverage 3 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
+                />
+                <FaUniversity
+                  size={20}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  Private & Deemed Universities
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Covers all Private Dental Colleges & Institutions across
+                  India.
+                </p>
+              </div>
+
+              {/* Coverage 4 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
+                />
+                <FaShieldAlt
+                  size={20}
+                  className="mx-auto mb-2 text-[#201169]"
+                />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  Armed Forces Medical Institutions
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  MDS courses available at Armed Forces Medical Services
+                  Institutions.
+                </p>
+              </div>
+
+              {/* Coverage 5 */}
+              <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
+                <img
+                  src="./graduationCap.gif"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-[#f3f4ff] p-1 shadow shadow-black"
+                  alt=""
+                />
+                <FaUserMd size={20} className="mx-auto mb-2 text-[#201169]" />
+                <h3 className="text-sm font-bold text-[#201169]">
+                  Army Dental Corps Screening
+                </h3>
+                <p className="text-xs font-bold text-gray-600">
+                  Screening exam for BDS & MDS dental surgeons for Short Service
+                  Commission in Army Dental Corps.
+                </p>
+              </div>
+
+              {/* Important Note */}
+              <div className="relative animate-pulse rounded-lg bg-red-600/90 p-5 shadow shadow-black">
+                <FiAlertCircle
+                  size={20}
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-red-600  p-1 text-white shadow shadow-black"
+                />
+                <h3 className="text-md font-semibold text-white">
+                  Important Note
+                </h3>
+                <Divider
+                  className={"my-1 h-0.5 w-12 rounded-full bg-gray-200"}
+                />
+                <p className="text-xs font-bold text-gray-200">
+                  AIIMS, New Delhi is not covered under centralized admissions
+                  for MDS seats through NEET-MDS.
+                </p>
+              </div>
+            </div>
           </div>
         </ScrollAnimation>
         {/* </div> */}
@@ -327,24 +430,24 @@ const NEET_MDS = () => {
 const LinksSection = () => {
   const importantLinks = [
     {
-      name: "National Board of Examinations in Medical Sciences (NBEMS)",
-      link: "https://www.natboard.edu.in/",
-    },
-    {
       name: "National Medical Commission (NMC)",
       link: "http://www.nmc.org.in/",
     },
     {
-      name: "The Dental Council of India (DCI)",
-      link: "https://dciindia.gov.in/",
+      name: "National Testing Agency (NTA)",
+      link: "http://www.nta.ac.in/",
     },
     {
-      name: "Medical Counselling Committee (MCC) - PG Medical",
-      link: "https://mcc.nic.in/pg-medical-counselling/",
+      name: "BDS Course Regulations",
+      link: "http://www.dciindia.gov.in/",
     },
     {
-      name: "Medical Counselling Committee (MCC) - MDS",
-      link: "https://mcc.nic.in/mds-counselling/",
+      name: "Medical Counselling Committee (MCC)",
+      link: "https://mcc.nic.in/UGCounselling/",
+    },
+    {
+      name: "AYUSH Admissions Central Counselling Committee (AACCC)",
+      link: "https://aaccc.gov.in/aacccug/home/homepage",
     },
   ];
 
@@ -383,48 +486,92 @@ const LinksSection = () => {
   );
 };
 
-const BarChartComponent = () => {
-  const admissionCoverageData = [
+const PieChartComponent = () => {
+  const data = [
     {
-      name: "All India Quota (50%)",
-      fullForm:
-        "All India 50% quota MDS seats for all States/Union territories of India.",
+      name: "BAMS",
+      fullForm: "Bachelor of Ayurvedic Medicine & Surgery",
       value: 20,
     },
     {
-      name: "State Quota",
-      fullForm: "State quota seats for all States/Union territories of India.",
+      name: "BHMS",
+      fullForm: "Bachelor of Homeopathic Medicine & Surgery",
       value: 20,
     },
     {
-      name: "Private & Deemed University",
-      fullForm:
-        "All Private Dental Colleges, Institutions & Universities/Deemed Universities all across the country.",
+      name: "BUMS",
+      fullForm: "Bachelor of Unani Medicine & Surgery",
       value: 20,
     },
     {
-      name: "Armed Forces Institution",
-      fullForm: "MDS Courses at Armed Forces Medical Services Institutions.",
+      name: "BNYS",
+      fullForm: "Bachelor of Naturopathy & Yoga Science",
       value: 20,
     },
     {
-      name: "Army Dental Corps Screening",
-      fullForm:
-        "Screening exam for dental surgeons (BDS & MDS) for Short Service Commission in Army Dental Corps.",
+      name: "BSMS",
+      fullForm: "Bachelor of Siddha Medicine & Surgery",
       value: 20,
     },
   ];
+  const COLORS = [
+    "#8BC34A",
+    "#00BCD4",
+    "#FFC107",
+    "#FF5722",
+    "#9C27B0",
+    "#3F51B5",
+  ];
+  const renderInnerLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    index,
+  }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) / 2;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-  const CustomTooltip = ({ active, payload }) => {
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="#fff"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fontSize="10"
+        className="font-extrabold"
+      >
+        {data[index].name}
+      </text>
+    );
+  };
+
+  const CustomTooltip = ({ active, payload, coordinate }) => {
     if (active && payload && payload.length) {
+      const { name, fullForm } = payload[0].payload;
+
       return (
-        <div className="rounded-md bg-white p-3 text-black shadow-md">
-          <p className="py-2 text-sm font-extrabold text-gray-800">
-            {payload[0].payload.name}
-          </p>
-          <p className="text-xs font-bold text-gray-600">
-            {payload[0].payload.fullForm}
-          </p>
+        <div
+          className="absolute z-[9999] w-80 rounded border bg-white p-2 text-sm shadow-sm shadow-gray-900"
+          style={{
+            top: coordinate.y + 10, // Adjust for better placement
+            left: coordinate.x + 10,
+            pointerEvents: "none", // Prevent hover issues
+          }}
+        >
+          <img
+            src="./Seminar/validation-badge-bg-removed.gif"
+            className="absolute -left-3 -top-3 h-6 w-6 rounded-full bg-white shadow-sm shadow-gray-900"
+            alt=""
+            srcset=""
+          />
+          <p className="text-sm font-extrabold text-gray-800">{name}</p>
+          <Divider className={"my-1 h-0.5 w-6 rounded-full bg-primary-color"} />
+          <p className="my-0.5 text-sm font-thin text-gray-800">{fullForm}</p>
         </div>
       );
     }
@@ -432,30 +579,41 @@ const BarChartComponent = () => {
   };
 
   return (
-    <ResponsiveContainer width="100%" height={380}>
-      <BarChart
-        layout="vertical" // Switched to vertical
-        data={admissionCoverageData}
-        barSize={20}
-        margin={{ top: 0, right: 0, left: 0, bottom: 0 }} // Adjusted margins for better spacing
-      >
-        <YAxis
-          dataKey="name"
-          type="category"
-          tick={{
-            fill: "#201169",
-            fontWeight: "900",
-            fontSize: 9,
-          }}
-          tickLine={false}
-        />
-        <XAxis type="number" hide />{" "}
-        {/* Hides X-Axis since we don't need numbers */}
-        <Tooltip content={<CustomTooltip />} />
-        <Bar dataKey="value" fill="#201169" radius={[0, 5, 5, 0]} />
-      </BarChart>
-    </ResponsiveContainer>
+    <div style={{ position: "relative", width: 400, height: 200, top: 10 }}>
+      <PieChart width={400} height={200}>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={50}
+          outerRadius={100}
+          fill="#8884d8"
+          paddingAngle={3}
+          dataKey="value"
+          labelLine={false}
+          label={renderInnerLabel} // 👈 short form inside
+        >
+          {data.map((entry, index) => (
+            <Cell
+              key={`slice-${index}`}
+              fill={COLORS[index % COLORS.length]}
+              // textRendering={(text) => <p>{text.name}</p>}
+            />
+          ))}
+        </Pie>
+
+        <Tooltip content={CustomTooltip} />
+        {/* <Legend /> */}
+      </PieChart>
+
+      {/* Center Text */}
+      <div className="z-1 absolute left-[50.2%] top-[58.5%] flex h-24 w-24 -translate-x-[50%] -translate-y-[68%] items-center justify-center rounded-full bg-[#201169] text-lg font-bold text-white shadow-md">
+        AYUSH
+      </div>
+    </div>
   );
 };
+
+// export default LinksSection;
 
 export default NEET_MDS;
