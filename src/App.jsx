@@ -34,6 +34,7 @@ import Dashboard from "./Admin/Components/Dashboard/Dashboard";
 import Queries from "./Admin/Components/Queries/Queries";
 import Navbar from "./Components/Home/Navbar";
 import NEET_UG from "./Components/About_NEET/NEET_UG";
+import NEET_PG from "./Components/About_NEET/NEET_PG";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -61,6 +62,10 @@ const App = () => {
         {
           path: "/neet-ug",
           element: <NEET_UG />,
+        },
+        {
+          path: "/neet-pg",
+          element: <NEET_PG />,
         },
         {
           path: "/about",
