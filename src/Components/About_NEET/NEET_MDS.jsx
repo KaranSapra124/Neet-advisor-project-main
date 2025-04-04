@@ -211,22 +211,22 @@ const NEET_MDS = () => {
       </div> */}
 
       {/* Main Content Container */}
-      <div className="mx-auto max-w-screen-xl px-4 py-12">
+      <div className="mx-auto  px-8 max-w-screen-xl py-12">
         {/* Introduction Card */}
         <div className="mb-12 rounded-xl border-l-4 border-[#201169] bg-white p-6 shadow-xl md:p-8">
           <div className="flex flex-col gap-8 md:flex-row">
             <div className="flex-1">
               <h2 className="mb-4 text-2xl font-bold text-[#201169]">
-                About <strong>MDS</strong>
+                About <strong>NEET MDS</strong>
               </h2>
               <p className="mb-4 leading-relaxed text-gray-700">
-                <strong>NEET-MDS</strong> is an eligibility-cum-ranking
+                <strong>NEET MDS</strong> is an eligibility-cum-ranking
                 examination prescribed as the single entrance examination for
                 admission to various Master in Dental Surgery course under
                 Dentists Act, 1948 (amended from time to time).
               </p>
               <p className="mb-4 leading-relaxed text-gray-600">
-                A candidate for admission to the <strong>MDS</strong> Courses,
+                A candidate for admission to the <strong>NEET MDS</strong> Courses,
                 must possess a recognised degree of Bachelor in Dental Surgery
                 awarded by a university or institute in India and registered
                 with the State Dental Council and has obtained provisional or
@@ -256,7 +256,7 @@ const NEET_MDS = () => {
         >
           <div>
             <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
-              NEET PG Exam Pattern
+              NEET MDS Exam Pattern
             </h2>
 
             {/* Table Wrapper */}
@@ -280,10 +280,9 @@ const NEET_MDS = () => {
           </div>
           {/* Key Features Section */}
           <div className="mx-auto w-1/2">
-            <h2 className="mb-8 text-center text-3xl font-bold text-[#201169] after:mx-auto after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
               NEET MDS Admission Coverage
             </h2>
-
             <div className="grid grid-cols-2 gap-4">
               {/* Coverage 1 */}
               <div className="relative rounded-lg border-b-2 border-[#201169] bg-[#f3f4ff] p-4 text-center shadow shadow-black">
