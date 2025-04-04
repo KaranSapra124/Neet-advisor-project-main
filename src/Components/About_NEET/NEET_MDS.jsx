@@ -211,7 +211,7 @@ const NEET_MDS = () => {
       </div> */}
 
       {/* Main Content Container */}
-      <div className="mx-auto  px-8 max-w-screen-xl py-12">
+      <div className="mx-auto max-w-screen-xl px-8 py-12">
         {/* Introduction Card */}
         <div className="mb-12 rounded-xl border-l-4 border-[#201169] bg-white p-6 shadow-xl md:p-8">
           <div className="flex flex-col gap-8 md:flex-row">
@@ -226,12 +226,13 @@ const NEET_MDS = () => {
                 Dentists Act, 1948 (amended from time to time).
               </p>
               <p className="mb-4 leading-relaxed text-gray-600">
-                A candidate for admission to the <strong>NEET MDS</strong> Courses,
-                must possess a recognised degree of Bachelor in Dental Surgery
-                awarded by a university or institute in India and registered
-                with the State Dental Council and has obtained provisional or
-                permanent registration and has undergone compulsory rotatory
-                internship of a year in an approved/recognised dental college.
+                A candidate for admission to the <strong>NEET MDS</strong>{" "}
+                Courses, must possess a recognised degree of Bachelor in Dental
+                Surgery awarded by a university or institute in India and
+                registered with the State Dental Council and has obtained
+                provisional or permanent registration and has undergone
+                compulsory rotatory internship of a year in an
+                approved/recognised dental college.
               </p>
               <p className="mb-4 leading-relaxed text-gray-600">
                 <strong>NEET MDS</strong> is mandatory even for foreign
@@ -280,7 +281,7 @@ const NEET_MDS = () => {
           </div>
           {/* Key Features Section */}
           <div className="mx-auto w-1/2">
-          <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
+            <h2 className="mb-6 text-3xl font-bold text-[#201169] after:ml-0 after:mt-2 after:block after:h-1 after:w-24 after:bg-[#201169] after:content-['']">
               NEET MDS Admission Coverage
             </h2>
             <div className="grid grid-cols-2 gap-4">
@@ -380,7 +381,7 @@ const NEET_MDS = () => {
               <div className="relative animate-pulse rounded-lg bg-red-600/90 p-5 shadow shadow-black">
                 <FiAlertCircle
                   size={20}
-                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-red-600  p-1 text-white shadow shadow-black"
+                  className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-red-600 p-1 text-white shadow shadow-black"
                 />
                 <h3 className="text-md font-semibold text-white">
                   Important Note
@@ -429,24 +430,24 @@ const NEET_MDS = () => {
 const LinksSection = () => {
   const importantLinks = [
     {
+      name: "National Board of Examinations in Medical Sciences (NBEMS)",
+      link: "https://www.natboard.edu.in/",
+    },
+    {
       name: "National Medical Commission (NMC)",
       link: "http://www.nmc.org.in/",
     },
     {
-      name: "National Testing Agency (NTA)",
-      link: "http://www.nta.ac.in/",
+      name: "The Dental Council of India (DCI)",
+      link: "https://dciindia.gov.in/",
     },
     {
-      name: "BDS Course Regulations",
-      link: "http://www.dciindia.gov.in/",
+      name: "Medical Counselling Committee (MCC) - PG Medical",
+      link: "https://mcc.nic.in/pg-medical-counselling/",
     },
     {
-      name: "Medical Counselling Committee (MCC)",
-      link: "https://mcc.nic.in/UGCounselling/",
-    },
-    {
-      name: "AYUSH Admissions Central Counselling Committee (AACCC)",
-      link: "https://aaccc.gov.in/aacccug/home/homepage",
+      name: "Medical Counselling Committee (MCC) - MDS",
+      link: "https://mcc.nic.in/mds-counselling/",
     },
   ];
 

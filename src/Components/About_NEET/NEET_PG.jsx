@@ -532,27 +532,26 @@ const NEET_PG = () => {
 const LinksSection = () => {
   const importantLinks = [
     {
+      name: "National Board of Examinations in Medical Sciences (NBEMS)",
+      link: "https://www.natboard.edu.in/",
+    },
+    {
       name: "National Medical Commission (NMC)",
       link: "http://www.nmc.org.in/",
     },
     {
-      name: "National Testing Agency (NTA)",
-      link: "http://www.nta.ac.in/",
+      name: "The Dental Council of India (DCI)",
+      link: "https://dciindia.gov.in/",
     },
     {
-      name: "BDS Course Regulations",
-      link: "http://www.dciindia.gov.in/",
+      name: "Medical Counselling Committee (MCC) - PG Medical",
+      link: "https://mcc.nic.in/pg-medical-counselling/",
     },
     {
-      name: "Medical Counselling Committee (MCC)",
-      link: "https://mcc.nic.in/UGCounselling/",
-    },
-    {
-      name: "AYUSH Admissions Central Counselling Committee (AACCC)",
-      link: "https://aaccc.gov.in/aacccug/home/homepage",
+      name: "Medical Counselling Committee (MCC) - MDS",
+      link: "https://mcc.nic.in/mds-counselling/",
     },
   ];
-
   return (
     <div className="py-10 text-white">
       <div className="text-center">

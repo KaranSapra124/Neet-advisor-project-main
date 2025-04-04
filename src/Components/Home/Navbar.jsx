@@ -157,13 +157,13 @@ function Navbar() {
       </Menu.Item>
       <Menu.SubMenu key="2" title="Neet PG">
         <Menu.Item key="2-1">
-          <Link to="/neet-pg">MD/MS</Link>
+          <a href="/neet-pg">MD/MS</a>
         </Menu.Item>
         <Menu.Item key="2-2">
-          <Link to="/neet-pg">DNB</Link>
+        <a href="/neet-pg">DNB</a>
         </Menu.Item>
         <Menu.Item key="2-3">
-          <Link to="/neet-pg">PG Diploma</Link>
+        <a href="/neet-pg">PG Diploma</a>
         </Menu.Item>
         <Menu.Item key="2-2">
           <Link to="/neet-mds">MDS</Link>
